@@ -28,21 +28,13 @@ export const Default: Story = {
   },
 };
 
-export const AllIcons: Story = {
-  args: {
-    name: 'user-male',
-    className: '',
-    style: '',
-  },
-  render: (args) => ({
+export const AllIcons = {
+  render: () => ({
     components: { Icon },
-    setup() {
-      return { args };
-    },
     template: `
       <ul>
         ${iconNames.map((name) => 
-          `<li style="display: flex; align-items: center; gap: 8px;" key="${name}">${name} <Icon v-bind="args" name="${name}" /></li>`
+          `<li style="display: flex; align-items: center; gap: 8px;" key="${name}">${name} <Icon name="${name}" /></li>`
         ).join('')}
       </ul>
     `,

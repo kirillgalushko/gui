@@ -10,8 +10,10 @@ fs.readdir(directoryPath, (err, files) => {
     }
 
     files.forEach(file => {
+        console.log(file)
         if (path.extname(file) === '.svg') {
-            const newFileName = file.replace(/-100/, '').replace(/(-[a-z0-9]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\.svg$/, '.svg');
+            console.log(file)
+            const newFileName = file.replace(/(-[a-z0-9]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\.svg$/, '.svg').replace(/-100/, '');
 
             if (newFileName !== file) {
                 fs.rename(path.join(directoryPath, file), path.join(directoryPath, newFileName), (err) => {
