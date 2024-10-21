@@ -28,7 +28,7 @@ const props = defineProps<ButtonProps>()
 }
 
 .button.accent {
-  background-color: var(--color-bg-opposite);
-  color: var(--color-text-opposite);
+    background-color: var(--color-bg-opposite);
+    color: var(--color-text-opposite);
 }
 </style>

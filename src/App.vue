@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Button from './components/Button.vue'
+import Button from './components/Button/Button.vue'
 
 const onClick = (event: MouseEvent) => {
   console.log(event)

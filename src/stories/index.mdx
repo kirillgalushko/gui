@@ -1,0 +1,94 @@
+import { Meta } from "@storybook/blocks";
+
+import Github from "./assets/github.svg";
+
+export const RightArrow = () => <svg 
+    viewBox="0 0 14 14" 
+    width="8px" 
+    height="14px" 
+    style={{ 
+      marginLeft: '4px',
+      display: 'inline-block',
+      shapeRendering: 'inherit',
+      verticalAlign: 'middle',
+      fill: 'currentColor',
+      'path fill': 'currentColor'
+    }}
+>
+  <path d="m11.1 7.35-5.5 5.5a.5.5 0 0 1-.7-.7L10.04 7 4.9 1.85a.5.5 0 1 1 .7-.7l5.5 5.5c.2.2.2.5 0 .7Z" />
+</svg>
+
+<Meta title="GUI" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Что такое GUI?
+
+    GUI — это минималистичная библиотека компонентов с открытым исходным кодом, предназначенная для личного использования в проектах [@kirillgalushko](https://github.com/kirillgalushko). Она построена на [Vue](https://vuejs.org/), с использованием [Vite](https://vite.dev/) для сборки и [Storybook](https://storybook.js.org/) для документирования компонентов.
+  </div>
+</div>
+
+<div className="sb-section sb-socials">
+    <div className="sb-section-item">
+      <img src={Github} alt="Github logo" className="sb-explore-image"/>
+      Код доступен на GitHub
+      <a
+        href="https://github.com/storybookjs/storybook"
+        target="_blank"
+      >GitHub<RightArrow /></a>
+    </div>
+</div>
+
+<style>
+  {`
+  .sb-container {
+    margin-bottom: 48px;
+  }
+
+  .sb-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .sb-section-title {
+    margin-bottom: 32px;
+  }
+
+  .sb-section a:not(h1 a, h2 a, h3 a) {
+    font-size: 14px;
+  }
+
+  .sb-section-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 8px;
+  }
+
+  .sb-section-item p { margin-bottom: 0; }
+
+  .sb-socials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sb-explore-image {
+    max-height: 32px;
+    align-self: flex-start;
+  }
+
+  @media screen and (max-width: 600px) {
+    .sb-section {
+      flex-direction: column;
+    }
+
+    .sb-socials {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  `}
+</style>

@@ -20,6 +20,15 @@
   --gap-4: 16px;
   --gap-5: 20px;
   --gap-6: 24px;
+
+  /* Dark Theme as default */
+  --color-bg: var(--color-bg-dark);
+  --color-bg-opposite: var(--color-bg-light);
+  --color-bg-secondary: var(--color-bg-secondary-dark);
+  --color-text: var(--color-text-dark);
+  --color-text-secondary: var(--color-text-secondary-dark);
+  --color-text-opposite: var(--color-text-light);
+  --color-border: var(--color-border-dark);
 }
 
 .light-theme {
@@ -32,12 +41,4 @@
   --color-border: var(--color-border-light);
 }
 
-  .dark-theme {
-  --color-bg: var(--color-bg-dark);
-  --color-bg-opposite: var(--color-bg-light);
-  --color-bg-secondary: var(--color-bg-secondary-dark);
-  --color-text: var(--color-text-dark);
-  --color-text-secondary: var(--color-text-secondary-dark);
-  --color-text-opposite: var(--color-text-light);
-  --color-border: var(--color-border-dark);
-}
+.dark-theme {}
