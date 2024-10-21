@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<TextProps>(), {
 </script>
 
 <template>
-    <div :class="['text', props.typography, props.mode, {
+    <div :class="[props.typography, props.mode, {
         ellipsis,
         clamp,
         [`clamp-${clamp}`]: !!clamp
@@ -42,8 +42,6 @@ const props = withDefaults(defineProps<TextProps>(), {
 </template>
 
 <style scoped>
-.text {}
-
 .default {
     color: var(--color-text);
 }

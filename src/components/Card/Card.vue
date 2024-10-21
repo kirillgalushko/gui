@@ -10,12 +10,12 @@ interface NonInteractiveCard extends Card {
     onClick?: (event: MouseEvent) => void;
 }
 
-interface InteracviveCard extends Card {
+interface InteractiveCard extends Card {
     interactive: true;
     onClick: (event: MouseEvent) => void;
 }
 
-export type CardProps = NonInteractiveCard | InteracviveCard
+export type CardProps = NonInteractiveCard | InteractiveCard
 
 const props = withDefaults(defineProps<CardProps>(), {
     interactive: false,
@@ -38,6 +38,7 @@ const props = withDefaults(defineProps<CardProps>(), {
     border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 12px;
+    display: inline-block;
 }
 
 .default {
