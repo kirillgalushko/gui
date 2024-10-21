@@ -1,5 +1,6 @@
 export interface ButtonProps {
     mode: 'default' | 'accent';
+    stretched?: boolean;
 }
 declare function __VLS_template(): {
     slots: {

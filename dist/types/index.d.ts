@@ -1,4 +1,5 @@
-import './style.css';
+import './styles/style.css';
+import 'virtual:svg-icons-register';
 import Button, { type ButtonProps } from './components/Button/Button.vue';
 import Card, { type CardProps } from './components/Card/Card.vue';
 import Gap, { type GapProps } from './components/Gap/Gap.vue';
@@ -9,4 +10,5 @@ import Stack, { type StackProps } from './components/Stack/Stack.vue';
 import Tab from './components/Tab/Tab.vue';
 import Tabs from './components/Tabs/Tabs.vue';
 import Text, { type TextProps } from './components/Text/Text.vue';
-export { Button, ButtonProps, Card, CardProps, Gap, GapProps, Input, Row, RowProps, Stack, StackProps, Text, TextProps, Sidebar, Tab, Tabs, };
+import Icon, { type IconProps } from './components/Icon/Icon.vue';
+export { Button, ButtonProps, Card, CardProps, Gap, GapProps, Input, Row, RowProps, Stack, StackProps, Text, TextProps, Sidebar, Tab, Tabs, Icon, IconProps, };
