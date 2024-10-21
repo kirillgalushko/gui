@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Gap } from '../types';
 
-interface GapProps {
+export interface GapProps {
   direction: 'horizontal' | 'vertical'
   default: Gap
 }

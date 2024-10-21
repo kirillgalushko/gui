@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-interface RowProps {
+export interface RowProps {
   fullHeight?: boolean;
 }
 

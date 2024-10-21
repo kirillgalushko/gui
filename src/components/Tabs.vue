@@ -1,10 +1,3 @@
-<script setup lang="ts">
-
-interface TabsProps { }
-
-const props = defineProps<TabsProps>()
-</script>
-
 <template>
   <div :class="['tabs']">
     <slot></slot>

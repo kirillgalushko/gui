@@ -1,9 +1,4 @@
 <script setup lang="ts">
-
-interface InputProps {
-}
-
-const props = defineProps<InputProps>()
 const model = defineModel()
 </script>
 
