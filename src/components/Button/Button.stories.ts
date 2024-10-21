@@ -9,9 +9,11 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     mode: { control: 'select', options: ['default', 'accent'] },
+    stretched: { control: 'boolean' },
   },
   args: {
     mode: 'default',
+    stretched: false,
   },
 } satisfies Meta<typeof Button>;
 
