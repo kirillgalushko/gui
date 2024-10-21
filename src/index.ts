@@ -1,4 +1,5 @@
-import './style.css'
+import './styles/style.css'
+
 import Button, { type ButtonProps } from './components/Button/Button.vue';
 import Card, { type CardProps } from './components/Card/Card.vue';
 import Gap, { type GapProps } from './components/Gap/Gap.vue';
