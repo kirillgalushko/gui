@@ -2,6 +2,7 @@ import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Button from './Button.vue';
+import Icon from '../Icon/Icon.vue'
 
 const meta = {
   title: 'Example/Button',
@@ -25,5 +26,19 @@ export const Primary: Story = {
     mode: 'default',
     default: 'Button'
   },
+};
+
+export const IconButton: Story = {
+  args: {
+    mode: 'default',
+    default: 'Button'
+  },
+  render: (args) => ({
+    components: { Button, Icon },
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args"><Icon name="edit" /></Button>',
+  }),
 };
 
