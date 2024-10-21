@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/vue3";
 import { themes } from '@storybook/theming';
 import '../src/styles/style.css';
+import 'virtual:svg-icons-register'
 
 const preview: Preview = {
   parameters: {
