@@ -17,16 +17,18 @@ const props = defineProps<ButtonProps>()
 
 <style scoped>
 .button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #303030;
-    color: white;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-weight: 500;
 }
 
 .button.accent {
-    background-color: #FF5722;
+  background-color: var(--color-bg-opposite);
+  color: var(--color-text-opposite);
 }
 </style>
