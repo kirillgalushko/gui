@@ -1,4 +1,4 @@
-import { Gap } from '../types';
+import { Gap } from '../../types';
 export interface StackProps {
     direction: 'row' | 'column';
     gap?: Gap;

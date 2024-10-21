@@ -1,4 +1,4 @@
-import { defineComponent as r, openBlock as a, createElementBlock as l, mergeProps as _, renderSlot as d, createBlock as f, resolveDynamicComponent as v, normalizeClass as i, withCtx as $, useModel as h, withDirectives as g, vModelDynamic as b, ref as p, normalizeStyle as k, createElementVNode as y } from "vue";
+import { defineComponent as r, openBlock as a, createElementBlock as l, mergeProps as _, renderSlot as d, createBlock as v, resolveDynamicComponent as f, normalizeClass as i, withCtx as $, useModel as h, withDirectives as g, vModelDynamic as b, ref as p, normalizeStyle as k, createElementVNode as y } from "vue";
 const C = /* @__PURE__ */ r({
   __name: "Button",
   props: {
@@ -27,7 +27,7 @@ const C = /* @__PURE__ */ r({
   },
   setup(s) {
     const e = s;
-    return (t, o) => (a(), f(v(e.interactive ? "button" : "div"), {
+    return (t, o) => (a(), v(f(e.interactive ? "button" : "div"), {
       class: i(["card", e.background, { interactive: e.interactive, stretched: e.stretched }]),
       onClick: t.onClick
     }, {
@@ -37,7 +37,7 @@ const C = /* @__PURE__ */ r({
       _: 3
     }, 8, ["class", "onClick"]));
   }
-}), X = /* @__PURE__ */ n(I, [["__scopeId", "data-v-fec09529"]]), B = /* @__PURE__ */ r({
+}), X = /* @__PURE__ */ n(I, [["__scopeId", "data-v-236b4a5d"]]), B = /* @__PURE__ */ r({
   __name: "Gap",
   props: {
     direction: {},
@@ -51,7 +51,7 @@ const C = /* @__PURE__ */ r({
       d(t.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), F = /* @__PURE__ */ n(B, [["__scopeId", "data-v-62d22dbf"]]), w = /* @__PURE__ */ r({
+}), F = /* @__PURE__ */ n(B, [["__scopeId", "data-v-99b11cd2"]]), w = /* @__PURE__ */ r({
   __name: "Input",
   props: {
     modelValue: {},
@@ -67,7 +67,7 @@ const C = /* @__PURE__ */ r({
       [b, e.value]
     ]);
   }
-}), N = /* @__PURE__ */ n(w, [["__scopeId", "data-v-296bd966"]]), z = /* @__PURE__ */ r({
+}), N = /* @__PURE__ */ n(w, [["__scopeId", "data-v-a86397d3"]]), z = /* @__PURE__ */ r({
   __name: "Row",
   props: {
     fullHeight: { type: Boolean }
@@ -80,7 +80,7 @@ const C = /* @__PURE__ */ r({
       d(t.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), O = /* @__PURE__ */ n(z, [["__scopeId", "data-v-04097cbe"]]), S = /* @__PURE__ */ r({
+}), O = /* @__PURE__ */ n(z, [["__scopeId", "data-v-ceda7a70"]]), S = /* @__PURE__ */ r({
   __name: "Sidebar",
   setup(s) {
     const e = p(400), t = p(!1), o = () => {
@@ -101,7 +101,7 @@ const C = /* @__PURE__ */ r({
       d(u.$slots, "default", {}, void 0, !0)
     ], 4));
   }
-}), P = /* @__PURE__ */ n(S, [["__scopeId", "data-v-977d09aa"]]), E = /* @__PURE__ */ r({
+}), P = /* @__PURE__ */ n(S, [["__scopeId", "data-v-f6b249d6"]]), E = /* @__PURE__ */ r({
   __name: "Stack",
   props: {
     direction: {},
@@ -116,7 +116,7 @@ const C = /* @__PURE__ */ r({
       d(t.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), U = /* @__PURE__ */ n(E, [["__scopeId", "data-v-c85543a3"]]), H = /* @__PURE__ */ r({
+}), U = /* @__PURE__ */ n(E, [["__scopeId", "data-v-17a9b12c"]]), H = /* @__PURE__ */ r({
   __name: "Tab",
   props: {
     selected: { type: Boolean },
@@ -132,7 +132,7 @@ const C = /* @__PURE__ */ r({
       d(t.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), j = /* @__PURE__ */ n(H, [["__scopeId", "data-v-413bab8e"]]), R = {}, T = {
+}), j = /* @__PURE__ */ n(H, [["__scopeId", "data-v-53dd07b4"]]), R = {}, T = {
   class: /* @__PURE__ */ i(["tabs"])
 };
 function V(s, e) {
@@ -140,7 +140,7 @@ function V(s, e) {
     d(s.$slots, "default", {}, void 0, !0)
   ]);
 }
-const q = /* @__PURE__ */ n(R, [["render", V], ["__scopeId", "data-v-92ff41ff"]]), L = /* @__PURE__ */ r({
+const q = /* @__PURE__ */ n(R, [["render", V], ["__scopeId", "data-v-4a70ea5c"]]), L = /* @__PURE__ */ r({
   __name: "Text",
   props: {
     typography: {},
@@ -151,7 +151,7 @@ const q = /* @__PURE__ */ n(R, [["render", V], ["__scopeId", "data-v-92ff41ff"]]
   setup(s) {
     const e = s;
     return (t, o) => (a(), l("div", {
-      class: i(["text", e.typography, e.mode, {
+      class: i([e.typography, e.mode, {
         ellipsis: t.ellipsis,
         clamp: t.clamp,
         [`clamp-${t.clamp}`]: !!t.clamp
@@ -160,7 +160,7 @@ const q = /* @__PURE__ */ n(R, [["render", V], ["__scopeId", "data-v-92ff41ff"]]
       d(t.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), x = /* @__PURE__ */ n(L, [["__scopeId", "data-v-2d9a63fb"]]);
+}), A = /* @__PURE__ */ n(L, [["__scopeId", "data-v-c7b86e75"]]);
 export {
   G as Button,
   X as Card,
@@ -171,5 +171,5 @@ export {
   U as Stack,
   j as Tab,
   q as Tabs,
-  x as Text
+  A as Text
 };

@@ -6,11 +6,11 @@ interface NonInteractiveCard extends Card {
     interactive?: false;
     onClick?: (event: MouseEvent) => void;
 }
-interface InteracviveCard extends Card {
+interface InteractiveCard extends Card {
     interactive: true;
     onClick: (event: MouseEvent) => void;
 }
-export type CardProps = NonInteractiveCard | InteracviveCard;
+export type CardProps = NonInteractiveCard | InteractiveCard;
 declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;
