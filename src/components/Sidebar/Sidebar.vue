@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import Icon from '../Icon/Icon.vue';
 
 const width = ref<number>(400);
 const isResizing = ref<boolean>(false);
@@ -17,6 +18,9 @@ const resizeSidebar = (event: MouseEvent) => {
     const sidebarOffsetLeft = sidebarRef.value.offsetLeft;
     width.value = event.clientX - sidebarOffsetLeft
   }
+  if (isResizing.value && event.buttons !== 1) {
+    isResizing.value = false
+  }
 }
 
 const stopResizing = () => {
@@ -30,7 +34,9 @@ const stopResizing = () => {
 
 <template>
   <div ref="sidebarRef" :class="['sidebar']" :style="{ width: `${width}px` }">
-    <div class="resize-handle" @mousedown="startResizing"></div>
+    <div class="resize-handle" @mousedown="startResizing">
+      <Icon name="circled-menu" />
+    </div>
     <slot></slot>
   </div>
 </template>
@@ -54,5 +60,20 @@ const stopResizing = () => {
   top: 0;
   right: -4px;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resize-handle svg {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.resize-handle:hover svg {
+  opacity: 1;
 }
 </style>
