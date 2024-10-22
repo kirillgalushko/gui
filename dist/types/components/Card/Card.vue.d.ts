@@ -1,6 +1,9 @@
+import { BorderRadius, Padding } from '../../types';
 interface Card {
     background?: 'default' | 'secondary';
     stretched?: boolean;
+    padding?: Padding;
+    borderRadius?: BorderRadius;
 }
 interface NonInteractiveCard extends Card {
     interactive?: false;

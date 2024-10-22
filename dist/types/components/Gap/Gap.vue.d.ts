@@ -3,19 +3,5 @@ export interface GapProps {
     direction: 'horizontal' | 'vertical';
     default: Gap;
 }
-declare function __VLS_template(): {
-    slots: {
-        default?(_: {}): any;
-    };
-    refs: {};
-    attrs: Partial<{}>;
-};
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
-declare const __VLS_component: import("vue").DefineComponent<GapProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<GapProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: import("vue").DefineComponent<GapProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<GapProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
-    new (): {
-        $slots: S;
-    };
-};

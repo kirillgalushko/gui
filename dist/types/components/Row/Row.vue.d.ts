@@ -1,5 +1,6 @@
 export interface RowProps {
     fullHeight?: boolean;
+    alignItems?: 'start' | 'center' | 'end';
 }
 declare function __VLS_template(): {
     slots: {
