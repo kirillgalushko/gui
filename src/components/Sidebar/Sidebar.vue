@@ -3,16 +3,19 @@ import { ref } from 'vue'
 
 const width = ref<number>(400);
 const isResizing = ref<boolean>(false);
+const sidebarRef = ref<HTMLElement | null>(null);
 
 const startResizing = () => {
   isResizing.value = true;
   document.addEventListener('mousemove', resizeSidebar);
   document.addEventListener('mouseup', stopResizing);
+  document.body.style.userSelect = 'none';
 }
 
 const resizeSidebar = (event: MouseEvent) => {
-  if (isResizing.value && event.clientX > 0) {
-    width.value = event.clientX;
+  if (isResizing.value && event.clientX > 0 && sidebarRef.value) {
+    const sidebarOffsetLeft = sidebarRef.value.offsetLeft;
+    width.value = event.clientX - sidebarOffsetLeft
   }
 }
 
@@ -20,12 +23,13 @@ const stopResizing = () => {
   isResizing.value = false;
   document.removeEventListener('mousemove', resizeSidebar);
   document.removeEventListener('mouseup', resizeSidebar);
+  document.body.style.userSelect = '';
 }
 
 </script>
 
 <template>
-  <div :class="['sidebar']" :style="{ width: `${width}px` }">
+  <div ref="sidebarRef" :class="['sidebar']" :style="{ width: `${width}px` }">
     <div class="resize-handle" @mousedown="startResizing"></div>
     <slot></slot>
   </div>
@@ -34,12 +38,13 @@ const stopResizing = () => {
 <style scoped>
 .sidebar {
   width: 400px;
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid hsl(var(--border));
   height: 100%;
   padding: var(--gap-3);
   box-sizing: border-box;
   position: relative;
   min-width: 200px;
+  max-width: 100vw;
 }
 
 .resize-handle {
