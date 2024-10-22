@@ -14,7 +14,8 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     background: {
-      control: { type: 'select', options: ['default', 'secondary'] },
+      control: { type: 'select', },
+      options: ['default', 'secondary']
     },
     stretched: {
       control: { type: 'boolean' },
