@@ -43,7 +43,7 @@ const props = defineProps<ButtonProps>()
 }
 
 .squared {
-    padding: 8px;
+    width: 40px;
 }
 
 .button:hover {
