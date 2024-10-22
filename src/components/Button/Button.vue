@@ -38,7 +38,7 @@ const props = defineProps<ButtonProps>()
     text-wrap: nowrap;
     font-family: inherit;
     gap: var(--gap-1);
-    height: 36px;
+    height: 40px;
 }
 
 .button:hover {
