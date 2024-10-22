@@ -1,4 +1,4 @@
-import { defineComponent as s, openBlock as e, createElementBlock as b, mergeProps as x, renderSlot as n, createBlock as L, resolveDynamicComponent as u, normalizeClass as t, normalizeStyle as M, withCtx as C, mergeModels as g, useModel as f, withDirectives as S, vModelDynamic as _, computed as k, createElementVNode as w, ref as y, createVNode as $, inject as A, onMounted as B, unref as V, provide as r, watchEffect as I, onBeforeUnmount as T } from "vue";
+import { defineComponent as z, openBlock as s, createElementBlock as t, mergeProps as x, renderSlot as p, createBlock as L, resolveDynamicComponent as u, normalizeClass as d, normalizeStyle as M, withCtx as C, mergeModels as g, useModel as f, withDirectives as S, vModelDynamic as _, computed as k, createElementVNode as w, ref as y, createVNode as $, inject as A, onMounted as B, unref as V, provide as r, watchEffect as I, onBeforeUnmount as T } from "vue";
 if (typeof window < "u") {
   let c = function() {
     var l = document.body, a = document.getElementById("__svg__icons__dom__");
@@ -6,26 +6,27 @@ if (typeof window < "u") {
   };
   document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", c) : c();
 }
-const R = /* @__PURE__ */ s({
+const R = /* @__PURE__ */ z({
   __name: "Button",
   props: {
     mode: {},
-    stretched: { type: Boolean }
+    stretched: { type: Boolean },
+    squared: { type: Boolean }
   },
   setup(c) {
     const l = c;
-    return (a, o) => (e(), b("button", x(a.$attrs, {
-      class: ["button", l.mode, { stretched: l.stretched }]
+    return (a, o) => (s(), t("button", x(a.$attrs, {
+      class: ["button", l.mode, { stretched: l.stretched, squared: l.squared }]
     }), [
-      n(a.$slots, "default", {}, void 0, !0)
+      p(a.$slots, "default", {}, void 0, !0)
     ], 16));
   }
-}), d = (c, l) => {
+}), e = (c, l) => {
   const a = c.__vccOpts || c;
   for (const [o, v] of l)
     a[o] = v;
   return a;
-}, Z = /* @__PURE__ */ d(R, [["__scopeId", "data-v-cf4bee9f"]]), q = /* @__PURE__ */ s({
+}, a1 = /* @__PURE__ */ e(R, [["__scopeId", "data-v-c768cdc7"]]), q = /* @__PURE__ */ z({
   __name: "Card",
   props: {
     interactive: { type: Boolean, default: !1 },
@@ -37,18 +38,18 @@ const R = /* @__PURE__ */ s({
   },
   setup(c) {
     const l = c;
-    return (a, o) => (e(), L(u(l.interactive ? "button" : "div"), {
-      class: t(["card", l.background, { interactive: l.interactive, stretched: l.stretched }]),
+    return (a, o) => (s(), L(u(l.interactive ? "button" : "div"), {
+      class: d(["card", l.background, { interactive: l.interactive, stretched: l.stretched }]),
       style: M({ padding: `${l.padding}px`, borderRadius: `${l.borderRadius}px` }),
       onClick: a.onClick
     }, {
       default: C(() => [
-        n(a.$slots, "default", {}, void 0, !0)
+        p(a.$slots, "default", {}, void 0, !0)
       ]),
       _: 3
     }, 8, ["class", "style", "onClick"]));
   }
-}), a1 = /* @__PURE__ */ d(q, [["__scopeId", "data-v-95b1931a"]]), E = /* @__PURE__ */ s({
+}), l1 = /* @__PURE__ */ e(q, [["__scopeId", "data-v-95b1931a"]]), E = /* @__PURE__ */ z({
   __name: "Gap",
   props: {
     direction: {},
@@ -56,11 +57,11 @@ const R = /* @__PURE__ */ s({
   },
   setup(c) {
     const l = c;
-    return (a, o) => (e(), b("div", {
-      class: t(["gap", l.direction, { [`gap-${l.default}`]: !!l.default }])
+    return (a, o) => (s(), t("div", {
+      class: d(["gap", l.direction, { [`gap-${l.default}`]: !!l.default }])
     }, null, 2));
   }
-}), l1 = /* @__PURE__ */ d(E, [["__scopeId", "data-v-123b2524"]]), D = /* @__PURE__ */ s({
+}), c1 = /* @__PURE__ */ e(E, [["__scopeId", "data-v-123b2524"]]), D = /* @__PURE__ */ z({
   __name: "Input",
   props: /* @__PURE__ */ g({
     stretched: { type: Boolean }
@@ -71,14 +72,14 @@ const R = /* @__PURE__ */ s({
   emits: ["update:modelValue"],
   setup(c) {
     const l = f(c, "modelValue"), a = c;
-    return (o, v) => S((e(), b("input", x(o.$attrs, {
+    return (o, v) => S((s(), t("input", x(o.$attrs, {
       "onUpdate:modelValue": v[0] || (v[0] = (i) => l.value = i),
       class: ["input", { stretched: a.stretched }]
     }), null, 16)), [
       [_, l.value]
     ]);
   }
-}), c1 = /* @__PURE__ */ d(D, [["__scopeId", "data-v-346fa236"]]), N = /* @__PURE__ */ s({
+}), o1 = /* @__PURE__ */ e(D, [["__scopeId", "data-v-346fa236"]]), W = /* @__PURE__ */ z({
   __name: "Row",
   props: {
     fullHeight: { type: Boolean },
@@ -86,13 +87,13 @@ const R = /* @__PURE__ */ s({
   },
   setup(c) {
     const l = c;
-    return (a, o) => (e(), b("div", {
-      class: t(["row", l.alignItems, { fullHeight: l.fullHeight }])
+    return (a, o) => (s(), t("div", {
+      class: d(["row", l.alignItems, { fullHeight: l.fullHeight }])
     }, [
-      n(a.$slots, "default", {}, void 0, !0)
+      p(a.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), o1 = /* @__PURE__ */ d(N, [["__scopeId", "data-v-a5e90290"]]), O = ["href"], X = /* @__PURE__ */ s({
+}), m1 = /* @__PURE__ */ e(W, [["__scopeId", "data-v-a5e90290"]]), N = ["href"], O = /* @__PURE__ */ z({
   __name: "Icon",
   props: {
     name: {},
@@ -101,45 +102,55 @@ const R = /* @__PURE__ */ s({
   },
   setup(c) {
     const l = c, a = k(() => `#icon-${l.name}`);
-    return (o, v) => (e(), b("svg", {
-      class: t(o.className),
+    return (o, v) => (s(), t("svg", {
+      class: d(o.className),
       style: M(o.style),
       "aria-hidden": "true",
       focusable: "false"
     }, [
-      w("use", { href: a.value }, null, 8, O)
+      w("use", { href: a.value }, null, 8, N)
     ], 6));
   }
-}), j = /* @__PURE__ */ d(X, [["__scopeId", "data-v-3b129fc3"]]), G = /* @__PURE__ */ s({
+}), X = /* @__PURE__ */ e(O, [["__scopeId", "data-v-3b129fc3"]]), j = /* @__PURE__ */ z({
   __name: "Sidebar",
+  props: {
+    padding: { default: 16 },
+    maxWidth: { default: "100vw" },
+    minWidth: { default: "200px" }
+  },
   setup(c) {
-    const l = y(400), a = y(!1), o = y(null), v = () => {
-      a.value = !0, document.addEventListener("mousemove", i), document.addEventListener("mouseup", h), document.body.style.userSelect = "none";
-    }, i = (z) => {
-      if (a.value && z.clientX > 0 && o.value) {
-        const m = o.value.offsetLeft;
-        l.value = z.clientX - m;
+    const l = c, a = y(400), o = y(!1), v = y(null), i = () => {
+      o.value = !0, document.addEventListener("mousemove", h), document.addEventListener("mouseup", b), document.body.style.userSelect = "none";
+    }, h = (m) => {
+      if (o.value && m.clientX > 0 && v.value) {
+        const n = v.value.offsetLeft;
+        a.value = m.clientX - n;
       }
-      a.value && z.buttons !== 1 && (a.value = !1);
-    }, h = () => {
-      a.value = !1, document.removeEventListener("mousemove", i), document.removeEventListener("mouseup", i), document.body.style.userSelect = "";
+      o.value && m.buttons !== 1 && (o.value = !1);
+    }, b = () => {
+      o.value = !1, document.removeEventListener("mousemove", h), document.removeEventListener("mouseup", h), document.body.style.userSelect = "";
     };
-    return (z, m) => (e(), b("div", {
+    return (m, n) => (s(), t("div", {
       ref_key: "sidebarRef",
-      ref: o,
-      class: t(["sidebar"]),
-      style: M({ width: `${l.value}px` })
+      ref: v,
+      class: d(["sidebar"]),
+      style: M({
+        width: `${a.value}px`,
+        padding: `${l.padding}px`,
+        maxWidth: l.maxWidth,
+        minWidth: l.minWidth
+      })
     }, [
       w("div", {
         class: "resize-handle",
-        onMousedown: v
+        onMousedown: i
       }, [
-        $(j, { name: "circled-menu" })
+        $(X, { name: "circled-menu" })
       ], 32),
-      n(z.$slots, "default", {}, void 0, !0)
+      p(m.$slots, "default", {}, void 0, !0)
     ], 4));
   }
-}), m1 = /* @__PURE__ */ d(G, [["__scopeId", "data-v-c8624800"]]), K = /* @__PURE__ */ s({
+}), h1 = /* @__PURE__ */ e(j, [["__scopeId", "data-v-a3b6ca74"]]), G = /* @__PURE__ */ z({
   __name: "Stack",
   props: {
     direction: {},
@@ -148,38 +159,38 @@ const R = /* @__PURE__ */ s({
   },
   setup(c) {
     const l = c;
-    return (a, o) => (e(), b("div", {
-      class: t(["stack", l.direction, { [`gap-${l.gap}`]: !!a.gap, fullHeight: l.fullHeight }])
+    return (a, o) => (s(), t("div", {
+      class: d(["stack", l.direction, { [`gap-${l.gap}`]: !!a.gap, fullHeight: l.fullHeight }])
     }, [
-      n(a.$slots, "default", {}, void 0, !0)
+      p(a.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), h1 = /* @__PURE__ */ d(K, [["__scopeId", "data-v-17a9b12c"]]), U = ["data-name"], F = /* @__PURE__ */ s({
+}), v1 = /* @__PURE__ */ e(G, [["__scopeId", "data-v-17a9b12c"]]), K = ["data-name"], U = /* @__PURE__ */ z({
   __name: "Tab",
   props: {
     name: {}
   },
   setup(c) {
-    const l = c, a = y(), o = A("tabs"), v = A("stretched"), { registerTab: i, selectTab: h, selectedTab: z } = o || {}, m = () => {
+    const l = c, a = y(), o = A("tabs"), v = A("stretched"), { registerTab: i, selectTab: h, selectedTab: b } = o || {}, m = () => {
       a.value && (h == null || h(a.value));
-    }, p = (H) => {
+    }, n = (H) => {
       H.key === "Enter" && m();
     };
     return B(() => {
       a.value && (i == null || i(a.value));
-    }), (H, Q) => (e(), b("div", {
+    }), (H, Y) => (s(), t("div", {
       ref_key: "tabRef",
       ref: a,
       tabindex: "0",
-      onKeydown: p,
+      onKeydown: n,
       onClick: m,
       "data-name": l.name,
-      class: t(["tab", { stretched: V(v), selected: V(z) === a.value }])
+      class: d(["tab", { stretched: V(v), selected: V(b) === a.value }])
     }, [
-      n(H.$slots, "default", {}, void 0, !0)
-    ], 42, U));
+      p(H.$slots, "default", {}, void 0, !0)
+    ], 42, K));
   }
-}), v1 = /* @__PURE__ */ d(F, [["__scopeId", "data-v-a8c58f25"]]), P = (c, l) => {
+}), i1 = /* @__PURE__ */ e(U, [["__scopeId", "data-v-a8c58f25"]]), F = (c, l) => {
   const a = y([]), o = y();
   return {
     tabs: a,
@@ -189,11 +200,11 @@ const R = /* @__PURE__ */ s({
     },
     selectTab: (h) => {
       o.value = h;
-      const z = h.getAttribute("data-name");
-      z && l(z);
+      const b = h.getAttribute("data-name");
+      b && l(b);
     }
   };
-}, W = /* @__PURE__ */ s({
+}, P = /* @__PURE__ */ z({
   __name: "Tabs",
   props: {
     value: {},
@@ -203,12 +214,12 @@ const R = /* @__PURE__ */ s({
   setup(c) {
     const l = y(!0), a = c, o = (m) => {
       l.value = !1, a.onChange(m);
-    }, v = P(a.value, o);
+    }, v = F(a.value, o);
     r("tabs", v), r("stretched", a.stretched);
     const i = y(null), h = y({
       width: "0px",
       transform: "translateX(0px)"
-    }), z = () => {
+    }), b = () => {
       const m = v.selectedTab.value;
       m && (h.value = {
         width: `${m.offsetWidth}px`,
@@ -216,26 +227,26 @@ const R = /* @__PURE__ */ s({
       });
     };
     return I(() => {
-      z();
+      b();
     }), B(() => {
-      z(), i.value = new ResizeObserver(z), v.tabs.value.forEach((m) => {
-        var p;
-        (p = i.value) == null || p.observe(m);
+      b(), i.value = new ResizeObserver(b), v.tabs.value.forEach((m) => {
+        var n;
+        (n = i.value) == null || n.observe(m);
       });
     }), T(() => {
       var m;
       (m = i.value) == null || m.disconnect();
-    }), (m, p) => (e(), b("div", {
-      class: t(["tabs", { stretched: a.stretched }])
+    }), (m, n) => (s(), t("div", {
+      class: d(["tabs", { stretched: a.stretched }])
     }, [
       w("div", {
-        class: t(["slider", { animated: !l.value }]),
+        class: d(["slider", { animated: !l.value }]),
         style: M(h.value)
       }, null, 6),
-      n(m.$slots, "default", {}, void 0, !0)
+      p(m.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), i1 = /* @__PURE__ */ d(W, [["__scopeId", "data-v-e07ad530"]]), J = /* @__PURE__ */ s({
+}), z1 = /* @__PURE__ */ e(P, [["__scopeId", "data-v-e07ad530"]]), J = /* @__PURE__ */ z({
   __name: "Text",
   props: {
     typography: {},
@@ -245,28 +256,40 @@ const R = /* @__PURE__ */ s({
   },
   setup(c) {
     const l = c;
-    return (a, o) => (e(), b("div", {
-      class: t([l.typography, l.mode, {
+    return (a, o) => (s(), t("div", {
+      class: d([l.typography, l.mode, {
         ellipsis: a.ellipsis,
         clamp: a.clamp,
         [`clamp-${a.clamp}`]: !!a.clamp
       }])
     }, [
-      n(a.$slots, "default", {}, void 0, !0)
+      p(a.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), z1 = /* @__PURE__ */ d(J, [["__scopeId", "data-v-0963ae0d"]]);
+}), s1 = /* @__PURE__ */ e(J, [["__scopeId", "data-v-0963ae0d"]]), Q = /* @__PURE__ */ z({
+  __name: "Separator",
+  props: {
+    direction: {}
+  },
+  setup(c) {
+    const l = c;
+    return (a, o) => (s(), t("div", {
+      class: d(["separator", l.direction])
+    }, null, 2));
+  }
+}), e1 = /* @__PURE__ */ e(Q, [["__scopeId", "data-v-72c3d5da"]]);
 export {
-  Z as Button,
-  a1 as Card,
-  l1 as Gap,
-  j as Icon,
-  c1 as Input,
-  o1 as Row,
-  m1 as Sidebar,
-  h1 as Stack,
-  v1 as Tab,
-  i1 as Tabs,
-  z1 as Text,
-  P as useTabs
+  a1 as Button,
+  l1 as Card,
+  c1 as Gap,
+  X as Icon,
+  o1 as Input,
+  m1 as Row,
+  e1 as Separator,
+  h1 as Sidebar,
+  v1 as Stack,
+  i1 as Tab,
+  z1 as Tabs,
+  s1 as Text,
+  F as useTabs
 };
