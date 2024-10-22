@@ -16,11 +16,14 @@ const props = defineProps<ButtonProps>()
 
 <style scoped>
 .button {
+    --button-bg: var(--secondary);
+    --button-text: var(--secondary-foreground);
+
+    background-color: hsl(var(--button-bg));
+    color: hsl(var(--button-text));
     padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
-    background-color: hsl(var(--secondary));
-    color: hsl(var(--secondary-foreground));
     border: none;
     border-radius: 6px;
     box-sizing: border-box;
@@ -39,11 +42,11 @@ const props = defineProps<ButtonProps>()
 }
 
 .button:hover {
-    background-color: hsl(var(--secondary) / .8);
+    background-color: hsl(var(--button-bg) / .8);
 }
 
 .button:active {
-    scale: 0.97;
+    scale: 0.96;
 }
 
 .button:focus-visible {
@@ -52,8 +55,8 @@ const props = defineProps<ButtonProps>()
 }
 
 .button.accent {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+    --button-bg: var(--primary);
+    --button-text: var(--primary-foreground);
 }
 
 .button.stretched {
