@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { Align } from '../../types';
+
 
 export interface RowProps {
   fullHeight?: boolean;
-  alignItems?: 'start' | 'center' | 'end'
+  alignItems?: Align;
 }
 
 const props = defineProps<RowProps>()

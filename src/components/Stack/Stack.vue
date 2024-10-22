@@ -1,24 +1,27 @@
 <script setup lang="ts">
-import { Gap } from '../../types';
+import { Gap, Align } from '../../types';
 
 export interface StackProps {
     direction: 'row' | 'column',
     gap?: Gap,
     fullHeight?: boolean;
+    align: Align;
 }
 
 const props = defineProps<StackProps>()
 </script>
 
 <template>
-    <div :class="['stack', props.direction, { [`gap-${props.gap}`]: !!gap, 'fullHeight': props.fullHeight }]">
+    <div
+        :class="['stack', props.direction, props.align, { [`gap-${props.gap}`]: !!gap, 'fullHeight': props.fullHeight }]">
         <slot></slot>
     </div>
 </template>
 
 <style scoped>
 .stack {
-    display: flex;
+    display: inline-flex;
+    align-items: var(--align);
 }
 
 .row {
@@ -27,6 +30,18 @@ const props = defineProps<StackProps>()
 
 .column {
     flex-direction: column;
+}
+
+.start {
+    --align: start;
+}
+
+.center {
+    --align: center;
+}
+
+.end {
+    --align: end;
 }
 
 .fullHeight {

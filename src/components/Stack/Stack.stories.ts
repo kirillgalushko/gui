@@ -15,6 +15,10 @@ const meta: Meta<typeof Stack> = {
       control: { type: 'select' },
       options: [1, 2, 3, 4, 5, 6]
     },
+    align: {
+      control: { type: 'select' },
+      options: ['start', 'center', 'end']
+    },
   },
 };
 
@@ -34,8 +38,11 @@ export const Default: Story = {
     template: `
       <Stack v-bind="args">
         <Card>Элемент 1</Card>
+        1
         <Card>Элемент 2</Card>
+        2
         <Card>Элемент 3</Card>
+        3
       </Stack>
     `,
   }),
