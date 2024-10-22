@@ -61,8 +61,8 @@ try {
   }])
   if (shouldPushAnswers.shouldPush === 'Yes') {
     console.log('Pushing changes and tags to remote...');
-    execSync('git push origin main', { stdio: 'inherit' });
-    execSync(`git push origin v${newVersion}`, { stdio: 'inherit' });
+    execSync('git push -f origin main', { stdio: 'inherit' });
+    execSync(`git push -f origin v${newVersion}`, { stdio: 'inherit' });
   }
   console.log(`New version ${newVersion} committed and tagged successfully.`);
 } catch(error) {

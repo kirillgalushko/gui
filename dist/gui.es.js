@@ -25,7 +25,7 @@ const T = /* @__PURE__ */ s({
   for (const [c, v] of l)
     a[c] = v;
   return a;
-}, Q = /* @__PURE__ */ d(T, [["__scopeId", "data-v-ae7ab8a8"]]), R = /* @__PURE__ */ s({
+}, Q = /* @__PURE__ */ d(T, [["__scopeId", "data-v-cf4bee9f"]]), R = /* @__PURE__ */ s({
   __name: "Card",
   props: {
     interactive: { type: Boolean, default: !1 },
