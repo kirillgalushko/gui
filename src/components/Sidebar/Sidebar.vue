@@ -78,6 +78,9 @@ const stopResizing = () => {
   position: absolute;
   opacity: 0;
   transition: opacity 0.2s;
+  background: hsl(var(--border));
+  padding: 4px 1px;
+  border-radius: 4px;
 }
 
 .resize-handle:hover svg {
