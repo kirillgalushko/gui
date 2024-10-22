@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Icon from '../Icon/Icon.vue';
+import { Padding } from '../../types';
 
+interface SidebarProps {
+  padding?: Padding;
+}
+
+const props = withDefaults(defineProps<SidebarProps>(), { padding: 16 })
 const width = ref<number>(400);
 const isResizing = ref<boolean>(false);
 const sidebarRef = ref<HTMLElement | null>(null);
@@ -33,7 +39,7 @@ const stopResizing = () => {
 </script>
 
 <template>
-  <div ref="sidebarRef" :class="['sidebar']" :style="{ width: `${width}px` }">
+  <div ref="sidebarRef" :class="['sidebar']" :style="{ width: `${width}px`, padding: `${props.padding}px`, }">
     <div class="resize-handle" @mousedown="startResizing">
       <Icon name="circled-menu" />
     </div>
@@ -63,6 +69,7 @@ const stopResizing = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .resize-handle svg {
