@@ -30,7 +30,7 @@ const props = defineProps<ButtonProps>()
     box-sizing: border-box;
     font-weight: 500;
     line-height: 20px;
-    transition: background-color 0.2s, color 0.2s, scale 0.2s;
+    transition: background-color 0.2s, color 0.2s, scale 0.2s, width 0.2s;
     display: flex;
     flex-direction: row;
     align-items: center;
