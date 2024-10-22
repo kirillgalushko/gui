@@ -1,1 +1,63 @@
-@import url('../assets//fonts/inter.css');
+@import url('../assets/fonts/inter.css');
+
+h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 40px;
+  letter-spacing: -0.9px;
+  margin: 24px 0;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.75px;
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+  margin: 16px 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+  margin: 16px 0;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.4px;
+  margin: 16px 0;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.25px;
+  margin: 16px 0;
+}
+
+p {
+  font-size: 16px;
+  line-height: 28px;
+  margin: 12px 0;
+}
+
+blockquote {
+  font-style: italic;
+  padding-left: 1.5rem;
+  border-color: hsl(var(--border));
+  border-left: 2px solid;
+  margin: 16px 0;
+}
