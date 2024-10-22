@@ -7,10 +7,12 @@ const meta: Meta<typeof Gap> = {
   tags: ['autodocs'],
   argTypes: {
     direction: {
-      control: { type: 'select', options: ['horizontal', 'vertical'] },
+      control: { type: 'select' },
+      options: ['horizontal', 'vertical']
     },
     default: {
-      control: { type: 'select', options: ['1', '2', '3', '4', '5', '6'] },
+      control: { type: 'select' },
+      options: [1, 2, 3, 4, 5, 6]
     },
   },
 };
@@ -28,34 +30,20 @@ export const HorizontalGap: Story = {
     setup() {
       return { args };
     },
-    template: '<Gap v-bind="args">This is a horizontal gap</Gap>',
+    template: `<div>Gap<span style="border: 1px solid red;"><Gap v-bind="args" /></span>Gap</div>`,
   }),
 };
 
 export const VerticalGap: Story = {
   args: {
     direction: 'vertical',
-    default: 2,
+    default: 3,
   },
   render: (args) => ({
     components: { Gap },
     setup() {
       return { args };
     },
-    template: '<Gap v-bind="args">This is a vertical gap</Gap>',
-  }),
-};
-
-export const CustomGap: Story = {
-  args: {
-    direction: 'horizontal',
-    default: 5,
-  },
-  render: (args) => ({
-    components: { Gap },
-    setup() {
-      return { args };
-    },
-    template: '<Gap v-bind="args">This is a custom gap</Gap>',
+    template: `<div>Gap<div style="border: 1px solid red; width: 1em;"><Gap v-bind="args" /></div>Gap</div>`,
   }),
 };

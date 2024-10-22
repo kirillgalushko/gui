@@ -7,18 +7,15 @@ export interface GapProps {
 }
 
 const props = defineProps<GapProps>()
-
 </script>
 
 <template>
-  <div :class="['gap', props.direction, { [`gap-${props.default}`]: !!props.default }]">
-    <slot></slot>
-  </div>
+  <div :class="['gap', props.direction, { [`gap-${props.default}`]: !!props.default }]"></div>
 </template>
 
 <style scoped>
 .gap {
-  display: block;
+  display: inline-block;
 }
 
 .horizontal {
@@ -30,6 +27,7 @@ const props = defineProps<GapProps>()
 .vertical {
   width: 0;
   height: var(--gap-size);
+  display: block;
 }
 
 .gap-1 {
