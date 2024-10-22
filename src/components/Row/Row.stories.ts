@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Row from './Row.vue';
+import Card from '../Card/Card.vue'
 
 const meta: Meta<typeof Row> = {
   title: 'Example/Row',
@@ -10,26 +11,35 @@ const meta: Meta<typeof Row> = {
       control: 'boolean',
       description: 'Устанавливает высоту строки на 100%',
     },
+    alignItems: {
+      control: 'select',
+      description: 'Устанавливает высоту строки на 100%',
+      options: ['start', 'center', 'end'],
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Row>;
 
+const template = `
+      <Row v-bind="args">
+        <Card>1<br/>1</Card>
+        <Card>2<br/><br/>2</Card>
+        <Card>3<br/><br/><br/>3</Card>
+      </Row>
+    `
+
 export const Default: Story = {
   args: {
     fullHeight: false,
   },
   render: (args) => ({
-    components: { Row },
+    components: { Row, Card },
     setup() {
       return { args };
     },
-    template: `
-      <Row v-bind="args">
-        <div style="background-color: lightgrey; padding: 16px;">Это строка по умолчанию</div>
-      </Row>
-    `,
+    template
   }),
 };
 
@@ -38,14 +48,14 @@ export const FullHeight: Story = {
     fullHeight: true,
   },
   render: (args) => ({
-    components: { Row },
+    components: { Row, Card },
     setup() {
       return { args };
     },
     template: `
-      <Row v-bind="args">
-        <div style="background-color: lightblue; padding: 16px;">Это строка с полной высотой</div>
-      </Row>
+      <div style="height: 300px;">
+        ${template}
+      </div>
     `,
   }),
 };

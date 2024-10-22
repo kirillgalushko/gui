@@ -2,14 +2,14 @@
 
 export interface RowProps {
   fullHeight?: boolean;
+  alignItems?: 'start' | 'center' | 'end'
 }
 
 const props = defineProps<RowProps>()
-
 </script>
 
 <template>
-  <div :class="['row', { 'fullHeight': props.fullHeight }]">
+  <div :class="['row', props.alignItems, { 'fullHeight': props.fullHeight }]">
     <slot></slot>
   </div>
 </template>
@@ -23,5 +23,17 @@ const props = defineProps<RowProps>()
 .fullHeight {
   height: 100%;
   overflow: hidden;
+}
+
+.start {
+  align-items: start;
+}
+
+.center {
+  align-items: center;
+}
+
+.end {
+  align-items: end;
 }
 </style>
