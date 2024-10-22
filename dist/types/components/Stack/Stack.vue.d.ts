@@ -1,8 +1,9 @@
-import { Gap } from '../../types';
+import { Gap, Align } from '../../types';
 export interface StackProps {
     direction: 'row' | 'column';
     gap?: Gap;
     fullHeight?: boolean;
+    align: Align;
 }
 declare function __VLS_template(): {
     slots: {
