@@ -1,48 +1,61 @@
 import { Meta, StoryObj } from '@storybook/vue3';
+import Card from '../Card/Card.vue'
 import Stack from './Stack.vue';
 
 const meta: Meta<typeof Stack> = {
   title: 'Example/Stack',
   component: Stack,
   tags: ['autodocs'],
+  argTypes: {
+    direction: {
+      control: { type: 'select' },
+      options: ['column', 'row']
+    },
+    gap: {
+      control: { type: 'select' },
+      options: [1, 2, 3, 4, 5, 6]
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Stack>;
 
 export const Default: Story = {
-  render: () => ({
-    components: { Stack },
+  args: {
+    direction: 'column',
+    gap: 3,
+  },
+  render: (args) => ({
+    components: { Stack, Card },
+    setup() {
+      return { args };
+    },
     template: `
-      <Stack direction="column" gap="2">
-        <div style="background-color: lightgrey; padding: 16px;">Элемент 1</div>
-        <div style="background-color: lightblue; padding: 16px;">Элемент 2</div>
-        <div style="background-color: lightgreen; padding: 16px;">Элемент 3</div>
+      <Stack v-bind="args">
+        <Card>Элемент 1</Card>
+        <Card>Элемент 2</Card>
+        <Card>Элемент 3</Card>
       </Stack>
     `,
   }),
 };
 
 export const Row: Story = {
-  render: () => ({
-    components: { Stack },
+  args: {
+    direction: 'row',
+    gap: 3,
+  },
+  render: (args) => ({
+    components: { Stack, Card },
+    setup() {
+      return { args };
+    },
     template: `
-      <Stack direction="row" gap="3">
-        <div style="background-color: lightgrey; padding: 16px;">Элемент 1</div>
-        <div style="background-color: lightblue; padding: 16px;">Элемент 2</div>
-        <div style="background-color: lightgreen; padding: 16px;">Элемент 3</div>
-      </Stack>
-    `,
-  }),
-};
-
-export const FullHeight: Story = {
-  render: () => ({
-    components: { Stack },
-    template: `
-      <Stack direction="column" fullHeight>
-        <div style="background-color: lightgrey; padding: 16px;">Элемент 1</div>
-        <div style="background-color: lightblue; padding: 16px;">Элемент 2</div>
+      <Stack v-bind="args">
+        <Card>Элемент 1</Card>
+        <Card>Элемент 2</Card>
+        <Card>Элемент 3</Card>
       </Stack>
     `,
   }),
