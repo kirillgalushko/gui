@@ -43,11 +43,11 @@ const props = withDefaults(defineProps<TextProps>(), {
 
 <style scoped>
 .default {
-    color: var(--color-text);
+    color: hsl(var(--foreground));
 }
 
 .secondary {
-    color: var(--color-text-secondary);
+    color: hsl(var(--muted-foreground));
 }
 
 .ellipsis {
