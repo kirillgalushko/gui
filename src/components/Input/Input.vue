@@ -1,5 +1,5 @@
 <script setup lang="ts">
-interface InputProps {
+export interface InputProps {
   stretched?: boolean
 }
 
