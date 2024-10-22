@@ -5,9 +5,11 @@ import { Padding } from '../../types';
 
 interface SidebarProps {
   padding?: Padding;
+  maxWidth?: string;
+  minWidth?: string;
 }
 
-const props = withDefaults(defineProps<SidebarProps>(), { padding: 16 })
+const props = withDefaults(defineProps<SidebarProps>(), { padding: 16, minWidth: '200px', maxWidth: '100vw' })
 const width = ref<number>(400);
 const isResizing = ref<boolean>(false);
 const sidebarRef = ref<HTMLElement | null>(null);
@@ -39,7 +41,11 @@ const stopResizing = () => {
 </script>
 
 <template>
-  <div ref="sidebarRef" :class="['sidebar']" :style="{ width: `${width}px`, padding: `${props.padding}px`, }">
+  <div ref="sidebarRef" :class="['sidebar']" :style="{
+    width: `${width}px`, padding: `${props.padding}px`,
+    maxWidth: props.maxWidth,
+    minWidth: props.minWidth,
+  }">
     <div class="resize-handle" @mousedown="startResizing">
       <Icon name="circled-menu" />
     </div>
@@ -55,8 +61,6 @@ const stopResizing = () => {
   padding: var(--gap-3);
   box-sizing: border-box;
   position: relative;
-  min-width: 200px;
-  max-width: 100vw;
 }
 
 .resize-handle {
