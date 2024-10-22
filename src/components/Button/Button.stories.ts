@@ -9,12 +9,14 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    mode: { control: 'select', options: ['default', 'accent'] },
+    mode: { control: 'select', options: ['default', 'accent', 'ghost'] },
     stretched: { control: 'boolean' },
+    squared: { control: 'boolean' },
   },
   args: {
     mode: 'default',
     stretched: false,
+    squared: false,
   },
 } satisfies Meta<typeof Button>;
 

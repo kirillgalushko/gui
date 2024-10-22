@@ -1,7 +1,8 @@
 <script setup lang="ts">
 export interface ButtonProps {
-    mode: 'default' | 'accent',
+    mode: 'default' | 'accent' | 'ghost',
     stretched?: boolean;
+    squared?: boolean;
 }
 
 const props = defineProps<ButtonProps>()
@@ -9,7 +10,7 @@ const props = defineProps<ButtonProps>()
 </script>
 
 <template>
-    <button v-bind="$attrs" :class="['button', props.mode, { 'stretched': props.stretched }]">
+    <button v-bind="$attrs" :class="['button', props.mode, { 'stretched': props.stretched, 'squared': props.squared }]">
         <slot></slot>
     </button>
 </template>
@@ -41,6 +42,10 @@ const props = defineProps<ButtonProps>()
     height: 40px;
 }
 
+.squared {
+    padding: 8px;
+}
+
 .button:hover {
     background-color: hsl(var(--button-bg) / .8);
 }
@@ -57,6 +62,14 @@ const props = defineProps<ButtonProps>()
 .button.accent {
     --button-bg: var(--primary);
     --button-text: var(--primary-foreground);
+}
+
+.button.ghost {
+    background-color: transparent;
+}
+
+.button.ghost:hover {
+    background-color: hsl(var(--button-bg) / .8);
 }
 
 .button.stretched {
