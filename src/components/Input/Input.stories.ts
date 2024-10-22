@@ -7,6 +7,11 @@ const meta: Meta<InputType> = {
   title: 'Example/Input',
   component: Input,
   tags: ['autodocs'],
+  argTypes: {
+    stretched: {
+      control: 'boolean',
+    },
+  },
 };
 
 export default meta;
@@ -16,6 +21,7 @@ export const Default: Story = {
   args: {
     placeholder: 'placeholder',
     value: 'value',
+    stretched: false,
   },
   render: (args) => ({
     components: { Input },
