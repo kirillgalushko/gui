@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { BorderRadius, Padding } from '../../types';
 
 interface Card {
     background?: 'default' | 'secondary';
     stretched?: boolean;
+    padding?: Padding;
+    borderRadius?: BorderRadius;
 }
 
 interface NonInteractiveCard extends Card {
@@ -20,14 +23,15 @@ export type CardProps = NonInteractiveCard | InteractiveCard
 const props = withDefaults(defineProps<CardProps>(), {
     interactive: false,
     background: 'default',
+    padding: 8,
+    borderRadius: 8,
 })
-
 </script>
 
 <template>
     <component :is="props.interactive ? 'button' : 'div'"
         :class="['card', props.background, { interactive: props.interactive, stretched: props.stretched }]"
-        @click="onClick">
+        :style="{ padding: `${props.padding}px`, borderRadius: `${props.borderRadius}px` }" @click="onClick">
         <slot></slot>
     </component>
 </template>
@@ -35,7 +39,7 @@ const props = withDefaults(defineProps<CardProps>(), {
 <style scoped>
 .card {
     box-sizing: border-box;
-    border: 1px solid var(--color-border);
+    border: 1px solid hsl(var(--border));
     border-radius: 8px;
     padding: 12px;
     display: inline-block;
@@ -46,7 +50,7 @@ const props = withDefaults(defineProps<CardProps>(), {
 }
 
 .secondary {
-    background-color: var(--color-bg-secondary);
+    background-color: hsl(var(--secondary));
 }
 
 .interactive {
@@ -56,7 +60,7 @@ const props = withDefaults(defineProps<CardProps>(), {
 }
 
 .interactive:hover {
-    background-color: var(--color-bg-secondary);
+    background-color: hsl(var(--secondary));
 }
 
 .stretched {
