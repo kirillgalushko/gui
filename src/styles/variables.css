@@ -1,19 +1,4 @@
 :root {
-  --font-size: 16px;
-  --border-radius: 4px;
-
-  --color-bg-light: #ffffff;
-  --color-bg-secondary-light: #929292;
-  --color-text-light: #000000;
-  --color-text-secondary-light: #343434;
-  --color-border-light: #e0e0e0;
-
-  --color-bg-dark: #000000;
-  --color-bg-secondary-dark: #27272a;
-  --color-text-dark: #ffffff;
-  --color-text-secondary-dark: #a1a1aa;
-  --color-border-dark: #27272a;
-
   --gap-1: 4px;
   --gap-2: 8px;
   --gap-3: 12px;
@@ -63,5 +48,3 @@
   --destructive-foreground: 0 0% 98%;
   --ring: 240 5.9% 10%;
 }
-
-.dark-theme {}
