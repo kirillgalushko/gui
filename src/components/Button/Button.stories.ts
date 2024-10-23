@@ -33,7 +33,8 @@ export const Primary: Story = {
 export const IconButton: Story = {
   args: {
     mode: 'default',
-    default: 'Button'
+    default: 'Button',
+    squared: true,
   },
   render: (args) => ({
     components: { Button, Icon },
