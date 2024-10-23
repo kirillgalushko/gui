@@ -17,7 +17,7 @@ export const Default: Story = {
     components: { Sidebar, Button, Stack },
     template: `
       <Sidebar>
-        <Stack direction="column" :gap="3">
+        <Stack stretched direction="column" :gap="3">
           <Button>Входящие</Button>
           <Button>Отправлено</Button>
           <Button>Черновики</Button>

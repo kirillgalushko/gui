@@ -47,7 +47,7 @@ const stopResizing = () => {
     minWidth: props.minWidth,
   }">
     <div class="resize-handle" @mousedown="startResizing">
-      <Icon name="circled-menu" />
+      <Icon name="grip-vertical" />
     </div>
     <slot></slot>
   </div>
@@ -74,6 +74,23 @@ const stopResizing = () => {
   align-items: center;
   justify-content: center;
   z-index: 1;
+}
+
+.resize-handle::after {
+  width: 0;
+  transition: all 0.2s;
+}
+
+.resize-handle:hover::after {
+  content: "";
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  background-color: hsl(var(--border));
+  z-index: -1;
+  margin-left: -1px;
 }
 
 .resize-handle svg {
