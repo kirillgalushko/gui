@@ -167,7 +167,7 @@ const Q = /* @__PURE__ */ s({
       m(o.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), t1 = /* @__PURE__ */ h(X, [["__scopeId", "data-v-01ed257f"]]), G = ["data-name"], K = /* @__PURE__ */ s({
+}), t1 = /* @__PURE__ */ h(X, [["__scopeId", "data-v-72d10386"]]), G = ["data-name"], K = /* @__PURE__ */ s({
   __name: "Tab",
   props: {
     name: {}

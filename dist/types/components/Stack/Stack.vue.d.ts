@@ -3,7 +3,7 @@ export interface StackProps {
     direction: 'row' | 'column';
     gap?: Gap;
     fullHeight?: boolean;
-    align: Align;
+    align?: Align;
 }
 declare function __VLS_template(): {
     slots: {
