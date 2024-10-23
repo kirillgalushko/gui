@@ -43,6 +43,7 @@ const props = defineProps<ButtonProps>()
 }
 
 .squared {
+    padding: 0;
     width: 40px;
 }
 
