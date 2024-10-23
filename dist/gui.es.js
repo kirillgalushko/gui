@@ -26,7 +26,7 @@ const Q = /* @__PURE__ */ s({
   for (const [n, t] of e)
     o[n] = t;
   return o;
-}, o1 = /* @__PURE__ */ h(Q, [["__scopeId", "data-v-659fd6b6"]]), I = /* @__PURE__ */ s({
+}, o1 = /* @__PURE__ */ h(Q, [["__scopeId", "data-v-c67fb5db"]]), I = /* @__PURE__ */ s({
   __name: "Card",
   props: {
     interactive: { type: Boolean, default: !1 },
@@ -157,17 +157,27 @@ const Q = /* @__PURE__ */ s({
     direction: {},
     gap: {},
     fullHeight: { type: Boolean },
-    align: {}
+    alignItems: {},
+    stretched: { type: Boolean }
   },
   setup(l) {
     const e = l;
     return (o, n) => (d(), u("div", {
-      class: c(["stack", e.direction, e.align, { [`gap-${e.gap}`]: !!o.gap, fullHeight: e.fullHeight }])
+      class: c([
+        "stack",
+        e.direction,
+        e.alignItems,
+        {
+          [`gap-${e.gap}`]: !!o.gap,
+          fullHeight: e.fullHeight,
+          stretched: e.stretched
+        }
+      ])
     }, [
       m(o.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), t1 = /* @__PURE__ */ h(X, [["__scopeId", "data-v-72d10386"]]), G = ["data-name"], K = /* @__PURE__ */ s({
+}), t1 = /* @__PURE__ */ h(X, [["__scopeId", "data-v-9c2a4164"]]), G = ["data-name"], K = /* @__PURE__ */ s({
   __name: "Tab",
   props: {
     name: {}
@@ -248,7 +258,7 @@ const Q = /* @__PURE__ */ s({
       m(r.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), s1 = /* @__PURE__ */ h(F, [["__scopeId", "data-v-e07ad530"]]), P = /* @__PURE__ */ s({
+}), s1 = /* @__PURE__ */ h(F, [["__scopeId", "data-v-cb84fc23"]]), P = /* @__PURE__ */ s({
   __name: "Text",
   props: {
     typography: {},
