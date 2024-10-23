@@ -5,11 +5,12 @@ export interface IconProps {
   name: string;
   className?: string;
   style?: string;
+  variant?: 'filled' | 'outline';
 }
 
-const props = defineProps<IconProps>();
+const props = withDefaults(defineProps<IconProps>(), { variant: 'outline' });
 
-const iconHref = computed(() => `#icon-${props.name}`);
+const iconHref = computed(() => `#icon-${props.variant}-${props.name}`);
 </script>
 
 <template>
