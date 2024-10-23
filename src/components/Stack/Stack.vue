@@ -5,15 +5,23 @@ export interface StackProps {
     direction: 'row' | 'column',
     gap?: Gap,
     fullHeight?: boolean;
-    align?: Align;
+    alignItems?: Align;
+    stretched?: boolean;
 }
 
 const props = defineProps<StackProps>()
 </script>
 
 <template>
-    <div
-        :class="['stack', props.direction, props.align, { [`gap-${props.gap}`]: !!gap, 'fullHeight': props.fullHeight }]">
+    <div :class="['stack',
+        props.direction,
+        props.alignItems,
+        {
+            [`gap-${props.gap}`]: !!gap,
+            'fullHeight': props.fullHeight,
+            'stretched': props.stretched,
+        }
+    ]">
         <slot></slot>
     </div>
 </template>
@@ -45,6 +53,10 @@ const props = defineProps<StackProps>()
 
 .fullHeight {
     height: 100%;
+}
+
+.stretched {
+    width: 100%;
 }
 
 .gap-1 {

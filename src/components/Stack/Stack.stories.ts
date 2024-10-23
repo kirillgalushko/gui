@@ -15,10 +15,13 @@ const meta: Meta<typeof Stack> = {
       control: { type: 'select' },
       options: [1, 2, 3, 4, 5, 6]
     },
-    align: {
+    alignItems: {
       control: { type: 'select' },
       options: ['start', 'center', 'end']
     },
+    stretched: {
+      control: { type: 'boolean' },
+    }
   },
 };
 
