@@ -37,5 +37,8 @@
   },
   "peerDependencies": {
     "vue": ">=3"
+  },
+  "dependencies": {
+    "floating-vue": "^5.2.2"
   }
 }
