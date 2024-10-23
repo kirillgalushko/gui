@@ -71,6 +71,7 @@ onBeforeUnmount(() => {
   padding: 4px;
   position: relative;
   box-sizing: border-box;
+  min-height: 40px;
 }
 
 .stretched {
