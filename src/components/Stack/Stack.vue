@@ -5,7 +5,7 @@ export interface StackProps {
     direction: 'row' | 'column',
     gap?: Gap,
     fullHeight?: boolean;
-    align: Align;
+    align?: Align;
 }
 
 const props = defineProps<StackProps>()
@@ -21,7 +21,6 @@ const props = defineProps<StackProps>()
 <style scoped>
 .stack {
     display: inline-flex;
-    align-items: var(--align);
 }
 
 .row {
@@ -33,15 +32,15 @@ const props = defineProps<StackProps>()
 }
 
 .start {
-    --align: start;
+    align-items: start;
 }
 
 .center {
-    --align: center;
+    align-items: center;
 }
 
 .end {
-    --align: end;
+    align-items: end;
 }
 
 .fullHeight {
