@@ -35,6 +35,7 @@ try {
 
     packageJson.version = newVersion;
     fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+    execSync('npm install', { stdio: 'inherit' });
 
     console.log('Running build...');
     execSync('npm run build', { stdio: 'inherit' });
