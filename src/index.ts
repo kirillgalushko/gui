@@ -14,6 +14,7 @@ import useTabs from './components/Tabs/useTabs'
 import Text, { type TextProps } from './components/Text/Text.vue';
 import Icon, { type IconProps } from './components/Icon/Icon.vue';
 import Separator, { type SeparatorProps } from './components/Separator/Separator.vue';
+import Tooltip, { type TooltipProps } from './components/Tooltip/Tooltip.vue'
 
 export { Button, ButtonProps,
   Card, CardProps,
@@ -27,5 +28,6 @@ export { Button, ButtonProps,
   Tabs, TabsProps,
   Icon, IconProps,
   Separator, SeparatorProps,
+  Tooltip, TooltipProps,
   useTabs,
 };
