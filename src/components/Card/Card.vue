@@ -43,6 +43,7 @@ const props = withDefaults(defineProps<CardProps>(), {
     border-radius: 8px;
     padding: 12px;
     display: inline-block;
+    font-family: 'Inter', Helvetica, system-ui, Avenir, Arial, sans-serif;
 }
 
 .default {
