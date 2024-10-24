@@ -53,7 +53,7 @@ onMounted(() => {
   color: hsl(var(--muted-foreground));
   user-select: none;
   z-index: 1;
-  transition: color 0.2s;
+  transition: all 0.15s;
 }
 
 .stretched {
@@ -64,6 +64,10 @@ onMounted(() => {
 .tab:focus-visible {
   color: hsl(var(--foreground));
   outline: 0;
+}
+
+.tab:active {
+  scale: 0.96;
 }
 
 .selected {
