@@ -22,7 +22,9 @@ const iconHref = computed(() => `#icon-${props.variant}-${props.name}`);
 <style scoped>
 svg {
   width: 1em;
+  min-width: 1rem;
   height: 1em;
+  min-height: 1rem;
   fill: currentColor;
 }
 </style>
