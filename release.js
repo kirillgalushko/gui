@@ -17,55 +17,74 @@ function incrementVersion(version, type) {
   }
 }
 
-const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-const currentVersion = packageJson.version;
+function updatePackageJsonVersion(newVersion) {
+  const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  packageJson.version = newVersion;
+  fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
+}
 
-console.log(`Current version: ${currentVersion}`);
+function runCommand(command) {
+  execSync(command, { stdio: 'inherit' });
+}
 
-let newVersion = currentVersion
-try {
-  const answers = await inquirer.prompt([
+function commitAndTag(newVersion) {
+  console.log('Committing changes...');
+  runCommand('git add .');
+  runCommand(`git commit -m "Release ${newVersion}"`);
+
+  console.log('Creating tag...');
+  runCommand(`git tag -a v${newVersion} -m "Release ${newVersion}"`);
+}
+
+async function promptReleaseType() {
+  const { releaseType } = await inquirer.prompt([
     {
       type: 'list',
       name: 'releaseType',
       message: 'Select the type of version bump:',
       choices: ['patch', 'minor', 'major'],
-    }])
-    newVersion = incrementVersion(currentVersion, answers.releaseType);
-
-    packageJson.version = newVersion;
-    fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
-    execSync('npm install', { stdio: 'inherit' });
-
-    console.log('Running build...');
-    execSync('npm run build', { stdio: 'inherit' });
-
-    console.log('Committing changes...');
-    execSync('git add package.json', { stdio: 'inherit' });
-    execSync('git add .', { stdio: 'inherit' });
-    execSync(`git commit -m "Release ${newVersion}"`, { stdio: 'inherit' });
-
-    console.log('Creating tag...');
-    execSync(`git tag -a v${newVersion} -m "Release ${newVersion}"`, { stdio: 'inherit' });
-
-    console.log(`New version ${newVersion} committed and tagged successfully.`);
-} catch(error) {
-  console.error('An error occurred:', error);
+    }
+  ]);
+  return releaseType;
 }
 
-try {
-  const shouldPushAnswers = await inquirer.prompt([{
-    type: 'list',
-    name: 'shouldPush',
-    message: 'Do you want to push changes to git?',
-    choices: ['No', 'Yes'],
-  }])
-  if (shouldPushAnswers.shouldPush === 'Yes') {
+async function promptPushConfirmation() {
+  const { shouldPush } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'shouldPush',
+      message: 'Do you want to push changes to git?',
+      choices: ['No', 'Yes'],
+    }
+  ]);
+  return shouldPush === 'Yes';
+}
+
+async function main() {
+  const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  const currentVersion = packageJson.version;
+
+  console.log(`Current version: ${currentVersion}`);
+  const releaseType = await promptReleaseType();
+  const newVersion = incrementVersion(currentVersion, releaseType);
+
+  updatePackageJsonVersion(newVersion);
+  runCommand('npm install');
+
+  console.log('Running build...');
+  runCommand('npm run build');
+
+  commitAndTag(newVersion);
+
+  if (await promptPushConfirmation()) {
     console.log('Pushing changes and tags to remote...');
-    execSync('git push -f origin main', { stdio: 'inherit' });
-    execSync(`git push -f origin v${newVersion}`, { stdio: 'inherit' });
+    runCommand('git push -f origin main');
+    runCommand(`git push -f origin v${newVersion}`);
   }
+
   console.log(`New version ${newVersion} committed and tagged successfully.`);
-} catch(error) {
-  console.error('An error occurred:', error);
 }
+
+main().catch(error => {
+  console.error('An error occurred:', error);
+});
