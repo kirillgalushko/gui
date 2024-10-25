@@ -9,7 +9,7 @@ if (typeof window < "u") {
 const G0 = /* @__PURE__ */ j({
   __name: "Button",
   props: {
-    mode: {},
+    mode: { default: "default" },
     stretched: { type: Boolean },
     squared: { type: Boolean }
   },
@@ -26,7 +26,7 @@ const G0 = /* @__PURE__ */ j({
   for (const [n, r] of e)
     l[n] = r;
   return l;
-}, oo = /* @__PURE__ */ S(G0, [["__scopeId", "data-v-97b80083"]]), X0 = /* @__PURE__ */ j({
+}, oo = /* @__PURE__ */ S(G0, [["__scopeId", "data-v-2a5035ae"]]), X0 = /* @__PURE__ */ j({
   __name: "Card",
   props: {
     interactive: { type: Boolean, default: !1 },
@@ -228,7 +228,7 @@ const G0 = /* @__PURE__ */ j({
       z(h.$slots, "default", {}, void 0, !0)
     ], 42, n2));
   }
-}), ao = /* @__PURE__ */ S(r2, [["__scopeId", "data-v-a8c58f25"]]), i2 = (o, e) => {
+}), ao = /* @__PURE__ */ S(r2, [["__scopeId", "data-v-c2afa1d0"]]), i2 = (o, e) => {
   const l = N([]), n = N();
   return {
     tabs: l,
