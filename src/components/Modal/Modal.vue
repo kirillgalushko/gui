@@ -63,7 +63,9 @@ const gridTemplateAreas = computed(() => {
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
+  animation-name: enter;
+  animation-duration: .15s;
 }
 
 .modal {
@@ -79,6 +81,31 @@ const gridTemplateAreas = computed(() => {
   border: 1px solid hsl(var(--border));
   display: flex;
   max-height: 70vh;
+  background-color: hsl(var(--background));
+  animation-name: enter, up;
+  animation-duration: .3s;
+  animation-delay: .1s;
+  animation-fill-mode: both;
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes up {
+  0% {
+    top: 52%;
+  }
+
+  100% {
+    top: 50%
+  }
 }
 
 .modal-layout {

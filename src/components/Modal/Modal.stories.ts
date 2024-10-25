@@ -27,7 +27,7 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-export const HorizontalModal: Story = {
+export const DefaultModal: Story = {
   args: {
     isOpened: true,
     title: "Сохранить прогресс?",
