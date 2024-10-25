@@ -1,12 +1,11 @@
 <script setup lang="ts">
 export interface ButtonProps {
-    mode: 'default' | 'accent' | 'ghost',
+    mode?: 'default' | 'accent' | 'ghost',
     stretched?: boolean;
     squared?: boolean;
 }
 
-const props = defineProps<ButtonProps>()
-
+const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 </script>
 
 <template>
