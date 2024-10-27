@@ -36,3 +36,23 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Long: Story = {
+  args: {
+    mode: 'default',
+  },
+  render: (args) => ({
+    components: { Tooltip, Text },
+    setup() {
+      return { args };
+    },
+    template: `
+      Наведи курсор вот 
+      <Tooltip v-bind="args">
+        <template #popper>
+          Это очень длинная подсказка, чтобы посмотреть как будет вести себя компонент в таких условиях
+        </template>
+        <strong>сюда</strong></Tooltip>, чтобы увидеть Tooltip.
+    `,
+  }),
+};

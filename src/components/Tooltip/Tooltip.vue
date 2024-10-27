@@ -33,11 +33,13 @@ const props = withDefaults(defineProps<TooltipProps>(), { mode: 'default' })
   --tooltip-text-color: hsl(var(--popover-foreground));
   --tooltip-background-color: hsl(var(--popover));
   --tooltip-border-color: hsl(var(--border));
+  max-width: 300px;
 }
 
 .tooltip-accent {
   --tooltip-text-color: hsl(var(--primary-foreground));
   --tooltip-background-color: hsl(var(--primary));
+  max-width: 300px;
 }
 
 .v-popper--theme-tooltip .v-popper__inner {
