@@ -63,7 +63,7 @@ useResize(buttonElement, checkEllipsis)
   display: flex;
   gap: var(--gap-2);
   align-items: center;
-  transition: all 0.15s;
+  transition: color .15s, background-color 0.15s;
 }
 
 .compact {
