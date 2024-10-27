@@ -25,6 +25,8 @@
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   --ring: 240 4.9% 83.9%;
+
+  --font-family: 'Inter', Helvetica, system-ui, Avenir, Arial, sans-serif;
 }
 
 .light-theme {
