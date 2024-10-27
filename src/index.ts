@@ -18,6 +18,7 @@ import Tooltip, { type TooltipProps } from './components/Tooltip/Tooltip.vue'
 import Badge, { type BadgeProps } from './components/Badge/Badge.vue'
 import SidebarItem, { type SidebarItemProps } from './components/Sidebar/SidebarItem.vue'
 import SidebarList from './components/Sidebar/SidebarList.vue'
+import Modal, { type ModalProps } from './components/Modal/Modal.vue'
 import { useResize } from './hooks/useResize';
 
 export { Button, ButtonProps,
@@ -36,6 +37,7 @@ export { Button, ButtonProps,
   Separator, SeparatorProps,
   Tooltip, TooltipProps,
   Badge, BadgeProps,
+  Modal, ModalProps,
   useTabs,
   useResize,
 };

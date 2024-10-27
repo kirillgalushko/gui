@@ -4,7 +4,7 @@ import Action from '../Action/Action.vue';
 import Icon from '../Icon/Icon.vue';
 import Text from '../Text/Text.vue'
 
-interface ModalProps {
+export interface ModalProps {
   isOpened?: boolean;
   onClose?: () => void;
   showCloseButton?: boolean;
