@@ -4,6 +4,7 @@ interface SidebarProps {
     width?: number;
     maxWidth?: string;
     minWidth?: string;
+    compactWidth?: number;
 }
 declare function __VLS_template(): {
     slots: {
@@ -20,6 +21,7 @@ declare const __VLS_component: import("vue").DefineComponent<SidebarProps, {}, {
     maxWidth: string;
     width: number;
     minWidth: string;
+    compactWidth: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;
