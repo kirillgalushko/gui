@@ -1,11 +1,10 @@
 <script setup lang="ts">
 
-interface BadgeProps {
+export interface BadgeProps {
   mode: 'default' | 'secondary' | 'ghost'
 }
 
 const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default' })
-
 </script>
 
 <template>

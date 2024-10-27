@@ -15,6 +15,9 @@ import Text, { type TextProps } from './components/Text/Text.vue';
 import Icon, { type IconProps } from './components/Icon/Icon.vue';
 import Separator, { type SeparatorProps } from './components/Separator/Separator.vue';
 import Tooltip, { type TooltipProps } from './components/Tooltip/Tooltip.vue'
+import Badge, { type BadgeProps } from './components/Badge/Badge.vue'
+import SidebarItem, { type SidebarItemProps } from './components/Sidebar/SidebarItem.vue'
+import SidebarList from './components/Sidebar/SidebarList.vue'
 import { useResize } from './hooks/useResize';
 
 export { Button, ButtonProps,
@@ -25,11 +28,14 @@ export { Button, ButtonProps,
   Stack, StackProps,
   Text, TextProps,
   Sidebar,
+  SidebarList,
+  SidebarItem, SidebarItemProps,
   Tab, TabProps,
   Tabs, TabsProps,
   Icon, IconProps,
   Separator, SeparatorProps,
   Tooltip, TooltipProps,
+  Badge, BadgeProps,
   useTabs,
   useResize,
 };
