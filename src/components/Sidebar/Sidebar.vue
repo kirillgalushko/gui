@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 import Icon from '../Icon/Icon.vue';
 import { Padding } from '../../types';
 
@@ -14,6 +14,8 @@ const props = withDefaults(defineProps<SidebarProps>(), { padding: 16, minWidth:
 const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
 const sidebarRef = ref<HTMLElement | null>(null);
+provide('sidebar-width', width)
+provide('sidebar-is-resizing', isResizing)
 
 const startResizing = () => {
   isResizing.value = true;
