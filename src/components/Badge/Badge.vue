@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 export interface BadgeProps {
-  mode: 'default' | 'secondary' | 'ghost'
+  mode?: 'default' | 'secondary' | 'ghost'
 }
 
 const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default' })
@@ -25,6 +25,8 @@ const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default' })
   justify-content: center;
   text-align: center;
   width: auto;
+  box-sizing: border-box;
+  min-width: 20px;
 }
 
 .default {
