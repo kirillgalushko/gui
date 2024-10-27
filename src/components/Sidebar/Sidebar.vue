@@ -5,12 +5,13 @@ import { Padding } from '../../types';
 
 interface SidebarProps {
   padding?: Padding;
+  width?: number;
   maxWidth?: string;
   minWidth?: string;
 }
 
-const props = withDefaults(defineProps<SidebarProps>(), { padding: 16, minWidth: '200px', maxWidth: '100vw' })
-const width = ref<number>(400);
+const props = withDefaults(defineProps<SidebarProps>(), { padding: 16, minWidth: '200px', maxWidth: '100vw', width: 300 })
+const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
 const sidebarRef = ref<HTMLElement | null>(null);
 
