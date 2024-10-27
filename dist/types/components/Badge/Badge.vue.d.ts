@@ -1,5 +1,5 @@
 export interface BadgeProps {
-    mode: 'default' | 'secondary' | 'ghost';
+    mode?: 'default' | 'secondary' | 'ghost';
 }
 declare function __VLS_template(): {
     slots: {

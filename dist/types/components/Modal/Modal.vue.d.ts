@@ -1,4 +1,4 @@
-interface ModalProps {
+export interface ModalProps {
     isOpened?: boolean;
     onClose?: () => void;
     showCloseButton?: boolean;
