@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default' })
 .Badge {
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 11px;
   padding: 2px 6px;
   border-radius: 999px;
   display: inline-flex;
