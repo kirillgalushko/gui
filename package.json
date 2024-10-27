@@ -1,7 +1,7 @@
 {
   "name": "gui",
   "private": true,
-  "version": "3.4.0",
+  "version": "3.5.0",
   "type": "module",
   "main": "./dist/gui.umd.js",
   "module": "./dist/gui.es.js",
