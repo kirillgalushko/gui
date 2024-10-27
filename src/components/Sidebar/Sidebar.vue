@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, provide } from 'vue'
+import { ref, provide, watch } from 'vue'
 import Icon from '../Icon/Icon.vue';
 import { Padding } from '../../types';
 
@@ -8,14 +8,23 @@ interface SidebarProps {
   width?: number;
   maxWidth?: string;
   minWidth?: string;
+  compactWidth?: number;
 }
 
-const props = withDefaults(defineProps<SidebarProps>(), { padding: 16, minWidth: '200px', maxWidth: '100vw', width: 300 })
+const props = withDefaults(defineProps<SidebarProps>(), {
+  padding: 16,
+  minWidth: '200px',
+  maxWidth: '100vw',
+  width: 300,
+  compactWidth: 0,
+})
 const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
+const isCompact = ref<boolean>(false);
 const sidebarRef = ref<HTMLElement | null>(null);
-provide('sidebar-width', width)
-provide('sidebar-is-resizing', isResizing)
+provide('sidebar-width', width);
+provide('sidebar-is-resizing', isResizing);
+provide('sidebar-is-compact', isCompact);
 
 const startResizing = () => {
   isResizing.value = true;
@@ -41,6 +50,13 @@ const stopResizing = () => {
   document.body.style.userSelect = '';
 }
 
+watch(() => width.value, () => {
+  if (width.value < props.compactWidth) {
+    isCompact.value = true
+  } else {
+    isCompact.value = false
+  }
+})
 </script>
 
 <template>
