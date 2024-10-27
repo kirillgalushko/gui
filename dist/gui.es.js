@@ -142,11 +142,12 @@ const G0 = /* @__PURE__ */ j({
   __name: "Sidebar",
   props: {
     padding: { default: 16 },
+    width: { default: 300 },
     maxWidth: { default: "100vw" },
     minWidth: { default: "200px" }
   },
   setup(o) {
-    const e = o, l = N(400), n = N(!1), r = N(null), t = () => {
+    const e = o, l = N(e.width), n = N(!1), r = N(null), t = () => {
       n.value = !0, document.addEventListener("mousemove", i), document.addEventListener("mouseup", a), document.body.style.userSelect = "none";
     }, i = (s) => {
       if (n.value && s.clientX > 0 && r.value) {
@@ -177,7 +178,7 @@ const G0 = /* @__PURE__ */ j({
       z(s.$slots, "default", {}, void 0, !0)
     ], 4));
   }
-}), io = /* @__PURE__ */ S(e2, [["__scopeId", "data-v-1c6308b2"]]), l2 = /* @__PURE__ */ j({
+}), io = /* @__PURE__ */ S(e2, [["__scopeId", "data-v-2cc8fdfc"]]), l2 = /* @__PURE__ */ j({
   __name: "Stack",
   props: {
     direction: {},
