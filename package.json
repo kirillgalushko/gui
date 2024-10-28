@@ -39,6 +39,7 @@
     "vue": ">=3"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.1.5",
     "floating-vue": "5.2.2"
   }
 }
