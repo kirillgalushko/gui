@@ -1,12 +1,5 @@
-<template>
-  <div :class="['dropdownSeparator']"></div>
-</template>
+<script>
+import BaseMenuSeparator from '../BaseMenu/BaseMenuSeparator.vue';
 
-<style scoped>
-.dropdownSeparator {
-  width: 100%;
-  background-color: hsl(var(--muted));
-  height: 1px;
-  margin: 4px -4px;
-}
-</style>
+export default BaseMenuSeparator
+</script>
