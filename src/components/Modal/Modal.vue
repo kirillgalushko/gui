@@ -114,6 +114,7 @@ const gridTemplateAreas = computed(() => {
   grid-template-areas: "content close" "footer footer";
   grid-template-columns: 100% 0px;
   row-gap: 12px;
+  width: 100%;
 }
 
 .modal-layout.with-close {
