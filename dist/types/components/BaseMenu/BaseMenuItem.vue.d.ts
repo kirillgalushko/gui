@@ -1,4 +1,4 @@
-interface BaseMenuItemProps {
+export interface BaseMenuItemProps {
     showArrow?: boolean;
 }
 declare function __VLS_template(): {

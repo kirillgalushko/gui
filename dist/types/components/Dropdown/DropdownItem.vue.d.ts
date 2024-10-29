@@ -1,2 +1,3 @@
+import BaseMenuItem, { type BaseMenuItemProps } from '../BaseMenu/BaseMenuItem.vue';
+export type DropdownItemProps = BaseMenuItemProps;
 export default BaseMenuItem;
-import BaseMenuItem from '../BaseMenu/BaseMenuItem.vue';
