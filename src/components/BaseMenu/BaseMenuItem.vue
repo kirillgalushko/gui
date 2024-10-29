@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Icon from '../Icon/Icon.vue'
 
-interface BaseMenuItemProps {
+export interface BaseMenuItemProps {
   showArrow?: boolean
 }
 

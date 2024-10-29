@@ -19,6 +19,10 @@ import Badge, { type BadgeProps } from './components/Badge/Badge.vue'
 import SidebarItem, { type SidebarItemProps } from './components/Sidebar/SidebarItem.vue'
 import SidebarList from './components/Sidebar/SidebarList.vue'
 import Modal, { type ModalProps } from './components/Modal/Modal.vue'
+import Dropdown from './components/Dropdown/Dropdown.vue'
+import DropdownList from './components/Dropdown/DropdownList.vue';
+import DropdownItem, { type DropdownItemProps } from './components/Dropdown/DropdownItem.vue';
+import DropdownSeparator from './components/Dropdown/DropdownSeparator.vue';
 import { useResize } from './hooks/useResize';
 
 export { Button, ButtonProps,
@@ -38,6 +42,10 @@ export { Button, ButtonProps,
   Tooltip, TooltipProps,
   Badge, BadgeProps,
   Modal, ModalProps,
+  Dropdown,
+  DropdownList,
+  DropdownItem, DropdownItemProps,
+  DropdownSeparator,
   useTabs,
   useResize,
 };
