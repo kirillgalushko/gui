@@ -49,6 +49,8 @@ const props = withDefaults(defineProps<TooltipProps>(), { mode: 'default' })
   color: var(--tooltip-text-color);
   background-color: var(--tooltip-background-color);
   border: 1px solid var(--tooltip-border-color);
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .v-popper__arrow-container {
