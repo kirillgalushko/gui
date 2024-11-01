@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Teleport, Transition } from 'vue';
 import BaseMenu from '../BaseMenu/BaseMenu.vue'
 import { useHoverMenu } from './useHoverMenu';
 

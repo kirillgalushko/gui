@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseMenu from '../BaseMenu/BaseMenu.vue';
-import { computed, Teleport } from 'vue';
+import { computed } from 'vue';
 import { useContextMenu } from './useContextMenu';
 
 export interface ContextMenuProps {
