@@ -22,5 +22,6 @@ import Dropdown from './components/Dropdown/Dropdown.vue';
 import DropdownList from './components/Dropdown/DropdownList.vue';
 import DropdownItem, { type DropdownItemProps } from './components/Dropdown/DropdownItem.vue';
 import DropdownSeparator from './components/Dropdown/DropdownSeparator.vue';
+import Loader, { type LoaderProps } from './components/Loader/Loader.vue';
 import { useResize } from './hooks/useResize';
-export { Button, ButtonProps, Card, CardProps, Gap, GapProps, Input, InputProps, Row, RowProps, Stack, StackProps, Text, TextProps, Sidebar, SidebarList, SidebarItem, SidebarItemProps, Tab, TabProps, Tabs, TabsProps, Icon, IconProps, Separator, SeparatorProps, Tooltip, TooltipProps, Badge, BadgeProps, Modal, ModalProps, Dropdown, DropdownList, DropdownItem, DropdownItemProps, DropdownSeparator, useTabs, useResize, };
+export { Button, ButtonProps, Card, CardProps, Gap, GapProps, Input, InputProps, Row, RowProps, Stack, StackProps, Text, TextProps, Sidebar, SidebarList, SidebarItem, SidebarItemProps, Tab, TabProps, Tabs, TabsProps, Icon, IconProps, Separator, SeparatorProps, Tooltip, TooltipProps, Badge, BadgeProps, Modal, ModalProps, Dropdown, DropdownList, DropdownItem, DropdownItemProps, DropdownSeparator, Loader, LoaderProps, useTabs, useResize, };

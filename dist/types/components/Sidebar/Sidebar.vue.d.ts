@@ -17,9 +17,9 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SidebarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SidebarProps> & Readonly<{}>, {
+    width: number;
     padding: Padding;
     maxWidth: string;
-    width: number;
     minWidth: string;
     compactWidth: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;

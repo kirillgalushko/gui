@@ -2,6 +2,8 @@ export interface ButtonProps {
     mode?: 'default' | 'accent' | 'ghost';
     stretched?: boolean;
     squared?: boolean;
+    isLoading?: boolean;
+    disabled?: boolean;
 }
 declare function __VLS_template(): {
     slots: {
