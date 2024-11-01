@@ -24,6 +24,10 @@ import DropdownList from './components/Dropdown/DropdownList.vue';
 import DropdownItem, { type DropdownItemProps } from './components/Dropdown/DropdownItem.vue';
 import DropdownSeparator from './components/Dropdown/DropdownSeparator.vue';
 import Loader, { type LoaderProps } from './components/Loader/Loader.vue'
+import HoverMenu from './components/HoverMenu/HoverMenu.vue';
+import HoverMenuList from './components/HoverMenu/HoverMenuList.vue';
+import HoverMenuItem, { type HoverMenuItemProps } from './components/HoverMenu/HoverMenuItem.vue'
+import HoverMenuSeparator from './components/HoverMenu/HoverMenuSeparator.vue'
 import { useResize } from './hooks/useResize';
 
 export { Button, ButtonProps,
@@ -47,6 +51,10 @@ export { Button, ButtonProps,
   DropdownList,
   DropdownItem, DropdownItemProps,
   DropdownSeparator,
+  HoverMenu,
+  HoverMenuList,
+  HoverMenuItem, HoverMenuItemProps,
+  HoverMenuSeparator,
   Loader, LoaderProps,
   useTabs,
   useResize,
