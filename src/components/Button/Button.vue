@@ -6,16 +6,18 @@ export interface ButtonProps {
     stretched?: boolean;
     squared?: boolean;
     isLoading?: boolean;
+    disabled?: boolean;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 </script>
 
 <template>
-    <button v-bind="$attrs" :class="['button', props.mode, {
+    <button v-bind="$attrs" :disabled="props.disabled" :class="['button', props.mode, {
         'stretched': props.stretched,
         'squared': props.squared,
         'with-loader': props.isLoading,
+        'disabled': props.disabled,
     }]">
         <slot></slot>
         <div v-if="isLoading" class="button-loader">
@@ -59,11 +61,17 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
     font-size: 16px;
 }
 
-.button:hover {
+.disabled {
+    background-color: hsl(var(--button-bg) / .8);
+    color: hsl(var(--muted-foreground));
+    cursor: not-allowed;
+}
+
+.button:hover:not(.disabled) {
     background-color: hsl(var(--button-bg) / .8);
 }
 
-.button:active {
+.button:active:not(.disabled) {
     scale: 0.96;
 }
 
@@ -81,7 +89,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
     background-color: transparent;
 }
 
-.button.ghost:hover {
+.button.ghost:hover:not(.disabled) {
     background-color: hsl(var(--button-bg) / .8);
 }
 

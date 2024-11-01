@@ -18,6 +18,8 @@ const meta = {
     mode: 'default',
     stretched: false,
     squared: false,
+    // @ts-expect-error
+    onClick: fn(() => 'clicked'),
   },
 } satisfies Meta<typeof Button>;
 
@@ -60,4 +62,20 @@ export const Loading: Story = {
     template: '<Button v-bind="args">Loading</Button>',
   }),
 };
+
+export const Disabled: Story = {
+  args: {
+    mode: 'default',
+    default: 'Button',
+    disabled: true,
+  },
+  render: (args) => ({
+    components: { Button, Icon },
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Купить</Button>',
+  }),
+};
+
 
