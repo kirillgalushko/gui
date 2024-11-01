@@ -23,6 +23,7 @@ import Dropdown from './components/Dropdown/Dropdown.vue'
 import DropdownList from './components/Dropdown/DropdownList.vue';
 import DropdownItem, { type DropdownItemProps } from './components/Dropdown/DropdownItem.vue';
 import DropdownSeparator from './components/Dropdown/DropdownSeparator.vue';
+import Loader, { type LoaderProps } from './components/Loader/Loader.vue'
 import { useResize } from './hooks/useResize';
 
 export { Button, ButtonProps,
@@ -46,6 +47,7 @@ export { Button, ButtonProps,
   DropdownList,
   DropdownItem, DropdownItemProps,
   DropdownSeparator,
+  Loader, LoaderProps,
   useTabs,
   useResize,
 };
