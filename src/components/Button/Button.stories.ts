@@ -12,6 +12,7 @@ const meta = {
     mode: { control: 'select', options: ['default', 'accent', 'ghost'] },
     stretched: { control: 'boolean' },
     squared: { control: 'boolean' },
+    isLoading: { control: 'boolean' },
   },
   args: {
     mode: 'default',
@@ -42,6 +43,21 @@ export const IconButton: Story = {
       return { args };
     },
     template: '<Button v-bind="args"><Icon name="edit" /></Button>',
+  }),
+};
+
+export const Loading: Story = {
+  args: {
+    mode: 'default',
+    default: 'Button',
+    isLoading: true,
+  },
+  render: (args) => ({
+    components: { Button, Icon },
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Loading</Button>',
   }),
 };
 

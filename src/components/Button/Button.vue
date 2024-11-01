@@ -1,16 +1,26 @@
 <script setup lang="ts">
+import Loader from '../Loader/Loader.vue';
+
 export interface ButtonProps {
     mode?: 'default' | 'accent' | 'ghost',
     stretched?: boolean;
     squared?: boolean;
+    isLoading?: boolean;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 </script>
 
 <template>
-    <button v-bind="$attrs" :class="['button', props.mode, { 'stretched': props.stretched, 'squared': props.squared }]">
+    <button v-bind="$attrs" :class="['button', props.mode, {
+        'stretched': props.stretched,
+        'squared': props.squared,
+        'with-loader': props.isLoading,
+    }]">
         <slot></slot>
+        <div v-if="isLoading" class="button-loader">
+            <Loader />
+        </div>
     </button>
 </template>
 
@@ -39,6 +49,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
     font-family: inherit;
     gap: var(--gap-1);
     height: 40px;
+    position: relative;
 }
 
 .squared {
@@ -76,5 +87,22 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 
 .button.stretched {
     width: 100%;
+}
+
+.with-loader {
+    color: transparent
+}
+
+.button-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--button-text));
+    font-size: 18px;
 }
 </style>
