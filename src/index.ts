@@ -28,7 +28,13 @@ import HoverMenu from './components/HoverMenu/HoverMenu.vue';
 import HoverMenuList from './components/HoverMenu/HoverMenuList.vue';
 import HoverMenuItem, { type HoverMenuItemProps } from './components/HoverMenu/HoverMenuItem.vue'
 import HoverMenuSeparator from './components/HoverMenu/HoverMenuSeparator.vue'
+import ContextMenu, { type ContextMenuProps } from './components/ContextMenu/ContextMenu.vue';
+import ContextSubmenu from './components/ContextMenu/ContextSubmenu.vue';
+import ContextMenuList from './components/ContextMenu/ContextMenuList.vue';
+import ContextMenuItem, { type ContextMenuItemProps } from './components/ContextMenu/ContextMenuItem.vue'
+import ContextMenuSeparator from './components/ContextMenu/ContextMenuSeparator.vue'
 import { useResize } from './hooks/useResize';
+import { useContextMenu } from './components/ContextMenu/useContextMenu';
 
 export { Button, ButtonProps,
   Card, CardProps,
@@ -55,7 +61,13 @@ export { Button, ButtonProps,
   HoverMenuList,
   HoverMenuItem, HoverMenuItemProps,
   HoverMenuSeparator,
+  ContextMenu, ContextMenuProps,
+  ContextSubmenu,
+  ContextMenuList,
+  ContextMenuItem, ContextMenuItemProps,
+  ContextMenuSeparator,
   Loader, LoaderProps,
   useTabs,
   useResize,
+  useContextMenu,
 };

@@ -3,7 +3,7 @@ import BaseMenu from '../BaseMenu/BaseMenu.vue';
 import { computed, Teleport } from 'vue';
 import { useContextMenu } from './useContextMenu';
 
-interface ContextMenuProps {
+export interface ContextMenuProps {
   data: ReturnType<typeof useContextMenu>['contextMenuData']
 }
 
