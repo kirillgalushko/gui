@@ -54,6 +54,8 @@ onMounted(() => {
   user-select: none;
   z-index: 1;
   transition: all 0.15s;
+  text-align: center;
+  position: relative;
 }
 
 .stretched {
