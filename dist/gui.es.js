@@ -70,7 +70,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       ])) : R("", !0)
     ], 16, p2));
   }
-}), de = /* @__PURE__ */ V(y2, [["__scopeId", "data-v-bb4e7e0b"]]), w2 = /* @__PURE__ */ H({
+}), he = /* @__PURE__ */ V(y2, [["__scopeId", "data-v-bb4e7e0b"]]), w2 = /* @__PURE__ */ H({
   __name: "Card",
   props: {
     interactive: { type: Boolean, default: !1 },
@@ -93,7 +93,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       _: 3
     }, 8, ["class", "style", "onClick"]));
   }
-}), he = /* @__PURE__ */ V(w2, [["__scopeId", "data-v-6e9813e9"]]), f2 = /* @__PURE__ */ H({
+}), ce = /* @__PURE__ */ V(w2, [["__scopeId", "data-v-6e9813e9"]]), f2 = /* @__PURE__ */ H({
   __name: "Gap",
   props: {
     direction: {},
@@ -105,7 +105,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       class: _(["gap", e.direction, { [`gap-${e.default}`]: !!e.default }])
     }, null, 2));
   }
-}), ce = /* @__PURE__ */ V(f2, [["__scopeId", "data-v-123b2524"]]), C2 = /* @__PURE__ */ H({
+}), ue = /* @__PURE__ */ V(f2, [["__scopeId", "data-v-123b2524"]]), C2 = /* @__PURE__ */ H({
   __name: "Input",
   props: /* @__PURE__ */ U0({
     maxWidth: { default: "100%" }
@@ -149,7 +149,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       ], 512)
     ], 4));
   }
-}), ue = /* @__PURE__ */ V(C2, [["__scopeId", "data-v-c9ec5d57"]]), x2 = /* @__PURE__ */ H({
+}), Me = /* @__PURE__ */ V(C2, [["__scopeId", "data-v-c9ec5d57"]]), x2 = /* @__PURE__ */ H({
   __name: "Row",
   props: {
     fullHeight: { type: Boolean },
@@ -163,7 +163,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       f(l.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), Me = /* @__PURE__ */ V(x2, [["__scopeId", "data-v-2955d817"]]), B2 = ["href"], j2 = /* @__PURE__ */ H({
+}), ke = /* @__PURE__ */ V(x2, [["__scopeId", "data-v-2955d817"]]), B2 = ["href"], j2 = /* @__PURE__ */ H({
   __name: "Icon",
   props: {
     name: {},
@@ -227,7 +227,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       f(d.$slots, "default", {}, void 0, !0)
     ], 4));
   }
-}), ke = /* @__PURE__ */ V(z2, [["__scopeId", "data-v-90c01ddb"]]), H2 = /* @__PURE__ */ H({
+}), ve = /* @__PURE__ */ V(z2, [["__scopeId", "data-v-90c01ddb"]]), H2 = /* @__PURE__ */ H({
   __name: "Stack",
   props: {
     direction: {},
@@ -253,7 +253,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       f(l.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), ve = /* @__PURE__ */ V(H2, [["__scopeId", "data-v-9c2a4164"]]), V2 = ["data-name"], L2 = /* @__PURE__ */ H({
+}), me = /* @__PURE__ */ V(H2, [["__scopeId", "data-v-9c2a4164"]]), V2 = ["data-name"], L2 = /* @__PURE__ */ H({
   __name: "Tab",
   props: {
     name: {}
@@ -278,7 +278,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       f(h.$slots, "default", {}, void 0, !0)
     ], 42, V2));
   }
-}), me = /* @__PURE__ */ V(L2, [["__scopeId", "data-v-8ae8f3f9"]]), A2 = (o, e) => {
+}), pe = /* @__PURE__ */ V(L2, [["__scopeId", "data-v-8ae8f3f9"]]), A2 = (o, e) => {
   const l = w([]), n = w();
   return {
     tabs: l,
@@ -334,7 +334,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       f(s.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), pe = /* @__PURE__ */ V(g2, [["__scopeId", "data-v-cb84fc23"]]), q2 = /* @__PURE__ */ H({
+}), be = /* @__PURE__ */ V(g2, [["__scopeId", "data-v-cb84fc23"]]), q2 = /* @__PURE__ */ H({
   __name: "Text",
   props: {
     typography: {},
@@ -365,7 +365,7 @@ const k2 = ["width", "height"], v2 = /* @__PURE__ */ H({
       class: _(["separator", e.direction])
     }, null, 2));
   }
-}), be = /* @__PURE__ */ V($2, [["__scopeId", "data-v-72c3d5da"]]), S2 = ["top", "right", "bottom", "left"], t0 = ["start", "end"], a0 = /* @__PURE__ */ S2.reduce((o, e) => o.concat(e, e + "-" + t0[0], e + "-" + t0[1]), []), B1 = Math.min, d1 = Math.max, T2 = {
+}), ye = /* @__PURE__ */ V($2, [["__scopeId", "data-v-72c3d5da"]]), S2 = ["top", "right", "bottom", "left"], t0 = ["start", "end"], a0 = /* @__PURE__ */ S2.reduce((o, e) => o.concat(e, e + "-" + t0[0], e + "-" + t0[1]), []), B1 = Math.min, d1 = Math.max, T2 = {
   left: "right",
   right: "left",
   bottom: "top",
@@ -2544,7 +2544,7 @@ const Co = wo, xo = fo, Bo = /* @__PURE__ */ H({
       f(l.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), ye = /* @__PURE__ */ V(zo, [["__scopeId", "data-v-39d2bfca"]]);
+}), we = /* @__PURE__ */ V(zo, [["__scopeId", "data-v-39d2bfca"]]);
 function Ho(o, e) {
   const l = w(null);
   T1(() => {
@@ -2608,7 +2608,7 @@ const Vo = {
       _: 3
     }, 8, ["disabled"]));
   }
-}), we = /* @__PURE__ */ V(Ao, [["__scopeId", "data-v-d5524de1"]]), go = {}, qo = {
+}), fe = /* @__PURE__ */ V(Ao, [["__scopeId", "data-v-d5524de1"]]), go = {}, qo = {
   class: /* @__PURE__ */ _(["SidebarList"])
 };
 function _o(o, e) {
@@ -2616,7 +2616,7 @@ function _o(o, e) {
     f(o.$slots, "default", {}, void 0, !0)
   ]);
 }
-const fe = /* @__PURE__ */ V(go, [["render", _o], ["__scopeId", "data-v-c78295bd"]]), $o = {};
+const Ce = /* @__PURE__ */ V(go, [["render", _o], ["__scopeId", "data-v-c78295bd"]]), $o = {};
 function So(o, e) {
   return m(), x("button", M1(o.$attrs, { class: ["action"] }), [
     f(o.$slots, "default", {}, void 0, !0)
@@ -2686,7 +2686,7 @@ const To = /* @__PURE__ */ V($o, [["render", So], ["__scopeId", "data-v-9ab5b942
       ])
     ])) : R("", !0);
   }
-}), Ce = /* @__PURE__ */ V(Io, [["__scopeId", "data-v-b0f6d1d8"]]), Fo = /* @__PURE__ */ H({
+}), xe = /* @__PURE__ */ V(Io, [["__scopeId", "data-v-b0f6d1d8"]]), Fo = /* @__PURE__ */ H({
   __name: "Dropdown",
   setup(o) {
     return (e, l) => (m(), G(z(Co), M1(e.$attrs, {
@@ -2702,7 +2702,7 @@ const To = /* @__PURE__ */ V($o, [["render", So], ["__scopeId", "data-v-9ab5b942
       _: 3
     }, 16));
   }
-}), xe = /* @__PURE__ */ V(Fo, [["__scopeId", "data-v-a7bc8501"]]), Wo = {}, Qo = {
+}), Be = /* @__PURE__ */ V(Fo, [["__scopeId", "data-v-a7bc8501"]]), Wo = {}, Qo = {
   class: /* @__PURE__ */ _(["base-menu-list"])
 };
 function Go(o, e) {
@@ -2710,7 +2710,7 @@ function Go(o, e) {
     f(o.$slots, "default", {}, void 0, !0)
   ]);
 }
-const Be = /* @__PURE__ */ V(Wo, [["render", Go], ["__scopeId", "data-v-37f81d20"]]), Xo = {
+const je = /* @__PURE__ */ V(Wo, [["render", Go], ["__scopeId", "data-v-37f81d20"]]), Xo = {
   class: /* @__PURE__ */ _(["base-menu-item"])
 }, Yo = { class: "base-menu-item-content" }, Uo = /* @__PURE__ */ H({
   __name: "BaseMenuItem",
@@ -2729,13 +2729,13 @@ const Be = /* @__PURE__ */ V(Wo, [["render", Go], ["__scopeId", "data-v-37f81d20
       })) : R("", !0)
     ]));
   }
-}), je = /* @__PURE__ */ V(Uo, [["__scopeId", "data-v-841ff448"]]), Ko = {}, Zo = {
+}), ze = /* @__PURE__ */ V(Uo, [["__scopeId", "data-v-cd483143"]]), Ko = {}, Zo = {
   class: /* @__PURE__ */ _(["base-menu-separator"])
 };
 function Jo(o, e) {
   return m(), x("div", Zo);
 }
-const ze = /* @__PURE__ */ V(Ko, [["render", Jo], ["__scopeId", "data-v-18cb578c"]]), oe = /* @__PURE__ */ H({
+const He = /* @__PURE__ */ V(Ko, [["render", Jo], ["__scopeId", "data-v-18cb578c"]]), oe = /* @__PURE__ */ H({
   __name: "BaseMenu",
   setup(o, { expose: e }) {
     const l = w();
@@ -2747,7 +2747,7 @@ const ze = /* @__PURE__ */ V(Ko, [["render", Jo], ["__scopeId", "data-v-18cb578c
       f(n.$slots, "default", {}, void 0, !0)
     ], 16));
   }
-}), F0 = /* @__PURE__ */ V(oe, [["__scopeId", "data-v-ebabbb8e"]]);
+}), F0 = /* @__PURE__ */ V(oe, [["__scopeId", "data-v-c174827d"]]);
 function ee() {
   return typeof window < "u";
 }
@@ -2923,7 +2923,7 @@ const ie = () => {
       ]))
     ], 64));
   }
-}), He = /* @__PURE__ */ V(te, [["__scopeId", "data-v-189d461b"]]), ae = /* @__PURE__ */ H({
+}), Ve = /* @__PURE__ */ V(te, [["__scopeId", "data-v-189d461b"]]), ae = /* @__PURE__ */ H({
   __name: "ContextMenu",
   props: {
     data: {}
@@ -2960,55 +2960,63 @@ const ie = () => {
       ]))
     ], 64));
   }
-}), Ve = /* @__PURE__ */ V(ae, [["__scopeId", "data-v-426b5976"]]), Le = () => {
+}), Le = /* @__PURE__ */ V(ae, [["__scopeId", "data-v-426b5976"]]), se = (o, e) => {
+  for (; o; ) {
+    if (o === e) return !0;
+    o = o.parentNode;
+  }
+  return !1;
+}, Ae = () => {
   const o = w(!1), e = w({ x: 0, y: 0 }), l = w(null), n = w(null), r = w(null), i = w([e0(), l0()]), { floatingStyles: t, update: a } = G0(n, r, {
     placement: "right-start",
     strategy: "fixed",
     middleware: i
-  }), s = (h) => {
-    h.preventDefault(), e.value = { x: h.clientX, y: h.clientY }, o.value = !0, a();
+  }), s = (c) => {
+    console.log("show"), c.preventDefault(), e.value = { x: c.clientX, y: c.clientY }, o.value = !0, a();
   }, d = () => {
     o.value = !1;
+  }, h = (c) => {
+    l.value && !se(c.target, l.value) && (o.value = !1);
   };
   return T1(() => {
-    l.value && (l.value.addEventListener("contextmenu", s), document.addEventListener("click", d));
+    l.value && (l.value.addEventListener("contextmenu", s), document.addEventListener("click", d), document.addEventListener("contextmenu", h));
   }), U1(() => {
-    l.value && l.value.removeEventListener("contextmenu", s), document.removeEventListener("click", d);
+    l.value && (l.value.removeEventListener("contextmenu", s), document.removeEventListener("click", d), document.addEventListener("contextmenu", h));
   }), { contextMenuData: { floatingStyles: t, floatingRef: r, position: e, positionRef: n, isContextMenuVisible: o }, targetRef: l };
 };
 export {
-  ye as Badge,
-  de as Button,
-  he as Card,
-  Ve as ContextMenu,
-  je as ContextMenuItem,
-  Be as ContextMenuList,
-  ze as ContextMenuSeparator,
-  He as ContextSubmenu,
-  xe as Dropdown,
-  je as DropdownItem,
-  Be as DropdownList,
-  ze as DropdownSeparator,
-  ce as Gap,
-  He as HoverMenu,
-  je as HoverMenuItem,
-  Be as HoverMenuList,
-  ze as HoverMenuSeparator,
+  we as Badge,
+  he as Button,
+  ce as Card,
+  Le as ContextMenu,
+  ze as ContextMenuItem,
+  je as ContextMenuList,
+  He as ContextMenuSeparator,
+  Ve as ContextSubmenu,
+  Be as Dropdown,
+  ze as DropdownItem,
+  je as DropdownList,
+  He as DropdownSeparator,
+  ue as Gap,
+  Ve as HoverMenu,
+  ze as HoverMenuItem,
+  je as HoverMenuList,
+  He as HoverMenuSeparator,
   Z1 as Icon,
-  ue as Input,
+  Me as Input,
   m2 as Loader,
-  Ce as Modal,
-  Me as Row,
-  be as Separator,
-  ke as Sidebar,
-  we as SidebarItem,
-  fe as SidebarList,
-  ve as Stack,
-  me as Tab,
-  pe as Tabs,
+  xe as Modal,
+  ke as Row,
+  ye as Separator,
+  ve as Sidebar,
+  fe as SidebarItem,
+  Ce as SidebarList,
+  me as Stack,
+  pe as Tab,
+  be as Tabs,
   _2 as Text,
   jo as Tooltip,
-  Le as useContextMenu,
+  Ae as useContextMenu,
   Ho as useResize,
   A2 as useTabs
 };
