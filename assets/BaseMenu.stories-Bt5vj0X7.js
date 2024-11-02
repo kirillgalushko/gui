@@ -1,4 +1,4 @@
-import{B as t}from"./BaseMenu-Djlb1scR.js";import{B as m,a as o,b as u}from"./BaseMenuSeparator-B3Zk17uj.js";import{I as B}from"./Icon-c9maYRQP.js";import"./vue.esm-bundler-DUApOrFq.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const l={title:"Example/BaseMenu",component:t,tags:["autodocs"]},e={args:{},render:r=>({components:{BaseMenu:t,BaseMenuItem:m,BaseMenuList:o,BaseMenuSeparator:u,Icon:B},setup(){return{args:r}},template:`
+import{B as t}from"./BaseMenu-ch8TRp0L.js";import{B as m,a as o,b as u}from"./BaseMenuSeparator-ecytnB9J.js";import{I as B}from"./Icon-c9maYRQP.js";import"./vue.esm-bundler-DUApOrFq.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const l={title:"Example/BaseMenu",component:t,tags:["autodocs"]},e={args:{},render:r=>({components:{BaseMenu:t,BaseMenuItem:m,BaseMenuList:o,BaseMenuSeparator:u,Icon:B},setup(){return{args:r}},template:`
       <BaseMenu v-bind="args">
         <BaseMenuList>
           <BaseMenuItem><Icon name="pencil" />Открыть</BaseMenuItem>
