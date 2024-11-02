@@ -98,7 +98,8 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 }
 
 .with-loader {
-    color: transparent
+    color: transparent;
+    cursor: progress;
 }
 
 .button-loader {
