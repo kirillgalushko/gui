@@ -26,5 +26,6 @@ defineExpose({ menuRef })
   background-color: var(--menu-background-color);
   border: 1px solid var(--menu-border-color);
   width: max-content;
+  z-index: 99;
 }
 </style>
