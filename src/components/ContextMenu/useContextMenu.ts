@@ -23,7 +23,6 @@ export const useContextMenu = () => {
   });
 
   const showContextMenu = (event: MouseEvent) => {
-    console.log('show')
     event.preventDefault();
     position.value = { x: event.clientX, y: event.clientY };
     isContextMenuVisible.value = true;

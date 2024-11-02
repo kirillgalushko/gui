@@ -13,7 +13,6 @@ const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
 const inputStyles = computed(() => {
   const getPadding = ((element: Ref<HTMLDivElement | undefined>) => {
     if (element.value?.clientWidth) {
-      console.log(element.value?.clientWidth, element)
       return element.value?.clientWidth + 20
     }
     return 12
