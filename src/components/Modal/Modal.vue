@@ -30,28 +30,30 @@ const gridTemplateAreas = computed(() => {
 </script>
 
 <template>
-  <div v-if="props.isOpened">
-    <div class="modal-bg"></div>
-    <div class="modal">
-      <div :style="{ gridTemplateAreas }"
-        :class="['modal-layout', { 'with-title': !!props.title, 'with-close': !!props.showCloseButton }]">
-        <div v-if="props.title" class="modal-title">
-          <Text typography="title-3-semibold">{{ props.title }}</Text>
-        </div>
-        <div v-if="props.showCloseButton" class="modal-close">
-          <Action @click="props.onClose">
-            <Icon name="x" />
-          </Action>
-        </div>
-        <div class="modal-content">
-          <slot></slot>
-        </div>
-        <div v-if="$slots.footer" class="modal-footer">
-          <slot name="footer"></slot>
+  <Transition name="fade">
+    <div v-if="props.isOpened">
+      <div class="modal-bg"></div>
+      <div class="modal">
+        <div :style="{ gridTemplateAreas }"
+          :class="['modal-layout', { 'with-title': !!props.title, 'with-close': !!props.showCloseButton }]">
+          <div v-if="props.title" class="modal-title">
+            <Text typography="title-3-semibold">{{ props.title }}</Text>
+          </div>
+          <div v-if="props.showCloseButton" class="modal-close">
+            <Action @click="props.onClose">
+              <Icon name="x" />
+            </Action>
+          </div>
+          <div class="modal-content">
+            <slot></slot>
+          </div>
+          <div v-if="$slots.footer" class="modal-footer">
+            <slot name="footer"></slot>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style scoped>
@@ -82,30 +84,6 @@ const gridTemplateAreas = computed(() => {
   display: flex;
   max-height: 70vh;
   background-color: hsl(var(--background));
-  animation-name: enter, up;
-  animation-duration: .3s;
-  animation-delay: .1s;
-  animation-fill-mode: both;
-}
-
-@keyframes enter {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes up {
-  0% {
-    top: 52%;
-  }
-
-  100% {
-    top: 50%
-  }
 }
 
 .modal-layout {
@@ -147,5 +125,27 @@ const gridTemplateAreas = computed(() => {
   display: flex;
   gap: 12px;
   justify-content: end;
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.fade-enter-active .modal,
+.fade-leave-active .modal {
+  transition: all 0.2s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-from .modal,
+.fade-leave-to .modal {
+  top: 52%;
+}
+
+.fade-enter-to .modal,
+.fade-leave-from .modal {
+  top: 50%;
 }
 </style>
