@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/blocks";
 
 import Github from "./assets/github.svg";
+import Logo from "./assets/gui.svg";
 
 export const RightArrow = () => <svg 
     viewBox="0 0 14 14" 
@@ -21,9 +22,9 @@ export const RightArrow = () => <svg
 <Meta title="GUI" />
 
 <div className="sb-container">
+  <img src={Logo} className="logo" />
   <div className='sb-section-title'>
-    # Что такое GUI?
-
+    # Что такое GUI? 
     GUI — это минималистичная библиотека компонентов с открытым исходным кодом, предназначенная для личного использования в проектах [@kirillgalushko](https://github.com/kirillgalushko). Она построена на [Vue](https://vuejs.org/), с использованием [Vite](https://vite.dev/) для сборки и [Storybook](https://storybook.js.org/) для документирования компонентов.
   </div>
 </div>
@@ -41,6 +42,11 @@ export const RightArrow = () => <svg
 
 <style>
   {`
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
   .sb-container {
     margin-bottom: 48px;
   }
