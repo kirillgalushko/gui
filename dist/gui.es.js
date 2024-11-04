@@ -3088,7 +3088,7 @@ const de = () => {
       _: 3
     }));
   }
-}), Te = /* @__PURE__ */ V(me, [["__scopeId", "data-v-12b4d7c1"]]), Pe = /* @__PURE__ */ z({
+}), Te = /* @__PURE__ */ V(me, [["__scopeId", "data-v-eda34085"]]), Pe = /* @__PURE__ */ z({
   __name: "SelectOption",
   props: {
     showArrow: { type: Boolean },
@@ -3188,6 +3188,7 @@ export {
   Oe as useConfirm,
   Re as useContextMenu,
   X0 as useResize,
+  Me as useSelect,
   ue as useSize,
   _2 as useTabs
 };
