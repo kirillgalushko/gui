@@ -33,6 +33,8 @@ import ContextSubmenu from './components/ContextMenu/ContextSubmenu.vue';
 import ContextMenuList from './components/ContextMenu/ContextMenuList.vue';
 import ContextMenuItem, { type ContextMenuItemProps } from './components/ContextMenu/ContextMenuItem.vue'
 import ContextMenuSeparator from './components/ContextMenu/ContextMenuSeparator.vue'
+import Confirm, { type ConfirmProps } from './components/Confirm/Confirm.vue'
+import { useConfirm } from './components/Confirm/useConfirm';
 import { useResize } from './hooks/useResize';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
 
@@ -67,6 +69,8 @@ export { Button, ButtonProps,
   ContextMenuItem, ContextMenuItemProps,
   ContextMenuSeparator,
   Loader, LoaderProps,
+  Confirm, ConfirmProps,
+  useConfirm,
   useTabs,
   useResize,
   useContextMenu,
