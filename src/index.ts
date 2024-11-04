@@ -34,6 +34,8 @@ import ContextMenuList from './components/ContextMenu/ContextMenuList.vue';
 import ContextMenuItem, { type ContextMenuItemProps } from './components/ContextMenu/ContextMenuItem.vue'
 import ContextMenuSeparator from './components/ContextMenu/ContextMenuSeparator.vue'
 import Confirm, { type ConfirmProps } from './components/Confirm/Confirm.vue'
+import Select, { type SelectProps } from './components/Select/Select.vue'
+import SelectOption, { type SelectOptionProps } from './components/Select/SelectOption.vue';
 import { useConfirm } from './components/Confirm/useConfirm';
 import { useResize } from './hooks/useResize';
 import { useSize } from './hooks/useSize';
@@ -71,6 +73,8 @@ export { Button, ButtonProps,
   ContextMenuSeparator,
   Loader, LoaderProps,
   Confirm, ConfirmProps,
+  Select, SelectProps,
+  SelectOption, SelectOptionProps,
   useConfirm,
   useTabs,
   useResize,
