@@ -36,6 +36,7 @@ import ContextMenuSeparator from './components/ContextMenu/ContextMenuSeparator.
 import Confirm, { type ConfirmProps } from './components/Confirm/Confirm.vue'
 import { useConfirm } from './components/Confirm/useConfirm';
 import { useResize } from './hooks/useResize';
+import { useSize } from './hooks/useSize';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
 
 export { Button, ButtonProps,
@@ -73,5 +74,6 @@ export { Button, ButtonProps,
   useConfirm,
   useTabs,
   useResize,
+  useSize,
   useContextMenu,
 };
