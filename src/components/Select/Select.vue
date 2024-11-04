@@ -3,14 +3,14 @@ import Dropdown from '../Dropdown/Dropdown.vue';
 import Icon from '../Icon/Icon.vue'
 import { useSize } from '../../hooks/useSize';
 import { computed, provide, watch } from 'vue';
-import { useSelect } from './useSelect';
+import { RegisteredOption, useSelect } from './useSelect';
 
 export interface SelectProps {
   stretched?: boolean
   label?: string
   value?: string
   name?: string
-  onChange?: () => void
+  onChange?: (option: RegisteredOption) => void
 }
 
 const props = defineProps<SelectProps>()
