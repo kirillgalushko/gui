@@ -1,9 +1,10 @@
+import { RegisteredOption } from './useSelect';
 export interface SelectProps {
     stretched?: boolean;
     label?: string;
     value?: string;
     name?: string;
-    onChange?: () => void;
+    onChange?: (option: RegisteredOption) => void;
 }
 declare function __VLS_template(): {
     slots: {
