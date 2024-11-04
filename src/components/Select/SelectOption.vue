@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { inject, onMounted } from 'vue';
 import BaseMenuItem, { type BaseMenuItemProps } from '../BaseMenu/BaseMenuItem.vue';
-import useSelect from './useSelect';
+import { useSelect } from './useSelect';
 
 export type SelectOptionProps = BaseMenuItemProps & {
   label: string;

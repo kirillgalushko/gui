@@ -3,7 +3,7 @@ import Dropdown from '../Dropdown/Dropdown.vue';
 import Icon from '../Icon/Icon.vue'
 import { useSize } from '../../hooks/useSize';
 import { computed, provide, watch } from 'vue';
-import useSelect from './useSelect';
+import { useSelect } from './useSelect';
 
 export interface SelectProps {
   stretched?: boolean

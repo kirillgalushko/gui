@@ -5,7 +5,7 @@ export interface RegisteredOption {
   label: string
 }
 
-const useSelect = (defaultOptionValue?: string, onChange?: (option: RegisteredOption) => void) => {
+export const useSelect = (defaultOptionValue?: string, onChange?: (option: RegisteredOption) => void) => {
   const options = ref<Map<string, string>>(new Map());
   const selectedOption = ref();
 
@@ -28,5 +28,3 @@ const useSelect = (defaultOptionValue?: string, onChange?: (option: RegisteredOp
     selectOption,
   };
 };
-
-export default useSelect;
