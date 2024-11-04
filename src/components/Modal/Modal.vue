@@ -67,7 +67,17 @@ const gridTemplateAreas = computed(() => {
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
   animation-name: enter;
-  animation-duration: .15s;
+  animation-duration: .2s;
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .modal {
