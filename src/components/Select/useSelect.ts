@@ -10,7 +10,7 @@ export const useSelect = (defaultOptionValue?: string, onChange?: (option: Regis
   const selectedOption = ref();
 
   const registerOption = (option: RegisteredOption) => {
-    if (defaultOptionValue && option.value === defaultOptionValue) {
+    if (defaultOptionValue && option.value === defaultOptionValue && !selectedOption.value) {
       selectedOption.value = option;
     }
     options.value.set(option.value, option.label);
