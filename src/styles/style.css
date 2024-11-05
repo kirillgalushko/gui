@@ -27,3 +27,7 @@
   background-color: hsl(var(--muted)) !important;
   border-radius: 8px;
 }
+
+:focus-visible {
+  outline-color: 2px solid;
+}
