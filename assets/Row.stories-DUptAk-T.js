@@ -1,4 +1,4 @@
-import{R as n}from"./Row-C3mxl_ue.js";import{C as c}from"./Card-BdTJVfWJ.js";import"./vue.esm-bundler-0yPEwasB.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const h={title:"Example/Row",component:n,tags:["autodocs"],argTypes:{fullHeight:{control:"boolean",description:"Устанавливает высоту строки на 100%"},alignItems:{control:"select",description:"Устанавливает высоту строки на 100%",options:["start","center","end"]}}},i=`
+import{R as n}from"./Row-C3mxl_ue.js";import{C as c}from"./Card-D3ZO2Vd9.js";import"./vue.esm-bundler-0yPEwasB.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const h={title:"Example/Row",component:n,tags:["autodocs"],argTypes:{fullHeight:{control:"boolean",description:"Устанавливает высоту строки на 100%"},alignItems:{control:"select",description:"Устанавливает высоту строки на 100%",options:["start","center","end"]}}},i=`
       <Row v-bind="args">
         <Card>1<br/>1</Card>
         <Card>2<br/><br/>2</Card>
