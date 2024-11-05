@@ -29,5 +29,5 @@
 }
 
 :focus-visible {
-  outline-color: 2px solid;
+  outline: 2px solid;
 }
