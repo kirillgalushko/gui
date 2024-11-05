@@ -31,7 +31,7 @@ const gridTemplateAreas = computed(() => {
 
 <template>
   <Transition name="fade">
-    <div v-if="props.isOpened">
+    <div class="modal-wrapper" v-if="props.isOpened">
       <div class="modal-bg"></div>
       <div class="modal" role="dialog">
         <div :style="{ gridTemplateAreas }"
@@ -57,6 +57,10 @@ const gridTemplateAreas = computed(() => {
 </template>
 
 <style scoped>
+.modal-wrapper {
+  z-index: 100;
+}
+
 .modal-bg {
   position: fixed;
   top: 0;
