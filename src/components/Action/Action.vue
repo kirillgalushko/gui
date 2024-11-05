@@ -13,7 +13,7 @@
   font-size: 24px;
   background-color: transparent;
   color: hsl(var(--foreground));
-  transition: all 0.2s;
+  transition: scale 0.2s, background-color 0.2s, color 0.2s;
   padding: 0;
 }
 
@@ -22,7 +22,8 @@
 }
 
 .action:focus-visible {
-  border: hsl(var(--border));
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
 }
 
 .action:active {

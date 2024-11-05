@@ -96,7 +96,6 @@ const gridTemplateAreas = computed(() => {
 }
 
 .modal-layout {
-  overflow: hidden;
   display: grid;
   grid-template-areas: "content close" "footer footer";
   grid-template-columns: 100% 0px;

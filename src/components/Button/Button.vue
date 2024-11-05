@@ -30,6 +30,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 .button {
     --button-bg: var(--secondary);
     --button-text: var(--secondary-foreground);
+    --button-outline: var(--ring);
 
     background-color: hsl(var(--button-bg));
     color: hsl(var(--button-text));
@@ -76,13 +77,14 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 }
 
 .button:focus-visible {
-    outline: 2px solid hsl(var(--ring));
+    outline: 2px solid hsl(var(--button-outline));
     outline-offset: -2px;
 }
 
 .button.accent {
     --button-bg: var(--primary);
     --button-text: var(--primary-foreground);
+    --button-outline: var(--muted-foreground);
 }
 
 .button.ghost {

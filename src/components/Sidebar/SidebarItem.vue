@@ -75,6 +75,11 @@ useResize(buttonElement, checkEllipsis)
   scale: 0.98;
 }
 
+.SidebarItem:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
+}
+
 .selected {
   color: hsl(var(--accent-foreground));
   background-color: hsl(var(--accent));

@@ -76,6 +76,11 @@ watch(() => props.value, () => {
   white-space: nowrap;
 }
 
+.select-toggle:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
+}
+
 .stretched {
   width: 100%;
 }
