@@ -77,7 +77,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 
 .button:focus-visible {
     outline: 2px solid hsl(var(--ring));
-    outline-offset: 2px;
+    outline-offset: -2px;
 }
 
 .button.accent {

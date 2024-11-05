@@ -57,7 +57,8 @@ const inputStyles = computed(() => {
 }
 
 .input:focus-visible {
-  border: 2px solid hsl(var(--ring));
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: -2px;
 }
 
 .adornment {

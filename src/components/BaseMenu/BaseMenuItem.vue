@@ -45,7 +45,7 @@ const props = defineProps<BaseMenuItemProps>()
 }
 
 .base-menu-item:focus-visible {
-  border: 2px solid hsl(var(--ring));
+  outline: 2px solid hsl(var(--ring));
   transition: none;
 }
 
