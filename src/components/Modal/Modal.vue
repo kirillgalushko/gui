@@ -33,7 +33,7 @@ const gridTemplateAreas = computed(() => {
   <Transition name="fade">
     <div v-if="props.isOpened">
       <div class="modal-bg"></div>
-      <div class="modal">
+      <div class="modal" role="dialog">
         <div :style="{ gridTemplateAreas }"
           :class="['modal-layout', { 'with-title': !!props.title, 'with-close': !!props.showCloseButton }]">
           <div v-if="props.title" class="modal-title">
