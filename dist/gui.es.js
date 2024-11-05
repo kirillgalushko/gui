@@ -93,7 +93,7 @@ const p2 = ["width", "height"], b2 = /* @__PURE__ */ z({
       _: 3
     }, 8, ["class", "style", "onClick"]));
   }
-}), ye = /* @__PURE__ */ V(x2, [["__scopeId", "data-v-a964ab88"]]), B2 = /* @__PURE__ */ z({
+}), ye = /* @__PURE__ */ V(x2, [["__scopeId", "data-v-4daf8be5"]]), B2 = /* @__PURE__ */ z({
   __name: "Gap",
   props: {
     direction: {},
@@ -2622,7 +2622,10 @@ function To(o, e) {
     f(o.$slots, "default", {}, void 0, !0)
   ], 16);
 }
-const Po = /* @__PURE__ */ V(So, [["render", To], ["__scopeId", "data-v-d9072866"]]), Oo = { key: 0 }, Ro = { class: "modal" }, No = {
+const Po = /* @__PURE__ */ V(So, [["render", To], ["__scopeId", "data-v-d9072866"]]), Oo = { key: 0 }, Ro = {
+  class: "modal",
+  role: "dialog"
+}, No = {
   key: 0,
   class: "modal-title"
 }, Do = {
@@ -2691,7 +2694,7 @@ const Po = /* @__PURE__ */ V(So, [["render", To], ["__scopeId", "data-v-d9072866
       _: 3
     }));
   }
-}), Wo = /* @__PURE__ */ V(Fo, [["__scopeId", "data-v-997aa8b7"]]), Qo = /* @__PURE__ */ z({
+}), Wo = /* @__PURE__ */ V(Fo, [["__scopeId", "data-v-d25c1444"]]), Qo = /* @__PURE__ */ z({
   __name: "Dropdown",
   setup(o) {
     return (e, l) => (m(), O(H(Bo), d1(e.$attrs, {
