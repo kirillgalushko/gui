@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<CardProps>(), {
     border-radius: 8px;
     padding: 12px;
     display: inline-block;
-    font-family: 'Inter', Helvetica, system-ui, Avenir, Arial, sans-serif;
+    font-family: var(--font-family);
 }
 
 .default {
@@ -56,12 +56,21 @@ const props = withDefaults(defineProps<CardProps>(), {
 
 .interactive {
     text-align: initial;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, scale 0.2s;
     cursor: pointer;
 }
 
 .interactive:hover {
     background-color: hsl(var(--secondary));
+}
+
+.interactive:active {
+    scale: 0.99;
+}
+
+.interactive:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: -2px;
 }
 
 .stretched {
