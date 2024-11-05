@@ -2622,7 +2622,10 @@ function To(o, e) {
     f(o.$slots, "default", {}, void 0, !0)
   ], 16);
 }
-const Po = /* @__PURE__ */ V(So, [["render", To], ["__scopeId", "data-v-d9072866"]]), Oo = { key: 0 }, Ro = {
+const Po = /* @__PURE__ */ V(So, [["render", To], ["__scopeId", "data-v-d9072866"]]), Oo = {
+  key: 0,
+  class: "modal-wrapper"
+}, Ro = {
   class: "modal",
   role: "dialog"
 }, No = {
@@ -2694,7 +2697,7 @@ const Po = /* @__PURE__ */ V(So, [["render", To], ["__scopeId", "data-v-d9072866
       _: 3
     }));
   }
-}), Wo = /* @__PURE__ */ V(Fo, [["__scopeId", "data-v-d25c1444"]]), Qo = /* @__PURE__ */ z({
+}), Wo = /* @__PURE__ */ V(Fo, [["__scopeId", "data-v-06d467dd"]]), Qo = /* @__PURE__ */ z({
   __name: "Dropdown",
   setup(o) {
     return (e, l) => (m(), O(H(Bo), d1(e.$attrs, {
