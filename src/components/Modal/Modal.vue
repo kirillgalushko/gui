@@ -59,6 +59,7 @@ const gridTemplateAreas = computed(() => {
 <style scoped>
 .modal-wrapper {
   z-index: 100;
+  position: fixed;
 }
 
 .modal-bg {
