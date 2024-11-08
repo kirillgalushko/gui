@@ -3,8 +3,8 @@
   "private": true,
   "version": "3.12.7",
   "type": "module",
-  "main": "./dist/gui.es.js",
-  "module": "./dist/gui.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "files": [
     "dist/**/*"
