@@ -3,7 +3,7 @@ import { ref, provide, watch } from 'vue'
 import Icon from '../Icon/Icon.vue';
 import { Padding } from '../../types';
 
-interface SidebarProps {
+export interface SidebarProps {
   padding?: Padding;
   width?: number;
   maxWidth?: string;
