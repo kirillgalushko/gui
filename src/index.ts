@@ -1,82 +1,50 @@
-import './styles/style.css'
-import 'virtual:svg-icons-register'
+import { defineAsyncComponent as ac } from 'vue';
+import './styles/style.css';
 
-import Button, { type ButtonProps } from './components/Button/Button.vue';
-import Card, { type CardProps } from './components/Card/Card.vue';
-import Gap, { type GapProps } from './components/Gap/Gap.vue';
-import Input, { type InputProps } from './components/Input/Input.vue';
-import Row, { type RowProps } from './components/Row/Row.vue';
-import Sidebar from './components/Sidebar/Sidebar.vue';
-import Stack, { type StackProps } from './components/Stack/Stack.vue';
-import Tab, { type TabProps } from './components/Tabs/Tab.vue';
-import Tabs, { type TabsProps } from './components/Tabs/Tabs.vue';
-import useTabs from './components/Tabs/useTabs'
-import Text, { type TextProps } from './components/Text/Text.vue';
-import Icon, { type IconProps } from './components/Icon/Icon.vue';
-import Separator, { type SeparatorProps } from './components/Separator/Separator.vue';
-import Tooltip, { type TooltipProps } from './components/Tooltip/Tooltip.vue'
-import Badge, { type BadgeProps } from './components/Badge/Badge.vue'
-import SidebarItem, { type SidebarItemProps } from './components/Sidebar/SidebarItem.vue'
-import SidebarList from './components/Sidebar/SidebarList.vue'
-import Modal, { type ModalProps } from './components/Modal/Modal.vue'
-import Dropdown from './components/Dropdown/Dropdown.vue'
-import DropdownList from './components/Dropdown/DropdownList.vue';
-import DropdownItem, { type DropdownItemProps } from './components/Dropdown/DropdownItem.vue';
-import DropdownSeparator from './components/Dropdown/DropdownSeparator.vue';
-import Loader, { type LoaderProps } from './components/Loader/Loader.vue'
-import HoverMenu from './components/HoverMenu/HoverMenu.vue';
-import HoverMenuList from './components/HoverMenu/HoverMenuList.vue';
-import HoverMenuItem, { type HoverMenuItemProps } from './components/HoverMenu/HoverMenuItem.vue'
-import HoverMenuSeparator from './components/HoverMenu/HoverMenuSeparator.vue'
-import ContextMenu, { type ContextMenuProps } from './components/ContextMenu/ContextMenu.vue';
-import ContextSubmenu from './components/ContextMenu/ContextSubmenu.vue';
-import ContextMenuList from './components/ContextMenu/ContextMenuList.vue';
-import ContextMenuItem, { type ContextMenuItemProps } from './components/ContextMenu/ContextMenuItem.vue'
-import ContextMenuSeparator from './components/ContextMenu/ContextMenuSeparator.vue'
-import Confirm, { type ConfirmProps } from './components/Confirm/Confirm.vue'
-import Select, { type SelectProps } from './components/Select/Select.vue'
-import SelectOption, { type SelectOptionProps } from './components/Select/SelectOption.vue';
-import { useSelect, type RegisteredOption } from './components/Select/useSelect'
+export const Button = ac(() => import('./components/Button/Button.vue'));
+export const Card = ac(() => import('./components/Card/Card.vue'));
+export const Gap = ac(() => import('./components/Gap/Gap.vue'));
+export const Input = ac(() => import('./components/Input/Input.vue'));
+export const Row = ac(() => import('./components/Row/Row.vue'));
+export const Sidebar = ac(() => import('./components/Sidebar/Sidebar.vue'));
+export const Stack = ac(() => import('./components/Stack/Stack.vue'));
+export const Tab = ac(() => import('./components/Tabs/Tab.vue'));
+export const Tabs = ac(() => import('./components/Tabs/Tabs.vue'));
+export const Text = ac(() => import('./components/Text/Text.vue'));
+export const Separator = ac(() => import('./components/Separator/Separator.vue'));
+export const Tooltip = ac(() => import('./components/Tooltip/Tooltip.vue'));
+export const Badge = ac(() => import('./components/Badge/Badge.vue'));
+export const SidebarItem = ac(() => import('./components/Sidebar/SidebarItem.vue'));
+export const SidebarList = ac(() => import('./components/Sidebar/SidebarList.vue'));
+export const Modal = ac(() => import('./components/Modal/Modal.vue'));
+export const Dropdown = ac(() => import('./components/Dropdown/Dropdown.vue'));
+export const DropdownList = ac(() => import('./components/Dropdown/DropdownList.vue'));
+export const DropdownItem = ac(() => import('./components/Dropdown/DropdownItem.vue'));
+export const DropdownSeparator = ac(() => import('./components/Dropdown/DropdownSeparator.vue'));
+export const Loader = ac(() => import('./components/Loader/Loader.vue'));
+export const HoverMenu = ac(() => import('./components/HoverMenu/HoverMenu.vue'));
+export const HoverMenuList = ac(() => import('./components/HoverMenu/HoverMenuList.vue'));
+export const HoverMenuItem = ac(() => import('./components/HoverMenu/HoverMenuItem.vue'));
+export const HoverMenuSeparator = ac(() => import('./components/HoverMenu/HoverMenuSeparator.vue'));
+export const ContextMenu = ac(() => import('./components/ContextMenu/ContextMenu.vue'));
+export const ContextSubmenu = ac(() => import('./components/ContextMenu/ContextSubmenu.vue'));
+export const ContextMenuList = ac(() => import('./components/ContextMenu/ContextMenuList.vue'));
+export const ContextMenuItem = ac(() => import('./components/ContextMenu/ContextMenuItem.vue'));
+export const ContextMenuSeparator = ac(() => import('./components/ContextMenu/ContextMenuSeparator.vue'));
+export const Confirm = ac(() => import('./components/Confirm/Confirm.vue'));
+export const Select = ac(() => import('./components/Select/Select.vue'));
+export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
+
+import useTabs from './components/Tabs/useTabs';
+import { useSelect, type RegisteredOption } from './components/Select/useSelect';
 import { useConfirm } from './components/Confirm/useConfirm';
 import { useResize } from './hooks/useResize';
 import { useSize } from './hooks/useSize';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
 
-export { Button, ButtonProps,
-  Card, CardProps,
-  Gap, GapProps,
-  Input, InputProps,
-  Row, RowProps,
-  Stack, StackProps,
-  Text, TextProps,
-  Sidebar,
-  SidebarList,
-  SidebarItem, SidebarItemProps,
-  Tab, TabProps,
-  Tabs, TabsProps,
-  Icon, IconProps,
-  Separator, SeparatorProps,
-  Tooltip, TooltipProps,
-  Badge, BadgeProps,
-  Modal, ModalProps,
-  Dropdown,
-  DropdownList,
-  DropdownItem, DropdownItemProps,
-  DropdownSeparator,
-  HoverMenu,
-  HoverMenuList,
-  HoverMenuItem, HoverMenuItemProps,
-  HoverMenuSeparator,
-  ContextMenu, ContextMenuProps,
-  ContextSubmenu,
-  ContextMenuList,
-  ContextMenuItem, ContextMenuItemProps,
-  ContextMenuSeparator,
-  Loader, LoaderProps,
-  Confirm, ConfirmProps,
-  Select, SelectProps,
-  SelectOption, SelectOptionProps,
-  useSelect, RegisteredOption,
+export {
+  useSelect,
+  RegisteredOption,
   useConfirm,
   useTabs,
   useResize,
