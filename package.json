@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.5",
+    "@gui/icons": "github:kirillgalushko/gui-icons#v1.0.0",
     "floating-vue": "5.2.2"
   }
 }
