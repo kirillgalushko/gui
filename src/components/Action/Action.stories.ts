@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Action from './Action.vue';
-import Icon from '../Icon/Icon.vue';
+import EyeIcon from '@gui/icons/outline/eye.js'
 
 const meta: Meta<typeof Action> = {
   title: 'Example/Action',
@@ -15,10 +15,10 @@ type Story = StoryObj<typeof Action>;
 export const Default: Story = {
   args: {},
   render: (args) => ({
-    components: { Action, Icon },
+    components: { Action, EyeIcon },
     setup() {
       return { args };
     },
-    template: `<Action v-bind="args"> <Icon name="eye" /> </Action>`,
+    template: `<Action v-bind="args"> <EyeIcon /> </Action>`,
   }),
 };

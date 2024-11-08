@@ -2,7 +2,7 @@ import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Button from './Button.vue';
-import Icon from '../Icon/Icon.vue'
+import EditIcon from '@gui/icons/outline/pencil.js'
 
 const meta = {
   title: 'Example/Button',
@@ -40,11 +40,11 @@ export const IconButton: Story = {
     squared: true,
   },
   render: (args) => ({
-    components: { Button, Icon },
+    components: { Button, EditIcon },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args"><Icon name="edit" /></Button>',
+    template: '<Button v-bind="args"><EditIcon name="edit" /></Button>',
   }),
 };
 
@@ -55,7 +55,7 @@ export const Loading: Story = {
     isLoading: true,
   },
   render: (args) => ({
-    components: { Button, Icon },
+    components: { Button },
     setup() {
       return { args };
     },
@@ -70,7 +70,7 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => ({
-    components: { Button, Icon },
+    components: { Button },
     setup() {
       return { args };
     },

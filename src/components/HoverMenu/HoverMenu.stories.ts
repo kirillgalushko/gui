@@ -3,8 +3,14 @@ import HoverMenu from './HoverMenu.vue';
 import HoverMenuItem from './HoverMenuItem.vue';
 import HoverMenuList from './HoverMenuList.vue';
 import HoverMenuSeparator from './HoverMenuSeparator.vue';
-import Icon from '../Icon/Icon.vue'
 import Button from '../Button/Button.vue'
+
+import EditIcon from '@gui/icons/outline/pencil.js'
+import LinkIcon from '@gui/icons/outline/external-link.js'
+import ShareIcon from '@gui/icons/outline/share.js'
+import CopyIcon from '@gui/icons/outline/copy.js'
+import MailIcon from '@gui/icons/outline/mail.js'
+import ArchiveIcon from '@gui/icons/outline/archive.js'
 
 const meta: Meta<typeof HoverMenu> = {
   title: 'Example/HoverMenu',
@@ -23,7 +29,14 @@ type Story = StoryObj<typeof HoverMenu>;
 export const Default: Story = {
   args: {},
   render: (args) => ({
-    components: { HoverMenu, HoverMenuItem, HoverMenuList, HoverMenuSeparator, Icon, Button },
+    components: { HoverMenu, HoverMenuItem, HoverMenuList, HoverMenuSeparator, Button,
+      LinkIcon,
+      EditIcon,
+      ShareIcon,
+      ArchiveIcon,
+      MailIcon,
+      CopyIcon,
+     },
     setup() {},
     template: `
     <div>
@@ -32,19 +45,19 @@ export const Default: Story = {
 
         <template #menu>
           <HoverMenuList>
-            <HoverMenuItem><Icon name="pencil" />Открыть</HoverMenuItem>
-            <HoverMenuItem><Icon name="external-link" />Открыть в новой вкладке</HoverMenuItem>
+            <HoverMenuItem><EditIcon />Открыть</HoverMenuItem>
+            <HoverMenuItem><LinkIcon />Открыть в новой вкладке</HoverMenuItem>
             <HoverMenu>
-              <HoverMenuItem showArrow><Icon name="share" />Поделиться</HoverMenuItem>
+              <HoverMenuItem showArrow><ShareIcon />Поделиться</HoverMenuItem>
               <template #menu>
                 <HoverMenuList>
-                  <HoverMenuItem><Icon name="copy" />Скопировать ссылку</HoverMenuItem>
-                  <HoverMenuItem><Icon name="mail" />Отправить по почте</HoverMenuItem>
+                  <HoverMenuItem><CopyIcon />Скопировать ссылку</HoverMenuItem>
+                  <HoverMenuItem><MailIcon />Отправить по почте</HoverMenuItem>
                 </HoverMenuList>
               </template>
             </HoverMenu>
             <HoverMenuSeparator />
-            <HoverMenuItem><Icon name="archive" />Архивировать</HoverMenuItem>
+            <HoverMenuItem><ArchiveIcon />Архивировать</HoverMenuItem>
           </HoverMenuList>
         </template>
       </HoverMenu>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Icon from '../Icon/Icon.vue'
+import ChevronRightIcon from '@gui/icons/outline/chevron-right'
 
 export interface BaseMenuItemProps {
   showArrow?: boolean
@@ -13,7 +13,7 @@ const props = defineProps<BaseMenuItemProps>()
     <div class="base-menu-item-content">
       <slot></slot>
     </div>
-    <Icon v-if="props.showArrow" name="chevron-right" />
+    <ChevronRightIcon v-if="props.showArrow" />
   </button>
 </template>
 
@@ -38,6 +38,7 @@ const props = defineProps<BaseMenuItemProps>()
   display: flex;
   gap: 8px;
   width: 100%;
+  align-items: center;
 }
 
 .base-menu-item:hover {

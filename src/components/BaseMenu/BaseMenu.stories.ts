@@ -3,7 +3,11 @@ import BaseMenu from './BaseMenu.vue';
 import BaseMenuItem from './BaseMenuItem.vue';
 import BaseMenuList from './BaseMenuList.vue';
 import BaseMenuSeparator from './BaseMenuSeparator.vue';
-import Icon from '../Icon/Icon.vue'
+
+import PencilIcon from '@gui/icons/outline/pencil.js'
+import ShareIcon from '@gui/icons/outline/share.js'
+import ExternalLinkIcon from '@gui/icons/outline/external-link.js'
+import ArchiveIcon from '@gui/icons/outline/archive.js'
 
 const meta: Meta<typeof BaseMenu> = {
   title: 'Example/BaseMenu',
@@ -17,18 +21,18 @@ type Story = StoryObj<typeof BaseMenu>;
 export const Default: Story = {
   args: {},
   render: (args) => ({
-    components: { BaseMenu, BaseMenuItem, BaseMenuList, BaseMenuSeparator, Icon },
+    components: { BaseMenu, BaseMenuItem, BaseMenuList, BaseMenuSeparator, PencilIcon, ShareIcon, ExternalLinkIcon, ArchiveIcon },
     setup() {
       return { args };
     },
     template: `
       <BaseMenu v-bind="args">
         <BaseMenuList>
-          <BaseMenuItem><Icon name="pencil" />Открыть</BaseMenuItem>
-          <BaseMenuItem><Icon name="external-link" />Открыть в новой вкладке</BaseMenuItem>
-          <BaseMenuItem showArrow><Icon name="archive" />Поделиться</BaseMenuItem>
+          <BaseMenuItem><PencilIcon />Открыть</BaseMenuItem>
+          <BaseMenuItem><ExternalLinkIcon />Открыть в новой вкладке</BaseMenuItem>
+          <BaseMenuItem showArrow><ShareIcon />Поделиться</BaseMenuItem>
           <BaseMenuSeparator />
-          <BaseMenuItem><Icon name="archive" />Архивировать</BaseMenuItem>
+          <BaseMenuItem><ArchiveIcon />Архивировать</BaseMenuItem>
         </BaseMenuList>
       </BaseMenu>`,
   }),

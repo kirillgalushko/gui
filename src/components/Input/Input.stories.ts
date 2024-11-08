@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Input from './Input.vue';
-import Icon from '../Icon/Icon.vue';
+import MenuIcon from '@gui/icons/outline/menu-2.js'
+import SearchIcon from '@gui/icons/outline/search.js'
 
 type InputType = typeof Input | HTMLInputElement
 
@@ -34,14 +35,14 @@ export const WithLeftIcon: Story = {
     value: 'Value',
   },
   render: (args) => ({
-    components: { Input, Icon },
+    components: { Input, SearchIcon },
     setup() {
       return { args };
     },
     template: `
       <Input v-bind="args">
         <template #leftAdornment>
-          <Icon name="search" />
+          <SearchIcon />
         </template>
       </Input>
     `,
@@ -55,14 +56,14 @@ export const WithRightIcon: Story = {
     value: 'Value',
   },
   render: (args) => ({
-    components: { Input, Icon },
+    components: { Input, MenuIcon },
     setup() {
       return { args };
     },
     template: `
       <Input v-bind="args">
         <template #rightAdornment>
-          <Icon name="menu-2" />
+          <MenuIcon />
         </template>
       </Input>
     `,

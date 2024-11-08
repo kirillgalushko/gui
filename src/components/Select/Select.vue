@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Dropdown from '../Dropdown/Dropdown.vue';
-import Icon from '../Icon/Icon.vue'
+import ArrowIcon from '@gui/icons/outline/chevron-down.js';
 import { useSize } from '../../hooks/useSize';
 import { computed, provide, watch } from 'vue';
 import { RegisteredOption, useSelect } from './useSelect';
@@ -37,7 +37,7 @@ watch(() => props.value, () => {
   <Dropdown :popperHideTriggers="['click']" placement="bottom-start" class="select">
     <button ref="elementRef" :class="['select-toggle', { 'stretched': props.stretched }]">
       {{ select?.selectedOption?.value?.label || props.label }}
-      <Icon name="chevron-down" />
+      <ArrowIcon />
     </button>
     <input hidden :name="props.name" :value="props.value || select.selectedOption?.value?.value" />
     <div class="hidden-options">

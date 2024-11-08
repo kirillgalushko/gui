@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Separator from './Separator.vue';
 import Button from '../Button/Button.vue'
-import Icon from '../Icon/Icon.vue'
+import ArrowIcon from '@gui/icons/outline/chevron-down.js'
+import EditIcon from '@gui/icons/outline/pencil.js'
 import Row from '../Row/Row.vue';
 import Gap from '../Gap/Gap.vue';
 
@@ -22,13 +23,13 @@ type Story = StoryObj<typeof Separator>;
 
 const template = `
   <Row alignItems="center">
-    <Button squared> <Icon name="edit" /> </Button>
+    <Button squared> <EditIcon /> </Button>
     <Gap direction="horizontal" :default="2" />
-    <Button squared> <Icon name="device-floppy" /> </Button>
+    <Button squared> <ArrowIcon /> </Button>
     <Gap direction="horizontal" :default="2" />
     <Separator v-bind="args" />
     <Gap direction="horizontal" :default="2" />
-    <Button squared> <Icon name="x" /> </Button>
+    <Button squared> <EditIcon /> </Button>
   </Row>
 `
 
@@ -37,7 +38,7 @@ export const Default: Story = {
     direction: 'vertical',
   },
   render: (args) => ({
-    components: { Separator, Button, Icon, Row, Gap },
+    components: { Separator, Button, ArrowIcon, EditIcon, Row, Gap },
     setup() {
       return { args };
     },

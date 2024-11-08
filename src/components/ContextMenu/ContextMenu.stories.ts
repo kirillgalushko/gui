@@ -4,7 +4,13 @@ import ContextMenuItem from './ContextMenuItem.vue';
 import ContextSubmenu from './ContextSubmenu.vue';
 import ContextMenuList from './ContextMenuList.vue';
 import ContextMenuSeparator from './ContextMenuSeparator.vue';
-import Icon from '../Icon/Icon.vue'
+
+import EditIcon from '@gui/icons/outline/pencil.js'
+import LinkIcon from '@gui/icons/outline/external-link.js'
+import ShareIcon from '@gui/icons/outline/share.js'
+import FeatherIcon from '@gui/icons/outline/feather.js'
+import MailIcon from '@gui/icons/outline/mail.js'
+import ArchiveIcon from '@gui/icons/outline/archive.js'
 import { useContextMenu } from './useContextMenu';
 
 const meta: Meta<typeof ContextMenu> = {
@@ -24,7 +30,15 @@ type Story = StoryObj<typeof ContextMenu>;
 export const Default: Story = {
   args: {},
   render: (args) => ({
-    components: { ContextMenu, ContextMenuItem, ContextMenuList, ContextMenuSeparator, Icon, ContextSubmenu },
+    components: {
+      ContextMenu, ContextMenuItem, ContextMenuList, ContextMenuSeparator, ContextSubmenu,
+      EditIcon,
+      LinkIcon,
+      ShareIcon,
+      FeatherIcon,
+      MailIcon,
+      ArchiveIcon
+    },
     setup() {
       const { contextMenuData, targetRef } = useContextMenu();
       return { args, contextMenuData, targetRef };
@@ -40,19 +54,19 @@ export const Default: Story = {
 
       <ContextMenu :data="contextMenuData">
         <ContextMenuList>
-          <ContextMenuItem><Icon name="pencil" />Открыть</ContextMenuItem>
-          <ContextMenuItem><Icon name="external-link" />Открыть в новой вкладке</ContextMenuItem>
+          <ContextMenuItem><EditIcon />Открыть</ContextMenuItem>
+          <ContextMenuItem><LinkIcon />Открыть в новой вкладке</ContextMenuItem>
           <ContextSubmenu>
-            <ContextMenuItem showArrow><Icon name="share" />Поделиться</ContextMenuItem>
+            <ContextMenuItem showArrow><ShareIcon />Поделиться</ContextMenuItem>
             <template #menu>
               <ContextMenuList>
-                <ContextMenuItem><Icon name="mail" />Отправить по почте</ContextMenuItem>
-                <ContextMenuItem><Icon name="feather" />Отправить голубем</ContextMenuItem>
+                <ContextMenuItem><MailIcon />Отправить по почте</ContextMenuItem>
+                <ContextMenuItem><FeatherIcon />Отправить голубем</ContextMenuItem>
               </ContextMenuList>
             </template>
           </ContextSubmenu>
           <ContextMenuSeparator />
-          <ContextMenuItem><Icon name="archive" />Архивировать</ContextMenuItem>
+          <ContextMenuItem><ArchiveIcon />Архивировать</ContextMenuItem>
         </ContextMenuList>
       </ContextMenu>
       </div>

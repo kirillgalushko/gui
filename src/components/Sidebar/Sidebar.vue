@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, provide, watch } from 'vue'
-import Icon from '../Icon/Icon.vue';
+import GripIcon from '@gui/icons/outline/grip-vertical.js';
 import { Padding } from '../../types';
 
 export interface SidebarProps {
@@ -66,7 +66,7 @@ watch(() => width.value, () => {
     minWidth: props.minWidth,
   }">
     <div class="resize-handle" @mousedown="startResizing">
-      <Icon name="grip-vertical" />
+      <GripIcon />
     </div>
     <slot></slot>
   </div>
