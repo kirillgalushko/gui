@@ -4,13 +4,7 @@ import DropdownItem from './DropdownItem.vue';
 import DropdownList from './DropdownList.vue';
 import DropdownSeparator from './DropdownSeparator.vue';
 import Button from '../Button/Button.vue';
-
-import EditIcon from '@gui/icons/outline/pencil.js'
-import LinkIcon from '@gui/icons/outline/external-link.js'
-import ShareIcon from '@gui/icons/outline/share.js'
-import CopyIcon from '@gui/icons/outline/copy.js'
-import MailIcon from '@gui/icons/outline/mail.js'
-import ArchiveIcon from '@gui/icons/outline/archive.js'
+import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyOutline, IconMailOutline, IconArchiveOutline } from '@gui/icons';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Example/Dropdown',
@@ -27,12 +21,12 @@ export const Default: Story = {
   args: {},
   render: (args) => ({
     components: { Dropdown, Button, DropdownItem, DropdownList, DropdownSeparator,
-      LinkIcon,
-      EditIcon,
-      ShareIcon,
-      ArchiveIcon,
-      MailIcon,
-      CopyIcon,
+      IconExternalLinkOutline,
+      IconPencilOutline,
+      IconShareOutline,
+      IconArchiveOutline,
+      IconMailOutline,
+      IconCopyOutline,
     },
     setup() {
       return { args };
@@ -42,19 +36,19 @@ export const Default: Story = {
         <Button>Открыть Dropdown</Button>
         <template #popper>
           <DropdownList>
-            <DropdownItem><EditIcon />Открыть</DropdownItem>
-            <DropdownItem><LinkIcon />Открыть в новой вкладке</DropdownItem>
+            <DropdownItem><IconPencilOutline />Открыть</DropdownItem>
+            <DropdownItem><IconExternalLinkOutline />Открыть в новой вкладке</DropdownItem>
             <Dropdown instant-move placement="right-start">
-              <DropdownItem showArrow><ShareIcon />Поделиться</DropdownItem>
+              <DropdownItem showArrow><IconShareOutline />Поделиться</DropdownItem>
               <template #popper>
                 <DropdownList>
-                  <DropdownItem><CopyIcon />Скопировать ссылку</DropdownItem>
-                  <DropdownItem><MailIcon />Отправить по почте</DropdownItem>
+                  <DropdownItem><IconCopyOutline />Скопировать ссылку</DropdownItem>
+                  <DropdownItem><IconMailOutline />Отправить по почте</DropdownItem>
                 </DropdownList>
               </template>
             </Dropdown>
             <DropdownSeparator />
-            <DropdownItem><ArchiveIcon />Архивировать</DropdownItem>
+            <DropdownItem><IconArchiveOutline />Архивировать</DropdownItem>
           </DropdownList>
         </template>
       </Dropdown>`,

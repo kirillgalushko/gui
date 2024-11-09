@@ -2,7 +2,7 @@ import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Button from './Button.vue';
-import EditIcon from '@gui/icons/outline/pencil.js'
+import { IconPencilOutline } from '@gui/icons';
 
 const meta = {
   title: 'Example/Button',
@@ -40,11 +40,11 @@ export const IconButton: Story = {
     squared: true,
   },
   render: (args) => ({
-    components: { Button, EditIcon },
+    components: { Button, IconPencilOutline },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args"><EditIcon name="edit" /></Button>',
+    template: '<Button v-bind="args"><IconPencilOutline /></Button>',
   }),
 };
 

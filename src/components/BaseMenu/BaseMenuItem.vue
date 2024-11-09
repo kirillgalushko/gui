@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ChevronRightIcon from '@gui/icons/outline/chevron-right'
+import { IconChevronRightOutline } from '@gui/icons';
 
 export interface BaseMenuItemProps {
   showArrow?: boolean
@@ -13,7 +13,7 @@ const props = defineProps<BaseMenuItemProps>()
     <div class="base-menu-item-content">
       <slot></slot>
     </div>
-    <ChevronRightIcon v-if="props.showArrow" />
+    <IconChevronRightOutline v-if="props.showArrow" />
   </button>
 </template>
 

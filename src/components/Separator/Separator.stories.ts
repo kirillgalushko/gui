@@ -1,8 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Separator from './Separator.vue';
 import Button from '../Button/Button.vue'
-import ArrowIcon from '@gui/icons/outline/chevron-down.js'
-import EditIcon from '@gui/icons/outline/pencil.js'
+import { IconChevronDownOutline, IconPencilOutline } from '@gui/icons';
 import Row from '../Row/Row.vue';
 import Gap from '../Gap/Gap.vue';
 
@@ -23,13 +22,13 @@ type Story = StoryObj<typeof Separator>;
 
 const template = `
   <Row alignItems="center">
-    <Button squared> <EditIcon /> </Button>
+    <Button squared> <IconPencilOutline /> </Button>
     <Gap direction="horizontal" :default="2" />
-    <Button squared> <ArrowIcon /> </Button>
+    <Button squared> <IconChevronDownOutline /> </Button>
     <Gap direction="horizontal" :default="2" />
     <Separator v-bind="args" />
     <Gap direction="horizontal" :default="2" />
-    <Button squared> <EditIcon /> </Button>
+    <Button squared> <IconPencilOutline /> </Button>
   </Row>
 `
 
@@ -38,7 +37,7 @@ export const Default: Story = {
     direction: 'vertical',
   },
   render: (args) => ({
-    components: { Separator, Button, ArrowIcon, EditIcon, Row, Gap },
+    components: { Separator, Button, IconChevronDownOutline, IconPencilOutline, Row, Gap },
     setup() {
       return { args };
     },

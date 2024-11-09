@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance } from 'vue';
 import Action from '../Action/Action.vue';
-import CloseIcon from '@gui/icons/outline/x.js';
+import { IconXOutline } from '@gui/icons';
 import Text from '../Text/Text.vue'
 
 export interface ModalProps {
@@ -41,7 +41,7 @@ const gridTemplateAreas = computed(() => {
           </div>
           <div v-if="props.showCloseButton" class="modal-close">
             <Action @click="props.onClose">
-              <CloseIcon />
+              <IconXOutline />
             </Action>
           </div>
           <div class="modal-content">

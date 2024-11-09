@@ -2,11 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3';
 import Sidebar from './Sidebar.vue';
 import SidebarList from './SidebarList.vue'
 import SidebarItem from './SidebarItem.vue'
-import MusicIcon from '@gui/icons/outline/music.js';
-import BuildingIcon from '@gui/icons/outline/building-broadcast-tower.js';
-import PlaylistIcon from '@gui/icons/outline/playlist.js';
-import SettingsIcon from '@gui/icons/outline/settings.js';
-import InfoIcon from '@gui/icons/outline/info-triangle.js';
+import { IconMusicOutline, IconBuildingBroadcastTowerOutline, IconPlaylistOutline, IconSettingsOutline, IconInfoTriangleOutline } from '@gui/icons';
 import Badge from '../Badge/Badge.vue'
 
 const meta: Meta<typeof Sidebar> = {
@@ -21,18 +17,18 @@ type Story = StoryObj<typeof Sidebar>;
 export const Default: Story = {
   render: () => ({
     components: { Sidebar, SidebarItem, SidebarList, Badge,
-      MusicIcon,
-      BuildingIcon,
-      PlaylistIcon,
-      SettingsIcon,
-      InfoIcon,
+      IconMusicOutline,
+      IconBuildingBroadcastTowerOutline,
+      IconPlaylistOutline,
+      IconSettingsOutline,
+      IconInfoTriangleOutline,
      },
     template: `
       <Sidebar :compactWidth="120" minWidth="100px">
         <SidebarList>
           <SidebarItem>
             <template #left>
-              <MusicIcon />
+              <IconMusicOutline />
             </template>
             Треки
             <template #right>
@@ -41,7 +37,7 @@ export const Default: Story = {
           </SidebarItem>
           <SidebarItem selected>
             <template #left>
-              <BuildingIcon />
+              <IconBuildingBroadcastTowerOutline />
             </template>
             Радио
             <template #right>
@@ -50,7 +46,7 @@ export const Default: Story = {
           </SidebarItem>
           <SidebarItem>
             <template #left>
-              <PlaylistIcon />
+              <IconPlaylistOutline />
             </template>
             Плейлисты
             <template #right>
@@ -59,13 +55,13 @@ export const Default: Story = {
           </SidebarItem>
           <SidebarItem>
             <template #left>
-              <SettingsIcon />
+              <IconSettingsOutline />
             </template>
             Настройки
           </SidebarItem>
           <SidebarItem>
             <template #left>
-              <InfoIcon />
+              <IconInfoTriangleOutline />
             </template>
             Очень длинное название для кнопки в сайдбаре
           </SidebarItem>
