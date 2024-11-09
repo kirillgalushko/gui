@@ -1,6 +1,6 @@
-import { defineComponent as c, openBlock as s, createElementBlock as n, normalizeStyle as l, unref as o, createElementVNode as d } from "vue";
-import { _ as a } from "./_plugin-vue_export-helper-CHgC5LLL.js";
-import '../assets/Loader-DQtfeWNR.css';const p = ["width", "height"], m = /* @__PURE__ */ c({
+import { defineComponent as l, openBlock as s, createElementBlock as n, normalizeStyle as c, unref as o, createElementVNode as a } from "vue";
+import { _ as d } from "./_plugin-vue_export-helper-CHgC5LLL.js";
+import '../assets/Loader-CEks2h12.css';const p = ["width", "height"], m = /* @__PURE__ */ l({
   __name: "Loader",
   props: {
     size: {}
@@ -8,7 +8,7 @@ import '../assets/Loader-DQtfeWNR.css';const p = ["width", "height"], m = /* @__
   setup(i) {
     const t = i, e = typeof t.size == "number" ? `${t.size}px` : t.size || "1em";
     return (_, r) => (s(), n("div", {
-      style: l({ width: o(e), height: o(e) }),
+      style: c({ width: o(e), height: o(e) }),
       class: "loader"
     }, [
       (s(), n("svg", {
@@ -17,7 +17,7 @@ import '../assets/Loader-DQtfeWNR.css';const p = ["width", "height"], m = /* @__
         viewBox: "0 0 50 50",
         xmlns: "http://www.w3.org/2000/svg"
       }, r[0] || (r[0] = [
-        d("circle", {
+        a("circle", {
           cx: "25",
           cy: "25",
           r: "20",
@@ -30,7 +30,7 @@ import '../assets/Loader-DQtfeWNR.css';const p = ["width", "height"], m = /* @__
       ]), 8, p))
     ], 4));
   }
-}), u = /* @__PURE__ */ a(m, [["__scopeId", "data-v-3d73fc11"]]);
+}), u = /* @__PURE__ */ d(m, [["__scopeId", "data-v-b8f49922"]]);
 export {
   u as default
 };

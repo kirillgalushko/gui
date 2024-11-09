@@ -1,5 +1,5 @@
 import { defineComponent as p, ref as r, provide as d, watchEffect as v, onMounted as m, onBeforeUnmount as h, openBlock as b, createElementBlock as _, normalizeClass as i, createElementVNode as x, normalizeStyle as y, renderSlot as C } from "vue";
-import { u as S } from "./index-DTIJceEd.js";
+import { u as S } from "./index-D36B4cfA.js";
 import { _ as T } from "./_plugin-vue_export-helper-CHgC5LLL.js";
 import '../assets/Tabs-CPiLqCM1.css';const w = /* @__PURE__ */ p({
   __name: "Tabs",

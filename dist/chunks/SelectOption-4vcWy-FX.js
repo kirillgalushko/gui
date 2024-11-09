@@ -1,5 +1,5 @@
 import { defineComponent as s, inject as p, onMounted as a, openBlock as i, createBlock as c, mergeProps as u, withCtx as m, renderSlot as d, createTextVNode as f, toDisplayString as B } from "vue";
-import { B as _ } from "./BaseMenuItem-BQQGCT7q.js";
+import { B as _ } from "./BaseMenuItem-B1OqUBmw.js";
 const C = /* @__PURE__ */ s({
   __name: "SelectOption",
   props: {
