@@ -1,5 +1,5 @@
 import { defineComponent as s, openBlock as a, createBlock as l, unref as c, mergeProps as d, withCtx as t, renderSlot as p } from "vue";
-import { V as f } from "./floating-vue-DX5lYCEg.js";
+import { V as f } from "./floating-vue-BTUtIY26.js";
 import { _ as n } from "./_plugin-vue_export-helper-CHgC5LLL.js";
 import '../assets/Tooltip-uBmBp0rD.css';const i = /* @__PURE__ */ s({
   __name: "Tooltip",

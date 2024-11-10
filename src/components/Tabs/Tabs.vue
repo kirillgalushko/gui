@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { provide, ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
+import { provide, ref, watchEffect } from 'vue';
 import useTabs from './useTabs';
+import { useResize } from '../../hooks/useResize';
 
 export interface TabsProps {
   value: string
@@ -18,8 +19,8 @@ const tabs = useTabs(props.value, handleChange);
 provide('tabs', tabs)
 provide('stretched', props.stretched)
 
-const resizeObserver = ref<ResizeObserver | null>(null);
-const mutationObserver = ref<MutationObserver | null>(null);
+const tabsElementRef = ref()
+
 
 const sliderStyle = ref({
   width: '0px',
@@ -27,6 +28,7 @@ const sliderStyle = ref({
 });
 
 const updateSliderStyle = () => {
+  console.log('updateSliderStyle')
   const selectedTab = tabs.selectedTab.value;
   if (selectedTab) {
     sliderStyle.value = {
@@ -40,27 +42,31 @@ watchEffect(() => {
   updateSliderStyle();
 });
 
-onMounted(() => {
-  updateSliderStyle();
-  resizeObserver.value = new ResizeObserver(updateSliderStyle);
-  mutationObserver.value = new MutationObserver(updateSliderStyle);
-  tabs.tabs.value.forEach(tab => {
-    resizeObserver.value?.observe(tab);
-    mutationObserver.value?.observe(tab, {
-      childList: true,
-      subtree: true
-    });
-  });
-});
+// onMounted(() => {
+//   updateSliderStyle();
+//   resizeObserver.value = new ResizeObserver(updateSliderStyle);
+//   mutationObserver.value = new MutationObserver(updateSliderStyle);
+//   console.log('tabs.tabs.value', tabs.tabs.value)
+//   tabs.tabs.value.forEach(tab => {
+//     console.log('tab', tab)
+//     resizeObserver.value?.observe(tab);
+//     mutationObserver.value?.observe(tab, {
+//       childList: true,
+//       subtree: true
+//     });
+//   });
+// });
 
-onBeforeUnmount(() => {
-  resizeObserver.value?.disconnect();
-  mutationObserver.value?.disconnect();
-});
+// onBeforeUnmount(() => {
+//   resizeObserver.value?.disconnect();
+//   mutationObserver.value?.disconnect();
+// });
+
+useResize(tabsElementRef, updateSliderStyle)
 </script>
 
 <template>
-  <div :class="['tabs', { stretched: props.stretched, }]">
+  <div ref="tabsElementRef" :class="['tabs', { stretched: props.stretched, }]">
     <div :class="['slider', { animated: !sliderAnimationDisabled }]" :style="sliderStyle"></div>
     <slot></slot>
   </div>
