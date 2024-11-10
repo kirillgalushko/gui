@@ -1,7 +1,7 @@
 import { defineComponent as a, openBlock as l, createBlock as p, withCtx as t, createVNode as o, createTextVNode as n, toDisplayString as r } from "vue";
-import d from "./Modal-_ciLoK1q.js";
+import d from "./Modal-CbWHRPEd.js";
 import c from "./Button-CyAGLh2u.js";
-import s from "./Text-CzCPgMJQ.js";
+import s from "./Text-C9hD0RpH.js";
 const C = /* @__PURE__ */ a({
   __name: "Confirm",
   props: {
