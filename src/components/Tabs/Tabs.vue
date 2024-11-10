@@ -21,7 +21,6 @@ provide('stretched', props.stretched)
 
 const tabsElementRef = ref()
 
-
 const sliderStyle = ref({
   width: '0px',
   transform: 'translateX(0px)',
