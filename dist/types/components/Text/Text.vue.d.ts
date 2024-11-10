@@ -1,9 +1,10 @@
-export type Typography = 'label-1-regular' | 'label-2-regular' | 'label-3-regular' | 'label-4-regular' | 'label-5-regular' | 'paragraph-1-regular' | 'paragraph-2-regular' | 'paragraph-3-regular' | 'paragraph-4-regular' | 'title-1-semibold' | 'title-2-semibold' | 'title-3-semibold' | 'title-4-semibold' | 'title-5-semibold' | 'subtitle-1-semibold' | 'subtitle-2-semibold' | 'subtitle-3-semibold' | 'subtitle-4-semibold';
+export type Typography = 'title-1' | 'title-2' | 'title-3' | 'title-4' | 'subtitle-1' | 'subtitle-2' | 'subtitle-3' | 'subtitle-4' | 'label-1' | 'label-2' | 'paragraph-1' | 'paragraph-2';
 export interface TextProps {
-    typography: Typography;
+    Element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div';
+    typography?: Typography;
     clamp?: 2 | 3 | 4;
     ellipsis?: boolean;
-    mode?: 'default' | 'secondary';
+    color?: 'default' | 'inherit' | 'secondary';
 }
 declare function __VLS_template(): {
     slots: {
@@ -14,7 +15,8 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<TextProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<TextProps> & Readonly<{}>, {
-    mode: "default" | "secondary";
+    Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+    color: "default" | "inherit" | "secondary";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

@@ -173,7 +173,8 @@ export declare const Tabs: {
 });
 export declare const Text: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Text/Text.vue").TextProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
-        mode: "default" | "secondary";
+        Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+        color: "default" | "inherit" | "secondary";
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -182,13 +183,15 @@ export declare const Text: {
         M: {};
         Defaults: {};
     }, Readonly<import("./components/Text/Text.vue").TextProps> & Readonly<{}>, {}, {}, {}, {}, {
-        mode: "default" | "secondary";
+        Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+        color: "default" | "inherit" | "secondary";
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Text/Text.vue").TextProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    mode: "default" | "secondary";
+    Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+    color: "default" | "inherit" | "secondary";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
