@@ -19,6 +19,7 @@ provide('tabs', tabs)
 provide('stretched', props.stretched)
 
 const resizeObserver = ref<ResizeObserver | null>(null);
+const mutationObserver = ref<MutationObserver | null>(null);
 
 const sliderStyle = ref({
   width: '0px',
@@ -42,13 +43,16 @@ watchEffect(() => {
 onMounted(() => {
   updateSliderStyle();
   resizeObserver.value = new ResizeObserver(updateSliderStyle);
+  mutationObserver.value = new MutationObserver(updateSliderStyle);
   tabs.tabs.value.forEach(tab => {
     resizeObserver.value?.observe(tab);
+    mutationObserver.value?.observe(tab);
   });
 });
 
 onBeforeUnmount(() => {
   resizeObserver.value?.disconnect();
+  mutationObserver.value?.disconnect();
 });
 </script>
 

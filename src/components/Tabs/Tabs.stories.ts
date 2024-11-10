@@ -11,6 +11,9 @@ const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
   component: Tabs,
   tags: ['autodocs'],
+  argTypes: {
+    stretched: { type: 'boolean' }
+  }
 };
 
 export default meta;
