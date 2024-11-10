@@ -1,44 +1,57 @@
 <script setup lang="ts">
-export type Typography = 'label-1-regular' |
-    'label-2-regular' |
-    'label-3-regular' |
-    'label-4-regular' |
-    'label-5-regular' |
-    'paragraph-1-regular' |
-    'paragraph-2-regular' |
-    'paragraph-3-regular' |
-    'paragraph-4-regular' |
-    'title-1-semibold' |
-    'title-2-semibold' |
-    'title-3-semibold' |
-    'title-4-semibold' |
-    'title-5-semibold' |
-    'subtitle-1-semibold' |
-    'subtitle-2-semibold' |
-    'subtitle-3-semibold' |
-    'subtitle-4-semibold'
+import { computed } from 'vue';
 
+export type Typography =
+    'title-1' |
+    'title-2' |
+    'title-3' |
+    'title-4' |
+    'subtitle-1' |
+    'subtitle-2' |
+    'subtitle-3' |
+    'subtitle-4' |
+    'label-1' |
+    'label-2' |
+    'paragraph-1' |
+    'paragraph-2'
 
 export interface TextProps {
-    typography: Typography,
+    Element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
+    typography?: Typography,
     clamp?: 2 | 3 | 4,
     ellipsis?: boolean,
-    mode?: 'default' | 'secondary'
+    color?: 'default' | 'inherit' | 'secondary'
 }
 
 const props = withDefaults(defineProps<TextProps>(), {
-    mode: 'default',
+    Element: 'div',
+    color: 'default',
+})
+
+const styles = computed(() => {
+    const clampStyles = props.clamp ? {
+        '-webkit-line-clamp': props.clamp,
+        'line-clamp': props.clamp
+    } : {}
+
+    return {
+        ...clampStyles,
+    }
 })
 </script>
 
 <template>
-    <div :class="[props.typography, props.mode, {
-        ellipsis,
-        clamp,
-        [`clamp-${clamp}`]: !!clamp
-    }]">
+    <component v-bind="$attrs" :is="props.Element" :class="[
+        props.typography,
+        props.color,
+        {
+            ellipsis,
+            clamp,
+            [`clamp-${clamp}`]: !!clamp
+        }
+    ]" :style="styles">
         <slot></slot>
-    </div>
+    </component>
 </template>
 
 <style scoped>
@@ -48,6 +61,10 @@ const props = withDefaults(defineProps<TextProps>(), {
 
 .secondary {
     color: hsl(var(--muted-foreground));
+}
+
+.inherit {
+    color: inherit;
 }
 
 .ellipsis {
@@ -62,144 +79,93 @@ const props = withDefaults(defineProps<TextProps>(), {
     -webkit-box-orient: vertical;
 }
 
-.clamp-2 {
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-}
-
-.clamp-3 {
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-}
-
-.clamp-4 {
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-}
-
-.title-1-semibold {
-    font-size: 32px;
+.title-1 {
+    font-size: 132px;
     font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 0.5px;
+    line-height: 1;
+    letter-spacing: -4px;
 }
 
-.title-2-semibold {
-    font-size: 28px;
+.title-2 {
+    font-size: 64px;
     font-weight: 600;
-    line-height: 36px;
-    letter-spacing: 0.5px;
+    line-height: 1;
+    letter-spacing: -2px;
 }
 
-.title-3-semibold {
+.title-3 {
     font-size: 24px;
     font-weight: 600;
     line-height: 32px;
-    letter-spacing: 0.25px;
+    letter-spacing: -0.6px;
 }
 
-.title-4-semibold {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 28px;
-    letter-spacing: 0.25px;
-}
-
-.title-5-semibold {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0;
-}
-
-.subtitle-1-semibold {
+.title-4 {
     font-size: 16px;
     font-weight: 600;
-    line-height: 22px;
-    letter-spacing: 0;
+    line-height: 18px;
+    letter-spacing: -0.4px;
 }
 
-.subtitle-2-semibold {
+.subtitle-1 {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.subtitle-2 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.6px;
+}
+
+.subtitle-3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.4px;
+}
+
+
+.subtitle-4 {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 20px;
-    letter-spacing: 0;
+    letter-spacing: -0.2px;
 }
 
-.subtitle-3-semibold {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 18px;
-    letter-spacing: 0;
-}
-
-.subtitle-4-semibold {
-    font-size: 10px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 0;
-}
-
-.paragraph-1-regular {
+.paragraph-1 {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: 0.25px;
 }
 
-.paragraph-2-regular {
+.paragraph-2 {
     font-size: 14px;
     font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0.25px;
+    line-height: 24px;
 }
 
-.paragraph-3-regular {
-    font-size: 12px;
-    font-weight: 400;
+.label-1 {
+    font-size: 16px;
+    font-weight: 600;
     line-height: 18px;
-    letter-spacing: 0.25px;
+    letter-spacing: -0.4px;
 }
 
-.paragraph-4-regular {
-    font-size: 10px;
-    font-weight: 400;
+.label-2 {
+    font-size: 14px;
+    font-weight: 500;
     line-height: 16px;
-    letter-spacing: 0.25px;
+    letter-spacing: -0.2px;
 }
 
-.label-1-regular {
+.label-3 {
     font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0.5px;
-}
-
-.label-2-regular {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-}
-
-.label-3-regular {
-    font-size: 8px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 14px;
-    letter-spacing: 0.5px;
-}
-
-.label-4-regular {
-    font-size: 6px;
-    font-weight: 400;
-    line-height: 12px;
-    letter-spacing: 0.5px;
-}
-
-.label-5-regular {
-    font-size: 5px;
-    font-weight: 400;
-    line-height: 10px;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.2px;
 }
 </style>
