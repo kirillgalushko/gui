@@ -12,6 +12,7 @@ export type Typography =
     'subtitle-4' |
     'label-1' |
     'label-2' |
+    'label-3' |
     'paragraph-1' |
     'paragraph-2'
 
