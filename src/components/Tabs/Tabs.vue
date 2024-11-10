@@ -46,7 +46,10 @@ onMounted(() => {
   mutationObserver.value = new MutationObserver(updateSliderStyle);
   tabs.tabs.value.forEach(tab => {
     resizeObserver.value?.observe(tab);
-    mutationObserver.value?.observe(tab);
+    mutationObserver.value?.observe(tab, {
+      childList: true,
+      subtree: true
+    });
   });
 });
 

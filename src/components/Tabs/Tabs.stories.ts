@@ -6,6 +6,7 @@ import Gap from '../Gap/Gap.vue'
 import Button from '../Button/Button.vue'
 import Tabs from './Tabs.vue';
 import Tab from './Tab.vue'
+import { IconHome2Outline, IconABOutline, IconAbcOutline } from '@gui/icons';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Tabs',
@@ -65,5 +66,42 @@ export const Stretched: Story = {
         <Tab name="Reports">Reports</Tab>
         <Tab name="Notifications">Notifications</Tab>
       </Tabs>`, true),
+  }),
+};
+
+export const WidthChanges: Story = {
+  render: () => ({
+    components: { Tabs, Tab, Card, Text, Gap, Button, IconHome2Outline, IconABOutline, IconAbcOutline },
+    setup() {
+      const isIcons = ref(false)
+      const selectedTab = ref<string>('Notifications')
+      const handleChangeTab = (newTab: string) => {
+        selectedTab.value = newTab
+      }
+      const toggleIcons = () => {
+        isIcons.value = !isIcons.value
+      }
+      return { selectedTab, handleChangeTab, isIcons, toggleIcons };
+    },
+    template: `
+      <Tabs :value="selectedTab" :onChange="handleChangeTab">
+        <Tab name="Overview">
+          <template v-if="!isIcons">Overview</template>
+          <IconHome2Outline v-if="isIcons" />
+        </Tab>
+        <Tab name="Reports">
+         <template v-if="!isIcons">Reports</template>
+        <IconABOutline v-if="isIcons" />
+        </Tab>
+        <Tab name="Notifications">
+          <template v-if="!isIcons">Notifications</template>
+          <IconAbcOutline v-if="isIcons" />
+        </Tab>
+      </Tabs>
+      <br />
+      <br />
+      <Button @click="toggleIcons">Toggle icons</Button>
+      `
+      ,
   }),
 };
