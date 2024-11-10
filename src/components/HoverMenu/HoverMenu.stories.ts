@@ -9,12 +9,7 @@ import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyO
 const meta: Meta<typeof HoverMenu> = {
   title: 'Components/HoverMenu',
   component: HoverMenu,
-  tags: ['autodocs'],
-  argTypes: {
-
-  },
-  args: {
-  },
+  tags: ['!autodocs'],
 };
 
 export default meta;

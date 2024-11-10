@@ -21,7 +21,15 @@ const meta: Meta<typeof Modal> = {
     isOpened: true,
     showCloseButton: false,
     title: "Сохранить прогресс?",
-  }
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: 300,
+      },
+    },
+  },
 };
 
 export default meta;
@@ -68,7 +76,7 @@ export const WithFooter: Story = {
 export const LongContent: Story = {
   args: {
     isOpened: true,
-    title: "Сохранить прогресс?Сохранить прогресс?Сохранить прогресс?",
+    title: "Сохранить прогресс?",
   },
   render: (args) => ({
     components: { Modal, Button },

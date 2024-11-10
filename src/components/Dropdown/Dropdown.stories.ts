@@ -9,7 +9,7 @@ import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyO
 const meta: Meta<typeof Dropdown> = {
   title: 'Components/Dropdown',
   component: Dropdown,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {},
   args: {}
 };

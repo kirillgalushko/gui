@@ -7,12 +7,7 @@ import { RegisteredOption } from './useSelect';
 const meta: Meta<typeof Select> = {
   title: 'Components/Select',
   component: Select,
-  tags: ['autodocs'],
-  argTypes: {
-   
-  },
-  args: {
-  },
+  tags: ['!autodocs'],
 };
 
 export default meta;

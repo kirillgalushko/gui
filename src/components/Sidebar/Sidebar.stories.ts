@@ -8,7 +8,10 @@ import Badge from '../Badge/Badge.vue'
 const meta: Meta<typeof Sidebar> = {
   title: 'Components/Sidebar',
   component: Sidebar,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;

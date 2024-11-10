@@ -9,11 +9,9 @@ const meta: Meta<typeof Row> = {
   argTypes: {
     fullHeight: {
       control: 'boolean',
-      description: 'Устанавливает высоту строки на 100%',
     },
     alignItems: {
       control: 'select',
-      description: 'Устанавливает высоту строки на 100%',
       options: ['start', 'center', 'end'],
     },
   },

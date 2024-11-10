@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/HoverMenu/Docs" />
+
+## Пример использования
+
+```
+<template>
+  <HoverMenu>
+    <Button>Hover me</Button>
+
+    <template #menu>
+      <HoverMenuList>
+        <HoverMenuItem><IconPencilOutline />Открыть</HoverMenuItem>
+        <HoverMenuItem><IconExternalLinkOutline />Открыть в новой вкладке</HoverMenuItem>
+      </HoverMenuList>
+    </template>
+  </HoverMenu>
+</tempalte>
+```
+
+## С дополнительным подменю
+
+```
+<template>
+  <HoverMenu>
+    <Button>Hover me</Button>
+
+    <template #menu>
+      <HoverMenuList>
+        <HoverMenuItem><IconPencilOutline />Открыть</HoverMenuItem>
+        <HoverMenuItem><IconExternalLinkOutline />Открыть в новой вкладке</HoverMenuItem>
+        <HoverMenu>
+          <HoverMenuItem showArrow><IconShareOutline />Поделиться</HoverMenuItem>
+          <template #menu>
+            <HoverMenuList>
+              <HoverMenuItem><IconCopyOutline />Скопировать ссылку</HoverMenuItem>
+              <HoverMenuItem><IconMailOutline />Отправить по почте</HoverMenuItem>
+            </HoverMenuList>
+          </template>
+        </HoverMenu>
+        <HoverMenuSeparator />
+        <HoverMenuItem><IconArchiveOutline />Архивировать</HoverMenuItem>
+      </HoverMenuList>
+    </template>
+  </HoverMenu>
+</tempalte>
+```
