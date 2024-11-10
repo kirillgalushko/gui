@@ -4,6 +4,10 @@ import '../src/styles/style.css';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: (a, b) =>
+        a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true }),
+    },
     docs: {
       theme: themes.dark,
     },
