@@ -1,4 +1,4 @@
-import{ae as e,af as u}from"./index-DZpCm7qI.js";import{useMDXComponents as r}from"./index-CFTnJw_j.js";import"./chunk-NUUEMKO5-BGctcWav.js";import"./iframe-DuNeiOs3.js";import"../sb-preview/runtime.js";import"./index-B0EJvtKl.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-D-8MO0q_.js";import"./index-CxISiSMm.js";import"./index-DrFu-skq.js";function o(t){const n={code:"code",h2:"h2",pre:"pre",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(u,{title:"Components/HoverMenu/Docs"}),`
+import{ae as e,af as u}from"./index-f1A832F4.js";import{useMDXComponents as r}from"./index-CFTnJw_j.js";import"./chunk-NUUEMKO5-TAT1LaGA.js";import"./iframe-DTFSGm6O.js";import"../sb-preview/runtime.js";import"./index-B0EJvtKl.js";import"./_commonjsHelpers-Cpj98o6Y.js";import"./index-D-8MO0q_.js";import"./index-CxISiSMm.js";import"./index-DrFu-skq.js";function o(t){const n={code:"code",h2:"h2",pre:"pre",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(u,{title:"Components/HoverMenu/Docs"}),`
 `,e.jsx(n.h2,{id:"пример-использования",children:"Пример использования"}),`
 `,e.jsx(n.pre,{children:e.jsx(n.code,{children:`<template>
   <HoverMenu>
