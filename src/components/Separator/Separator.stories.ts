@@ -6,7 +6,7 @@ import Row from '../Row/Row.vue';
 import Gap from '../Gap/Gap.vue';
 
 const meta: Meta<typeof Separator> = {
-  title: 'Example/Separator',
+  title: 'Components/Separator',
   component: Separator,
   tags: ['autodocs'],
   argTypes: {

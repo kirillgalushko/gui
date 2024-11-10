@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3';
 import Loader from './Loader.vue';
 
 const meta: Meta<typeof Loader> = {
-  title: 'Example/Loader',
+  title: 'Components/Loader',
   component: Loader,
   tags: ['autodocs'],
   argTypes: {

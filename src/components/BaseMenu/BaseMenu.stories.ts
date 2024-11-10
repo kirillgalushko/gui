@@ -7,9 +7,9 @@ import BaseMenuSeparator from './BaseMenuSeparator.vue';
 import { IconPencilOutline, IconShareOutline, IconExternalLinkOutline, IconArchiveOutline } from '@gui/icons';
 
 const meta: Meta<typeof BaseMenu> = {
-  title: 'Example/BaseMenu',
+  title: 'Components/BaseMenu',
   component: BaseMenu,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
 };
 
 export default meta;

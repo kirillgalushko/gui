@@ -8,7 +8,7 @@ import Tabs from './Tabs.vue';
 import Tab from './Tab.vue'
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Example/Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   tags: ['autodocs'],
 };

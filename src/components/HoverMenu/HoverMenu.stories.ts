@@ -7,7 +7,7 @@ import Button from '../Button/Button.vue'
 import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyOutline, IconMailOutline, IconArchiveOutline } from '@gui/icons';
 
 const meta: Meta<typeof HoverMenu> = {
-  title: 'Example/HoverMenu',
+  title: 'Components/HoverMenu',
   component: HoverMenu,
   tags: ['autodocs'],
   argTypes: {

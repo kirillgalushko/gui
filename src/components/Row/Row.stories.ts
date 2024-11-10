@@ -3,7 +3,7 @@ import Row from './Row.vue';
 import Card from '../Card/Card.vue'
 
 const meta: Meta<typeof Row> = {
-  title: 'Example/Row',
+  title: 'Components/Row',
   component: Row,
   tags: ['autodocs'],
   argTypes: {

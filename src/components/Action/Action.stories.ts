@@ -3,9 +3,9 @@ import Action from './Action.vue';
 import {IconEyeOutline} from '@gui/icons'
 
 const meta: Meta<typeof Action> = {
-  title: 'Example/Action',
+  title: 'Components/Action',
   component: Action,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
   argTypes: {},
 };
 

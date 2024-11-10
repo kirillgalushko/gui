@@ -5,7 +5,7 @@ import { IconMenu2Outline, IconSearchOutline } from '@gui/icons';
 type InputType = typeof Input | HTMLInputElement
 
 const meta: Meta<InputType> = {
-  title: 'Example/Input',
+  title: 'Components/Input',
   component: Input,
   tags: ['autodocs'],
 };

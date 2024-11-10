@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs';
+import { useConfirm } from './useConfirm';
+
+<Meta title="Components/Confirm/useConfirm" />
+
+# useConfirm
+
+Хук `useConfirm` используется для создания модального окна подтверждения, в котором можно настроить заголовок, описание, текст кнопок подтверждения и отмены.
+
+## Параметры
+
+- `title` (_string_) — Заголовок окна подтверждения.
+- `description` (_string_) — Описание, отображаемое в модальном окне.
+- `confirmButtonText` (_string_) — Текст кнопки подтверждения (по умолчанию "Подтвердить").
+- `cancelButtonText` (_string_) — Текст кнопки отмены (по умолчанию "Отменить").
+- `isOpened` (_boolean_) — Состояние открытия/закрытия окна.
+- `confirm` (_function_) — Функция, вызываемая для открытия окна подтверждения с параметрами.
+
+## Пример использования
+
+```tsx
+const { confirm, ...confirmData } = useConfirm()
+
+const onClick = async () => {
+  try {
+    await confirm({ title: 'Вы уверены?', description: 'Эти изменения нельзя будет отменить.' });
+    // Пользователь подтвердил действие
+  } catch (e) {
+    // Отмена
+  }
+}
+...
+<template>
+  <button @click={onClick}></button>
+  <Confirm v-bind="confirmData" />
+</tempalte>
+```

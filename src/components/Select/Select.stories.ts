@@ -5,7 +5,7 @@ import { ref } from 'vue';
 import { RegisteredOption } from './useSelect';
 
 const meta: Meta<typeof Select> = {
-  title: 'Example/Select',
+  title: 'Components/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {

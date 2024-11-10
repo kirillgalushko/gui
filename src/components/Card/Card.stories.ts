@@ -8,7 +8,7 @@ import { DefineComponent } from 'vue';
 type CardType = DefineComponent<CardProps>
 
 const meta = {
-  title: 'Example/Card',
+  title: 'Components/Card',
   // @ts-ignore
   component: Card,
   tags: ['autodocs'],

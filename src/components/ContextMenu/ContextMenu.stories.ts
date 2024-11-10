@@ -8,14 +8,11 @@ import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconFeath
 import { useContextMenu } from './useContextMenu';
 
 const meta: Meta<typeof ContextMenu> = {
-  title: 'Example/ContextMenu',
+  title: 'Components/ContextMenu',
   component: ContextMenu,
-  tags: ['autodocs'],
-  argTypes: {
-
-  },
-  args: {
-  },
+  tags: ['!autodocs'],
+  argTypes: {},
+  args: {},
 };
 
 export default meta;

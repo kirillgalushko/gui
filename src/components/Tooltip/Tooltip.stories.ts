@@ -3,7 +3,7 @@ import Tooltip from './Tooltip.vue';
 import Text from '../Text/Text.vue'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Example/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {

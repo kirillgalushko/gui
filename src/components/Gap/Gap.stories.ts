@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3';
 import Gap from './Gap.vue';
 
 const meta: Meta<typeof Gap> = {
-  title: 'Example/Gap',
+  title: 'Components/Gap',
   component: Gap,
   tags: ['autodocs'],
   argTypes: {

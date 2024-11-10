@@ -5,7 +5,7 @@ import Button from './Button.vue';
 import { IconPencilOutline } from '@gui/icons';
 
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

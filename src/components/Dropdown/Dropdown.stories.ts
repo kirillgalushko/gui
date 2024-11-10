@@ -7,7 +7,7 @@ import Button from '../Button/Button.vue';
 import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyOutline, IconMailOutline, IconArchiveOutline } from '@gui/icons';
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Example/Dropdown',
+  title: 'Components/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   argTypes: {},

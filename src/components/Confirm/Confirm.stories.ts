@@ -5,13 +5,11 @@ import Button from '../Button/Button.vue'
 import { ref } from 'vue'
 
 const meta: Meta<typeof Confirm> = {
-  title: 'Example/Confirm',
+  title: 'Components/Confirm',
   component: Confirm,
-  tags: ['autodocs'],
-  argTypes: {
-  },
-  args: {
-  },
+  tags: ['!autodocs'],
+  argTypes: {},
+  args: {},
 };
 
 export default meta;

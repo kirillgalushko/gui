@@ -6,7 +6,7 @@ import { IconMusicOutline, IconBuildingBroadcastTowerOutline, IconPlaylistOutlin
 import Badge from '../Badge/Badge.vue'
 
 const meta: Meta<typeof Sidebar> = {
-  title: 'Example/Sidebar',
+  title: 'Components/Sidebar',
   component: Sidebar,
   tags: ['autodocs'],
 };

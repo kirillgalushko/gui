@@ -3,7 +3,7 @@ import Card from '../Card/Card.vue'
 import Stack from './Stack.vue';
 
 const meta: Meta<typeof Stack> = {
-  title: 'Example/Stack',
+  title: 'Components/Stack',
   component: Stack,
   tags: ['autodocs'],
   argTypes: {

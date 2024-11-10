@@ -3,7 +3,7 @@ import Modal from './Modal.vue';
 import Button from '../Button/Button.vue';
 
 const meta: Meta<typeof Modal> = {
-  title: 'Example/Modal',
+  title: 'Components/Modal',
   component: Modal,
   tags: ['autodocs'],
   argTypes: {
