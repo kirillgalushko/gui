@@ -37,7 +37,7 @@ const gridTemplateAreas = computed(() => {
         <div :style="{ gridTemplateAreas }"
           :class="['modal-layout', { 'with-title': !!props.title, 'with-close': !!props.showCloseButton }]">
           <div v-if="props.title" class="modal-title">
-            <Text typography="title-3-semibold">{{ props.title }}</Text>
+            <Text typography="title-3">{{ props.title }}</Text>
           </div>
           <div v-if="props.showCloseButton" class="modal-close">
             <Action @click="props.onClose">

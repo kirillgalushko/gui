@@ -20,12 +20,12 @@ const getExample = (tabs: string, stretched: boolean) => `
   <Card ${stretched ? 'stretched' : ''} :padding="16" :borderRadius="12">
       ${tabs}
     <Gap direction="vertical" :default="4" />
-    <Text typography="title-2-semibold">{{selectedTab}}</Text>
-    <Text typography="paragraph-1-semibold" mode="secondary">Total Revenue</Text>
+    <Text typography="title-3">{{selectedTab}}</Text>
+    <Text typography="paragraph-1" color="secondary">Total Revenue</Text>
     <Gap direction="vertical" :default="2" />
-    <Text typography="title-1-semibold"><b>$223.89</b></Text>
+    <Text typography="title-2"><b>$223.89</b></Text>
     <Gap direction="vertical" :default="4" />
-    <Button mode="accent" ${stretched ? 'stretched' : ''}>Btasdf</Button>
+    <Button mode="accent" ${stretched ? 'stretched' : ''}>Button</Button>
   </Card>
 `
 

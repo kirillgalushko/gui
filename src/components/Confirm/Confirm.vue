@@ -21,7 +21,7 @@ const props = defineProps<ConfirmProps>()
 
 <template>
   <Modal :isOpened="props.isOpened.value" :title="props.title.value">
-    <Text typography="paragraph-1-regular" mode="secondary">
+    <Text typography="paragraph-1" mode="secondary">
       {{ props.description }}
     </Text>
     <template #footer>

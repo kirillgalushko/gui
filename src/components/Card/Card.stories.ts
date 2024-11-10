@@ -37,9 +37,9 @@ export default meta;
 type Story = StoryObj<CardType>;
 
 const cardContent = `
-  <Text typography="title-2-semibold">Notifications</Text>
+  <Text typography="title-2">Notifications</Text>
   <Gap :default="1" direction="vertical" />
-  <Text typography="paragraph-2-regular" mode="secondary">You have 3 unread messages</Text>
+  <Text typography="paragraph-2" color="secondary">You have 3 unread messages</Text>
   <Gap :default="3" direction="vertical" />
   <Button mode="accent">Mark as read</Button>
 `
@@ -100,8 +100,8 @@ export const InteractiveCard: Story = {
       return { args, onClick };
     },
     template: `<Card v-bind="args" @click="onClick">
-      <Text typography="title-2-semibold">Interactive Card</Text>
-      <Text typography="paragraph-2-regular" mode="secondary">The whole card is clickable</Text>
+      <Text typography="title-2">Interactive Card</Text>
+      <Text typography="paragraph-2" color="secondary">The whole card is clickable</Text>
     </Card>`,
   }),
 };
