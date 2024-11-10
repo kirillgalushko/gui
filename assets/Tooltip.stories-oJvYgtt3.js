@@ -1,4 +1,4 @@
-import{T as n}from"./Tooltip-V-Nod6Gw.js";import{T as i}from"./Text-CSlgGdGl.js";import"./vue.esm-bundler-IF9MMzN9.js";import"./floating-vue-CjteXB9K.js";import"./floating-ui.dom.browser.min-Dq8c3VDt.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const x={title:"Components/Tooltip",component:n,tags:["autodocs"],argTypes:{mode:{control:"select",options:["default","accent"]}},args:{mode:"default"}},t={args:{mode:"default"},render:o=>({components:{Tooltip:n,Text:i},setup(){return{args:o}},template:`
+import{T as n}from"./Tooltip-V-Nod6Gw.js";import{T as i}from"./Text-CzGbCvHO.js";import"./vue.esm-bundler-IF9MMzN9.js";import"./floating-vue-CjteXB9K.js";import"./floating-ui.dom.browser.min-Dq8c3VDt.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const x={title:"Components/Tooltip",component:n,tags:["autodocs"],argTypes:{mode:{control:"select",options:["default","accent"]}},args:{mode:"default"}},t={args:{mode:"default"},render:o=>({components:{Tooltip:n,Text:i},setup(){return{args:o}},template:`
       Наведи курсор вот 
       <Tooltip v-bind="args">
         <template #popper>
