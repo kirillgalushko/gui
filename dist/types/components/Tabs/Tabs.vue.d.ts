@@ -7,7 +7,9 @@ declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;
     };
-    refs: {};
+    refs: {
+        tabsElementRef: HTMLDivElement;
+    };
     attrs: Partial<{}>;
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
