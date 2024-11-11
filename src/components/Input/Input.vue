@@ -3,11 +3,11 @@ import { computed, ref, type Ref } from 'vue';
 
 export interface InputProps {
   maxWidth?: string;
+  disabled?: boolean;
 }
 
 const leftAdornment = ref<HTMLDivElement>()
 const rightAdornment = ref<HTMLDivElement>()
-const model = defineModel()
 const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
 
 const inputStyles = computed(() => {
@@ -24,11 +24,11 @@ const inputStyles = computed(() => {
 </script>
 
 <template>
-  <div :style="{ maxWidth: props.maxWidth }" class="input-container">
+  <div :style="{ maxWidth: props.maxWidth }" :class="['input-container', { 'disabled': props.disabled }]">
     <div ref="leftAdornment" class="adornment left-adornment">
       <slot name="leftAdornment"></slot>
     </div>
-    <input v-bind="$attrs" v-model="model" :style="inputStyles" :class="['input']" />
+    <input v-bind="$attrs" :disabled="props.disabled" :style="inputStyles" :class="['input']" />
     <div ref="rightAdornment" class="adornment right-adornment">
       <slot name="rightAdornment"></slot>
     </div>
@@ -40,6 +40,11 @@ const inputStyles = computed(() => {
   position: relative;
   display: inline-flex;
   width: 100%;
+}
+
+.input-container.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .input {
@@ -55,6 +60,10 @@ const inputStyles = computed(() => {
   display: flex;
   width: 100%;
   transition: outline-width 0.2s;
+}
+
+.input:disabled {
+  cursor: not-allowed;
 }
 
 .input:focus-visible {

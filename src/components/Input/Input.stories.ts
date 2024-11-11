@@ -8,6 +8,11 @@ const meta: Meta<InputType> = {
   title: 'Components/Input',
   component: Input,
   tags: ['autodocs'],
+  argTypes: {
+    disabled: {
+      type: 'boolean'
+    },
+  },
 };
 
 export default meta;
