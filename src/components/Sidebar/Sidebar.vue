@@ -30,7 +30,7 @@ const startResizing = () => {
   isResizing.value = true;
   document.addEventListener('mousemove', resizeSidebar);
   document.addEventListener('mouseup', stopResizing);
-  document.body.style.userSelect = 'none';
+  document.body.classList.add('prevent-user-select');
 }
 
 const resizeSidebar = (event: MouseEvent) => {
@@ -47,7 +47,7 @@ const stopResizing = () => {
   isResizing.value = false;
   document.removeEventListener('mousemove', resizeSidebar);
   document.removeEventListener('mouseup', resizeSidebar);
-  document.body.style.userSelect = '';
+  document.body.classList.remove('prevent-user-select');
 }
 
 watch(() => width.value, () => {
@@ -71,6 +71,14 @@ watch(() => width.value, () => {
     <slot></slot>
   </div>
 </template>
+
+<style>
+.prevent-user-select * {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</style>
 
 <style scoped>
 .sidebar {
