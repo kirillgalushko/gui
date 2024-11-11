@@ -54,6 +54,7 @@ const inputStyles = computed(() => {
   box-sizing: border-box;
   display: flex;
   width: 100%;
+  transition: outline-width 0.2s;
 }
 
 .input:focus-visible {
