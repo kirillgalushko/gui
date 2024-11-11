@@ -30,15 +30,18 @@ const startResizing = () => {
   isResizing.value = true;
   document.addEventListener('mousemove', resizeSidebar);
   document.addEventListener('mouseup', stopResizing);
+  document.addEventListener('touchmove', resizeSidebar);
+  document.addEventListener('touchend', stopResizing);
   document.body.classList.add('prevent-user-select');
 }
 
-const resizeSidebar = (event: MouseEvent) => {
-  if (isResizing.value && event.clientX > 0 && sidebarRef.value) {
+const resizeSidebar = (event: MouseEvent | TouchEvent) => {
+  if (isResizing.value && sidebarRef.value) {
+    const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
     const sidebarOffsetLeft = sidebarRef.value.offsetLeft;
-    width.value = event.clientX - sidebarOffsetLeft
+    width.value = clientX - sidebarOffsetLeft;
   }
-  if (isResizing.value && event.buttons !== 1) {
+  if (isResizing.value && event instanceof MouseEvent && event.buttons !== 1) {
     isResizing.value = false
   }
 }
@@ -47,6 +50,8 @@ const stopResizing = () => {
   isResizing.value = false;
   document.removeEventListener('mousemove', resizeSidebar);
   document.removeEventListener('mouseup', resizeSidebar);
+  document.removeEventListener('touchmove', resizeSidebar);
+  document.removeEventListener('touchend', resizeSidebar);
   document.body.classList.remove('prevent-user-select');
 }
 
@@ -65,7 +70,7 @@ watch(() => width.value, () => {
     maxWidth: props.maxWidth,
     minWidth: props.minWidth,
   }">
-    <div class="resize-handle" @mousedown="startResizing">
+    <div class="resize-handle" @mousedown="startResizing" @touchstart="startResizing">
       <IconGripVerticalOutline />
     </div>
     <slot></slot>
