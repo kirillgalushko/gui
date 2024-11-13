@@ -1,4 +1,51 @@
+import './vite-env.d.ts';
 import './styles/style.css';
+export declare const Action: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
+});
+export declare const Avatar: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Avatar/Avatar.vue").AvatarProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        size: string;
+        shape: "square" | "circle";
+        color: "default" | "secondary" | "outlined";
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Avatar/Avatar.vue").AvatarProps> & Readonly<{}>, {}, {}, {}, {}, {
+        size: string;
+        shape: "square" | "circle";
+        color: "default" | "secondary" | "outlined";
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Avatar/Avatar.vue").AvatarProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    size: string;
+    shape: "square" | "circle";
+    color: "default" | "secondary" | "outlined";
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
+});
 export declare const Button: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Button/Button.vue").ButtonProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         mode: "default" | "accent" | "ghost";
@@ -157,8 +204,8 @@ export declare const Tabs: {
 });
 export declare const Text: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Text/Text.vue").TextProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
-        Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
         color: "default" | "inherit" | "secondary";
+        Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -167,15 +214,15 @@ export declare const Text: {
         M: {};
         Defaults: {};
     }, Readonly<import("./components/Text/Text.vue").TextProps> & Readonly<{}>, {}, {}, {}, {}, {
-        Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
         color: "default" | "inherit" | "secondary";
+        Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Text/Text.vue").TextProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
     color: "default" | "inherit" | "secondary";
+    Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
