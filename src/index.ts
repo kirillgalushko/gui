@@ -1,6 +1,10 @@
+import './vite-env.d.ts'
+
 import { defineAsyncComponent as ac } from 'vue';
 import './styles/style.css';
 
+export const Action = ac(() => import('./components/Action/Action.vue'));
+export const Avatar = ac(() => import('./components/Avatar/Avatar.vue'));
 export const Button = ac(() => import('./components/Button/Button.vue'));
 export const Card = ac(() => import('./components/Card/Card.vue'));
 export const Gap = ac(() => import('./components/Gap/Gap.vue'));
