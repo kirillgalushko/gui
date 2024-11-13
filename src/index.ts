@@ -34,6 +34,7 @@ export const ContextMenuSeparator = ac(() => import('./components/ContextMenu/Co
 export const Confirm = ac(() => import('./components/Confirm/Confirm.vue'));
 export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
+export const Textarea = ac(() => import('./components/Textarea/Textarea.vue'));
 
 import useTabs from './components/Tabs/useTabs';
 import { useSelect, type RegisteredOption } from './components/Select/useSelect';
