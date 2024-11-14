@@ -28,7 +28,7 @@ export const Default: Story = {
     setup() {
       return { args };
     },
-    template: '<Input v-bind="args" />',
+    template: '<Input v-bind="args" v-model="args.value" />',
   }),
 };
 
@@ -44,7 +44,7 @@ export const WithLeftIcon: Story = {
       return { args };
     },
     template: `
-      <Input v-bind="args">
+      <Input v-bind="args" v-model="args.value">
         <template #leftAdornment>
           <IconSearchOutline />
         </template>
@@ -65,7 +65,7 @@ export const WithRightIcon: Story = {
       return { args };
     },
     template: `
-      <Input v-bind="args">
+      <Input v-bind="args" v-model="args.value">
         <template #rightAdornment>
           <IconMenu2Outline />
         </template>

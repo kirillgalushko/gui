@@ -8,6 +8,7 @@ export interface InputProps {
 
 const leftAdornment = ref<HTMLDivElement>()
 const rightAdornment = ref<HTMLDivElement>()
+const model = defineModel()
 const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
 
 const inputStyles = computed(() => {
@@ -28,7 +29,7 @@ const inputStyles = computed(() => {
     <div ref="leftAdornment" class="adornment left-adornment">
       <slot name="leftAdornment"></slot>
     </div>
-    <input v-bind="$attrs" :disabled="props.disabled" :style="inputStyles" :class="['input']" />
+    <input v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles" :class="['input']" />
     <div ref="rightAdornment" class="adornment right-adornment">
       <slot name="rightAdornment"></slot>
     </div>
