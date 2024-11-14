@@ -28,7 +28,6 @@ const sliderStyle = ref({
 });
 
 const updateSliderStyle = () => {
-  console.log('updateSliderStyle')
   const selectedTab = tabs.selectedTab.value;
   if (selectedTab) {
     sliderStyle.value = {
