@@ -56,6 +56,7 @@ const styles = computed(() => {
   position: relative;
   overflow: hidden;
   font-size: 16px;
+  flex-shrink: 0;
 }
 
 .avatar-image {
