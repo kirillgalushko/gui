@@ -76,7 +76,13 @@ export declare const Card: import("vue").DefineSetupFnComponent<Record<string, a
 });
 export declare const Gap: import("vue").DefineComponent<import("./components/Gap/Gap.vue").GapProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Gap/Gap.vue").GapProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export declare const Input: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Input/Input.vue").InputProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+        modelValue?: any;
+    } & import("./components/Input/Input.vue").InputProps> & Readonly<{
+        "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
+    }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:modelValue": (modelValue: any) => any;
+    }, import("vue").PublicProps, {
         maxWidth: string;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -85,13 +91,23 @@ export declare const Input: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<import("./components/Input/Input.vue").InputProps> & Readonly<{}>, {}, {}, {}, {}, {
+    }, Readonly<{
+        modelValue?: any;
+    } & import("./components/Input/Input.vue").InputProps> & Readonly<{
+        "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
+    }>, {}, {}, {}, {}, {
         maxWidth: string;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<import("./components/Input/Input.vue").InputProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+} & import("vue").ComponentOptionsBase<Readonly<{
+    modelValue?: any;
+} & import("./components/Input/Input.vue").InputProps> & Readonly<{
+    "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (modelValue: any) => any;
+}, string, {
     maxWidth: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -551,7 +567,15 @@ export declare const SelectOption: {
         default?(_: {}): any;
     };
 });
-export declare const Textarea: import("vue").DefineComponent<import("./components/Textarea/Textarea.vue").TextareaProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Textarea/Textarea.vue").TextareaProps> & Readonly<{}>, {
+export declare const Textarea: import("vue").DefineComponent<{
+    modelValue?: string;
+} & import("./components/Textarea/Textarea.vue").TextareaProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (modelValue: string) => any;
+}, string, import("vue").PublicProps, Readonly<{
+    modelValue?: string;
+} & import("./components/Textarea/Textarea.vue").TextareaProps> & Readonly<{
+    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+}>, {
     resize: "none" | "both" | "horizontal" | "vertical";
     layout: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
