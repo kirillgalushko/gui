@@ -87,5 +87,6 @@ watch(() => props.layout, autoResize);
 
 .hug {
   width: 100%;
+  min-height: 40px;
 }
 </style>
