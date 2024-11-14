@@ -5,7 +5,6 @@ export interface TextareaProps {
   resize?: 'none' | 'both' | 'horizontal' | 'vertical'
   layout?: 'fixed' | 'fill-vertical' | 'fill-horizontal' | 'fill-both' | 'hug'
   placeholder?: string
-  value?: string
 }
 
 const props = withDefaults(defineProps<TextareaProps>(), {
@@ -14,7 +13,7 @@ const props = withDefaults(defineProps<TextareaProps>(), {
 });
 
 const textareaRef = ref<HTMLTextAreaElement | null>(null);
-
+const model = defineModel<string>()
 const styles = computed(() => ({
   resize: props.resize,
 }));
@@ -35,7 +34,7 @@ watch(() => props.layout, autoResize);
 </script>
 
 <template>
-  <textarea ref="textareaRef" v-bind="$attrs" :value="props.value" :placeholder="props.placeholder" :style="styles"
+  <textarea ref="textareaRef" v-bind="$attrs" v-model="model" :placeholder="props.placeholder" :style="styles"
     :class="['textarea', props.layout]" @input="autoResize"></textarea>
 </template>
 

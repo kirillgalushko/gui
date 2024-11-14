@@ -1,7 +1,9 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Textarea from './Textarea.vue';
 
-const meta: Meta<typeof Textarea> = {
+type TextareaType = typeof Textarea | HTMLTextAreaElement
+
+const meta: Meta<TextareaType> = {
   title: 'Components/Textarea',
   component: Textarea,
   tags: ['autodocs'],
@@ -17,18 +19,14 @@ const meta: Meta<typeof Textarea> = {
     placeholder: {
       control: { type: 'text' },
     },
-    value: {
-      control: { type: 'text' },
-    },
   },
   args: {
     placeholder: 'Placeholder',
-    value: '',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Textarea>;
+type Story = StoryObj<TextareaType>;
 
 export const Default: Story = {
   args: {
@@ -41,6 +39,6 @@ export const Default: Story = {
     setup() {
       return { args };
     },
-    template: `<div style="height: 300px;"><Textarea v-bind="args" /></div>`,
+    template: `<div style="height: 300px;"><Textarea v-bind="args" v-model="args.value" /></div>`,
   }),
 };
