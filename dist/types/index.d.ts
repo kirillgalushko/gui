@@ -48,7 +48,7 @@ export declare const Avatar: {
 });
 export declare const Button: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Button/Button.vue").ButtonProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
-        mode: "default" | "accent" | "ghost";
+        mode: "default" | "accent" | "ghost" | "outline";
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -57,13 +57,13 @@ export declare const Button: {
         M: {};
         Defaults: {};
     }, Readonly<import("./components/Button/Button.vue").ButtonProps> & Readonly<{}>, {}, {}, {}, {}, {
-        mode: "default" | "accent" | "ghost";
+        mode: "default" | "accent" | "ghost" | "outline";
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Button/Button.vue").ButtonProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    mode: "default" | "accent" | "ghost";
+    mode: "default" | "accent" | "ghost" | "outline";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?(_: {}): any;
