@@ -2,7 +2,7 @@
 import Loader from '../Loader/Loader.vue';
 
 export interface ButtonProps {
-    mode?: 'default' | 'accent' | 'ghost',
+    mode?: 'default' | 'accent' | 'ghost' | 'outline',
     stretched?: boolean;
     squared?: boolean;
     isLoading?: boolean;
@@ -93,6 +93,22 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 
 .button.ghost:hover:not(.disabled) {
     background-color: hsl(var(--button-bg) / .8);
+}
+
+.button.outline {
+    --button-text: var(--accent-foreground);
+    --button-outline: var(--accent);
+    background-color: transparent;
+    border: 1px solid hsl(var(--button-outline));
+}
+
+.button.outline:hover:not(.disabled) {
+    background-color: hsl(var(--button-outline));
+}
+
+
+.button.outline.disabled {
+    border-color: hsl(var(--button-outline) / .8);
 }
 
 .button.stretched {

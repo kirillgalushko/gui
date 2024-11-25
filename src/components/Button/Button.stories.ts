@@ -9,7 +9,7 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    mode: { control: 'select', options: ['default', 'accent', 'ghost'] },
+    mode: { control: 'select', options: ['default', 'accent', 'ghost', 'outline'] },
     stretched: { control: 'boolean' },
     squared: { control: 'boolean' },
     isLoading: { control: 'boolean' },
