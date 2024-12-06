@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3';
-import * as logos from '@gui/assets'
+import * as logos from '@gui/logos'
 import { computed, defineComponent, ref } from 'vue';
 import Input from '../components/Input/Input.vue'
 import Text from '../components/Text/Text.vue'
