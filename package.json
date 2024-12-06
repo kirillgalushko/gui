@@ -12,12 +12,13 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "vite build && vue-tsc -b",
-    "release": "node release.js",
+    "release": "npx @gui/release",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
     "@gui/logos": "github:kirillgalushko/gui-logos#v3.0.2",
+    "@gui/release": "github:kirillgalushko/gui-release",
     "@laynezh/vite-plugin-lib-assets": "^0.5.24",
     "@storybook/addon-essentials": "^8.3.6",
     "@storybook/addon-interactions": "^8.3.6",
