@@ -1,8 +1,9 @@
-@import url('variables.css');
-@import url('fonts.css');
+@import url("variables.css");
+@import url("fonts.css");
+@import url("colors.css");
 
 :root {
-  font-family: 'Inter', Helvetica, system-ui, Avenir, Arial, sans-serif;
+  font-family: "Inter", Helvetica, system-ui, Avenir, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -20,7 +21,7 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
-  background-color: hsl(var(--muted-foreground) / .3) !important;
+  background-color: hsl(var(--muted-foreground) / 0.3) !important;
 }
 
 ::-webkit-scrollbar-track {
