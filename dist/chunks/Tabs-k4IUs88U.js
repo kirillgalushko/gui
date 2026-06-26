@@ -1,5 +1,5 @@
 import { defineComponent as p, ref as s, provide as c, watchEffect as u, openBlock as m, createElementBlock as h, normalizeClass as d, createElementVNode as v, normalizeStyle as b, renderSlot as _ } from "vue";
-import { u as y, a as x } from "./index-3rx_ciuJ.js";
+import { u as y, a as x } from "./index-DR0T4wsZ.js";
 import { _ as C } from "./_plugin-vue_export-helper-CHgC5LLL.js";
 import '../assets/Tabs-DzLR84x9.css';const E = /* @__PURE__ */ p({
   __name: "Tabs",

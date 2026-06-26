@@ -1,0 +1,12 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Hooks/useResize" />
+
+# useResize
+
+Вызывает callback при изменении размера элемента.
+
+```ts
+const elementRef = ref<HTMLElement | null>(null);
+useResize(elementRef, updateLayout);
+```

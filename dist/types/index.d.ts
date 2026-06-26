@@ -1,5 +1,5 @@
-import './vite-env.d.ts';
-import './styles/style.css';
+import "./vite-env.d.ts";
+import "./styles/style.css";
 export declare const Action: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -579,10 +579,11 @@ export declare const Textarea: import("vue").DefineComponent<{
     resize: "none" | "both" | "horizontal" | "vertical";
     layout: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-import useTabs from './components/Tabs/useTabs';
-import { useSelect, type RegisteredOption } from './components/Select/useSelect';
-import { useConfirm } from './components/Confirm/useConfirm';
-import { useResize } from './hooks/useResize';
-import { useSize } from './hooks/useSize';
-import { useContextMenu } from './components/ContextMenu/useContextMenu';
-export { useSelect, RegisteredOption, useConfirm, useTabs, useResize, useSize, useContextMenu, };
+import useTabs from "./components/Tabs/useTabs";
+import { useSelect, type RegisteredOption } from "./components/Select/useSelect";
+import { useConfirm } from "./components/Confirm/useConfirm";
+import { useResize } from "./hooks/useResize";
+import { useSize } from "./hooks/useSize";
+import { useModal } from "./hooks/useModal";
+import { useContextMenu } from "./components/ContextMenu/useContextMenu";
+export { useSelect, RegisteredOption, useConfirm, useTabs, useResize, useSize, useModal, useContextMenu, };

@@ -1,0 +1,16 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Hooks/useModal" />
+
+# useModal
+
+Контролирует состояние открытия модалки.
+
+```ts
+const { show, close, visible } = useModal();
+```
+
+```vue
+<Button @click="show">Открыть</Button>
+<Modal :isOpened="visible" :onClose="close" showCloseButton />
+```

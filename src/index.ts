@@ -45,6 +45,7 @@ import { useSelect, type RegisteredOption } from './components/Select/useSelect'
 import { useConfirm } from './components/Confirm/useConfirm';
 import { useResize } from './hooks/useResize';
 import { useSize } from './hooks/useSize';
+import { useModal } from './hooks/useModal';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
 
 export {
@@ -54,5 +55,6 @@ export {
   useTabs,
   useResize,
   useSize,
+  useModal,
   useContextMenu,
 };
