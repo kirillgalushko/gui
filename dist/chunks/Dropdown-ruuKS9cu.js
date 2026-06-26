@@ -1,5 +1,5 @@
 import { defineComponent as t, openBlock as p, createBlock as s, unref as a, mergeProps as n, withCtx as e, renderSlot as r } from "vue";
-import { k as d } from "./floating-vue-E_LiInmE.js";
+import { k as d } from "./floating-vue-BVR9xX0H.js";
 import { _ as f } from "./_plugin-vue_export-helper-CHgC5LLL.js";
 import '../assets/Dropdown-DBQj9CtI.css';const l = /* @__PURE__ */ t({
   __name: "Dropdown",
