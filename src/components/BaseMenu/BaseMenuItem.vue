@@ -32,6 +32,7 @@ const props = defineProps<BaseMenuItemProps>()
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .base-menu-item-content {
