@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Hooks/useViewportBreakpoint" />
+
+# useViewportBreakpoint
+
+Возвращает текущий viewport breakpoint по `window.innerWidth` и набор boolean-флагов.
+
+## Возвращаемое значение
+
+Readonly объект:
+
+```ts
+{
+  breakpoint: Breakpoint;
+  isXS: boolean;
+  isS: boolean;
+  isM: boolean;
+  isL: boolean;
+  isXL: boolean;
+  isXXL: boolean;
+  isMobile: boolean;
+  isGtXS: boolean;
+  isGtS: boolean;
+  isGtM: boolean;
+  isGtL: boolean;
+}
+```
+
+## Breakpoints
+
+- `xs` — `0-575px`
+- `s` — `576-1023px`
+- `m` — `1024-1279px`
+- `l` — `1280-1439px`
+- `xl` — `1440-1919px`
+- `xxl` — `1920px+`
+
+## Пример
+
+```ts
+const viewport = useViewportBreakpoint();
+
+if (viewport.isMobile) {
+  // xs или s
+}
+```

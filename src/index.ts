@@ -39,6 +39,9 @@ export const Confirm = ac(() => import('./components/Confirm/Confirm.vue'));
 export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
 export const Textarea = ac(() => import('./components/Textarea/Textarea.vue'));
+export const GridLayout = ac(() => import('./components/Grid/GridLayout.vue'));
+export const GridRow = ac(() => import('./components/Grid/GridRow.vue'));
+export const GridColumn = ac(() => import('./components/Grid/GridColumn.vue'));
 
 import useTabs from './components/Tabs/useTabs';
 import { useSelect, type RegisteredOption } from './components/Select/useSelect';
@@ -47,6 +50,12 @@ import { useResize } from './hooks/useResize';
 import { useSize } from './hooks/useSize';
 import { useModal } from './hooks/useModal';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
+import { useViewportBreakpoint } from './hooks/useViewportBreakpoint';
+import { useContainerBreakpoint } from './hooks/useContainerBreakpoint';
+export type {
+  Breakpoint,
+  BreakpointResult,
+} from './hooks/breakpoints/breakpoints';
 
 export {
   useSelect,
@@ -57,4 +66,6 @@ export {
   useSize,
   useModal,
   useContextMenu,
+  useViewportBreakpoint,
+  useContainerBreakpoint,
 };

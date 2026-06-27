@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Hooks/useContainerBreakpoint" />
+
+# useContainerBreakpoint
+
+Возвращает текущий container breakpoint по фактической ширине элемента и набор boolean-флагов.
+
+Хук использует `ResizeObserver`, поэтому подходит для сеток внутри узких контейнеров, сайдбаров, модалок и nested grid.
+
+## Параметры
+
+- `targetRef` — ref на HTML-элемент, ширину которого нужно отслеживать.
+
+## Возвращаемое значение
+
+Readonly объект:
+
+```ts
+{
+  breakpoint: Breakpoint;
+  isXS: boolean;
+  isS: boolean;
+  isM: boolean;
+  isL: boolean;
+  isXL: boolean;
+  isXXL: boolean;
+  isMobile: boolean;
+  isGtXS: boolean;
+  isGtS: boolean;
+  isGtM: boolean;
+  isGtL: boolean;
+}
+```
+
+## Breakpoints
+
+- `xs` — `0-575px`
+- `s` — `576-1023px`
+- `m` — `1024-1279px`
+- `l` — `1280-1439px`
+- `xl` — `1440-1919px`
+- `xxl` — `1920px+`
+
+## Пример
+
+```ts
+const targetRef = ref<HTMLElement | null>(null);
+const container = useContainerBreakpoint(targetRef);
+
+if (container.isGtM) {
+  // ширина контейнера больше m
+}
+```

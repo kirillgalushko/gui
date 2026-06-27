@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Grid/Documentation" />
+
+# Grid
+
+CSS Grid система для content area. Сайдбар должен находиться снаружи `GridLayout`; тогда при изменении ширины сайдбара content area становится уже, container breakpoint пересчитывается по фактической ширине `GridLayout`, а gutter остается стабильным.
+
+## GridLayout
+
+Создает область сетки и передает через `provide/inject` текущий breakpoint и количество колонок.
+
+### Props
+
+- `mode?: 'container' | 'viewport'` — источник breakpoint, по умолчанию `container`.
+- `gutter?: string` — расстояние между колонками, по умолчанию `var(--gap-4, 16px)`.
+- `highlight?: boolean` — включает полупрозрачную подсветку колонок.
+
+Подсветка использует фиксированный цвет `rgba(116, 0, 255, 0.12)`.
+
+## Breakpoints
+
+- `xs` — `0-575px`
+- `s` — `576-1023px`
+- `m` — `1024-1279px`
+- `l` — `1280-1439px`
+- `xl` — `1440-1919px`
+- `xxl` — `1920px+`
+
+## GridRow
+
+Строит CSS Grid внутри `GridLayout`.
+
+Количество колонок зависит от текущего breakpoint:
+
+- `xs` — `4`
+- `s` — `8`
+- `m`, `l`, `xl`, `xxl` — `12`
+
+## GridColumn
+
+Занимает количество колонок, указанное для текущего breakpoint. Если prop для текущего breakpoint не передан, используется ближайший меньший breakpoint.
+
+### Props
+
+- `xs?: number`
+- `s?: number`
+- `m?: number`
+- `l?: number`
+- `xl?: number`
+- `xxl?: number`
+
+## Пример
+
+```vue
+<GridLayout highlight>
+  <GridRow>
+    <GridColumn :xs="4" :s="8" :m="12" :l="12" :xl="12" :xxl="12">
+      content
+    </GridColumn>
+  </GridRow>
+</GridLayout>
+```
