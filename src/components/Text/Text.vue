@@ -2,6 +2,7 @@
 import { computed, type CSSProperties } from 'vue';
 
 export type Typography =
+    'inherit' |
     'title-1' |
     'title-2' |
     'title-3' |
@@ -17,7 +18,7 @@ export type Typography =
     'paragraph-2'
 
 export interface TextProps {
-    Element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
+    Element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'a' | 'button'
     typography?: Typography,
     clamp?: 2 | 3 | 4,
     ellipsis?: boolean,
@@ -81,6 +82,13 @@ const styles = computed(() => {
     display: -webkit-box;
     white-space: normal;
     -webkit-box-orient: vertical;
+}
+
+.inherit {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
 }
 
 .title-1 {

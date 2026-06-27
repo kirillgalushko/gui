@@ -25,6 +25,8 @@
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   --form-error: 0 84.2% 60.2%;
+  --link-accent: 217 91% 60%;
+  --link-visited: 270 70% 70%;
   --ring: 240 4.9% 83.9%;
 
   --font-family: 'Inter', Helvetica, system-ui, Avenir, Arial, sans-serif;
@@ -50,5 +52,7 @@
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   --form-error: 0 84.2% 60.2%;
+  --link-accent: 217 91% 50%;
+  --link-visited: 270 60% 45%;
   --ring: 240 5.9% 10%;
 }

@@ -11,6 +11,7 @@ export const Gap = ac(() => import('./components/Gap/Gap.vue'));
 export const FormHelper = ac(() => import('./components/FormHelper/FormHelper.vue'));
 export const FormLabel = ac(() => import('./components/FormLabel/FormLabel.vue'));
 export const Input = ac(() => import('./components/Input/Input.vue'));
+export const Link = ac(() => import('./components/Link/Link.vue'));
 export const Row = ac(() => import('./components/Row/Row.vue'));
 export const Sidebar = ac(() => import('./components/Sidebar/Sidebar.vue'));
 export const Stack = ac(() => import('./components/Stack/Stack.vue'));
