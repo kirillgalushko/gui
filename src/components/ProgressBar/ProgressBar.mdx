@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/ProgressBar/Documentation" />
+
+# ProgressBar
+
+Индикатор прогресса с плавной анимацией заполнения. Может быть цельным или разделенным на сегменты.
+
+## Props
+
+- `progress?: number` — значение от `0` до `100`.
+- `color?: string` — цвет заполнения, по умолчанию `accent`. Можно передать токен переменной (`success`, `warning`, `danger`), CSS-переменную (`--success`) или любой CSS-цвет.
+- `segments?: number` — количество сегментов, по умолчанию `1`.
+- `height?: string` — высота, по умолчанию `8px`.
+- `gap?: string` — расстояние между сегментами, по умолчанию `var(--gap-1)`.
+
+## Пример
+
+```vue
+<ProgressBar :progress="75" :segments="4" color="success" />
+```
