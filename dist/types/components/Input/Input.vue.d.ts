@@ -1,6 +1,10 @@
 export interface InputProps {
     maxWidth?: string;
     disabled?: boolean;
+    description?: string;
+    errorMessage?: string;
+    invalid?: boolean;
+    descriptionId?: string;
 }
 declare let __VLS_typeProps: InputProps;
 type __VLS_PublicProps = {

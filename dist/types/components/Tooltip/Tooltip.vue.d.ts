@@ -1,6 +1,6 @@
 import 'floating-vue/dist/style.css';
 export interface TooltipProps {
-    mode?: 'default' | 'accent';
+    mode?: 'default' | 'contrast';
 }
 declare function __VLS_template(): {
     slots: {
@@ -12,7 +12,7 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<TooltipProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<TooltipProps> & Readonly<{}>, {
-    mode: "default" | "accent";
+    mode: "default" | "contrast";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;
