@@ -1,0 +1,1 @@
+import{N as e}from"./index-B0EJvtKl.js";import"./_commonjsHelpers-Cpj98o6Y.js";const d={parameters:{options:{storySort:(r,o)=>r.id===o.id?0:r.id.localeCompare(o.id,void 0,{numeric:!0})},docs:{theme:e.dark},darkMode:{current:"dark"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}}}};export{d as default};
