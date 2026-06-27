@@ -24,6 +24,7 @@ export const Badge = ac(() => import('./components/Badge/Badge.vue'));
 export const SidebarItem = ac(() => import('./components/Sidebar/SidebarItem.vue'));
 export const SidebarList = ac(() => import('./components/Sidebar/SidebarList.vue'));
 export const Modal = ac(() => import('./components/Modal/Modal.vue'));
+export const PasswordInput = ac(() => import('./components/PasswordInput/PasswordInput.vue'));
 export const Dropdown = ac(() => import('./components/Dropdown/Dropdown.vue'));
 export const DropdownList = ac(() => import('./components/Dropdown/DropdownList.vue'));
 export const DropdownItem = ac(() => import('./components/Dropdown/DropdownItem.vue'));
