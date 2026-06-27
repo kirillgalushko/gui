@@ -1,19 +1,38 @@
-import { ref, onMounted, onBeforeUnmount, Ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch, Ref } from 'vue';
 
 export function useResize(elementRef: Ref<HTMLElement | null>, callback: () => void) {
   const observer = ref<ResizeObserver | null>(null);
+  const observedElement = ref<HTMLElement | null>(null);
+
+  const unobserve = () => {
+    if (observer.value && observedElement.value) {
+      observer.value.unobserve(observedElement.value);
+      observedElement.value = null;
+    }
+  }
+
+  const observe = (element: HTMLElement | null) => {
+    if (!observer.value || !element) {
+      return;
+    }
+
+    observer.value.observe(element);
+    observedElement.value = element;
+    callback();
+  }
 
   onMounted(() => {
     observer.value = new ResizeObserver(callback);
-    if (elementRef.value) {
-      observer.value.observe(elementRef.value);
-    }
-    callback();
+    observe(elementRef.value);
+  });
+
+  watch(elementRef, (element) => {
+    unobserve();
+    observe(element);
   });
 
   onBeforeUnmount(() => {
-    if (observer.value && elementRef.value) {
-      observer.value.unobserve(elementRef.value);
-    }
+    unobserve();
+    observer.value?.disconnect();
   });
 }
