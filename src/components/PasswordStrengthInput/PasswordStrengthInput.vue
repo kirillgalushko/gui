@@ -38,9 +38,9 @@ const props = withDefaults(defineProps<PasswordStrengthInputProps>(), {
   progressSegments: 4,
   progressHeight: '8px',
   progressGap: 'var(--gap-1)',
-  weakColor: 'danger',
+  weakColor: 'negative',
   mediumColor: 'warning',
-  strongColor: 'success',
+  strongColor: 'positive',
   maxWidth: '100%',
 });
 
@@ -153,7 +153,7 @@ const updateModelValue = (value: string) => {
 }
 
 .password-strength-rule.valid {
-  color: hsl(var(--success));
+  color: hsl(var(--positive));
 }
 
 .password-strength-rule-icon {

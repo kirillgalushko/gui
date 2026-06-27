@@ -62,7 +62,7 @@ const linkAttrs = computed(() => {
 
 <style scoped>
 .link {
-  --link-color: var(--link-accent);
+  --link-color: var(--accent);
 
   display: inline-flex;
   align-items: center;
@@ -74,7 +74,7 @@ const linkAttrs = computed(() => {
 }
 
 .link.mode-accent {
-  --link-color: var(--link-accent);
+  --link-color: var(--accent);
   color: hsl(var(--link-color));
 }
 
@@ -102,7 +102,7 @@ const linkAttrs = computed(() => {
 }
 
 .link.enable-visited:visited {
-  color: hsl(var(--link-visited));
+  color: hsl(var(--accent-muted));
 }
 
 .link.disabled {

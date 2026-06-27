@@ -9,7 +9,7 @@ import { Meta } from '@storybook/addon-docs';
 ## Props
 
 - `progress?: number` — значение от `0` до `100`.
-- `color?: string` — цвет заполнения, по умолчанию `accent`. Можно передать токен переменной (`success`, `warning`, `danger`), CSS-переменную (`--success`) или любой CSS-цвет.
+- `color?: string` — цвет заполнения, по умолчанию `accent`. Можно передать токен переменной (`positive`, `negative`, `danger`, `warning`), CSS-переменную (`--positive`) или любой CSS-цвет.
 - `segments?: number` — количество сегментов, по умолчанию `1`.
 - `height?: string` — высота, по умолчанию `8px`.
 - `gap?: string` — расстояние между сегментами, по умолчанию `var(--gap-1)`.
@@ -17,5 +17,5 @@ import { Meta } from '@storybook/addon-docs';
 ## Пример
 
 ```vue
-<ProgressBar :progress="75" :segments="4" color="success" />
+<ProgressBar :progress="75" :segments="4" color="positive" />
 ```

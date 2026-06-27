@@ -35,7 +35,7 @@ export const Segmented: Story = {
   args: {
     progress: 75,
     segments: 4,
-    color: 'success',
+    color: 'positive',
   },
   render: (args) => ({
     components: { ProgressBar },

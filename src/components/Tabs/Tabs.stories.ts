@@ -29,7 +29,7 @@ const getExample = (tabs: string, stretched: boolean) => `
     <Gap direction="vertical" :default="2" />
     <Text typography="title-2"><b>$223.89</b></Text>
     <Gap direction="vertical" :default="4" />
-    <Button mode="accent" ${stretched ? 'stretched' : ''}>Button</Button>
+    <Button mode="contrast" ${stretched ? 'stretched' : ''}>Button</Button>
   </Card>
 `
 

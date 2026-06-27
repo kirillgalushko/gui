@@ -33,7 +33,7 @@ const props = defineProps<FormLabelProps>();
 }
 
 .form-label.invalid {
-  color: hsl(var(--form-error));
+  color: hsl(var(--negative));
 }
 
 .form-label.disabled {

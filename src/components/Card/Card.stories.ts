@@ -41,7 +41,7 @@ const cardContent = `
   <Gap :default="1" direction="vertical" />
   <Text typography="paragraph-2" color="secondary">You have 3 unread messages</Text>
   <Gap :default="3" direction="vertical" />
-  <Button mode="accent">Mark as read</Button>
+  <Button mode="contrast">Mark as read</Button>
 `
 const demoComponents = { Card, Text, Button, Gap }
 const demoArgs = {

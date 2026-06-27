@@ -9,7 +9,7 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    mode: { control: 'select', options: ['default', 'accent', 'ghost', 'outline'] },
+    mode: { control: 'select', options: ['default', 'contrast', 'ghost', 'outline'] },
     stretched: { control: 'boolean' },
     squared: { control: 'boolean' },
     isLoading: { control: 'boolean' },
@@ -77,5 +77,4 @@ export const Disabled: Story = {
     template: '<Button v-bind="args">Купить</Button>',
   }),
 };
-
 

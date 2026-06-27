@@ -81,12 +81,12 @@ useResize(buttonElement, checkEllipsis)
 }
 
 .selected {
-  color: hsl(var(--accent-foreground));
-  background-color: hsl(var(--accent));
+  color: hsl(var(--contrast-foreground));
+  background-color: hsl(var(--contrast));
 }
 
 .SidebarItem:hover {
-  color: hsl(var(--accent-foreground));
+  color: hsl(var(--contrast-foreground));
 }
 
 .center {

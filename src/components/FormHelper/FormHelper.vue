@@ -53,7 +53,7 @@ const messageMode = computed(() => props.invalid ? 'error' : 'description');
 }
 
 .form-helper.error {
-  color: hsl(var(--form-error));
+  color: hsl(var(--negative));
 }
 
 .form-helper.disabled {

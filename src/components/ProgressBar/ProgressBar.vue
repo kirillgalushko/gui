@@ -34,7 +34,7 @@ const progressColor = computed(() => {
     return props.color;
   }
 
-  return `hsl(var(--progress-${props.color}, var(--${props.color})))`;
+  return `hsl(var(--${props.color}))`;
 });
 
 const segmentsData = computed(() => {
@@ -53,18 +53,12 @@ const segmentsData = computed(() => {
 </script>
 
 <template>
-  <div
-    class="progress-bar"
-    role="progressbar"
-    :aria-valuenow="normalizedProgress"
-    aria-valuemin="0"
-    aria-valuemax="100"
+  <div class="progress-bar" role="progressbar" :aria-valuenow="normalizedProgress" aria-valuemin="0" aria-valuemax="100"
     :style="{
       '--progress-bar-color': progressColor,
       '--progress-bar-height': props.height,
       '--progress-bar-gap': props.gap,
-    }"
-  >
+    }">
     <div v-for="segment in segmentsData" :key="segment.id" class="progress-bar-segment">
       <div class="progress-bar-fill" :style="{ width: `${segment.fill}%` }"></div>
     </div>
@@ -84,18 +78,14 @@ const segmentsData = computed(() => {
   overflow: hidden;
   border-radius: 999px;
   background: hsl(var(--muted));
-  box-shadow: inset 0 0 0 1px hsl(var(--border) / 0.5);
 }
 
 .progress-bar-fill {
   width: 0;
   height: 100%;
   border-radius: inherit;
-  background:
-    linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.18), transparent),
-    var(--progress-bar-color);
+  background: var(--progress-bar-color);
   background-size: 160% 100%, auto;
-  box-shadow: 0 0 12px color-mix(in srgb, var(--progress-bar-color) 45%, transparent);
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, box-shadow 0.25s ease;
   animation: progress-shimmer 1.8s ease-in-out infinite;
 }

@@ -7,7 +7,7 @@ const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
   tags: ['autodocs'],
   argTypes: {
-    mode: { control: 'select', options: ['default', 'accent'] },
+    mode: { control: 'select', options: ['default', 'contrast'] },
   },
   args: {
     mode: 'default',

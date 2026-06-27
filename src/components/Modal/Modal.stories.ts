@@ -68,7 +68,7 @@ export const WithFooter: Story = {
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         <template #footer>
           <Button mode="ghost">Закрыть</Button>
-          <Button mode="accent">Сохранить</Button>
+          <Button mode="contrast">Сохранить</Button>
         </template>
       </Modal>`,
   }),
@@ -86,12 +86,12 @@ export const WithUseModal: Story = {
       return { args, show, close, visible };
     },
     template: `
-      <Button mode="accent" @click="show">Открыть модалку</Button>
+      <Button mode="contrast" @click="show">Открыть модалку</Button>
       <Modal v-bind="args" :isOpened="visible" :onClose="close" showCloseButton>
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         <template #footer>
           <Button mode="ghost" @click="close">Закрыть</Button>
-          <Button mode="accent" @click="close">Сохранить</Button>
+          <Button mode="contrast" @click="close">Сохранить</Button>
         </template>
       </Modal>`,
   }),
@@ -125,7 +125,7 @@ export const LongContent: Story = {
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         <template #footer>
           <Button mode="ghost">Закрыть</Button>
-          <Button mode="accent">Сохранить</Button>
+          <Button mode="contrast">Сохранить</Button>
         </template>
       </Modal>`,
   }),

@@ -114,7 +114,7 @@ const ariaDescribedBy = computed(() => {
 }
 
 .input.invalid {
-  border-color: hsl(var(--form-error));
+  border-color: hsl(var(--negative));
 }
 
 .input:disabled {
@@ -127,7 +127,7 @@ const ariaDescribedBy = computed(() => {
 }
 
 .input.invalid:focus-visible {
-  outline-color: hsl(var(--form-error));
+  outline-color: hsl(var(--negative));
 }
 
 .adornment {

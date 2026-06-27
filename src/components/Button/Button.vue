@@ -2,7 +2,7 @@
 import Loader from '../Loader/Loader.vue';
 
 export interface ButtonProps {
-    mode?: 'default' | 'accent' | 'ghost' | 'outline',
+    mode?: 'default' | 'contrast' | 'ghost' | 'outline',
     stretched?: boolean;
     squared?: boolean;
     isLoading?: boolean;
@@ -81,7 +81,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
     outline-offset: -2px;
 }
 
-.button.accent {
+.button.contrast {
     --button-bg: var(--primary);
     --button-text: var(--primary-foreground);
     --button-outline: var(--muted-foreground);
@@ -96,8 +96,8 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default' })
 }
 
 .button.outline {
-    --button-text: var(--accent-foreground);
-    --button-outline: var(--accent);
+    --button-text: var(--contrast-foreground);
+    --button-outline: var(--contrast);
     background-color: transparent;
     border: 1px solid hsl(var(--button-outline));
 }

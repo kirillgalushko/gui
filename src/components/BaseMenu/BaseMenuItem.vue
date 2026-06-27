@@ -43,7 +43,7 @@ const props = defineProps<BaseMenuItemProps>()
 }
 
 .base-menu-item:hover {
-  background-color: hsl(var(--accent));
+  background-color: hsl(var(--contrast));
 }
 
 .base-menu-item:focus-visible {

@@ -26,7 +26,7 @@ const props = defineProps<ConfirmProps>()
     </Text>
     <template #footer>
       <Button mode="ghost" @click="props.reject.value">{{ props.cancelButtonText }}</Button>
-      <Button mode="accent" @click="props.resolve.value">{{ props.confirmButtonText }}</Button>
+      <Button mode="contrast" @click="props.resolve.value">{{ props.confirmButtonText }}</Button>
     </template>
   </Modal>
 </template>

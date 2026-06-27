@@ -3,7 +3,7 @@ import 'floating-vue/dist/style.css';
 import { Tooltip } from 'floating-vue';
 
 export interface TooltipProps {
-  mode?: 'default' | 'accent'
+  mode?: 'default' | 'contrast'
 }
 
 const props = withDefaults(defineProps<TooltipProps>(), { mode: 'default' })
@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<TooltipProps>(), { mode: 'default' })
 
 <template>
   <Tooltip v-bind="$attrs" :arrowOverflow="false"
-    :popperClass="props.mode === 'accent' ? 'tooltip-accent' : 'tooltip-default'" :class="['tooltip', props.mode]">
+    :popperClass="props.mode === 'contrast' ? 'tooltip-contrast' : 'tooltip-default'" :class="['tooltip', props.mode]">
     <template #default>
       <slot></slot>
     </template>
@@ -36,7 +36,7 @@ const props = withDefaults(defineProps<TooltipProps>(), { mode: 'default' })
   max-width: 300px;
 }
 
-.tooltip-accent {
+.tooltip-contrast {
   --tooltip-text-color: hsl(var(--primary-foreground));
   --tooltip-background-color: hsl(var(--primary));
   max-width: 300px;
