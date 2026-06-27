@@ -18,7 +18,7 @@ export type Typography =
     'paragraph-2'
 
 export interface TextProps {
-    Element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'a' | 'button'
+    Element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'a' | 'button' | 'label'
     typography?: Typography,
     clamp?: 2 | 3 | 4,
     ellipsis?: boolean,
