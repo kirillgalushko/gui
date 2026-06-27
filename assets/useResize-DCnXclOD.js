@@ -1,0 +1,1 @@
+import{r as a,b as l,w as t,d as b}from"./vue.esm-bundler-CfgtLz7v.js";function c(s,n){const u=a(null),o=a(null),v=()=>{u.value&&o.value&&(u.value.unobserve(o.value),o.value=null)},r=e=>{!u.value||!e||(u.value.observe(e),o.value=e,n())};l(()=>{u.value=new ResizeObserver(n),r(s.value)}),t(s,e=>{v(),r(e)}),b(()=>{var e;v(),(e=u.value)==null||e.disconnect()})}export{c as u};
