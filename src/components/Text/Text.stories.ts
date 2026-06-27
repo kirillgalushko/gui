@@ -25,6 +25,7 @@ const meta: Meta<typeof Text> = {
     },
     Element: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'] },
     color: { control: 'select', options: ['default', 'inherit', 'secondary'] },
+    textAlign: { control: 'select', options: ['inherit', 'start', 'center', 'end'] },
   }
 };
 
@@ -39,6 +40,7 @@ export const Default: Story = {
     color: 'default',
     clamp: 2,
     ellipsis: true,
+    textAlign: 'start'
   },
   render: (args) => ({
     components: { Text },
@@ -87,6 +89,7 @@ export const WithClamping: Story = {
     color: 'default',
     clamp: 2,
     ellipsis: true,
+    textAlign: 'start'
   },
   render: (args) => ({
     components: { Text },

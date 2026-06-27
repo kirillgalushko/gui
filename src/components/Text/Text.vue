@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, type CSSProperties } from 'vue';
 
 export type Typography =
     'title-1' |
@@ -22,11 +22,13 @@ export interface TextProps {
     clamp?: 2 | 3 | 4,
     ellipsis?: boolean,
     color?: 'default' | 'inherit' | 'secondary'
+    textAlign?: CSSProperties['textAlign']
 }
 
 const props = withDefaults(defineProps<TextProps>(), {
     Element: 'div',
     color: 'default',
+    textAlign: 'inherit',
 })
 
 const styles = computed(() => {
@@ -37,6 +39,7 @@ const styles = computed(() => {
 
     return {
         ...clampStyles,
+        textAlign: props.textAlign,
     }
 })
 </script>
