@@ -8,6 +8,8 @@ export const Avatar = ac(() => import('./components/Avatar/Avatar.vue'));
 export const Button = ac(() => import('./components/Button/Button.vue'));
 export const Card = ac(() => import('./components/Card/Card.vue'));
 export const Gap = ac(() => import('./components/Gap/Gap.vue'));
+export const FormHelper = ac(() => import('./components/FormHelper/FormHelper.vue'));
+export const FormLabel = ac(() => import('./components/FormLabel/FormLabel.vue'));
 export const Input = ac(() => import('./components/Input/Input.vue'));
 export const Row = ac(() => import('./components/Row/Row.vue'));
 export const Sidebar = ac(() => import('./components/Sidebar/Sidebar.vue'));

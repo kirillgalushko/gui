@@ -1,15 +1,26 @@
 <script setup lang="ts">
-import { computed, ref, type Ref } from 'vue';
+import { computed, ref, type Ref, useAttrs, useId } from 'vue';
+import FormHelper from '../FormHelper/FormHelper.vue';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 export interface InputProps {
   maxWidth?: string;
   disabled?: boolean;
+  description?: string;
+  errorMessage?: string;
+  invalid?: boolean;
+  descriptionId?: string;
 }
 
 const leftAdornment = ref<HTMLDivElement>()
 const rightAdornment = ref<HTMLDivElement>()
 const model = defineModel()
 const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
+const attrs = useAttrs()
+const generatedDescriptionId = useId()
 
 const inputStyles = computed(() => {
   const getPadding = ((element: Ref<HTMLDivElement | undefined>) => {
@@ -22,21 +33,60 @@ const inputStyles = computed(() => {
   const paddingRight = getPadding(rightAdornment)
   return `padding-left: ${paddingLeft}px; padding-right: ${paddingRight}px;`
 });
+
+const shouldRenderHelper = computed(() => {
+  if (props.invalid) {
+    return !!props.errorMessage;
+  }
+
+  return !!props.description;
+});
+
+const helperDescriptionId = computed(() => {
+  if (!shouldRenderHelper.value) {
+    return undefined;
+  }
+
+  return props.descriptionId ?? `${generatedDescriptionId}-helper`;
+});
+
+const ariaDescribedBy = computed(() => {
+  const describedBy = attrs['aria-describedby'];
+  const describedByValue = typeof describedBy === 'string' ? describedBy : undefined;
+
+  if (!helperDescriptionId.value) {
+    return describedByValue;
+  }
+
+  return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
+});
 </script>
 
 <template>
-  <div :style="{ maxWidth: props.maxWidth }" :class="['input-container', { 'disabled': props.disabled }]">
-    <div ref="leftAdornment" class="adornment left-adornment">
-      <slot name="leftAdornment"></slot>
+  <div :style="{ maxWidth: props.maxWidth }" class="input-field">
+    <div :class="['input-container', { disabled: props.disabled }]">
+      <div ref="leftAdornment" class="adornment left-adornment">
+        <slot name="leftAdornment"></slot>
+      </div>
+      <input v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles"
+        :class="['input', { invalid: props.invalid }]" :aria-invalid="props.invalid || undefined"
+        :aria-describedby="ariaDescribedBy" />
+      <div ref="rightAdornment" class="adornment right-adornment">
+        <slot name="rightAdornment"></slot>
+      </div>
     </div>
-    <input v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles" :class="['input']" />
-    <div ref="rightAdornment" class="adornment right-adornment">
-      <slot name="rightAdornment"></slot>
-    </div>
+    <FormHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
+      :disabled="props.disabled" :description-id="helperDescriptionId" />
   </div>
 </template>
 
 <style scoped>
+.input-field {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .input-container {
   position: relative;
   display: inline-flex;
@@ -63,6 +113,10 @@ const inputStyles = computed(() => {
   transition: outline-width 0.2s;
 }
 
+.input.invalid {
+  border-color: hsl(var(--form-error));
+}
+
 .input:disabled {
   cursor: not-allowed;
 }
@@ -70,6 +124,10 @@ const inputStyles = computed(() => {
 .input:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: -2px;
+}
+
+.input.invalid:focus-visible {
+  outline-color: hsl(var(--form-error));
 }
 
 .adornment {

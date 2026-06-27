@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/FormHelper/Documentation" />
+
+# FormHelper
+
+Компонент для текста под полем ввода: обычной подсказки или сообщения об ошибке.
+
+В состоянии `invalid` вместо `description` показывается `errorMessage`. Смена текста анимируется через CSS.
+
+## Props
+
+- `description?: string` — текст подсказки.
+- `errorMessage?: string` — текст ошибки.
+- `invalid?: boolean` — включает состояние ошибки.
+- `gap?: string` — отступ сверху, по умолчанию `var(--gap-1)`.
+- `disabled?: boolean` — приглушает текст.
+- `descriptionId?: string` — id текста для связи с input через `aria-describedby`.
+
+## Пример
+
+```vue
+<input aria-describedby="email-helper" />
+<FormHelper
+  description-id="email-helper"
+  description="Введите рабочую почту"
+  error-message="Некорректный email"
+  :invalid="hasError"
+/>
+```

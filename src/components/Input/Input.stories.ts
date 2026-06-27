@@ -12,6 +12,9 @@ const meta: Meta<InputType> = {
     disabled: {
       type: 'boolean'
     },
+    invalid: {
+      type: 'boolean'
+    },
   },
 };
 
@@ -71,5 +74,22 @@ export const WithRightIcon: Story = {
         </template>
       </Input>
     `,
+  }),
+};
+
+export const Invalid: Story = {
+  args: {
+    placeholder: 'Placeholder',
+    value: 'Value',
+    description: 'Подсказка скрывается при ошибке',
+    errorMessage: 'Поле заполнено неверно',
+    invalid: true,
+  },
+  render: (args) => ({
+    components: { Input },
+    setup() {
+      return { args };
+    },
+    template: '<Input v-bind="args" v-model="args.value" />',
   }),
 };

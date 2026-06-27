@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/FormLabel/Documentation" />
+
+# FormLabel
+
+Компонент подписи поля. Под капотом использует `Text` и рендерит настоящий `label`.
+
+## Props
+
+- `htmlFor?: string` — id связанного поля, прокидывается в атрибут `for`.
+- `invalid?: boolean` — включает цвет ошибки.
+- `disabled?: boolean` — приглушает подпись и показывает disabled-состояние.
+
+Дополнительные атрибуты прокидываются на label.
+
+## Пример
+
+```vue
+<FormLabel html-for="email" :invalid="hasError">
+  Email
+</FormLabel>
+<Input id="email" :invalid="hasError" />
+```
