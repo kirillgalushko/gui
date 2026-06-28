@@ -9,7 +9,6 @@ const meta: Meta<typeof ProgressBar> = {
     progress: {
       control: 'range',
       min: 0,
-      max: 100,
       step: 1,
     },
   },
@@ -21,6 +20,7 @@ type Story = StoryObj<typeof ProgressBar>;
 export const Default: Story = {
   args: {
     progress: 64,
+    max: 100,
   },
   render: (args) => ({
     components: { ProgressBar },
@@ -33,7 +33,8 @@ export const Default: Story = {
 
 export const Segmented: Story = {
   args: {
-    progress: 75,
+    progress: 3,
+    max: 4,
     segments: 4,
     color: 'positive',
   },

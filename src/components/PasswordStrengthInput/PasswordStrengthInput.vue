@@ -49,25 +49,28 @@ const emit = defineEmits<{
 }>();
 
 const completedRulesCount = computed(() => props.rules.filter((rule) => rule.valid).length);
+const rulesMax = computed(() => props.rules.length);
 
 const computedProgress = computed(() => {
   if (typeof props.progress === 'number') {
-    return Math.min(100, Math.max(0, props.progress));
+    return Math.min(rulesMax.value, Math.max(0, props.progress));
   }
 
-  if (!props.rules.length) {
+  if (!rulesMax.value) {
     return 0;
   }
 
-  return (completedRulesCount.value / props.rules.length) * 100;
+  return completedRulesCount.value;
 });
 
 const progressColor = computed(() => {
-  if (computedProgress.value >= 75) {
+  const progressRatio = rulesMax.value ? computedProgress.value / rulesMax.value : 0;
+
+  if (progressRatio >= 0.75) {
     return props.strongColor;
   }
 
-  if (computedProgress.value >= 40) {
+  if (progressRatio >= 0.4) {
     return props.mediumColor;
   }
 
@@ -81,33 +84,17 @@ const updateModelValue = (value: string) => {
 
 <template>
   <div :style="{ maxWidth: props.maxWidth }" class="password-strength">
-    <PasswordInput
-      v-bind="$attrs"
-      :model-value="props.modelValue"
-      :max-width="props.maxWidth"
-      :disabled="props.disabled"
-      :description="props.description"
-      :error-message="props.errorMessage"
-      :invalid="props.invalid"
-      :description-id="props.descriptionId"
-      @update:model-value="updateModelValue"
-    />
+    <PasswordInput v-bind="$attrs" :model-value="props.modelValue" :max-width="props.maxWidth"
+      :disabled="props.disabled" :description="props.description" :error-message="props.errorMessage"
+      :invalid="props.invalid" :description-id="props.descriptionId" @update:model-value="updateModelValue" />
 
     <div v-if="props.rules.length" class="password-strength-details">
-      <ProgressBar
-        :progress="computedProgress"
-        :color="progressColor"
-        :segments="props.progressSegments"
-        :height="props.progressHeight"
-        :gap="props.progressGap"
-      />
+      <ProgressBar :progress="computedProgress" :color="progressColor" :segments="props.progressSegments"
+        :height="props.progressHeight" :gap="props.progressGap" :max="rulesMax" />
 
       <ul class="password-strength-rules">
-        <li
-          v-for="(rule, index) in props.rules"
-          :key="rule.id ?? index"
-          :class="['password-strength-rule', { valid: rule.valid }]"
-        >
+        <li v-for="(rule, index) in props.rules" :key="rule.id ?? index"
+          :class="['password-strength-rule', { valid: rule.valid }]">
           <span class="password-strength-rule-icon">
             <IconCircleCheckOutline v-if="rule.valid" />
             <IconCircleXOutline v-else />

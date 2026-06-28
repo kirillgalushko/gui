@@ -51,7 +51,7 @@ export const ExternalProgress: Story = {
   args: {
     placeholder: 'Придумайте пароль',
     value: 'Password1',
-    progress: 50,
+    progress: 2,
     progressSegments: 5,
     mediumColor: '#f59e0b',
   },
