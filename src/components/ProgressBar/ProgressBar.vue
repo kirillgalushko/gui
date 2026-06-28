@@ -107,6 +107,7 @@ const segmentsData = computed(() => {
 .progress-bar {
   display: flex;
   width: 100%;
+  min-height: var(--progress-bar-height);
   height: var(--progress-bar-height);
   gap: var(--progress-bar-gap);
 }
