@@ -22,9 +22,6 @@ export interface PasswordStrengthInputProps {
   progressSegments?: number;
   progressHeight?: string;
   progressGap?: string;
-  weakColor?: string;
-  mediumColor?: string;
-  strongColor?: string;
   maxWidth?: string;
   disabled?: boolean;
   description?: string;
@@ -38,9 +35,6 @@ const props = withDefaults(defineProps<PasswordStrengthInputProps>(), {
   progressSegments: 4,
   progressHeight: '8px',
   progressGap: 'var(--gap-1)',
-  weakColor: 'negative',
-  mediumColor: 'warning',
-  strongColor: 'positive',
   maxWidth: '100%',
 });
 
@@ -69,15 +63,19 @@ const computedProgress = computed(() => {
 const progressColor = computed(() => {
   const progressRatio = rulesMax.value ? computedProgress.value / rulesMax.value : 0;
 
-  if (progressRatio >= 0.75) {
-    return props.strongColor;
+  if (progressRatio > 0.75) {
+    return 'positive';
   }
 
-  if (progressRatio >= 0.4) {
-    return props.mediumColor;
+  if (progressRatio > 0.5) {
+    return 'warning';
   }
 
-  return props.weakColor;
+  if (progressRatio > 0.25) {
+    return 'danger';
+  }
+
+  return 'negative';
 });
 
 const updateModelValue = (value: string) => {
