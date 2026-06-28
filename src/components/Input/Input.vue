@@ -136,6 +136,10 @@ const ariaDescribedBy = computed(() => {
   outline-offset: -2px;
 }
 
+.input:read-only:focus-visible {
+  outline: none;
+}
+
 .input.invalid:focus-visible {
   outline-color: hsl(var(--negative));
 }
