@@ -28,9 +28,7 @@ const props = defineProps<FormLabelProps>();
   margin-bottom: var(--gap-2);
 }
 
-.form-label.invalid {
-  color: hsl(var(--negative));
-}
+.form-label.invalid {}
 
 .form-label.disabled {
   opacity: 0.5;
