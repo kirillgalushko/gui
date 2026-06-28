@@ -36,21 +36,9 @@ provide(gridContextKey, {
 </script>
 
 <template>
-  <div
-    ref="rootRef"
-    class="grid-layout"
-    :style="style"
-  >
-    <div
-      v-if="props.highlight"
-      class="grid-layout__highlight"
-      aria-hidden="true"
-    >
-      <div
-        v-for="column in columns"
-        :key="column"
-        class="grid-layout__highlight-column"
-      ></div>
+  <div ref="rootRef" class="grid-layout" :style="style">
+    <div v-if="props.highlight" class="grid-layout__highlight" aria-hidden="true">
+      <div v-for="column in columns" :key="column" class="grid-layout__highlight-column"></div>
     </div>
     <slot></slot>
   </div>
@@ -61,7 +49,16 @@ provide(gridContextKey, {
   box-sizing: border-box;
   position: relative;
   width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
   min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .grid-layout {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 .grid-layout__highlight {
