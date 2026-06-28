@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import Text, { type Typography } from '../Text/Text.vue';
+import Text from '../Text/Text.vue';
+import type { Typography } from '../Text/types';
 
 defineOptions({
   inheritAttrs: false,
