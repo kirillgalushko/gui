@@ -20,10 +20,10 @@ export interface BreakpointResult {
 export const breakpointMinWidths: Record<Breakpoint, number> = {
   xs: 0,
   s: 576,
-  m: 1024,
-  l: 1280,
-  xl: 1440,
-  xxl: 1920,
+  m: 768,
+  l: 1024,
+  xl: 1280,
+  xxl: 1600,
 };
 
 export const breakpointColumns: Record<Breakpoint, number> = {

@@ -37,6 +37,7 @@ provide(gridContextKey, {
 
 <template>
   <div ref="rootRef" class="grid-layout" :style="style">
+    <div v-if="props.highlight">{{ breakpoint }}</div>
     <div v-if="props.highlight" class="grid-layout__highlight" aria-hidden="true">
       <div v-for="column in columns" :key="column" class="grid-layout__highlight-column"></div>
     </div>

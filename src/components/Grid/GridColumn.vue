@@ -6,13 +6,17 @@ import {
 } from '../../hooks/breakpoints/breakpoints';
 import { gridContextKey } from './context';
 
+export type GridColumnExtraSmallSize = 1 | 2 | 3 | 4
+export type GridColumnSmallSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export type GridColumnLargeSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
 export interface GridColumnProps {
-  xs?: number;
-  s?: number;
-  m?: number;
-  l?: number;
-  xl?: number;
-  xxl?: number;
+  xs?: GridColumnExtraSmallSize;
+  s?: GridColumnSmallSize;
+  m?: GridColumnLargeSize;
+  l?: GridColumnLargeSize;
+  xl?: GridColumnLargeSize;
+  xxl?: GridColumnLargeSize;
 }
 
 const props = defineProps<GridColumnProps>();
@@ -42,10 +46,7 @@ const style = computed(() => ({
 </script>
 
 <template>
-  <div
-    class="grid-column"
-    :style="style"
-  >
+  <div class="grid-column" :style="style">
     <slot></slot>
   </div>
 </template>
