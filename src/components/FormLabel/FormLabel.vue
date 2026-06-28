@@ -15,21 +15,17 @@ const props = defineProps<FormLabelProps>();
 </script>
 
 <template>
-  <Text
-    v-bind="$attrs"
-    :for="props.htmlFor"
-    Element="label"
-    typography="label-2"
-    color="inherit"
-    :class="['form-label', { invalid: props.invalid, disabled: props.disabled }]"
-  >
+  <Text v-bind="$attrs" :for="props.htmlFor" Element="label" typography="label-2" color="inherit"
+    :class="['form-label', { invalid: props.invalid, disabled: props.disabled }]">
     <slot></slot>
   </Text>
 </template>
 
 <style scoped>
 .form-label {
+  display: block;
   color: hsl(var(--foreground));
+  margin-bottom: var(--gap-2);
 }
 
 .form-label.invalid {
