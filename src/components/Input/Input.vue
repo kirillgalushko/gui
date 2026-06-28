@@ -110,7 +110,10 @@ const ariaDescribedBy = computed(() => {
   box-sizing: border-box;
   display: flex;
   width: 100%;
-  transition: outline-width 0.2s;
+  transition:
+    border-color 0.16s ease,
+    outline-color 0.16s ease,
+    outline-width 0.16s ease;
 }
 
 .input.invalid {
