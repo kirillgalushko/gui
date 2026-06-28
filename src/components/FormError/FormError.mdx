@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/FormError/Documentation" />
+
+# FormError
+
+Компонент для общей ошибки формы, не привязанной к конкретному полю.
+
+Использует такую же анимацию появления и смены текста, как `FormHelper`. Принимает `message` и визуальные пропы `Text`.
+
+## Props
+
+- `message?: string` — текст ошибки. Если пустой, компонент не рендерится.
+- `gap?: string` — отступ сверху, по умолчанию `var(--gap-1)`.
+- пропы `Text` — `Element`, `typography`, `color`, `textAlign`, `clamp`, `ellipsis`.
+
+## Пример
+
+```vue
+<FormError message="Не удалось сохранить форму" />
+```

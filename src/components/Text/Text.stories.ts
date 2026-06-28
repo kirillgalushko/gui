@@ -24,7 +24,7 @@ const meta: Meta<typeof Text> = {
       ]
     },
     Element: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'] },
-    color: { control: 'select', options: ['default', 'inherit', 'secondary'] },
+    color: { control: 'select', options: ['default', 'inherit', 'secondary', 'negative'] },
     textAlign: { control: 'select', options: ['inherit', 'start', 'center', 'end'] },
   }
 };
