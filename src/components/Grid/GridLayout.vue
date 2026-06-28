@@ -24,9 +24,11 @@ const breakpoint = computed(() =>
   props.mode === 'viewport' ? viewportBreakpoint.breakpoint : containerBreakpoint.breakpoint,
 );
 const columns = computed(() => breakpointColumns[breakpoint.value]);
+const layoutPadding = computed(() => (breakpoint.value === 'xs' || breakpoint.value === 's' ? '12px' : '24px'));
 const style = computed(() => ({
   '--grid-columns': String(columns.value),
   '--grid-gutter': props.gutter,
+  '--grid-layout-padding': layoutPadding.value,
 }));
 
 provide(gridContextKey, {
@@ -50,8 +52,8 @@ provide(gridContextKey, {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: var(--grid-layout-padding, 24px);
+  padding-right: var(--grid-layout-padding, 24px);
   min-width: 0;
 }
 
@@ -63,21 +65,12 @@ provide(gridContextKey, {
   grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
   gap: var(--grid-gutter, var(--gap-4, 16px));
   pointer-events: none;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: var(--grid-layout-padding, 24px);
+  padding-right: var(--grid-layout-padding, 24px);
 }
 
 .grid-layout__highlight-column {
   min-width: 0;
   background: rgba(116, 0, 255, 0.12);
-}
-
-@media (max-width: 1024px) {
-
-  .grid-layout,
-  .grid-layout__highlight {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
 }
 </style>
