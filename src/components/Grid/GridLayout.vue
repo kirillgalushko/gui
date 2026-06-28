@@ -9,12 +9,16 @@ export interface GridLayoutProps {
   mode?: 'container' | 'viewport';
   gutter?: string;
   highlight?: boolean;
+  stretched?: boolean;
 }
+
+const GRID_LAYOUT_MAX_WIDTH = '1728px';
 
 const props = withDefaults(defineProps<GridLayoutProps>(), {
   mode: 'container',
   gutter: 'var(--gap-4, 16px)',
   highlight: false,
+  stretched: false,
 });
 
 const rootRef = ref<HTMLElement | null>(null);
@@ -29,6 +33,7 @@ const style = computed(() => ({
   '--grid-columns': String(columns.value),
   '--grid-gutter': props.gutter,
   '--grid-layout-padding': layoutPadding.value,
+  '--grid-layout-max-width': props.stretched ? 'none' : GRID_LAYOUT_MAX_WIDTH,
 }));
 
 provide(gridContextKey, {
@@ -52,6 +57,9 @@ provide(gridContextKey, {
   box-sizing: border-box;
   position: relative;
   width: 100%;
+  max-width: var(--grid-layout-max-width, 1728px);
+  margin-left: auto;
+  margin-right: auto;
   padding-left: var(--grid-layout-padding, 24px);
   padding-right: var(--grid-layout-padding, 24px);
   min-width: 0;

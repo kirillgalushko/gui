@@ -22,11 +22,16 @@ const meta: Meta<typeof GridLayout> = {
       control: 'boolean',
       description: 'Показывает полупрозрачную подсветку колонок.',
     },
+    stretched: {
+      control: 'boolean',
+      description: 'Отключает максимальную ширину GridLayout.',
+    },
   },
   args: {
     mode: 'container',
     gutter: 'var(--gap-4, 16px)',
     highlight: false,
+    stretched: false,
   },
   parameters: {
     docs: {
