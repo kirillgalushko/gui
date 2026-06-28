@@ -54,13 +54,6 @@ provide(gridContextKey, {
   min-width: 0;
 }
 
-@media (max-width: 1024px) {
-  .grid-layout {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-}
-
 .grid-layout__highlight {
   position: absolute;
   inset: 0;
@@ -69,10 +62,21 @@ provide(gridContextKey, {
   grid-template-columns: repeat(var(--grid-columns, 12), minmax(0, 1fr));
   gap: var(--grid-gutter, var(--gap-4, 16px));
   pointer-events: none;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .grid-layout__highlight-column {
   min-width: 0;
   background: rgba(116, 0, 255, 0.12);
+}
+
+@media (max-width: 1024px) {
+
+  .grid-layout,
+  .grid-layout__highlight {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 </style>
