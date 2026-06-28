@@ -43,6 +43,9 @@
   "peerDependencies": {
     "vue": ">=3"
   },
+  "engines": {
+    "node": ">=24.12.0"
+  },
   "dependencies": {
     "@floating-ui/vue": "^1.1.5",
     "@gui/icons": "github:kirillgalushko/gui-icons#v2.0.2",
