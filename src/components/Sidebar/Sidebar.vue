@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<SidebarProps>(), {
 })
 const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
-const isCompact = ref<boolean>(false);
+const isCompact = ref<boolean>(width.value < props.compactWidth);
 const sidebarRef = ref<HTMLElement | null>(null);
 provide('sidebar-width', width);
 provide('sidebar-is-resizing', isResizing);
@@ -55,13 +55,9 @@ const stopResizing = () => {
   document.body.classList.remove('prevent-user-select');
 }
 
-watch(() => width.value, () => {
-  if (width.value < props.compactWidth) {
-    isCompact.value = true
-  } else {
-    isCompact.value = false
-  }
-})
+watch([width, () => props.compactWidth], () => {
+  isCompact.value = width.value < props.compactWidth
+}, { immediate: true })
 </script>
 
 <template>
