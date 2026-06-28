@@ -112,8 +112,10 @@ const handleFocusOut = (event: FocusEvent) => {
     <Transition name="password-strength-details">
       <div v-if="shouldShowRules" class="password-strength-details">
         <div class="password-strength-details-content">
-          <ProgressBar :progress="computedProgress" :color="progressColor" :segments="props.progressSegments"
-            :height="props.progressHeight" :gap="props.progressGap" :max="rulesMax" />
+          <div class="password-strength-progress">
+            <ProgressBar :progress="computedProgress" :color="progressColor" :segments="props.progressSegments"
+              :height="props.progressHeight" :gap="props.progressGap" :max="rulesMax" />
+          </div>
 
           <ul class="password-strength-rules">
             <li v-for="(rule, index) in props.rules" :key="rule.id ?? index"
@@ -153,12 +155,15 @@ const handleFocusOut = (event: FocusEvent) => {
 .password-strength-details-content {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-2);
   min-height: 0;
-  padding-top: var(--gap-2);
   overflow: hidden;
   transform-origin: top;
   transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.password-strength-progress {
+  padding-top: var(--gap-2);
+  padding-bottom: var(--gap-2);
 }
 
 .password-strength-details-enter-from,
