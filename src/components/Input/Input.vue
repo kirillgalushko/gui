@@ -112,8 +112,7 @@ const ariaDescribedBy = computed(() => {
   width: 100%;
   transition:
     border-color 0.16s ease,
-    outline-color 0.16s ease,
-    outline-width 0.16s ease;
+    outline-color 0.16s ease;
 }
 
 .input.invalid {
@@ -122,6 +121,14 @@ const ariaDescribedBy = computed(() => {
 
 .input:disabled {
   cursor: not-allowed;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px hsl(var(--background)) inset;
+  -webkit-text-fill-color: hsl(var(--foreground));
+  caret-color: hsl(var(--foreground));
 }
 
 .input:focus-visible {
