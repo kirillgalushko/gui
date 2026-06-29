@@ -12,6 +12,7 @@ export const FormError = ac(() => import('./components/FormError/FormError.vue')
 export const FormHelper = ac(() => import('./components/FormHelper/FormHelper.vue'));
 export const FormLabel = ac(() => import('./components/FormLabel/FormLabel.vue'));
 export const Input = ac(() => import('./components/Input/Input.vue'));
+export const PincodeInput = ac(() => import('./components/PincodeInput/PincodeInput.vue'));
 export const Link = ac(() => import('./components/Link/Link.vue'));
 export const Row = ac(() => import('./components/Row/Row.vue'));
 export const Sidebar = ac(() => import('./components/Sidebar/Sidebar.vue'));
