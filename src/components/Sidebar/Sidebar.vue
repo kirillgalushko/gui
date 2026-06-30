@@ -29,6 +29,10 @@ provide('sidebar-is-resizing', isResizing);
 provide('sidebar-is-compact', isCompact);
 
 const startResizing = () => {
+  if (sidebarRef.value) {
+    width.value = sidebarRef.value.getBoundingClientRect().width;
+  }
+
   isResizing.value = true;
   document.addEventListener('mousemove', resizeSidebar);
   document.addEventListener('mouseup', stopResizing);
@@ -71,7 +75,7 @@ watch(() => props.width, (nextWidth) => {
 </script>
 
 <template>
-  <div ref="sidebarRef" :class="['sidebar', `sidebar--${props.mode}`]" :style="{
+  <div ref="sidebarRef" :class="['sidebar', `sidebar--${props.mode}`, { 'sidebar--resizing': isResizing }]" :style="{
     width: `${width}px`, padding: `${props.padding}px`,
     maxWidth: props.maxWidth,
     minWidth: props.minWidth,
@@ -105,6 +109,12 @@ watch(() => props.width, (nextWidth) => {
   padding: var(--gap-3);
   box-sizing: border-box;
   position: relative;
+  transition: width 0.18s ease;
+  will-change: width;
+}
+
+.sidebar--resizing {
+  transition: none;
 }
 
 .sidebar--floating {
@@ -169,5 +179,11 @@ watch(() => props.width, (nextWidth) => {
 
 .resize-handle:hover svg {
   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
 }
 </style>
