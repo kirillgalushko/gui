@@ -21,6 +21,9 @@ const meta: Meta<typeof Stack> = {
     },
     stretched: {
       control: { type: 'boolean' },
+    },
+    wrap: {
+      control: { type: 'boolean' },
     }
   },
 };

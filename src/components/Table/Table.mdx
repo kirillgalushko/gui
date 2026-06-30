@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Table/Documentation" />
+
+# Table
+
+Адаптивная таблица
+
+## Компоненты
+
+- `Table`
+- `TableHeader`
+- `TableBody`
+- `TableFooter`
+- `TableRow`
+- `TableHead`
+- `TableCell`
+- `TableCaption`
+
+## Пример
+
+```vue
+<Table>
+  <TableCaption>Recent invoices</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Invoice</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead>Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>INV001</TableCell>
+      <TableCell>Paid</TableCell>
+      <TableCell>$250.00</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```

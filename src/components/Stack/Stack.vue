@@ -7,6 +7,7 @@ export interface StackProps {
     fullHeight?: boolean;
     alignItems?: Align;
     stretched?: boolean;
+    wrap?: boolean;
 }
 
 const props = defineProps<StackProps>()
@@ -20,6 +21,7 @@ const props = defineProps<StackProps>()
             [`gap-${props.gap}`]: !!gap,
             'fullHeight': props.fullHeight,
             'stretched': props.stretched,
+            'wrap': props.wrap,
         }
     ]">
         <slot></slot>
@@ -57,6 +59,10 @@ const props = defineProps<StackProps>()
 
 .stretched {
     width: 100%;
+}
+
+.wrap {
+    flex-wrap: wrap;
 }
 
 .gap-1 {
