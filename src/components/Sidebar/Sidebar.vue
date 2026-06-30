@@ -143,13 +143,8 @@ watch(() => props.width, (nextWidth) => {
   height: calc(100% - 16px);
 }
 
-.resize-handle::after {
-  width: 0;
-  transition: all 0.2s;
-  border-radius: 999px;
-}
-
-.resize-handle:hover::after {
+.resize-handle:hover::after,
+.sidebar--resizing .resize-handle::after {
   content: "";
   width: 2px;
   position: absolute;
@@ -159,6 +154,13 @@ watch(() => props.width, (nextWidth) => {
   background-color: hsl(var(--border));
   z-index: -1;
   margin-left: -1px;
+}
+
+.sidebar--resizing .resize-handle::after,
+.resize-handle::after {
+  width: 0;
+  transition: all 0.2s;
+  border-radius: 999px;
 }
 
 .sidebar--floating .resize-handle:hover::after {
@@ -177,7 +179,8 @@ watch(() => props.width, (nextWidth) => {
   border-radius: 4px;
 }
 
-.resize-handle:hover svg {
+.resize-handle:hover svg,
+.sidebar--resizing .resize-handle svg {
   opacity: 1;
 }
 
