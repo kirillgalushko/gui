@@ -25,6 +25,7 @@ const props = withDefaults(defineProps<PincodeInputProps>(), {
 });
 const emit = defineEmits<{
   'update:modelValue': [value: string];
+  complete: [value: string];
 }>();
 const attrs = useAttrs();
 const generatedDescriptionId = useId();
@@ -33,6 +34,13 @@ const cursorIndex = ref(0);
 
 const codeLength = computed(() => Math.max(1, Math.floor(Number(props.length) || 1)));
 const sanitizeValue = (value: unknown) => String(value ?? '').replace(/\D/g, '').slice(0, codeLength.value);
+const getSanitizedCursorIndex = (rawValue: string, selectionStart: number | null) => {
+  if (selectionStart === null) {
+    return sanitizeValue(rawValue).length;
+  }
+
+  return sanitizeValue(rawValue.slice(0, selectionStart)).length;
+};
 const isReadonlyAttr = (readonly: unknown) => readonly === '' || readonly === true || readonly === 'true';
 
 const value = computed(() => sanitizeValue(props.modelValue));
@@ -104,6 +112,12 @@ const setCursorIndex = (index: number, nextValue = value.value) => {
   void syncNativeInput(nextValue);
 };
 
+const emitCompleteIfNeeded = (nextValue: string, nextCursorIndex: number) => {
+  if (nextValue.length === codeLength.value && nextCursorIndex >= codeLength.value) {
+    emit('complete', nextValue);
+  }
+};
+
 const commitValue = (nextValue: string, nextCursorIndex: number) => {
   const nextSanitizedValue = sanitizeValue(nextValue);
 
@@ -114,6 +128,7 @@ const commitValue = (nextValue: string, nextCursorIndex: number) => {
   }
 
   emit('update:modelValue', nextSanitizedValue);
+  emitCompleteIfNeeded(nextSanitizedValue, nextCursorIndex);
   void syncNativeInput(nextSanitizedValue);
 };
 
@@ -163,7 +178,7 @@ const deleteForward = () => {
   commitValue(nextValue, cursorIndex.value);
 };
 
-const updateValue = (nextValue: unknown) => {
+const updateValue = (nextValue: unknown, nextCursorIndex?: number) => {
   if (isReadonly.value) {
     if (inputRef.value) {
       inputRef.value.value = value.value;
@@ -177,12 +192,39 @@ const updateValue = (nextValue: unknown) => {
     inputRef.value.value = nextSanitizedValue;
   }
 
-  cursorIndex.value = clampCursorIndex(nextSanitizedValue.length, nextSanitizedValue);
+  const cursorIndexCandidate = nextCursorIndex ?? nextSanitizedValue.length;
+
+  cursorIndex.value = clampCursorIndex(cursorIndexCandidate, nextSanitizedValue);
   emit('update:modelValue', nextSanitizedValue);
+  emitCompleteIfNeeded(nextSanitizedValue, cursorIndexCandidate);
 };
 
 const handleInput = (event: Event) => {
-  updateValue((event.target as HTMLInputElement).value);
+  const input = event.target as HTMLInputElement;
+
+  updateValue(input.value, getSanitizedCursorIndex(input.value, input.selectionStart));
+};
+
+const clearInvalidValue = () => {
+  if (!props.invalid || isReadonly.value) {
+    return false;
+  }
+
+  commitValue('', 0);
+  return true;
+};
+
+const handleFocus = () => {
+  clearInvalidValue();
+};
+
+const handleShellClick = () => {
+  if (isDisabled.value) {
+    return;
+  }
+
+  inputRef.value?.focus();
+  clearInvalidValue();
 };
 
 const handleBeforeInput = (event: Event) => {
@@ -273,6 +315,11 @@ const selectCell = (index: number) => {
   }
 
   focusInput();
+
+  if (clearInvalidValue()) {
+    return;
+  }
+
   setCursorIndex(index);
 };
 
@@ -302,11 +349,12 @@ watch(codeLength, () => {
         succeed: props.succeed,
         invalid: props.invalid,
       },
-    ]" :style="{ '--pincode-length': codeLength }" @click="focusInput">
+    ]" :style="{ '--pincode-length': codeLength }" @click="handleShellClick">
       <input ref="inputRef" v-bind="inputAttrs" class="pincode-input" :value="value" :disabled="isDisabled"
         :readonly="isReadonly" :maxlength="codeLength" :aria-invalid="props.invalid || undefined"
         :aria-describedby="ariaDescribedBy" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code"
-        @beforeinput="handleBeforeInput" @keydown="handleKeydown" @paste="handlePaste" @input="handleInput" />
+        @focus="handleFocus" @beforeinput="handleBeforeInput" @keydown="handleKeydown" @paste="handlePaste"
+        @input="handleInput" />
       <div class="pincode-grid" aria-hidden="true">
         <div v-for="(digit, index) in codeCells" :key="index"
           :class="['pincode-cell', { filled: digit, active: index === activeCellIndex, 'with-caret': index === activeCellIndex && shouldShowCaret }]"
