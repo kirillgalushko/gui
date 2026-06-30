@@ -2,7 +2,7 @@ import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import Button from './Button.vue';
-import { IconPencilOutline } from '@gui/icons';
+import { IconSettingsOutline } from '@gui/icons';
 
 const meta = {
   title: 'Components/Button',
@@ -44,11 +44,11 @@ export const IconButton: Story = {
     squared: true,
   },
   render: (args) => ({
-    components: { Button, IconPencilOutline },
+    components: { Button, IconSettingsOutline },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args"><IconPencilOutline /></Button>',
+    template: '<Button v-bind="args"><IconSettingsOutline /></Button>',
   }),
 };
 

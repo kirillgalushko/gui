@@ -80,7 +80,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default', size: 
     --button-padding: 6px 12px;
     --button-font-size: 13px;
     --button-line-height: 18px;
-    --button-squared-font-size: 15px;
+    --button-squared-font-size: 16px;
     --button-loader-size: 14px;
     --button-radius: 8px;
 }
@@ -90,7 +90,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default', size: 
     --button-padding: 8px 14px;
     --button-font-size: 14px;
     --button-line-height: 20px;
-    --button-squared-font-size: 16px;
+    --button-squared-font-size: 20px;
     --button-loader-size: 16px;
     --button-radius: 10px;
 }
@@ -100,7 +100,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default', size: 
     --button-padding: 8px 16px;
     --button-font-size: 14px;
     --button-line-height: 20px;
-    --button-squared-font-size: 16px;
+    --button-squared-font-size: 20px;
     --button-loader-size: 18px;
     --button-radius: 10px;
 }
