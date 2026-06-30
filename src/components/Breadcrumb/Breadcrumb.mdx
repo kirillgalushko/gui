@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Breadcrumb/Documentation" />
+
+# Breadcrumb
+
+Навигационная цепочка по API shadcn. `Breadcrumb` рендерит `nav`, `BreadcrumbList` — `ol`, остальные компоненты соответствуют элементам списка.
+
+## Компоненты
+
+- `Breadcrumb`
+- `BreadcrumbList`
+- `BreadcrumbItem`
+- `BreadcrumbLink`
+- `BreadcrumbPage`
+- `BreadcrumbSeparator`
+
+## Пример
+
+```vue
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Users</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
