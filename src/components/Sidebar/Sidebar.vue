@@ -58,6 +58,12 @@ const stopResizing = () => {
 watch([width, () => props.compactWidth], () => {
   isCompact.value = width.value < props.compactWidth
 }, { immediate: true })
+
+watch(() => props.width, (nextWidth) => {
+  if (Number.isFinite(nextWidth)) {
+    width.value = nextWidth
+  }
+})
 </script>
 
 <template>

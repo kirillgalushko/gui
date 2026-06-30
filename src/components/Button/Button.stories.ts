@@ -9,15 +9,19 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    mode: { control: 'select', options: ['default', 'contrast', 'ghost', 'outline'] },
+    mode: { control: 'select', options: ['default', 'contrast', 'ghost', 'outline', 'negative', 'accent'] },
+    size: { control: 'select', options: ['extra-small', 'small', 'medium', 'large'] },
     stretched: { control: 'boolean' },
     squared: { control: 'boolean' },
+    rounded: { control: 'boolean' },
     isLoading: { control: 'boolean' },
   },
   args: {
     mode: 'default',
+    size: 'large',
     stretched: false,
     squared: false,
+    rounded: false,
     // @ts-expect-error
     onClick: fn(() => 'clicked'),
   },
@@ -77,4 +81,3 @@ export const Disabled: Story = {
     template: '<Button v-bind="args">Купить</Button>',
   }),
 };
-
