@@ -4,6 +4,7 @@ import { IconGripVerticalOutline } from '@gui/icons';
 import { Padding } from '../../types';
 
 export interface SidebarProps {
+  mode?: 'default' | 'floating';
   padding?: Padding;
   width?: number;
   maxWidth?: string;
@@ -12,6 +13,7 @@ export interface SidebarProps {
 }
 
 const props = withDefaults(defineProps<SidebarProps>(), {
+  mode: 'default',
   padding: 16,
   minWidth: '200px',
   maxWidth: '100vw',
@@ -33,6 +35,7 @@ const startResizing = () => {
   document.addEventListener('touchmove', resizeSidebar);
   document.addEventListener('touchend', stopResizing);
   document.body.classList.add('prevent-user-select');
+  document.body.classList.add('sidebar-is-resizing');
 }
 
 const resizeSidebar = (event: MouseEvent | TouchEvent) => {
@@ -42,17 +45,18 @@ const resizeSidebar = (event: MouseEvent | TouchEvent) => {
     width.value = clientX - sidebarOffsetLeft;
   }
   if (isResizing.value && event instanceof MouseEvent && event.buttons !== 1) {
-    isResizing.value = false
+    stopResizing()
   }
 }
 
 const stopResizing = () => {
   isResizing.value = false;
   document.removeEventListener('mousemove', resizeSidebar);
-  document.removeEventListener('mouseup', resizeSidebar);
+  document.removeEventListener('mouseup', stopResizing);
   document.removeEventListener('touchmove', resizeSidebar);
-  document.removeEventListener('touchend', resizeSidebar);
+  document.removeEventListener('touchend', stopResizing);
   document.body.classList.remove('prevent-user-select');
+  document.body.classList.remove('sidebar-is-resizing');
 }
 
 watch([width, () => props.compactWidth], () => {
@@ -67,7 +71,7 @@ watch(() => props.width, (nextWidth) => {
 </script>
 
 <template>
-  <div ref="sidebarRef" :class="['sidebar']" :style="{
+  <div ref="sidebarRef" :class="['sidebar', `sidebar--${props.mode}`]" :style="{
     width: `${width}px`, padding: `${props.padding}px`,
     maxWidth: props.maxWidth,
     minWidth: props.minWidth,
@@ -85,16 +89,30 @@ watch(() => props.width, (nextWidth) => {
   -ms-user-select: none;
   user-select: none;
 }
+
+.sidebar-is-resizing,
+.sidebar-is-resizing * {
+  cursor: ew-resize !important;
+}
 </style>
 
 <style scoped>
 .sidebar {
   width: 400px;
   border-right: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
   height: 100%;
   padding: var(--gap-3);
   box-sizing: border-box;
   position: relative;
+}
+
+.sidebar--floating {
+  height: calc(100% - 16px);
+  margin: 8px 0 8px 8px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--sidebar));
 }
 
 .resize-handle {
@@ -110,9 +128,15 @@ watch(() => props.width, (nextWidth) => {
   z-index: 1;
 }
 
+.sidebar--floating .resize-handle {
+  top: 8px;
+  height: calc(100% - 16px);
+}
+
 .resize-handle::after {
   width: 0;
   transition: all 0.2s;
+  border-radius: 999px;
 }
 
 .resize-handle:hover::after {
@@ -125,6 +149,11 @@ watch(() => props.width, (nextWidth) => {
   background-color: hsl(var(--border));
   z-index: -1;
   margin-left: -1px;
+}
+
+.sidebar--floating .resize-handle:hover::after {
+  width: 0px;
+  margin-left: -0.5px;
 }
 
 .resize-handle svg {
