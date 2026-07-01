@@ -28,7 +28,7 @@ import { Dropdown } from 'floating-vue';
   --dropdown-border-color: hsl(var(--border));
 
   font-size: 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 4px;
   color: var(--dropdown-text-color);
   background-color: var(--dropdown-background-color);

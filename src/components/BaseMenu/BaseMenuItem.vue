@@ -29,7 +29,7 @@ const props = defineProps<BaseMenuItemProps>()
   gap: 8px;
   font-size: 14px;
   transition: all 0.2s;
-  border-radius: 4px;
+  border-radius: 6px;
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;

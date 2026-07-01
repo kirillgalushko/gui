@@ -60,7 +60,7 @@ watch(() => props.value, () => {
   background-color: hsl(var(--background));
   border: 1px solid hsl(var(--border));
   color: hsl(var(--foreground));
-  border-radius: 6px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
