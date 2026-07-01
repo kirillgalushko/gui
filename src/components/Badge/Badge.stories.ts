@@ -8,11 +8,43 @@ const meta: Meta<typeof Badge> = {
   argTypes: {
     mode: {
       control: { type: 'select' },
-      options: ['default', 'secondary']
+      options: ['default', 'secondary', 'ghost', 'negative', 'positive', 'danger', 'warning'],
+    },
+    color: {
+      control: { type: 'select' },
+      options: [
+        undefined,
+        'red',
+        'orange',
+        'amber',
+        'yellow',
+        'lime',
+        'green',
+        'emerald',
+        'teal',
+        'cyan',
+        'sky',
+        'blue',
+        'indigo',
+        'violet',
+        'purple',
+        'fuchsia',
+        'pink',
+        'rose',
+        'slate',
+        'gray',
+        'zinc',
+        'neutral',
+        'stone',
+        'mauve',
+        'olive',
+        'mist',
+        'taupe',
+      ],
     },
   },
   args: {
-    mode: 'default'
+    mode: 'default',
   },
 };
 
