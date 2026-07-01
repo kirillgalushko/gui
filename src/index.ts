@@ -13,6 +13,7 @@ export const BreadcrumbList = ac(() => import('./components/Breadcrumb/Breadcrum
 export const BreadcrumbPage = ac(() => import('./components/Breadcrumb/BreadcrumbPage.vue'));
 export const BreadcrumbSeparator = ac(() => import('./components/Breadcrumb/BreadcrumbSeparator.vue'));
 export const Card = ac(() => import('./components/Card/Card.vue'));
+export const Checkbox = ac(() => import('./components/Checkbox/Checkbox.vue'));
 export const Gap = ac(() => import('./components/Gap/Gap.vue'));
 export const FormError = ac(() => import('./components/FormError/FormError.vue'));
 export const FormHelper = ac(() => import('./components/FormHelper/FormHelper.vue'));
