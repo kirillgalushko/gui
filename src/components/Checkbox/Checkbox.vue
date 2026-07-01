@@ -141,11 +141,13 @@ watch(() => props.indeterminate, syncIndeterminate);
   color: hsl(var(--primary-foreground));
   box-sizing: border-box;
   box-shadow: 0 1px 2px hsl(var(--foreground) / 0.05);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   transition:
     background-color 0.18s ease,
     border-color 0.18s ease,
     box-shadow 0.18s ease,
-    transform 0.18s ease;
+    transform 0.18s ease outline-color 0.1s ease;
 }
 
 .checkbox:hover:not(.disabled) .checkbox-control {
@@ -159,7 +161,7 @@ watch(() => props.indeterminate, syncIndeterminate);
 
 .checkbox-input:focus-visible+.checkbox-control {
   outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
 .checkbox.invalid .checkbox-input:focus-visible+.checkbox-control {
