@@ -1,56 +1,39 @@
 <script setup lang="ts">
-import { Gap } from '../../types';
+import { computed } from 'vue';
+import type { Gap } from '../../types';
 
 export interface GapProps {
-  direction: 'horizontal' | 'vertical'
-  default: Gap
+  direction?: 'horizontal' | 'vertical';
+  size?: Gap;
+  default?: Gap;
 }
 
 const props = defineProps<GapProps>()
+const direction = computed(() => props.direction ?? 'vertical')
+const gap = computed(() => props.size ?? props.default ?? 1)
 </script>
 
 <template>
-  <div :class="['gap', props.direction, { [`gap-${props.default}`]: !!props.default }]"></div>
+  <div
+    aria-hidden="true"
+    :class="['gap', direction]"
+    :style="{ '--gap-size': `var(--gap-${gap})` }"
+  ></div>
 </template>
 
 <style scoped>
 .gap {
   display: inline-block;
+  flex-shrink: 0;
 }
 
 .horizontal {
-  height: 0;
   width: var(--gap-size);
-
 }
 
 .vertical {
-  width: 0;
+  width: 100%;
   height: var(--gap-size);
   display: block;
-}
-
-.gap-1 {
-  --gap-size: var(--gap-1);
-}
-
-.gap-2 {
-  --gap-size: var(--gap-2);
-}
-
-.gap-3 {
-  --gap-size: var(--gap-3);
-}
-
-.gap-4 {
-  --gap-size: var(--gap-4);
-}
-
-.gap-5 {
-  --gap-size: var(--gap-5);
-}
-
-.gap-6 {
-  --gap-size: var(--gap-6);
 }
 </style>

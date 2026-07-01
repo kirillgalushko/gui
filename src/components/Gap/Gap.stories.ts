@@ -10,7 +10,7 @@ const meta: Meta<typeof Gap> = {
       control: { type: 'select' },
       options: ['horizontal', 'vertical']
     },
-    default: {
+    size: {
       control: { type: 'select' },
       options: [1, 2, 3, 4, 5, 6]
     },
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof Gap>;
 export const HorizontalGap: Story = {
   args: {
     direction: 'horizontal',
-    default: 3,
+    size: 3,
   },
   render: (args) => ({
     components: { Gap },
@@ -37,7 +37,7 @@ export const HorizontalGap: Story = {
 export const VerticalGap: Story = {
   args: {
     direction: 'vertical',
-    default: 3,
+    size: 3,
   },
   render: (args) => ({
     components: { Gap },

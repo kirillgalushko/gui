@@ -5,6 +5,10 @@
   --gap-4: 16px;
   --gap-5: 20px;
   --gap-6: 24px;
+  --gap-7: 28px;
+  --gap-8: 32px;
+  --gap-8: 36px;
+  --gap-9: 40px;
 
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
@@ -15,7 +19,7 @@
   --card: 240 10% 3.9%;
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
+  --input: 240 5% 7%;
   --primary: 0 0% 98%;
   --primary-foreground: 240 5.9% 10%;
   --secondary: 240 3.7% 15.9%;
@@ -44,7 +48,7 @@
   --card: 0 0% 100%;
   --card-foreground: 240 10% 3.9%;
   --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
+  --input: 240 3% 95%;
   --primary: 240 5.9% 10%;
   --primary-foreground: 0 0% 98%;
   --secondary: 240 4.8% 95.9%;

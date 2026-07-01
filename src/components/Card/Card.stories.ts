@@ -38,9 +38,9 @@ type Story = StoryObj<CardType>;
 
 const cardContent = `
   <Text typography="title-2">Notifications</Text>
-  <Gap :default="1" direction="vertical" />
+  <Gap :size="1" direction="vertical" />
   <Text typography="paragraph-2" color="secondary">You have 3 unread messages</Text>
-  <Gap :default="3" direction="vertical" />
+  <Gap :size="3" direction="vertical" />
   <Button mode="contrast">Mark as read</Button>
 `
 const demoComponents = { Card, Text, Button, Gap }

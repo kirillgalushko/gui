@@ -23,11 +23,11 @@ type Story = StoryObj<typeof Separator>;
 const template = `
   <Row alignItems="center">
     <Button squared> <IconPencilOutline /> </Button>
-    <Gap direction="horizontal" :default="2" />
+    <Gap direction="horizontal" :size="2" />
     <Button squared> <IconChevronDownOutline /> </Button>
-    <Gap direction="horizontal" :default="2" />
+    <Gap direction="horizontal" :size="2" />
     <Separator v-bind="args" />
-    <Gap direction="horizontal" :default="2" />
+    <Gap direction="horizontal" :size="2" />
     <Button squared> <IconPencilOutline /> </Button>
   </Row>
 `
