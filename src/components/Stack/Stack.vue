@@ -18,12 +18,12 @@ const props = defineProps<StackProps>()
         props.direction,
         props.alignItems,
         {
-            [`gap-${props.gap}`]: !!gap,
+            'with-gap': !!props.gap,
             'fullHeight': props.fullHeight,
             'stretched': props.stretched,
             'wrap': props.wrap,
         }
-    ]">
+    ]" :style="props.gap ? { '--stack-gap-size': `var(--gap-${props.gap})` } : undefined">
         <slot></slot>
     </div>
 </template>
@@ -65,27 +65,7 @@ const props = defineProps<StackProps>()
     flex-wrap: wrap;
 }
 
-.gap-1 {
-    gap: var(--gap-1)
-}
-
-.gap-2 {
-    gap: var(--gap-2)
-}
-
-.gap-3 {
-    gap: var(--gap-3)
-}
-
-.gap-4 {
-    gap: var(--gap-4)
-}
-
-.gap-5 {
-    gap: var(--gap-5)
-}
-
-.gap-6 {
-    gap: var(--gap-6)
+.with-gap {
+    gap: var(--stack-gap-size);
 }
 </style>
