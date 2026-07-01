@@ -101,7 +101,9 @@ const ariaDescribedBy = computed(() => {
 .input {
   padding: 8px 12px;
   border: 1px solid hsl(var(--border));
-  background: transparent;
+  background: hsl(var(--input));
+  outline: 2px solid transparent;
+  outline-offset: -2px;
   color: hsl(var(--foreground));
   border-radius: 6px;
   font-size: 14px;
@@ -111,8 +113,8 @@ const ariaDescribedBy = computed(() => {
   display: flex;
   width: 100%;
   transition:
-    border-color 0.16s ease,
-    outline-color 0.16s ease;
+    border-color 0.1s ease,
+    outline-color 0.1s ease;
 }
 
 .input.invalid {

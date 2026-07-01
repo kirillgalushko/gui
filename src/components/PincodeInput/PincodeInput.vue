@@ -385,9 +385,9 @@ watch(codeLength, () => {
   position: relative;
   width: 100%;
   min-width: 220px;
-  height: 52px;
+  height: 60px;
   border: 1px solid hsl(var(--border));
-  border-radius: 8px;
+  border-radius: 12px;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   box-sizing: border-box;

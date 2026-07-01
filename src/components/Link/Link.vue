@@ -71,7 +71,9 @@ const linkAttrs = computed(() => {
   color: hsl(var(--link-color));
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s, opacity 0.2s;
+  transition: color 0.2s, opacity 0.2s, outline-color 0.1s;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .link.mode-accent {
@@ -100,6 +102,7 @@ const linkAttrs = computed(() => {
 .link:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .link.enable-visited:visited {

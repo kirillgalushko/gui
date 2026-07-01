@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default', size: 
     box-sizing: border-box;
     font-weight: 500;
     line-height: var(--button-line-height);
-    transition: background-color 0.2s, color 0.2s, scale 0.2s, width 0.2s;
+    transition: background-color 0.2s, color 0.2s, scale 0.2s, width 0.2s, outline-color 0.1s;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -63,6 +63,8 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default', size: 
     gap: var(--gap-1);
     height: var(--button-height);
     position: relative;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
 }
 
 .extra-small {
