@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Item/Documentation" />
+
+# Item
+
+`Item` собирает короткую строку с медиа, основным текстом и дополнительными действиями.
+
+```vue
+<Item stretched>
+  <ItemMedia>
+    <Avatar name="Аренда" size="40px" />
+  </ItemMedia>
+  <ItemContent>
+    <ItemTitle>Аренда</ItemTitle>
+    <ItemDescription>Организация</ItemDescription>
+  </ItemContent>
+  <ItemActions>
+    <Button size="small">Открыть</Button>
+  </ItemActions>
+</Item>
+```
+
+- `Item` принимает `interactive` и `stretched`.
+- `ItemMedia` подходит для `Avatar`, иконки или миниатюры.
+- `ItemContent` содержит `ItemTitle` и `ItemDescription`.
+- `ItemActions` закрепляет действия справа.
