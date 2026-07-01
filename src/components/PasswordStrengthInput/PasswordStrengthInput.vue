@@ -17,6 +17,7 @@ export interface PasswordStrengthRule {
 
 export interface PasswordStrengthInputProps {
   modelValue?: string;
+  autoFocus?: boolean;
   rules?: PasswordStrengthRule[];
   progress?: number;
   progressSegments?: number;
@@ -106,8 +107,9 @@ const handleFocusOut = (event: FocusEvent) => {
   <div :style="{ maxWidth: props.maxWidth }" class="password-strength" @focusin="handleFocusIn"
     @focusout="handleFocusOut">
     <PasswordInput v-bind="$attrs" :model-value="props.modelValue" :max-width="props.maxWidth"
-      :disabled="props.disabled" :description="props.description" :error-message="props.errorMessage"
-      :invalid="props.invalid" :description-id="props.descriptionId" @update:model-value="updateModelValue" />
+      :auto-focus="props.autoFocus" :disabled="props.disabled" :description="props.description"
+      :error-message="props.errorMessage" :invalid="props.invalid" :description-id="props.descriptionId"
+      @update:model-value="updateModelValue" />
 
     <Transition name="password-strength-details">
       <div v-if="shouldShowRules" class="password-strength-details">

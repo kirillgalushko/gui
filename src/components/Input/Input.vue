@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, type Ref, useAttrs, useId } from 'vue';
+import { computed, nextTick, onMounted, ref, type Ref, useAttrs, useId } from 'vue';
 import FormHelper from '../FormHelper/FormHelper.vue';
 
 defineOptions({
@@ -7,6 +7,7 @@ defineOptions({
 });
 
 export interface InputProps {
+  autoFocus?: boolean;
   maxWidth?: string;
   disabled?: boolean;
   description?: string;
@@ -17,6 +18,7 @@ export interface InputProps {
 
 const leftAdornment = ref<HTMLDivElement>()
 const rightAdornment = ref<HTMLDivElement>()
+const inputRef = ref<HTMLInputElement>()
 const model = defineModel()
 const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
 const attrs = useAttrs()
@@ -60,6 +62,15 @@ const ariaDescribedBy = computed(() => {
 
   return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
 });
+
+onMounted(async () => {
+  if (!props.autoFocus || props.disabled) {
+    return;
+  }
+
+  await nextTick();
+  inputRef.value?.focus();
+});
 </script>
 
 <template>
@@ -68,7 +79,7 @@ const ariaDescribedBy = computed(() => {
       <div ref="leftAdornment" class="adornment left-adornment">
         <slot name="leftAdornment"></slot>
       </div>
-      <input v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles"
+      <input ref="inputRef" v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles"
         :class="['input', { invalid: props.invalid }]" :aria-invalid="props.invalid || undefined"
         :aria-describedby="ariaDescribedBy" />
       <div ref="rightAdornment" class="adornment right-adornment">

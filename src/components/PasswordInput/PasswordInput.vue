@@ -10,6 +10,7 @@ defineOptions({
 
 export interface PasswordInputProps {
   modelValue?: string;
+  autoFocus?: boolean;
   maxWidth?: string;
   disabled?: boolean;
   description?: string;
@@ -42,8 +43,9 @@ const updateModelValue = (value: string | unknown) => {
 
 <template>
   <Input v-bind="$attrs" :model-value="props.modelValue" :type="inputType" :max-width="props.maxWidth"
-    :disabled="props.disabled" :description="props.description" :error-message="props.errorMessage"
-    :invalid="props.invalid" :description-id="props.descriptionId" @update:model-value="updateModelValue">
+    :auto-focus="props.autoFocus" :disabled="props.disabled" :description="props.description"
+    :error-message="props.errorMessage" :invalid="props.invalid" :description-id="props.descriptionId"
+    @update:model-value="updateModelValue">
     <template #rightAdornment>
       <Action type="button" :aria-label="toggleLabel" :aria-pressed="isPasswordVisible" :disabled="props.disabled"
         class="password-toggle" @click.prevent="togglePasswordVisibility">

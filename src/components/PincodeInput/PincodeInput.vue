@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, useAttrs, useId, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, useAttrs, useId, watch } from 'vue';
 import FormHelper from '../FormHelper/FormHelper.vue';
 
 defineOptions({
@@ -8,6 +8,7 @@ defineOptions({
 
 export interface PincodeInputProps {
   modelValue?: string;
+  autoFocus?: boolean;
   stretched?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -336,6 +337,15 @@ watch(value, (nextValue) => {
 watch(codeLength, () => {
   cursorIndex.value = clampCursorIndex(cursorIndex.value);
   void syncNativeInput();
+});
+
+onMounted(async () => {
+  if (!props.autoFocus || isDisabled.value) {
+    return;
+  }
+
+  await nextTick();
+  focusInput();
 });
 </script>
 
