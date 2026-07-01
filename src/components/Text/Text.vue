@@ -73,31 +73,73 @@ const styles = computed(() => {
 }
 
 .title-1 {
-    font-size: 132px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1;
-    letter-spacing: -4px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
 }
 
 .title-2 {
-    font-size: 64px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 1;
-    letter-spacing: -2px;
+    line-height: 24px;
+    letter-spacing: -0.4px;
 }
 
 .title-3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -0.5px;
+}
+
+.title-4 {
     font-size: 24px;
     font-weight: 600;
     line-height: 32px;
     letter-spacing: -0.6px;
 }
 
-.title-4 {
-    font-size: 16px;
+.title-5 {
+    font-size: 32px;
     font-weight: 600;
-    line-height: 18px;
-    letter-spacing: -0.4px;
+    line-height: 36px;
+    letter-spacing: -0.8px;
+}
+
+.title-6 {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: -1px;
+}
+
+.title-7 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.title-8 {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.title-9 {
+    font-size: 96px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -3px;
+}
+
+.title-10 {
+    font-size: 132px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -4px;
 }
 
 .subtitle-1 {

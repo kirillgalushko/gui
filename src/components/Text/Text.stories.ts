@@ -12,6 +12,12 @@ const meta: Meta<typeof Text> = {
         'title-2',
         'title-3',
         'title-4',
+        'title-5',
+        'title-6',
+        'title-7',
+        'title-8',
+        'title-9',
+        'title-10',
         'subtitle-1',
         'subtitle-2',
         'subtitle-3',
@@ -25,6 +31,7 @@ const meta: Meta<typeof Text> = {
     },
     Element: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'] },
     color: { control: 'select', options: ['default', 'inherit', 'secondary', 'negative'] },
+    inline: { control: 'boolean' },
     textAlign: { control: 'select', options: ['inherit', 'start', 'center', 'end'] },
   }
 };
@@ -40,6 +47,7 @@ export const Default: Story = {
     color: 'default',
     clamp: 2,
     ellipsis: true,
+    inline: false,
     textAlign: 'start'
   },
   render: (args) => ({
@@ -57,18 +65,30 @@ export const Typography: Story = {
     template: `
       <div>
         <Text typography="title-1">Заголовок</Text>
-        <Text typography="subtitle-1">Подзаголовок</Text>
         <br /><br />
         <Text typography="title-2">Заголовок</Text>
-        <Text typography="subtitle-2">Подзаголовок</Text>
         <br /><br />
         <Text typography="title-3">Заголовок</Text>
-        <Text typography="subtitle-3">Подзаголовок</Text>
         <br /><br />
         <Text typography="title-4">Заголовок</Text>
+        <br /><br />
+        <Text typography="title-5">Заголовок</Text>
+        <br /><br />
+        <Text typography="title-6">Заголовок</Text>
+        <br /><br />
+        <Text typography="title-7">Заголовок</Text>
+        <br /><br />
+        <Text typography="title-8">Заголовок</Text>
+        <br /><br />
+        <Text typography="title-9">Заголовок</Text>
+        <br /><br />
+        <Text typography="title-10">Заголовок</Text>
+        <br /><br />
+        <Text typography="subtitle-1">Подзаголовок</Text>
+        <Text typography="subtitle-2">Подзаголовок</Text>
+        <Text typography="subtitle-3">Подзаголовок</Text>
         <Text typography="subtitle-4">Подзаголовок</Text>
         <br /><br />
-        <Text typography="title-4">Заголовок</Text>
         <Text typography="paragraph-1">Параграф c текстом, который просто демонстрирует как будет выглядеть текст</Text>
         <br /><br />
         <div style="display: flex; flex-direction: row; align-items: center; gap: 8px">
