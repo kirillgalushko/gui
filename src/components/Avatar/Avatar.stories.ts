@@ -19,6 +19,9 @@ const meta: Meta<typeof Avatar> = {
     size: {
       control: { type: 'text' },
     },
+    name: {
+      control: { type: 'text' },
+    },
   },
   args: {
     size: '60px',
@@ -53,5 +56,19 @@ export const WithIcon: Story = {
     <Avatar v-bind="args">
       <IconUserOutline />
     </Avatar>`,
+  }),
+};
+
+export const WithFallback: Story = {
+  args: {
+    name: 'Аренда',
+  },
+  render: (args) => ({
+    components: { Avatar },
+    setup() {
+      return { args };
+    },
+    template: `
+    <Avatar v-bind="args" />`,
   }),
 };

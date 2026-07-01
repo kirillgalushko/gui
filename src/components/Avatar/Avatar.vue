@@ -5,6 +5,7 @@ export interface AvatarProps {
   shape?: 'square' | 'circle'
   color?: 'default' | 'secondary' | 'outlined'
   src?: string
+  name?: string
   size?: string
 }
 
@@ -15,6 +16,8 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 })
 
 const imageLoaded = ref<boolean>(false);
+
+const fallback = computed(() => props.name?.trim().charAt(0).toUpperCase() ?? '');
 
 function handleImageLoad() {
   imageLoaded.value = true;
@@ -35,8 +38,10 @@ const styles = computed(() => {
 
 <template>
   <div :style="styles" :class="['avatar', props.shape, props.color]" v-bind="$attrs">
-    <img v-show="imageLoaded" @load="handleImageLoad" class="avatar-image" :src="props.src" />
-    <slot></slot>
+    <img v-if="props.src" v-show="imageLoaded" @load="handleImageLoad" class="avatar-image" :src="props.src" />
+    <slot>
+      {{ fallback }}
+    </slot>
   </div>
 </template>
 
