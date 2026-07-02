@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, type Ref, useAttrs, useId } from 'vue';
-import FormHelper from '../FormHelper/FormHelper.vue';
+import FieldHelper from '../FieldHelper/FieldHelper.vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -86,7 +86,7 @@ onMounted(async () => {
         <slot name="rightAdornment"></slot>
       </div>
     </div>
-    <FormHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
+    <FieldHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
       :disabled="props.disabled" :description-id="helperDescriptionId" />
   </div>
 </template>
@@ -95,7 +95,6 @@ onMounted(async () => {
 .input-field {
   display: inline-flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .input-container {
@@ -116,7 +115,7 @@ onMounted(async () => {
   outline: 2px solid transparent;
   outline-offset: -2px;
   color: hsl(var(--foreground));
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 14px;
   height: 40px;
   font-family: inherit;

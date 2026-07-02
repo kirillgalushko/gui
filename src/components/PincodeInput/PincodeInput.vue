@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, useAttrs, useId, watch } from 'vue';
-import FormHelper from '../FormHelper/FormHelper.vue';
+import FieldHelper from '../FieldHelper/FieldHelper.vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -374,7 +374,7 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <FormHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
+    <FieldHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
       :disabled="isDisabled" :description-id="helperDescriptionId" />
   </div>
 </template>

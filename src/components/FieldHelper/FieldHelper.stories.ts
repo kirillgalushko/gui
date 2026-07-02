@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/vue3';
-import FormHelper from './FormHelper.vue';
+import FieldHelper from './FieldHelper.vue';
 
-const meta: Meta<typeof FormHelper> = {
-  title: 'Components/FormHelper',
-  component: FormHelper,
+const meta: Meta<typeof FieldHelper> = {
+  title: 'Components/FieldHelper',
+  component: FieldHelper,
   tags: ['autodocs'],
   argTypes: {
     invalid: {
@@ -16,18 +16,18 @@ const meta: Meta<typeof FormHelper> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof FormHelper>;
+type Story = StoryObj<typeof FieldHelper>;
 
 export const Default: Story = {
   args: {
     description: 'Подсказка для поля',
   },
   render: (args) => ({
-    components: { FormHelper },
+    components: { FieldHelper },
     setup() {
       return { args };
     },
-    template: '<FormHelper v-bind="args" />',
+    template: '<FieldHelper v-bind="args" />',
   }),
 };
 
@@ -38,10 +38,10 @@ export const Invalid: Story = {
     invalid: true,
   },
   render: (args) => ({
-    components: { FormHelper },
+    components: { FieldHelper },
     setup() {
       return { args };
     },
-    template: '<FormHelper v-bind="args" />',
+    template: '<FieldHelper v-bind="args" />',
   }),
 };

@@ -57,7 +57,7 @@ watch(() => props.value, () => {
 }
 
 .select-toggle {
-  background-color: hsl(var(--background));
+  background-color: hsl(var(--input));
   border: 1px solid hsl(var(--border));
   color: hsl(var(--foreground));
   border-radius: 10px;

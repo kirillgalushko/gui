@@ -15,9 +15,15 @@ export const BreadcrumbSeparator = ac(() => import('./components/Breadcrumb/Brea
 export const Card = ac(() => import('./components/Card/Card.vue'));
 export const Checkbox = ac(() => import('./components/Checkbox/Checkbox.vue'));
 export const Gap = ac(() => import('./components/Gap/Gap.vue'));
+export const Field = ac(() => import('./components/Field/Field.vue'));
+export const FieldContent = ac(() => import('./components/Field/FieldContent.vue'));
+export const FieldHelper = ac(() => import('./components/FieldHelper/FieldHelper.vue'));
+export const FieldLabel = ac(() => import('./components/Field/FieldLabel.vue'));
+export const FieldLegend = ac(() => import('./components/Field/FieldLegend.vue'));
+export const FieldSeparator = ac(() => import('./components/Field/FieldSeparator.vue'));
+export const FieldSet = ac(() => import('./components/Field/FieldSet.vue'));
+export const FieldTitle = ac(() => import('./components/Field/FieldTitle.vue'));
 export const FormError = ac(() => import('./components/FormError/FormError.vue'));
-export const FormHelper = ac(() => import('./components/FormHelper/FormHelper.vue'));
-export const FormLabel = ac(() => import('./components/FormLabel/FormLabel.vue'));
 export const Input = ac(() => import('./components/Input/Input.vue'));
 export const Item = ac(() => import('./components/Item/Item.vue'));
 export const ItemActions = ac(() => import('./components/Item/ItemActions.vue'));

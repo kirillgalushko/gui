@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, useAttrs, useId, watch } from 'vue';
-import FormHelper from '../FormHelper/FormHelper.vue';
+import FieldHelper from '../FieldHelper/FieldHelper.vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -80,7 +80,7 @@ watch(() => props.indeterminate, syncIndeterminate);
         <slot></slot>
       </span>
     </label>
-    <FormHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
+    <FieldHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
       :disabled="props.disabled" :description-id="helperDescriptionId" />
   </div>
 </template>
