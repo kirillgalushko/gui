@@ -127,7 +127,7 @@ const handleFocusOut = (event: FocusEvent) => {
                 <IconCircleCheckOutline v-if="rule.valid" />
                 <IconCircleXOutline v-else />
               </span>
-              <Text Element="span" typography="label-3" color="inherit">
+              <Text Element="span" typography="label-1" color="inherit">
                 {{ rule.label }}
               </Text>
             </li>

@@ -88,7 +88,7 @@ const gridTemplateAreas = computed(() => {
   width: 100%;
   max-width: 400px;
   padding: 24px;
-  border-radius: 16px;
+  border-radius: 24px;
   z-index: 101;
   position: fixed;
   left: 50%;
