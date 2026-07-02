@@ -93,6 +93,7 @@ import { useModal } from './hooks/useModal';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
 import { useViewportBreakpoint } from './hooks/useViewportBreakpoint';
 import { useContainerBreakpoint } from './hooks/useContainerBreakpoint';
+import { useGridBreakpoint } from './hooks/useGridBreakpoint';
 export type {
   Breakpoint,
   BreakpointResult,
@@ -109,4 +110,5 @@ export {
   useContextMenu,
   useViewportBreakpoint,
   useContainerBreakpoint,
+  useGridBreakpoint,
 };

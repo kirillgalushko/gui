@@ -2,15 +2,19 @@ import { readonly, ref, onBeforeUnmount, onMounted } from 'vue';
 import { createBreakpointResult, getBreakpointName, type Breakpoint } from './breakpoints/breakpoints';
 
 export function useViewportBreakpoint() {
-  const breakpoint = ref<Breakpoint>('xs');
+  const getCurrentBreakpoint = (): Breakpoint => {
+    if (typeof window === 'undefined') {
+      return 'xs';
+    }
+
+    return getBreakpointName(window.innerWidth);
+  };
+
+  const breakpoint = ref<Breakpoint>(getCurrentBreakpoint());
   const result = createBreakpointResult(() => breakpoint.value);
 
   const updateBreakpoint = () => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    breakpoint.value = getBreakpointName(window.innerWidth);
+    breakpoint.value = getCurrentBreakpoint();
   };
 
   onMounted(() => {
