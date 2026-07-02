@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<CardProps>(), {
     interactive: false,
     background: 'default',
     padding: 8,
-    borderRadius: 8,
+    borderRadius: 16,
 })
 </script>
 
@@ -40,14 +40,14 @@ const props = withDefaults(defineProps<CardProps>(), {
 .card {
     box-sizing: border-box;
     border: 1px solid hsl(var(--border));
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 12px;
     display: inline-block;
     font-family: var(--font-family);
 }
 
 .default {
-    background-color: transparent;
+    background-color: hsl(var(--card));
 }
 
 .secondary {

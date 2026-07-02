@@ -142,21 +142,21 @@ const styles = computed(() => {
     letter-spacing: -4px;
 }
 
-.subtitle-1 {
+.subtitle-4 {
     font-size: 36px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: -1.5px;
 }
 
-.subtitle-2 {
+.subtitle-3 {
     font-size: 22px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: -0.6px;
 }
 
-.subtitle-3 {
+.subtitle-2 {
     font-size: 16px;
     font-weight: 400;
     line-height: 1;
@@ -164,43 +164,40 @@ const styles = computed(() => {
 }
 
 
-.subtitle-4 {
+.subtitle-1 {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     letter-spacing: -0.2px;
 }
 
-.paragraph-1 {
+.paragraph-2 {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
 }
 
-.paragraph-2 {
+.paragraph-1 {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
 }
 
-.label-1 {
+.label-3 {
     font-size: 16px;
     font-weight: 600;
     line-height: 18px;
-    letter-spacing: -0.4px;
 }
 
 .label-2 {
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
-    letter-spacing: -0.2px;
 }
 
-.label-3 {
+.label-1 {
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
-    letter-spacing: -0.2px;
 }
 </style>

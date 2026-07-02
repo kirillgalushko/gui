@@ -4,7 +4,7 @@ import Text from '../Text/Text.vue';
 
 <template>
   <legend class="field-legend">
-    <Text Element="span" typography="label-1" color="default">
+    <Text Element="span" typography="label-3" color="default">
       <slot></slot>
     </Text>
   </legend>
@@ -13,6 +13,6 @@ import Text from '../Text/Text.vue';
 <style scoped>
 .field-legend {
   padding: 0;
-  margin: 0 0 var(--gap-2);
+  margin: 0 0 var(--gap-3);
 }
 </style>

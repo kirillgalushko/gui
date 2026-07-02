@@ -121,7 +121,7 @@ watch(() => props.width, (nextWidth) => {
   height: calc(100% - 16px);
   margin: 8px 0 8px 8px;
   border: 1px solid hsl(var(--border));
-  border-radius: 10px;
+  border-radius: 16px;
   background: hsl(var(--sidebar));
 }
 
@@ -176,7 +176,7 @@ watch(() => props.width, (nextWidth) => {
   transition: opacity 0.2s;
   background: hsl(var(--border));
   padding: 4px 1px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .resize-handle:hover svg,

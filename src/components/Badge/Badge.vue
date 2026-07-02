@@ -111,5 +111,9 @@ const badgeStyle = computed(() => {
   min-width: 20px;
   background-color: var(--badge-background);
   color: var(--badge-color);
+  text-wrap: nowrap;
+  display: inline-flex;
+  flex-direction: row;
+  gap: var(--gap-1);
 }
 </style>

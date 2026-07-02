@@ -6,9 +6,9 @@ import {
 } from '../../hooks/breakpoints/breakpoints';
 import { gridContextKey } from './context';
 
-export type GridColumnExtraSmallSize = 1 | 2 | 3 | 4
-export type GridColumnSmallSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-export type GridColumnLargeSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+export type GridColumnExtraSmallSize = 0 | 1 | 2 | 3 | 4
+export type GridColumnSmallSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export type GridColumnLargeSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 export interface GridColumnProps {
   xs?: GridColumnExtraSmallSize;

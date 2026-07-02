@@ -175,6 +175,11 @@ onBeforeUnmount(() => {
   outline-offset: -2px;
 }
 
+.input:read-only {
+  transition: none;
+  outline: none;
+}
+
 .input:read-only:focus-visible {
   outline: none;
 }

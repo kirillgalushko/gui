@@ -33,7 +33,7 @@ const messageMode = computed(() => props.invalid ? 'error' : 'description');
       <div class="field-helper-content">
         <div class="field-helper-message-box">
           <Transition name="field-helper-message" mode="out-in">
-            <Text :id="props.descriptionId" :key="messageMode" Element="p" typography="label-3" color="inherit">
+            <Text :id="props.descriptionId" :key="messageMode" Element="p" typography="label-1" color="inherit">
               {{ message }}
             </Text>
           </Transition>
