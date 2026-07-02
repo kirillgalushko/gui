@@ -95,6 +95,7 @@ onMounted(async () => {
 .input-field {
   display: inline-flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .input-container {

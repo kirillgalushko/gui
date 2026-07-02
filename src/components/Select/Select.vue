@@ -24,7 +24,7 @@ const wrapperStyles = computed(() => {
 })
 
 watch(() => props.value, () => {
-  if (props.value) {
+  if (props.value !== undefined) {
     const newOption = select.options.value.get(props.value)
     select.selectedOption.value = { value: props.value, label: newOption }
   } else {
