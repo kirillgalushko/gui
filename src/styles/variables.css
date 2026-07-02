@@ -9,6 +9,9 @@
   --gap-8: 32px;
   --gap-8: 36px;
   --gap-9: 40px;
+  --gap-10: 60px;
+  --gap-11: 80px;
+  --gap-12: 100px;
 
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
@@ -16,8 +19,8 @@
   --muted-foreground: 240 5% 64.9%;
   --popover: 240 5% 7%;
   --popover-foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
+  --card: 0deg 0.01% 9.06%;
+  --card-foreground: 0deg 0.48% 98.03%;
   --border: 240 3.7% 15.9%;
   --input: 240 5% 7%;
   --primary: 0 0% 98%;
