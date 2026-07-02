@@ -42,7 +42,9 @@ watch(() => props.layout, autoResize);
 .textarea {
   padding: 8px 12px;
   border: 1px solid hsl(var(--border));
-  background: transparent;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  background: hsl(var(--input));
   color: hsl(var(--foreground));
   border-radius: 6px;
   font-size: 14px;
@@ -53,7 +55,9 @@ watch(() => props.layout, autoResize);
   max-height: 100%;
   min-height: 120px;
   min-width: 220px;
-  transition: outline-width 0.2s;
+  transition:
+    border-color 0.1s ease,
+    outline-color 0.1s ease;
 }
 
 .textarea:disabled {
