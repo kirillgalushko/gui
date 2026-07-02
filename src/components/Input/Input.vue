@@ -158,6 +158,10 @@ onBeforeUnmount(() => {
   border-color: hsl(var(--negative));
 }
 
+.input[type="tel"] {
+  font-feature-settings: "case" 1;
+}
+
 .input:disabled {
   cursor: not-allowed;
 }
