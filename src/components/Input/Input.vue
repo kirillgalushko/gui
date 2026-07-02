@@ -149,9 +149,7 @@ onBeforeUnmount(() => {
   box-sizing: border-box;
   display: flex;
   width: 100%;
-  transition:
-    border-color 0.1s ease,
-    outline-color 0.1s ease;
+  transition: border-color 0.1s ease;
 }
 
 .input.invalid {
@@ -164,6 +162,7 @@ onBeforeUnmount(() => {
 
 .input:disabled {
   cursor: not-allowed;
+  outline-color: transparent;
 }
 
 .input:-webkit-autofill,
@@ -177,6 +176,10 @@ onBeforeUnmount(() => {
 .input:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: -2px;
+}
+
+.input:disabled:focus-visible {
+  outline-color: transparent;
 }
 
 .input:read-only {

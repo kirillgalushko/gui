@@ -11,5 +11,6 @@
   justify-content: center;
   flex-shrink: 0;
   color: hsl(var(--muted-foreground));
+  font-size: 18px;
 }
 </style>
