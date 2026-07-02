@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, type Ref, useAttrs, useId } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useAttrs, useId } from 'vue';
 import FieldHelper from '../FieldHelper/FieldHelper.vue';
 
 defineOptions({
@@ -18,21 +18,24 @@ export interface InputProps {
 
 const leftAdornment = ref<HTMLDivElement>()
 const rightAdornment = ref<HTMLDivElement>()
+const leftAdornmentWidth = ref(0)
+const rightAdornmentWidth = ref(0)
 const inputRef = ref<HTMLInputElement>()
 const model = defineModel()
 const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
 const attrs = useAttrs()
 const generatedDescriptionId = useId()
+let resizeObserver: ResizeObserver | undefined
 
 const inputStyles = computed(() => {
-  const getPadding = ((element: Ref<HTMLDivElement | undefined>) => {
-    if (element.value?.clientWidth) {
-      return element.value?.clientWidth + 20
+  const getPadding = ((adornmentWidth: number) => {
+    if (adornmentWidth > 0) {
+      return adornmentWidth + 20
     }
     return 12
   })
-  const paddingLeft = getPadding(leftAdornment)
-  const paddingRight = getPadding(rightAdornment)
+  const paddingLeft = getPadding(leftAdornmentWidth.value)
+  const paddingRight = getPadding(rightAdornmentWidth.value)
   return `padding-left: ${paddingLeft}px; padding-right: ${paddingRight}px;`
 });
 
@@ -63,13 +66,36 @@ const ariaDescribedBy = computed(() => {
   return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
 });
 
+const updateAdornmentWidths = () => {
+  leftAdornmentWidth.value = leftAdornment.value?.clientWidth ?? 0;
+  rightAdornmentWidth.value = rightAdornment.value?.clientWidth ?? 0;
+};
+
 onMounted(async () => {
+  await nextTick();
+  updateAdornmentWidths();
+
+  if (typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver(updateAdornmentWidths);
+
+    if (leftAdornment.value) {
+      resizeObserver.observe(leftAdornment.value);
+    }
+
+    if (rightAdornment.value) {
+      resizeObserver.observe(rightAdornment.value);
+    }
+  }
+
   if (!props.autoFocus || props.disabled) {
     return;
   }
 
-  await nextTick();
   inputRef.value?.focus();
+});
+
+onBeforeUnmount(() => {
+  resizeObserver?.disconnect();
 });
 </script>
 
