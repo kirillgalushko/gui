@@ -17,11 +17,16 @@ const meta: Meta<typeof Modal> = {
     showCloseButton: {
       control: { type: 'boolean' },
     },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large', 'full'],
+    },
   },
   args: {
     isOpened: true,
     showCloseButton: false,
     title: "Сохранить прогресс?",
+    size: 'medium',
   },
   parameters: {
     docs: {
@@ -66,6 +71,28 @@ export const WithFooter: Story = {
     template: `
       <Modal v-bind="args">
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
+        <template #footer>
+          <Button mode="ghost">Закрыть</Button>
+          <Button mode="contrast">Сохранить</Button>
+        </template>
+      </Modal>`,
+  }),
+};
+
+export const Large: Story = {
+  args: {
+    isOpened: true,
+    title: "Большая модалка",
+    size: 'large',
+  },
+  render: (args) => ({
+    components: { Modal, Button },
+    setup() {
+      return { args };
+    },
+    template: `
+      <Modal v-bind="args">
+        Ширина ограничена выбранным size, но адаптируется под viewport.
         <template #footer>
           <Button mode="ghost">Закрыть</Button>
           <Button mode="contrast">Сохранить</Button>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import Modal from '../Modal/Modal.vue';
+import { computed } from 'vue';
+import { useViewportBreakpoint } from '../../hooks/useViewportBreakpoint';
+import AdaptiveModal from '../AdaptiveModal/AdaptiveModal.vue';
 import Button from '../Button/Button.vue';
 import Text from '../Text/Text.vue'
 import { useConfirm } from './useConfirm';
@@ -17,18 +19,24 @@ export interface ConfirmProps {
 }
 
 const props = defineProps<ConfirmProps>()
+const viewport = useViewportBreakpoint();
+const isFooterStretched = computed(() => viewport.isMobile);
 </script>
 
 <template>
-  <Modal :isOpened="props.isOpened.value" :title="props.title.value">
-    <Text typography="paragraph-1" mode="secondary">
+  <AdaptiveModal :isOpened="props.isOpened.value" :onClose="props.reject.value" :title="props.title.value">
+    <Text typography="paragraph-1" color="secondary">
       {{ props.description }}
     </Text>
     <template #footer>
-      <Button mode="ghost" @click="props.reject.value">{{ props.cancelButtonText }}</Button>
-      <Button mode="contrast" @click="props.resolve.value">{{ props.confirmButtonText }}</Button>
+      <Button :stretched="isFooterStretched" mode="ghost" @click="props.reject.value">
+        {{ props.cancelButtonText }}
+      </Button>
+      <Button :stretched="isFooterStretched" mode="contrast" @click="props.resolve.value">
+        {{ props.confirmButtonText }}
+      </Button>
     </template>
-  </Modal>
+  </AdaptiveModal>
 </template>
 
 <style scoped></style>

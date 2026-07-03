@@ -4,14 +4,19 @@ import Button from '../Button/Button.vue';
 import { IconXOutline } from '@gui/icons';
 import Text from '../Text/Text.vue'
 
+type ModalSize = 'small' | 'medium' | 'large' | 'full';
+
 export interface ModalProps {
   isOpened?: boolean;
   onClose?: () => void;
   showCloseButton?: boolean;
   title?: string;
+  size?: ModalSize;
 }
 
-const props = defineProps<ModalProps>()
+const props = withDefaults(defineProps<ModalProps>(), {
+  size: 'medium',
+})
 const instance = getCurrentInstance();
 const gridTemplateAreas = computed(() => {
   const footer = instance?.slots.footer ? '"footer footer"' : ''
@@ -33,7 +38,7 @@ const gridTemplateAreas = computed(() => {
   <Transition name="fade">
     <div class="modal-wrapper" v-if="props.isOpened">
       <div class="modal-bg"></div>
-      <div class="modal" role="dialog">
+      <div :class="['modal', props.size]" role="dialog">
         <div :style="{ gridTemplateAreas }"
           :class="['modal-layout', { 'with-title': !!props.title, 'with-close': !!props.showCloseButton }]">
           <div v-if="props.title" class="modal-title">
@@ -85,9 +90,14 @@ const gridTemplateAreas = computed(() => {
 }
 
 .modal {
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
+  --modal-size: 400px;
+
+  box-sizing: border-box;
+  width: min(var(--modal-size), calc(100vw - var(--gap-4)));
+  max-width: calc(100vw - var(--gap-4));
+  max-height: calc(100vh - var(--gap-4));
+  max-height: calc(100dvh - var(--gap-4));
+  padding: var(--gap-6);
   border-radius: 24px;
   z-index: 101;
   position: fixed;
@@ -96,8 +106,23 @@ const gridTemplateAreas = computed(() => {
   transform: translateY(-50%) translateX(-50%);
   border: 1px solid hsl(var(--border));
   display: flex;
-  max-height: 70vh;
   background-color: hsl(var(--background));
+}
+
+.small {
+  --modal-size: 320px;
+}
+
+.medium {
+  --modal-size: 400px;
+}
+
+.large {
+  --modal-size: 640px;
+}
+
+.full {
+  --modal-size: calc(100vw - var(--gap-4));
 }
 
 .modal-layout {
@@ -106,6 +131,8 @@ const gridTemplateAreas = computed(() => {
   grid-template-columns: 100% 0px;
   row-gap: 12px;
   width: 100%;
+  min-height: 0;
+  max-height: inherit;
 }
 
 .modal-layout.with-close {
@@ -161,5 +188,11 @@ const gridTemplateAreas = computed(() => {
 .fade-enter-to .modal,
 .fade-leave-from .modal {
   top: 50%;
+}
+
+@media (max-width: 560px) {
+  .modal {
+    padding: var(--gap-5);
+  }
 }
 </style>

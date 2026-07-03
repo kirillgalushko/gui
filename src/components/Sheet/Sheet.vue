@@ -44,14 +44,8 @@ const handleOverlayClick = () => {
   <Transition :name="`sheet-${props.side}`">
     <div v-if="props.isOpened" class="sheet-wrapper">
       <div class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
-      <section
-        ref="sheetRef"
-        :class="['sheet', props.side, sheetSize, { rounded: props.rounded }]"
-        role="dialog"
-        aria-modal="true"
-        tabindex="-1"
-        @click.stop
-      >
+      <section ref="sheetRef" :class="['sheet', props.side, sheetSize, { rounded: props.rounded }]" role="dialog"
+        aria-modal="true" tabindex="-1" @click.stop>
         <div class="sheet-layout">
           <div v-if="props.title || props.description || props.showCloseButton" class="sheet-header">
             <div v-if="props.title || props.description" class="sheet-heading">
@@ -146,6 +140,7 @@ const handleOverlayClick = () => {
   display: flex;
   justify-content: flex-end;
   gap: var(--gap-2);
+  flex-direction: column-reverse;
 }
 
 .right,
