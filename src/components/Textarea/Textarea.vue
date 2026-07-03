@@ -46,7 +46,7 @@ watch(() => props.layout, autoResize);
   outline-offset: -2px;
   background: hsl(var(--input));
   color: hsl(var(--foreground));
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 14px;
   font-family: inherit;
   box-sizing: border-box;

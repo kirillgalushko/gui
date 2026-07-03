@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Sheet/Documentation" />
+
+# Sheet
+
+Выезжающая панель по мотивам shadcn Sheet. API близок к `Modal`: состояние передается через `isOpened`, закрытие через `onClose`, футер через слот `footer`.
+
+## Props
+
+- `isOpened` — открыта ли панель.
+- `onClose` — обработчик закрытия.
+- `showCloseButton` — показывает кнопку закрытия.
+- `title` — заголовок.
+- `description` — описание под заголовком.
+- `side` — сторона появления: `top`, `right`, `bottom`, `left`.
+- `size` — размер: `small`, `medium`, `large`, `full`.
+- `closeOnOverlayClick` — закрывать по клику на overlay.
+- `closeOnEscape` — закрывать по Escape.
+
+## Пример
+
+```vue
+<Sheet
+  :isOpened="visible"
+  :onClose="close"
+  title="Настройки объекта"
+  description="Измените параметры публикации."
+>
+  Контент панели
+
+  <template #footer>
+    <Button mode="ghost" @click="close">Отмена</Button>
+    <Button mode="contrast" @click="close">Сохранить</Button>
+  </template>
+</Sheet>
+```

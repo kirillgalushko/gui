@@ -1,45 +1,60 @@
 <script setup lang="ts">
-import Dropdown from '../Dropdown/Dropdown.vue';
-import { IconChevronDownOutline } from '@gui/icons';
-import { useSize } from '../../hooks/useSize';
-import { computed, provide, watch } from 'vue';
-import { RegisteredOption, useSelect } from './useSelect';
+import Dropdown from "../Dropdown/Dropdown.vue";
+import { IconChevronDownOutline } from "@gui/icons";
+import { useSize } from "../../hooks/useSize";
+import { computed, provide, watch } from "vue";
+import { RegisteredOption, useSelect } from "./useSelect";
 
 export interface SelectProps {
-  stretched?: boolean
-  label?: string
-  value?: string
-  name?: string
-  onChange?: (option: RegisteredOption) => void
+  stretched?: boolean;
+  label?: string;
+  value?: string;
+  name?: string;
+  onChange?: (option: RegisteredOption) => void;
 }
 
-const props = defineProps<SelectProps>()
+const props = defineProps<SelectProps>();
 const select = useSelect(props.value, props.onChange);
-provide('select', select)
+provide("select", select);
 
 const { elementRef, width } = useSize();
 const wrapperStyles = computed(() => {
-  const padding = 8
-  return { minWidth: `${width.value - padding}px` }
-})
+  const padding = 8;
+  return { minWidth: `${width.value - padding}px` };
+});
 
-watch(() => props.value, () => {
-  if (props.value !== undefined) {
-    const newOption = select.options.value.get(props.value)
-    select.selectedOption.value = { value: props.value, label: newOption }
-  } else {
-    select.selectedOption.value = undefined
-  }
-})
+watch(
+  () => props.value,
+  () => {
+    if (props.value !== undefined) {
+      const newOption = select.options.value.get(props.value);
+      select.selectedOption.value = { value: props.value, label: newOption };
+    } else {
+      select.selectedOption.value = undefined;
+    }
+  },
+);
 </script>
 
 <template>
-  <Dropdown :popperHideTriggers="['click']" placement="bottom-start" class="select">
-    <button ref="elementRef" :class="['select-toggle', { 'stretched': props.stretched }]">
+  <Dropdown
+    :popperHideTriggers="['click']"
+    placement="bottom-start"
+    class="select"
+  >
+    <button
+      ref="elementRef"
+      type="button"
+      :class="['select-toggle', { stretched: props.stretched }]"
+    >
       {{ select?.selectedOption?.value?.label || props.label }}
       <IconChevronDownOutline />
     </button>
-    <input hidden :name="props.name" :value="props.value || select.selectedOption?.value?.value" />
+    <input
+      hidden
+      :name="props.name"
+      :value="props.value || select.selectedOption?.value?.value"
+    />
     <div class="hidden-options">
       <slot></slot>
     </div>
