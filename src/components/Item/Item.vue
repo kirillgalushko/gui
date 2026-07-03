@@ -11,10 +11,9 @@ const props = withDefaults(defineProps<ItemProps>(), {
 </script>
 
 <template>
-  <component :is="props.interactive ? 'button' : 'div'"
-    :class="['item', { interactive: props.interactive, stretched: props.stretched }]">
+  <div :class="['item', { interactive: props.interactive, stretched: props.stretched }]">
     <slot></slot>
-  </component>
+  </div>
 </template>
 
 <style scoped>
