@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import Button from '../Button/Button.vue';
 import Gap from '../Gap/Gap.vue';
 import Text from '../Text/Text.vue';
 import { IconXOutline } from '@gui/icons';
 import { useSheet } from './useSheet';
+
+type SheetSide = 'top' | 'right' | 'bottom' | 'left';
+type SheetSize = 'auto' | 'small' | 'medium' | 'large' | 'full';
 
 export interface SheetProps {
   isOpened?: boolean;
@@ -11,8 +15,8 @@ export interface SheetProps {
   showCloseButton?: boolean;
   title?: string;
   description?: string;
-  side?: 'top' | 'right' | 'bottom' | 'left';
-  size?: 'small' | 'medium' | 'large' | 'full';
+  side?: SheetSide;
+  size?: SheetSize;
   rounded?: boolean;
   closeOnOverlayClick?: boolean;
   closeOnEscape?: boolean;
@@ -21,13 +25,13 @@ export interface SheetProps {
 const props = withDefaults(defineProps<SheetProps>(), {
   showCloseButton: true,
   side: 'right',
-  size: 'medium',
   rounded: true,
   closeOnOverlayClick: true,
   closeOnEscape: true,
 });
 
 const { close, sheetRef } = useSheet(props);
+const sheetSize = computed<SheetSize>(() => props.size ?? (props.side === 'top' || props.side === 'bottom' ? 'auto' : 'medium'));
 
 const handleOverlayClick = () => {
   if (props.closeOnOverlayClick) {
@@ -40,8 +44,14 @@ const handleOverlayClick = () => {
   <Transition :name="`sheet-${props.side}`">
     <div v-if="props.isOpened" class="sheet-wrapper">
       <div class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
-      <section ref="sheetRef" :class="['sheet', props.side, props.size, { rounded: props.rounded }]" role="dialog"
-        aria-modal="true" tabindex="-1" @click.stop>
+      <section
+        ref="sheetRef"
+        :class="['sheet', props.side, sheetSize, { rounded: props.rounded }]"
+        role="dialog"
+        aria-modal="true"
+        tabindex="-1"
+        @click.stop
+      >
         <div class="sheet-layout">
           <div v-if="props.title || props.description || props.showCloseButton" class="sheet-header">
             <div v-if="props.title || props.description" class="sheet-heading">
@@ -106,6 +116,7 @@ const handleOverlayClick = () => {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  max-height: inherit;
   padding: var(--gap-6);
 }
 
@@ -172,11 +183,45 @@ const handleOverlayClick = () => {
 .bottom {
   left: 0;
   right: 0;
-  height: var(--sheet-size);
-  max-height: 100vh;
-  max-height: 100dvh;
+  height: auto;
+  max-height: calc(100vh - var(--gap-4));
+  max-height: calc(100dvh - var(--gap-4));
   border-top-width: 1px;
   border-top-style: solid;
+}
+
+.top .sheet-layout,
+.bottom .sheet-layout {
+  height: auto;
+}
+
+.top.full,
+.bottom.full {
+  height: calc(100vh - var(--gap-4));
+  height: calc(100dvh - var(--gap-4));
+}
+
+.top.small,
+.top.medium,
+.top.large,
+.bottom.small,
+.bottom.medium,
+.bottom.large {
+  height: var(--sheet-size);
+}
+
+.top.full .sheet-layout,
+.bottom.full .sheet-layout {
+  height: 100%;
+}
+
+.top.small .sheet-layout,
+.top.medium .sheet-layout,
+.top.large .sheet-layout,
+.bottom.small .sheet-layout,
+.bottom.medium .sheet-layout,
+.bottom.large .sheet-layout {
+  height: 100%;
 }
 
 .top {
@@ -212,8 +257,15 @@ const handleOverlayClick = () => {
   --sheet-size: 640px;
 }
 
-.full {
+.right.full,
+.left.full {
   --sheet-size: 100%;
+}
+
+.top.full,
+.bottom.full,
+.auto {
+  --sheet-size: auto;
 }
 
 .sheet-right-enter-active,

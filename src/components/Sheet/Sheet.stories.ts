@@ -29,7 +29,7 @@ const meta: Meta<typeof Sheet> = {
     },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'full'],
+      options: ['auto', 'small', 'medium', 'large', 'full'],
     },
     rounded: {
       control: { type: 'boolean' },
@@ -41,7 +41,6 @@ const meta: Meta<typeof Sheet> = {
     title: 'Настройки объекта',
     description: 'Измените параметры объявления и сохраните результат.',
     side: 'right',
-    size: 'medium',
     rounded: true,
   },
   parameters: {
@@ -126,7 +125,6 @@ export const LeftSide: Story = {
 export const BottomSide: Story = {
   args: {
     side: 'bottom',
-    size: 'small',
   },
   render: (args) => ({
     components: { Button, Sheet, Text },
@@ -138,6 +136,29 @@ export const BottomSide: Story = {
         <Text typography="paragraph-1">
           Нижняя панель удобна для мобильных действий и кратких форм.
         </Text>
+      </Sheet>
+    `,
+  }),
+};
+
+export const FullHeightBottomSide: Story = {
+  args: {
+    side: 'bottom',
+    size: 'full',
+  },
+  render: (args) => ({
+    components: { Button, Sheet, Text },
+    setup() {
+      return { args };
+    },
+    template: `
+      <Sheet v-bind="args">
+        <Text typography="paragraph-1">
+          Полноэкранный bottom sheet оставляет небольшой отступ сверху.
+        </Text>
+        <template #footer>
+          <Button mode="contrast">Готово</Button>
+        </template>
       </Sheet>
     `,
   }),
