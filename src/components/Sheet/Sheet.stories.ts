@@ -31,6 +31,9 @@ const meta: Meta<typeof Sheet> = {
       control: { type: 'select' },
       options: ['small', 'medium', 'large', 'full'],
     },
+    rounded: {
+      control: { type: 'boolean' },
+    },
   },
   args: {
     isOpened: true,
@@ -39,6 +42,7 @@ const meta: Meta<typeof Sheet> = {
     description: 'Измените параметры объявления и сохраните результат.',
     side: 'right',
     size: 'medium',
+    rounded: true,
   },
   parameters: {
     docs: {

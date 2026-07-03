@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance } from 'vue';
-import Action from '../Action/Action.vue';
+import Button from '../Button/Button.vue';
 import { IconXOutline } from '@gui/icons';
 import Text from '../Text/Text.vue'
 
@@ -40,9 +40,9 @@ const gridTemplateAreas = computed(() => {
             <Text typography="title-3">{{ props.title }}</Text>
           </div>
           <div v-if="props.showCloseButton" class="modal-close">
-            <Action @click="props.onClose">
+            <Button mode="ghost" size="small" squared aria-label="Закрыть" @click="props.onClose">
               <IconXOutline />
-            </Action>
+            </Button>
           </div>
           <div class="modal-content">
             <slot></slot>
@@ -130,6 +130,7 @@ const gridTemplateAreas = computed(() => {
   justify-self: end;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 32px;
 }
 

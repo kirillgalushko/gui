@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Action from '../Action/Action.vue';
+import Button from '../Button/Button.vue';
 import Gap from '../Gap/Gap.vue';
 import Text from '../Text/Text.vue';
 import { IconXOutline } from '@gui/icons';
@@ -13,6 +13,7 @@ export interface SheetProps {
   description?: string;
   side?: 'top' | 'right' | 'bottom' | 'left';
   size?: 'small' | 'medium' | 'large' | 'full';
+  rounded?: boolean;
   closeOnOverlayClick?: boolean;
   closeOnEscape?: boolean;
 }
@@ -21,6 +22,7 @@ const props = withDefaults(defineProps<SheetProps>(), {
   showCloseButton: true,
   side: 'right',
   size: 'medium',
+  rounded: true,
   closeOnOverlayClick: true,
   closeOnEscape: true,
 });
@@ -38,14 +40,8 @@ const handleOverlayClick = () => {
   <Transition :name="`sheet-${props.side}`">
     <div v-if="props.isOpened" class="sheet-wrapper">
       <div class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
-      <section
-        ref="sheetRef"
-        :class="['sheet', props.side, props.size]"
-        role="dialog"
-        aria-modal="true"
-        tabindex="-1"
-        @click.stop
-      >
+      <section ref="sheetRef" :class="['sheet', props.side, props.size, { rounded: props.rounded }]" role="dialog"
+        aria-modal="true" tabindex="-1" @click.stop>
         <div class="sheet-layout">
           <div v-if="props.title || props.description || props.showCloseButton" class="sheet-header">
             <div v-if="props.title || props.description" class="sheet-heading">
@@ -57,15 +53,10 @@ const handleOverlayClick = () => {
                 {{ props.description }}
               </Text>
             </div>
-            <Action
-              v-if="props.showCloseButton"
-              class="sheet-close"
-              type="button"
-              aria-label="Закрыть"
-              @click="close"
-            >
+            <Button v-if="props.showCloseButton" class="sheet-close" mode="ghost" size="small" squared type="button"
+              aria-label="Закрыть" @click="close">
               <IconXOutline />
-            </Action>
+            </Button>
           </div>
 
           <div class="sheet-content">
@@ -95,6 +86,8 @@ const handleOverlayClick = () => {
 }
 
 .sheet {
+  --sheet-radius: 24px;
+
   position: fixed;
   z-index: 101;
   display: flex;
@@ -132,15 +125,6 @@ const handleOverlayClick = () => {
   margin: 0;
 }
 
-.sheet-close {
-  font-size: 20px;
-  opacity: 0.7;
-}
-
-.sheet-close:hover {
-  opacity: 1;
-}
-
 .sheet-content {
   min-height: 0;
   overflow-y: auto;
@@ -167,11 +151,21 @@ const handleOverlayClick = () => {
   right: 0;
 }
 
+.right.rounded {
+  border-top-left-radius: var(--sheet-radius);
+  border-bottom-left-radius: var(--sheet-radius);
+}
+
 .left {
   left: 0;
   border-left-width: 0;
   border-right-width: 1px;
   border-right-style: solid;
+}
+
+.left.rounded {
+  border-top-right-radius: var(--sheet-radius);
+  border-bottom-right-radius: var(--sheet-radius);
 }
 
 .top,
@@ -192,8 +186,18 @@ const handleOverlayClick = () => {
   border-bottom-style: solid;
 }
 
+.top.rounded {
+  border-bottom-left-radius: var(--sheet-radius);
+  border-bottom-right-radius: var(--sheet-radius);
+}
+
 .bottom {
   bottom: 0;
+}
+
+.bottom.rounded {
+  border-top-left-radius: var(--sheet-radius);
+  border-top-right-radius: var(--sheet-radius);
 }
 
 .small {
