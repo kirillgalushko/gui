@@ -2,7 +2,7 @@
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { IconChevronLeftOutline, IconChevronRightOutline } from '@gui/icons';
 import Button from '../Button/Button.vue';
-import { endOfDay, isSameDay, startOfDay, toDate } from './date';
+import { addDays, endOfDay, isAfterDay, isBeforeDay, isSameDay, startOfDay, toDate } from '../../utils/date';
 import type {
   CalendarDay,
   CalendarMode,
@@ -65,24 +65,12 @@ const normalizeNullableDate = (value: CalendarValue | undefined): Date | null =>
 
 const getMonthStart = (date: Date): Date => startOfDay(new Date(date.getFullYear(), date.getMonth(), 1));
 
-const addDays = (date: Date, amount: number): Date => {
-  const nextDate = new Date(date);
-  nextDate.setDate(nextDate.getDate() + amount);
-  return nextDate;
-};
-
 const addMonths = (date: Date, amount: number): Date => {
   const nextDate = new Date(date);
   nextDate.setMonth(nextDate.getMonth() + amount, 1);
 
   return getMonthStart(nextDate);
 };
-
-const isBeforeDay = (firstDate: Date, secondDate: Date): boolean =>
-  startOfDay(firstDate).getTime() < startOfDay(secondDate).getTime();
-
-const isAfterDay = (firstDate: Date, secondDate: Date): boolean =>
-  startOfDay(firstDate).getTime() > startOfDay(secondDate).getTime();
 
 const selectedSingleDate = computed(() => normalizeNullableDate(props.modelValue));
 const selectedRange = computed(() => ({
@@ -133,7 +121,7 @@ watch(
 );
 
 const monthTitle = computed(() =>
-  new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' }).format(visibleMonth.value),
+  new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' }).format(visibleMonth.value).replace(' г.', ''),
 );
 
 const gridStart = computed(() => {
@@ -474,8 +462,8 @@ onBeforeUnmount(() => {
 
 .calendar__title {
   overflow: hidden;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   text-align: center;
   text-overflow: ellipsis;
   text-transform: capitalize;
@@ -566,7 +554,7 @@ onBeforeUnmount(() => {
   color: hsl(var(--muted-foreground) / 60%);
 }
 
-.calendar__day_weekend:not(.calendar__day_outside):not(.calendar__day_selected) {
+.calendar__day_weekend:not(.calendar__day_outside):not(.calendar__day_selected):not(.calendar__day_disabled) {
   color: var(--calendar-selected-color);
 }
 

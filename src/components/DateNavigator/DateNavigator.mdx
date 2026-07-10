@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/DateNavigator/Documentation" />
+
+# DateNavigator
+
+Компактный переключатель даты на базе `ButtonGroup`. Стрелки меняют дату на один день, центральная кнопка открывает `Calendar`.
+
+## Props
+
+- `value: Date` — выбранная дата.
+- `onChange: (date: Date) => void` — вызывается при выборе даты или переходе стрелками.
+- `minDate?: Date` — минимальная доступная дата.
+- `maxDate?: Date` — максимальная доступная дата.
+
+## Example
+
+```vue
+<DateNavigator
+  :value="date"
+  :on-change="setDate"
+  :min-date="minDate"
+  :max-date="maxDate"
+/>
+```

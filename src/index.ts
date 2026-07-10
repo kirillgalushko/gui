@@ -83,6 +83,7 @@ export const ContextMenuItem = ac(() => import('./components/ContextMenu/Context
 export const ContextMenuSeparator = ac(() => import('./components/ContextMenu/ContextMenuSeparator.vue'));
 export const Confirm = ac(() => import('./components/Confirm/Confirm.vue'));
 export const Calendar = ac(() => import('./components/Calendar/Calendar.vue'));
+export const DateNavigator = ac(() => import('./components/DateNavigator/DateNavigator.vue'));
 export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
 export const Textarea = ac(() => import('./components/Textarea/Textarea.vue'));
@@ -113,6 +114,16 @@ export type {
   CalendarSelectPayload,
   CalendarValue,
 } from './components/Calendar/types';
+export {
+  addDays,
+  endOfDay,
+  formatRuShortWeekdayMonthDay,
+  isAfterDay,
+  isBeforeDay,
+  isSameDay,
+  startOfDay,
+  toDate,
+} from './utils/date';
 
 export {
   useSelect,
