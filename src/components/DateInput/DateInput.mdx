@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/DateInput/Documentation" />
+
+# DateInput
+
+Поле ввода даты с маской `дд.мм.гггг` и календарем в `Dropdown`.
+
+Ручной ввод дополняет неполные даты до валидного формата. Например, `113` будет отформатировано как `11.03.<текущий год>`, а `221033` — как `22.10.2033`. Год ограничен диапазоном `1900–2099`.
+
+## Props
+
+- `value?: Date | null` — выбранная дата.
+- `onChange?: (payload: DateInputChangePayload) => void` — вызывается после выбора даты в календаре или подтверждения ручного ввода.
+- `minDate?: Date` — минимальная доступная дата.
+- `maxDate?: Date` — максимальная доступная дата.
+- `disabled?: boolean` — отключает поле.
+- `invalid?: boolean` — показывает ошибочное состояние.
+- `description?: string` — текст подсказки.
+- `errorMessage?: string` — текст ошибки.
+- `maxWidth?: string` — максимальная ширина.
+- `placeholder?: string` — placeholder, по умолчанию `дд.мм.гггг`.
+
+## Example
+
+```vue
+<DateInput
+  :value="date"
+  :on-change="({ value }) => { date = value }"
+  :min-date="minDate"
+  :max-date="maxDate"
+/>
+```

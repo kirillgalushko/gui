@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/DatePicker/Documentation" />
+
+# DatePicker
+
+Классический выбор даты: `Picker` открывает `Dropdown` с `Calendar`.
+
+## Props
+
+- `value?: Date | null` — выбранная дата.
+- `onChange?: (payload: DatePickerChangePayload) => void` — вызывается при выборе даты.
+- `minDate?: Date` — минимальная доступная дата.
+- `maxDate?: Date` — максимальная доступная дата.
+- `placeholder?: string` — текст без выбранной даты.
+- `stretched?: boolean` — растянуть picker на всю ширину.
+- `disabled?: boolean` — отключить picker.

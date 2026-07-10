@@ -59,6 +59,7 @@ export const SidebarList = ac(() => import('./components/Sidebar/SidebarList.vue
 export const Modal = ac(() => import('./components/Modal/Modal.vue'));
 export const PasswordInput = ac(() => import('./components/PasswordInput/PasswordInput.vue'));
 export const PasswordStrengthInput = ac(() => import('./components/PasswordStrengthInput/PasswordStrengthInput.vue'));
+export const Picker = ac(() => import('./components/Picker/Picker.vue'));
 export const ProgressBar = ac(() => import('./components/ProgressBar/ProgressBar.vue'));
 export const Dropdown = ac(() => import('./components/Dropdown/Dropdown.vue'));
 export const DropdownList = ac(() => import('./components/Dropdown/DropdownList.vue'));
@@ -83,6 +84,8 @@ export const ContextMenuItem = ac(() => import('./components/ContextMenu/Context
 export const ContextMenuSeparator = ac(() => import('./components/ContextMenu/ContextMenuSeparator.vue'));
 export const Confirm = ac(() => import('./components/Confirm/Confirm.vue'));
 export const Calendar = ac(() => import('./components/Calendar/Calendar.vue'));
+export const DateInput = ac(() => import('./components/DateInput/DateInput.vue'));
+export const DatePicker = ac(() => import('./components/DatePicker/DatePicker.vue'));
 export const DateNavigator = ac(() => import('./components/DateNavigator/DateNavigator.vue'));
 export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
@@ -119,6 +122,14 @@ export type {
   DateNavigatorMode,
   DateNavigatorRange,
 } from './components/DateNavigator/types';
+export type {
+  DateInputChangePayload,
+  DateInputValue,
+} from './components/DateInput/types';
+export type {
+  DatePickerChangePayload,
+  DatePickerValue,
+} from './components/DatePicker/types';
 export {
   addDays,
   addMonths,

@@ -4,6 +4,7 @@ import { IconChevronDownOutline } from "@gui/icons";
 import { useSize } from "../../hooks/useSize";
 import { computed, provide, watch } from "vue";
 import { RegisteredOption, useSelect } from "./useSelect";
+import Picker from "../Picker/Picker.vue";
 
 export interface SelectProps {
   stretched?: boolean;
@@ -42,14 +43,15 @@ watch(
     placement="bottom-start"
     class="select"
   >
-    <button
+    <Picker
       ref="elementRef"
-      type="button"
-      :class="['select-toggle', { stretched: props.stretched }]"
+      :stretched="props.stretched"
     >
       {{ select?.selectedOption?.value?.label || props.label }}
-      <IconChevronDownOutline />
-    </button>
+      <template #icon>
+        <IconChevronDownOutline />
+      </template>
+    </Picker>
     <input
       hidden
       :name="props.name"
@@ -69,35 +71,6 @@ watch(
 <style scoped>
 .select {
   display: flex;
-}
-
-.select-toggle {
-  background-color: hsl(var(--input));
-  border: 1px solid hsl(var(--border));
-  color: hsl(var(--foreground));
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  cursor: pointer;
-  padding: 8px 12px;
-  text-align: start;
-  font-family: var(--font-family);
-  font-size: 14px;
-  gap: 8px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.select-toggle:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: -2px;
-}
-
-.stretched {
-  width: 100%;
 }
 
 .hidden-options {
