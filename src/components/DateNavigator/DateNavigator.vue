@@ -6,35 +6,116 @@ import Button from '../Button/Button.vue';
 import ButtonGroup from '../ButtonGroup/ButtonGroup.vue';
 import Dropdown from '../Dropdown/Dropdown.vue';
 import Calendar from '../Calendar/Calendar.vue';
-import { addDays, formatRuShortWeekdayMonthDay, isAfterDay, isBeforeDay, startOfDay } from '../../utils/date';
+import {
+  addDays,
+  addMonths,
+  addYears,
+  formatRuDayMonth,
+  formatRuMonthYear,
+  formatRuShortWeekdayMonthDay,
+  isAfterDay,
+  startOfDay,
+  startOfMonth,
+  startOfWeek,
+  startOfYear,
+} from '../../utils/date';
+import type { DateNavigatorChangePayload, DateNavigatorMode, DateNavigatorRange } from './types';
 
 export interface DateNavigatorProps {
   value: Date;
-  onChange: (date: Date) => void;
+  mode?: DateNavigatorMode;
+  onChange: (payload: DateNavigatorChangePayload) => void;
   minDate?: Date;
   maxDate?: Date;
 }
 
-const props = defineProps<DateNavigatorProps>();
+const props = withDefaults(defineProps<DateNavigatorProps>(), {
+  mode: 'day',
+});
 const isCalendarOpened = ref(false);
 
-const normalizedValue = computed(() => startOfDay(props.value));
+const getPeriodStart = (date: Date, mode: DateNavigatorMode): Date => {
+  if (mode === 'week') {
+    return startOfWeek(date);
+  }
 
-const previousDate = computed(() => addDays(normalizedValue.value, -1));
-const nextDate = computed(() => addDays(normalizedValue.value, 1));
+  if (mode === 'month') {
+    return startOfMonth(date);
+  }
 
-const isPreviousDisabled = computed(() =>
-  props.minDate ? isBeforeDay(previousDate.value, props.minDate) : false,
-);
+  if (mode === 'year') {
+    return startOfYear(date);
+  }
 
-const isNextDisabled = computed(() =>
-  props.maxDate ? isAfterDay(nextDate.value, props.maxDate) : false,
-);
+  return startOfDay(date);
+};
 
-const label = computed(() => formatRuShortWeekdayMonthDay(normalizedValue.value));
+const shiftPeriod = (date: Date, mode: DateNavigatorMode, amount: number): Date => {
+  if (mode === 'week') {
+    return addDays(date, amount * 7);
+  }
+
+  if (mode === 'month') {
+    return addMonths(date, amount);
+  }
+
+  if (mode === 'year') {
+    return addYears(date, amount);
+  }
+
+  return addDays(date, amount);
+};
+
+const getPeriodRange = (date: Date, mode: DateNavigatorMode): DateNavigatorRange => {
+  const start = getPeriodStart(date, mode);
+
+  return {
+    start,
+    end: shiftPeriod(start, mode, 1),
+  };
+};
+
+const normalizedValue = computed(() => getPeriodStart(props.value, props.mode));
+const currentRange = computed(() => getPeriodRange(normalizedValue.value, props.mode));
+
+const previousDate = computed(() => shiftPeriod(normalizedValue.value, props.mode, -1));
+const nextDate = computed(() => shiftPeriod(normalizedValue.value, props.mode, 1));
+const previousRange = computed(() => getPeriodRange(previousDate.value, props.mode));
+const nextRange = computed(() => getPeriodRange(nextDate.value, props.mode));
+
+const isRangeBeforeMinDate = (range: DateNavigatorRange): boolean =>
+  props.minDate ? !isAfterDay(range.end, props.minDate) : false;
+
+const isRangeAfterMaxDate = (range: DateNavigatorRange): boolean =>
+  props.maxDate ? isAfterDay(range.start, props.maxDate) : false;
+
+const isPreviousDisabled = computed(() => isRangeBeforeMinDate(previousRange.value));
+const isNextDisabled = computed(() => isRangeAfterMaxDate(nextRange.value));
+
+const label = computed(() => {
+  if (props.mode === 'week') {
+    return `${formatRuDayMonth(currentRange.value.start)} - ${formatRuDayMonth(addDays(currentRange.value.end, -1))}`;
+  }
+
+  if (props.mode === 'month') {
+    return formatRuMonthYear(normalizedValue.value);
+  }
+
+  if (props.mode === 'year') {
+    return String(normalizedValue.value.getFullYear());
+  }
+
+  return formatRuShortWeekdayMonthDay(normalizedValue.value);
+});
 
 const changeDate = (date: Date): void => {
-  props.onChange(startOfDay(date));
+  const value = getPeriodStart(date, props.mode);
+
+  props.onChange({
+    value,
+    mode: props.mode,
+    range: getPeriodRange(value, props.mode),
+  });
 };
 
 const toggleCalendar = (): void => {
@@ -46,7 +127,7 @@ const showPreviousDate = (): void => {
     return;
   }
 
-  changeDate(previousDate.value);
+  changeDate(previousRange.value.start);
 };
 
 const showNextDate = (): void => {
@@ -54,7 +135,7 @@ const showNextDate = (): void => {
     return;
   }
 
-  changeDate(nextDate.value);
+  changeDate(nextRange.value.start);
 };
 
 const selectDate = ({ date }: { date: Date }): void => {

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import DateNavigator from './DateNavigator.vue';
+import type { DateNavigatorChangePayload } from './types';
 
 const meta = {
   title: 'Components/DateNavigator',
@@ -17,13 +18,58 @@ export const Default: Story = {
     components: { DateNavigator },
     setup() {
       const value = ref(new Date(2026, 6, 9));
-      const onChange = (date: Date) => {
-        value.value = date;
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
       };
 
       return { onChange, value };
     },
     template: '<DateNavigator :value="value" :on-change="onChange" />',
+  }),
+};
+
+export const Week: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { onChange, value };
+    },
+    template: '<DateNavigator mode="week" :value="value" :on-change="onChange" />',
+  }),
+};
+
+export const Month: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { onChange, value };
+    },
+    template: '<DateNavigator mode="month" :value="value" :on-change="onChange" />',
+  }),
+};
+
+export const Year: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { onChange, value };
+    },
+    template: '<DateNavigator mode="year" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -34,8 +80,8 @@ export const Restricted: Story = {
       const value = ref(new Date(2026, 6, 9));
       const minDate = new Date(2026, 6, 8);
       const maxDate = new Date(2026, 6, 10);
-      const onChange = (date: Date) => {
-        value.value = date;
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
       };
 
       return { maxDate, minDate, onChange, value };

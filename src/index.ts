@@ -114,14 +114,26 @@ export type {
   CalendarSelectPayload,
   CalendarValue,
 } from './components/Calendar/types';
+export type {
+  DateNavigatorChangePayload,
+  DateNavigatorMode,
+  DateNavigatorRange,
+} from './components/DateNavigator/types';
 export {
   addDays,
+  addMonths,
+  addYears,
   endOfDay,
+  formatRuDayMonth,
+  formatRuMonthYear,
   formatRuShortWeekdayMonthDay,
   isAfterDay,
   isBeforeDay,
   isSameDay,
   startOfDay,
+  startOfMonth,
+  startOfWeek,
+  startOfYear,
   toDate,
 } from './utils/date';
 

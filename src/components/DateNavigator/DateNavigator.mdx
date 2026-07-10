@@ -4,21 +4,25 @@ import { Meta } from '@storybook/addon-docs';
 
 # DateNavigator
 
-Компактный переключатель даты на базе `ButtonGroup`. Стрелки меняют дату на один день, центральная кнопка открывает `Calendar`.
+Компактный переключатель периода на базе `ButtonGroup`. Стрелки меняют текущий день, неделю, месяц или год, центральная кнопка открывает `Calendar`.
 
 ## Props
 
 - `value: Date` — выбранная дата.
-- `onChange: (date: Date) => void` — вызывается при выборе даты или переходе стрелками.
+- `mode?: 'day' | 'week' | 'month' | 'year'` — размер периода, по умолчанию `day`.
+- `onChange: (payload: DateNavigatorChangePayload) => void` — вызывается при выборе периода или переходе стрелками.
 - `minDate?: Date` — минимальная доступная дата.
 - `maxDate?: Date` — максимальная доступная дата.
+
+`payload.range.end` — exclusive-граница периода.
 
 ## Example
 
 ```vue
 <DateNavigator
   :value="date"
-  :on-change="setDate"
+  mode="month"
+  :on-change="handlePeriodChange"
   :min-date="minDate"
   :max-date="maxDate"
 />
