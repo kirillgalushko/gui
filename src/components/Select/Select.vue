@@ -2,7 +2,7 @@
 import Dropdown from "../Dropdown/Dropdown.vue";
 import { IconChevronDownOutline } from "@gui/icons";
 import { useSize } from "../../hooks/useSize";
-import { computed, provide, watch } from "vue";
+import { computed, provide, ref, watch } from "vue";
 import { RegisteredOption, useSelect } from "./useSelect";
 import Picker from "../Picker/Picker.vue";
 
@@ -18,11 +18,20 @@ const props = defineProps<SelectProps>();
 const select = useSelect(props.value, props.onChange);
 provide("select", select);
 
+const pickerRef = ref<InstanceType<typeof Picker>>();
 const { elementRef, width } = useSize();
 const wrapperStyles = computed(() => {
   const padding = 8;
-  return { minWidth: `${width.value - padding}px` };
+  return { minWidth: `${Math.max((width.value ?? 0) - padding, 0)}px` };
 });
+
+watch(
+  pickerRef,
+  () => {
+    elementRef.value = pickerRef.value?.elementRef ?? null;
+  },
+  { flush: 'post' },
+);
 
 watch(
   () => props.value,
@@ -44,7 +53,7 @@ watch(
     class="select"
   >
     <Picker
-      ref="elementRef"
+      ref="pickerRef"
       :stretched="props.stretched"
     >
       {{ select?.selectedOption?.value?.label || props.label }}

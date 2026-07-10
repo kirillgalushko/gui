@@ -1,13 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 export interface PickerProps {
   stretched?: boolean;
 }
 
 const props = defineProps<PickerProps>();
+const elementRef = ref<HTMLButtonElement | null>(null);
+
+defineExpose({
+  elementRef,
+});
 </script>
 
 <template>
-  <button v-bind="$attrs" type="button" :class="['picker', { stretched: props.stretched }]">
+  <button ref="elementRef" v-bind="$attrs" type="button" :class="['picker', { stretched: props.stretched }]">
     <span class="picker-text">
       <slot></slot>
     </span>
