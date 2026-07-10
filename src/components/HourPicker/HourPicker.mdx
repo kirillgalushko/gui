@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/HourPicker/Documentation" />
+
+# HourPicker
+
+Выбор часа через `Select`. Показывает все часы суток в формате `HH:00`.
+
+## Props
+
+- `value?: string` — выбранный час.
+- `onChange?: (payload: HourPickerChangePayload) => void` — вызывается при выборе часа.
+- `label?: string` — текст, когда значение не выбрано.
+- `name?: string` — имя скрытого поля.
+- `stretched?: boolean` — растянуть селект на всю ширину.

@@ -51,6 +51,7 @@ watch(
     :popperHideTriggers="['click']"
     placement="bottom-start"
     class="select"
+    :stretched="props.stretched"
   >
     <Picker
       ref="pickerRef"

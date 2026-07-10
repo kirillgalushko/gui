@@ -68,7 +68,8 @@ const selectDate = ({ date }: { date: Date }): void => {
 </script>
 
 <template>
-  <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom" :distance="8">
+  <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom-end" :distance="8"
+    :stretched="props.stretched">
     <Picker :stretched="props.stretched" :disabled="props.disabled" aria-haspopup="dialog"
       :aria-expanded="isCalendarOpened" @click="toggleCalendar">
       {{ label }}
@@ -78,8 +79,7 @@ const selectDate = ({ date }: { date: Date }): void => {
     </Picker>
 
     <template #popper>
-      <Calendar :model-value="selectedDate" :min-date="props.minDate" :max-date="props.maxDate"
-        @select="selectDate" />
+      <Calendar :model-value="selectedDate" :min-date="props.minDate" :max-date="props.maxDate" @select="selectDate" />
     </template>
   </Dropdown>
 </template>

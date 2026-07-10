@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, provide, watch } from 'vue'
+import { onBeforeUnmount, ref, provide, watch } from 'vue'
 import { IconGripVerticalOutline } from '@gui/icons';
 import { Padding } from '../../types';
 
@@ -24,11 +24,54 @@ const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
 const isCompact = ref<boolean>(width.value < props.compactWidth);
 const sidebarRef = ref<HTMLElement | null>(null);
+let animationFrameId: number | null = null;
+
 provide('sidebar-width', width);
 provide('sidebar-is-resizing', isResizing);
 provide('sidebar-is-compact', isCompact);
 
+const getRenderedWidth = (): number => {
+  return sidebarRef.value?.getBoundingClientRect().width ?? width.value;
+}
+
+const updateCompactState = (nextWidth: number = getRenderedWidth()): void => {
+  isCompact.value = nextWidth < props.compactWidth;
+}
+
+const stopTrackingRenderedWidth = (): void => {
+  if (animationFrameId === null) {
+    return;
+  }
+
+  cancelAnimationFrame(animationFrameId);
+  animationFrameId = null;
+}
+
+const trackRenderedWidth = (): void => {
+  updateCompactState();
+
+  if (!sidebarRef.value || isResizing.value) {
+    animationFrameId = null;
+    return;
+  }
+
+  if (Math.abs(getRenderedWidth() - width.value) <= 0.5) {
+    updateCompactState(width.value);
+    animationFrameId = null;
+    return;
+  }
+
+  animationFrameId = requestAnimationFrame(trackRenderedWidth);
+}
+
+const startTrackingRenderedWidth = (): void => {
+  stopTrackingRenderedWidth();
+  animationFrameId = requestAnimationFrame(trackRenderedWidth);
+}
+
 const startResizing = () => {
+  stopTrackingRenderedWidth();
+
   if (sidebarRef.value) {
     width.value = sidebarRef.value.getBoundingClientRect().width;
   }
@@ -64,7 +107,12 @@ const stopResizing = () => {
 }
 
 watch([width, () => props.compactWidth], () => {
-  isCompact.value = width.value < props.compactWidth
+  if (isResizing.value) {
+    updateCompactState(width.value);
+    return;
+  }
+
+  startTrackingRenderedWidth();
 }, { immediate: true })
 
 watch(() => props.width, (nextWidth) => {
@@ -72,6 +120,8 @@ watch(() => props.width, (nextWidth) => {
     width.value = nextWidth
   }
 })
+
+onBeforeUnmount(stopTrackingRenderedWidth)
 </script>
 
 <template>

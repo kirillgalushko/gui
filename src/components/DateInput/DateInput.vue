@@ -24,6 +24,7 @@ export interface DateInputProps {
   errorMessage?: string;
   maxWidth?: string;
   placeholder?: string;
+  stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<DateInputProps>(), {
@@ -299,12 +300,13 @@ watch(
 </script>
 
 <template>
-  <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom" :distance="8">
+  <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom" :distance="8"
+    :stretched="props.stretched">
     <Input v-bind="$attrs" :model-value="inputValue" type="text" inputmode="numeric" autocomplete="off"
       :placeholder="props.placeholder" :max-width="props.maxWidth" :disabled="props.disabled"
-      :description="props.description" :error-message="props.errorMessage"
-      :invalid="props.invalid || isInputInvalid" @update:model-value="updateInputValue" @blur="commitInputValue"
-      @input="handleInput" @keydown.enter.prevent="commitInputValue">
+      :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid || isInputInvalid"
+      @update:model-value="updateInputValue" @blur="commitInputValue" @input="handleInput"
+      @keydown.enter.prevent="commitInputValue">
       <template #rightAdornment>
         <Action type="button" aria-label="Открыть календарь" :aria-expanded="isCalendarOpened"
           :disabled="props.disabled" @click.prevent="toggleCalendar">

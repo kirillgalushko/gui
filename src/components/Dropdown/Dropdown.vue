@@ -2,10 +2,18 @@
 import 'floating-vue/dist/style.css';
 import { Dropdown } from 'floating-vue';
 
+export interface DropdownProps {
+  stretched?: boolean;
+}
+
+const props = withDefaults(defineProps<DropdownProps>(), {
+  stretched: false,
+});
 </script>
 
 <template>
-  <Dropdown v-bind="$attrs" :arrowOverflow="false" :class="['dropdown']">
+  <Dropdown v-bind="$attrs" :arrowOverflow="false" :autoBoundaryMaxSize="true" :overflowPadding="8"
+    :class="['dropdown', { stretched: props.stretched }]">
     <template #default>
       <slot></slot>
     </template>
@@ -19,6 +27,11 @@ import { Dropdown } from 'floating-vue';
 <style scoped>
 .dropdown {
   display: inline-flex;
+  min-width: 0;
+}
+
+.dropdown.stretched {
+  width: 100%;
 }
 </style>
 <style>
@@ -30,6 +43,9 @@ import { Dropdown } from 'floating-vue';
   font-size: 14px;
   border-radius: 10px;
   padding: 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   color: var(--dropdown-text-color);
   background-color: var(--dropdown-background-color);
   border: 1px solid var(--dropdown-border-color);

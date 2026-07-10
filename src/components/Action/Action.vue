@@ -10,7 +10,7 @@
   border: 0;
   border-radius: 100%;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   background-color: transparent;
   color: hsl(var(--foreground));
   transition: scale 0.2s, background-color 0.2s, color 0.2s;

@@ -77,6 +77,7 @@ export const HoverMenu = ac(() => import('./components/HoverMenu/HoverMenu.vue')
 export const HoverMenuList = ac(() => import('./components/HoverMenu/HoverMenuList.vue'));
 export const HoverMenuItem = ac(() => import('./components/HoverMenu/HoverMenuItem.vue'));
 export const HoverMenuSeparator = ac(() => import('./components/HoverMenu/HoverMenuSeparator.vue'));
+export const HourPicker = ac(() => import('./components/HourPicker/HourPicker.vue'));
 export const ContextMenu = ac(() => import('./components/ContextMenu/ContextMenu.vue'));
 export const ContextSubmenu = ac(() => import('./components/ContextMenu/ContextSubmenu.vue'));
 export const ContextMenuList = ac(() => import('./components/ContextMenu/ContextMenuList.vue'));
@@ -130,6 +131,10 @@ export type {
   DatePickerChangePayload,
   DatePickerValue,
 } from './components/DatePicker/types';
+export type {
+  HourPickerChangePayload,
+  HourPickerValue,
+} from './components/HourPicker/types';
 export {
   addDays,
   addMonths,

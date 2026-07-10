@@ -5,10 +5,12 @@ export interface FieldProps {
   invalid?: boolean;
   disabled?: boolean;
   orientation?: 'vertical' | 'horizontal' | 'responsive';
+  stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<FieldProps>(), {
   orientation: 'vertical',
+  stretched: false,
 });
 
 const state = computed(() => ({
@@ -20,7 +22,8 @@ provide('field-state', state);
 </script>
 
 <template>
-  <div :class="['field', props.orientation, { invalid: props.invalid, disabled: props.disabled }]"
+  <div
+    :class="['field', props.orientation, { invalid: props.invalid, disabled: props.disabled, stretched: props.stretched }]"
     :data-invalid="props.invalid || undefined" :data-disabled="props.disabled || undefined">
     <slot></slot>
   </div>
@@ -31,6 +34,10 @@ provide('field-state', state);
   display: grid;
   gap: var(--gap-2);
   min-width: 0;
+}
+
+.stretched {
+  width: 100%;
 }
 
 .field.vertical {
