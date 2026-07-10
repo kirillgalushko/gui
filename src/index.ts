@@ -82,6 +82,7 @@ export const ContextMenuList = ac(() => import('./components/ContextMenu/Context
 export const ContextMenuItem = ac(() => import('./components/ContextMenu/ContextMenuItem.vue'));
 export const ContextMenuSeparator = ac(() => import('./components/ContextMenu/ContextMenuSeparator.vue'));
 export const Confirm = ac(() => import('./components/Confirm/Confirm.vue'));
+export const Calendar = ac(() => import('./components/Calendar/Calendar.vue'));
 export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
 export const Textarea = ac(() => import('./components/Textarea/Textarea.vue'));
@@ -103,6 +104,15 @@ export type {
   Breakpoint,
   BreakpointResult,
 } from './hooks/breakpoints/breakpoints';
+export type {
+  CalendarDay,
+  CalendarMode,
+  CalendarMonthChangePayload,
+  CalendarRangePayload,
+  CalendarRangeValue,
+  CalendarSelectPayload,
+  CalendarValue,
+} from './components/Calendar/types';
 
 export {
   useSelect,

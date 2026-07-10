@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Calendar/Documentation" />
+
+# Calendar
+
+Календарный выбор даты или диапазона. Поддерживает controlled month, ограничения по датам, кастомную блокировку дней и слоты для заголовка, дня и футера.
+
+## Props
+
+- `mode?: 'single' | 'range'` — режим выбора, по умолчанию `single`.
+- `modelValue?: Date | string | null` — выбранная дата для single-режима.
+- `rangeValue?: { start: Date | string | null; end: Date | string | null }` — выбранный диапазон.
+- `month?: Date | string` — отображаемый месяц.
+- `minDate?`, `maxDate?` — границы доступных дат.
+- `disabledDates?: (date: Date) => boolean` — пользовательская блокировка дней.
+- `showOutsideDays?: boolean` — показывать дни соседних месяцев.
+- `fixedWeeks?: boolean` — всегда показывать 6 недель.
+- `readonly?: boolean` — запретить выбор.
+
+## Events
+
+- `update:modelValue`, `select` — выбор даты.
+- `update:rangeValue`, `range-select` — выбор диапазона.
+- `range-drag-start`, `range-drag`, `range-drag-end` — изменение границ диапазона перетаскиванием.
+- `update:month`, `month-change` — смена месяца.
+- `day-hover` — наведение на день.
+
+## Example
+
+```vue
+<Calendar v-model="selectedDate" />
+
+<Calendar
+  mode="range"
+  v-model:range-value="rangeValue"
+  :min-date="new Date()"
+/>
+```
