@@ -1,0 +1,22 @@
+<template>
+  <span class="button-group-text">
+    <slot></slot>
+  </span>
+</template>
+
+<style scoped>
+.button-group-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  color: hsl(var(--muted-foreground));
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-wrap: nowrap;
+  background: transparent;
+}
+</style>

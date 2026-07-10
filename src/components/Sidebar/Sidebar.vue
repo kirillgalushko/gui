@@ -104,7 +104,7 @@ watch(() => props.width, (nextWidth) => {
 .sidebar {
   width: 400px;
   border-right: 1px solid hsl(var(--border));
-  background: hsl(var(--background));
+  background: hsl(var(--sidebar));
   height: 100%;
   padding: var(--gap-3);
   box-sizing: border-box;

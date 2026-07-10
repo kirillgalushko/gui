@@ -1,0 +1,20 @@
+# ButtonGroup
+
+`ButtonGroup` объединяет связанные кнопки в один визуальный контрол. Компонент использует существующий `Button` из GUI и только склеивает соседние элементы радиусами, границами и разделителями.
+
+```vue
+<ButtonGroup aria-label="Действия">
+  <Button mode="outline">Archive</Button>
+  <Button mode="outline">Snooze</Button>
+</ButtonGroup>
+```
+
+## Props
+
+- `orientation` — направление группы: `horizontal` или `vertical`. По умолчанию `horizontal`.
+
+## Composition
+
+- `ButtonGroup` — контейнер с `role="group"`.
+- `ButtonGroupSeparator` — визуальный разделитель между кнопками.
+- `ButtonGroupText` — текстовый элемент внутри группы.
