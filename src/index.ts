@@ -18,6 +18,9 @@ export const BreadcrumbPage = ac(() => import('./components/Breadcrumb/Breadcrum
 export const BreadcrumbSeparator = ac(() => import('./components/Breadcrumb/BreadcrumbSeparator.vue'));
 export const Card = ac(() => import('./components/Card/Card.vue'));
 export const Checkbox = ac(() => import('./components/Checkbox/Checkbox.vue'));
+export const Chip = ac(() => import('./components/Chip/Chip.vue'));
+export const ChipGroup = ac(() => import('./components/Chip/ChipGroup.vue'));
+export const Dot = ac(() => import('./components/Dot/Dot.vue'));
 export const Gap = ac(() => import('./components/Gap/Gap.vue'));
 export const Field = ac(() => import('./components/Field/Field.vue'));
 export const FieldContent = ac(() => import('./components/Field/FieldContent.vue'));
@@ -105,6 +108,14 @@ import { useContextMenu } from './components/ContextMenu/useContextMenu';
 import { useViewportBreakpoint } from './hooks/useViewportBreakpoint';
 import { useContainerBreakpoint } from './hooks/useContainerBreakpoint';
 import { useGridBreakpoint } from './hooks/useGridBreakpoint';
+export type {
+  Color,
+} from './types/colors';
+export type {
+  ChipMode,
+  ChipSize,
+  ChipValue,
+} from './components/Chip/types';
 export type {
   Breakpoint,
   BreakpointResult,

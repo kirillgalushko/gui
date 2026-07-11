@@ -33,6 +33,7 @@ const props = withDefaults(defineProps<DateInputProps>(), {
   placeholder: 'дд.мм.гггг',
 });
 
+const dateInputRef = ref<HTMLDivElement | null>(null);
 const isCalendarOpened = ref(false);
 const inputValue = ref('');
 const isInputInvalid = ref(false);
@@ -267,12 +268,30 @@ const handleInput = (event: Event): void => {
   isInputInvalid.value = false;
 };
 
+const openCalendar = (): void => {
+  if (props.disabled) {
+    return;
+  }
+
+  isCalendarOpened.value = true;
+};
+
 const toggleCalendar = (): void => {
   if (props.disabled) {
     return;
   }
 
   isCalendarOpened.value = !isCalendarOpened.value;
+};
+
+const shouldAutoHideCalendar = (event: Event): boolean => {
+  const target = event.target;
+
+  if (target instanceof Node && dateInputRef.value?.contains(target)) {
+    return false;
+  }
+
+  return true;
 };
 
 const selectDate = ({ date }: { date: Date }): void => {
@@ -300,24 +319,38 @@ watch(
 </script>
 
 <template>
-  <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom" :distance="8"
-    :stretched="props.stretched">
-    <Input v-bind="$attrs" :model-value="inputValue" type="text" inputmode="numeric" autocomplete="off"
-      :placeholder="props.placeholder" :max-width="props.maxWidth" :disabled="props.disabled"
-      :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid || isInputInvalid"
-      @update:model-value="updateInputValue" @blur="commitInputValue" @input="handleInput"
-      @keydown.enter.prevent="commitInputValue">
-      <template #rightAdornment>
-        <Action type="button" aria-label="Открыть календарь" :aria-expanded="isCalendarOpened"
-          :disabled="props.disabled" @click.prevent="toggleCalendar">
-          <IconCalendarOutline />
-        </Action>
-      </template>
-    </Input>
+  <div ref="dateInputRef" :class="['date-input', { stretched: props.stretched }]">
+    <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom-end" :distance="8"
+      :stretched="props.stretched" :auto-hide="shouldAutoHideCalendar" popper-class="calendar-dropdown"
+      no-auto-focus>
+      <Input v-bind="$attrs" :model-value="inputValue" type="text" inputmode="numeric" autocomplete="off"
+        :placeholder="props.placeholder" :max-width="props.maxWidth" :disabled="props.disabled"
+        :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid || isInputInvalid"
+        @update:model-value="updateInputValue" @focus="openCalendar" @blur="commitInputValue" @input="handleInput"
+        @keydown.enter.prevent="commitInputValue">
+        <template #rightAdornment>
+          <Action type="button" aria-label="Открыть календарь" :aria-expanded="isCalendarOpened"
+            :disabled="props.disabled" @click.prevent="toggleCalendar">
+            <IconCalendarOutline />
+          </Action>
+        </template>
+      </Input>
 
-    <template #popper>
-      <Calendar :model-value="selectedDate" :min-date="calendarMinDate" :max-date="calendarMaxDate"
-        @select="selectDate" />
-    </template>
-  </Dropdown>
+      <template #popper>
+        <Calendar :model-value="selectedDate" :min-date="calendarMinDate" :max-date="calendarMaxDate"
+          @select="selectDate" />
+      </template>
+    </Dropdown>
+  </div>
 </template>
+
+<style scoped>
+.date-input {
+  display: inline-flex;
+  min-width: 0;
+}
+
+.date-input.stretched {
+  width: 100%;
+}
+</style>

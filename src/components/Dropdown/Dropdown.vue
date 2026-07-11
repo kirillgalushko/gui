@@ -51,6 +51,11 @@ const props = withDefaults(defineProps<DropdownProps>(), {
   border: 1px solid var(--dropdown-border-color);
 }
 
+.v-popper--theme-dropdown.calendar-dropdown .v-popper__inner {
+  border-radius: 16px;
+  padding: var(--gap-3);
+}
+
 .v-popper__arrow-container {
   display: none;
 }

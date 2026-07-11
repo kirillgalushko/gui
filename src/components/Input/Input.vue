@@ -66,9 +66,29 @@ const ariaDescribedBy = computed(() => {
   return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
 });
 
+const isNumberInput = computed(() => attrs.type === 'number');
+
+const isForbiddenNumberInputValue = (value: string | null): boolean => {
+  return value === 'e' || value === 'E';
+};
+
 const updateAdornmentWidths = () => {
   leftAdornmentWidth.value = leftAdornment.value?.clientWidth ?? 0;
   rightAdornmentWidth.value = rightAdornment.value?.clientWidth ?? 0;
+};
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (isNumberInput.value && isForbiddenNumberInputValue(event.key)) {
+    event.preventDefault();
+  }
+};
+
+const handleBeforeInput = (event: Event) => {
+  const inputEvent = event as InputEvent;
+
+  if (isNumberInput.value && isForbiddenNumberInputValue(inputEvent.data)) {
+    event.preventDefault();
+  }
 };
 
 onMounted(async () => {
@@ -107,7 +127,7 @@ onBeforeUnmount(() => {
       </div>
       <input ref="inputRef" v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles"
         :class="['input', { invalid: props.invalid }]" :aria-invalid="props.invalid || undefined"
-        :aria-describedby="ariaDescribedBy" />
+        :aria-describedby="ariaDescribedBy" @keydown="handleKeydown" @beforeinput="handleBeforeInput" />
       <div ref="rightAdornment" class="adornment right-adornment">
         <slot name="rightAdornment"></slot>
       </div>
@@ -158,6 +178,17 @@ onBeforeUnmount(() => {
 
 .input[type="tel"] {
   font-feature-settings: "case" 1;
+}
+
+.input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
 }
 
 .input:disabled {

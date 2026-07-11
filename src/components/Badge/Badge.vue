@@ -1,36 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { Color } from '../../types/colors';
 
-const badgeColors = [
-  'red',
-  'orange',
-  'amber',
-  'yellow',
-  'lime',
-  'green',
-  'emerald',
-  'teal',
-  'cyan',
-  'sky',
-  'blue',
-  'indigo',
-  'violet',
-  'purple',
-  'fuchsia',
-  'pink',
-  'rose',
-  'slate',
-  'gray',
-  'zinc',
-  'neutral',
-  'stone',
-  'mauve',
-  'olive',
-  'mist',
-  'taupe',
-] as const;
-
-export type BadgeColor = typeof badgeColors[number];
+export type BadgeColor = Color;
 export type BadgeMode = 'default' | 'secondary' | 'ghost' | 'negative' | 'positive' | 'danger' | 'warning';
 
 export interface BadgeProps {

@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Chip/Documentation" />
+
+# Chip
+
+`ChipGroup` управляет выбором одного или нескольких `Chip` через `v-model`.
+`Chip` отвечает только за интерактивную оболочку; маркеры, иконки и текст передаются через default slot.
+
+## Props
+
+### ChipGroup
+
+- `mode?: 'single' | 'multiple'` — режим выбора, по умолчанию `single`.
+- `size?: 'small' | 'medium' | 'large'` — размер всех чипов внутри группы.
+- `disabled?: boolean` — отключает всю группу.
+- `name?: string` — добавляет hidden inputs для HTML-форм.
+- `stretched?: boolean` — растягивает группу на всю ширину.
+
+### Chip
+
+- `value?: string | number` — значение для выбора внутри `ChipGroup`.
+- `size?: 'small' | 'medium' | 'large'` — размер одиночного чипа вне группы.
+- `selected?: boolean` — выбранность одиночного чипа вне группы.
+- `disabled?: boolean` — отключает чип.
+
+## Пример
+
+```vue
+<ChipGroup v-model="source" mode="multiple">
+  <Chip value="telegram">
+    <Dot color="sky" />
+    Telegram
+  </Chip>
+  <Chip value="whatsapp">
+    <Dot color="green" />
+    WhatsApp
+  </Chip>
+</ChipGroup>
+```

@@ -69,7 +69,7 @@ const selectDate = ({ date }: { date: Date }): void => {
 
 <template>
   <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom-end" :distance="8"
-    :stretched="props.stretched">
+    :stretched="props.stretched" popper-class="calendar-dropdown">
     <Picker :stretched="props.stretched" :disabled="props.disabled" aria-haspopup="dialog"
       :aria-expanded="isCalendarOpened" @click="toggleCalendar">
       {{ label }}
