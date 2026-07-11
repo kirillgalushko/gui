@@ -14,6 +14,9 @@ const meta: Meta<typeof Separator> = {
       control: 'select',
       options: ['horizontal', 'vertical'],
     },
+    stretched: {
+      control: 'boolean',
+    },
   },
 };
 
@@ -35,6 +38,7 @@ const template = `
 export const Default: Story = {
   args: {
     direction: 'vertical',
+    stretched: false,
   },
   render: (args) => ({
     components: { Separator, Button, IconChevronDownOutline, IconPencilOutline, Row, Gap },

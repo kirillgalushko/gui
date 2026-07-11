@@ -74,3 +74,12 @@ export const formatRuDayMonth = (date: Date): string =>
     day: 'numeric',
     month: 'short',
   }).format(date).replace('.', '');
+
+export const formatRuReadableDateTime = (value: Date | string): string =>
+  new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(toDate(value));

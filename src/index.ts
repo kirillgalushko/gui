@@ -24,6 +24,7 @@ export const Dot = ac(() => import('./components/Dot/Dot.vue'));
 export const Gap = ac(() => import('./components/Gap/Gap.vue'));
 export const Field = ac(() => import('./components/Field/Field.vue'));
 export const FieldContent = ac(() => import('./components/Field/FieldContent.vue'));
+export const FieldDescription = ac(() => import('./components/Field/FieldDescription.vue'));
 export const FieldHelper = ac(() => import('./components/FieldHelper/FieldHelper.vue'));
 export const FieldLabel = ac(() => import('./components/Field/FieldLabel.vue'));
 export const FieldLegend = ac(() => import('./components/Field/FieldLegend.vue'));
@@ -95,6 +96,7 @@ export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
 export const SuggestInput = ac(() => import('./components/SuggestInput/SuggestInput.vue'));
 export const Textarea = ac(() => import('./components/Textarea/Textarea.vue'));
+export const Toaster = ac(() => import('./components/Toaster/Toaster.vue'));
 export const GridLayout = ac(() => import('./components/Grid/GridLayout.vue'));
 export const GridRow = ac(() => import('./components/Grid/GridRow.vue'));
 export const GridColumn = ac(() => import('./components/Grid/GridColumn.vue'));
@@ -109,6 +111,7 @@ import { useContextMenu } from './components/ContextMenu/useContextMenu';
 import { useViewportBreakpoint } from './hooks/useViewportBreakpoint';
 import { useContainerBreakpoint } from './hooks/useContainerBreakpoint';
 import { useGridBreakpoint } from './hooks/useGridBreakpoint';
+import { toast, useVueSonner } from 'vue-sonner';
 export type {
   Color,
 } from './types/colors';
@@ -147,6 +150,12 @@ export type {
   HourPickerChangePayload,
   HourPickerValue,
 } from './components/HourPicker/types';
+export type {
+  ExternalToast,
+  ToastClasses,
+  ToastT,
+  ToasterProps,
+} from 'vue-sonner';
 export {
   addDays,
   addMonths,
@@ -154,6 +163,7 @@ export {
   endOfDay,
   formatRuDayMonth,
   formatRuMonthYear,
+  formatRuReadableDateTime,
   formatRuShortWeekdayMonthDay,
   isAfterDay,
   isBeforeDay,
@@ -177,4 +187,6 @@ export {
   useViewportBreakpoint,
   useContainerBreakpoint,
   useGridBreakpoint,
+  toast,
+  useVueSonner,
 };

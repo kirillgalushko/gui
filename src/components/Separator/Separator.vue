@@ -2,14 +2,17 @@
 
 export interface SeparatorProps {
   direction: 'vertical' | 'horizontal'
+  stretched?: boolean
 }
 
-const props = defineProps<SeparatorProps>()
+const props = withDefaults(defineProps<SeparatorProps>(), {
+  stretched: false,
+})
 
 </script>
 
 <template>
-  <div :class="['separator', props.direction]"></div>
+  <div :class="['separator', props.direction, { stretched: props.stretched }]"></div>
 </template>
 
 <style scoped>
@@ -28,5 +31,13 @@ const props = defineProps<SeparatorProps>()
 .vertical {
   width: 1px;
   height: 16px;
+}
+
+.horizontal.stretched {
+  width: 100%;
+}
+
+.vertical.stretched {
+  height: 100%;
 }
 </style>

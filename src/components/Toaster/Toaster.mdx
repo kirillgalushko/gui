@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Toaster/Documentation" />
+
+# Toaster
+
+Компонент-контейнер для уведомлений на базе `vue-sonner`.
+
+## Использование
+
+Разместите `Toaster` один раз в корне приложения. Для показа уведомлений используйте `toast`, экспортируемый из `@gui/components`.
+
+```vue
+<script setup lang="ts">
+import { Toaster, toast } from '@gui/components';
+
+const onSave = () => {
+  toast.success('Сохранено', {
+    description: 'Изменения применены',
+  });
+};
+</script>
+
+<template>
+  <button @click="onSave">Сохранить</button>
+  <Toaster />
+</template>
+```
+
+## Props
+
+Поддерживает props `Toaster` из `vue-sonner`.
+
+По умолчанию:
+
+- `theme: 'system'`
+- `position: 'bottom-center'`
+- `closeButton: true`
+- `richColors: true`
+- `visibleToasts: 4`
+- `gap: 12`
+
+## Стили
+
+Стили находятся в компоненте и используют цвета из `variables.css`.

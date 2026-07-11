@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import Field from './Field.vue';
 import FieldContent from './FieldContent.vue';
+import FieldDescription from './FieldDescription.vue';
 import FieldLabel from './FieldLabel.vue';
 import FieldHelper from '../FieldHelper/FieldHelper.vue';
 import Input from '../Input/Input.vue';
@@ -31,7 +32,7 @@ export const Default: Story = {
     orientation: 'vertical',
   },
   render: (args) => ({
-    components: { Field, FieldContent, FieldLabel, FieldHelper, Input },
+    components: { Field, FieldContent, FieldDescription, FieldLabel, Input },
     setup() {
       return { args };
     },
@@ -40,7 +41,7 @@ export const Default: Story = {
         <FieldLabel html-for="field-email">Email</FieldLabel>
         <FieldContent>
           <Input id="field-email" placeholder="name@example.com" />
-          <FieldHelper description="Используется для входа и уведомлений" />
+          <FieldDescription>Используется для входа и уведомлений</FieldDescription>
         </FieldContent>
       </Field>
     `,
