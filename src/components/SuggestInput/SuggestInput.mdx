@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/SuggestInput/Documentation" />
+
+# SuggestInput
+
+Абстрактный input с dropdown-зоной для подсказок, autocomplete и combobox-сценариев.
+
+## Props
+
+- `id?: string` — id нативного input.
+- `placeholder?: string` — placeholder input.
+- `disabled?: boolean` — отключает input и открытие dropdown.
+- `invalid?: boolean` — визуальное состояние ошибки.
+- `errorMessage?: string` — сообщение ошибки для `Input`.
+- `description?: string` — описание для `Input`.
+- `shown?: boolean` — управляемое состояние dropdown.
+
+## Model
+
+- `v-model` — строковое значение input.
+- `v-model:shown` — открытие dropdown.
+
+## Slots
+
+- `default` — содержимое dropdown. Slot props: `close`.

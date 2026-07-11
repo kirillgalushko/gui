@@ -16,11 +16,26 @@ const meta: Meta<typeof Item> = {
     interactive: {
       control: { type: 'boolean' },
     },
+    mode: {
+      control: { type: 'select' },
+      options: ['card', 'outlined', 'plain'],
+    },
+    padding: {
+      control: { type: 'select' },
+      options: [undefined, 0, 4, 8, 12, 16, 20, 24, 32, 36],
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['medium', 'small', 'extra-small'],
+    },
     stretched: {
       control: { type: 'boolean' },
     },
   },
   args: {
+    mode: 'card',
+    padding: undefined,
+    size: 'medium',
     stretched: true,
   },
 };

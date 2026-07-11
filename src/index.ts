@@ -93,6 +93,7 @@ export const DatePicker = ac(() => import('./components/DatePicker/DatePicker.vu
 export const DateNavigator = ac(() => import('./components/DateNavigator/DateNavigator.vue'));
 export const Select = ac(() => import('./components/Select/Select.vue'));
 export const SelectOption = ac(() => import('./components/Select/SelectOption.vue'));
+export const SuggestInput = ac(() => import('./components/SuggestInput/SuggestInput.vue'));
 export const Textarea = ac(() => import('./components/Textarea/Textarea.vue'));
 export const GridLayout = ac(() => import('./components/Grid/GridLayout.vue'));
 export const GridRow = ac(() => import('./components/Grid/GridRow.vue'));
