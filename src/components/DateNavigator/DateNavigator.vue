@@ -51,8 +51,16 @@ const getPeriodStart = (date: Date, mode: DateNavigatorMode): Date => {
 };
 
 const shiftPeriod = (date: Date, mode: DateNavigatorMode, amount: number): Date => {
+  if (mode === 'threeDays') {
+    return addDays(date, amount * 3);
+  }
+
   if (mode === 'week') {
     return addDays(date, amount * 7);
+  }
+
+  if (mode === 'twoWeeks') {
+    return addDays(date, amount * 14);
   }
 
   if (mode === 'month') {
@@ -93,7 +101,7 @@ const isPreviousDisabled = computed(() => isRangeBeforeMinDate(previousRange.val
 const isNextDisabled = computed(() => isRangeAfterMaxDate(nextRange.value));
 
 const label = computed(() => {
-  if (props.mode === 'week') {
+  if (props.mode === 'threeDays' || props.mode === 'week' || props.mode === 'twoWeeks') {
     return `${formatRuDayMonth(currentRange.value.start)} - ${formatRuDayMonth(addDays(currentRange.value.end, -1))}`;
   }
 

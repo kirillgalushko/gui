@@ -2,6 +2,8 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 export interface UseSheetOptions {
   isOpened?: boolean;
+  showOverlay?: boolean;
+  closeOnOverlayClick: boolean;
   closeOnEscape: boolean;
   onClose?: () => void;
 }
@@ -22,6 +24,20 @@ export const useSheet = (options: UseSheetOptions) => {
     }
   };
 
+  const handlePointerDown = (event: PointerEvent) => {
+    if (!options.isOpened || options.showOverlay || !options.closeOnOverlayClick) {
+      return;
+    }
+
+    const target = event.target;
+
+    if (!(target instanceof Node) || sheetRef.value?.contains(target)) {
+      return;
+    }
+
+    close();
+  };
+
   const handleOpenChange = (isOpened?: boolean) => {
     if (typeof document === 'undefined') {
       return;
@@ -29,9 +45,12 @@ export const useSheet = (options: UseSheetOptions) => {
 
     if (isOpened) {
       previouslyFocusedElement.value = document.activeElement as HTMLElement | null;
-      previousBodyOverflow.value = document.body.style.overflow;
-      hasBodyOverflowSnapshot.value = true;
-      document.body.style.overflow = 'hidden';
+
+      if (options.showOverlay) {
+        previousBodyOverflow.value = document.body.style.overflow;
+        hasBodyOverflowSnapshot.value = true;
+        document.body.style.overflow = 'hidden';
+      }
 
       requestAnimationFrame(() => {
         sheetRef.value?.focus();
@@ -52,11 +71,13 @@ export const useSheet = (options: UseSheetOptions) => {
 
   onMounted(() => {
     document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('pointerdown', handlePointerDown);
     handleOpenChange(options.isOpened);
   });
 
   onBeforeUnmount(() => {
     document.removeEventListener('keydown', handleKeydown);
+    document.removeEventListener('pointerdown', handlePointerDown);
 
     if (hasBodyOverflowSnapshot.value) {
       document.body.style.overflow = previousBodyOverflow.value;

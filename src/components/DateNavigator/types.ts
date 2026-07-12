@@ -1,4 +1,4 @@
-export type DateNavigatorMode = 'day' | 'week' | 'month' | 'year';
+export type DateNavigatorMode = 'day' | 'threeDays' | 'week' | 'twoWeeks' | 'month' | 'year';
 
 export type DateNavigatorRange = {
   start: Date;

@@ -8,9 +8,10 @@ export type BadgeMode = 'default' | 'secondary' | 'ghost' | 'negative' | 'positi
 export interface BadgeProps {
   mode?: BadgeMode;
   color?: BadgeColor;
+  Element?: 'div' | 'button' | 'span';
 }
 
-const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default' });
+const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default', Element: 'div' });
 
 const modeStyles: Record<BadgeMode, { backgroundColor: string; color?: string }> = {
   default: {
@@ -62,9 +63,16 @@ const badgeStyle = computed(() => {
 </script>
 
 <template>
-  <div class="Badge" :style="badgeStyle">
+  <component
+    v-bind="$attrs"
+    :is="props.Element"
+    class="Badge"
+    :style="badgeStyle"
+    :type="props.Element === 'button' ? 'button' : undefined"
+  >
     <slot></slot>
-  </div>
+    <slot name="right"></slot>
+  </component>
 </template>
 
 <style scoped>
@@ -72,9 +80,9 @@ const badgeStyle = computed(() => {
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 11px;
+  line-height: 1.5;
   padding: 2px 6px;
   border-radius: 999px;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -87,5 +95,22 @@ const badgeStyle = computed(() => {
   display: inline-flex;
   flex-direction: row;
   gap: var(--gap-1);
+}
+
+button.Badge {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+button.Badge:disabled {
+  cursor: not-allowed;
+  opacity: 0.64;
+}
+
+button.Badge:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
 </style>

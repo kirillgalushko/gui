@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Skeleton/Documentation" />
+
+# Skeleton
+
+Примитив для loading-состояний в стиле shadcn, адаптированный под токены GUI.
+
+## Компоненты
+
+- `Skeleton` — базовый блок. Размеры задаются пропами `width`, `height`, `radius`, также можно передать `class`.
+- `SkeletonProvider` — контекстный провайдер `loading` для всех скелетонов ниже по дереву.
+- `AvatarSkeleton` — повторяет базовый размер `Avatar` (`40px`).
+- `ButtonSkeleton` — повторяет размеры `Button` для `extra-small`, `small`, `medium`, `large`.
+- `TextSkeleton` — строит строки по высотам типографики `Text`.
+- `CardSkeleton` — контейнер с padding/radius как у `Card`.
+- `FormSkeleton` — набор label/input, где input совпадает по высоте и radius с `Input`.
+
+## Пример
+
+```vue
+<SkeletonProvider :loading="isLoading">
+  <AvatarSkeleton>
+    <Avatar :src="user.avatar" :name="user.name" />
+  </AvatarSkeleton>
+
+  <TextSkeleton :lines="2">
+    <Text typography="paragraph-1">{{ user.description }}</Text>
+  </TextSkeleton>
+</SkeletonProvider>
+```

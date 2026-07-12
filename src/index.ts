@@ -70,6 +70,13 @@ export const DropdownList = ac(() => import('./components/Dropdown/DropdownList.
 export const DropdownItem = ac(() => import('./components/Dropdown/DropdownItem.vue'));
 export const DropdownSeparator = ac(() => import('./components/Dropdown/DropdownSeparator.vue'));
 export const Sheet = ac(() => import('./components/Sheet/Sheet.vue'));
+export const Skeleton = ac(() => import('./components/Skeleton/Skeleton.vue'));
+export const SkeletonProvider = ac(() => import('./components/Skeleton/SkeletonProvider.vue'));
+export const AvatarSkeleton = ac(() => import('./components/Skeleton/AvatarSkeleton.vue'));
+export const ButtonSkeleton = ac(() => import('./components/Skeleton/ButtonSkeleton.vue'));
+export const CardSkeleton = ac(() => import('./components/Skeleton/CardSkeleton.vue'));
+export const FormSkeleton = ac(() => import('./components/Skeleton/FormSkeleton.vue'));
+export const TextSkeleton = ac(() => import('./components/Skeleton/TextSkeleton.vue'));
 export const Empty = ac(() => import('./components/Empty/Empty.vue'));
 export const EmptyContent = ac(() => import('./components/Empty/EmptyContent.vue'));
 export const EmptyDescription = ac(() => import('./components/Empty/EmptyDescription.vue'));
@@ -108,6 +115,7 @@ import { useResize } from './hooks/useResize';
 import { useSize } from './hooks/useSize';
 import { useModal } from './hooks/useModal';
 import { useContextMenu } from './components/ContextMenu/useContextMenu';
+import { provideSkeletonLoading, useSkeletonLoading } from './components/Skeleton/context';
 import { useViewportBreakpoint } from './hooks/useViewportBreakpoint';
 import { useContainerBreakpoint } from './hooks/useContainerBreakpoint';
 import { useGridBreakpoint } from './hooks/useGridBreakpoint';
@@ -184,6 +192,8 @@ export {
   useSize,
   useModal,
   useContextMenu,
+  provideSkeletonLoading,
+  useSkeletonLoading,
   useViewportBreakpoint,
   useContainerBreakpoint,
   useGridBreakpoint,

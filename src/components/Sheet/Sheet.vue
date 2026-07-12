@@ -7,7 +7,7 @@ import { IconXOutline } from '@gui/icons';
 import { useSheet } from './useSheet';
 
 type SheetSide = 'top' | 'right' | 'bottom' | 'left';
-type SheetSize = 'auto' | 'small' | 'medium' | 'large' | 'full';
+type SheetSize = 'auto' | 'extra-small' | 'small' | 'medium' | 'large' | 'full';
 
 export interface SheetProps {
   isOpened?: boolean;
@@ -18,6 +18,7 @@ export interface SheetProps {
   side?: SheetSide;
   size?: SheetSize;
   rounded?: boolean;
+  showOverlay?: boolean;
   closeOnOverlayClick?: boolean;
   closeOnEscape?: boolean;
 }
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<SheetProps>(), {
   showCloseButton: true,
   side: 'right',
   rounded: true,
+  showOverlay: true,
   closeOnOverlayClick: true,
   closeOnEscape: true,
 });
@@ -43,9 +45,10 @@ const handleOverlayClick = () => {
 <template>
   <Transition :name="`sheet-${props.side}`">
     <div v-if="props.isOpened" class="sheet-wrapper">
-      <div class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
-      <section ref="sheetRef" :class="['sheet', props.side, sheetSize, { rounded: props.rounded }]" role="dialog"
-        aria-modal="true" tabindex="-1" @click.stop>
+      <div v-if="props.showOverlay" class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
+      <section ref="sheetRef"
+        :class="['sheet', props.side, sheetSize, { rounded: props.rounded, 'without-overlay': !props.showOverlay }]"
+        role="dialog" aria-modal="true" tabindex="-1" @click.stop>
         <div class="sheet-layout">
           <div v-if="props.title || props.description || props.showCloseButton" class="sheet-header">
             <div v-if="props.title || props.description" class="sheet-heading">
@@ -81,12 +84,18 @@ const handleOverlayClick = () => {
   position: fixed;
   inset: 0;
   z-index: 100;
+  pointer-events: none;
 }
 
 .sheet-overlay {
   position: fixed;
   inset: 0;
   background-color: hsl(var(--background) / 0.8);
+  pointer-events: auto;
+}
+
+.sheet.without-overlay {
+  box-shadow: none;
 }
 
 .sheet {
@@ -102,6 +111,7 @@ const handleOverlayClick = () => {
   color: hsl(var(--foreground));
   box-shadow: 0 20px 25px -5px hsl(var(--background) / 0.8), 0 8px 10px -6px hsl(var(--background) / 0.8);
   outline: none;
+  pointer-events: auto;
 }
 
 .sheet-layout {
@@ -112,6 +122,11 @@ const handleOverlayClick = () => {
   height: 100%;
   max-height: inherit;
   padding: var(--gap-6);
+}
+
+.right .sheet-layout,
+.left .sheet-layout {
+  padding-bottom: 0;
 }
 
 .sheet-header {
@@ -134,6 +149,11 @@ const handleOverlayClick = () => {
   min-height: 0;
   overflow-y: auto;
   padding: var(--gap-4) 0;
+}
+
+.right .sheet-content,
+.left .sheet-content {
+  padding-bottom: var(--gap-6);
 }
 
 .sheet-footer {
@@ -196,9 +216,11 @@ const handleOverlayClick = () => {
   height: calc(100dvh - var(--gap-4));
 }
 
+.top.extra-small,
 .top.small,
 .top.medium,
 .top.large,
+.bottom.extra-small,
 .bottom.small,
 .bottom.medium,
 .bottom.large {
@@ -210,9 +232,11 @@ const handleOverlayClick = () => {
   height: 100%;
 }
 
+.top.extra-small .sheet-layout,
 .top.small .sheet-layout,
 .top.medium .sheet-layout,
 .top.large .sheet-layout,
+.bottom.extra-small .sheet-layout,
 .bottom.small .sheet-layout,
 .bottom.medium .sheet-layout,
 .bottom.large .sheet-layout {
@@ -240,8 +264,12 @@ const handleOverlayClick = () => {
   border-top-right-radius: var(--sheet-radius);
 }
 
-.small {
+.extra-small {
   --sheet-size: 320px;
+}
+
+.small {
+  --sheet-size: 380px;
 }
 
 .medium {

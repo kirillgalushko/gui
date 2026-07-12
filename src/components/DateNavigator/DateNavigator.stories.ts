@@ -43,6 +43,36 @@ export const Week: Story = {
   }),
 };
 
+export const ThreeDays: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { onChange, value };
+    },
+    template: '<DateNavigator mode="threeDays" :value="value" :on-change="onChange" />',
+  }),
+};
+
+export const TwoWeeks: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { onChange, value };
+    },
+    template: '<DateNavigator mode="twoWeeks" :value="value" :on-change="onChange" />',
+  }),
+};
+
 export const Month: Story = {
   render: () => ({
     components: { DateNavigator },
