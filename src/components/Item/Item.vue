@@ -41,6 +41,11 @@ const styles = computed(() => (
   --item-border-color: hsl(var(--border));
   --item-background-color: hsl(var(--card));
   --item-text-color: hsl(var(--card-foreground));
+  --item-title-font-size: 14px;
+  --item-title-line-height: 20px;
+  --item-description-font-size: 14px;
+  --item-description-line-height: 18px;
+  --item-content-gap: 2px;
 
   display: flex;
   align-items: center;
@@ -59,6 +64,11 @@ const styles = computed(() => (
 .small {
   --item-gap: var(--gap-2);
   --item-padding: var(--gap-2);
+  --item-title-font-size: 14px;
+  --item-title-line-height: 18px;
+  --item-description-font-size: 12px;
+  --item-description-line-height: 16px;
+  --item-content-gap: 1px;
 
   border-radius: 10px;
 }
@@ -66,6 +76,11 @@ const styles = computed(() => (
 .extra-small {
   --item-gap: var(--gap-2);
   --item-padding: var(--gap-1);
+  --item-title-font-size: 12px;
+  --item-title-line-height: 16px;
+  --item-description-font-size: 12px;
+  --item-description-line-height: 14px;
+  --item-content-gap: 0;
 
   border-radius: 8px;
 }

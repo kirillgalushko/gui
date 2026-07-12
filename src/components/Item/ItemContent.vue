@@ -10,6 +10,6 @@
   flex: 1 1 auto;
   min-width: 0;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--item-content-gap, 2px);
 }
 </style>

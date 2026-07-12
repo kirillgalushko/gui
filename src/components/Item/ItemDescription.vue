@@ -19,8 +19,8 @@ const props = withDefaults(defineProps<ItemDescriptionProps>(), {
 
 <style scoped>
 .item-description {
-  font-size: 13px;
+  font-size: var(--item-description-font-size, 13px);
   font-weight: 400;
-  line-height: 18px;
+  line-height: var(--item-description-line-height, 18px);
 }
 </style>

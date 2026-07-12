@@ -19,7 +19,8 @@ const props = withDefaults(defineProps<ItemTitleProps>(), {
 
 <style scoped>
 .item-title {
+  font-size: var(--item-title-font-size, 14px);
   font-weight: 600;
-  line-height: 20px;
+  line-height: var(--item-title-line-height, 20px);
 }
 </style>

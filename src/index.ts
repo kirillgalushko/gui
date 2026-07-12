@@ -88,6 +88,7 @@ export const HoverMenu = ac(() => import('./components/HoverMenu/HoverMenu.vue')
 export const HoverMenuList = ac(() => import('./components/HoverMenu/HoverMenuList.vue'));
 export const HoverMenuItem = ac(() => import('./components/HoverMenu/HoverMenuItem.vue'));
 export const HoverMenuSeparator = ac(() => import('./components/HoverMenu/HoverMenuSeparator.vue'));
+export const HoverCard = ac(() => import('./components/HoverCard/HoverCard.vue'));
 export const HourPicker = ac(() => import('./components/HourPicker/HourPicker.vue'));
 export const ContextMenu = ac(() => import('./components/ContextMenu/ContextMenu.vue'));
 export const ContextSubmenu = ac(() => import('./components/ContextMenu/ContextSubmenu.vue'));
@@ -182,6 +183,9 @@ export {
   startOfYear,
   toDate,
 } from './utils/date';
+export {
+  pluralize,
+} from './utils/pluralize';
 
 export {
   useSelect,

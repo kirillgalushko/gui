@@ -1,0 +1,13 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as HoverCardStories from './HoverCard.stories';
+
+<Meta title="Components/HoverCard/Docs" />
+
+# HoverCard
+
+Показывает компактную карточку поверх интерфейса при hover или focus на триггере.
+
+Используйте слот по умолчанию для триггера, а слот `content` для содержимого карточки.
+Компонент поддерживает controlled-состояние через `open` и `update:open`, задержки `openDelay`/`closeDelay`, `placement`, `sideOffset` и `updateKey` для ручного пересчета позиции.
+
+<Canvas of={HoverCardStories.Default} />

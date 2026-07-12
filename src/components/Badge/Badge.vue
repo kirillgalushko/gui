@@ -94,6 +94,7 @@ const badgeStyle = computed(() => {
   text-wrap: nowrap;
   display: inline-flex;
   flex-direction: row;
+  flex-shrink: 0;
   gap: var(--gap-1);
 }
 
