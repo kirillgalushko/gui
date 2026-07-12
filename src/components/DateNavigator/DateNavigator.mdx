@@ -5,11 +5,14 @@ import { Meta } from '@storybook/addon-docs';
 # DateNavigator
 
 Компактный переключатель периода на базе `ButtonGroup`. Стрелки меняют текущий день, неделю, месяц или год, центральная кнопка открывает `Calendar`.
+Кнопка `Сегодня` появляется только когда отображаемый период не содержит сегодняшнюю дату и сегодняшний период доступен с учетом `minDate`/`maxDate`.
 
 ## Props
 
 - `value: Date` — выбранная дата.
 - `mode?: 'day' | 'threeDays' | 'week' | 'twoWeeks' | 'month' | 'year'` — размер периода, по умолчанию `day`.
+- `buttonMode?: 'default' | 'contrast' | 'ghost' | 'outline' | 'negative' | 'accent'` — стиль кнопок, по умолчанию `outline`.
+- `size?: 'extra-small' | 'small' | 'medium' | 'large'` — размер кнопок, по умолчанию `large`.
 - `onChange: (payload: DateNavigatorChangePayload) => void` — вызывается при выборе периода или переходе стрелками.
 - `minDate?: Date` — минимальная доступная дата.
 - `maxDate?: Date` — максимальная доступная дата.
@@ -22,6 +25,8 @@ import { Meta } from '@storybook/addon-docs';
 <DateNavigator
   :value="date"
   mode="month"
+  button-mode="contrast"
+  size="medium"
   :on-change="handlePeriodChange"
   :min-date="minDate"
   :max-date="maxDate"

@@ -6,6 +6,8 @@ import Button from '../Button/Button.vue';
 import ButtonGroup from '../ButtonGroup/ButtonGroup.vue';
 import Dropdown from '../Dropdown/Dropdown.vue';
 import Calendar from '../Calendar/Calendar.vue';
+import Gap from '../Gap/Gap.vue';
+import type { ButtonProps } from '../Button/Button.vue';
 import {
   addDays,
   addMonths,
@@ -14,6 +16,7 @@ import {
   formatRuMonthYear,
   formatRuShortWeekdayMonthDay,
   isAfterDay,
+  isBeforeDay,
   startOfDay,
   startOfMonth,
   startOfWeek,
@@ -24,13 +27,17 @@ import type { DateNavigatorChangePayload, DateNavigatorMode, DateNavigatorRange 
 export interface DateNavigatorProps {
   value: Date;
   mode?: DateNavigatorMode;
+  buttonMode?: ButtonProps['mode'];
+  size?: ButtonProps['size'];
   onChange: (payload: DateNavigatorChangePayload) => void;
   minDate?: Date;
   maxDate?: Date;
 }
 
 const props = withDefaults(defineProps<DateNavigatorProps>(), {
+  buttonMode: 'outline',
   mode: 'day',
+  size: 'large',
 });
 const isCalendarOpened = ref(false);
 
@@ -97,8 +104,14 @@ const isRangeBeforeMinDate = (range: DateNavigatorRange): boolean =>
 const isRangeAfterMaxDate = (range: DateNavigatorRange): boolean =>
   props.maxDate ? isAfterDay(range.start, props.maxDate) : false;
 
+const isDateInRange = (date: Date, range: DateNavigatorRange): boolean =>
+  !isBeforeDay(date, range.start) && isBeforeDay(date, range.end);
+
 const isPreviousDisabled = computed(() => isRangeBeforeMinDate(previousRange.value));
 const isNextDisabled = computed(() => isRangeAfterMaxDate(nextRange.value));
+const todayRange = computed(() => getPeriodRange(new Date(), props.mode));
+const isTodayDisabled = computed(() => isRangeBeforeMinDate(todayRange.value) || isRangeAfterMaxDate(todayRange.value));
+const shouldShowToday = computed(() => !isDateInRange(new Date(), currentRange.value) && !isTodayDisabled.value);
 
 const label = computed(() => {
   if (props.mode === 'threeDays' || props.mode === 'week' || props.mode === 'twoWeeks') {
@@ -146,6 +159,14 @@ const showNextDate = (): void => {
   changeDate(nextRange.value.start);
 };
 
+const showToday = (): void => {
+  if (isTodayDisabled.value) {
+    return;
+  }
+
+  changeDate(new Date());
+};
+
 const selectDate = ({ date }: { date: Date }): void => {
   changeDate(date);
   isCalendarOpened.value = false;
@@ -154,22 +175,30 @@ const selectDate = ({ date }: { date: Date }): void => {
 
 <template>
   <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom" :distance="8">
-    <ButtonGroup aria-label="Выбор даты">
-      <Button mode="outline" size="large" squared type="button" aria-label="Предыдущий день"
-        :disabled="isPreviousDisabled" @click="showPreviousDate">
-        <IconChevronLeftOutline />
-      </Button>
+    <div class="date-navigator">
+      <ButtonGroup aria-label="Выбор даты">
+        <Button :mode="props.buttonMode" :size="props.size" squared type="button" aria-label="Предыдущий день"
+          :disabled="isPreviousDisabled" @click="showPreviousDate">
+          <IconChevronLeftOutline />
+        </Button>
 
-      <Button mode="outline" size="large" type="button" aria-haspopup="dialog" :aria-expanded="isCalendarOpened"
-        @click="toggleCalendar">
-        {{ label }}
-      </Button>
+        <Button :mode="props.buttonMode" :size="props.size" type="button" aria-haspopup="dialog"
+          :aria-expanded="isCalendarOpened" @click="toggleCalendar">
+          {{ label }}
+        </Button>
 
-      <Button mode="outline" size="large" squared type="button" aria-label="Следующий день" :disabled="isNextDisabled"
-        @click="showNextDate">
-        <IconChevronRightOutline />
+        <Button :mode="props.buttonMode" :size="props.size" squared type="button" aria-label="Следующий день"
+          :disabled="isNextDisabled" @click="showNextDate">
+          <IconChevronRightOutline />
+        </Button>
+      </ButtonGroup>
+
+      <Gap v-if="shouldShowToday" direction="horizontal" :size="2" />
+
+      <Button v-if="shouldShowToday" :mode="props.buttonMode" :size="props.size" type="button" @click="showToday">
+        Сегодня
       </Button>
-    </ButtonGroup>
+    </div>
 
     <template #popper>
       <Calendar :model-value="normalizedValue" :min-date="props.minDate" :max-date="props.maxDate"
@@ -177,3 +206,11 @@ const selectDate = ({ date }: { date: Date }): void => {
     </template>
   </Dropdown>
 </template>
+
+<style scoped>
+.date-navigator {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+}
+</style>

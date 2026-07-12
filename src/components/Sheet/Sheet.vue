@@ -82,7 +82,9 @@ const handleOverlayClick = () => {
           </div>
 
           <div class="sheet-content">
-            <slot></slot>
+            <div class="sheet-content-inner">
+              <slot></slot>
+            </div>
           </div>
 
           <div v-if="$slots.footer" class="sheet-footer">
@@ -138,12 +140,6 @@ const handleOverlayClick = () => {
   width: 100%;
   height: 100%;
   max-height: inherit;
-  padding: var(--gap-6);
-}
-
-.right .sheet-layout,
-.left .sheet-layout {
-  padding-bottom: 0;
 }
 
 .sheet-header {
@@ -151,6 +147,7 @@ const handleOverlayClick = () => {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--gap-4);
   align-items: start;
+  padding: var(--gap-6) var(--gap-6) 0;
 }
 
 .sheet-heading {
@@ -165,11 +162,14 @@ const handleOverlayClick = () => {
 .sheet-content {
   min-height: 0;
   overflow-y: auto;
-  padding: var(--gap-4) 0;
 }
 
-.right .sheet-content,
-.left .sheet-content {
+.sheet-content-inner {
+  padding: var(--gap-4) var(--gap-6);
+}
+
+.right .sheet-content-inner,
+.left .sheet-content-inner {
   padding-bottom: var(--gap-6);
 }
 
@@ -178,7 +178,12 @@ const handleOverlayClick = () => {
   justify-content: flex-end;
   gap: var(--gap-2);
   align-items: center;
-  padding: var(--gap-3) 0 var(--gap-3);
+  padding: var(--gap-3) var(--gap-6);
+}
+
+.top .sheet-footer,
+.bottom .sheet-footer {
+  padding-bottom: calc(var(--gap-3) + var(--gap-6));
 }
 
 .sheet-actions {
@@ -370,8 +375,13 @@ const handleOverlayClick = () => {
 }
 
 @media (max-width: 560px) {
-  .sheet-layout {
-    padding: var(--gap-5);
+  .sheet-header {
+    padding: var(--gap-5) var(--gap-5) 0;
+  }
+
+  .sheet-content-inner {
+    padding-right: var(--gap-5);
+    padding-left: var(--gap-5);
   }
 
   .right,
@@ -387,6 +397,13 @@ const handleOverlayClick = () => {
 
   .sheet-footer {
     flex-direction: column-reverse;
+    padding-right: var(--gap-5);
+    padding-left: var(--gap-5);
+  }
+
+  .top .sheet-footer,
+  .bottom .sheet-footer {
+    padding-bottom: calc(var(--gap-3) + var(--gap-5));
   }
 }
 </style>

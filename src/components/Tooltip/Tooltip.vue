@@ -2,16 +2,25 @@
 import 'floating-vue/dist/style.css';
 import { Tooltip } from 'floating-vue';
 
-export interface TooltipProps {
-  mode?: 'default' | 'contrast'
+type TooltipDelay = string | number | {
+  show?: string | number
+  hide?: string | number
 }
 
-const props = withDefaults(defineProps<TooltipProps>(), { mode: 'default' })
+export interface TooltipProps {
+  mode?: 'default' | 'contrast'
+  delay?: TooltipDelay
+}
+
+const props = withDefaults(defineProps<TooltipProps>(), {
+  mode: 'default',
+  delay: () => ({ show: 0, hide: 0 }),
+})
 </script>
 
 
 <template>
-  <Tooltip v-bind="$attrs" :arrowOverflow="false"
+  <Tooltip v-bind="$attrs" :delay="props.delay" :arrowOverflow="false"
     :popperClass="props.mode === 'contrast' ? 'tooltip-contrast' : 'tooltip-default'" :class="['tooltip', props.mode]">
     <template #default>
       <slot></slot>

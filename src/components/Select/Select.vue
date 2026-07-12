@@ -5,16 +5,20 @@ import { useSize } from "../../hooks/useSize";
 import { computed, provide, ref, watch } from "vue";
 import { RegisteredOption, useSelect } from "./useSelect";
 import Picker from "../Picker/Picker.vue";
+import type { ButtonProps } from "../Button/Button.vue";
 
 export interface SelectProps {
   stretched?: boolean;
   label?: string;
+  size?: ButtonProps['size'];
   value?: string;
   name?: string;
   onChange?: (option: RegisteredOption) => void;
 }
 
-const props = defineProps<SelectProps>();
+const props = withDefaults(defineProps<SelectProps>(), {
+  size: 'large',
+});
 const select = useSelect(props.value, props.onChange);
 provide("select", select);
 
@@ -55,6 +59,7 @@ watch(
   >
     <Picker
       ref="pickerRef"
+      :size="props.size"
       :stretched="props.stretched"
     >
       {{ select?.selectedOption?.value?.label || props.label }}

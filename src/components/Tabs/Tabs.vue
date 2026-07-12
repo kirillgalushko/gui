@@ -2,15 +2,19 @@
 import { provide, ref, watchEffect } from 'vue';
 import useTabs from './useTabs';
 import { useResize } from '../../hooks/useResize';
+import type { ButtonProps } from '../Button/Button.vue';
 
 export interface TabsProps {
   value: string
   onChange: (value: string) => void;
+  size?: ButtonProps['size'];
   stretched?: boolean;
 }
 
 const sliderAnimationDisabled = ref<boolean>(true);
-const props = defineProps<TabsProps>()
+const props = withDefaults(defineProps<TabsProps>(), {
+  size: 'large',
+})
 const handleChange = (value: string) => {
   sliderAnimationDisabled.value = false
   props.onChange(value)
@@ -44,7 +48,7 @@ useResize(tabsElementRef, updateSliderStyle)
 </script>
 
 <template>
-  <div ref="tabsElementRef" :class="['tabs', { stretched: props.stretched, }]">
+  <div ref="tabsElementRef" :class="['tabs', props.size, { stretched: props.stretched, }]">
     <div :class="['slider', { animated: !sliderAnimationDisabled }]" :style="sliderStyle"></div>
     <slot></slot>
   </div>
@@ -52,17 +56,65 @@ useResize(tabsElementRef, updateSliderStyle)
 
 <style scoped>
 .tabs {
+  --tabs-height: 40px;
+  --tabs-padding: 4px;
+  --tabs-font-size: 14px;
+  --tabs-line-height: 20px;
+  --tabs-tab-padding: 8px 16px;
+  --tabs-radius: 10px;
+  --tabs-tab-radius: 8px;
+
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
-  border-radius: 8px;
-  padding: 4px;
+  background-color: hsl(var(--input));
+  color: hsl(var(--primary));
+  border-radius: var(--tabs-radius);
+  padding: var(--tabs-padding);
   position: relative;
   box-sizing: border-box;
-  min-height: 40px;
+  height: var(--tabs-height);
+}
+
+.extra-small {
+  --tabs-height: 24px;
+  --tabs-padding: 2px;
+  --tabs-tab-padding: 4px 8px;
+  --tabs-font-size: 12px;
+  --tabs-line-height: 16px;
+  --tabs-radius: 8px;
+  --tabs-tab-radius: 6px;
+}
+
+.small {
+  --tabs-height: 32px;
+  --tabs-padding: 3px;
+  --tabs-tab-padding: 6px 12px;
+  --tabs-font-size: 13px;
+  --tabs-line-height: 18px;
+  --tabs-radius: 8px;
+  --tabs-tab-radius: 6px;
+}
+
+.medium {
+  --tabs-height: 36px;
+  --tabs-padding: 4px;
+  --tabs-tab-padding: 8px 14px;
+  --tabs-font-size: 14px;
+  --tabs-line-height: 20px;
+  --tabs-radius: 10px;
+  --tabs-tab-radius: 8px;
+}
+
+.large {
+  --tabs-height: 40px;
+  --tabs-padding: 4px;
+  --tabs-tab-padding: 8px 16px;
+  --tabs-font-size: 14px;
+  --tabs-line-height: 20px;
+  --tabs-radius: 10px;
+  --tabs-tab-radius: 8px;
 }
 
 .stretched {
@@ -71,10 +123,10 @@ useResize(tabsElementRef, updateSliderStyle)
 
 .slider {
   position: absolute;
-  bottom: 4px;
+  bottom: var(--tabs-padding);
   left: 0;
-  top: 4px;
-  border-radius: 6px;
+  top: var(--tabs-padding);
+  border-radius: var(--tabs-tab-radius);
   background-color: hsl(var(--background));
   z-index: 0;
 }

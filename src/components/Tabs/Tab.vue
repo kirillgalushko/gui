@@ -44,11 +44,13 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   appearance: button;
-  border-radius: 6px;
+  border-radius: var(--tabs-tab-radius, 8px);
   background-color: transparent;
-  padding: 4px 12px;
+  padding: var(--tabs-tab-padding, 8px 16px);
+  height: calc(var(--tabs-height, 40px) - var(--tabs-padding, 4px) * 2);
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--tabs-font-size, 14px);
+  line-height: var(--tabs-line-height, 20px);
   cursor: pointer;
   color: hsl(var(--muted-foreground));
   user-select: none;
@@ -56,6 +58,7 @@ onMounted(() => {
   transition: all 0.15s;
   text-align: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .stretched {

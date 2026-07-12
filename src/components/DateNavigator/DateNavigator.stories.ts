@@ -103,12 +103,44 @@ export const Year: Story = {
   }),
 };
 
+export const SmallContrast: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { onChange, value };
+    },
+    template: '<DateNavigator :value="value" button-mode="contrast" size="small" :on-change="onChange" />',
+  }),
+};
+
 export const Restricted: Story = {
   render: () => ({
     components: { DateNavigator },
     setup() {
       const value = ref(new Date(2026, 6, 9));
       const minDate = new Date(2026, 6, 8);
+      const maxDate = new Date(2026, 6, 10);
+      const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
+        value.value = nextValue;
+      };
+
+      return { maxDate, minDate, onChange, value };
+    },
+    template: '<DateNavigator :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
+  }),
+};
+
+export const TodayRestricted: Story = {
+  render: () => ({
+    components: { DateNavigator },
+    setup() {
+      const value = ref(new Date(2026, 6, 9));
+      const minDate = new Date(2026, 6, 1);
       const maxDate = new Date(2026, 6, 10);
       const onChange = ({ value: nextValue }: DateNavigatorChangePayload) => {
         value.value = nextValue;

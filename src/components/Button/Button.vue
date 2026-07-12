@@ -31,8 +31,8 @@ const props = withDefaults(defineProps<ButtonProps>(), { mode: 'default', size: 
 
 <style scoped>
 .button {
-    --button-bg: hsl(var(--secondary));
-    --button-text: hsl(var(--secondary-foreground));
+    --button-bg: hsl(var(--input));
+    --button-text: hsl(var(--primary));
     --button-outline: hsl(var(--ring));
     --button-height: 40px;
     --button-padding: 8px 16px;

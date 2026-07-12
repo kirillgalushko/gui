@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Tabs/Documentation" />
+
+# Tabs
+
+Переключатель вкладок с анимированным индикатором выбранного значения.
+
+## Props
+
+- `value: string` — имя выбранной вкладки.
+- `onChange: (value: string) => void` — вызывается при выборе вкладки.
+- `size?: 'extra-small' | 'small' | 'medium' | 'large'` — высота и типографика как у `Button`, по умолчанию `large`.
+- `stretched?: boolean` — растягивает список вкладок на всю ширину.
+
+## Example
+
+```vue
+<Tabs
+  :value="selectedTab"
+  size="medium"
+  :on-change="handleChangeTab"
+>
+  <Tab name="overview">Overview</Tab>
+  <Tab name="reports">Reports</Tab>
+</Tabs>
+```

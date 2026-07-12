@@ -77,6 +77,21 @@ export const WithRightIcon: Story = {
   }),
 };
 
+export const WithPostfix: Story = {
+  args: {
+    placeholder: 'Стоимость',
+    value: '12000',
+    postfix: '₽',
+  },
+  render: (args) => ({
+    components: { Input },
+    setup() {
+      return { args };
+    },
+    template: '<Input v-bind="args" v-model="args.value" />',
+  }),
+};
+
 export const Invalid: Story = {
   args: {
     placeholder: 'Placeholder',

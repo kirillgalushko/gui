@@ -4,6 +4,7 @@ import Card from '../Card/Card.vue'
 import Text from '../Text/Text.vue'
 import Gap from '../Gap/Gap.vue'
 import Button from '../Button/Button.vue'
+import type { ButtonProps } from '../Button/Button.vue'
 import Tabs from './Tabs.vue';
 import Tab from './Tab.vue'
 import { IconHome2Outline, IconABOutline, IconAbcOutline } from '@gui/icons';
@@ -13,6 +14,10 @@ const meta: Meta<typeof Tabs> = {
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
+    size: {
+      control: 'select',
+      options: ['extra-small', 'small', 'medium', 'large'],
+    },
     stretched: { type: 'boolean' }
   }
 };
@@ -103,5 +108,33 @@ export const WidthChanges: Story = {
       <Button @click="toggleIcons">Toggle icons</Button>
       `
       ,
+  }),
+};
+
+export const Sizes: Story = {
+  render: () => ({
+    components: { Tabs, Tab, Button, Gap },
+    setup() {
+      const selectedTab = ref<string>('medium')
+      const handleChangeTab = (newTab: string) => {
+        selectedTab.value = newTab
+      }
+      const sizes: ButtonProps['size'][] = ['extra-small', 'small', 'medium', 'large']
+
+      return { handleChangeTab, selectedTab, sizes };
+    },
+    template: `
+      <div v-for="size in sizes" :key="size">
+        <Tabs :size="size" :value="selectedTab" :onChange="handleChangeTab">
+          <Tab name="extra-small">Extra small</Tab>
+          <Tab name="small">Small</Tab>
+          <Tab name="medium">Medium</Tab>
+          <Tab name="large">Large</Tab>
+        </Tabs>
+        <Gap direction="horizontal" :size="2" />
+        <Button :size="size">Button</Button>
+        <Gap direction="vertical" :size="3" />
+      </div>
+    `,
   }),
 };

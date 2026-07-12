@@ -10,6 +10,7 @@ export interface InputProps {
   autoFocus?: boolean;
   maxWidth?: string;
   disabled?: boolean;
+  postfix?: string;
   description?: string;
   errorMessage?: string;
   invalid?: boolean;
@@ -27,17 +28,27 @@ const attrs = useAttrs()
 const generatedDescriptionId = useId()
 let resizeObserver: ResizeObserver | undefined
 
+const getPadding = ((adornmentWidth: number) => {
+  if (adornmentWidth > 0) {
+    return adornmentWidth + 20
+  }
+  return 12
+})
+
+const inputPaddingLeft = computed(() => getPadding(leftAdornmentWidth.value))
+const inputPaddingRight = computed(() => getPadding(rightAdornmentWidth.value))
+const inputValue = computed(() => String(model.value ?? ''))
+
 const inputStyles = computed(() => {
-  const getPadding = ((adornmentWidth: number) => {
-    if (adornmentWidth > 0) {
-      return adornmentWidth + 20
-    }
-    return 12
-  })
-  const paddingLeft = getPadding(leftAdornmentWidth.value)
-  const paddingRight = getPadding(rightAdornmentWidth.value)
-  return `padding-left: ${paddingLeft}px; padding-right: ${paddingRight}px;`
+  return {
+    paddingLeft: `${inputPaddingLeft.value}px`,
+    paddingRight: `${inputPaddingRight.value}px`,
+  }
 });
+
+const postfixOverlayStyles = computed(() => ({
+  left: `${inputPaddingLeft.value}px`,
+}));
 
 const shouldRenderHelper = computed(() => {
   if (props.invalid) {
@@ -67,6 +78,9 @@ const ariaDescribedBy = computed(() => {
 });
 
 const isNumberInput = computed(() => attrs.type === 'number');
+const shouldRenderPostfix = computed(() => {
+  return props.postfix !== undefined && props.postfix.length > 0 && inputValue.value.length > 0;
+});
 
 const isForbiddenNumberInputValue = (value: string | null): boolean => {
   return value === 'e' || value === 'E';
@@ -128,6 +142,10 @@ onBeforeUnmount(() => {
       <input ref="inputRef" v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles"
         :class="['input', { invalid: props.invalid }]" :aria-invalid="props.invalid || undefined"
         :aria-describedby="ariaDescribedBy" @keydown="handleKeydown" @beforeinput="handleBeforeInput" />
+      <span v-if="shouldRenderPostfix" class="input-postfix-overlay" :style="postfixOverlayStyles" aria-hidden="true">
+        <span class="input-postfix-value">{{ inputValue }}</span>
+        <span class="input-postfix">{{ props.postfix }}</span>
+      </span>
       <div ref="rightAdornment" class="adornment right-adornment">
         <slot name="rightAdornment"></slot>
       </div>
@@ -231,6 +249,7 @@ onBeforeUnmount(() => {
   height: 100%;
   display: flex;
   align-items: center;
+  gap: var(--gap-2);
 }
 
 .left-adornment {
@@ -239,5 +258,33 @@ onBeforeUnmount(() => {
 
 .right-adornment {
   right: 12px;
+}
+
+.input-postfix {
+  color: hsl(var(--muted-foreground));
+  font-size: 14px;
+  line-height: 1;
+  margin-left: var(--gap-1);
+  pointer-events: none;
+  user-select: none;
+}
+
+.input-postfix-overlay {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: pre;
+}
+
+.input-postfix-value {
+  visibility: hidden;
 }
 </style>

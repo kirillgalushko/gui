@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Select/Documentation" />
+
+# Select
+
+Выбор одного значения из списка опций.
+
+## Props
+
+- `value?: string` — выбранное значение.
+- `label?: string` — текст плейсхолдера, когда значение не выбрано.
+- `size?: 'extra-small' | 'small' | 'medium' | 'large'` — высота и типографика как у `Button`, по умолчанию `large`.
+- `stretched?: boolean` — растягивает trigger на всю ширину.
+- `name?: string` — имя скрытого input для HTML-форм.
+- `onChange?: (option: RegisteredOption) => void` — вызывается при выборе опции.
+
+## Example
+
+```vue
+<Select
+  :value="theme"
+  label="Выберите тему"
+  size="small"
+  :on-change="handleThemeChange"
+>
+  <SelectOption value="auto" label="Авто" />
+  <SelectOption value="light" label="Светлая тема" />
+  <SelectOption value="dark" label="Тёмная тема" />
+</Select>
+```

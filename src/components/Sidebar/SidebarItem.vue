@@ -24,7 +24,7 @@ useResize(buttonElement, checkEllipsis)
 </script>
 
 <template>
-  <Tooltip :disabled="!(isEllipsis || isCompact)" placement="right">
+  <Tooltip :delay="0" :disabled="!(isEllipsis || isCompact)" placement="right">
     <button ref="buttonElement" :class="['SidebarItem', { selected: props.selected, compact: isCompact }]">
       <div v-if="$slots.left && !isCompact" class="left">
         <slot name="left"></slot>

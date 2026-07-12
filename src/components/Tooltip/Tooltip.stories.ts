@@ -8,9 +8,11 @@ const meta: Meta<typeof Tooltip> = {
   tags: ['autodocs'],
   argTypes: {
     mode: { control: 'select', options: ['default', 'contrast'] },
+    delay: { control: 'object' },
   },
   args: {
     mode: 'default',
+    delay: { show: 200, hide: 0 },
   },
 };
 
@@ -20,6 +22,7 @@ type Story = StoryObj<typeof Tooltip>;
 export const Default: Story = {
   args: {
     mode: 'default',
+    delay: { show: 200, hide: 0 },
   },
   render: (args) => ({
     components: { Tooltip, Text },
@@ -40,6 +43,7 @@ export const Default: Story = {
 export const Long: Story = {
   args: {
     mode: 'default',
+    delay: { show: 200, hide: 0 },
   },
   render: (args) => ({
     components: { Tooltip, Text },
