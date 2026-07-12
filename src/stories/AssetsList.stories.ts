@@ -14,7 +14,7 @@ export default {
   },
 } as Meta;
 
-export const AllLogos: StoryObj<typeof defineComponent<{}>> = {
+export const AllLogos: StoryObj<typeof defineComponent<Record<string, never>>> = {
   name: "Логотипы",
   args: {},
   render: (args) => ({
@@ -55,7 +55,7 @@ type SoundEffect = {
   stop: () => Promise<void>;
 };
 
-export const AllSoundEffects: StoryObj<typeof defineComponent<{}>> = {
+export const AllSoundEffects: StoryObj<typeof defineComponent<Record<string, never>>> = {
   name: "Звуковые эффекты",
   args: {},
   render: (args) => ({

@@ -24,7 +24,7 @@ type Story = StoryObj<typeof HoverMenu>;
 
 export const Default: Story = {
   args: {},
-  render: (args) => ({
+  render: () => ({
     components: {
       HoverMenu,
       HoverMenuItem,
@@ -38,7 +38,6 @@ export const Default: Story = {
       IconMailOutline,
       IconCopyOutline,
     },
-    setup() {},
     template: `
     <div>
       <HoverMenu>

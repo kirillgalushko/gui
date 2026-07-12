@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/vue3";
-import { defineComponent, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
 export default {
   title: "1. @gui/3. Цвета",

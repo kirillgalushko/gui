@@ -31,7 +31,7 @@ export const Default: Story = {
             description: "Эти изменения нельзя будет отменить.",
           });
           result.value = "Подтверждение";
-        } catch (e) {
+        } catch {
           result.value = "Отмена";
         }
       };

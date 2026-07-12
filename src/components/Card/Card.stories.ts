@@ -9,7 +9,7 @@ type CardType = DefineComponent<CardProps>;
 
 const meta = {
   title: "Components/Card",
-  // @ts-ignore
+  // @ts-expect-error Storybook cannot infer the discriminated card props from the SFC.
   component: Card,
   tags: ["autodocs"],
   argTypes: {

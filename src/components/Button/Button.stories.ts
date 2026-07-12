@@ -35,7 +35,7 @@ const meta = {
     stretched: false,
     squared: false,
     rounded: false,
-    // @ts-expect-error
+    // @ts-expect-error Storybook action mock is narrower than the component click handler.
     onClick: fn(() => "clicked"),
   },
 } satisfies Meta<typeof Button>;

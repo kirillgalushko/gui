@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -eu
+
+PROJECT_DIR="$(git rev-parse --show-toplevel)"
+cd "$PROJECT_DIR"
+
+npm run format
+npm run check

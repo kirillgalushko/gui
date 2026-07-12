@@ -11,7 +11,7 @@ export default {
   },
 } as Meta;
 
-export const AllIcons: StoryObj<typeof defineComponent<{}>> = {
+export const AllIcons: StoryObj<typeof defineComponent<Record<string, never>>> = {
   name: "Поиск иконки",
   args: {},
   render: (args) => ({

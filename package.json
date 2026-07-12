@@ -11,11 +11,12 @@
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "hooks:install": "node ../../scripts/install-hooks.mjs .",
     "lint": "eslint . --fix --cache",
     "lint:changed": "node ../../scripts/run-changed.mjs --mode lint --project apps/gui",
     "typecheck": "vue-tsc -b --noEmit",
     "typecheck:changed": "node ../../scripts/run-changed.mjs --mode typecheck --project apps/gui",
-    "test": "vitest",
+    "test": "vitest run",
     "test:changed": "node ../../scripts/run-changed.mjs --mode test --project apps/gui",
     "format": "prettier --write \"src/**/*.{ts,tsx,vue,css,mdx}\" \"*.{ts,json,md}\"",
     "format:changed": "node ../../scripts/run-changed.mjs --mode format --project apps/gui",
