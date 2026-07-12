@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import Button from '../Button/Button.vue';
-import Gap from '../Gap/Gap.vue';
-import Text from '../Text/Text.vue';
-import { IconXOutline } from '@gui/icons';
-import { useSheet } from './useSheet';
+import { computed } from "vue";
+import Button from "../Button/Button.vue";
+import Gap from "../Gap/Gap.vue";
+import Text from "../Text/Text.vue";
+import { IconXOutline } from "@gui/icons";
+import { useSheet } from "./useSheet";
 
-type SheetSide = 'top' | 'right' | 'bottom' | 'left';
-type SheetSize = 'auto' | 'extra-small' | 'small' | 'medium' | 'large' | 'full';
+type SheetSide = "top" | "right" | "bottom" | "left";
+type SheetSize = "auto" | "extra-small" | "small" | "medium" | "large" | "full";
 
 export interface SheetProps {
   isOpened?: boolean;
@@ -25,7 +25,7 @@ export interface SheetProps {
 
 const props = withDefaults(defineProps<SheetProps>(), {
   showCloseButton: true,
-  side: 'right',
+  side: "right",
   rounded: true,
   showOverlay: true,
   closeOnOverlayClick: true,
@@ -33,7 +33,11 @@ const props = withDefaults(defineProps<SheetProps>(), {
 });
 
 const { close, sheetRef } = useSheet(props);
-const sheetSize = computed<SheetSize>(() => props.size ?? (props.side === 'top' || props.side === 'bottom' ? 'auto' : 'medium'));
+const sheetSize = computed<SheetSize>(
+  () =>
+    props.size ??
+    (props.side === "top" || props.side === "bottom" ? "auto" : "medium"),
+);
 
 const handleOverlayClick = () => {
   if (props.closeOnOverlayClick) {
@@ -46,11 +50,19 @@ const handleOverlayClick = () => {
   <Transition :name="`sheet-${props.side}`">
     <div v-if="props.isOpened" class="sheet-wrapper">
       <div v-if="props.showOverlay" class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
-      <section ref="sheetRef"
-        :class="['sheet', props.side, sheetSize, { rounded: props.rounded, 'without-overlay': !props.showOverlay }]"
-        role="dialog" aria-modal="true" tabindex="-1" @click.stop>
+      <section ref="sheetRef" :class="[
+        'sheet',
+        props.side,
+        sheetSize,
+        { rounded: props.rounded, 'without-overlay': !props.showOverlay },
+      ]" role="dialog" aria-modal="true" tabindex="-1" @click.stop>
         <div class="sheet-layout">
-          <div v-if="props.title || props.description || props.showCloseButton" class="sheet-header">
+          <div v-if="
+            props.title ||
+            props.description ||
+            props.showCloseButton ||
+            $slots.actions
+          " class="sheet-header">
             <div v-if="props.title || props.description" class="sheet-heading">
               <Text v-if="props.title" Element="h2" typography="title-2" class="sheet-title">
                 {{ props.title }}
@@ -60,10 +72,13 @@ const handleOverlayClick = () => {
                 {{ props.description }}
               </Text>
             </div>
-            <Button v-if="props.showCloseButton" class="sheet-close" mode="ghost" size="small" squared type="button"
-              aria-label="Закрыть" @click="close">
-              <IconXOutline />
-            </Button>
+            <div v-if="$slots.actions || props.showCloseButton" class="sheet-actions">
+              <slot name="actions"></slot>
+              <Button v-if="props.showCloseButton" class="sheet-close" mode="ghost" size="small" squared type="button"
+                aria-label="Закрыть" @click="close">
+                <IconXOutline />
+              </Button>
+            </div>
           </div>
 
           <div class="sheet-content">
@@ -109,7 +124,9 @@ const handleOverlayClick = () => {
   border-color: hsl(var(--border));
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  box-shadow: 0 20px 25px -5px hsl(var(--background) / 0.8), 0 8px 10px -6px hsl(var(--background) / 0.8);
+  box-shadow:
+    0 20px 25px -5px hsl(var(--background) / 0.8),
+    0 8px 10px -6px hsl(var(--background) / 0.8);
   outline: none;
   pointer-events: auto;
 }
@@ -160,7 +177,15 @@ const handleOverlayClick = () => {
   display: flex;
   justify-content: flex-end;
   gap: var(--gap-2);
-  flex-direction: column-reverse;
+  align-items: center;
+  padding: var(--gap-3) 0 var(--gap-3);
+}
+
+.sheet-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-1);
+  padding-left: var(--gap-2);
 }
 
 .right,
