@@ -14,28 +14,29 @@ export default {
   },
 } as Meta;
 
-export const AllLogos: StoryObj<typeof defineComponent<Record<string, never>>> = {
-  name: "Логотипы",
-  args: {},
-  render: (args) => ({
-    components: { ...logos, Text, Input },
-    setup() {
-      const search = ref();
-      const filteredlogos = computed(() => {
-        if (!search.value) {
-          return logos;
-        }
-        const lowercasedSearch = search.value.toLowerCase();
-        return Object.fromEntries(
-          Object.entries(logos).filter(([name]) =>
-            name.toLowerCase().includes(lowercasedSearch),
-          ),
-        );
-      });
+export const AllLogos: StoryObj<typeof defineComponent<Record<string, never>>> =
+  {
+    name: "Логотипы",
+    args: {},
+    render: (args) => ({
+      components: { ...logos, Text, Input },
+      setup() {
+        const search = ref();
+        const filteredlogos = computed(() => {
+          if (!search.value) {
+            return logos;
+          }
+          const lowercasedSearch = search.value.toLowerCase();
+          return Object.fromEntries(
+            Object.entries(logos).filter(([name]) =>
+              name.toLowerCase().includes(lowercasedSearch),
+            ),
+          );
+        });
 
-      return { args, logos, search, filteredlogos };
-    },
-    template: `
+        return { args, logos, search, filteredlogos };
+      },
+      template: `
     <div style="margin: 32px;">
       <Input placeholder="Поиск" v-model="search" />
     </div>
@@ -47,15 +48,17 @@ export const AllLogos: StoryObj<typeof defineComponent<Record<string, never>>> =
         <Text typography="label-3" color="secondary" style="word-break: break-all; text-align: center;">{{ name }}</Text>
       </div>
     </div>`,
-  }),
-};
+    }),
+  };
 
 type SoundEffect = {
   play: (options?: { force?: boolean }) => Promise<number | null>;
   stop: () => Promise<void>;
 };
 
-export const AllSoundEffects: StoryObj<typeof defineComponent<Record<string, never>>> = {
+export const AllSoundEffects: StoryObj<
+  typeof defineComponent<Record<string, never>>
+> = {
   name: "Звуковые эффекты",
   args: {},
   render: (args) => ({

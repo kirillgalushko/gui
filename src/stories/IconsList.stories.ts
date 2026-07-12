@@ -11,28 +11,29 @@ export default {
   },
 } as Meta;
 
-export const AllIcons: StoryObj<typeof defineComponent<Record<string, never>>> = {
-  name: "Поиск иконки",
-  args: {},
-  render: (args) => ({
-    components: { ...icons, Text, Input },
-    setup() {
-      const search = ref();
-      const filteredIcons = computed(() => {
-        if (!search.value) {
-          return icons;
-        }
-        const lowercasedSearch = search.value.toLowerCase();
-        return Object.fromEntries(
-          Object.entries(icons).filter(([name]) =>
-            name.toLowerCase().includes(lowercasedSearch),
-          ),
-        );
-      });
+export const AllIcons: StoryObj<typeof defineComponent<Record<string, never>>> =
+  {
+    name: "Поиск иконки",
+    args: {},
+    render: (args) => ({
+      components: { ...icons, Text, Input },
+      setup() {
+        const search = ref();
+        const filteredIcons = computed(() => {
+          if (!search.value) {
+            return icons;
+          }
+          const lowercasedSearch = search.value.toLowerCase();
+          return Object.fromEntries(
+            Object.entries(icons).filter(([name]) =>
+              name.toLowerCase().includes(lowercasedSearch),
+            ),
+          );
+        });
 
-      return { args, icons, search, filteredIcons };
-    },
-    template: `
+        return { args, icons, search, filteredIcons };
+      },
+      template: `
     <div style="margin: 32px;">
       <Input placeholder="Поиск иконки" v-model="search" />
     </div>
@@ -44,5 +45,5 @@ export const AllIcons: StoryObj<typeof defineComponent<Record<string, never>>> =
         <Text typography="label-3" color="secondary" style="word-break: break-all; text-align: center;">{{ name }}</Text>
       </div>
     </div>`,
-  }),
-};
+    }),
+  };
