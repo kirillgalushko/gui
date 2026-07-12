@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Text from '../Text/Text.vue';
+import Text from "../Text/Text.vue";
 </script>
 
 <template>

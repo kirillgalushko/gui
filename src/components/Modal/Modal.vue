@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed, getCurrentInstance } from 'vue';
-import Button from '../Button/Button.vue';
-import { IconXOutline } from '@gui/icons';
-import Text from '../Text/Text.vue'
+import { computed, getCurrentInstance } from "vue";
+import Button from "../Button/Button.vue";
+import { IconXOutline } from "@gui/icons";
+import Text from "../Text/Text.vue";
 
-type ModalSize = 'small' | 'medium' | 'large' | 'full';
+type ModalSize = "small" | "medium" | "large" | "full";
 
 export interface ModalProps {
   isOpened?: boolean;
@@ -15,23 +15,23 @@ export interface ModalProps {
 }
 
 const props = withDefaults(defineProps<ModalProps>(), {
-  size: 'medium',
-})
+  size: "medium",
+});
 const instance = getCurrentInstance();
 const gridTemplateAreas = computed(() => {
-  const footer = instance?.slots.footer ? '"footer footer"' : ''
+  const footer = instance?.slots.footer ? '"footer footer"' : "";
   if (props.title) {
     return `
       "title close"
       "content content"
       ${footer}
-    `
+    `;
   }
   return `
      "content close"
       ${footer}
-  `
-})
+  `;
+});
 </script>
 
 <template>
@@ -39,13 +39,27 @@ const gridTemplateAreas = computed(() => {
     <div class="modal-wrapper" v-if="props.isOpened">
       <div class="modal-bg"></div>
       <div :class="['modal', props.size]" role="dialog">
-        <div :style="{ gridTemplateAreas }"
-          :class="['modal-layout', { 'with-title': !!props.title, 'with-close': !!props.showCloseButton }]">
+        <div
+          :style="{ gridTemplateAreas }"
+          :class="[
+            'modal-layout',
+            {
+              'with-title': !!props.title,
+              'with-close': !!props.showCloseButton,
+            },
+          ]"
+        >
           <div v-if="props.title" class="modal-title">
             <Text typography="title-3">{{ props.title }}</Text>
           </div>
           <div v-if="props.showCloseButton" class="modal-close">
-            <Button mode="ghost" size="small" squared aria-label="Закрыть" @click="props.onClose">
+            <Button
+              mode="ghost"
+              size="small"
+              squared
+              aria-label="Закрыть"
+              @click="props.onClose"
+            >
               <IconXOutline />
             </Button>
           </div>
@@ -76,7 +90,7 @@ const gridTemplateAreas = computed(() => {
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
   animation-name: enter;
-  animation-duration: .2s;
+  animation-duration: 0.2s;
 }
 
 @keyframes enter {

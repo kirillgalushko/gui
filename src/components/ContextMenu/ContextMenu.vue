@@ -1,28 +1,32 @@
 <script setup lang="ts">
-import BaseMenu from '../BaseMenu/BaseMenu.vue';
-import { computed } from 'vue';
-import { useContextMenu } from './useContextMenu';
+import BaseMenu from "../BaseMenu/BaseMenu.vue";
+import { computed } from "vue";
+import { useContextMenu } from "./useContextMenu";
 
 export interface ContextMenuProps {
-  data: ReturnType<typeof useContextMenu>['contextMenuData']
+  data: ReturnType<typeof useContextMenu>["contextMenuData"];
 }
 
-const props = defineProps<ContextMenuProps>()
+const props = defineProps<ContextMenuProps>();
 const positionerStyles = computed(() => ({
-  position: 'fixed' as const,
+  position: "fixed" as const,
   left: `${props.data.position.value.x}px`,
   top: `${props.data.position.value.y}px`,
-}))
+}));
 const floatStyles = computed(() => ({
-  ...props.data.floatingStyles.value
-}))
+  ...props.data.floatingStyles.value,
+}));
 </script>
 
 <template>
   <div :ref="props.data.positionRef" :style="positionerStyles"></div>
   <Teleport to="body">
     <Transition name="fade">
-      <BaseMenu v-if="props.data.isContextMenuVisible.value" :ref="props.data.floatingRef" :style="floatStyles">
+      <BaseMenu
+        v-if="props.data.isContextMenuVisible.value"
+        :ref="props.data.floatingRef"
+        :style="floatStyles"
+      >
         <slot></slot>
       </BaseMenu>
     </Transition>

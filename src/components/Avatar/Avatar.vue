@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref } from "vue";
 
 export interface AvatarProps {
-  shape?: 'square' | 'circle'
-  color?: 'default' | 'secondary' | 'outlined'
-  src?: string
-  name?: string
-  size?: string
+  shape?: "square" | "circle";
+  color?: "default" | "secondary" | "outlined";
+  src?: string;
+  name?: string;
+  size?: string;
 }
 
 const props = withDefaults(defineProps<AvatarProps>(), {
-  shape: 'circle',
-  size: '40px',
-  color: 'default',
-})
+  shape: "circle",
+  size: "40px",
+  color: "default",
+});
 
 const imageLoaded = ref<boolean>(false);
 
 const fallback = computed(() => {
   const parts = props.name?.trim().split(/\s+/).filter(Boolean) ?? [];
-  const first = parts[0]?.[0] ?? '';
-  const second = parts[1]?.[0] ?? '';
+  const first = parts[0]?.[0] ?? "";
+  const second = parts[1]?.[0] ?? "";
 
   return `${first}${second}`.toUpperCase();
 });
@@ -30,21 +30,34 @@ function handleImageLoad() {
 }
 
 const styles = computed(() => {
-  const borderRadius = props.shape === 'square' ? {
-    borderRadius: `calc(${props.size} / 4)`,
-  } : {}
+  const borderRadius =
+    props.shape === "square"
+      ? {
+          borderRadius: `calc(${props.size} / 4)`,
+        }
+      : {};
   return {
     width: props.size,
     height: props.size,
     fontSize: `calc(${props.size} / 2.5)`,
     ...borderRadius,
-  }
-})
+  };
+});
 </script>
 
 <template>
-  <div :style="styles" :class="['avatar', props.shape, props.color]" v-bind="$attrs">
-    <img v-if="props.src" v-show="imageLoaded" @load="handleImageLoad" class="avatar-image" :src="props.src" />
+  <div
+    :style="styles"
+    :class="['avatar', props.shape, props.color]"
+    v-bind="$attrs"
+  >
+    <img
+      v-if="props.src"
+      v-show="imageLoaded"
+      @load="handleImageLoad"
+      class="avatar-image"
+      :src="props.src"
+    />
     <slot>
       {{ fallback }}
     </slot>

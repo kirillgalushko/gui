@@ -49,33 +49,69 @@ const handleOverlayClick = () => {
 <template>
   <Transition :name="`sheet-${props.side}`">
     <div v-if="props.isOpened" class="sheet-wrapper">
-      <div v-if="props.showOverlay" class="sheet-overlay" aria-hidden="true" @click="handleOverlayClick"></div>
-      <section ref="sheetRef" :class="[
-        'sheet',
-        props.side,
-        sheetSize,
-        { rounded: props.rounded, 'without-overlay': !props.showOverlay },
-      ]" role="dialog" aria-modal="true" tabindex="-1" @click.stop>
+      <div
+        v-if="props.showOverlay"
+        class="sheet-overlay"
+        aria-hidden="true"
+        @click="handleOverlayClick"
+      ></div>
+      <section
+        ref="sheetRef"
+        :class="[
+          'sheet',
+          props.side,
+          sheetSize,
+          { rounded: props.rounded, 'without-overlay': !props.showOverlay },
+        ]"
+        role="dialog"
+        aria-modal="true"
+        tabindex="-1"
+        @click.stop
+      >
         <div class="sheet-layout">
-          <div v-if="
-            props.title ||
-            props.description ||
-            props.showCloseButton ||
-            $slots.actions
-          " class="sheet-header">
+          <div
+            v-if="
+              props.title ||
+              props.description ||
+              props.showCloseButton ||
+              $slots.actions
+            "
+            class="sheet-header"
+          >
             <div v-if="props.title || props.description" class="sheet-heading">
-              <Text v-if="props.title" Element="h2" typography="title-2" class="sheet-title">
+              <Text
+                v-if="props.title"
+                Element="h2"
+                typography="title-2"
+                class="sheet-title"
+              >
                 {{ props.title }}
               </Text>
               <Gap v-if="props.title && props.description" :size="2" />
-              <Text v-if="props.description" typography="paragraph-1" color="secondary" class="sheet-description">
+              <Text
+                v-if="props.description"
+                typography="paragraph-1"
+                color="secondary"
+                class="sheet-description"
+              >
                 {{ props.description }}
               </Text>
             </div>
-            <div v-if="$slots.actions || props.showCloseButton" class="sheet-actions">
+            <div
+              v-if="$slots.actions || props.showCloseButton"
+              class="sheet-actions"
+            >
               <slot name="actions"></slot>
-              <Button v-if="props.showCloseButton" class="sheet-close" mode="ghost" size="small" squared type="button"
-                aria-label="Закрыть" @click="close">
+              <Button
+                v-if="props.showCloseButton"
+                class="sheet-close"
+                mode="ghost"
+                size="small"
+                squared
+                type="button"
+                aria-label="Закрыть"
+                @click="close"
+              >
                 <IconXOutline />
               </Button>
             </div>

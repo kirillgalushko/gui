@@ -1,25 +1,25 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Field from './Field.vue';
-import FieldContent from './FieldContent.vue';
-import FieldDescription from './FieldDescription.vue';
-import FieldLabel from './FieldLabel.vue';
-import FieldHelper from '../FieldHelper/FieldHelper.vue';
-import Input from '../Input/Input.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Field from "./Field.vue";
+import FieldContent from "./FieldContent.vue";
+import FieldDescription from "./FieldDescription.vue";
+import FieldLabel from "./FieldLabel.vue";
+import FieldHelper from "../FieldHelper/FieldHelper.vue";
+import Input from "../Input/Input.vue";
 
 const meta: Meta<typeof Field> = {
-  title: 'Components/Field',
+  title: "Components/Field",
   component: Field,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     invalid: {
-      type: 'boolean',
+      type: "boolean",
     },
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
     orientation: {
-      control: 'select',
-      options: ['vertical', 'horizontal', 'responsive'],
+      control: "select",
+      options: ["vertical", "horizontal", "responsive"],
     },
   },
 };
@@ -29,7 +29,7 @@ type Story = StoryObj<typeof Field>;
 
 export const Default: Story = {
   args: {
-    orientation: 'vertical',
+    orientation: "vertical",
   },
   render: (args) => ({
     components: { Field, FieldContent, FieldDescription, FieldLabel, Input },

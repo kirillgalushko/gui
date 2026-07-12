@@ -1,5 +1,10 @@
 <template>
-  <span class="breadcrumb-page" role="link" aria-disabled="true" aria-current="page">
+  <span
+    class="breadcrumb-page"
+    role="link"
+    aria-disabled="true"
+    aria-current="page"
+  >
     <slot></slot>
   </span>
 </template>

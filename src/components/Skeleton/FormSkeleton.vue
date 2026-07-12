@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import Skeleton from './Skeleton.vue';
-import ButtonSkeleton from './ButtonSkeleton.vue';
-import { useSkeletonLoading } from './context';
+import { computed } from "vue";
+import Skeleton from "./Skeleton.vue";
+import ButtonSkeleton from "./ButtonSkeleton.vue";
+import { useSkeletonLoading } from "./context";
 
 export interface FormSkeletonProps {
   loading?: boolean;
@@ -16,7 +16,9 @@ const props = withDefaults(defineProps<FormSkeletonProps>(), {
 });
 
 const isLoading = useSkeletonLoading(() => props.loading);
-const fieldIndexes = computed(() => Array.from({ length: props.fields }, (_, index) => index));
+const fieldIndexes = computed(() =>
+  Array.from({ length: props.fields }, (_, index) => index),
+);
 </script>
 
 <template>

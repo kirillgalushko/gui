@@ -1,5 +1,5 @@
 <script lang="ts">
-import BaseMenuList from '../BaseMenu/BaseMenuList.vue';
+import BaseMenuList from "../BaseMenu/BaseMenuList.vue";
 
-export default BaseMenuList
+export default BaseMenuList;
 </script>

@@ -1,9 +1,9 @@
 import { inject, provide, ref } from "vue";
-import { useFloating, flip, shift } from '@floating-ui/vue';
+import { useFloating, flip, shift } from "@floating-ui/vue";
 
 export const useHoverMenu = () => {
-  const onMenuShown = inject('hover-submenu-shown', ref());
-  const onMenuHidden = inject('hover-submenu-hidden', ref());
+  const onMenuShown = inject("hover-submenu-shown", ref());
+  const onMenuHidden = inject("hover-submenu-hidden", ref());
   const isVisible = ref(false);
   const isSubmenuVisible = ref(false);
   const targetRef = ref<HTMLElement | null>(null);
@@ -11,7 +11,7 @@ export const useHoverMenu = () => {
   const timeout = ref<ReturnType<typeof setTimeout>>();
   const middleware = ref([flip(), shift()]);
   const { floatingStyles, update } = useFloating(targetRef, floatingRef, {
-    placement: 'right-start',
+    placement: "right-start",
     middleware,
   });
 
@@ -19,9 +19,9 @@ export const useHoverMenu = () => {
     clearTimeout(timeout.value);
     event?.preventDefault();
     isVisible.value = true;
-    onMenuShown.value?.()
+    onMenuShown.value?.();
     update();
-  }
+  };
 
   const hideMenu = () => {
     timeout.value = setTimeout(() => {
@@ -31,14 +31,22 @@ export const useHoverMenu = () => {
   };
 
   const submenuShown = () => {
-    isSubmenuVisible.value = true
-  }
+    isSubmenuVisible.value = true;
+  };
 
   const submenuHidden = () => {
-    isSubmenuVisible.value = false
-  }
+    isSubmenuVisible.value = false;
+  };
 
-  provide('hover-submenu-shown', ref(submenuShown))
-  provide('hover-submenu-hidden', ref(submenuHidden))
-  return { floatingStyles, floatingRef, targetRef, isVisible, isSubmenuVisible, hideMenu, showHoverMenu }
-}
+  provide("hover-submenu-shown", ref(submenuShown));
+  provide("hover-submenu-hidden", ref(submenuHidden));
+  return {
+    floatingStyles,
+    floatingRef,
+    targetRef,
+    isVisible,
+    isSubmenuVisible,
+    hideMenu,
+    showHoverMenu,
+  };
+};

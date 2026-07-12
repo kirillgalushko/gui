@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 import libAssetsPlugin from "@laynezh/vite-plugin-lib-assets";
 
 export default defineConfig({
@@ -10,26 +10,26 @@ export default defineConfig({
     libAssetsPlugin({
       include: /\.(eot|woff2?|ttf)(\?.*)?(#.*)?$/,
       name: "fonts/[name].[ext]",
-      outputPath: './'
+      outputPath: "./",
     }),
   ],
   build: {
     lib: {
-      entry: 'src/index.ts',
-      name: 'gui',
+      entry: "src/index.ts",
+      name: "gui",
       fileName: (format) => `gui.${format}.js`,
-      formats: ['es'],
+      formats: ["es"],
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ["vue"],
       output: {
         globals: {
-          vue: 'Vue',
+          vue: "Vue",
         },
-        chunkFileNames: 'chunks/[name]-[hash].js',
-        entryFileNames: '[name].js',
-        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: "chunks/[name]-[hash].js",
+        entryFileNames: "[name].js",
+        assetFileNames: "assets/[name]-[hash][extname]",
       },
     },
   },
-})
+});

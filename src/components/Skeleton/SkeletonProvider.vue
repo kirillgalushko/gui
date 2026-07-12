@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provideSkeletonLoading } from './context';
+import { provideSkeletonLoading } from "./context";
 
 export interface SkeletonProviderProps {
   loading?: boolean;

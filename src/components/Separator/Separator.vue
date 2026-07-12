@@ -1,18 +1,18 @@
 <script setup lang="ts">
-
 export interface SeparatorProps {
-  direction: 'vertical' | 'horizontal'
-  stretched?: boolean
+  direction: "vertical" | "horizontal";
+  stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<SeparatorProps>(), {
   stretched: false,
-})
-
+});
 </script>
 
 <template>
-  <div :class="['separator', props.direction, { stretched: props.stretched }]"></div>
+  <div
+    :class="['separator', props.direction, { stretched: props.stretched }]"
+  ></div>
 </template>
 
 <style scoped>

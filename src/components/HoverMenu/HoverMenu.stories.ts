@@ -1,15 +1,22 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import HoverMenu from './HoverMenu.vue';
-import HoverMenuItem from './HoverMenuItem.vue';
-import HoverMenuList from './HoverMenuList.vue';
-import HoverMenuSeparator from './HoverMenuSeparator.vue';
-import Button from '../Button/Button.vue'
-import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyOutline, IconMailOutline, IconArchiveOutline } from '@gui/icons';
+import { Meta, StoryObj } from "@storybook/vue3";
+import HoverMenu from "./HoverMenu.vue";
+import HoverMenuItem from "./HoverMenuItem.vue";
+import HoverMenuList from "./HoverMenuList.vue";
+import HoverMenuSeparator from "./HoverMenuSeparator.vue";
+import Button from "../Button/Button.vue";
+import {
+  IconPencilOutline,
+  IconExternalLinkOutline,
+  IconShareOutline,
+  IconCopyOutline,
+  IconMailOutline,
+  IconArchiveOutline,
+} from "@gui/icons";
 
 const meta: Meta<typeof HoverMenu> = {
-  title: 'Components/HoverMenu',
+  title: "Components/HoverMenu",
   component: HoverMenu,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
 };
 
 export default meta;
@@ -18,14 +25,19 @@ type Story = StoryObj<typeof HoverMenu>;
 export const Default: Story = {
   args: {},
   render: (args) => ({
-    components: { HoverMenu, HoverMenuItem, HoverMenuList, HoverMenuSeparator, Button,
+    components: {
+      HoverMenu,
+      HoverMenuItem,
+      HoverMenuList,
+      HoverMenuSeparator,
+      Button,
       IconExternalLinkOutline,
       IconPencilOutline,
       IconShareOutline,
       IconArchiveOutline,
       IconMailOutline,
       IconCopyOutline,
-     },
+    },
     setup() {},
     template: `
     <div>

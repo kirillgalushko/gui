@@ -1,30 +1,30 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Avatar from './Avatar.vue';
-import { IconUserOutline } from '@gui/icons';
-import avatarExample from '../../assets/images/avatar-example.png'
+import { Meta, StoryObj } from "@storybook/vue3";
+import Avatar from "./Avatar.vue";
+import { IconUserOutline } from "@gui/icons";
+import avatarExample from "../../assets/images/avatar-example.png";
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Components/Avatar',
+  title: "Components/Avatar",
   component: Avatar,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     shape: {
-      control: { type: 'select' },
-      options: ['square', 'circle']
+      control: { type: "select" },
+      options: ["square", "circle"],
     },
     color: {
-      control: { type: 'select' },
-      options: ['default', 'secondary', 'outlined']
+      control: { type: "select" },
+      options: ["default", "secondary", "outlined"],
     },
     size: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     name: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
   },
   args: {
-    size: '60px',
+    size: "60px",
   },
 };
 
@@ -32,8 +32,7 @@ export default meta;
 type Story = StoryObj<typeof Avatar>;
 
 export const WithImage: Story = {
-  args: {
-  },
+  args: {},
   render: (args) => ({
     components: { Avatar, IconUserOutline },
     setup() {
@@ -45,8 +44,7 @@ export const WithImage: Story = {
 };
 
 export const WithIcon: Story = {
-  args: {
-  },
+  args: {},
   render: (args) => ({
     components: { Avatar, IconUserOutline },
     setup() {
@@ -61,7 +59,7 @@ export const WithIcon: Story = {
 
 export const WithFallback: Story = {
   args: {
-    name: 'Аренда',
+    name: "Аренда",
   },
   render: (args) => ({
     components: { Avatar },

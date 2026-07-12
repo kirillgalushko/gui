@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { IconCircleCheckOutline, IconCircleXOutline } from '@gui/icons';
-import PasswordInput from '../PasswordInput/PasswordInput.vue';
-import ProgressBar from '../ProgressBar/ProgressBar.vue';
-import Text from '../Text/Text.vue';
+import { computed, ref } from "vue";
+import { IconCircleCheckOutline, IconCircleXOutline } from "@gui/icons";
+import PasswordInput from "../PasswordInput/PasswordInput.vue";
+import ProgressBar from "../ProgressBar/ProgressBar.vue";
+import Text from "../Text/Text.vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -34,23 +34,27 @@ export interface PasswordStrengthInputProps {
 const props = withDefaults(defineProps<PasswordStrengthInputProps>(), {
   rules: () => [],
   progressSegments: 4,
-  progressHeight: '8px',
-  progressGap: 'var(--gap-1)',
-  maxWidth: '100%',
+  progressHeight: "8px",
+  progressGap: "var(--gap-1)",
+  maxWidth: "100%",
 });
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string];
+  "update:modelValue": [value: string];
 }>();
 
 const isFocused = ref(false);
-const completedRulesCount = computed(() => props.rules.filter((rule) => rule.valid).length);
+const completedRulesCount = computed(
+  () => props.rules.filter((rule) => rule.valid).length,
+);
 const rulesMax = computed(() => props.rules.length);
-const hasValue = computed(() => (props.modelValue ?? '').length > 0);
-const shouldShowRules = computed(() => props.rules.length > 0 && (isFocused.value || hasValue.value));
+const hasValue = computed(() => (props.modelValue ?? "").length > 0);
+const shouldShowRules = computed(
+  () => props.rules.length > 0 && (isFocused.value || hasValue.value),
+);
 
 const computedProgress = computed(() => {
-  if (typeof props.progress === 'number') {
+  if (typeof props.progress === "number") {
     return Math.min(rulesMax.value, Math.max(0, props.progress));
   }
 
@@ -62,25 +66,27 @@ const computedProgress = computed(() => {
 });
 
 const progressColor = computed(() => {
-  const progressRatio = rulesMax.value ? computedProgress.value / rulesMax.value : 0;
+  const progressRatio = rulesMax.value
+    ? computedProgress.value / rulesMax.value
+    : 0;
 
   if (progressRatio > 0.75) {
-    return 'positive';
+    return "positive";
   }
 
   if (progressRatio > 0.5) {
-    return 'warning';
+    return "warning";
   }
 
   if (progressRatio > 0.25) {
-    return 'danger';
+    return "danger";
   }
 
-  return 'negative';
+  return "negative";
 });
 
 const updateModelValue = (value: string) => {
-  emit('update:modelValue', value);
+  emit("update:modelValue", value);
 };
 
 const handleFocusIn = () => {
@@ -92,9 +98,9 @@ const handleFocusOut = (event: FocusEvent) => {
   const relatedTarget = event.relatedTarget;
 
   if (
-    currentTarget instanceof HTMLElement
-    && relatedTarget instanceof Node
-    && currentTarget.contains(relatedTarget)
+    currentTarget instanceof HTMLElement &&
+    relatedTarget instanceof Node &&
+    currentTarget.contains(relatedTarget)
   ) {
     return;
   }
@@ -104,25 +110,46 @@ const handleFocusOut = (event: FocusEvent) => {
 </script>
 
 <template>
-  <div :style="{ maxWidth: props.maxWidth }" class="password-strength" @focusin="handleFocusIn"
-    @focusout="handleFocusOut">
-    <PasswordInput v-bind="$attrs" :model-value="props.modelValue" :max-width="props.maxWidth"
-      :auto-focus="props.autoFocus" :disabled="props.disabled" :description="props.description"
-      :error-message="props.errorMessage" :invalid="props.invalid" :description-id="props.descriptionId"
-      @update:model-value="updateModelValue" />
+  <div
+    :style="{ maxWidth: props.maxWidth }"
+    class="password-strength"
+    @focusin="handleFocusIn"
+    @focusout="handleFocusOut"
+  >
+    <PasswordInput
+      v-bind="$attrs"
+      :model-value="props.modelValue"
+      :max-width="props.maxWidth"
+      :auto-focus="props.autoFocus"
+      :disabled="props.disabled"
+      :description="props.description"
+      :error-message="props.errorMessage"
+      :invalid="props.invalid"
+      :description-id="props.descriptionId"
+      @update:model-value="updateModelValue"
+    />
 
     <Transition name="password-strength-details">
       <div v-if="shouldShowRules" class="password-strength-details">
         <div class="password-strength-details-content">
           <div class="password-strength-progress">
-            <ProgressBar :progress="computedProgress" :color="progressColor" :segments="props.progressSegments"
-              :height="props.progressHeight" :gap="props.progressGap" :max="rulesMax" />
+            <ProgressBar
+              :progress="computedProgress"
+              :color="progressColor"
+              :segments="props.progressSegments"
+              :height="props.progressHeight"
+              :gap="props.progressGap"
+              :max="rulesMax"
+            />
           </div>
 
           <ul class="password-strength-rules">
-            <li v-for="(rule, index) in props.rules" :key="rule.id ?? index"
+            <li
+              v-for="(rule, index) in props.rules"
+              :key="rule.id ?? index"
               :class="['password-strength-rule', { valid: rule.valid }]"
-              :style="{ '--rule-enter-delay': `${index * 34}ms` }">
+              :style="{ '--rule-enter-delay': `${index * 34}ms` }"
+            >
               <span class="password-strength-rule-icon">
                 <IconCircleCheckOutline v-if="rule.valid" />
                 <IconCircleXOutline v-else />

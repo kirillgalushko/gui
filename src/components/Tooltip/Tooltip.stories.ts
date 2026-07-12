@@ -1,17 +1,17 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Tooltip from './Tooltip.vue';
-import Text from '../Text/Text.vue'
+import { Meta, StoryObj } from "@storybook/vue3";
+import Tooltip from "./Tooltip.vue";
+import Text from "../Text/Text.vue";
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: "Components/Tooltip",
   component: Tooltip,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    mode: { control: 'select', options: ['default', 'contrast'] },
-    delay: { control: 'object' },
+    mode: { control: "select", options: ["default", "contrast"] },
+    delay: { control: "object" },
   },
   args: {
-    mode: 'default',
+    mode: "default",
     delay: { show: 200, hide: 0 },
   },
 };
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Tooltip>;
 
 export const Default: Story = {
   args: {
-    mode: 'default',
+    mode: "default",
     delay: { show: 200, hide: 0 },
   },
   render: (args) => ({
@@ -42,7 +42,7 @@ export const Default: Story = {
 
 export const Long: Story = {
   args: {
-    mode: 'default',
+    mode: "default",
     delay: { show: 200, hide: 0 },
   },
   render: (args) => ({

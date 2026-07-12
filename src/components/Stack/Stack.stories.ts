@@ -1,30 +1,30 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Card from '../Card/Card.vue'
-import Stack from './Stack.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Card from "../Card/Card.vue";
+import Stack from "./Stack.vue";
 
 const meta: Meta<typeof Stack> = {
-  title: 'Components/Stack',
+  title: "Components/Stack",
   component: Stack,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     direction: {
-      control: { type: 'select' },
-      options: ['column', 'row']
+      control: { type: "select" },
+      options: ["column", "row"],
     },
     gap: {
-      control: { type: 'select' },
-      options: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      control: { type: "select" },
+      options: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     },
     alignItems: {
-      control: { type: 'select' },
-      options: ['start', 'center', 'end']
+      control: { type: "select" },
+      options: ["start", "center", "end"],
     },
     stretched: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     wrap: {
-      control: { type: 'boolean' },
-    }
+      control: { type: "boolean" },
+    },
   },
 };
 
@@ -33,7 +33,7 @@ type Story = StoryObj<typeof Stack>;
 
 export const Default: Story = {
   args: {
-    direction: 'column',
+    direction: "column",
     gap: 3,
   },
   render: (args) => ({
@@ -56,7 +56,7 @@ export const Default: Story = {
 
 export const Row: Story = {
   args: {
-    direction: 'row',
+    direction: "row",
     gap: 3,
   },
   render: (args) => ({

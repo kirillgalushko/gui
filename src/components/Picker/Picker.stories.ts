@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { IconChevronDownOutline } from '@gui/icons';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { IconChevronDownOutline } from "@gui/icons";
 
-import Picker from './Picker.vue';
+import Picker from "./Picker.vue";
 
 const meta = {
-  title: 'Components/Picker',
+  title: "Components/Picker",
   component: Picker,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     stretched: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 } satisfies Meta<typeof Picker>;

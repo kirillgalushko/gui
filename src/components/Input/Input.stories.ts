@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Input from './Input.vue';
-import { IconMenu2Outline, IconSearchOutline } from '@gui/icons';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Input from "./Input.vue";
+import { IconMenu2Outline, IconSearchOutline } from "@gui/icons";
 
-type InputType = typeof Input | HTMLInputElement
+type InputType = typeof Input | HTMLInputElement;
 
 const meta: Meta<InputType> = {
-  title: 'Components/Input',
+  title: "Components/Input",
   component: Input,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     disabled: {
-      type: 'boolean'
+      type: "boolean",
     },
     invalid: {
-      type: 'boolean'
+      type: "boolean",
     },
   },
 };
@@ -23,8 +23,8 @@ type Story = StoryObj<InputType>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Placeholder',
-    value: 'Value',
+    placeholder: "Placeholder",
+    value: "Value",
   },
   render: (args) => ({
     components: { Input },
@@ -35,11 +35,10 @@ export const Default: Story = {
   }),
 };
 
-
 export const WithLeftIcon: Story = {
   args: {
-    placeholder: 'Placeholder',
-    value: 'Value',
+    placeholder: "Placeholder",
+    value: "Value",
   },
   render: (args) => ({
     components: { Input, IconSearchOutline },
@@ -56,11 +55,10 @@ export const WithLeftIcon: Story = {
   }),
 };
 
-
 export const WithRightIcon: Story = {
   args: {
-    placeholder: 'Placeholder',
-    value: 'Value',
+    placeholder: "Placeholder",
+    value: "Value",
   },
   render: (args) => ({
     components: { Input, IconMenu2Outline },
@@ -79,9 +77,9 @@ export const WithRightIcon: Story = {
 
 export const WithPostfix: Story = {
   args: {
-    placeholder: 'Стоимость',
-    value: '12000',
-    postfix: '₽',
+    placeholder: "Стоимость",
+    value: "12000",
+    postfix: "₽",
   },
   render: (args) => ({
     components: { Input },
@@ -94,10 +92,10 @@ export const WithPostfix: Story = {
 
 export const Invalid: Story = {
   args: {
-    placeholder: 'Placeholder',
-    value: 'Value',
-    description: 'Подсказка скрывается при ошибке',
-    errorMessage: 'Поле заполнено неверно',
+    placeholder: "Placeholder",
+    value: "Value",
+    description: "Подсказка скрывается при ошибке",
+    errorMessage: "Поле заполнено неверно",
     invalid: true,
   },
   render: (args) => ({

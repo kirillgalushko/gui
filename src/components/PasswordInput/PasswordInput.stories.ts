@@ -1,18 +1,18 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import PasswordInput from './PasswordInput.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import PasswordInput from "./PasswordInput.vue";
 
-type PasswordInputType = typeof PasswordInput | HTMLInputElement
+type PasswordInputType = typeof PasswordInput | HTMLInputElement;
 
 const meta: Meta<PasswordInputType> = {
-  title: 'Components/PasswordInput',
+  title: "Components/PasswordInput",
   component: PasswordInput,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
     invalid: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
 };
@@ -22,8 +22,8 @@ type Story = StoryObj<PasswordInputType>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Пароль',
-    value: 'password',
+    placeholder: "Пароль",
+    value: "password",
   },
   render: (args) => ({
     components: { PasswordInput },
@@ -36,10 +36,10 @@ export const Default: Story = {
 
 export const Invalid: Story = {
   args: {
-    placeholder: 'Пароль',
-    value: '123',
-    description: 'Минимум 8 символов',
-    errorMessage: 'Пароль слишком короткий',
+    placeholder: "Пароль",
+    value: "123",
+    description: "Минимум 8 символов",
+    errorMessage: "Пароль слишком короткий",
     invalid: true,
   },
   render: (args) => ({

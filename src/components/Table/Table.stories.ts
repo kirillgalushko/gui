@@ -1,17 +1,17 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Table from './Table.vue';
-import TableBody from './TableBody.vue';
-import TableCaption from './TableCaption.vue';
-import TableCell from './TableCell.vue';
-import TableFooter from './TableFooter.vue';
-import TableHead from './TableHead.vue';
-import TableHeader from './TableHeader.vue';
-import TableRow from './TableRow.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Table from "./Table.vue";
+import TableBody from "./TableBody.vue";
+import TableCaption from "./TableCaption.vue";
+import TableCell from "./TableCell.vue";
+import TableFooter from "./TableFooter.vue";
+import TableHead from "./TableHead.vue";
+import TableHeader from "./TableHeader.vue";
+import TableRow from "./TableRow.vue";
 
 const meta = {
-  title: 'Components/Table',
+  title: "Components/Table",
   component: Table,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Table>;
 
 export default meta;
@@ -19,34 +19,34 @@ type Story = StoryObj<typeof Table>;
 
 const invoices = [
   {
-    invoice: 'INV001',
-    paymentStatus: 'Paid',
-    totalAmount: '$250.00',
-    paymentMethod: 'Credit Card',
+    invoice: "INV001",
+    paymentStatus: "Paid",
+    totalAmount: "$250.00",
+    paymentMethod: "Credit Card",
   },
   {
-    invoice: 'INV002',
-    paymentStatus: 'Pending',
-    totalAmount: '$150.00',
-    paymentMethod: 'PayPal',
+    invoice: "INV002",
+    paymentStatus: "Pending",
+    totalAmount: "$150.00",
+    paymentMethod: "PayPal",
   },
   {
-    invoice: 'INV003',
-    paymentStatus: 'Unpaid',
-    totalAmount: '$350.00',
-    paymentMethod: 'Bank Transfer',
+    invoice: "INV003",
+    paymentStatus: "Unpaid",
+    totalAmount: "$350.00",
+    paymentMethod: "Bank Transfer",
   },
   {
-    invoice: 'INV004',
-    paymentStatus: 'Paid',
-    totalAmount: '$450.00',
-    paymentMethod: 'Credit Card',
+    invoice: "INV004",
+    paymentStatus: "Paid",
+    totalAmount: "$450.00",
+    paymentMethod: "Credit Card",
   },
   {
-    invoice: 'INV005',
-    paymentStatus: 'Paid',
-    totalAmount: '$550.00',
-    paymentMethod: 'PayPal',
+    invoice: "INV005",
+    paymentStatus: "Paid",
+    totalAmount: "$550.00",
+    paymentMethod: "PayPal",
   },
 ];
 

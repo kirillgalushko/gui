@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import Skeleton from './Skeleton.vue';
-import AvatarSkeleton from './AvatarSkeleton.vue';
-import TextSkeleton from './TextSkeleton.vue';
-import { useSkeletonLoading } from './context';
-import type { BorderRadius, Padding } from '../../types';
+import { computed } from "vue";
+import Skeleton from "./Skeleton.vue";
+import AvatarSkeleton from "./AvatarSkeleton.vue";
+import TextSkeleton from "./TextSkeleton.vue";
+import { useSkeletonLoading } from "./context";
+import type { BorderRadius, Padding } from "../../types";
 
 export interface CardSkeletonProps {
   loading?: boolean;
@@ -15,7 +15,7 @@ export interface CardSkeletonProps {
 }
 
 const props = withDefaults(defineProps<CardSkeletonProps>(), {
-  width: '320px',
+  width: "320px",
   padding: 8,
   borderRadius: 16,
   withAvatar: true,
@@ -31,7 +31,12 @@ const styles = computed(() => ({
 </script>
 
 <template>
-  <div v-if="isLoading" class="card-skeleton" :style="styles" aria-hidden="true">
+  <div
+    v-if="isLoading"
+    class="card-skeleton"
+    :style="styles"
+    aria-hidden="true"
+  >
     <div class="card-skeleton-header">
       <AvatarSkeleton v-if="props.withAvatar" />
       <TextSkeleton :lines="2" :width="['60%', '42%']" typography="label-2" />

@@ -1,35 +1,36 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from "@storybook/vue3";
 
-import GridColumn from './GridColumn.vue';
-import GridLayout from './GridLayout.vue';
-import GridRow from './GridRow.vue';
+import GridColumn from "./GridColumn.vue";
+import GridLayout from "./GridLayout.vue";
+import GridRow from "./GridRow.vue";
 
 const meta: Meta<typeof GridLayout> = {
-  title: 'Components/Grid',
+  title: "Components/Grid",
   component: GridLayout,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     mode: {
-      control: { type: 'select' },
-      options: ['container', 'viewport'],
-      description: 'Источник breakpoint: ширина GridLayout или ширина viewport.',
+      control: { type: "select" },
+      options: ["container", "viewport"],
+      description:
+        "Источник breakpoint: ширина GridLayout или ширина viewport.",
     },
     gutter: {
-      control: 'text',
-      description: 'Стабильный gutter между колонками.',
+      control: "text",
+      description: "Стабильный gutter между колонками.",
     },
     highlight: {
-      control: 'boolean',
-      description: 'Показывает полупрозрачную подсветку колонок.',
+      control: "boolean",
+      description: "Показывает полупрозрачную подсветку колонок.",
     },
     stretched: {
-      control: 'boolean',
-      description: 'Отключает максимальную ширину GridLayout.',
+      control: "boolean",
+      description: "Отключает максимальную ширину GridLayout.",
     },
   },
   args: {
-    mode: 'container',
-    gutter: 'var(--gap-4, 16px)',
+    mode: "container",
+    gutter: "var(--gap-4, 16px)",
     highlight: false,
     stretched: false,
   },
@@ -37,7 +38,7 @@ const meta: Meta<typeof GridLayout> = {
     docs: {
       description: {
         component:
-          'GridLayout создает content area и передает через provide/inject текущий breakpoint и количество колонок. GridRow строит CSS Grid внутри content area. GridColumn выбирает span по props xs/s/m/l/xl/xxl и при отсутствии значения использует ближайший меньший breakpoint.',
+          "GridLayout создает content area и передает через provide/inject текущий breakpoint и количество колонок. GridRow строит CSS Grid внутри content area. GridColumn выбирает span по props xs/s/m/l/xl/xxl и при отсутствии значения использует ближайший меньший breakpoint.",
       },
     },
   },
@@ -58,9 +59,9 @@ const nestedStyles = `
   background: red;
   opacity: 0.5;
   border-radius: 6px;
-`
+`;
 
-const renderDefaultGrid: Story['render'] = (args) => ({
+const renderDefaultGrid: Story["render"] = (args) => ({
   components: { GridLayout, GridRow, GridColumn },
   setup() {
     return { args, tileStyles };

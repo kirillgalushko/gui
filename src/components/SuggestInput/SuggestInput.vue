@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue';
-import Dropdown from '../Dropdown/Dropdown.vue';
-import Input from '../Input/Input.vue';
+import { computed, onBeforeUnmount, ref } from "vue";
+import Dropdown from "../Dropdown/Dropdown.vue";
+import Input from "../Input/Input.vue";
 
 export interface SuggestInputProps {
   id?: string;
@@ -19,17 +19,17 @@ const emit = defineEmits<{
   focus: [event: FocusEvent];
   input: [event: Event];
   keydown: [event: KeyboardEvent];
-  'update:shown': [shown: boolean];
+  "update:shown": [shown: boolean];
 }>();
 
-const model = defineModel<string>({ default: '' });
+const model = defineModel<string>({ default: "" });
 const triggerRef = ref<HTMLDivElement>();
 let focusOpenTimer: ReturnType<typeof setTimeout> | undefined;
 let blurCloseTimer: ReturnType<typeof setTimeout> | undefined;
 
 const isShown = computed({
   get: () => props.shown ?? false,
-  set: (value: boolean) => emit('update:shown', value),
+  set: (value: boolean) => emit("update:shown", value),
 });
 
 const popperStyles = computed(() => ({
@@ -68,12 +68,12 @@ const handleFocus = (event: FocusEvent) => {
   }
 
   openAfterCurrentEvent();
-  emit('focus', event);
+  emit("focus", event);
 };
 
 const handleBlur = (event: FocusEvent) => {
   closeAfterBlur();
-  emit('blur', event);
+  emit("blur", event);
 };
 
 onBeforeUnmount(() => {
@@ -88,12 +88,31 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Dropdown v-model:shown="isShown" :triggers="[]" :popper-hide-triggers="[]" placement="bottom-start" :distance="6"
-    stretched :auto-hide="false" no-auto-focus>
+  <Dropdown
+    v-model:shown="isShown"
+    :triggers="[]"
+    :popper-hide-triggers="[]"
+    placement="bottom-start"
+    :distance="6"
+    stretched
+    :auto-hide="false"
+    no-auto-focus
+  >
     <div ref="triggerRef" class="suggest-input__trigger">
-      <Input :id="id" v-model="model" :placeholder="placeholder" :disabled="disabled" :invalid="invalid"
-        :error-message="errorMessage" :description="description" autocomplete="off" @focus="handleFocus"
-        @blur="handleBlur" @input="emit('input', $event)" @keydown="emit('keydown', $event)" />
+      <Input
+        :id="id"
+        v-model="model"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :invalid="invalid"
+        :error-message="errorMessage"
+        :description="description"
+        autocomplete="off"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        @input="emit('input', $event)"
+        @keydown="emit('keydown', $event)"
+      />
     </div>
 
     <template #popper>

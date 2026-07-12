@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Text from '../Text/Text.vue';
+import Text from "../Text/Text.vue";
 
 export interface FieldSeparatorProps {
   label?: string;
@@ -11,7 +11,13 @@ const props = defineProps<FieldSeparatorProps>();
 <template>
   <div class="field-separator">
     <span class="field-separator-line"></span>
-    <Text v-if="props.label" Element="span" typography="label-3" color="secondary" class="field-separator-label">
+    <Text
+      v-if="props.label"
+      Element="span"
+      typography="label-3"
+      color="secondary"
+      class="field-separator-label"
+    >
       {{ props.label }}
     </Text>
     <span class="field-separator-line"></span>

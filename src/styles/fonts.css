@@ -1,6 +1,14 @@
-@import url('../assets/fonts/inter.css');
+@import url("../assets/fonts/inter.css");
 
-h1, h2, h3, h4, h5, h6, p, blockquote, code {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+code {
   margin: 0;
 }
 

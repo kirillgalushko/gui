@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { IconArchiveOutline } from '@gui/icons';
-import Button from '../Button/Button.vue';
-import Empty from './Empty.vue';
-import EmptyContent from './EmptyContent.vue';
-import EmptyDescription from './EmptyDescription.vue';
-import EmptyHeader from './EmptyHeader.vue';
-import EmptyMedia from './EmptyMedia.vue';
-import EmptyTitle from './EmptyTitle.vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { IconArchiveOutline } from "@gui/icons";
+import Button from "../Button/Button.vue";
+import Empty from "./Empty.vue";
+import EmptyContent from "./EmptyContent.vue";
+import EmptyDescription from "./EmptyDescription.vue";
+import EmptyHeader from "./EmptyHeader.vue";
+import EmptyMedia from "./EmptyMedia.vue";
+import EmptyTitle from "./EmptyTitle.vue";
 
 const meta = {
-  title: 'Components/Empty',
+  title: "Components/Empty",
   component: Empty,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Empty>;
 
 export default meta;

@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import { defineComponent, onMounted, ref } from 'vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import { defineComponent, onMounted, ref } from "vue";
 
 export default {
-  title: '1. @gui/3. Цвета',
+  title: "1. @gui/3. Цвета",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 } as Meta;
 
 export const Colors: StoryObj = {
-  name: 'Цвета',
+  name: "Цвета",
   render: () => ({
     setup() {
       const colors = ref<{ name: string; value: string }[]>([]);
@@ -20,7 +20,7 @@ export const Colors: StoryObj = {
 
         for (let i = 0; i < styles.length; i++) {
           const key = styles[i];
-          if (key.startsWith('--color-')) {
+          if (key.startsWith("--color-")) {
             result.push({
               name: key,
               value: styles.getPropertyValue(key).trim(),

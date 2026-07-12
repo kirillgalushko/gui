@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Gap } from '../../types';
+import { computed } from "vue";
+import type { Gap } from "../../types";
 
 export interface GapProps {
-  direction?: 'horizontal' | 'vertical';
+  direction?: "horizontal" | "vertical";
   size?: Gap;
   default?: Gap;
 }
 
-const props = defineProps<GapProps>()
-const direction = computed(() => props.direction ?? 'vertical')
-const gap = computed(() => props.size ?? props.default ?? 1)
+const props = defineProps<GapProps>();
+const direction = computed(() => props.direction ?? "vertical");
+const gap = computed(() => props.size ?? props.default ?? 1);
 </script>
 
 <template>

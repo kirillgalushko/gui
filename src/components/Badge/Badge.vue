@@ -1,45 +1,61 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Color } from '../../types/colors';
+import { computed } from "vue";
+import type { Color } from "../../types/colors";
 
 export type BadgeColor = Color;
-export type BadgeMode = 'default' | 'secondary' | 'ghost' | 'negative' | 'positive' | 'danger' | 'warning';
+export type BadgeMode =
+  | "default"
+  | "secondary"
+  | "ghost"
+  | "negative"
+  | "positive"
+  | "danger"
+  | "warning";
 
 export interface BadgeProps {
   mode?: BadgeMode;
   color?: BadgeColor;
-  Element?: 'div' | 'button' | 'span';
+  Element?: "div" | "button" | "span";
 }
 
-const props = withDefaults(defineProps<BadgeProps>(), { mode: 'default', Element: 'div' });
+const props = withDefaults(defineProps<BadgeProps>(), {
+  mode: "default",
+  Element: "div",
+});
 
-const modeStyles: Record<BadgeMode, { backgroundColor: string; color?: string }> = {
+const modeStyles: Record<
+  BadgeMode,
+  { backgroundColor: string; color?: string }
+> = {
   default: {
-    backgroundColor: 'hsl(var(--primary))',
-    color: 'hsl(var(--primary-foreground))',
+    backgroundColor: "hsl(var(--primary))",
+    color: "hsl(var(--primary-foreground))",
   },
   secondary: {
-    backgroundColor: 'hsl(var(--secondary))',
-    color: 'hsl(var(--secondary-foreground))',
+    backgroundColor: "hsl(var(--secondary))",
+    color: "hsl(var(--secondary-foreground))",
   },
   ghost: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
   negative: {
-    backgroundColor: 'color-mix(in oklab, hsl(var(--negative)) 20%, transparent)',
-    color: 'hsl(var(--negative))',
+    backgroundColor:
+      "color-mix(in oklab, hsl(var(--negative)) 20%, transparent)",
+    color: "hsl(var(--negative))",
   },
   positive: {
-    backgroundColor: 'color-mix(in oklab, hsl(var(--positive)) 20%, transparent)',
-    color: 'hsl(var(--positive))',
+    backgroundColor:
+      "color-mix(in oklab, hsl(var(--positive)) 20%, transparent)",
+    color: "hsl(var(--positive))",
   },
   danger: {
-    backgroundColor: 'color-mix(in oklab, hsl(var(--danger)) 20%, transparent)',
-    color: 'hsl(var(--danger))',
+    backgroundColor: "color-mix(in oklab, hsl(var(--danger)) 20%, transparent)",
+    color: "hsl(var(--danger))",
   },
   warning: {
-    backgroundColor: 'color-mix(in oklab, hsl(var(--warning)) 20%, transparent)',
-    color: 'hsl(var(--warning))',
+    backgroundColor:
+      "color-mix(in oklab, hsl(var(--warning)) 20%, transparent)",
+    color: "hsl(var(--warning))",
   },
 };
 
@@ -48,16 +64,16 @@ const badgeStyle = computed(() => {
     const color = `var(--color-${props.color}-500)`;
 
     return {
-      '--badge-background': `color-mix(in oklab, ${color} 20%, transparent)`,
-      '--badge-color': color,
+      "--badge-background": `color-mix(in oklab, ${color} 20%, transparent)`,
+      "--badge-color": color,
     };
   }
 
   const modeStyle = modeStyles[props.mode];
 
   return {
-    '--badge-background': modeStyle.backgroundColor,
-    '--badge-color': modeStyle.color ?? 'inherit',
+    "--badge-background": modeStyle.backgroundColor,
+    "--badge-color": modeStyle.color ?? "inherit",
   };
 });
 </script>

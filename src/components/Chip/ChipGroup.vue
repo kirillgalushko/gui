@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, provide } from 'vue';
-import { chipGroupContextKey } from './useChipGroup';
-import type { ChipMode, ChipSize, ChipValue } from './types';
+import { computed, provide } from "vue";
+import { chipGroupContextKey } from "./useChipGroup";
+import type { ChipMode, ChipSize, ChipValue } from "./types";
 
 export interface ChipGroupProps {
   mode?: ChipMode;
@@ -12,8 +12,8 @@ export interface ChipGroupProps {
 }
 
 const props = withDefaults(defineProps<ChipGroupProps>(), {
-  mode: 'single',
-  size: 'medium',
+  mode: "single",
+  size: "medium",
 });
 
 const model = defineModel<ChipValue | ChipValue[] | null>({
@@ -21,11 +21,13 @@ const model = defineModel<ChipValue | ChipValue[] | null>({
 });
 
 const selectedValues = computed<ChipValue[]>(() => {
-  if (props.mode === 'multiple') {
+  if (props.mode === "multiple") {
     return Array.isArray(model.value) ? model.value : [];
   }
 
-  return model.value === null || Array.isArray(model.value) ? [] : [model.value];
+  return model.value === null || Array.isArray(model.value)
+    ? []
+    : [model.value];
 });
 
 const isSelected = (value: ChipValue): boolean => {
@@ -37,7 +39,7 @@ const select = (value: ChipValue): void => {
     return;
   }
 
-  if (props.mode === 'multiple') {
+  if (props.mode === "multiple") {
     const nextValue = isSelected(value)
       ? selectedValues.value.filter((selectedValue) => selectedValue !== value)
       : [...selectedValues.value, value];
@@ -59,11 +61,19 @@ provide(chipGroupContextKey, {
 </script>
 
 <template>
-  <div :class="['chip-group', { stretched: props.stretched }]" :role="props.mode === 'single' ? 'radiogroup' : 'group'">
+  <div
+    :class="['chip-group', { stretched: props.stretched }]"
+    :role="props.mode === 'single' ? 'radiogroup' : 'group'"
+  >
     <slot></slot>
     <template v-if="props.name">
-      <input v-for="selectedValue in selectedValues" :key="selectedValue" type="hidden" :name="props.name"
-        :value="selectedValue" />
+      <input
+        v-for="selectedValue in selectedValues"
+        :key="selectedValue"
+        type="hidden"
+        :name="props.name"
+        :value="selectedValue"
+      />
     </template>
   </div>
 </template>

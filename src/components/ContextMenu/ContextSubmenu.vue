@@ -1,5 +1,5 @@
 <script lang="ts">
-import HoverMenu from '../HoverMenu/HoverMenu.vue';
+import HoverMenu from "../HoverMenu/HoverMenu.vue";
 
-export default HoverMenu
+export default HoverMenu;
 </script>

@@ -1,16 +1,23 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import ContextMenu from './ContextMenu.vue';
-import ContextMenuItem from './ContextMenuItem.vue';
-import ContextSubmenu from './ContextSubmenu.vue';
-import ContextMenuList from './ContextMenuList.vue';
-import ContextMenuSeparator from './ContextMenuSeparator.vue';
-import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconFeatherOutline, IconMailOutline, IconArchiveOutline } from '@gui/icons';
-import { useContextMenu } from './useContextMenu';
+import { Meta, StoryObj } from "@storybook/vue3";
+import ContextMenu from "./ContextMenu.vue";
+import ContextMenuItem from "./ContextMenuItem.vue";
+import ContextSubmenu from "./ContextSubmenu.vue";
+import ContextMenuList from "./ContextMenuList.vue";
+import ContextMenuSeparator from "./ContextMenuSeparator.vue";
+import {
+  IconPencilOutline,
+  IconExternalLinkOutline,
+  IconShareOutline,
+  IconFeatherOutline,
+  IconMailOutline,
+  IconArchiveOutline,
+} from "@gui/icons";
+import { useContextMenu } from "./useContextMenu";
 
 const meta: Meta<typeof ContextMenu> = {
-  title: 'Components/ContextMenu',
+  title: "Components/ContextMenu",
   component: ContextMenu,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   argTypes: {},
   args: {},
 };
@@ -22,13 +29,17 @@ export const Default: Story = {
   args: {},
   render: (args) => ({
     components: {
-      ContextMenu, ContextMenuItem, ContextMenuList, ContextMenuSeparator, ContextSubmenu,
+      ContextMenu,
+      ContextMenuItem,
+      ContextMenuList,
+      ContextMenuSeparator,
+      ContextSubmenu,
       IconPencilOutline,
       IconExternalLinkOutline,
       IconShareOutline,
       IconFeatherOutline,
       IconMailOutline,
-      IconArchiveOutline
+      IconArchiveOutline,
     },
     setup() {
       const { contextMenuData, targetRef } = useContextMenu();

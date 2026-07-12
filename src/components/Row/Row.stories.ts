@@ -1,18 +1,18 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Row from './Row.vue';
-import Card from '../Card/Card.vue'
+import { Meta, StoryObj } from "@storybook/vue3";
+import Row from "./Row.vue";
+import Card from "../Card/Card.vue";
 
 const meta: Meta<typeof Row> = {
-  title: 'Components/Row',
+  title: "Components/Row",
   component: Row,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     fullHeight: {
-      control: 'boolean',
+      control: "boolean",
     },
     alignItems: {
-      control: 'select',
-      options: ['start', 'center', 'end'],
+      control: "select",
+      options: ["start", "center", "end"],
     },
   },
 };
@@ -26,7 +26,7 @@ const template = `
         <Card>2<br/><br/>2</Card>
         <Card>3<br/><br/><br/>3</Card>
       </Row>
-    `
+    `;
 
 export const Default: Story = {
   args: {
@@ -37,7 +37,7 @@ export const Default: Story = {
     setup() {
       return { args };
     },
-    template
+    template,
   }),
 };
 

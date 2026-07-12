@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
 
-import DatePicker from './DatePicker.vue';
-import type { DatePickerChangePayload } from './types';
+import DatePicker from "./DatePicker.vue";
+import type { DatePickerChangePayload } from "./types";
 
 const meta = {
-  title: 'Components/DatePicker',
+  title: "Components/DatePicker",
   component: DatePicker,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     stretched: {
-      control: 'boolean',
+      control: "boolean",
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 } satisfies Meta<typeof DatePicker>;
@@ -32,7 +32,8 @@ export const Default: Story = {
 
       return { args, onChange, value };
     },
-    template: '<DatePicker v-bind="args" :value="value" :on-change="onChange" />',
+    template:
+      '<DatePicker v-bind="args" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -47,6 +48,7 @@ export const Empty: Story = {
 
       return { args, onChange, value };
     },
-    template: '<DatePicker v-bind="args" :value="value" :on-change="onChange" />',
+    template:
+      '<DatePicker v-bind="args" :value="value" :on-change="onChange" />',
   }),
 };

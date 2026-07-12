@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue';
-import type { Ref } from 'vue';
-import Tooltip from '../Tooltip/Tooltip.vue';
-import { useResize } from '../../hooks/useResize';
+import { inject, ref } from "vue";
+import type { Ref } from "vue";
+import Tooltip from "../Tooltip/Tooltip.vue";
+import { useResize } from "../../hooks/useResize";
 
 export interface SidebarItemProps {
   selected?: boolean;
 }
 
-const props = defineProps<SidebarItemProps>()
+const props = defineProps<SidebarItemProps>();
 const centerElement = ref<HTMLDivElement | null>(null);
 const buttonElement = ref<HTMLButtonElement | null>(null);
 const isEllipsis = ref<boolean>(false);
-const isCompact = inject<Ref<boolean>>('sidebar-is-compact');
+const isCompact = inject<Ref<boolean>>("sidebar-is-compact");
 
 const checkEllipsis = () => {
   if (centerElement.value) {
@@ -21,12 +21,15 @@ const checkEllipsis = () => {
   }
 };
 
-useResize(buttonElement, checkEllipsis)
+useResize(buttonElement, checkEllipsis);
 </script>
 
 <template>
   <Tooltip :delay="0" :disabled="!(isEllipsis || isCompact)" placement="right">
-    <button ref="buttonElement" :class="['SidebarItem', { selected: props.selected, compact: isCompact }]">
+    <button
+      ref="buttonElement"
+      :class="['SidebarItem', { selected: props.selected, compact: isCompact }]"
+    >
       <div v-if="$slots.left && !isCompact" class="left">
         <slot name="left"></slot>
       </div>
@@ -64,7 +67,10 @@ useResize(buttonElement, checkEllipsis)
   display: flex;
   gap: var(--gap-2);
   align-items: center;
-  transition: color .15s, background-color 0.15s, scale 0.15s;
+  transition:
+    color 0.15s,
+    background-color 0.15s,
+    scale 0.15s;
 }
 
 .compact {

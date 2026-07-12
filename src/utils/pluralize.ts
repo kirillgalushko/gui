@@ -1,4 +1,9 @@
-export const pluralize = (value: number, one: string, few: string, many: string): string => {
+export const pluralize = (
+  value: number,
+  one: string,
+  few: string,
+  many: string,
+): string => {
   const absoluteValue = Math.abs(value);
   const mod10 = absoluteValue % 10;
   const mod100 = absoluteValue % 100;

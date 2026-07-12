@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import 'floating-vue/dist/style.css';
-import { Dropdown } from 'floating-vue';
+import "floating-vue/dist/style.css";
+import { Dropdown } from "floating-vue";
 
 export interface DropdownProps {
   stretched?: boolean;
@@ -12,8 +12,13 @@ const props = withDefaults(defineProps<DropdownProps>(), {
 </script>
 
 <template>
-  <Dropdown v-bind="$attrs" :arrowOverflow="false" :autoBoundaryMaxSize="true" :overflowPadding="8"
-    :class="['dropdown', { stretched: props.stretched }]">
+  <Dropdown
+    v-bind="$attrs"
+    :arrowOverflow="false"
+    :autoBoundaryMaxSize="true"
+    :overflowPadding="8"
+    :class="['dropdown', { stretched: props.stretched }]"
+  >
     <template #default>
       <slot></slot>
     </template>

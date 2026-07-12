@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue';
-import { breakpointColumns } from '../../hooks/breakpoints/breakpoints';
-import { useContainerBreakpoint } from '../../hooks/useContainerBreakpoint';
-import { useViewportBreakpoint } from '../../hooks/useViewportBreakpoint';
-import { gridContextKey } from './context';
+import { computed, provide, ref } from "vue";
+import { breakpointColumns } from "../../hooks/breakpoints/breakpoints";
+import { useContainerBreakpoint } from "../../hooks/useContainerBreakpoint";
+import { useViewportBreakpoint } from "../../hooks/useViewportBreakpoint";
+import { gridContextKey } from "./context";
 
 export interface GridLayoutProps {
-  mode?: 'container' | 'viewport';
+  mode?: "container" | "viewport";
   gutter?: string;
   highlight?: boolean;
   stretched?: boolean;
 }
 
-const GRID_LAYOUT_MAX_WIDTH = '1728px';
+const GRID_LAYOUT_MAX_WIDTH = "1728px";
 
 const props = withDefaults(defineProps<GridLayoutProps>(), {
-  mode: 'container',
-  gutter: 'var(--gap-4, 16px)',
+  mode: "container",
+  gutter: "var(--gap-4, 16px)",
   highlight: false,
   stretched: false,
 });
@@ -25,15 +25,19 @@ const rootRef = ref<HTMLElement | null>(null);
 const containerBreakpoint = useContainerBreakpoint(rootRef);
 const viewportBreakpoint = useViewportBreakpoint();
 const breakpoint = computed(() =>
-  props.mode === 'viewport' ? viewportBreakpoint.breakpoint : containerBreakpoint.breakpoint,
+  props.mode === "viewport"
+    ? viewportBreakpoint.breakpoint
+    : containerBreakpoint.breakpoint,
 );
 const columns = computed(() => breakpointColumns[breakpoint.value]);
-const layoutPadding = computed(() => (breakpoint.value === 'xs' || breakpoint.value === 's' ? '12px' : '24px'));
+const layoutPadding = computed(() =>
+  breakpoint.value === "xs" || breakpoint.value === "s" ? "12px" : "24px",
+);
 const style = computed(() => ({
-  '--grid-columns': String(columns.value),
-  '--grid-gutter': props.gutter,
-  '--grid-layout-padding': layoutPadding.value,
-  '--grid-layout-max-width': props.stretched ? 'none' : GRID_LAYOUT_MAX_WIDTH,
+  "--grid-columns": String(columns.value),
+  "--grid-gutter": props.gutter,
+  "--grid-layout-padding": layoutPadding.value,
+  "--grid-layout-max-width": props.stretched ? "none" : GRID_LAYOUT_MAX_WIDTH,
 }));
 
 provide(gridContextKey, {
@@ -45,8 +49,16 @@ provide(gridContextKey, {
 <template>
   <div ref="rootRef" class="grid-layout" :style="style">
     <div v-if="props.highlight">{{ breakpoint }}</div>
-    <div v-if="props.highlight" class="grid-layout__highlight" aria-hidden="true">
-      <div v-for="column in columns" :key="column" class="grid-layout__highlight-column"></div>
+    <div
+      v-if="props.highlight"
+      class="grid-layout__highlight"
+      aria-hidden="true"
+    >
+      <div
+        v-for="column in columns"
+        :key="column"
+        class="grid-layout__highlight-column"
+      ></div>
     </div>
     <slot></slot>
   </div>

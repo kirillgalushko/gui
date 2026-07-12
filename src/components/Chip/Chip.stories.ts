@@ -1,29 +1,29 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue';
-import Chip from './Chip.vue';
-import ChipGroup from './ChipGroup.vue';
-import Dot from '../Dot/Dot.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
+import Chip from "./Chip.vue";
+import ChipGroup from "./ChipGroup.vue";
+import Dot from "../Dot/Dot.vue";
 
 const meta: Meta<typeof ChipGroup> = {
-  title: 'Components/Chip',
+  title: "Components/Chip",
   component: ChipGroup,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     mode: {
-      control: { type: 'select' },
-      options: ['single', 'multiple'],
+      control: { type: "select" },
+      options: ["single", "multiple"],
     },
     size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      control: { type: "select" },
+      options: ["small", "medium", "large"],
     },
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   args: {
-    mode: 'single',
-    size: 'medium',
+    mode: "single",
+    size: "medium",
   },
 };
 
@@ -31,21 +31,21 @@ export default meta;
 type Story = StoryObj<typeof ChipGroup>;
 
 const chips = [
-  { value: 'phone', label: 'Телефон', color: 'slate' },
-  { value: 'telegram', label: 'Telegram', color: 'sky' },
-  { value: 'whatsapp', label: 'WhatsApp', color: 'green' },
-  { value: 'avito', label: 'Авито', color: 'emerald' },
-  { value: 'sutochno', label: 'Суточно.ру', color: 'orange' },
-  { value: 'travel', label: 'Яндекс.Путешествия', color: 'amber' },
-  { value: 'booking', label: 'Booking.com', color: 'blue' },
-  { value: 'direct', label: 'Прямая', color: 'violet' },
+  { value: "phone", label: "Телефон", color: "slate" },
+  { value: "telegram", label: "Telegram", color: "sky" },
+  { value: "whatsapp", label: "WhatsApp", color: "green" },
+  { value: "avito", label: "Авито", color: "emerald" },
+  { value: "sutochno", label: "Суточно.ру", color: "orange" },
+  { value: "travel", label: "Яндекс.Путешествия", color: "amber" },
+  { value: "booking", label: "Booking.com", color: "blue" },
+  { value: "direct", label: "Прямая", color: "violet" },
 ] as const;
 
 export const Single: Story = {
   render: (args) => ({
     components: { Chip, ChipGroup, Dot },
     setup() {
-      const value = ref('phone');
+      const value = ref("phone");
 
       return { args, chips, value };
     },
@@ -62,12 +62,12 @@ export const Single: Story = {
 
 export const Multiple: Story = {
   args: {
-    mode: 'multiple',
+    mode: "multiple",
   },
   render: (args) => ({
     components: { Chip, ChipGroup, Dot },
     setup() {
-      const value = ref(['telegram', 'whatsapp']);
+      const value = ref(["telegram", "whatsapp"]);
 
       return { args, chips, value };
     },
@@ -86,9 +86,9 @@ export const Sizes: Story = {
   render: () => ({
     components: { Chip, ChipGroup },
     setup() {
-      const smallValue = ref('one');
-      const mediumValue = ref('one');
-      const largeValue = ref('one');
+      const smallValue = ref("one");
+      const mediumValue = ref("one");
+      const largeValue = ref("one");
 
       return { largeValue, mediumValue, smallValue };
     },

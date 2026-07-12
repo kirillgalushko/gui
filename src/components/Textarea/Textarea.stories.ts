@@ -1,27 +1,33 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Textarea from './Textarea.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Textarea from "./Textarea.vue";
 
-type TextareaType = typeof Textarea | HTMLTextAreaElement
+type TextareaType = typeof Textarea | HTMLTextAreaElement;
 
 const meta: Meta<TextareaType> = {
-  title: 'Components/Textarea',
+  title: "Components/Textarea",
   component: Textarea,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     layout: {
-      control: { type: 'select' },
-      options: ['fixed', 'fill-vertical', 'fill-horizontal', 'fill-both', 'hug']
+      control: { type: "select" },
+      options: [
+        "fixed",
+        "fill-vertical",
+        "fill-horizontal",
+        "fill-both",
+        "hug",
+      ],
     },
     resize: {
-      control: { type: 'select' },
-      options: ['none', 'both', 'horizontal', 'vertical'],
+      control: { type: "select" },
+      options: ["none", "both", "horizontal", "vertical"],
     },
     placeholder: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
   },
   args: {
-    placeholder: 'Placeholder',
+    placeholder: "Placeholder",
   },
 };
 
@@ -30,9 +36,9 @@ type Story = StoryObj<TextareaType>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Placeholder',
-    value: 'Value',
-    resize: 'horizontal',
+    placeholder: "Placeholder",
+    value: "Value",
+    resize: "horizontal",
   },
   render: (args) => ({
     components: { Textarea },

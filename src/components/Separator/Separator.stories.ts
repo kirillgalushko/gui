@@ -1,21 +1,21 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Separator from './Separator.vue';
-import Button from '../Button/Button.vue'
-import { IconChevronDownOutline, IconPencilOutline } from '@gui/icons';
-import Row from '../Row/Row.vue';
-import Gap from '../Gap/Gap.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Separator from "./Separator.vue";
+import Button from "../Button/Button.vue";
+import { IconChevronDownOutline, IconPencilOutline } from "@gui/icons";
+import Row from "../Row/Row.vue";
+import Gap from "../Gap/Gap.vue";
 
 const meta: Meta<typeof Separator> = {
-  title: 'Components/Separator',
+  title: "Components/Separator",
   component: Separator,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     direction: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
+      control: "select",
+      options: ["horizontal", "vertical"],
     },
     stretched: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 };
@@ -33,18 +33,25 @@ const template = `
     <Gap direction="horizontal" :size="2" />
     <Button squared> <IconPencilOutline /> </Button>
   </Row>
-`
+`;
 
 export const Default: Story = {
   args: {
-    direction: 'vertical',
+    direction: "vertical",
     stretched: false,
   },
   render: (args) => ({
-    components: { Separator, Button, IconChevronDownOutline, IconPencilOutline, Row, Gap },
+    components: {
+      Separator,
+      Button,
+      IconChevronDownOutline,
+      IconPencilOutline,
+      Row,
+      Gap,
+    },
     setup() {
       return { args };
     },
-    template
+    template,
   }),
 };

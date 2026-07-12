@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { IconEyeClosedOutline, IconEyeOutline } from '@gui/icons';
-import Action from '../Action/Action.vue';
-import Input from '../Input/Input.vue';
+import { computed, ref } from "vue";
+import { IconEyeClosedOutline, IconEyeOutline } from "@gui/icons";
+import Action from "../Action/Action.vue";
+import Input from "../Input/Input.vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -19,14 +19,20 @@ export interface PasswordInputProps {
   descriptionId?: string;
 }
 
-const props = withDefaults(defineProps<PasswordInputProps>(), { maxWidth: '100%' });
+const props = withDefaults(defineProps<PasswordInputProps>(), {
+  maxWidth: "100%",
+});
 const emit = defineEmits<{
-  'update:modelValue': [value: string];
+  "update:modelValue": [value: string];
 }>();
 const isPasswordVisible = ref(false);
 
-const inputType = computed(() => isPasswordVisible.value ? 'text' : 'password');
-const toggleLabel = computed(() => isPasswordVisible.value ? 'Скрыть пароль' : 'Показать пароль');
+const inputType = computed(() =>
+  isPasswordVisible.value ? "text" : "password",
+);
+const toggleLabel = computed(() =>
+  isPasswordVisible.value ? "Скрыть пароль" : "Показать пароль",
+);
 
 const togglePasswordVisibility = () => {
   if (props.disabled) {
@@ -37,18 +43,33 @@ const togglePasswordVisibility = () => {
 };
 
 const updateModelValue = (value: string | unknown) => {
-  emit('update:modelValue', String(value ?? ''));
+  emit("update:modelValue", String(value ?? ""));
 };
 </script>
 
 <template>
-  <Input v-bind="$attrs" :model-value="props.modelValue" :type="inputType" :max-width="props.maxWidth"
-    :auto-focus="props.autoFocus" :disabled="props.disabled" :description="props.description"
-    :error-message="props.errorMessage" :invalid="props.invalid" :description-id="props.descriptionId"
-    @update:model-value="updateModelValue">
+  <Input
+    v-bind="$attrs"
+    :model-value="props.modelValue"
+    :type="inputType"
+    :max-width="props.maxWidth"
+    :auto-focus="props.autoFocus"
+    :disabled="props.disabled"
+    :description="props.description"
+    :error-message="props.errorMessage"
+    :invalid="props.invalid"
+    :description-id="props.descriptionId"
+    @update:model-value="updateModelValue"
+  >
     <template #rightAdornment>
-      <Action type="button" :aria-label="toggleLabel" :aria-pressed="isPasswordVisible" :disabled="props.disabled"
-        class="password-toggle" @click.prevent="togglePasswordVisibility">
+      <Action
+        type="button"
+        :aria-label="toggleLabel"
+        :aria-pressed="isPasswordVisible"
+        :disabled="props.disabled"
+        class="password-toggle"
+        @click.prevent="togglePasswordVisibility"
+      >
         <IconEyeOutline v-if="isPasswordVisible" />
         <IconEyeClosedOutline v-else />
       </Action>

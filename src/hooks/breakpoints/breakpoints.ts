@@ -1,4 +1,4 @@
-export const breakpointNames = ['xs', 's', 'm', 'l', 'xl', 'xxl'] as const;
+export const breakpointNames = ["xs", "s", "m", "l", "xl", "xxl"] as const;
 
 export type Breakpoint = (typeof breakpointNames)[number];
 
@@ -36,7 +36,7 @@ export const breakpointColumns: Record<Breakpoint, number> = {
 };
 
 export function getBreakpointName(width: number): Breakpoint {
-  let current: Breakpoint = 'xs';
+  let current: Breakpoint = "xs";
 
   for (const breakpoint of breakpointNames) {
     if (width >= breakpointMinWidths[breakpoint]) {
@@ -47,45 +47,56 @@ export function getBreakpointName(width: number): Breakpoint {
   return current;
 }
 
-export function createBreakpointResult(readBreakpoint: () => Breakpoint): BreakpointResult {
+export function createBreakpointResult(
+  readBreakpoint: () => Breakpoint,
+): BreakpointResult {
   return {
     get breakpoint() {
       return readBreakpoint();
     },
     get isXS() {
-      return readBreakpoint() === 'xs';
+      return readBreakpoint() === "xs";
     },
     get isS() {
-      return readBreakpoint() === 's';
+      return readBreakpoint() === "s";
     },
     get isM() {
-      return readBreakpoint() === 'm';
+      return readBreakpoint() === "m";
     },
     get isL() {
-      return readBreakpoint() === 'l';
+      return readBreakpoint() === "l";
     },
     get isXL() {
-      return readBreakpoint() === 'xl';
+      return readBreakpoint() === "xl";
     },
     get isXXL() {
-      return readBreakpoint() === 'xxl';
+      return readBreakpoint() === "xxl";
     },
     get isMobile() {
       const breakpoint = readBreakpoint();
 
-      return breakpoint === 'xs' || breakpoint === 's';
+      return breakpoint === "xs" || breakpoint === "s";
     },
     get isGtXS() {
-      return breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf('xs');
+      return (
+        breakpointNames.indexOf(readBreakpoint()) >
+        breakpointNames.indexOf("xs")
+      );
     },
     get isGtS() {
-      return breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf('s');
+      return (
+        breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf("s")
+      );
     },
     get isGtM() {
-      return breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf('m');
+      return (
+        breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf("m")
+      );
     },
     get isGtL() {
-      return breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf('l');
+      return (
+        breakpointNames.indexOf(readBreakpoint()) > breakpointNames.indexOf("l")
+      );
     },
   };
 }

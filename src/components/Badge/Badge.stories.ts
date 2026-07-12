@@ -1,50 +1,58 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Badge from './Badge.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Badge from "./Badge.vue";
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  title: "Components/Badge",
   component: Badge,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   argTypes: {
     mode: {
-      control: { type: 'select' },
-      options: ['default', 'secondary', 'ghost', 'negative', 'positive', 'danger', 'warning'],
+      control: { type: "select" },
+      options: [
+        "default",
+        "secondary",
+        "ghost",
+        "negative",
+        "positive",
+        "danger",
+        "warning",
+      ],
     },
     color: {
-      control: { type: 'select' },
+      control: { type: "select" },
       options: [
         undefined,
-        'red',
-        'orange',
-        'amber',
-        'yellow',
-        'lime',
-        'green',
-        'emerald',
-        'teal',
-        'cyan',
-        'sky',
-        'blue',
-        'indigo',
-        'violet',
-        'purple',
-        'fuchsia',
-        'pink',
-        'rose',
-        'slate',
-        'gray',
-        'zinc',
-        'neutral',
-        'stone',
-        'mauve',
-        'olive',
-        'mist',
-        'taupe',
+        "red",
+        "orange",
+        "amber",
+        "yellow",
+        "lime",
+        "green",
+        "emerald",
+        "teal",
+        "cyan",
+        "sky",
+        "blue",
+        "indigo",
+        "violet",
+        "purple",
+        "fuchsia",
+        "pink",
+        "rose",
+        "slate",
+        "gray",
+        "zinc",
+        "neutral",
+        "stone",
+        "mauve",
+        "olive",
+        "mist",
+        "taupe",
       ],
     },
   },
   args: {
-    mode: 'default',
+    mode: "default",
   },
 };
 
@@ -64,7 +72,7 @@ export const Default: Story = {
 
 export const Secondary: Story = {
   args: {
-    mode: 'secondary',
+    mode: "secondary",
   },
   render: (args) => ({
     components: { Badge },

@@ -1,11 +1,14 @@
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const useTabs = (defaultTabName: string, onChange: (tabName: string) => void) => {
+const useTabs = (
+  defaultTabName: string,
+  onChange: (tabName: string) => void,
+) => {
   const tabs = ref<HTMLDivElement[]>([]);
   const selectedTab = ref();
 
   const registerTab = (tabElement: HTMLDivElement) => {
-    if (tabElement.getAttribute('data-name') === defaultTabName) {
+    if (tabElement.getAttribute("data-name") === defaultTabName) {
       selectedTab.value = tabElement;
     }
 
@@ -17,7 +20,7 @@ const useTabs = (defaultTabName: string, onChange: (tabName: string) => void) =>
 
   const selectTab = (tabElement: HTMLDivElement) => {
     selectedTab.value = tabElement;
-    const name = tabElement.getAttribute('data-name');
+    const name = tabElement.getAttribute("data-name");
     if (name) {
       onChange(name);
     }

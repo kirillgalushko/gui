@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { computed, provide } from 'vue';
+import { computed, provide } from "vue";
 
 export interface FieldProps {
   invalid?: boolean;
   disabled?: boolean;
-  orientation?: 'vertical' | 'horizontal' | 'responsive';
+  orientation?: "vertical" | "horizontal" | "responsive";
   stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<FieldProps>(), {
-  orientation: 'vertical',
+  orientation: "vertical",
   stretched: false,
 });
 
@@ -18,13 +18,23 @@ const state = computed(() => ({
   disabled: !!props.disabled,
 }));
 
-provide('field-state', state);
+provide("field-state", state);
 </script>
 
 <template>
   <div
-    :class="['field', props.orientation, { invalid: props.invalid, disabled: props.disabled, stretched: props.stretched }]"
-    :data-invalid="props.invalid || undefined" :data-disabled="props.disabled || undefined">
+    :class="[
+      'field',
+      props.orientation,
+      {
+        invalid: props.invalid,
+        disabled: props.disabled,
+        stretched: props.stretched,
+      },
+    ]"
+    :data-invalid="props.invalid || undefined"
+    :data-disabled="props.disabled || undefined"
+  >
     <slot></slot>
   </div>
 </template>

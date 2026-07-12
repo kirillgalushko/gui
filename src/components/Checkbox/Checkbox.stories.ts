@@ -1,21 +1,21 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Checkbox from './Checkbox.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Checkbox from "./Checkbox.vue";
 
-type CheckboxType = typeof Checkbox | HTMLInputElement
+type CheckboxType = typeof Checkbox | HTMLInputElement;
 
 const meta: Meta<CheckboxType> = {
-  title: 'Components/Checkbox',
+  title: "Components/Checkbox",
   component: Checkbox,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
     invalid: {
-      type: 'boolean',
+      type: "boolean",
     },
     indeterminate: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
 };
@@ -32,7 +32,8 @@ export const Default: Story = {
     setup() {
       return { args };
     },
-    template: '<Checkbox v-bind="args" v-model="args.modelValue">Accept terms and conditions</Checkbox>',
+    template:
+      '<Checkbox v-bind="args" v-model="args.modelValue">Accept terms and conditions</Checkbox>',
   }),
 };
 
@@ -45,21 +46,23 @@ export const Checked: Story = {
     setup() {
       return { args };
     },
-    template: '<Checkbox v-bind="args" v-model="args.modelValue">Remember this choice</Checkbox>',
+    template:
+      '<Checkbox v-bind="args" v-model="args.modelValue">Remember this choice</Checkbox>',
   }),
 };
 
 export const WithDescription: Story = {
   args: {
     modelValue: true,
-    description: 'You can change this setting later.',
+    description: "You can change this setting later.",
   },
   render: (args) => ({
     components: { Checkbox },
     setup() {
       return { args };
     },
-    template: '<Checkbox v-bind="args" v-model="args.modelValue">Enable notifications</Checkbox>',
+    template:
+      '<Checkbox v-bind="args" v-model="args.modelValue">Enable notifications</Checkbox>',
   }),
 };
 
@@ -73,7 +76,8 @@ export const Indeterminate: Story = {
     setup() {
       return { args };
     },
-    template: '<Checkbox v-bind="args" v-model="args.modelValue">Some items selected</Checkbox>',
+    template:
+      '<Checkbox v-bind="args" v-model="args.modelValue">Some items selected</Checkbox>',
   }),
 };
 
@@ -81,14 +85,15 @@ export const Invalid: Story = {
   args: {
     modelValue: false,
     invalid: true,
-    errorMessage: 'Required field',
+    errorMessage: "Required field",
   },
   render: (args) => ({
     components: { Checkbox },
     setup() {
       return { args };
     },
-    template: '<Checkbox v-bind="args" v-model="args.modelValue">I agree with the policy</Checkbox>',
+    template:
+      '<Checkbox v-bind="args" v-model="args.modelValue">I agree with the policy</Checkbox>',
   }),
 };
 
@@ -102,6 +107,7 @@ export const Disabled: Story = {
     setup() {
       return { args };
     },
-    template: '<Checkbox v-bind="args" v-model="args.modelValue">Unavailable option</Checkbox>',
+    template:
+      '<Checkbox v-bind="args" v-model="args.modelValue">Unavailable option</Checkbox>',
   }),
 };

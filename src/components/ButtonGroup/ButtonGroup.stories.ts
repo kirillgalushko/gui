@@ -1,22 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { IconChevronDownOutline, IconCopyOutline, IconMinusOutline, IconPlusOutline } from '@gui/icons';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import {
+  IconChevronDownOutline,
+  IconCopyOutline,
+  IconMinusOutline,
+  IconPlusOutline,
+} from "@gui/icons";
 
-import Button from '../Button/Button.vue';
-import ButtonGroup from './ButtonGroup.vue';
-import ButtonGroupSeparator from './ButtonGroupSeparator.vue';
-import ButtonGroupText from './ButtonGroupText.vue';
+import Button from "../Button/Button.vue";
+import ButtonGroup from "./ButtonGroup.vue";
+import ButtonGroupSeparator from "./ButtonGroupSeparator.vue";
+import ButtonGroupText from "./ButtonGroupText.vue";
 
 const meta = {
-  title: 'Components/ButtonGroup',
+  title: "Components/ButtonGroup",
   component: ButtonGroup,
   argTypes: {
     orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
+      control: "select",
+      options: ["horizontal", "vertical"],
     },
   },
   args: {
-    orientation: 'horizontal',
+    orientation: "horizontal",
   },
 } satisfies Meta<typeof ButtonGroup>;
 
@@ -25,7 +30,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => ({
-    components: { Button, ButtonGroup, ButtonGroupSeparator, IconChevronDownOutline },
+    components: {
+      Button,
+      ButtonGroup,
+      ButtonGroupSeparator,
+      IconChevronDownOutline,
+    },
     setup() {
       return { args };
     },
@@ -59,7 +69,13 @@ export const WithSeparator: Story = {
 
 export const Split: Story = {
   render: () => ({
-    components: { Button, ButtonGroup, ButtonGroupSeparator, IconChevronDownOutline, IconPlusOutline },
+    components: {
+      Button,
+      ButtonGroup,
+      ButtonGroupSeparator,
+      IconChevronDownOutline,
+      IconPlusOutline,
+    },
     template: `
       <ButtonGroup aria-label="Добавление">
         <Button mode="contrast">
@@ -77,7 +93,7 @@ export const Split: Story = {
 
 export const Vertical: Story = {
   args: {
-    orientation: 'vertical',
+    orientation: "vertical",
   },
   render: (args) => ({
     components: { Button, ButtonGroup, IconMinusOutline, IconPlusOutline },

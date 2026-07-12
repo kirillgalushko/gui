@@ -1,32 +1,32 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue'
-import Card from '../Card/Card.vue'
-import Text from '../Text/Text.vue'
-import Gap from '../Gap/Gap.vue'
-import Button from '../Button/Button.vue'
-import type { ButtonProps } from '../Button/Button.vue'
-import Tabs from './Tabs.vue';
-import Tab from './Tab.vue'
-import { IconHome2Outline, IconABOutline, IconAbcOutline } from '@gui/icons';
+import { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
+import Card from "../Card/Card.vue";
+import Text from "../Text/Text.vue";
+import Gap from "../Gap/Gap.vue";
+import Button from "../Button/Button.vue";
+import type { ButtonProps } from "../Button/Button.vue";
+import Tabs from "./Tabs.vue";
+import Tab from "./Tab.vue";
+import { IconHome2Outline, IconABOutline, IconAbcOutline } from "@gui/icons";
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Components/Tabs',
+  title: "Components/Tabs",
   component: Tabs,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     size: {
-      control: 'select',
-      options: ['extra-small', 'small', 'medium', 'large'],
+      control: "select",
+      options: ["extra-small", "small", "medium", "large"],
     },
-    stretched: { type: 'boolean' }
-  }
+    stretched: { type: "boolean" },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 const getExample = (tabs: string, stretched: boolean) => `
-  <Card ${stretched ? 'stretched' : ''} :padding="16" :borderRadius="12">
+  <Card ${stretched ? "stretched" : ""} :padding="16" :borderRadius="12">
       ${tabs}
     <Gap direction="vertical" :size="4" />
     <Text typography="title-3">{{selectedTab}}</Text>
@@ -34,25 +34,28 @@ const getExample = (tabs: string, stretched: boolean) => `
     <Gap direction="vertical" :size="2" />
     <Text typography="title-2"><b>$223.89</b></Text>
     <Gap direction="vertical" :size="4" />
-    <Button mode="contrast" ${stretched ? 'stretched' : ''}>Button</Button>
+    <Button mode="contrast" ${stretched ? "stretched" : ""}>Button</Button>
   </Card>
-`
+`;
 
 export const Default: Story = {
   render: () => ({
     components: { Tabs, Tab, Card, Text, Gap, Button },
     setup() {
-      const selectedTab = ref<string>('Notifications')
+      const selectedTab = ref<string>("Notifications");
       const handleChangeTab = (newTab: string) => {
-        selectedTab.value = newTab
-      }
+        selectedTab.value = newTab;
+      };
       return { selectedTab, handleChangeTab };
     },
-    template: getExample(`<Tabs :value="selectedTab" :onChange="handleChangeTab">
+    template: getExample(
+      `<Tabs :value="selectedTab" :onChange="handleChangeTab">
         <Tab name="Overview">Overview</Tab>
         <Tab name="Reports">Reports</Tab>
         <Tab name="Notifications">Notifications</Tab>
-      </Tabs>`, false),
+      </Tabs>`,
+      false,
+    ),
   }),
 };
 
@@ -60,32 +63,45 @@ export const Stretched: Story = {
   render: () => ({
     components: { Tabs, Tab, Card, Text, Gap, Button },
     setup() {
-      const selectedTab = ref<string>('Notifications')
+      const selectedTab = ref<string>("Notifications");
       const handleChangeTab = (newTab: string) => {
-        selectedTab.value = newTab
-      }
+        selectedTab.value = newTab;
+      };
       return { selectedTab, handleChangeTab };
     },
-    template: getExample(`<Tabs stretched :value="selectedTab" :onChange="handleChangeTab">
+    template: getExample(
+      `<Tabs stretched :value="selectedTab" :onChange="handleChangeTab">
         <Tab name="Overview">Overview</Tab>
         <Tab name="Reports">Reports</Tab>
         <Tab name="Notifications">Notifications</Tab>
-      </Tabs>`, true),
+      </Tabs>`,
+      true,
+    ),
   }),
 };
 
 export const WidthChanges: Story = {
   render: () => ({
-    components: { Tabs, Tab, Card, Text, Gap, Button, IconHome2Outline, IconABOutline, IconAbcOutline },
+    components: {
+      Tabs,
+      Tab,
+      Card,
+      Text,
+      Gap,
+      Button,
+      IconHome2Outline,
+      IconABOutline,
+      IconAbcOutline,
+    },
     setup() {
-      const isIcons = ref(false)
-      const selectedTab = ref<string>('Notifications')
+      const isIcons = ref(false);
+      const selectedTab = ref<string>("Notifications");
       const handleChangeTab = (newTab: string) => {
-        selectedTab.value = newTab
-      }
+        selectedTab.value = newTab;
+      };
       const toggleIcons = () => {
-        isIcons.value = !isIcons.value
-      }
+        isIcons.value = !isIcons.value;
+      };
       return { selectedTab, handleChangeTab, isIcons, toggleIcons };
     },
     template: `
@@ -106,8 +122,7 @@ export const WidthChanges: Story = {
       <br />
       <br />
       <Button @click="toggleIcons">Toggle icons</Button>
-      `
-      ,
+      `,
   }),
 };
 
@@ -115,11 +130,16 @@ export const Sizes: Story = {
   render: () => ({
     components: { Tabs, Tab, Button, Gap },
     setup() {
-      const selectedTab = ref<string>('medium')
+      const selectedTab = ref<string>("medium");
       const handleChangeTab = (newTab: string) => {
-        selectedTab.value = newTab
-      }
-      const sizes: ButtonProps['size'][] = ['extra-small', 'small', 'medium', 'large']
+        selectedTab.value = newTab;
+      };
+      const sizes: ButtonProps["size"][] = [
+        "extra-small",
+        "small",
+        "medium",
+        "large",
+      ];
 
       return { handleChangeTab, selectedTab, sizes };
     },

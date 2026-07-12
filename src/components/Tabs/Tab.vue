@@ -1,39 +1,45 @@
 <script setup lang="ts">
-import { onMounted, inject, ref } from 'vue';
-import useTabs from './useTabs';
+import { onMounted, inject, ref } from "vue";
+import useTabs from "./useTabs";
 
 export interface TabProps {
   name: string;
 }
 
-const props = defineProps<TabProps>()
-const tabRef = ref<HTMLDivElement>()
-const tabsData = inject<ReturnType<typeof useTabs>>('tabs')
-const stretched = inject<boolean>('stretched')
-const { registerTab, selectTab, selectedTab } = tabsData || {}
+const props = defineProps<TabProps>();
+const tabRef = ref<HTMLDivElement>();
+const tabsData = inject<ReturnType<typeof useTabs>>("tabs");
+const stretched = inject<boolean>("stretched");
+const { registerTab, selectTab, selectedTab } = tabsData || {};
 
 const handleSelectTab = () => {
   if (tabRef.value) {
     selectTab?.(tabRef.value);
   }
-}
+};
 
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Enter') {
-    handleSelectTab()
+  if (event.key === "Enter") {
+    handleSelectTab();
   }
 };
 
 onMounted(() => {
   if (tabRef.value) {
-    registerTab?.(tabRef.value)
+    registerTab?.(tabRef.value);
   }
-})
+});
 </script>
 
 <template>
-  <div ref="tabRef" tabindex="0" @keydown="handleKeydown" @click="handleSelectTab" :data-name="props.name"
-    :class="['tab', { stretched, selected: selectedTab === tabRef }]">
+  <div
+    ref="tabRef"
+    tabindex="0"
+    @keydown="handleKeydown"
+    @click="handleSelectTab"
+    :data-name="props.name"
+    :class="['tab', { stretched, selected: selectedTab === tabRef }]"
+  >
     <slot></slot>
   </div>
 </template>

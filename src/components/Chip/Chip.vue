@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue';
-import { chipGroupContextKey } from './useChipGroup';
-import type { ChipSize, ChipValue } from './types';
+import { computed, inject } from "vue";
+import { chipGroupContextKey } from "./useChipGroup";
+import type { ChipSize, ChipValue } from "./types";
 
 export interface ChipProps {
   value?: ChipValue;
@@ -11,7 +11,7 @@ export interface ChipProps {
 }
 
 const props = withDefaults(defineProps<ChipProps>(), {
-  size: 'medium',
+  size: "medium",
 });
 
 const emit = defineEmits<{
@@ -36,7 +36,7 @@ const chipRole = computed(() => {
     return undefined;
   }
 
-  return group?.mode === 'single' ? 'radio' : undefined;
+  return group?.mode === "single" ? "radio" : undefined;
 });
 
 const handleClick = (): void => {
@@ -48,14 +48,20 @@ const handleClick = (): void => {
     group?.select(props.value as ChipValue);
   }
 
-  emit('select', props.value);
+  emit("select", props.value);
 };
 </script>
 
 <template>
-  <button type="button" :class="['chip', size, { selected: isSelected, disabled: isDisabled }]" :disabled="isDisabled"
-    :role="chipRole" :aria-checked="chipRole === 'radio' ? isSelected : undefined"
-    :aria-pressed="chipRole ? undefined : isSelected" @click="handleClick">
+  <button
+    type="button"
+    :class="['chip', size, { selected: isSelected, disabled: isDisabled }]"
+    :disabled="isDisabled"
+    :role="chipRole"
+    :aria-checked="chipRole === 'radio' ? isSelected : undefined"
+    :aria-pressed="chipRole ? undefined : isSelected"
+    @click="handleClick"
+  >
     <span class="chip-label">
       <slot></slot>
     </span>
@@ -141,7 +147,11 @@ const handleClick = (): void => {
 
 .chip.selected {
   --chip-background: color-mix(in oklab, hsl(var(--accent)) 12%, transparent);
-  --chip-border: color-mix(in oklab, hsl(var(--accent)) 70%, hsl(var(--border)));
+  --chip-border: color-mix(
+    in oklab,
+    hsl(var(--accent)) 70%,
+    hsl(var(--border))
+  );
   --chip-text: hsl(var(--foreground));
   --chip-outline: hsl(var(--accent));
 }

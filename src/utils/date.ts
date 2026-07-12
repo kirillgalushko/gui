@@ -63,7 +63,9 @@ export const isAfterDay = (firstDate: Date, secondDate: Date): boolean =>
   startOfDay(firstDate).getTime() > startOfDay(secondDate).getTime();
 
 export const differenceInCalendarDays = (end: Date, start: Date): number =>
-  Math.round((startOfDay(end).getTime() - startOfDay(start).getTime()) / 86_400_000);
+  Math.round(
+    (startOfDay(end).getTime() - startOfDay(start).getTime()) / 86_400_000,
+  );
 
 export const setDateHour = (date: Date, hour: number): Date => {
   const nextDate = new Date(date);
@@ -100,29 +102,35 @@ export const snapDateToHour = (date: Date, hour: number): Date => {
 };
 
 export const formatRuShortWeekdayMonthDay = (date: Date): string =>
-  new Intl.DateTimeFormat('ru-RU', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  }).format(date).replace('.', '');
+  new Intl.DateTimeFormat("ru-RU", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  })
+    .format(date)
+    .replace(".", "");
 
 export const formatRuMonthYear = (date: Date): string =>
-  new Intl.DateTimeFormat('ru-RU', {
-    month: 'long',
-    year: 'numeric',
-  }).format(date).replace(' г.', '');
+  new Intl.DateTimeFormat("ru-RU", {
+    month: "long",
+    year: "numeric",
+  })
+    .format(date)
+    .replace(" г.", "");
 
 export const formatRuDayMonth = (date: Date): string =>
-  new Intl.DateTimeFormat('ru-RU', {
-    day: 'numeric',
-    month: 'short',
-  }).format(date).replace('.', '');
+  new Intl.DateTimeFormat("ru-RU", {
+    day: "numeric",
+    month: "short",
+  })
+    .format(date)
+    .replace(".", "");
 
 export const formatRuReadableDateTime = (value: Date | string): string =>
-  new Intl.DateTimeFormat('ru-RU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
+  new Intl.DateTimeFormat("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   }).format(toDate(value));

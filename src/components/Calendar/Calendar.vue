@@ -1,8 +1,16 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch } from 'vue';
-import { IconChevronLeftOutline, IconChevronRightOutline } from '@gui/icons';
-import Button from '../Button/Button.vue';
-import { addDays, endOfDay, isAfterDay, isBeforeDay, isSameDay, startOfDay, toDate } from '../../utils/date';
+import { computed, onBeforeUnmount, ref, watch } from "vue";
+import { IconChevronLeftOutline, IconChevronRightOutline } from "@gui/icons";
+import Button from "../Button/Button.vue";
+import {
+  addDays,
+  endOfDay,
+  isAfterDay,
+  isBeforeDay,
+  isSameDay,
+  startOfDay,
+  toDate,
+} from "../../utils/date";
 import type {
   CalendarDay,
   CalendarMode,
@@ -11,7 +19,7 @@ import type {
   CalendarRangeValue,
   CalendarSelectPayload,
   CalendarValue,
-} from './types';
+} from "./types";
 
 const props = withDefaults(
   defineProps<{
@@ -27,7 +35,7 @@ const props = withDefaults(
     readonly?: boolean;
   }>(),
   {
-    mode: 'single',
+    mode: "single",
     modelValue: null,
     rangeValue: () => ({ start: null, end: null }),
     month: undefined,
@@ -41,21 +49,23 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  'update:modelValue': [value: Date | null];
-  'update:rangeValue': [value: CalendarRangePayload];
-  'update:month': [value: Date];
-  'select': [payload: CalendarSelectPayload];
-  'range-select': [payload: CalendarRangePayload];
-  'range-drag-start': [payload: CalendarRangePayload];
-  'range-drag': [payload: CalendarRangePayload];
-  'range-drag-end': [payload: CalendarRangePayload];
-  'month-change': [payload: CalendarMonthChangePayload];
-  'day-hover': [payload: CalendarSelectPayload];
+  "update:modelValue": [value: Date | null];
+  "update:rangeValue": [value: CalendarRangePayload];
+  "update:month": [value: Date];
+  select: [payload: CalendarSelectPayload];
+  "range-select": [payload: CalendarRangePayload];
+  "range-drag-start": [payload: CalendarRangePayload];
+  "range-drag": [payload: CalendarRangePayload];
+  "range-drag-end": [payload: CalendarRangePayload];
+  "month-change": [payload: CalendarMonthChangePayload];
+  "day-hover": [payload: CalendarSelectPayload];
 }>();
 
-const weekdayLabels = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+const weekdayLabels = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
 
-const normalizeNullableDate = (value: CalendarValue | undefined): Date | null => {
+const normalizeNullableDate = (
+  value: CalendarValue | undefined,
+): Date | null => {
   if (!value) {
     return null;
   }
@@ -63,7 +73,8 @@ const normalizeNullableDate = (value: CalendarValue | undefined): Date | null =>
   return startOfDay(toDate(value));
 };
 
-const getMonthStart = (date: Date): Date => startOfDay(new Date(date.getFullYear(), date.getMonth(), 1));
+const getMonthStart = (date: Date): Date =>
+  startOfDay(new Date(date.getFullYear(), date.getMonth(), 1));
 
 const addMonths = (date: Date, amount: number): Date => {
   const nextDate = new Date(date);
@@ -72,7 +83,9 @@ const addMonths = (date: Date, amount: number): Date => {
   return getMonthStart(nextDate);
 };
 
-const selectedSingleDate = computed(() => normalizeNullableDate(props.modelValue));
+const selectedSingleDate = computed(() =>
+  normalizeNullableDate(props.modelValue),
+);
 const selectedRange = computed(() => ({
   start: normalizeNullableDate(props.rangeValue.start),
   end: normalizeNullableDate(props.rangeValue.end),
@@ -83,7 +96,7 @@ const getInitialMonth = (): Date => {
     return getMonthStart(toDate(props.month));
   }
 
-  if (props.mode === 'range' && selectedRange.value.start) {
+  if (props.mode === "range" && selectedRange.value.start) {
     return getMonthStart(selectedRange.value.start);
   }
 
@@ -95,9 +108,13 @@ const getInitialMonth = (): Date => {
 };
 
 const visibleMonth = ref(getInitialMonth());
-const pendingRangeStart = ref<Date | null>(selectedRange.value.start && !selectedRange.value.end ? selectedRange.value.start : null);
+const pendingRangeStart = ref<Date | null>(
+  selectedRange.value.start && !selectedRange.value.end
+    ? selectedRange.value.start
+    : null,
+);
 const hoveredRangeDate = ref<Date | null>(null);
-const activeRangeDragPoint = ref<'start' | 'end' | null>(null);
+const activeRangeDragPoint = ref<"start" | "end" | null>(null);
 const dragRangePreview = ref<CalendarRangePayload | null>(null);
 const suppressNextClick = ref(false);
 
@@ -121,7 +138,9 @@ watch(
 );
 
 const monthTitle = computed(() =>
-  new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' }).format(visibleMonth.value).replace(' г.', ''),
+  new Intl.DateTimeFormat("ru-RU", { month: "long", year: "numeric" })
+    .format(visibleMonth.value)
+    .replace(" г.", ""),
 );
 
 const gridStart = computed(() => {
@@ -137,7 +156,13 @@ const gridEnd = computed(() => {
     return endOfDay(addDays(gridStart.value, 41));
   }
 
-  const monthEnd = endOfDay(new Date(visibleMonth.value.getFullYear(), visibleMonth.value.getMonth() + 1, 0));
+  const monthEnd = endOfDay(
+    new Date(
+      visibleMonth.value.getFullYear(),
+      visibleMonth.value.getMonth() + 1,
+      0,
+    ),
+  );
   const day = monthEnd.getDay();
   const diff = day === 0 ? 0 : 7 - day;
 
@@ -160,7 +185,7 @@ const isDisabledDate = (date: Date): boolean => {
 };
 
 const getRangeBoundaries = () => {
-  if (props.mode !== 'range') {
+  if (props.mode !== "range") {
     return { start: null, end: null };
   }
 
@@ -171,13 +196,13 @@ const getRangeBoundaries = () => {
   if (pendingRangeStart.value && hoveredRangeDate.value) {
     return isAfterDay(pendingRangeStart.value, hoveredRangeDate.value)
       ? {
-        start: hoveredRangeDate.value,
-        end: pendingRangeStart.value,
-      }
+          start: hoveredRangeDate.value,
+          end: pendingRangeStart.value,
+        }
       : {
-        start: pendingRangeStart.value,
-        end: hoveredRangeDate.value,
-      };
+          start: pendingRangeStart.value,
+          end: hoveredRangeDate.value,
+        };
   }
 
   if (pendingRangeStart.value) {
@@ -202,13 +227,21 @@ const calendarDays = computed<CalendarDay[]>(() => {
     const day = date.getDay();
     const rangeStart = range.start;
     const rangeEnd = range.end;
-    const hasRangeBackground = Boolean(rangeStart && rangeEnd && !isSameDay(rangeStart, rangeEnd));
+    const hasRangeBackground = Boolean(
+      rangeStart && rangeEnd && !isSameDay(rangeStart, rangeEnd),
+    );
     const isRangeStart = Boolean(rangeStart && isSameDay(date, rangeStart));
     const isRangeEnd = Boolean(rangeEnd && isSameDay(date, rangeEnd));
-    const isInRange = Boolean(rangeStart && rangeEnd && date > rangeStart && date < rangeEnd);
-    const isSelected = props.mode === 'single'
-      ? Boolean(selectedSingleDate.value && isSameDay(date, selectedSingleDate.value))
-      : isRangeStart || isRangeEnd;
+    const isInRange = Boolean(
+      rangeStart && rangeEnd && date > rangeStart && date < rangeEnd,
+    );
+    const isSelected =
+      props.mode === "single"
+        ? Boolean(
+            selectedSingleDate.value &&
+            isSameDay(date, selectedSingleDate.value),
+          )
+        : isRangeStart || isRangeEnd;
 
     days.push({
       date,
@@ -231,53 +264,65 @@ const calendarDays = computed<CalendarDay[]>(() => {
 });
 
 const displayedDays = computed(() =>
-  props.showOutsideDays ? calendarDays.value : calendarDays.value.filter((day) => day.isCurrentMonth),
+  props.showOutsideDays
+    ? calendarDays.value
+    : calendarDays.value.filter((day) => day.isCurrentMonth),
 );
 
-const setVisibleMonth = (month: Date, direction: CalendarMonthChangePayload['direction']): void => {
+const setVisibleMonth = (
+  month: Date,
+  direction: CalendarMonthChangePayload["direction"],
+): void => {
   visibleMonth.value = getMonthStart(month);
-  emit('update:month', visibleMonth.value);
-  emit('month-change', {
+  emit("update:month", visibleMonth.value);
+  emit("month-change", {
     month: visibleMonth.value,
     direction,
   });
 };
 
 const showPreviousMonth = (): void => {
-  setVisibleMonth(addMonths(visibleMonth.value, -1), 'previous');
+  setVisibleMonth(addMonths(visibleMonth.value, -1), "previous");
 };
 
 const showNextMonth = (): void => {
-  setVisibleMonth(addMonths(visibleMonth.value, 1), 'next');
+  setVisibleMonth(addMonths(visibleMonth.value, 1), "next");
 };
 
 const selectSingleDay = (day: CalendarDay): void => {
-  emit('update:modelValue', day.date);
-  emit('select', {
+  emit("update:modelValue", day.date);
+  emit("select", {
     date: day.date,
     day,
   });
 };
 
 const selectRangeDay = (day: CalendarDay): void => {
-  if (!pendingRangeStart.value || selectedRange.value.start && selectedRange.value.end) {
+  if (
+    !pendingRangeStart.value ||
+    (selectedRange.value.start && selectedRange.value.end)
+  ) {
     pendingRangeStart.value = day.date;
     hoveredRangeDate.value = day.date;
     const payload = { start: day.date, end: null };
 
-    emit('update:rangeValue', payload);
-    emit('range-select', payload);
+    emit("update:rangeValue", payload);
+    emit("range-select", payload);
     return;
   }
 
-  const start = isAfterDay(pendingRangeStart.value, day.date) ? day.date : pendingRangeStart.value;
-  const end = isAfterDay(pendingRangeStart.value, day.date) ? pendingRangeStart.value : day.date;
+  const start = isAfterDay(pendingRangeStart.value, day.date)
+    ? day.date
+    : pendingRangeStart.value;
+  const end = isAfterDay(pendingRangeStart.value, day.date)
+    ? pendingRangeStart.value
+    : day.date;
   const payload = { start, end };
 
   pendingRangeStart.value = null;
   hoveredRangeDate.value = null;
-  emit('update:rangeValue', payload);
-  emit('range-select', payload);
+  emit("update:rangeValue", payload);
+  emit("range-select", payload);
 };
 
 const selectDay = (day: CalendarDay): void => {
@@ -290,7 +335,7 @@ const selectDay = (day: CalendarDay): void => {
     return;
   }
 
-  if (props.mode === 'single') {
+  if (props.mode === "single") {
     selectSingleDay(day);
     return;
   }
@@ -299,7 +344,12 @@ const selectDay = (day: CalendarDay): void => {
 };
 
 const handleDayHover = (day: CalendarDay): void => {
-  if (props.mode === 'range' && pendingRangeStart.value && !activeRangeDragPoint.value && !day.isDisabled) {
+  if (
+    props.mode === "range" &&
+    pendingRangeStart.value &&
+    !activeRangeDragPoint.value &&
+    !day.isDisabled
+  ) {
     hoveredRangeDate.value = day.date;
   }
 
@@ -307,37 +357,45 @@ const handleDayHover = (day: CalendarDay): void => {
     updateRangeDrag(day.date);
   }
 
-  emit('day-hover', {
+  emit("day-hover", {
     date: day.date,
     day,
   });
 };
 
-const buildRangePayload = (firstDate: Date, secondDate: Date): CalendarRangePayload =>
+const buildRangePayload = (
+  firstDate: Date,
+  secondDate: Date,
+): CalendarRangePayload =>
   isAfterDay(firstDate, secondDate)
     ? {
-      start: secondDate,
-      end: firstDate,
-    }
+        start: secondDate,
+        end: firstDate,
+      }
     : {
-      start: firstDate,
-      end: secondDate,
-    };
+        start: firstDate,
+        end: secondDate,
+      };
 
 const updateRangeDrag = (date: Date, shouldEmit = true): void => {
-  if (!activeRangeDragPoint.value || !selectedRange.value.start || !selectedRange.value.end) {
+  if (
+    !activeRangeDragPoint.value ||
+    !selectedRange.value.start ||
+    !selectedRange.value.end
+  ) {
     return;
   }
 
-  const payload = activeRangeDragPoint.value === 'start'
-    ? buildRangePayload(date, selectedRange.value.end)
-    : buildRangePayload(selectedRange.value.start, date);
+  const payload =
+    activeRangeDragPoint.value === "start"
+      ? buildRangePayload(date, selectedRange.value.end)
+      : buildRangePayload(selectedRange.value.start, date);
 
   dragRangePreview.value = payload;
-  emit('update:rangeValue', payload);
+  emit("update:rangeValue", payload);
 
   if (shouldEmit) {
-    emit('range-drag', payload);
+    emit("range-drag", payload);
   }
 };
 
@@ -345,18 +403,28 @@ const stopRangeDrag = (): void => {
   const payload = dragRangePreview.value ?? selectedRange.value;
 
   if (payload.start && payload.end) {
-    emit('range-drag-end', payload);
+    emit("range-drag-end", payload);
   }
 
   activeRangeDragPoint.value = null;
   dragRangePreview.value = null;
   suppressNextClick.value = true;
-  window.removeEventListener('pointerup', stopRangeDrag);
-  window.removeEventListener('pointercancel', stopRangeDrag);
+  window.removeEventListener("pointerup", stopRangeDrag);
+  window.removeEventListener("pointercancel", stopRangeDrag);
 };
 
-const startRangeDrag = (day: CalendarDay, point: 'start' | 'end', event: PointerEvent): void => {
-  if (props.readonly || props.mode !== 'range' || day.isDisabled || !selectedRange.value.start || !selectedRange.value.end) {
+const startRangeDrag = (
+  day: CalendarDay,
+  point: "start" | "end",
+  event: PointerEvent,
+): void => {
+  if (
+    props.readonly ||
+    props.mode !== "range" ||
+    day.isDisabled ||
+    !selectedRange.value.start ||
+    !selectedRange.value.end
+  ) {
     return;
   }
 
@@ -365,24 +433,30 @@ const startRangeDrag = (day: CalendarDay, point: 'start' | 'end', event: Pointer
 
   activeRangeDragPoint.value = point;
   updateRangeDrag(day.date, false);
-  emit('range-drag-start', {
+  emit("range-drag-start", {
     start: selectedRange.value.start,
     end: selectedRange.value.end,
   });
-  window.addEventListener('pointerup', stopRangeDrag);
-  window.addEventListener('pointercancel', stopRangeDrag);
+  window.addEventListener("pointerup", stopRangeDrag);
+  window.addEventListener("pointercancel", stopRangeDrag);
 };
 
 onBeforeUnmount(() => {
-  window.removeEventListener('pointerup', stopRangeDrag);
-  window.removeEventListener('pointercancel', stopRangeDrag);
+  window.removeEventListener("pointerup", stopRangeDrag);
+  window.removeEventListener("pointercancel", stopRangeDrag);
 });
 </script>
 
 <template>
   <section class="calendar">
     <header class="calendar__header">
-      <Button mode="ghost" squared type="button" aria-label="Предыдущий месяц" @click="showPreviousMonth">
+      <Button
+        mode="ghost"
+        squared
+        type="button"
+        aria-label="Предыдущий месяц"
+        @click="showPreviousMonth"
+      >
         <IconChevronLeftOutline />
       </Button>
 
@@ -390,39 +464,64 @@ onBeforeUnmount(() => {
         <span class="calendar__title">{{ monthTitle }}</span>
       </slot>
 
-      <Button mode="ghost" squared type="button" aria-label="Следующий месяц" @click="showNextMonth">
+      <Button
+        mode="ghost"
+        squared
+        type="button"
+        aria-label="Следующий месяц"
+        @click="showNextMonth"
+      >
         <IconChevronRightOutline />
       </Button>
     </header>
 
     <div class="calendar__weekdays">
-      <div v-for="(label, index) in weekdayLabels" :key="label" class="calendar__weekday"
-        :class="{ 'calendar__weekday_weekend': index >= 5 }">
+      <div
+        v-for="(label, index) in weekdayLabels"
+        :key="label"
+        class="calendar__weekday"
+        :class="{ calendar__weekday_weekend: index >= 5 }"
+      >
         {{ label }}
       </div>
     </div>
 
     <div class="calendar__days">
-      <button v-for="day in displayedDays" :key="day.id" class="calendar__day" :class="{
-        'calendar__day_outside': !day.isCurrentMonth,
-        'calendar__day_today': day.isToday,
-        'calendar__day_weekend': day.isWeekend,
-        'calendar__day_selected': day.isSelected,
-        'calendar__day_range-start': day.isRangeStart,
-        'calendar__day_range-end': day.isRangeEnd,
-        'calendar__day_in-range': day.isInRange,
-        'calendar__day_range-background': day.hasRangeBackground && (day.isInRange || day.isRangeStart || day.isRangeEnd),
-        'calendar__day_disabled': day.isDisabled,
-        'calendar__day_draggable': mode === 'range' && (day.isRangeStart || day.isRangeEnd) && !day.isDisabled,
-        'calendar__day_dragging': activeRangeDragPoint && (day.isRangeStart || day.isRangeEnd),
-      }" type="button" :disabled="day.isDisabled" @click="selectDay(day)" @pointerenter="handleDayHover(day)"
+      <button
+        v-for="day in displayedDays"
+        :key="day.id"
+        class="calendar__day"
+        :class="{
+          calendar__day_outside: !day.isCurrentMonth,
+          calendar__day_today: day.isToday,
+          calendar__day_weekend: day.isWeekend,
+          calendar__day_selected: day.isSelected,
+          'calendar__day_range-start': day.isRangeStart,
+          'calendar__day_range-end': day.isRangeEnd,
+          'calendar__day_in-range': day.isInRange,
+          'calendar__day_range-background':
+            day.hasRangeBackground &&
+            (day.isInRange || day.isRangeStart || day.isRangeEnd),
+          calendar__day_disabled: day.isDisabled,
+          calendar__day_draggable:
+            mode === 'range' &&
+            (day.isRangeStart || day.isRangeEnd) &&
+            !day.isDisabled,
+          calendar__day_dragging:
+            activeRangeDragPoint && (day.isRangeStart || day.isRangeEnd),
+        }"
+        type="button"
+        :disabled="day.isDisabled"
+        @click="selectDay(day)"
+        @pointerenter="handleDayHover(day)"
         @pointerdown="
           day.isRangeStart
             ? startRangeDrag(day, 'start', $event)
             : day.isRangeEnd
               ? startRangeDrag(day, 'end', $event)
               : undefined
-          ">
+        "
+      >
         <slot name="day" :day="day">
           <span class="calendar__day-number">{{ day.date.getDate() }}</span>
         </slot>
@@ -526,11 +625,12 @@ onBeforeUnmount(() => {
   position: absolute;
   inset: 6px 0;
   background: transparent;
-  content: '';
+  content: "";
 }
 
 .calendar__day:not(.calendar__day_selected):hover .calendar__day-number,
-.calendar__day:not(.calendar__day_selected):focus-visible .calendar__day-number {
+.calendar__day:not(.calendar__day_selected):focus-visible
+  .calendar__day-number {
   background: var(--calendar-hover-background-color);
 }
 
@@ -554,7 +654,9 @@ onBeforeUnmount(() => {
   color: hsl(var(--muted-foreground) / 60%);
 }
 
-.calendar__day_weekend:not(.calendar__day_outside):not(.calendar__day_selected):not(.calendar__day_disabled) {
+.calendar__day_weekend:not(.calendar__day_outside):not(
+    .calendar__day_selected
+  ):not(.calendar__day_disabled) {
   color: var(--calendar-selected-color);
 }
 
@@ -563,7 +665,11 @@ onBeforeUnmount(() => {
 }
 
 .calendar__day_range-background::before {
-  background: color-mix(in oklab, var(--calendar-range-background-color) 18%, transparent);
+  background: color-mix(
+    in oklab,
+    var(--calendar-range-background-color) 18%,
+    transparent
+  );
 }
 
 .calendar__day_range-background.calendar__day_range-start::before {

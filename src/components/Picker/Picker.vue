@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { ButtonProps } from '../Button/Button.vue';
+import { ref } from "vue";
+import type { ButtonProps } from "../Button/Button.vue";
 
 export interface PickerProps {
-  size?: ButtonProps['size'];
+  size?: ButtonProps["size"];
   stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<PickerProps>(), {
-  size: 'large',
+  size: "large",
 });
 const elementRef = ref<HTMLButtonElement | null>(null);
 
@@ -18,7 +18,12 @@ defineExpose({
 </script>
 
 <template>
-  <button ref="elementRef" v-bind="$attrs" type="button" :class="['picker', props.size, { stretched: props.stretched }]">
+  <button
+    ref="elementRef"
+    v-bind="$attrs"
+    type="button"
+    :class="['picker', props.size, { stretched: props.stretched }]"
+  >
     <span class="picker-text">
       <slot></slot>
     </span>

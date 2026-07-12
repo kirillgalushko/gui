@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useViewportBreakpoint } from '../../hooks/useViewportBreakpoint';
-import Modal from '../Modal/Modal.vue';
-import type { ModalProps } from '../Modal/Modal.vue';
-import Sheet from '../Sheet/Sheet.vue';
-import type { SheetProps } from '../Sheet/Sheet.vue';
+import { computed } from "vue";
+import { useViewportBreakpoint } from "../../hooks/useViewportBreakpoint";
+import Modal from "../Modal/Modal.vue";
+import type { ModalProps } from "../Modal/Modal.vue";
+import Sheet from "../Sheet/Sheet.vue";
+import type { SheetProps } from "../Sheet/Sheet.vue";
 
-type CommonOverlayProp = 'isOpened' | 'onClose' | 'showCloseButton' | 'title';
-type AdaptiveSheetProp = CommonOverlayProp | 'side';
+type CommonOverlayProp = "isOpened" | "onClose" | "showCloseButton" | "title";
+type AdaptiveSheetProp = CommonOverlayProp | "side";
 
 export interface AdaptiveModalProps {
   isOpened?: boolean;

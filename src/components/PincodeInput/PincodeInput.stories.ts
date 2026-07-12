@@ -1,30 +1,30 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import PincodeInput from './PincodeInput.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import PincodeInput from "./PincodeInput.vue";
 
-type PincodeInputType = typeof PincodeInput | HTMLInputElement
+type PincodeInputType = typeof PincodeInput | HTMLInputElement;
 
 const meta: Meta<PincodeInputType> = {
-  title: 'Components/PincodeInput',
+  title: "Components/PincodeInput",
   component: PincodeInput,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
     loading: {
-      type: 'boolean',
+      type: "boolean",
     },
     invalid: {
-      type: 'boolean',
+      type: "boolean",
     },
     succeed: {
-      type: 'boolean',
+      type: "boolean",
     },
     stretched: {
-      type: 'boolean',
+      type: "boolean",
     },
     length: {
-      control: { type: 'number', min: 3, max: 8 },
+      control: { type: "number", min: 3, max: 8 },
     },
   },
 };
@@ -34,9 +34,9 @@ type Story = StoryObj<PincodeInputType>;
 
 export const Default: Story = {
   args: {
-    value: '',
+    value: "",
     length: 6,
-    description: 'Введите код из сообщения',
+    description: "Введите код из сообщения",
   },
   render: (args) => ({
     components: { PincodeInput },
@@ -49,7 +49,7 @@ export const Default: Story = {
 
 export const Filled: Story = {
   args: {
-    value: '1234',
+    value: "1234",
     length: 4,
   },
   render: (args) => ({
@@ -63,10 +63,10 @@ export const Filled: Story = {
 
 export const Stretched: Story = {
   args: {
-    value: '123',
+    value: "123",
     length: 6,
     stretched: true,
-    description: 'Растягивается на ширину контейнера',
+    description: "Растягивается на ширину контейнера",
   },
   render: (args) => ({
     components: { PincodeInput },
@@ -79,10 +79,10 @@ export const Stretched: Story = {
 
 export const Loading: Story = {
   args: {
-    value: '12',
+    value: "12",
     length: 6,
     loading: true,
-    description: 'Проверяем код',
+    description: "Проверяем код",
   },
   render: (args) => ({
     components: { PincodeInput },
@@ -95,10 +95,10 @@ export const Loading: Story = {
 
 export const Succeed: Story = {
   args: {
-    value: '123456',
+    value: "123456",
     length: 6,
     succeed: true,
-    description: 'Код подтвержден',
+    description: "Код подтвержден",
   },
   render: (args) => ({
     components: { PincodeInput },
@@ -111,11 +111,11 @@ export const Succeed: Story = {
 
 export const Invalid: Story = {
   args: {
-    value: '123',
+    value: "123",
     length: 6,
     invalid: true,
-    description: 'Подсказка скрывается при ошибке',
-    errorMessage: 'Код введен неверно',
+    description: "Подсказка скрывается при ошибке",
+    errorMessage: "Код введен неверно",
   },
   render: (args) => ({
     components: { PincodeInput },

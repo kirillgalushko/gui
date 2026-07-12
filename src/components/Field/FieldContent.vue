@@ -1,10 +1,10 @@
 <script setup lang="ts">
 export interface FieldContentProps {
-  align?: 'start' | 'center' | 'end';
+  align?: "start" | "center" | "end";
 }
 
 const props = withDefaults(defineProps<FieldContentProps>(), {
-  align: 'start',
+  align: "start",
 });
 </script>
 

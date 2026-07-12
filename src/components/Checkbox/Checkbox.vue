@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, useAttrs, useId, watch } from 'vue';
-import FieldHelper from '../FieldHelper/FieldHelper.vue';
+import { computed, onMounted, ref, useAttrs, useId, watch } from "vue";
+import FieldHelper from "../FieldHelper/FieldHelper.vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -17,7 +17,7 @@ export interface CheckboxProps {
 }
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
-  maxWidth: '100%',
+  maxWidth: "100%",
 });
 
 const model = defineModel<boolean | unknown[]>();
@@ -42,14 +42,17 @@ const helperDescriptionId = computed(() => {
 });
 
 const ariaDescribedBy = computed(() => {
-  const describedBy = attrs['aria-describedby'];
-  const describedByValue = typeof describedBy === 'string' ? describedBy : undefined;
+  const describedBy = attrs["aria-describedby"];
+  const describedByValue =
+    typeof describedBy === "string" ? describedBy : undefined;
 
   if (!helperDescriptionId.value) {
     return describedByValue;
   }
 
-  return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
+  return [describedByValue, helperDescriptionId.value]
+    .filter(Boolean)
+    .join(" ");
 });
 
 const syncIndeterminate = () => {
@@ -64,11 +67,24 @@ watch(() => props.indeterminate, syncIndeterminate);
 
 <template>
   <div :style="{ maxWidth: props.maxWidth }" class="checkbox-field">
-    <label :class="['checkbox', { disabled: props.disabled, invalid: props.invalid }]">
+    <label
+      :class="[
+        'checkbox',
+        { disabled: props.disabled, invalid: props.invalid },
+      ]"
+    >
       <span class="checkbox-box">
-        <input v-bind="$attrs" ref="inputRef" v-model="model" class="checkbox-input" type="checkbox"
-          :disabled="props.disabled" :aria-invalid="props.invalid || undefined" :aria-describedby="ariaDescribedBy"
-          :aria-checked="props.indeterminate ? 'mixed' : undefined" />
+        <input
+          v-bind="$attrs"
+          ref="inputRef"
+          v-model="model"
+          class="checkbox-input"
+          type="checkbox"
+          :disabled="props.disabled"
+          :aria-invalid="props.invalid || undefined"
+          :aria-describedby="ariaDescribedBy"
+          :aria-checked="props.indeterminate ? 'mixed' : undefined"
+        />
         <span class="checkbox-control" aria-hidden="true">
           <svg class="checkbox-check" viewBox="0 0 14 14" fill="none">
             <path d="M3 7.2L5.7 9.8L11 4.2" />
@@ -80,8 +96,13 @@ watch(() => props.indeterminate, syncIndeterminate);
         <slot></slot>
       </span>
     </label>
-    <FieldHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
-      :disabled="props.disabled" :description-id="helperDescriptionId" />
+    <FieldHelper
+      :description="props.description"
+      :error-message="props.errorMessage"
+      :invalid="props.invalid"
+      :disabled="props.disabled"
+      :description-id="helperDescriptionId"
+    />
   </div>
 </template>
 
@@ -159,24 +180,24 @@ watch(() => props.indeterminate, syncIndeterminate);
   border-color: hsl(var(--negative));
 }
 
-.checkbox-input:focus-visible+.checkbox-control {
+.checkbox-input:focus-visible + .checkbox-control {
   outline: 2px solid hsl(var(--ring));
   outline-offset: -2px;
 }
 
-.checkbox.invalid .checkbox-input:focus-visible+.checkbox-control {
+.checkbox.invalid .checkbox-input:focus-visible + .checkbox-control {
   outline-color: hsl(var(--negative));
 }
 
-.checkbox-input:checked+.checkbox-control,
-.checkbox-input:indeterminate+.checkbox-control {
+.checkbox-input:checked + .checkbox-control,
+.checkbox-input:indeterminate + .checkbox-control {
   border-color: hsl(var(--primary));
   background: hsl(var(--primary));
   animation: checkbox-pop 0.2s ease;
 }
 
-.checkbox.invalid .checkbox-input:checked+.checkbox-control,
-.checkbox.invalid .checkbox-input:indeterminate+.checkbox-control {
+.checkbox.invalid .checkbox-input:checked + .checkbox-control,
+.checkbox.invalid .checkbox-input:indeterminate + .checkbox-control {
   border-color: hsl(var(--negative));
   background: hsl(var(--negative));
 }
@@ -214,21 +235,21 @@ watch(() => props.indeterminate, syncIndeterminate);
     transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.checkbox-input:checked+.checkbox-control .checkbox-check {
+.checkbox-input:checked + .checkbox-control .checkbox-check {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
 
-.checkbox-input:checked+.checkbox-control .checkbox-check path {
+.checkbox-input:checked + .checkbox-control .checkbox-check path {
   stroke-dashoffset: 0;
 }
 
-.checkbox-input:indeterminate+.checkbox-control .checkbox-minus {
+.checkbox-input:indeterminate + .checkbox-control .checkbox-minus {
   opacity: 1;
   transform: scaleX(1);
 }
 
-.checkbox-input:indeterminate+.checkbox-control .checkbox-check {
+.checkbox-input:indeterminate + .checkbox-control .checkbox-check {
   opacity: 0;
 }
 

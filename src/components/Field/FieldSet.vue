@@ -7,7 +7,10 @@ const props = defineProps<FieldSetProps>();
 </script>
 
 <template>
-  <fieldset :disabled="props.disabled" :class="['field-set', { disabled: props.disabled }]">
+  <fieldset
+    :disabled="props.disabled"
+    :class="['field-set', { disabled: props.disabled }]"
+  >
     <slot></slot>
   </fieldset>
 </template>

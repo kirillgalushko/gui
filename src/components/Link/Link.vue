@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import Text from '../Text/Text.vue';
-import type { Typography } from '../Text/types';
+import { computed } from "vue";
+import Text from "../Text/Text.vue";
+import type { Typography } from "../Text/types";
 
 defineOptions({
   inheritAttrs: false,
@@ -13,14 +13,14 @@ export interface LinkProps {
   underlined?: boolean;
   disabled?: boolean;
   enableVisited?: boolean;
-  mode?: 'inherit' | 'accent';
-  Element?: 'a' | 'button' | 'span';
+  mode?: "inherit" | "accent";
+  Element?: "a" | "button" | "span";
 }
 
 const props = withDefaults(defineProps<LinkProps>(), {
-  Element: 'a',
-  mode: 'accent',
-  typography: 'inherit',
+  Element: "a",
+  mode: "accent",
+  typography: "inherit",
   inline: true,
 });
 
@@ -30,15 +30,19 @@ const linkAttrs = computed(() => {
   }
 
   return {
-    'aria-disabled': 'true',
+    "aria-disabled": "true",
     tabindex: -1,
-    disabled: props.Element === 'button' ? true : undefined,
+    disabled: props.Element === "button" ? true : undefined,
   };
 });
 </script>
 
 <template>
-  <Text v-bind="{ ...$attrs, ...linkAttrs }" :Element="props.Element" :typography="props.typography" color="inherit"
+  <Text
+    v-bind="{ ...$attrs, ...linkAttrs }"
+    :Element="props.Element"
+    :typography="props.typography"
+    color="inherit"
     :class="[
       'link',
       `mode-${props.mode}`,
@@ -47,8 +51,9 @@ const linkAttrs = computed(() => {
         underlined: props.underlined,
         disabled: props.disabled,
         'enable-visited': props.enableVisited,
-      }
-    ]">
+      },
+    ]"
+  >
     <span v-if="$slots.iconLeft" class="link-icon">
       <slot name="iconLeft"></slot>
     </span>
@@ -71,7 +76,10 @@ const linkAttrs = computed(() => {
   color: hsl(var(--link-color));
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s, opacity 0.2s, outline-color 0.1s;
+  transition:
+    color 0.2s,
+    opacity 0.2s,
+    outline-color 0.1s;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }

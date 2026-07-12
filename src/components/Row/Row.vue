@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import type { Align } from '../../types';
-
+import type { Align } from "../../types";
 
 export interface RowProps {
   fullHeight?: boolean;
   alignItems?: Align;
 }
 
-const props = defineProps<RowProps>()
+const props = defineProps<RowProps>();
 </script>
 
 <template>
-  <div :class="['row', props.alignItems, { 'fullHeight': props.fullHeight }]">
+  <div :class="['row', props.alignItems, { fullHeight: props.fullHeight }]">
     <slot></slot>
   </div>
 </template>

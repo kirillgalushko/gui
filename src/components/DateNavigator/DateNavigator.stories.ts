@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
 
-import DateNavigator from './DateNavigator.vue';
-import type { DateNavigatorChangePayload } from './types';
+import DateNavigator from "./DateNavigator.vue";
+import type { DateNavigatorChangePayload } from "./types";
 
 const meta = {
-  title: 'Components/DateNavigator',
+  title: "Components/DateNavigator",
   component: DateNavigator,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof DateNavigator>;
 
 export default meta;
@@ -39,7 +39,8 @@ export const Week: Story = {
 
       return { onChange, value };
     },
-    template: '<DateNavigator mode="week" :value="value" :on-change="onChange" />',
+    template:
+      '<DateNavigator mode="week" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -54,7 +55,8 @@ export const ThreeDays: Story = {
 
       return { onChange, value };
     },
-    template: '<DateNavigator mode="threeDays" :value="value" :on-change="onChange" />',
+    template:
+      '<DateNavigator mode="threeDays" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -69,7 +71,8 @@ export const TwoWeeks: Story = {
 
       return { onChange, value };
     },
-    template: '<DateNavigator mode="twoWeeks" :value="value" :on-change="onChange" />',
+    template:
+      '<DateNavigator mode="twoWeeks" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -84,7 +87,8 @@ export const Month: Story = {
 
       return { onChange, value };
     },
-    template: '<DateNavigator mode="month" :value="value" :on-change="onChange" />',
+    template:
+      '<DateNavigator mode="month" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -99,7 +103,8 @@ export const Year: Story = {
 
       return { onChange, value };
     },
-    template: '<DateNavigator mode="year" :value="value" :on-change="onChange" />',
+    template:
+      '<DateNavigator mode="year" :value="value" :on-change="onChange" />',
   }),
 };
 
@@ -114,7 +119,8 @@ export const SmallContrast: Story = {
 
       return { onChange, value };
     },
-    template: '<DateNavigator :value="value" button-mode="contrast" size="small" :on-change="onChange" />',
+    template:
+      '<DateNavigator :value="value" button-mode="contrast" size="small" :on-change="onChange" />',
   }),
 };
 
@@ -131,7 +137,8 @@ export const Restricted: Story = {
 
       return { maxDate, minDate, onChange, value };
     },
-    template: '<DateNavigator :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
+    template:
+      '<DateNavigator :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
   }),
 };
 
@@ -148,6 +155,7 @@ export const TodayRestricted: Story = {
 
       return { maxDate, minDate, onChange, value };
     },
-    template: '<DateNavigator :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
+    template:
+      '<DateNavigator :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
   }),
 };

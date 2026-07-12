@@ -1,15 +1,15 @@
 <script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
-})
+});
 
 export interface BreadcrumbLinkProps {
-  Element?: 'a' | 'button' | 'span'
+  Element?: "a" | "button" | "span";
 }
 
 const props = withDefaults(defineProps<BreadcrumbLinkProps>(), {
-  Element: 'a',
-})
+  Element: "a",
+});
 </script>
 
 <template>

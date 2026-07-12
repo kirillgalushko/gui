@@ -1,20 +1,24 @@
 <script setup lang="ts">
-import { provide } from 'vue';
-import { buttonGroupContextKey, type ButtonGroupOrientation } from './context';
+import { provide } from "vue";
+import { buttonGroupContextKey, type ButtonGroupOrientation } from "./context";
 
 export interface ButtonGroupProps {
   orientation?: ButtonGroupOrientation;
 }
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {
-  orientation: 'horizontal',
+  orientation: "horizontal",
 });
 
 provide(buttonGroupContextKey, props);
 </script>
 
 <template>
-  <div v-bind="$attrs" :class="['button-group', props.orientation]" role="group">
+  <div
+    v-bind="$attrs"
+    :class="['button-group', props.orientation]"
+    role="group"
+  >
     <slot></slot>
   </div>
 </template>

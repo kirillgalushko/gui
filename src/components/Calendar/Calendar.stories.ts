@@ -1,30 +1,30 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
 
-import Calendar from './Calendar.vue';
-import type { CalendarRangePayload } from './types';
+import Calendar from "./Calendar.vue";
+import type { CalendarRangePayload } from "./types";
 
 const meta = {
-  title: 'Components/Calendar',
+  title: "Components/Calendar",
   component: Calendar,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     mode: {
-      control: 'select',
-      options: ['single', 'range'],
+      control: "select",
+      options: ["single", "range"],
     },
     showOutsideDays: {
-      control: 'boolean',
+      control: "boolean",
     },
     fixedWeeks: {
-      control: 'boolean',
+      control: "boolean",
     },
     readonly: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
   args: {
-    mode: 'single',
+    mode: "single",
     showOutsideDays: true,
     fixedWeeks: false,
     readonly: false,
@@ -48,7 +48,7 @@ export const Single: Story = {
 
 export const Range: Story = {
   args: {
-    mode: 'range',
+    mode: "range",
   },
   render: (args) => ({
     components: { Calendar },
@@ -73,10 +73,12 @@ export const Restricted: Story = {
     components: { Calendar },
     setup() {
       const selectedDate = ref<Date | null>(null);
-      const disabledDates = (date: Date) => date.getDay() === 0 || date.getDay() === 6;
+      const disabledDates = (date: Date) =>
+        date.getDay() === 0 || date.getDay() === 6;
 
       return { args, selectedDate, disabledDates };
     },
-    template: '<Calendar v-bind="args" v-model="selectedDate" :disabled-dates="disabledDates" />',
+    template:
+      '<Calendar v-bind="args" v-model="selectedDate" :disabled-dates="disabledDates" />',
   }),
 };

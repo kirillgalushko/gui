@@ -1,20 +1,20 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Skeleton from './Skeleton.vue';
-import SkeletonProvider from './SkeletonProvider.vue';
-import AvatarSkeleton from './AvatarSkeleton.vue';
-import ButtonSkeleton from './ButtonSkeleton.vue';
-import CardSkeleton from './CardSkeleton.vue';
-import FormSkeleton from './FormSkeleton.vue';
-import TextSkeleton from './TextSkeleton.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Skeleton from "./Skeleton.vue";
+import SkeletonProvider from "./SkeletonProvider.vue";
+import AvatarSkeleton from "./AvatarSkeleton.vue";
+import ButtonSkeleton from "./ButtonSkeleton.vue";
+import CardSkeleton from "./CardSkeleton.vue";
+import FormSkeleton from "./FormSkeleton.vue";
+import TextSkeleton from "./TextSkeleton.vue";
 
 const meta: Meta<typeof Skeleton> = {
-  title: 'Components/Skeleton',
+  title: "Components/Skeleton",
   component: Skeleton,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   args: {
-    width: '240px',
-    height: '40px',
-    radius: '10px',
+    width: "240px",
+    height: "40px",
+    radius: "10px",
     animated: true,
   },
 };
@@ -34,7 +34,13 @@ export const Default: Story = {
 
 export const Presets: Story = {
   render: () => ({
-    components: { AvatarSkeleton, ButtonSkeleton, CardSkeleton, FormSkeleton, TextSkeleton },
+    components: {
+      AvatarSkeleton,
+      ButtonSkeleton,
+      CardSkeleton,
+      FormSkeleton,
+      TextSkeleton,
+    },
     template: `
       <div style="display: grid; gap: var(--gap-6); max-width: 480px;">
         <div style="display: flex; align-items: center; gap: var(--gap-3);">
@@ -60,7 +66,7 @@ export const Provider: Story = {
   },
   argTypes: {
     loading: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
   },
   render: (args) => ({

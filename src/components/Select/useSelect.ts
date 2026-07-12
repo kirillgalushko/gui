@@ -1,11 +1,14 @@
-import { ref } from 'vue';
+import { ref } from "vue";
 
 export interface RegisteredOption {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
-export const useSelect = (defaultOptionValue?: string, onChange?: (option: RegisteredOption) => void) => {
+export const useSelect = (
+  defaultOptionValue?: string,
+  onChange?: (option: RegisteredOption) => void,
+) => {
   const options = ref<Map<string, string>>(new Map());
   const selectedOption = ref();
 
@@ -17,7 +20,11 @@ export const useSelect = (defaultOptionValue?: string, onChange?: (option: Regis
       return;
     }
 
-    if (defaultOptionValue !== undefined && option.value === defaultOptionValue && !selectedOption.value) {
+    if (
+      defaultOptionValue !== undefined &&
+      option.value === defaultOptionValue &&
+      !selectedOption.value
+    ) {
       selectedOption.value = option;
     }
   };

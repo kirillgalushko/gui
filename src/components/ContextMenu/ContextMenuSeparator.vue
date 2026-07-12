@@ -1,5 +1,5 @@
 <script lang="ts">
-import BaseMenuSeparator from '../BaseMenu/BaseMenuSeparator.vue';
+import BaseMenuSeparator from "../BaseMenu/BaseMenuSeparator.vue";
 
-export default BaseMenuSeparator
+export default BaseMenuSeparator;
 </script>

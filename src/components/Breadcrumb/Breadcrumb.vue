@@ -1,15 +1,15 @@
 <script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
-})
+});
 
 export interface BreadcrumbProps {
-  label?: string
+  label?: string;
 }
 
 const props = withDefaults(defineProps<BreadcrumbProps>(), {
-  label: 'breadcrumb',
-})
+  label: "breadcrumb",
+});
 </script>
 
 <template>

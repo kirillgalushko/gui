@@ -4,7 +4,7 @@ export interface GridRowProps {
 }
 
 const props = withDefaults(defineProps<GridRowProps>(), {
-  rowGap: '0',
+  rowGap: "0",
 });
 </script>
 

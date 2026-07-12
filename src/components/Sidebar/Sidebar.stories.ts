@@ -1,16 +1,22 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Sidebar from './Sidebar.vue';
-import SidebarList from './SidebarList.vue'
-import SidebarItem from './SidebarItem.vue'
-import { IconMusicOutline, IconBuildingBroadcastTowerOutline, IconPlaylistOutline, IconSettingsOutline, IconInfoTriangleOutline } from '@gui/icons';
-import Badge from '../Badge/Badge.vue'
+import { Meta, StoryObj } from "@storybook/vue3";
+import Sidebar from "./Sidebar.vue";
+import SidebarList from "./SidebarList.vue";
+import SidebarItem from "./SidebarItem.vue";
+import {
+  IconMusicOutline,
+  IconBuildingBroadcastTowerOutline,
+  IconPlaylistOutline,
+  IconSettingsOutline,
+  IconInfoTriangleOutline,
+} from "@gui/icons";
+import Badge from "../Badge/Badge.vue";
 
 const meta: Meta<typeof Sidebar> = {
-  title: 'Components/Sidebar',
+  title: "Components/Sidebar",
   component: Sidebar,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 };
 
@@ -19,13 +25,17 @@ type Story = StoryObj<typeof Sidebar>;
 
 export const Default: Story = {
   render: () => ({
-    components: { Sidebar, SidebarItem, SidebarList, Badge,
+    components: {
+      Sidebar,
+      SidebarItem,
+      SidebarList,
+      Badge,
       IconMusicOutline,
       IconBuildingBroadcastTowerOutline,
       IconPlaylistOutline,
       IconSettingsOutline,
       IconInfoTriangleOutline,
-     },
+    },
     template: `
       <Sidebar :compactWidth="120" minWidth="100px">
         <SidebarList>
@@ -76,13 +86,17 @@ export const Default: Story = {
 
 export const Floating: Story = {
   render: () => ({
-    components: { Sidebar, SidebarItem, SidebarList, Badge,
+    components: {
+      Sidebar,
+      SidebarItem,
+      SidebarList,
+      Badge,
       IconMusicOutline,
       IconBuildingBroadcastTowerOutline,
       IconPlaylistOutline,
       IconSettingsOutline,
       IconInfoTriangleOutline,
-     },
+    },
     template: `
       <div style="height: 100vh; background: hsl(var(--muted) / 0.35);">
         <Sidebar mode="floating" :compactWidth="120" minWidth="100px">

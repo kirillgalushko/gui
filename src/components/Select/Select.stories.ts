@@ -1,20 +1,20 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Select from './Select.vue';
-import SelectOption from './SelectOption.vue'
-import { ref } from 'vue';
-import { RegisteredOption } from './useSelect';
-import Button from '../Button/Button.vue';
-import Gap from '../Gap/Gap.vue';
-import type { ButtonProps } from '../Button/Button.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Select from "./Select.vue";
+import SelectOption from "./SelectOption.vue";
+import { ref } from "vue";
+import { RegisteredOption } from "./useSelect";
+import Button from "../Button/Button.vue";
+import Gap from "../Gap/Gap.vue";
+import type { ButtonProps } from "../Button/Button.vue";
 
 const meta: Meta<typeof Select> = {
-  title: 'Components/Select',
+  title: "Components/Select",
   component: Select,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   argTypes: {
     size: {
-      control: 'select',
-      options: ['extra-small', 'small', 'medium', 'large'],
+      control: "select",
+      options: ["extra-small", "small", "medium", "large"],
     },
   },
 };
@@ -24,16 +24,16 @@ type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
   args: {
-    label: 'Выберите тему',
-    name: 'theme'
+    label: "Выберите тему",
+    name: "theme",
   },
   render: (args) => ({
     components: { Select, SelectOption },
     setup() {
-      const selectedOption = ref<string>('dark')
+      const selectedOption = ref<string>("dark");
       const handleChange = (option: RegisteredOption) => {
-        selectedOption.value = option.value
-      }
+        selectedOption.value = option.value;
+      };
       return { args, handleChange, selectedOption };
     },
     template: `
@@ -51,11 +51,16 @@ export const Sizes: Story = {
   render: () => ({
     components: { Button, Gap, Select, SelectOption },
     setup() {
-      const selectedOption = ref<string>('dark')
-      const sizes: ButtonProps['size'][] = ['extra-small', 'small', 'medium', 'large']
+      const selectedOption = ref<string>("dark");
+      const sizes: ButtonProps["size"][] = [
+        "extra-small",
+        "small",
+        "medium",
+        "large",
+      ];
       const handleChange = (option: RegisteredOption) => {
-        selectedOption.value = option.value
-      }
+        selectedOption.value = option.value;
+      };
 
       return { handleChange, selectedOption, sizes };
     },

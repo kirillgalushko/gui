@@ -1,4 +1,4 @@
-export type CalendarMode = 'single' | 'range';
+export type CalendarMode = "single" | "range";
 
 export type CalendarValue = Date | string | null;
 
@@ -33,5 +33,5 @@ export type CalendarRangePayload = {
 
 export type CalendarMonthChangePayload = {
   month: Date;
-  direction: 'previous' | 'next' | 'set';
+  direction: "previous" | "next" | "set";
 };

@@ -1,17 +1,35 @@
 <script setup lang="ts">
-import BaseMenu from '../BaseMenu/BaseMenu.vue'
-import { useHoverMenu } from './useHoverMenu';
+import BaseMenu from "../BaseMenu/BaseMenu.vue";
+import { useHoverMenu } from "./useHoverMenu";
 
-const { targetRef, floatingRef, floatingStyles, isVisible, isSubmenuVisible, showHoverMenu, hideMenu } = useHoverMenu();
+const {
+  targetRef,
+  floatingRef,
+  floatingStyles,
+  isVisible,
+  isSubmenuVisible,
+  showHoverMenu,
+  hideMenu,
+} = useHoverMenu();
 </script>
 
 <template>
-  <div ref="targetRef" @mouseenter="showHoverMenu" @mouseleave="hideMenu" class="hover-menu-wrapper">
+  <div
+    ref="targetRef"
+    @mouseenter="showHoverMenu"
+    @mouseleave="hideMenu"
+    class="hover-menu-wrapper"
+  >
     <slot ref="testRef"></slot>
   </div>
   <Teleport to="body">
     <Transition name="fade">
-      <div v-if="isVisible || isSubmenuVisible" @mouseenter="showHoverMenu" @mouseleave="hideMenu" ref="floatingRef">
+      <div
+        v-if="isVisible || isSubmenuVisible"
+        @mouseenter="showHoverMenu"
+        @mouseleave="hideMenu"
+        ref="floatingRef"
+      >
         <BaseMenu :style="floatingStyles">
           <slot name="menu"></slot>
         </BaseMenu>

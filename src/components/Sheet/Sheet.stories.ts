@@ -1,46 +1,46 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Button from '../Button/Button.vue';
-import Gap from '../Gap/Gap.vue';
-import Input from '../Input/Input.vue';
-import Sheet from './Sheet.vue';
-import Text from '../Text/Text.vue';
-import { useModal } from '../../hooks/useModal';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Button from "../Button/Button.vue";
+import Gap from "../Gap/Gap.vue";
+import Input from "../Input/Input.vue";
+import Sheet from "./Sheet.vue";
+import Text from "../Text/Text.vue";
+import { useModal } from "../../hooks/useModal";
 
 const meta: Meta<typeof Sheet> = {
-  title: 'Components/Sheet',
+  title: "Components/Sheet",
   component: Sheet,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     isOpened: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     title: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     description: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     showCloseButton: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     side: {
-      control: { type: 'select' },
-      options: ['top', 'right', 'bottom', 'left'],
+      control: { type: "select" },
+      options: ["top", "right", "bottom", "left"],
     },
     size: {
-      control: { type: 'select' },
-      options: ['auto', 'small', 'medium', 'large', 'full'],
+      control: { type: "select" },
+      options: ["auto", "small", "medium", "large", "full"],
     },
     rounded: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
   },
   args: {
     isOpened: true,
     showCloseButton: true,
-    title: 'Настройки объекта',
-    description: 'Измените параметры объявления и сохраните результат.',
-    side: 'right',
+    title: "Настройки объекта",
+    description: "Измените параметры объявления и сохраните результат.",
+    side: "right",
     rounded: true,
   },
   parameters: {
@@ -104,8 +104,8 @@ export const WithUseModal: Story = {
 
 export const LeftSide: Story = {
   args: {
-    side: 'left',
-    size: 'small',
+    side: "left",
+    size: "small",
   },
   render: (args) => ({
     components: { Button, Sheet, Text },
@@ -124,7 +124,7 @@ export const LeftSide: Story = {
 
 export const BottomSide: Story = {
   args: {
-    side: 'bottom',
+    side: "bottom",
   },
   render: (args) => ({
     components: { Button, Sheet, Text },
@@ -143,8 +143,8 @@ export const BottomSide: Story = {
 
 export const FullHeightBottomSide: Story = {
   args: {
-    side: 'bottom',
-    size: 'full',
+    side: "bottom",
+    size: "full",
   },
   render: (args) => ({
     components: { Button, Sheet, Text },

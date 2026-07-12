@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, useAttrs, useId, watch } from 'vue';
-import FieldHelper from '../FieldHelper/FieldHelper.vue';
+import {
+  computed,
+  nextTick,
+  onMounted,
+  ref,
+  useAttrs,
+  useId,
+  watch,
+} from "vue";
+import FieldHelper from "../FieldHelper/FieldHelper.vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -25,7 +33,7 @@ const props = withDefaults(defineProps<PincodeInputProps>(), {
   length: 6,
 });
 const emit = defineEmits<{
-  'update:modelValue': [value: string];
+  "update:modelValue": [value: string];
   complete: [value: string];
 }>();
 const attrs = useAttrs();
@@ -33,22 +41,40 @@ const generatedDescriptionId = useId();
 const inputRef = ref<HTMLInputElement | null>(null);
 const cursorIndex = ref(0);
 
-const codeLength = computed(() => Math.max(1, Math.floor(Number(props.length) || 1)));
-const sanitizeValue = (value: unknown) => String(value ?? '').replace(/\D/g, '').slice(0, codeLength.value);
-const getSanitizedCursorIndex = (rawValue: string, selectionStart: number | null) => {
+const codeLength = computed(() =>
+  Math.max(1, Math.floor(Number(props.length) || 1)),
+);
+const sanitizeValue = (value: unknown) =>
+  String(value ?? "")
+    .replace(/\D/g, "")
+    .slice(0, codeLength.value);
+const getSanitizedCursorIndex = (
+  rawValue: string,
+  selectionStart: number | null,
+) => {
   if (selectionStart === null) {
     return sanitizeValue(rawValue).length;
   }
 
   return sanitizeValue(rawValue.slice(0, selectionStart)).length;
 };
-const isReadonlyAttr = (readonly: unknown) => readonly === '' || readonly === true || readonly === 'true';
+const isReadonlyAttr = (readonly: unknown) =>
+  readonly === "" || readonly === true || readonly === "true";
 
 const value = computed(() => sanitizeValue(props.modelValue));
 const isDisabled = computed(() => props.disabled || props.loading);
-const isReadonly = computed(() => props.succeed || isReadonlyAttr(attrs.readonly));
-const codeCells = computed(() => Array.from({ length: codeLength.value }, (_, index) => value.value[index] ?? ''));
-const activeCellIndex = computed(() => Math.min(cursorIndex.value, codeLength.value - 1));
+const isReadonly = computed(
+  () => props.succeed || isReadonlyAttr(attrs.readonly),
+);
+const codeCells = computed(() =>
+  Array.from(
+    { length: codeLength.value },
+    (_, index) => value.value[index] ?? "",
+  ),
+);
+const activeCellIndex = computed(() =>
+  Math.min(cursorIndex.value, codeLength.value - 1),
+);
 const shouldShowCaret = computed(() => cursorIndex.value < codeLength.value);
 
 const shouldRenderHelper = computed(() => {
@@ -68,14 +94,17 @@ const helperDescriptionId = computed(() => {
 });
 
 const ariaDescribedBy = computed(() => {
-  const describedBy = attrs['aria-describedby'];
-  const describedByValue = typeof describedBy === 'string' ? describedBy : undefined;
+  const describedBy = attrs["aria-describedby"];
+  const describedByValue =
+    typeof describedBy === "string" ? describedBy : undefined;
 
   if (!helperDescriptionId.value) {
     return describedByValue;
   }
 
-  return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
+  return [describedByValue, helperDescriptionId.value]
+    .filter(Boolean)
+    .join(" ");
 });
 
 const inputAttrs = computed(() => {
@@ -89,13 +118,11 @@ const inputAttrs = computed(() => {
   return rest;
 });
 
-const getCursorLimit = (nextValue = value.value) => (
-  nextValue.length === codeLength.value ? codeLength.value : nextValue.length
-);
+const getCursorLimit = (nextValue = value.value) =>
+  nextValue.length === codeLength.value ? codeLength.value : nextValue.length;
 
-const clampCursorIndex = (index: number, nextValue = value.value) => (
-  Math.min(Math.max(index, 0), getCursorLimit(nextValue))
-);
+const clampCursorIndex = (index: number, nextValue = value.value) =>
+  Math.min(Math.max(index, 0), getCursorLimit(nextValue));
 
 const syncNativeInput = async (nextValue = value.value) => {
   await nextTick();
@@ -114,8 +141,11 @@ const setCursorIndex = (index: number, nextValue = value.value) => {
 };
 
 const emitCompleteIfNeeded = (nextValue: string, nextCursorIndex: number) => {
-  if (nextValue.length === codeLength.value && nextCursorIndex >= codeLength.value) {
-    emit('complete', nextValue);
+  if (
+    nextValue.length === codeLength.value &&
+    nextCursorIndex >= codeLength.value
+  ) {
+    emit("complete", nextValue);
   }
 };
 
@@ -128,7 +158,7 @@ const commitValue = (nextValue: string, nextCursorIndex: number) => {
     inputRef.value.value = nextSanitizedValue;
   }
 
-  emit('update:modelValue', nextSanitizedValue);
+  emit("update:modelValue", nextSanitizedValue);
   emitCompleteIfNeeded(nextSanitizedValue, nextCursorIndex);
   void syncNativeInput(nextSanitizedValue);
 };
@@ -138,7 +168,7 @@ const insertDigits = (digits: string) => {
     return;
   }
 
-  const sanitizedDigits = digits.replace(/\D/g, '');
+  const sanitizedDigits = digits.replace(/\D/g, "");
 
   if (!sanitizedDigits || cursorIndex.value >= codeLength.value) {
     return;
@@ -156,9 +186,10 @@ const deleteBackward = () => {
     return;
   }
 
-  const deleteIndex = cursorIndex.value < value.value.length
-    ? cursorIndex.value
-    : cursorIndex.value - 1;
+  const deleteIndex =
+    cursorIndex.value < value.value.length
+      ? cursorIndex.value
+      : cursorIndex.value - 1;
 
   if (deleteIndex < 0) {
     return;
@@ -195,15 +226,21 @@ const updateValue = (nextValue: unknown, nextCursorIndex?: number) => {
 
   const cursorIndexCandidate = nextCursorIndex ?? nextSanitizedValue.length;
 
-  cursorIndex.value = clampCursorIndex(cursorIndexCandidate, nextSanitizedValue);
-  emit('update:modelValue', nextSanitizedValue);
+  cursorIndex.value = clampCursorIndex(
+    cursorIndexCandidate,
+    nextSanitizedValue,
+  );
+  emit("update:modelValue", nextSanitizedValue);
   emitCompleteIfNeeded(nextSanitizedValue, cursorIndexCandidate);
 };
 
 const handleInput = (event: Event) => {
   const input = event.target as HTMLInputElement;
 
-  updateValue(input.value, getSanitizedCursorIndex(input.value, input.selectionStart));
+  updateValue(
+    input.value,
+    getSanitizedCursorIndex(input.value, input.selectionStart),
+  );
 };
 
 const clearInvalidValue = () => {
@@ -211,7 +248,7 @@ const clearInvalidValue = () => {
     return false;
   }
 
-  commitValue('', 0);
+  commitValue("", 0);
   return true;
 };
 
@@ -236,62 +273,62 @@ const handleBeforeInput = (event: Event) => {
     return;
   }
 
-  if (inputEvent.inputType === 'insertText') {
+  if (inputEvent.inputType === "insertText") {
     event.preventDefault();
-    insertDigits(inputEvent.data ?? '');
+    insertDigits(inputEvent.data ?? "");
     return;
   }
 
-  if (inputEvent.inputType === 'insertFromPaste') {
+  if (inputEvent.inputType === "insertFromPaste") {
     event.preventDefault();
-    insertDigits(inputEvent.data ?? '');
+    insertDigits(inputEvent.data ?? "");
     return;
   }
 
-  if (inputEvent.inputType === 'deleteContentBackward') {
+  if (inputEvent.inputType === "deleteContentBackward") {
     event.preventDefault();
     deleteBackward();
     return;
   }
 
-  if (inputEvent.inputType === 'deleteContentForward') {
+  if (inputEvent.inputType === "deleteContentForward") {
     event.preventDefault();
     deleteForward();
   }
 };
 
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'ArrowLeft') {
+  if (event.key === "ArrowLeft") {
     event.preventDefault();
     setCursorIndex(cursorIndex.value - 1);
     return;
   }
 
-  if (event.key === 'ArrowRight') {
+  if (event.key === "ArrowRight") {
     event.preventDefault();
     setCursorIndex(cursorIndex.value + 1);
     return;
   }
 
-  if (event.key === 'Home') {
+  if (event.key === "Home") {
     event.preventDefault();
     setCursorIndex(0);
     return;
   }
 
-  if (event.key === 'End') {
+  if (event.key === "End") {
     event.preventDefault();
     setCursorIndex(value.value.length);
     return;
   }
 
-  if (event.key === 'Backspace') {
+  if (event.key === "Backspace") {
     event.preventDefault();
     deleteBackward();
     return;
   }
 
-  if (event.key === 'Delete') {
+  if (event.key === "Delete") {
     event.preventDefault();
     deleteForward();
   }
@@ -299,7 +336,7 @@ const handleKeydown = (event: KeyboardEvent) => {
 
 const handlePaste = (event: ClipboardEvent) => {
   event.preventDefault();
-  insertDigits(event.clipboardData?.getData('text') ?? '');
+  insertDigits(event.clipboardData?.getData("text") ?? "");
 };
 
 const focusInput = () => {
@@ -351,31 +388,66 @@ onMounted(async () => {
 
 <template>
   <div :class="['pincode-field', { stretched: props.stretched }]">
-    <div :class="[
-      'pincode-shell',
-      {
-        disabled: isDisabled,
-        loading: props.loading,
-        succeed: props.succeed,
-        invalid: props.invalid,
-      },
-    ]" :style="{ '--pincode-length': codeLength }" @click="handleShellClick">
-      <input ref="inputRef" v-bind="inputAttrs" class="pincode-input" :value="value" :disabled="isDisabled"
-        :readonly="isReadonly" :maxlength="codeLength" :aria-invalid="props.invalid || undefined"
-        :aria-describedby="ariaDescribedBy" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code"
-        @focus="handleFocus" @beforeinput="handleBeforeInput" @keydown="handleKeydown" @paste="handlePaste"
-        @input="handleInput" />
+    <div
+      :class="[
+        'pincode-shell',
+        {
+          disabled: isDisabled,
+          loading: props.loading,
+          succeed: props.succeed,
+          invalid: props.invalid,
+        },
+      ]"
+      :style="{ '--pincode-length': codeLength }"
+      @click="handleShellClick"
+    >
+      <input
+        ref="inputRef"
+        v-bind="inputAttrs"
+        class="pincode-input"
+        :value="value"
+        :disabled="isDisabled"
+        :readonly="isReadonly"
+        :maxlength="codeLength"
+        :aria-invalid="props.invalid || undefined"
+        :aria-describedby="ariaDescribedBy"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        autocomplete="one-time-code"
+        @focus="handleFocus"
+        @beforeinput="handleBeforeInput"
+        @keydown="handleKeydown"
+        @paste="handlePaste"
+        @input="handleInput"
+      />
       <div class="pincode-grid" aria-hidden="true">
-        <div v-for="(digit, index) in codeCells" :key="index"
-          :class="['pincode-cell', { filled: digit, active: index === activeCellIndex, 'with-caret': index === activeCellIndex && shouldShowCaret }]"
-          @mousedown.prevent="selectCell(index)">
+        <div
+          v-for="(digit, index) in codeCells"
+          :key="index"
+          :class="[
+            'pincode-cell',
+            {
+              filled: digit,
+              active: index === activeCellIndex,
+              'with-caret': index === activeCellIndex && shouldShowCaret,
+            },
+          ]"
+          @mousedown.prevent="selectCell(index)"
+        >
           <span :class="['pincode-dot', { hidden: digit }]"></span>
-          <span :class="['pincode-digit', { visible: digit }]">{{ digit }}</span>
+          <span :class="['pincode-digit', { visible: digit }]">{{
+            digit
+          }}</span>
         </div>
       </div>
     </div>
-    <FieldHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
-      :disabled="isDisabled" :description-id="helperDescriptionId" />
+    <FieldHelper
+      :description="props.description"
+      :error-message="props.errorMessage"
+      :invalid="props.invalid"
+      :disabled="isDisabled"
+      :description-id="helperDescriptionId"
+    />
   </div>
 </template>
 
@@ -491,7 +563,8 @@ onMounted(async () => {
   color: hsl(var(--foreground));
 }
 
-.pincode-shell:focus-within:not(.disabled):not(.succeed) .pincode-cell.with-caret::after {
+.pincode-shell:focus-within:not(.disabled):not(.succeed)
+  .pincode-cell.with-caret::after {
   content: "";
   position: absolute;
   width: 1px;
@@ -501,8 +574,12 @@ onMounted(async () => {
   animation: pincode-caret 1s steps(2, start) infinite;
 }
 
-.pincode-shell:focus-within:not(.disabled):not(.succeed) .pincode-cell.with-caret .pincode-digit.visible,
-.pincode-shell:focus-within:not(.disabled):not(.succeed) .pincode-cell.with-caret .pincode-dot:not(.hidden) {
+.pincode-shell:focus-within:not(.disabled):not(.succeed)
+  .pincode-cell.with-caret
+  .pincode-digit.visible,
+.pincode-shell:focus-within:not(.disabled):not(.succeed)
+  .pincode-cell.with-caret
+  .pincode-dot:not(.hidden) {
   opacity: 0;
   transform: scale(0.72);
 }
@@ -557,7 +634,6 @@ onMounted(async () => {
 }
 
 @keyframes pincode-shake {
-
   0%,
   100% {
     transform: translateX(0);
@@ -581,7 +657,6 @@ onMounted(async () => {
 }
 
 @keyframes pincode-loading {
-
   0%,
   100% {
     background-color: hsl(var(--background));
@@ -593,7 +668,6 @@ onMounted(async () => {
 }
 
 @keyframes pincode-caret {
-
   0%,
   45% {
     opacity: 1;

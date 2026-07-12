@@ -1,32 +1,32 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Modal from './Modal.vue';
-import Button from '../Button/Button.vue';
-import { useModal } from '../../hooks/useModal';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Modal from "./Modal.vue";
+import Button from "../Button/Button.vue";
+import { useModal } from "../../hooks/useModal";
 
 const meta: Meta<typeof Modal> = {
-  title: 'Components/Modal',
+  title: "Components/Modal",
   component: Modal,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     isOpened: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     title: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     showCloseButton: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large', 'full'],
+      control: { type: "select" },
+      options: ["small", "medium", "large", "full"],
     },
   },
   args: {
     isOpened: true,
     showCloseButton: false,
     title: "Сохранить прогресс?",
-    size: 'medium',
+    size: "medium",
   },
   parameters: {
     docs: {
@@ -83,7 +83,7 @@ export const Large: Story = {
   args: {
     isOpened: true,
     title: "Большая модалка",
-    size: 'large',
+    size: "large",
   },
   render: (args) => ({
     components: { Modal, Button },

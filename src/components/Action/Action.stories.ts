@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Action from './Action.vue';
-import {IconEyeOutline} from '@gui/icons'
+import { Meta, StoryObj } from "@storybook/vue3";
+import Action from "./Action.vue";
+import { IconEyeOutline } from "@gui/icons";
 
 const meta: Meta<typeof Action> = {
-  title: 'Components/Action',
+  title: "Components/Action",
   component: Action,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   argTypes: {},
 };
 

@@ -1,14 +1,27 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue';
+import { computed, inject } from "vue";
 import {
   breakpointColumns,
   breakpointNames,
-} from '../../hooks/breakpoints/breakpoints';
-import { gridContextKey } from './context';
+} from "../../hooks/breakpoints/breakpoints";
+import { gridContextKey } from "./context";
 
-export type GridColumnExtraSmallSize = 0 | 1 | 2 | 3 | 4
-export type GridColumnSmallSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
-export type GridColumnLargeSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+export type GridColumnExtraSmallSize = 0 | 1 | 2 | 3 | 4;
+export type GridColumnSmallSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+export type GridColumnLargeSize =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12;
 
 export interface GridColumnProps {
   xs?: GridColumnExtraSmallSize;
@@ -22,9 +35,13 @@ export interface GridColumnProps {
 const props = defineProps<GridColumnProps>();
 const gridContext = inject(gridContextKey);
 
-const fallbackBreakpoint = 'xxl';
-const breakpoint = computed(() => gridContext?.breakpoint.value ?? fallbackBreakpoint);
-const columns = computed(() => gridContext?.columns.value ?? breakpointColumns[breakpoint.value]);
+const fallbackBreakpoint = "xxl";
+const breakpoint = computed(
+  () => gridContext?.breakpoint.value ?? fallbackBreakpoint,
+);
+const columns = computed(
+  () => gridContext?.columns.value ?? breakpointColumns[breakpoint.value],
+);
 
 const span = computed(() => {
   const currentIndex = breakpointNames.indexOf(breakpoint.value);
@@ -38,7 +55,7 @@ const span = computed(() => {
 
     const value = props[breakpointName];
 
-    if (typeof value === 'number') {
+    if (typeof value === "number") {
       return Math.min(Math.max(value, 1), columns.value);
     }
   }
@@ -47,7 +64,7 @@ const span = computed(() => {
 });
 
 const style = computed(() => ({
-  '--grid-column-span': String(span.value),
+  "--grid-column-span": String(span.value),
 }));
 </script>
 

@@ -1,35 +1,42 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Padding } from '../../types';
+import { computed } from "vue";
+import type { Padding } from "../../types";
 
-export type ItemMode = 'card' | 'outlined' | 'plain'
-export type ItemSize = 'medium' | 'small' | 'extra-small'
+export type ItemMode = "card" | "outlined" | "plain";
+export type ItemSize = "medium" | "small" | "extra-small";
 
 export interface ItemProps {
-  interactive?: boolean
-  mode?: ItemMode
-  padding?: Padding
-  size?: ItemSize
-  stretched?: boolean
+  interactive?: boolean;
+  mode?: ItemMode;
+  padding?: Padding;
+  size?: ItemSize;
+  stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<ItemProps>(), {
   interactive: false,
-  mode: 'card',
-  size: 'medium',
+  mode: "card",
+  size: "medium",
   stretched: false,
-})
+});
 
-const styles = computed(() => (
+const styles = computed(() =>
   props.padding === undefined
     ? undefined
-    : { '--item-padding': `${props.padding}px` }
-))
+    : { "--item-padding": `${props.padding}px` },
+);
 </script>
 
 <template>
-  <div :class="['item', props.mode, props.size, { interactive: props.interactive, stretched: props.stretched }]"
-    :style="styles">
+  <div
+    :class="[
+      'item',
+      props.mode,
+      props.size,
+      { interactive: props.interactive, stretched: props.stretched },
+    ]"
+    :style="styles"
+  >
     <slot></slot>
   </div>
 </template>
@@ -98,7 +105,10 @@ const styles = computed(() => (
 
 .interactive {
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s, scale 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    scale 0.2s;
 }
 
 .interactive:hover {

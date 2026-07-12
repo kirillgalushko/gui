@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import HoverCard from './HoverCard.vue';
-import Button from '../Button/Button.vue';
-import Text from '../Text/Text.vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import HoverCard from "./HoverCard.vue";
+import Button from "../Button/Button.vue";
+import Text from "../Text/Text.vue";
 
 const meta: Meta<typeof HoverCard> = {
-  title: 'Components/HoverCard',
+  title: "Components/HoverCard",
   component: HoverCard,
 };
 

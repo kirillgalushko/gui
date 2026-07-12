@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
 export interface TableProps {
   border?: boolean;
 }
 
-const props = defineProps<TableProps>()
+const props = defineProps<TableProps>();
 </script>
 
 <template>

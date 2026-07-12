@@ -1,10 +1,14 @@
-import { readonly, ref, onBeforeUnmount, onMounted } from 'vue';
-import { createBreakpointResult, getBreakpointName, type Breakpoint } from './breakpoints/breakpoints';
+import { readonly, ref, onBeforeUnmount, onMounted } from "vue";
+import {
+  createBreakpointResult,
+  getBreakpointName,
+  type Breakpoint,
+} from "./breakpoints/breakpoints";
 
 export function useViewportBreakpoint() {
   const getCurrentBreakpoint = (): Breakpoint => {
-    if (typeof window === 'undefined') {
-      return 'xs';
+    if (typeof window === "undefined") {
+      return "xs";
     }
 
     return getBreakpointName(window.innerWidth);
@@ -19,12 +23,12 @@ export function useViewportBreakpoint() {
 
   onMounted(() => {
     updateBreakpoint();
-    window.addEventListener('resize', updateBreakpoint);
+    window.addEventListener("resize", updateBreakpoint);
   });
 
   onBeforeUnmount(() => {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('resize', updateBreakpoint);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("resize", updateBreakpoint);
     }
   });
 

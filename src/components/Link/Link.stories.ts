@@ -1,27 +1,27 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import { IconExternalLinkOutline, IconHomeOutline } from '@gui/icons';
-import Link from './Link.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import { IconExternalLinkOutline, IconHomeOutline } from "@gui/icons";
+import Link from "./Link.vue";
 
 const meta: Meta<typeof Link> = {
-  title: 'Components/Link',
+  title: "Components/Link",
   component: Link,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     inline: {
-      type: 'boolean',
+      type: "boolean",
     },
     underlined: {
-      type: 'boolean',
+      type: "boolean",
     },
     disabled: {
-      type: 'boolean',
+      type: "boolean",
     },
     enableVisited: {
-      type: 'boolean',
+      type: "boolean",
     },
     mode: {
-      control: 'select',
-      options: ['inherit', 'accent'],
+      control: "select",
+      options: ["inherit", "accent"],
     },
   },
 };
@@ -31,7 +31,7 @@ type Story = StoryObj<typeof Link>;
 
 export const Default: Story = {
   args: {
-    href: '#',
+    href: "#",
   },
   render: (args) => ({
     components: { Link },
@@ -44,7 +44,7 @@ export const Default: Story = {
 
 export const WithIcons: Story = {
   args: {
-    href: '#',
+    href: "#",
     underlined: true,
   },
   render: (args) => ({
@@ -68,9 +68,9 @@ export const WithIcons: Story = {
 
 export const Inline: Story = {
   args: {
-    href: '#',
+    href: "#",
     inline: true,
-    typography: 'inherit'
+    typography: "inherit",
   },
   render: (args) => ({
     components: { Link },

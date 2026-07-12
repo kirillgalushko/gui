@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Color } from '../../types/colors';
+import { computed } from "vue";
+import type { Color } from "../../types/colors";
 
 export interface DotProps {
   color: Color;
@@ -9,7 +9,7 @@ export interface DotProps {
 const props = defineProps<DotProps>();
 
 const dotStyle = computed(() => ({
-  '--dot-color': `var(--color-${props.color}-500)`,
+  "--dot-color": `var(--color-${props.color}-500)`,
 }));
 </script>
 

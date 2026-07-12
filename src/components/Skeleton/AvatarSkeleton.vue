@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import Skeleton from './Skeleton.vue';
+import Skeleton from "./Skeleton.vue";
 
 export interface AvatarSkeletonProps {
   loading?: boolean;
   size?: string;
-  shape?: 'square' | 'circle';
+  shape?: "square" | "circle";
 }
 
 const props = withDefaults(defineProps<AvatarSkeletonProps>(), {
-  size: '40px',
-  shape: 'circle',
+  size: "40px",
+  shape: "circle",
 });
 </script>
 

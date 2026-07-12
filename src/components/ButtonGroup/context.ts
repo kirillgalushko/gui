@@ -1,9 +1,10 @@
-import type { InjectionKey } from 'vue';
+import type { InjectionKey } from "vue";
 
-export type ButtonGroupOrientation = 'horizontal' | 'vertical';
+export type ButtonGroupOrientation = "horizontal" | "vertical";
 
 export interface ButtonGroupContext {
   orientation: ButtonGroupOrientation;
 }
 
-export const buttonGroupContextKey: InjectionKey<ButtonGroupContext> = Symbol('ButtonGroupContext');
+export const buttonGroupContextKey: InjectionKey<ButtonGroupContext> =
+  Symbol("ButtonGroupContext");

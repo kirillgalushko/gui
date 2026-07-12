@@ -1,35 +1,35 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Text from '../Text/Text.vue';
-import Button from '../Button/Button.vue'
-import Gap from '../Gap/Gap.vue';
-import Card, { CardProps } from './Card.vue';
-import { DefineComponent } from 'vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Text from "../Text/Text.vue";
+import Button from "../Button/Button.vue";
+import Gap from "../Gap/Gap.vue";
+import Card, { CardProps } from "./Card.vue";
+import { DefineComponent } from "vue";
 
-type CardType = DefineComponent<CardProps>
+type CardType = DefineComponent<CardProps>;
 
 const meta = {
-  title: 'Components/Card',
+  title: "Components/Card",
   // @ts-ignore
   component: Card,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     background: {
-      control: { type: 'select', },
-      options: ['default', 'secondary']
+      control: { type: "select" },
+      options: ["default", "secondary"],
     },
     stretched: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     interactive: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     padding: {
-      control: { type: 'number' },
+      control: { type: "number" },
     },
     borderRadius: {
-      control: { type: 'number' },
+      control: { type: "number" },
     },
-    onClick: { action: 'clicked' },
+    onClick: { action: "clicked" },
   },
 } satisfies Meta<CardType>;
 
@@ -42,16 +42,16 @@ const cardContent = `
   <Text typography="paragraph-2" color="secondary">You have 3 unread messages</Text>
   <Gap :size="3" direction="vertical" />
   <Button mode="contrast">Mark as read</Button>
-`
-const demoComponents = { Card, Text, Button, Gap }
+`;
+const demoComponents = { Card, Text, Button, Gap };
 const demoArgs = {
   padding: 24,
   borderRadius: 20,
-} as const
+} as const;
 
 export const DefaultCard: Story = {
   args: {
-    background: 'default',
+    background: "default",
     stretched: false,
     interactive: false,
     ...demoArgs,
@@ -70,7 +70,7 @@ export const DefaultCard: Story = {
 
 export const SecondaryCard: Story = {
   args: {
-    background: 'secondary',
+    background: "secondary",
     stretched: false,
     interactive: false,
     ...demoArgs,
@@ -86,7 +86,7 @@ export const SecondaryCard: Story = {
 
 export const InteractiveCard: Story = {
   args: {
-    background: 'default',
+    background: "default",
     stretched: false,
     interactive: true,
     ...demoArgs,
@@ -95,7 +95,7 @@ export const InteractiveCard: Story = {
     components: demoComponents,
     setup() {
       const onClick = (event: MouseEvent) => {
-        console.log('Card clicked', event);
+        console.log("Card clicked", event);
       };
       return { args, onClick };
     },
@@ -108,7 +108,7 @@ export const InteractiveCard: Story = {
 
 export const StretchedCard: Story = {
   args: {
-    background: 'default',
+    background: "default",
     stretched: true,
     interactive: false,
     ...demoArgs,

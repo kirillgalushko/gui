@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-const menuRef = ref<HTMLDivElement>()
+const menuRef = ref<HTMLDivElement>();
 
-defineExpose({ menuRef })
+defineExpose({ menuRef });
 </script>
 
 <template>

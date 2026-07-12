@@ -1,17 +1,24 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Dropdown from './Dropdown.vue';
-import DropdownItem from './DropdownItem.vue';
-import DropdownList from './DropdownList.vue';
-import DropdownSeparator from './DropdownSeparator.vue';
-import Button from '../Button/Button.vue';
-import { IconPencilOutline, IconExternalLinkOutline, IconShareOutline, IconCopyOutline, IconMailOutline, IconArchiveOutline } from '@gui/icons';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Dropdown from "./Dropdown.vue";
+import DropdownItem from "./DropdownItem.vue";
+import DropdownList from "./DropdownList.vue";
+import DropdownSeparator from "./DropdownSeparator.vue";
+import Button from "../Button/Button.vue";
+import {
+  IconPencilOutline,
+  IconExternalLinkOutline,
+  IconShareOutline,
+  IconCopyOutline,
+  IconMailOutline,
+  IconArchiveOutline,
+} from "@gui/icons";
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Components/Dropdown',
+  title: "Components/Dropdown",
   component: Dropdown,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   argTypes: {},
-  args: {}
+  args: {},
 };
 
 export default meta;
@@ -20,7 +27,12 @@ type Story = StoryObj<typeof Dropdown>;
 export const Default: Story = {
   args: {},
   render: (args) => ({
-    components: { Dropdown, Button, DropdownItem, DropdownList, DropdownSeparator,
+    components: {
+      Dropdown,
+      Button,
+      DropdownItem,
+      DropdownList,
+      DropdownSeparator,
       IconExternalLinkOutline,
       IconPencilOutline,
       IconShareOutline,

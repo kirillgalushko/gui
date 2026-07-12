@@ -1,18 +1,18 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Gap from './Gap.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Gap from "./Gap.vue";
 
 const meta: Meta<typeof Gap> = {
-  title: 'Components/Gap',
+  title: "Components/Gap",
   component: Gap,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     direction: {
-      control: { type: 'select' },
-      options: ['horizontal', 'vertical']
+      control: { type: "select" },
+      options: ["horizontal", "vertical"],
     },
     size: {
-      control: { type: 'select' },
-      options: [1, 2, 3, 4, 5, 6]
+      control: { type: "select" },
+      options: [1, 2, 3, 4, 5, 6],
     },
   },
 };
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Gap>;
 
 export const HorizontalGap: Story = {
   args: {
-    direction: 'horizontal',
+    direction: "horizontal",
     size: 3,
   },
   render: (args) => ({
@@ -36,7 +36,7 @@ export const HorizontalGap: Story = {
 
 export const VerticalGap: Story = {
   args: {
-    direction: 'vertical',
+    direction: "vertical",
     size: 3,
   },
   render: (args) => ({

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import Text from '../Text/Text.vue';
+import { computed } from "vue";
+import Text from "../Text/Text.vue";
 
 export interface FieldHelperProps {
   description?: string;
@@ -12,7 +12,7 @@ export interface FieldHelperProps {
 }
 
 const props = withDefaults(defineProps<FieldHelperProps>(), {
-  gap: 'var(--gap-1)',
+  gap: "var(--gap-1)",
 });
 
 const message = computed(() => {
@@ -23,17 +23,26 @@ const message = computed(() => {
   return props.description;
 });
 
-const messageMode = computed(() => props.invalid ? 'error' : 'description');
+const messageMode = computed(() => (props.invalid ? "error" : "description"));
 </script>
 
 <template>
   <Transition name="field-helper">
-    <div v-if="message" :class="['field-helper', messageMode, { disabled: props.disabled }]"
-      :style="{ '--field-helper-gap': props.gap }">
+    <div
+      v-if="message"
+      :class="['field-helper', messageMode, { disabled: props.disabled }]"
+      :style="{ '--field-helper-gap': props.gap }"
+    >
       <div class="field-helper-content">
         <div class="field-helper-message-box">
           <Transition name="field-helper-message" mode="out-in">
-            <Text :id="props.descriptionId" :key="messageMode" Element="p" typography="label-1" color="inherit">
+            <Text
+              :id="props.descriptionId"
+              :key="messageMode"
+              Element="p"
+              typography="label-1"
+              color="inherit"
+            >
               {{ message }}
             </Text>
           </Transition>
@@ -87,7 +96,9 @@ const messageMode = computed(() => props.invalid ? 'error' : 'description');
 
 .field-helper-message-enter-active,
 .field-helper-message-leave-active {
-  transition: opacity 0.16s ease, transform 0.16s ease;
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
 }
 
 .field-helper-message-enter-from,

@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, useAttrs, useId } from 'vue';
-import FieldHelper from '../FieldHelper/FieldHelper.vue';
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  useAttrs,
+  useId,
+} from "vue";
+import FieldHelper from "../FieldHelper/FieldHelper.vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -17,33 +25,33 @@ export interface InputProps {
   descriptionId?: string;
 }
 
-const leftAdornment = ref<HTMLDivElement>()
-const rightAdornment = ref<HTMLDivElement>()
-const leftAdornmentWidth = ref(0)
-const rightAdornmentWidth = ref(0)
-const inputRef = ref<HTMLInputElement>()
-const model = defineModel()
-const props = withDefaults(defineProps<InputProps>(), { maxWidth: '100%' })
-const attrs = useAttrs()
-const generatedDescriptionId = useId()
-let resizeObserver: ResizeObserver | undefined
+const leftAdornment = ref<HTMLDivElement>();
+const rightAdornment = ref<HTMLDivElement>();
+const leftAdornmentWidth = ref(0);
+const rightAdornmentWidth = ref(0);
+const inputRef = ref<HTMLInputElement>();
+const model = defineModel();
+const props = withDefaults(defineProps<InputProps>(), { maxWidth: "100%" });
+const attrs = useAttrs();
+const generatedDescriptionId = useId();
+let resizeObserver: ResizeObserver | undefined;
 
-const getPadding = ((adornmentWidth: number) => {
+const getPadding = (adornmentWidth: number) => {
   if (adornmentWidth > 0) {
-    return adornmentWidth + 20
+    return adornmentWidth + 20;
   }
-  return 12
-})
+  return 12;
+};
 
-const inputPaddingLeft = computed(() => getPadding(leftAdornmentWidth.value))
-const inputPaddingRight = computed(() => getPadding(rightAdornmentWidth.value))
-const inputValue = computed(() => String(model.value ?? ''))
+const inputPaddingLeft = computed(() => getPadding(leftAdornmentWidth.value));
+const inputPaddingRight = computed(() => getPadding(rightAdornmentWidth.value));
+const inputValue = computed(() => String(model.value ?? ""));
 
 const inputStyles = computed(() => {
   return {
     paddingLeft: `${inputPaddingLeft.value}px`,
     paddingRight: `${inputPaddingRight.value}px`,
-  }
+  };
 });
 
 const postfixOverlayStyles = computed(() => ({
@@ -67,23 +75,30 @@ const helperDescriptionId = computed(() => {
 });
 
 const ariaDescribedBy = computed(() => {
-  const describedBy = attrs['aria-describedby'];
-  const describedByValue = typeof describedBy === 'string' ? describedBy : undefined;
+  const describedBy = attrs["aria-describedby"];
+  const describedByValue =
+    typeof describedBy === "string" ? describedBy : undefined;
 
   if (!helperDescriptionId.value) {
     return describedByValue;
   }
 
-  return [describedByValue, helperDescriptionId.value].filter(Boolean).join(' ');
+  return [describedByValue, helperDescriptionId.value]
+    .filter(Boolean)
+    .join(" ");
 });
 
-const isNumberInput = computed(() => attrs.type === 'number');
+const isNumberInput = computed(() => attrs.type === "number");
 const shouldRenderPostfix = computed(() => {
-  return props.postfix !== undefined && props.postfix.length > 0 && inputValue.value.length > 0;
+  return (
+    props.postfix !== undefined &&
+    props.postfix.length > 0 &&
+    inputValue.value.length > 0
+  );
 });
 
 const isForbiddenNumberInputValue = (value: string | null): boolean => {
-  return value === 'e' || value === 'E';
+  return value === "e" || value === "E";
 };
 
 const updateAdornmentWidths = () => {
@@ -109,7 +124,7 @@ onMounted(async () => {
   await nextTick();
   updateAdornmentWidths();
 
-  if (typeof ResizeObserver !== 'undefined') {
+  if (typeof ResizeObserver !== "undefined") {
     resizeObserver = new ResizeObserver(updateAdornmentWidths);
 
     if (leftAdornment.value) {
@@ -139,10 +154,24 @@ onBeforeUnmount(() => {
       <div ref="leftAdornment" class="adornment left-adornment">
         <slot name="leftAdornment"></slot>
       </div>
-      <input ref="inputRef" v-bind="$attrs" v-model="model" :disabled="props.disabled" :style="inputStyles"
-        :class="['input', { invalid: props.invalid }]" :aria-invalid="props.invalid || undefined"
-        :aria-describedby="ariaDescribedBy" @keydown="handleKeydown" @beforeinput="handleBeforeInput" />
-      <span v-if="shouldRenderPostfix" class="input-postfix-overlay" :style="postfixOverlayStyles" aria-hidden="true">
+      <input
+        ref="inputRef"
+        v-bind="$attrs"
+        v-model="model"
+        :disabled="props.disabled"
+        :style="inputStyles"
+        :class="['input', { invalid: props.invalid }]"
+        :aria-invalid="props.invalid || undefined"
+        :aria-describedby="ariaDescribedBy"
+        @keydown="handleKeydown"
+        @beforeinput="handleBeforeInput"
+      />
+      <span
+        v-if="shouldRenderPostfix"
+        class="input-postfix-overlay"
+        :style="postfixOverlayStyles"
+        aria-hidden="true"
+      >
         <span class="input-postfix-value">{{ inputValue }}</span>
         <span class="input-postfix">{{ props.postfix }}</span>
       </span>
@@ -150,8 +179,13 @@ onBeforeUnmount(() => {
         <slot name="rightAdornment"></slot>
       </div>
     </div>
-    <FieldHelper :description="props.description" :error-message="props.errorMessage" :invalid="props.invalid"
-      :disabled="props.disabled" :description-id="helperDescriptionId" />
+    <FieldHelper
+      :description="props.description"
+      :error-message="props.errorMessage"
+      :invalid="props.invalid"
+      :disabled="props.disabled"
+      :description-id="helperDescriptionId"
+    />
   </div>
 </template>
 

@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
 
-import DateInput from './DateInput.vue';
-import type { DateInputChangePayload } from './types';
+import DateInput from "./DateInput.vue";
+import type { DateInputChangePayload } from "./types";
 
 const meta = {
-  title: 'Components/DateInput',
+  title: "Components/DateInput",
   component: DateInput,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof DateInput>;
 
 export default meta;
@@ -41,7 +41,8 @@ export const Restricted: Story = {
 
       return { maxDate, minDate, onChange, value };
     },
-    template: '<DateInput :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
+    template:
+      '<DateInput :value="value" :on-change="onChange" :min-date="minDate" :max-date="maxDate" />',
   }),
 };
 
@@ -56,6 +57,7 @@ export const Invalid: Story = {
 
       return { onChange, value };
     },
-    template: '<DateInput :value="value" :on-change="onChange" invalid error-message="Введите корректную дату" />',
+    template:
+      '<DateInput :value="value" :on-change="onChange" invalid error-message="Введите корректную дату" />',
   }),
 };

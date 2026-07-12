@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, useAttrs, type CSSProperties } from 'vue';
-import Text from '../Text/Text.vue';
-import type { TextProps } from '../Text/types';
+import { computed, useAttrs, type CSSProperties } from "vue";
+import Text from "../Text/Text.vue";
+import type { TextProps } from "../Text/types";
 
 export interface FormErrorProps extends TextProps {
   message?: string;
@@ -9,11 +9,11 @@ export interface FormErrorProps extends TextProps {
 }
 
 const props = withDefaults(defineProps<FormErrorProps>(), {
-  Element: 'p',
-  typography: 'label-2',
-  color: 'negative',
-  textAlign: 'inherit',
-  gap: 'var(--gap-1)',
+  Element: "p",
+  typography: "label-2",
+  color: "negative",
+  textAlign: "inherit",
+  gap: "var(--gap-1)",
 });
 
 const attrs = useAttrs();
@@ -27,9 +27,12 @@ const textProps = computed(() => ({
   textAlign: props.textAlign,
 }));
 
-const styles = computed<CSSProperties>(() => ({
-  '--form-error-gap': props.gap,
-}) as CSSProperties);
+const styles = computed<CSSProperties>(
+  () =>
+    ({
+      "--form-error-gap": props.gap,
+    }) as CSSProperties,
+);
 </script>
 
 <template>

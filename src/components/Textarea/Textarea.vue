@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, watch } from 'vue';
+import { computed, ref, onMounted, watch } from "vue";
 
 export interface TextareaProps {
-  resize?: 'none' | 'both' | 'horizontal' | 'vertical'
-  layout?: 'fixed' | 'fill-vertical' | 'fill-horizontal' | 'fill-both' | 'hug'
-  placeholder?: string
+  resize?: "none" | "both" | "horizontal" | "vertical";
+  layout?: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";
+  placeholder?: string;
 }
 
 const props = withDefaults(defineProps<TextareaProps>(), {
-  resize: 'none',
-  layout: 'fixed',
+  resize: "none",
+  layout: "fixed",
 });
 
 const textareaRef = ref<HTMLTextAreaElement | null>(null);
-const model = defineModel<string>()
+const model = defineModel<string>();
 const styles = computed(() => ({
   resize: props.resize,
 }));
 
 const autoResize = () => {
-  if (props.layout === 'hug' && textareaRef.value) {
-    textareaRef.value.style.height = 'auto';
+  if (props.layout === "hug" && textareaRef.value) {
+    textareaRef.value.style.height = "auto";
     textareaRef.value.style.height = `${textareaRef.value.scrollHeight + 2}px`;
   }
 };
@@ -30,12 +30,18 @@ onMounted(() => {
 });
 
 watch(() => props.layout, autoResize);
-
 </script>
 
 <template>
-  <textarea ref="textareaRef" v-bind="$attrs" v-model="model" :placeholder="props.placeholder" :style="styles"
-    :class="['textarea', props.layout]" @input="autoResize"></textarea>
+  <textarea
+    ref="textareaRef"
+    v-bind="$attrs"
+    v-model="model"
+    :placeholder="props.placeholder"
+    :style="styles"
+    :class="['textarea', props.layout]"
+    @input="autoResize"
+  ></textarea>
 </template>
 
 <style scoped>

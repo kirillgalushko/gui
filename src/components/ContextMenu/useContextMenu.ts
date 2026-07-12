@@ -1,13 +1,16 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import { useFloating, flip, shift } from '@floating-ui/vue';
+import { useFloating, flip, shift } from "@floating-ui/vue";
 
-const isEventTargetWithinRef = (target: Node | null, refNode: HTMLElement | null): boolean => {
+const isEventTargetWithinRef = (
+  target: Node | null,
+  refNode: HTMLElement | null,
+): boolean => {
   while (target) {
     if (target === refNode) return true;
     target = (target as HTMLElement).parentNode;
   }
   return false;
-}
+};
 
 export const useContextMenu = () => {
   const isContextMenuVisible = ref(false);
@@ -17,8 +20,8 @@ export const useContextMenu = () => {
   const floatingRef = ref(null);
   const middleware = ref([flip(), shift()]);
   const { floatingStyles, update } = useFloating(positionRef, floatingRef, {
-    placement: 'right-start',
-    strategy: 'fixed',
+    placement: "right-start",
+    strategy: "fixed",
     middleware,
   });
 
@@ -27,33 +30,45 @@ export const useContextMenu = () => {
     position.value = { x: event.clientX, y: event.clientY };
     isContextMenuVisible.value = true;
     update();
-  }
+  };
 
   const hideContextMenu = () => {
-      isContextMenuVisible.value = false;
-  }
+    isContextMenuVisible.value = false;
+  };
 
   const handleDocumentContextMenu = (event: MouseEvent) => {
-    if (targetRef.value && !isEventTargetWithinRef(event.target as Node, targetRef.value)) {
+    if (
+      targetRef.value &&
+      !isEventTargetWithinRef(event.target as Node, targetRef.value)
+    ) {
       isContextMenuVisible.value = false;
     }
-  }
+  };
 
   onMounted(() => {
     if (targetRef.value) {
-      targetRef.value.addEventListener('contextmenu', showContextMenu);
-      document.addEventListener('click', hideContextMenu);
-      document.addEventListener('contextmenu', handleDocumentContextMenu);
+      targetRef.value.addEventListener("contextmenu", showContextMenu);
+      document.addEventListener("click", hideContextMenu);
+      document.addEventListener("contextmenu", handleDocumentContextMenu);
     }
-  })
+  });
 
   onBeforeUnmount(() => {
     if (targetRef.value) {
-      targetRef.value.removeEventListener('contextmenu', showContextMenu);
-      document.removeEventListener('click', hideContextMenu);
-      document.addEventListener('contextmenu', handleDocumentContextMenu);
+      targetRef.value.removeEventListener("contextmenu", showContextMenu);
+      document.removeEventListener("click", hideContextMenu);
+      document.addEventListener("contextmenu", handleDocumentContextMenu);
     }
-  })
+  });
 
-  return { contextMenuData: { floatingStyles, floatingRef, position, positionRef, isContextMenuVisible }, targetRef }
-}
+  return {
+    contextMenuData: {
+      floatingStyles,
+      floatingRef,
+      position,
+      positionRef,
+      isContextMenuVisible,
+    },
+    targetRef,
+  };
+};

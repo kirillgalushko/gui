@@ -1,10 +1,17 @@
-import { computed, inject, provide, toValue, type ComputedRef, type MaybeRefOrGetter } from 'vue';
+import {
+  computed,
+  inject,
+  provide,
+  toValue,
+  type ComputedRef,
+  type MaybeRefOrGetter,
+} from "vue";
 
 export interface SkeletonContext {
   loading: ComputedRef<boolean>;
 }
 
-export const skeletonContextKey = Symbol('skeleton-context');
+export const skeletonContextKey = Symbol("skeleton-context");
 
 export function provideSkeletonLoading(loading: MaybeRefOrGetter<boolean>) {
   const state = computed(() => Boolean(toValue(loading)));
@@ -16,7 +23,10 @@ export function provideSkeletonLoading(loading: MaybeRefOrGetter<boolean>) {
   return state;
 }
 
-export function useSkeletonLoading(loading?: MaybeRefOrGetter<boolean | undefined>, defaultLoading = true) {
+export function useSkeletonLoading(
+  loading?: MaybeRefOrGetter<boolean | undefined>,
+  defaultLoading = true,
+) {
   const context = inject<SkeletonContext | null>(skeletonContextKey, null);
 
   return computed(() => {

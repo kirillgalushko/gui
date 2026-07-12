@@ -1,33 +1,35 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import * as logos from '@gui/logos'
-import * as soundEffects from '@gui/sound'
-import { IconPlayerPlayFilled, IconPlayerStopFilled } from '@gui/icons'
-import { computed, defineComponent, ref, reactive } from 'vue';
-import Button from '../components/Button/Button.vue'
-import Input from '../components/Input/Input.vue'
-import Text from '../components/Text/Text.vue'
+import { Meta, StoryObj } from "@storybook/vue3";
+import * as logos from "@gui/logos";
+import * as soundEffects from "@gui/sound";
+import { IconPlayerPlayFilled, IconPlayerStopFilled } from "@gui/icons";
+import { computed, defineComponent, ref, reactive } from "vue";
+import Button from "../components/Button/Button.vue";
+import Input from "../components/Input/Input.vue";
+import Text from "../components/Text/Text.vue";
 
 export default {
-  title: '1. @gui/3. Ассеты',
+  title: "1. @gui/3. Ассеты",
   parameters: {
-    layout: 'fullscreen',
-  }
+    layout: "fullscreen",
+  },
 } as Meta;
 
 export const AllLogos: StoryObj<typeof defineComponent<{}>> = {
-  name: 'Логотипы',
+  name: "Логотипы",
   args: {},
   render: (args) => ({
     components: { ...logos, Text, Input },
     setup() {
-      const search = ref()
+      const search = ref();
       const filteredlogos = computed(() => {
         if (!search.value) {
           return logos;
         }
         const lowercasedSearch = search.value.toLowerCase();
         return Object.fromEntries(
-          Object.entries(logos).filter(([name]) => name.toLowerCase().includes(lowercasedSearch))
+          Object.entries(logos).filter(([name]) =>
+            name.toLowerCase().includes(lowercasedSearch),
+          ),
         );
       });
 
@@ -49,12 +51,12 @@ export const AllLogos: StoryObj<typeof defineComponent<{}>> = {
 };
 
 type SoundEffect = {
-  play: (options?: { force?: boolean }) => Promise<number | null>
-  stop: () => Promise<void>
-}
+  play: (options?: { force?: boolean }) => Promise<number | null>;
+  stop: () => Promise<void>;
+};
 
 export const AllSoundEffects: StoryObj<typeof defineComponent<{}>> = {
-  name: 'Звуковые эффекты',
+  name: "Звуковые эффекты",
   args: {},
   render: (args) => ({
     components: {
@@ -64,35 +66,35 @@ export const AllSoundEffects: StoryObj<typeof defineComponent<{}>> = {
       IconPlayerStopFilled,
     },
     setup() {
-      const search = ref('')
-      const isPlaying = reactive<Record<string, boolean>>({})
+      const search = ref("");
+      const isPlaying = reactive<Record<string, boolean>>({});
       const filteredSoundEffects = computed(() => {
         if (!search.value) {
-          return soundEffects
+          return soundEffects;
         }
-        const q = search.value.toLowerCase()
+        const q = search.value.toLowerCase();
         return Object.fromEntries(
           Object.entries(soundEffects).filter(([name]) =>
-            name.toLowerCase().includes(q)
-          )
-        )
-      })
+            name.toLowerCase().includes(q),
+          ),
+        );
+      });
       const toggleSound = async (name: string, soundEffect: SoundEffect) => {
         if (isPlaying[name]) {
-          await soundEffect.stop()
-          isPlaying[name] = false
-          return
+          await soundEffect.stop();
+          isPlaying[name] = false;
+          return;
         }
-        await soundEffect.play({ force: true })
-        isPlaying[name] = true
-      }
+        await soundEffect.play({ force: true });
+        isPlaying[name] = true;
+      };
       return {
         args,
         search,
         filteredSoundEffects,
         isPlaying,
         toggleSound,
-      }
+      };
     },
     template: `
       <div style="margin: 32px;">
@@ -128,4 +130,4 @@ export const AllSoundEffects: StoryObj<typeof defineComponent<{}>> = {
       </div>
     `,
   }),
-}
+};

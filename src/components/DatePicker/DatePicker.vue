@@ -1,12 +1,17 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { IconCalendarOutline } from '@gui/icons';
+import { computed, ref } from "vue";
+import { IconCalendarOutline } from "@gui/icons";
 
-import Calendar from '../Calendar/Calendar.vue';
-import Dropdown from '../Dropdown/Dropdown.vue';
-import Picker from '../Picker/Picker.vue';
-import { formatRuDayMonth, isAfterDay, isBeforeDay, startOfDay } from '../../utils/date';
-import type { DatePickerChangePayload, DatePickerValue } from './types';
+import Calendar from "../Calendar/Calendar.vue";
+import Dropdown from "../Dropdown/Dropdown.vue";
+import Picker from "../Picker/Picker.vue";
+import {
+  formatRuDayMonth,
+  isAfterDay,
+  isBeforeDay,
+  startOfDay,
+} from "../../utils/date";
+import type { DatePickerChangePayload, DatePickerValue } from "./types";
 
 export interface DatePickerProps {
   value?: DatePickerValue;
@@ -20,12 +25,14 @@ export interface DatePickerProps {
 
 const props = withDefaults(defineProps<DatePickerProps>(), {
   value: null,
-  placeholder: 'Выберите дату',
+  placeholder: "Выберите дату",
 });
 
 const isCalendarOpened = ref(false);
 
-const selectedDate = computed(() => props.value ? startOfDay(props.value) : null);
+const selectedDate = computed(() =>
+  props.value ? startOfDay(props.value) : null,
+);
 
 const label = computed(() => {
   if (!selectedDate.value) {
@@ -68,10 +75,21 @@ const selectDate = ({ date }: { date: Date }): void => {
 </script>
 
 <template>
-  <Dropdown v-model:shown="isCalendarOpened" :triggers="[]" placement="bottom-end" :distance="8"
-    :stretched="props.stretched" popper-class="calendar-dropdown">
-    <Picker :stretched="props.stretched" :disabled="props.disabled" aria-haspopup="dialog"
-      :aria-expanded="isCalendarOpened" @click="toggleCalendar">
+  <Dropdown
+    v-model:shown="isCalendarOpened"
+    :triggers="[]"
+    placement="bottom-end"
+    :distance="8"
+    :stretched="props.stretched"
+    popper-class="calendar-dropdown"
+  >
+    <Picker
+      :stretched="props.stretched"
+      :disabled="props.disabled"
+      aria-haspopup="dialog"
+      :aria-expanded="isCalendarOpened"
+      @click="toggleCalendar"
+    >
       {{ label }}
       <template #icon>
         <IconCalendarOutline />
@@ -79,7 +97,12 @@ const selectDate = ({ date }: { date: Date }): void => {
     </Picker>
 
     <template #popper>
-      <Calendar :model-value="selectedDate" :min-date="props.minDate" :max-date="props.maxDate" @select="selectDate" />
+      <Calendar
+        :model-value="selectedDate"
+        :min-date="props.minDate"
+        :max-date="props.maxDate"
+        @select="selectDate"
+      />
     </template>
   </Dropdown>
 </template>

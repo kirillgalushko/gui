@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { onBeforeUnmount, ref, provide, watch } from 'vue'
-import { IconGripVerticalOutline } from '@gui/icons';
-import type { Padding } from '../../types';
+import { onBeforeUnmount, ref, provide, watch } from "vue";
+import { IconGripVerticalOutline } from "@gui/icons";
+import type { Padding } from "../../types";
 
 export interface SidebarProps {
-  mode?: 'default' | 'floating';
+  mode?: "default" | "floating";
   padding?: Padding;
   width?: number;
   maxWidth?: string;
@@ -13,30 +13,30 @@ export interface SidebarProps {
 }
 
 const props = withDefaults(defineProps<SidebarProps>(), {
-  mode: 'default',
+  mode: "default",
   padding: 16,
-  minWidth: '200px',
-  maxWidth: '100vw',
+  minWidth: "200px",
+  maxWidth: "100vw",
   width: 300,
   compactWidth: 0,
-})
+});
 const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
 const isCompact = ref<boolean>(width.value < props.compactWidth);
 const sidebarRef = ref<HTMLElement | null>(null);
 let animationFrameId: number | null = null;
 
-provide('sidebar-width', width);
-provide('sidebar-is-resizing', isResizing);
-provide('sidebar-is-compact', isCompact);
+provide("sidebar-width", width);
+provide("sidebar-is-resizing", isResizing);
+provide("sidebar-is-compact", isCompact);
 
 const getRenderedWidth = (): number => {
   return sidebarRef.value?.getBoundingClientRect().width ?? width.value;
-}
+};
 
 const updateCompactState = (nextWidth: number = getRenderedWidth()): void => {
   isCompact.value = nextWidth < props.compactWidth;
-}
+};
 
 const stopTrackingRenderedWidth = (): void => {
   if (animationFrameId === null) {
@@ -45,7 +45,7 @@ const stopTrackingRenderedWidth = (): void => {
 
   cancelAnimationFrame(animationFrameId);
   animationFrameId = null;
-}
+};
 
 const trackRenderedWidth = (): void => {
   updateCompactState();
@@ -62,12 +62,12 @@ const trackRenderedWidth = (): void => {
   }
 
   animationFrameId = requestAnimationFrame(trackRenderedWidth);
-}
+};
 
 const startTrackingRenderedWidth = (): void => {
   stopTrackingRenderedWidth();
   animationFrameId = requestAnimationFrame(trackRenderedWidth);
-}
+};
 
 const startResizing = () => {
   stopTrackingRenderedWidth();
@@ -77,18 +77,19 @@ const startResizing = () => {
   }
 
   isResizing.value = true;
-  document.addEventListener('mousemove', resizeSidebar);
-  document.addEventListener('mouseup', stopResizing);
-  document.addEventListener('touchmove', resizeSidebar);
-  document.addEventListener('touchend', stopResizing);
-  document.body.classList.add('prevent-user-select');
-  document.body.classList.add('sidebar-is-resizing');
-}
+  document.addEventListener("mousemove", resizeSidebar);
+  document.addEventListener("mouseup", stopResizing);
+  document.addEventListener("touchmove", resizeSidebar);
+  document.addEventListener("touchend", stopResizing);
+  document.body.classList.add("prevent-user-select");
+  document.body.classList.add("sidebar-is-resizing");
+};
 
 const resizeSidebar = (event: MouseEvent | TouchEvent) => {
   if (isResizing.value && sidebarRef.value) {
     const touch = event instanceof TouchEvent ? event.touches[0] : undefined;
-    const clientX = event instanceof MouseEvent ? event.clientX : touch?.clientX;
+    const clientX =
+      event instanceof MouseEvent ? event.clientX : touch?.clientX;
 
     if (clientX === undefined) {
       return;
@@ -98,45 +99,65 @@ const resizeSidebar = (event: MouseEvent | TouchEvent) => {
     width.value = clientX - sidebarOffsetLeft;
   }
   if (isResizing.value && event instanceof MouseEvent && event.buttons !== 1) {
-    stopResizing()
+    stopResizing();
   }
-}
+};
 
 const stopResizing = () => {
   isResizing.value = false;
-  document.removeEventListener('mousemove', resizeSidebar);
-  document.removeEventListener('mouseup', stopResizing);
-  document.removeEventListener('touchmove', resizeSidebar);
-  document.removeEventListener('touchend', stopResizing);
-  document.body.classList.remove('prevent-user-select');
-  document.body.classList.remove('sidebar-is-resizing');
-}
+  document.removeEventListener("mousemove", resizeSidebar);
+  document.removeEventListener("mouseup", stopResizing);
+  document.removeEventListener("touchmove", resizeSidebar);
+  document.removeEventListener("touchend", stopResizing);
+  document.body.classList.remove("prevent-user-select");
+  document.body.classList.remove("sidebar-is-resizing");
+};
 
-watch([width, () => props.compactWidth], () => {
-  if (isResizing.value) {
-    updateCompactState(width.value);
-    return;
-  }
+watch(
+  [width, () => props.compactWidth],
+  () => {
+    if (isResizing.value) {
+      updateCompactState(width.value);
+      return;
+    }
 
-  startTrackingRenderedWidth();
-}, { immediate: true })
+    startTrackingRenderedWidth();
+  },
+  { immediate: true },
+);
 
-watch(() => props.width, (nextWidth) => {
-  if (Number.isFinite(nextWidth)) {
-    width.value = nextWidth
-  }
-})
+watch(
+  () => props.width,
+  (nextWidth) => {
+    if (Number.isFinite(nextWidth)) {
+      width.value = nextWidth;
+    }
+  },
+);
 
-onBeforeUnmount(stopTrackingRenderedWidth)
+onBeforeUnmount(stopTrackingRenderedWidth);
 </script>
 
 <template>
-  <div ref="sidebarRef" :class="['sidebar', `sidebar--${props.mode}`, { 'sidebar--resizing': isResizing }]" :style="{
-    width: `${width}px`, padding: `${props.padding}px`,
-    maxWidth: props.maxWidth,
-    minWidth: props.minWidth,
-  }">
-    <div class="resize-handle" @mousedown="startResizing" @touchstart="startResizing">
+  <div
+    ref="sidebarRef"
+    :class="[
+      'sidebar',
+      `sidebar--${props.mode}`,
+      { 'sidebar--resizing': isResizing },
+    ]"
+    :style="{
+      width: `${width}px`,
+      padding: `${props.padding}px`,
+      maxWidth: props.maxWidth,
+      minWidth: props.minWidth,
+    }"
+  >
+    <div
+      class="resize-handle"
+      @mousedown="startResizing"
+      @touchstart="startResizing"
+    >
       <IconGripVerticalOutline />
     </div>
     <slot></slot>

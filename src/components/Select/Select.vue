@@ -11,14 +11,14 @@ import type { ButtonProps } from "../Button/Button.vue";
 export interface SelectProps {
   stretched?: boolean;
   label?: string;
-  size?: ButtonProps['size'];
+  size?: ButtonProps["size"];
   value?: string;
   name?: string;
   onChange?: (option: RegisteredOption) => void;
 }
 
 const props = withDefaults(defineProps<SelectProps>(), {
-  size: 'large',
+  size: "large",
 });
 const select = useSelect(props.value, props.onChange);
 provide("select", select);
@@ -35,7 +35,7 @@ watch(
   () => {
     elementRef.value = pickerRef.value?.elementRef ?? null;
   },
-  { flush: 'post' },
+  { flush: "post" },
 );
 
 watch(
@@ -58,11 +58,7 @@ watch(
     class="select"
     :stretched="props.stretched"
   >
-    <Picker
-      ref="pickerRef"
-      :size="props.size"
-      :stretched="props.stretched"
-    >
+    <Picker ref="pickerRef" :size="props.size" :stretched="props.stretched">
       {{ select?.selectedOption?.value?.label || props.label }}
       <template #icon>
         <IconChevronDownOutline />

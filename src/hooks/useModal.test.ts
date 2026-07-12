@@ -1,25 +1,25 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it } from "vitest";
 
-import { useModal } from './useModal'
+import { useModal } from "./useModal";
 
-describe('useModal', () => {
-  it('opens and closes modal state', () => {
-    const modal = useModal()
+describe("useModal", () => {
+  it("opens and closes modal state", () => {
+    const modal = useModal();
 
-    expect(modal.visible.value).toBe(false)
+    expect(modal.visible.value).toBe(false);
 
-    modal.show()
+    modal.show();
 
-    expect(modal.visible.value).toBe(true)
+    expect(modal.visible.value).toBe(true);
 
-    modal.close()
+    modal.close();
 
-    expect(modal.visible.value).toBe(false)
-  })
+    expect(modal.visible.value).toBe(false);
+  });
 
-  it('uses provided initial visibility', () => {
-    const modal = useModal(true)
+  it("uses provided initial visibility", () => {
+    const modal = useModal(true);
 
-    expect(modal.visible.value).toBe(true)
-  })
-})
+    expect(modal.visible.value).toBe(true);
+  });
+});

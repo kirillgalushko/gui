@@ -1,12 +1,16 @@
-import { readonly, ref, watch, onBeforeUnmount, onMounted } from 'vue';
-import { createBreakpointResult, getBreakpointName, type Breakpoint } from './breakpoints/breakpoints';
+import { readonly, ref, watch, onBeforeUnmount, onMounted } from "vue";
+import {
+  createBreakpointResult,
+  getBreakpointName,
+  type Breakpoint,
+} from "./breakpoints/breakpoints";
 
 type BreakpointElementRef = {
-  value: HTMLElement | null
-}
+  value: HTMLElement | null;
+};
 
 export function useContainerBreakpoint(targetRef: BreakpointElementRef) {
-  const breakpoint = ref<Breakpoint>('xs');
+  const breakpoint = ref<Breakpoint>("xs");
   const result = createBreakpointResult(() => breakpoint.value);
   const observer = ref<ResizeObserver | null>(null);
   const observedElement = ref<HTMLElement | null>(null);
@@ -34,7 +38,7 @@ export function useContainerBreakpoint(targetRef: BreakpointElementRef) {
   };
 
   onMounted(() => {
-    if (typeof ResizeObserver === 'undefined') {
+    if (typeof ResizeObserver === "undefined") {
       if (targetRef.value) {
         updateBreakpoint(targetRef.value);
       }
@@ -53,10 +57,13 @@ export function useContainerBreakpoint(targetRef: BreakpointElementRef) {
     observe(targetRef.value);
   });
 
-  watch(() => targetRef.value, (element) => {
-    unobserve();
-    observe(element);
-  });
+  watch(
+    () => targetRef.value,
+    (element) => {
+      unobserve();
+      observe(element);
+    },
+  );
 
   onBeforeUnmount(() => {
     unobserve();

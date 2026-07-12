@@ -1,10 +1,10 @@
 <script setup lang="ts">
 export interface EmptyMediaProps {
-  variant?: 'default' | 'icon';
+  variant?: "default" | "icon";
 }
 
 const props = withDefaults(defineProps<EmptyMediaProps>(), {
-  variant: 'default',
+  variant: "default",
 });
 </script>
 

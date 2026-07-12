@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { ref } from 'vue';
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
 
-import HourPicker from './HourPicker.vue';
-import type { HourPickerChangePayload } from './types';
+import HourPicker from "./HourPicker.vue";
+import type { HourPickerChangePayload } from "./types";
 
 const meta = {
-  title: 'Components/HourPicker',
+  title: "Components/HourPicker",
   component: HourPicker,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     stretched: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 } satisfies Meta<typeof HourPicker>;
@@ -22,13 +22,14 @@ export const Default: Story = {
   render: (args) => ({
     components: { HourPicker },
     setup() {
-      const value = ref('14:00');
+      const value = ref("14:00");
       const onChange = ({ value: nextValue }: HourPickerChangePayload) => {
         value.value = nextValue;
       };
 
       return { args, onChange, value };
     },
-    template: '<HourPicker v-bind="args" :value="value" :on-change="onChange" />',
+    template:
+      '<HourPicker v-bind="args" :value="value" :on-change="onChange" />',
   }),
 };

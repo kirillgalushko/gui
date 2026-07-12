@@ -1,54 +1,65 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Text from './Text.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Text from "./Text.vue";
 
 const meta: Meta<typeof Text> = {
-  title: 'Components/Text',
+  title: "Components/Text",
   component: Text,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    typography: { control: 'select',
+    typography: {
+      control: "select",
       options: [
-        'title-1',
-        'title-2',
-        'title-3',
-        'title-4',
-        'title-5',
-        'title-6',
-        'title-7',
-        'title-8',
-        'title-9',
-        'title-10',
-        'subtitle-1',
-        'subtitle-2',
-        'subtitle-3',
-        'subtitle-4',
-        'label-1',
-        'label-2',
-        'label-3',
-        'paragraph-1',
-        'paragraph-2'
-      ]
+        "title-1",
+        "title-2",
+        "title-3",
+        "title-4",
+        "title-5",
+        "title-6",
+        "title-7",
+        "title-8",
+        "title-9",
+        "title-10",
+        "subtitle-1",
+        "subtitle-2",
+        "subtitle-3",
+        "subtitle-4",
+        "label-1",
+        "label-2",
+        "label-3",
+        "paragraph-1",
+        "paragraph-2",
+      ],
     },
-    Element: { control: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'] },
-    color: { control: 'select', options: ['default', 'inherit', 'secondary', 'negative'] },
-    inline: { control: 'boolean' },
-    textAlign: { control: 'select', options: ['inherit', 'start', 'center', 'end'] },
-  }
+    Element: {
+      control: "select",
+      options: ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "div"],
+    },
+    color: {
+      control: "select",
+      options: ["default", "inherit", "secondary", "negative"],
+    },
+    inline: { control: "boolean" },
+    textAlign: {
+      control: "select",
+      options: ["inherit", "start", "center", "end"],
+    },
+  },
 };
 
-const text = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЧЦШЩЬЪЫЭЮЯабвгдеёжзийклмнопрстуфхчцшщьъыэюя'
+const text =
+  "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЧЦШЩЬЪЫЭЮЯабвгдеёжзийклмнопрстуфхчцшщьъыэюя";
 
 export default meta;
 type Story = StoryObj<typeof Text>;
 
 export const Default: Story = {
   args: {
-    typography: 'paragraph-1',
-    color: 'default',
+    typography: "paragraph-1",
+    color: "default",
     clamp: 2,
     ellipsis: true,
     inline: false,
-    textAlign: 'start'
+    textAlign: "start",
   },
   render: (args) => ({
     components: { Text },
@@ -99,17 +110,17 @@ export const Typography: Story = {
           </div>
         </div>
       </div>
-    `
-  })
-}
+    `,
+  }),
+};
 
 export const WithClamping: Story = {
   args: {
-    typography: 'title-2',
-    color: 'default',
+    typography: "title-2",
+    color: "default",
     clamp: 2,
     ellipsis: true,
-    textAlign: 'start'
+    textAlign: "start",
   },
   render: (args) => ({
     components: { Text },

@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Breadcrumb from './Breadcrumb.vue';
-import BreadcrumbItem from './BreadcrumbItem.vue';
-import BreadcrumbLink from './BreadcrumbLink.vue';
-import BreadcrumbList from './BreadcrumbList.vue';
-import BreadcrumbPage from './BreadcrumbPage.vue';
-import BreadcrumbSeparator from './BreadcrumbSeparator.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import Breadcrumb from "./Breadcrumb.vue";
+import BreadcrumbItem from "./BreadcrumbItem.vue";
+import BreadcrumbLink from "./BreadcrumbLink.vue";
+import BreadcrumbList from "./BreadcrumbList.vue";
+import BreadcrumbPage from "./BreadcrumbPage.vue";
+import BreadcrumbSeparator from "./BreadcrumbSeparator.vue";
 
 const meta = {
-  title: 'Components/Breadcrumb',
+  title: "Components/Breadcrumb",
   component: Breadcrumb,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Breadcrumb>;
 
 export default meta;

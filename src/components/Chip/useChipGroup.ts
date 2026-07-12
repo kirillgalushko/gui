@@ -1,5 +1,5 @@
-import type { InjectionKey } from 'vue';
-import type { ChipMode, ChipSize, ChipValue } from './types';
+import type { InjectionKey } from "vue";
+import type { ChipMode, ChipSize, ChipValue } from "./types";
 
 export interface ChipGroupContext {
   mode: ChipMode;
@@ -9,4 +9,5 @@ export interface ChipGroupContext {
   select: (value: ChipValue) => void;
 }
 
-export const chipGroupContextKey: InjectionKey<ChipGroupContext> = Symbol('chip-group');
+export const chipGroupContextKey: InjectionKey<ChipGroupContext> =
+  Symbol("chip-group");

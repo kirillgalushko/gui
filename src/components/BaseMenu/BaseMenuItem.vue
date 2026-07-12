@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { IconChevronRightOutline } from '@gui/icons';
+import { IconChevronRightOutline } from "@gui/icons";
 
 export interface BaseMenuItemProps {
-  showArrow?: boolean
+  showArrow?: boolean;
 }
 
-const props = defineProps<BaseMenuItemProps>()
+const props = defineProps<BaseMenuItemProps>();
 </script>
 
 <template>

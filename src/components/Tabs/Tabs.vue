@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import { provide, ref, watchEffect } from 'vue';
-import useTabs from './useTabs';
-import { useResize } from '../../hooks/useResize';
-import type { ButtonProps } from '../Button/Button.vue';
+import { provide, ref, watchEffect } from "vue";
+import useTabs from "./useTabs";
+import { useResize } from "../../hooks/useResize";
+import type { ButtonProps } from "../Button/Button.vue";
 
 export interface TabsProps {
-  value: string
+  value: string;
   onChange: (value: string) => void;
-  size?: ButtonProps['size'];
+  size?: ButtonProps["size"];
   stretched?: boolean;
 }
 
 const sliderAnimationDisabled = ref<boolean>(true);
 const props = withDefaults(defineProps<TabsProps>(), {
-  size: 'large',
-})
+  size: "large",
+});
 const handleChange = (value: string) => {
-  sliderAnimationDisabled.value = false
-  props.onChange(value)
-}
+  sliderAnimationDisabled.value = false;
+  props.onChange(value);
+};
 const tabs = useTabs(props.value, handleChange);
-provide('tabs', tabs)
-provide('stretched', props.stretched)
+provide("tabs", tabs);
+provide("stretched", props.stretched);
 
-const tabsElementRef = ref()
+const tabsElementRef = ref();
 
 const sliderStyle = ref({
-  width: '0px',
-  transform: 'translateX(0px)',
+  width: "0px",
+  transform: "translateX(0px)",
 });
 
 const updateSliderStyle = () => {
@@ -44,12 +44,18 @@ watchEffect(() => {
   updateSliderStyle();
 });
 
-useResize(tabsElementRef, updateSliderStyle)
+useResize(tabsElementRef, updateSliderStyle);
 </script>
 
 <template>
-  <div ref="tabsElementRef" :class="['tabs', props.size, { stretched: props.stretched, }]">
-    <div :class="['slider', { animated: !sliderAnimationDisabled }]" :style="sliderStyle"></div>
+  <div
+    ref="tabsElementRef"
+    :class="['tabs', props.size, { stretched: props.stretched }]"
+  >
+    <div
+      :class="['slider', { animated: !sliderAnimationDisabled }]"
+      :style="sliderStyle"
+    ></div>
     <slot></slot>
   </div>
 </template>
@@ -132,6 +138,8 @@ useResize(tabsElementRef, updateSliderStyle)
 }
 
 .animated {
-  transition: transform 0.3s ease, width 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    width 0.3s ease;
 }
 </style>

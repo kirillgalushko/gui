@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconChevronRightOutline } from '@gui/icons';
+import { IconChevronRightOutline } from "@gui/icons";
 </script>
 
 <template>

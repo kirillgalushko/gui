@@ -13,12 +13,15 @@
   font-size: 20px;
   background-color: transparent;
   color: hsl(var(--foreground));
-  transition: scale 0.2s, background-color 0.2s, color 0.2s;
+  transition:
+    scale 0.2s,
+    background-color 0.2s,
+    color 0.2s;
   padding: 0;
 }
 
 .action:hover {
-  color: hsl(var(--foreground) / .7);
+  color: hsl(var(--foreground) / 0.7);
 }
 
 .action:focus-visible {
@@ -27,6 +30,6 @@
 }
 
 .action:active {
-  scale: 0.90;
+  scale: 0.9;
 }
 </style>

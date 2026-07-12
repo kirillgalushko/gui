@@ -1,36 +1,36 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import AdaptiveModal from './AdaptiveModal.vue';
-import Button from '../Button/Button.vue';
-import Gap from '../Gap/Gap.vue';
-import Input from '../Input/Input.vue';
-import Text from '../Text/Text.vue';
-import { useModal } from '../../hooks/useModal';
+import { Meta, StoryObj } from "@storybook/vue3";
+import AdaptiveModal from "./AdaptiveModal.vue";
+import Button from "../Button/Button.vue";
+import Gap from "../Gap/Gap.vue";
+import Input from "../Input/Input.vue";
+import Text from "../Text/Text.vue";
+import { useModal } from "../../hooks/useModal";
 
 const meta: Meta<typeof AdaptiveModal> = {
-  title: 'Components/AdaptiveModal',
+  title: "Components/AdaptiveModal",
   component: AdaptiveModal,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     isOpened: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     title: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
     showCloseButton: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     modalProps: {
-      control: { type: 'object' },
+      control: { type: "object" },
     },
     sheetProps: {
-      control: { type: 'object' },
+      control: { type: "object" },
     },
   },
   args: {
     isOpened: true,
     showCloseButton: true,
-    title: 'Редактировать объявление',
+    title: "Редактировать объявление",
     sheetProps: {
       rounded: true,
     },
@@ -99,7 +99,7 @@ export const WithUseModal: Story = {
 export const FullHeightMobileSheet: Story = {
   args: {
     sheetProps: {
-      size: 'full',
+      size: "full",
     },
   },
   render: (args) => ({

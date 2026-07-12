@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue';
-import { useSkeletonLoading } from './context';
+import { computed, useSlots } from "vue";
+import { useSkeletonLoading } from "./context";
 
 export interface SkeletonProps {
-  Element?: 'div' | 'span';
+  Element?: "div" | "span";
   loading?: boolean;
   animated?: boolean;
   width?: string;
@@ -13,20 +13,20 @@ export interface SkeletonProps {
 }
 
 const props = withDefaults(defineProps<SkeletonProps>(), {
-  Element: 'div',
+  Element: "div",
   animated: true,
-  width: '100%',
-  height: '20px',
-  radius: '8px',
+  width: "100%",
+  height: "20px",
+  radius: "8px",
 });
 
 const slots = useSlots();
 const isLoading = useSkeletonLoading(() => props.loading);
 
 const styles = computed(() => ({
-  '--skeleton-width': props.width,
-  '--skeleton-height': props.height,
-  '--skeleton-radius': props.circle ? '999px' : props.radius,
+  "--skeleton-width": props.width,
+  "--skeleton-height": props.height,
+  "--skeleton-radius": props.circle ? "999px" : props.radius,
 }));
 </script>
 
@@ -59,7 +59,12 @@ const styles = computed(() => ({
     110deg,
     hsl(var(--skeleton)) 0%,
     hsl(var(--skeleton)) 32%,
-    color-mix(in oklab, hsl(var(--skeleton-highlight)) 36%, hsl(var(--skeleton))) 50%,
+    color-mix(
+        in oklab,
+        hsl(var(--skeleton-highlight)) 36%,
+        hsl(var(--skeleton))
+      )
+      50%,
     hsl(var(--skeleton)) 68%,
     hsl(var(--skeleton)) 100%
   );

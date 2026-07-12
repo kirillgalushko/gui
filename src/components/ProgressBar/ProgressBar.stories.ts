@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import ProgressBar from './ProgressBar.vue';
+import { Meta, StoryObj } from "@storybook/vue3";
+import ProgressBar from "./ProgressBar.vue";
 
 const meta: Meta<typeof ProgressBar> = {
-  title: 'Components/ProgressBar',
+  title: "Components/ProgressBar",
   component: ProgressBar,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     progress: {
-      control: 'range',
+      control: "range",
       min: 0,
       step: 1,
     },
@@ -36,7 +36,7 @@ export const Segmented: Story = {
     progress: 3,
     max: 4,
     segments: 4,
-    color: 'positive',
+    color: "positive",
   },
   render: (args) => ({
     components: { ProgressBar },

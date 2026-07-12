@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from '@storybook/vue3';
-import Confirm from './Confirm.vue';
-import { useConfirm } from './useConfirm'
-import Button from '../Button/Button.vue' 
-import { ref } from 'vue'
+import { Meta, StoryObj } from "@storybook/vue3";
+import Confirm from "./Confirm.vue";
+import { useConfirm } from "./useConfirm";
+import Button from "../Button/Button.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof Confirm> = {
-  title: 'Components/Confirm',
+  title: "Components/Confirm",
   component: Confirm,
-  tags: ['!autodocs'],
+  tags: ["!autodocs"],
   argTypes: {},
   args: {},
 };
@@ -20,18 +20,21 @@ export const Default: Story = {
   render: (args) => ({
     components: { Confirm, Button },
     setup() {
-      const result = ref()
-      const { confirm, ...confirmData } = useConfirm()
+      const result = ref();
+      const { confirm, ...confirmData } = useConfirm();
 
       const onClick = async () => {
         try {
-          result.value = 'Ожидание результата...'
-          await confirm({ title: 'Вы уверены?', description: 'Эти изменения нельзя будет отменить.' });
-          result.value = 'Подтверждение'
+          result.value = "Ожидание результата...";
+          await confirm({
+            title: "Вы уверены?",
+            description: "Эти изменения нельзя будет отменить.",
+          });
+          result.value = "Подтверждение";
         } catch (e) {
-          result.value = 'Отмена'
+          result.value = "Отмена";
         }
-      }
+      };
 
       return { args, confirmData, onClick, result };
     },
