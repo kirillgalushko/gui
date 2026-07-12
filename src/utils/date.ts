@@ -19,6 +19,12 @@ export const addDays = (date: Date, amount: number): Date => {
   return nextDate;
 };
 
+export const addHours = (date: Date, amount: number): Date => {
+  const nextDate = new Date(date);
+  nextDate.setHours(nextDate.getHours() + amount);
+  return nextDate;
+};
+
 export const addMonths = (date: Date, amount: number): Date => {
   const nextDate = new Date(date);
   nextDate.setMonth(nextDate.getMonth() + amount, 1);
@@ -55,6 +61,43 @@ export const isBeforeDay = (firstDate: Date, secondDate: Date): boolean =>
 
 export const isAfterDay = (firstDate: Date, secondDate: Date): boolean =>
   startOfDay(firstDate).getTime() > startOfDay(secondDate).getTime();
+
+export const differenceInCalendarDays = (end: Date, start: Date): number =>
+  Math.round((startOfDay(end).getTime() - startOfDay(start).getTime()) / 86_400_000);
+
+export const setDateHour = (date: Date, hour: number): Date => {
+  const nextDate = new Date(date);
+  nextDate.setHours(hour, 0, 0, 0);
+  return nextDate;
+};
+
+export const roundDateToNearestHour = (date: Date): Date => {
+  const nextDate = new Date(date);
+  const elapsedHourMs =
+    nextDate.getMinutes() * 60_000 +
+    nextDate.getSeconds() * 1_000 +
+    nextDate.getMilliseconds();
+
+  if (elapsedHourMs >= 30 * 60_000) {
+    nextDate.setHours(nextDate.getHours() + 1);
+  }
+
+  nextDate.setMinutes(0, 0, 0);
+  return nextDate;
+};
+
+export const snapDateToHour = (date: Date, hour: number): Date => {
+  const currentDay = setDateHour(date, hour);
+  const previousDay = setDateHour(addDays(date, -1), hour);
+  const nextDay = setDateHour(addDays(date, 1), hour);
+
+  return [previousDay, currentDay, nextDay].reduce((nearest, candidate) => {
+    const nearestDistance = Math.abs(nearest.getTime() - date.getTime());
+    const candidateDistance = Math.abs(candidate.getTime() - date.getTime());
+
+    return candidateDistance < nearestDistance ? candidate : nearest;
+  }, currentDay);
+};
 
 export const formatRuShortWeekdayMonthDay = (date: Date): string =>
   new Intl.DateTimeFormat('ru-RU', {

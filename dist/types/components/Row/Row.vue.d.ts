@@ -1,4 +1,4 @@
-import { Align } from '../../types';
+import type { Align } from '../../types';
 export interface RowProps {
     fullHeight?: boolean;
     alignItems?: Align;

@@ -5,14 +5,12 @@ export interface PasswordStrengthRule {
 }
 export interface PasswordStrengthInputProps {
     modelValue?: string;
+    autoFocus?: boolean;
     rules?: PasswordStrengthRule[];
     progress?: number;
     progressSegments?: number;
     progressHeight?: string;
     progressGap?: string;
-    weakColor?: string;
-    mediumColor?: string;
-    strongColor?: string;
     maxWidth?: string;
     disabled?: boolean;
     description?: string;
@@ -30,8 +28,5 @@ declare const _default: import("vue").DefineComponent<PasswordStrengthInputProps
     progressSegments: number;
     progressHeight: string;
     progressGap: string;
-    weakColor: string;
-    mediumColor: string;
-    strongColor: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export default _default;

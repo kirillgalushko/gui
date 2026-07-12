@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { inject, ref, Ref } from 'vue';
+import { inject, ref } from 'vue';
+import type { Ref } from 'vue';
 import Tooltip from '../Tooltip/Tooltip.vue';
 import { useResize } from '../../hooks/useResize';
 

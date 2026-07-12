@@ -3,7 +3,8 @@ import Dropdown from "../Dropdown/Dropdown.vue";
 import { IconChevronDownOutline } from "@gui/icons";
 import { useSize } from "../../hooks/useSize";
 import { computed, provide, ref, watch } from "vue";
-import { RegisteredOption, useSelect } from "./useSelect";
+import { useSelect } from "./useSelect";
+import type { RegisteredOption } from "./useSelect";
 import Picker from "../Picker/Picker.vue";
 import type { ButtonProps } from "../Button/Button.vue";
 

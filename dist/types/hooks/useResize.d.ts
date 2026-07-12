@@ -1,2 +1,5 @@
-import { Ref } from 'vue';
-export declare function useResize(elementRef: Ref<HTMLElement | null>, callback: () => void): void;
+type ResizeElementRef = {
+    value: HTMLElement | null;
+};
+export declare function useResize(elementRef: ResizeElementRef, callback: () => void): void;
+export {};

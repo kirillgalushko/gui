@@ -3,8 +3,8 @@ import 'floating-vue/dist/style.css';
 import { Tooltip } from 'floating-vue';
 
 type TooltipDelay = string | number | {
-  show?: string | number
-  hide?: string | number
+  show: number
+  hide: number
 }
 
 export interface TooltipProps {

@@ -169,6 +169,8 @@ export {
   addDays,
   addMonths,
   addYears,
+  addHours,
+  differenceInCalendarDays,
   endOfDay,
   formatRuDayMonth,
   formatRuMonthYear,
@@ -177,10 +179,13 @@ export {
   isAfterDay,
   isBeforeDay,
   isSameDay,
+  roundDateToNearestHour,
   startOfDay,
   startOfMonth,
   startOfWeek,
   startOfYear,
+  setDateHour,
+  snapDateToHour,
   toDate,
 } from './utils/date';
 export {
@@ -189,7 +194,6 @@ export {
 
 export {
   useSelect,
-  RegisteredOption,
   useConfirm,
   useTabs,
   useResize,
@@ -203,4 +207,8 @@ export {
   useGridBreakpoint,
   toast,
   useVueSonner,
+};
+
+export type {
+  RegisteredOption,
 };

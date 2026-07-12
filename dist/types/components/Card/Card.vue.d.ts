@@ -1,4 +1,4 @@
-import { BorderRadius, Padding } from '../../types';
+import type { BorderRadius, Padding } from '../../types';
 interface Card {
     background?: 'default' | 'secondary';
     stretched?: boolean;

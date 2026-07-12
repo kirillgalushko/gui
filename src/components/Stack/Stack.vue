@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Gap, Align } from "../../types";
+import type { Gap, Align } from "../../types";
 
 type JustifyContent = "start" | "center" | "end" | "space-between";
 

@@ -1,4 +1,4 @@
-import { type Typography } from '../Text/Text.vue';
+import type { Typography } from '../Text/types';
 export interface LinkProps {
     typography?: Typography;
     inline?: boolean;

@@ -2,6 +2,7 @@ export interface GridLayoutProps {
     mode?: 'container' | 'viewport';
     gutter?: string;
     highlight?: boolean;
+    stretched?: boolean;
 }
 declare function __VLS_template(): {
     slots: {
@@ -15,6 +16,7 @@ declare function __VLS_template(): {
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<GridLayoutProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<GridLayoutProps> & Readonly<{}>, {
     mode: "container" | "viewport";
+    stretched: boolean;
     gutter: string;
     highlight: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;

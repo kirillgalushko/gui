@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Align } from '../../types';
+import type { Align } from '../../types';
 
 
 export interface RowProps {

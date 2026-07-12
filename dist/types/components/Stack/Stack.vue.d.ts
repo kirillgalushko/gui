@@ -1,10 +1,13 @@
-import { Gap, Align } from '../../types';
+import type { Gap, Align } from "../../types";
+type JustifyContent = "start" | "center" | "end" | "space-between";
 export interface StackProps {
-    direction: 'row' | 'column';
+    direction: "row" | "column";
     gap?: Gap;
     fullHeight?: boolean;
     alignItems?: Align;
+    justifyContent?: JustifyContent;
     stretched?: boolean;
+    wrap?: boolean;
 }
 declare function __VLS_template(): {
     slots: {

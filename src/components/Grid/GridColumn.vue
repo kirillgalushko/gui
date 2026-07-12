@@ -30,7 +30,13 @@ const span = computed(() => {
   const currentIndex = breakpointNames.indexOf(breakpoint.value);
 
   for (let index = currentIndex; index >= 0; index -= 1) {
-    const value = props[breakpointNames[index]];
+    const breakpointName = breakpointNames[index];
+
+    if (breakpointName === undefined) {
+      continue;
+    }
+
+    const value = props[breakpointName];
 
     if (typeof value === 'number') {
       return Math.min(Math.max(value, 1), columns.value);

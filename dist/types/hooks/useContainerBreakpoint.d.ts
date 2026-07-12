@@ -1,6 +1,8 @@
-import { type Ref } from 'vue';
 import { type Breakpoint } from './breakpoints/breakpoints';
-export declare function useContainerBreakpoint(targetRef: Ref<HTMLElement | null>): {
+type BreakpointElementRef = {
+    value: HTMLElement | null;
+};
+export declare function useContainerBreakpoint(targetRef: BreakpointElementRef): {
     readonly breakpoint: Breakpoint;
     readonly isXS: boolean;
     readonly isS: boolean;
@@ -14,3 +16,4 @@ export declare function useContainerBreakpoint(targetRef: Ref<HTMLElement | null
     readonly isGtM: boolean;
     readonly isGtL: boolean;
 };
+export {};

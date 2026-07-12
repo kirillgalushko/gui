@@ -1,6 +1,10 @@
-import { ref, onMounted, onBeforeUnmount, watch, Ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
 
-export function useResize(elementRef: Ref<HTMLElement | null>, callback: () => void) {
+type ResizeElementRef = {
+  value: HTMLElement | null
+}
+
+export function useResize(elementRef: ResizeElementRef, callback: () => void) {
   const observer = ref<ResizeObserver | null>(null);
   const observedElement = ref<HTMLElement | null>(null);
 
@@ -26,7 +30,7 @@ export function useResize(elementRef: Ref<HTMLElement | null>, callback: () => v
     observe(elementRef.value);
   });
 
-  watch(elementRef, (element) => {
+  watch(() => elementRef.value, (element) => {
     unobserve();
     observe(element);
   });

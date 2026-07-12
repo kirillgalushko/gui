@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref, provide, watch } from 'vue'
 import { IconGripVerticalOutline } from '@gui/icons';
-import { Padding } from '../../types';
+import type { Padding } from '../../types';
 
 export interface SidebarProps {
   mode?: 'default' | 'floating';
@@ -87,7 +87,13 @@ const startResizing = () => {
 
 const resizeSidebar = (event: MouseEvent | TouchEvent) => {
   if (isResizing.value && sidebarRef.value) {
-    const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+    const touch = event instanceof TouchEvent ? event.touches[0] : undefined;
+    const clientX = event instanceof MouseEvent ? event.clientX : touch?.clientX;
+
+    if (clientX === undefined) {
+      return;
+    }
+
     const sidebarOffsetLeft = sidebarRef.value.offsetLeft;
     width.value = clientX - sidebarOffsetLeft;
   }

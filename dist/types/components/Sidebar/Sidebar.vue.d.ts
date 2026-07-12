@@ -1,5 +1,6 @@
-import { Padding } from '../../types';
+import type { Padding } from '../../types';
 export interface SidebarProps {
+    mode?: 'default' | 'floating';
     padding?: Padding;
     width?: number;
     maxWidth?: string;
@@ -18,6 +19,7 @@ declare function __VLS_template(): {
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SidebarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SidebarProps> & Readonly<{}>, {
     width: number;
+    mode: "default" | "floating";
     padding: Padding;
     maxWidth: string;
     minWidth: string;

@@ -1,5 +1,6 @@
 export interface PasswordInputProps {
     modelValue?: string;
+    autoFocus?: boolean;
     maxWidth?: string;
     disabled?: boolean;
     description?: string;

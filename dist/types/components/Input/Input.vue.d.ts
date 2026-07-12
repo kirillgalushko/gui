@@ -1,6 +1,8 @@
 export interface InputProps {
+    autoFocus?: boolean;
     maxWidth?: string;
     disabled?: boolean;
+    postfix?: string;
     description?: string;
     errorMessage?: string;
     invalid?: boolean;
@@ -17,6 +19,7 @@ declare function __VLS_template(): {
     };
     refs: {
         leftAdornment: HTMLDivElement;
+        inputRef: HTMLInputElement;
         rightAdornment: HTMLDivElement;
     };
     attrs: Partial<{}>;
