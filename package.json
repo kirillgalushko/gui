@@ -20,6 +20,7 @@
     "test:changed": "node ../../scripts/run-changed.mjs --mode test --project apps/gui",
     "format": "prettier --write \"src/**/*.{ts,tsx,vue,css,mdx}\" \"*.{ts,json,md}\"",
     "format:changed": "node ../../scripts/run-changed.mjs --mode format --project apps/gui",
+    "unused": "node ../../scripts/find-unused-files.mjs --project apps/gui",
     "check": "npm run lint && npm run typecheck && npm run test",
     "check:changed": "node ../../scripts/run-changed.mjs --mode check --project apps/gui",
     "build": "vite build && vue-tsc -b",
