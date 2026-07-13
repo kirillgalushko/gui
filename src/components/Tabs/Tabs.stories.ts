@@ -4,7 +4,6 @@ import Card from "../Card/Card.vue";
 import Text from "../Text/Text.vue";
 import Gap from "../Gap/Gap.vue";
 import Button from "../Button/Button.vue";
-import type { ComponentSize } from "../../types";
 import Tabs from "./Tabs.vue";
 import Tab from "./Tab.vue";
 import { IconHome2Outline, IconABOutline, IconAbcOutline } from "@gui/icons";
@@ -134,12 +133,7 @@ export const Sizes: Story = {
       const handleChangeTab = (newTab: string) => {
         selectedTab.value = newTab;
       };
-      const sizes: ComponentSize[] = [
-        "extra-small",
-        "small",
-        "medium",
-        "large",
-      ];
+      const sizes = ["extra-small", "small", "medium", "large"] as const;
 
       return { handleChangeTab, selectedTab, sizes };
     },
