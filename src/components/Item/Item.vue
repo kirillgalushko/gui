@@ -9,6 +9,7 @@ export interface ItemProps {
   interactive?: boolean;
   mode?: ItemMode;
   padding?: Padding;
+  selected?: boolean;
   size?: ItemSize;
   stretched?: boolean;
 }
@@ -33,7 +34,11 @@ const styles = computed(() =>
       'item',
       props.mode,
       props.size,
-      { interactive: props.interactive, stretched: props.stretched },
+      {
+        interactive: props.interactive,
+        selected: props.selected,
+        stretched: props.stretched,
+      },
     ]"
     :style="styles"
   >
@@ -112,6 +117,10 @@ const styles = computed(() =>
 }
 
 .interactive:hover {
+  background-color: hsl(var(--secondary));
+}
+
+.selected {
   background-color: hsl(var(--secondary));
 }
 
