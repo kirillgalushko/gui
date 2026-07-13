@@ -6,12 +6,12 @@ import { computed, provide, ref, watch } from "vue";
 import { useSelect } from "./useSelect";
 import type { RegisteredOption } from "./useSelect";
 import Picker from "../Picker/Picker.vue";
-import type { ButtonProps } from "../Button/Button.vue";
+import type { ComponentSize } from "../../types";
 
 export interface SelectProps {
   stretched?: boolean;
   label?: string;
-  size?: ButtonProps["size"];
+  size?: ComponentSize;
   value?: string;
   name?: string;
   onChange?: (option: RegisteredOption) => void;

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import Loader from "../Loader/Loader.vue";
+import type { ComponentSize } from "../../types";
 
 export interface ButtonProps {
   mode?: "default" | "contrast" | "ghost" | "outline" | "negative" | "accent";
-  size?: "extra-small" | "small" | "medium" | "large";
+  size?: ComponentSize;
   stretched?: boolean;
   squared?: boolean;
   rounded?: boolean;

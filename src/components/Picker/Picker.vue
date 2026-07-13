@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { ButtonProps } from "../Button/Button.vue";
+import type { ComponentSize } from "../../types";
 
 export interface PickerProps {
-  size?: ButtonProps["size"];
+  size?: ComponentSize;
   stretched?: boolean;
 }
 

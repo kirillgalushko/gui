@@ -2,10 +2,12 @@
 import { computed, onBeforeUnmount, ref } from "vue";
 import Dropdown from "../Dropdown/Dropdown.vue";
 import Input from "../Input/Input.vue";
+import type { ComponentSize } from "../../types";
 
 export interface SuggestInputProps {
   id?: string;
   placeholder?: string;
+  size?: ComponentSize;
   disabled?: boolean;
   invalid?: boolean;
   errorMessage?: string;
@@ -103,6 +105,7 @@ onBeforeUnmount(() => {
         :id="id"
         v-model="model"
         :placeholder="placeholder"
+        :size="size"
         :disabled="disabled"
         :invalid="invalid"
         :error-message="errorMessage"

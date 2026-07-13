@@ -242,6 +242,7 @@ import { useContainerBreakpoint } from "./hooks/useContainerBreakpoint";
 import { useGridBreakpoint } from "./hooks/useGridBreakpoint";
 import { toast, useVueSonner } from "vue-sonner";
 export type { Color } from "./types/colors";
+export type { ComponentSize } from "./types/component-size";
 export type { ChipMode, ChipSize, ChipValue } from "./components/Chip/types";
 export type {
   Breakpoint,

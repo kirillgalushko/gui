@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/vue3";
 import Input from "./Input.vue";
 import { IconMenu2Outline, IconSearchOutline } from "@gui/icons";
+import Stack from "../Stack/Stack.vue";
+import type { ComponentSize } from "../../types";
 
 type InputType = typeof Input | HTMLInputElement;
 
@@ -14,6 +16,10 @@ const meta: Meta<InputType> = {
     },
     invalid: {
       type: "boolean",
+    },
+    size: {
+      control: "select",
+      options: ["extra-small", "small", "medium", "large"],
     },
   },
 };
@@ -87,6 +93,33 @@ export const WithPostfix: Story = {
       return { args };
     },
     template: '<Input v-bind="args" v-model="args.value" />',
+  }),
+};
+
+export const Sizes: Story = {
+  render: () => ({
+    components: { Input, Stack },
+    setup() {
+      const sizes: ComponentSize[] = [
+        "extra-small",
+        "small",
+        "medium",
+        "large",
+      ];
+
+      return { sizes };
+    },
+    template: `
+      <Stack direction="column" :gap="3" stretched>
+        <Input
+          v-for="size in sizes"
+          :key="size"
+          :size="size"
+          :placeholder="size"
+          :model-value="size"
+        />
+      </Stack>
+    `,
   }),
 };
 

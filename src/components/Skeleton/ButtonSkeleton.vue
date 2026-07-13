@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import Skeleton from "./Skeleton.vue";
-
-export type ButtonSkeletonSize = "extra-small" | "small" | "medium" | "large";
+import type { ComponentSize } from "../../types";
 
 export interface ButtonSkeletonProps {
   loading?: boolean;
-  size?: ButtonSkeletonSize;
+  size?: ComponentSize;
   width?: string;
   stretched?: boolean;
   squared?: boolean;
@@ -18,10 +17,7 @@ const props = withDefaults(defineProps<ButtonSkeletonProps>(), {
   width: "96px",
 });
 
-const buttonSizes: Record<
-  ButtonSkeletonSize,
-  { height: string; radius: string }
-> = {
+const buttonSizes: Record<ComponentSize, { height: string; radius: string }> = {
   "extra-small": { height: "24px", radius: "8px" },
   small: { height: "32px", radius: "8px" },
   medium: { height: "36px", radius: "10px" },

@@ -5,7 +5,7 @@ import { ref } from "vue";
 import { RegisteredOption } from "./useSelect";
 import Button from "../Button/Button.vue";
 import Gap from "../Gap/Gap.vue";
-import type { ButtonProps } from "../Button/Button.vue";
+import type { ComponentSize } from "../../types";
 
 const meta: Meta<typeof Select> = {
   title: "Components/Select",
@@ -52,7 +52,7 @@ export const Sizes: Story = {
     components: { Button, Gap, Select, SelectOption },
     setup() {
       const selectedOption = ref<string>("dark");
-      const sizes: ButtonProps["size"][] = [
+      const sizes: ComponentSize[] = [
         "extra-small",
         "small",
         "medium",

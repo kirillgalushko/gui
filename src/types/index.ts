@@ -3,3 +3,4 @@ export type Padding = 0 | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 36;
 export type BorderRadius = 2 | 4 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 36;
 export type Align = "start" | "center" | "end";
 export type { Color } from "./colors";
+export type { ComponentSize } from "./component-size";

@@ -8,6 +8,7 @@ import Dropdown from "../Dropdown/Dropdown.vue";
 import Calendar from "../Calendar/Calendar.vue";
 import Gap from "../Gap/Gap.vue";
 import type { ButtonProps } from "../Button/Button.vue";
+import type { ComponentSize } from "../../types";
 import {
   addDays,
   addMonths,
@@ -32,7 +33,7 @@ export interface DateNavigatorProps {
   value: Date;
   mode?: DateNavigatorMode;
   buttonMode?: ButtonProps["mode"];
-  size?: ButtonProps["size"];
+  size?: ComponentSize;
   onChange: (payload: DateNavigatorChangePayload) => void;
   minDate?: Date;
   maxDate?: Date;

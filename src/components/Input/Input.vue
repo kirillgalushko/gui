@@ -9,6 +9,7 @@ import {
   useId,
 } from "vue";
 import FieldHelper from "../FieldHelper/FieldHelper.vue";
+import type { ComponentSize } from "../../types";
 
 defineOptions({
   inheritAttrs: false,
@@ -23,7 +24,15 @@ export interface InputProps {
   errorMessage?: string;
   invalid?: boolean;
   descriptionId?: string;
+  size?: ComponentSize;
 }
+
+const inputSizeOptions: Record<ComponentSize, { paddingX: number }> = {
+  "extra-small": { paddingX: 8 },
+  small: { paddingX: 12 },
+  medium: { paddingX: 14 },
+  large: { paddingX: 16 },
+};
 
 const leftAdornment = ref<HTMLDivElement>();
 const rightAdornment = ref<HTMLDivElement>();
@@ -31,16 +40,21 @@ const leftAdornmentWidth = ref(0);
 const rightAdornmentWidth = ref(0);
 const inputRef = ref<HTMLInputElement>();
 const model = defineModel();
-const props = withDefaults(defineProps<InputProps>(), { maxWidth: "100%" });
+const props = withDefaults(defineProps<InputProps>(), {
+  maxWidth: "100%",
+  size: "large",
+});
 const attrs = useAttrs();
 const generatedDescriptionId = useId();
 let resizeObserver: ResizeObserver | undefined;
 
 const getPadding = (adornmentWidth: number) => {
+  const paddingX = inputSizeOptions[props.size].paddingX;
+
   if (adornmentWidth > 0) {
-    return adornmentWidth + 20;
+    return adornmentWidth + paddingX + 8;
   }
-  return 12;
+  return paddingX;
 };
 
 const inputPaddingLeft = computed(() => getPadding(leftAdornmentWidth.value));
@@ -51,6 +65,14 @@ const inputStyles = computed(() => {
   return {
     paddingLeft: `${inputPaddingLeft.value}px`,
     paddingRight: `${inputPaddingRight.value}px`,
+  };
+});
+
+const inputContainerStyles = computed(() => {
+  const paddingX = inputSizeOptions[props.size].paddingX;
+
+  return {
+    "--input-padding-x": `${paddingX}px`,
   };
 });
 
@@ -150,7 +172,10 @@ onBeforeUnmount(() => {
 
 <template>
   <div :style="{ maxWidth: props.maxWidth }" class="input-field">
-    <div :class="['input-container', { disabled: props.disabled }]">
+    <div
+      :class="['input-container', props.size, { disabled: props.disabled }]"
+      :style="inputContainerStyles"
+    >
       <div ref="leftAdornment" class="adornment left-adornment">
         <slot name="leftAdornment"></slot>
       </div>
@@ -197,6 +222,12 @@ onBeforeUnmount(() => {
 }
 
 .input-container {
+  --input-height: 40px;
+  --input-padding: 8px var(--input-padding-x);
+  --input-font-size: 14px;
+  --input-line-height: 20px;
+  --input-radius: 10px;
+
   position: relative;
   display: inline-flex;
   width: 100%;
@@ -208,20 +239,53 @@ onBeforeUnmount(() => {
 }
 
 .input {
-  padding: 8px 12px;
+  padding: var(--input-padding);
   border: 1px solid hsl(var(--border));
   background: hsl(var(--input));
   outline: 2px solid transparent;
   outline-offset: -2px;
   color: hsl(var(--foreground));
-  border-radius: 10px;
-  font-size: 14px;
-  height: 40px;
+  border-radius: var(--input-radius);
+  font-size: var(--input-font-size);
+  line-height: var(--input-line-height);
+  height: var(--input-height);
   font-family: inherit;
   box-sizing: border-box;
   display: flex;
   width: 100%;
   transition: border-color 0.1s ease;
+}
+
+.extra-small {
+  --input-height: 24px;
+  --input-padding: 4px var(--input-padding-x);
+  --input-font-size: 12px;
+  --input-line-height: 16px;
+  --input-radius: 8px;
+}
+
+.small {
+  --input-height: 32px;
+  --input-padding: 6px var(--input-padding-x);
+  --input-font-size: 13px;
+  --input-line-height: 18px;
+  --input-radius: 8px;
+}
+
+.medium {
+  --input-height: 36px;
+  --input-padding: 8px var(--input-padding-x);
+  --input-font-size: 14px;
+  --input-line-height: 20px;
+  --input-radius: 10px;
+}
+
+.large {
+  --input-height: 40px;
+  --input-padding: 8px var(--input-padding-x);
+  --input-font-size: 14px;
+  --input-line-height: 20px;
+  --input-radius: 10px;
 }
 
 .input.invalid {
@@ -287,16 +351,16 @@ onBeforeUnmount(() => {
 }
 
 .left-adornment {
-  left: 12px;
+  left: var(--input-padding-x);
 }
 
 .right-adornment {
-  right: 12px;
+  right: var(--input-padding-x);
 }
 
 .input-postfix {
   color: hsl(var(--muted-foreground));
-  font-size: 14px;
+  font-size: var(--input-font-size);
   line-height: 1;
   margin-left: var(--gap-1);
   pointer-events: none;
@@ -306,12 +370,12 @@ onBeforeUnmount(() => {
 .input-postfix-overlay {
   position: absolute;
   top: 0;
-  height: 40px;
+  height: var(--input-height);
   display: inline-flex;
   align-items: center;
   color: hsl(var(--foreground));
   font-family: inherit;
-  font-size: 14px;
+  font-size: var(--input-font-size);
   line-height: 1;
   pointer-events: none;
   user-select: none;

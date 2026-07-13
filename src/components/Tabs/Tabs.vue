@@ -2,12 +2,12 @@
 import { provide, ref, watchEffect } from "vue";
 import useTabs from "./useTabs";
 import { useResize } from "../../hooks/useResize";
-import type { ButtonProps } from "../Button/Button.vue";
+import type { ComponentSize } from "../../types";
 
 export interface TabsProps {
   value: string;
   onChange: (value: string) => void;
-  size?: ButtonProps["size"];
+  size?: ComponentSize;
   stretched?: boolean;
 }
 
