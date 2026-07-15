@@ -65,6 +65,24 @@ export const FormError = ac(
   () => import("./components/FormError/FormError.vue"),
 );
 export const Input = ac(() => import("./components/Input/Input.vue"));
+export const PhoneInput = ac(
+  () => import("./components/PhoneInput/PhoneInput.vue"),
+);
+export {
+  canApplyPhoneInput,
+  formatPhoneInput,
+  formatPhoneInputWithCaret,
+  isAllowedPhoneInput,
+  isValidPhone,
+  parsePhone,
+  sanitizePhoneInput,
+  type PhoneInputChange,
+  type PhoneInputFormatResult,
+  type PhoneValue,
+} from "./components/PhoneInput/phone";
+export const FileInput = ac(
+  () => import("./components/FileInput/FileInput.vue"),
+);
 export const Item = ac(() => import("./components/Item/Item.vue"));
 export const ItemActions = ac(
   () => import("./components/Item/ItemActions.vue"),

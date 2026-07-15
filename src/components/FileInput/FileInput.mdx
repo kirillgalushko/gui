@@ -1,0 +1,13 @@
+# FileInput
+
+Кнопка выбора одного или нескольких файлов. Компонент скрывает нативный input, поддерживает
+`accept`, `capture`, `multiple` и возвращает выбранные `File[]` через событие `change`.
+
+```vue
+<FileInput
+  accept="image/*"
+  capture="environment"
+  label="Добавить фото"
+  @change="upload"
+/>
+```
