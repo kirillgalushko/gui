@@ -1,0 +1,13 @@
+{
+  "name": "PincodeInput",
+  "kind": "component",
+  "description": "Поле для ввода одноразового кода фиксированной длины.",
+  "keywords": ["pincode", "otp", "verification", "code"],
+  "useWhen": [
+    "Нужно ввести код подтверждения из SMS, email или другого источника"
+  ],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Input"],
+  "commonlyUsedWith": []
+}

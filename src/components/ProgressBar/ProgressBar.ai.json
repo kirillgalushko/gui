@@ -1,0 +1,11 @@
+{
+  "name": "ProgressBar",
+  "kind": "component",
+  "description": "Индикатор выполнения процесса в виде заполнения полосы.",
+  "keywords": ["progress", "progress-bar", "loading"],
+  "useWhen": ["Нужно показать степень выполнения процесса или прогресс"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": [],
+  "commonlyUsedWith": []
+}

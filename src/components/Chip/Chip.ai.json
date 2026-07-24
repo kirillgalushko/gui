@@ -1,0 +1,11 @@
+{
+  "name": "Chip",
+  "kind": "component",
+  "description": "Выбор одного или нескольких значений в виде чипсов|кнопок.",
+  "keywords": ["chip", "filter", "selection", "choice", "чип"],
+  "useWhen": ["Нужно выбрать один или несколько вариантов из набора"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Tabs"],
+  "commonlyUsedWith": ["ChipGroup", "useChipGroup"]
+}

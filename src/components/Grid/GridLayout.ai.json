@@ -1,0 +1,18 @@
+{
+  "name": "GridLayout",
+  "kind": "component",
+  "description": "Адаптивная CSS Grid система для построения макетов.",
+  "keywords": ["grid", "layout", "columns", "responsive", "сетка"],
+  "useWhen": ["Нужно построить адаптивный макет на основе колонок"],
+  "toAvoid": [
+    "Не использовать для простого расположения элементов в ряд или колонку"
+  ],
+  "rules": [],
+  "alternatives": ["Stack"],
+  "commonlyUsedWith": [
+    "GridRow",
+    "GridColumn",
+    "useBreakpoint",
+    "useGridBreakpoint"
+  ]
+}

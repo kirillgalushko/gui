@@ -1,0 +1,13 @@
+{
+  "name": "FieldHelper",
+  "kind": "component",
+  "description": "Вспомогательный текст или сообщение об ошибке для поля формы.",
+  "keywords": ["field-helper", "description", "error", "helper", "подсказка"],
+  "useWhen": ["Нужно показать описание поля или сообщение об ошибке"],
+  "toAvoid": [],
+  "rules": [
+    "Не использовать без необходимости, тк уже используется внутри Input"
+  ],
+  "alternatives": ["FieldDescription"],
+  "commonlyUsedWith": ["Field"]
+}

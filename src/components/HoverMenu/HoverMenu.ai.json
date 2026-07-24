@@ -1,0 +1,13 @@
+{
+  "name": "HoverMenu",
+  "kind": "component",
+  "description": "Выпадающее меню, открывающееся при наведении курсора.",
+  "keywords": ["hover", "menu", "submenu", "navigation"],
+  "useWhen": [
+    "Нужно показать список действий или навигацию по наведению курсора"
+  ],
+  "toAvoid": [],
+  "rules": ["Можно использовать вложенные меню"],
+  "alternatives": ["Dropdown", "ContextMenu"],
+  "commonlyUsedWith": ["HoverMenuList", "HoverMenuItem", "HoverMenuSeparator"]
+}

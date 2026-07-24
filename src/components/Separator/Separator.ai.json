@@ -1,0 +1,11 @@
+{
+  "name": "Separator",
+  "kind": "component",
+  "description": "Визуальный разделитель между элементами интерфейса.",
+  "keywords": ["separator", "divider", "line"],
+  "useWhen": ["Нужно визуально разделить группы элементов"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": [],
+  "commonlyUsedWith": ["Stack", "Row", "Button"]
+}

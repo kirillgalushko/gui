@@ -1,0 +1,11 @@
+{
+  "name": "HourPicker",
+  "kind": "component",
+  "description": "Компонент выбора часа.",
+  "keywords": ["hour", "time", "picker", "select", "время"],
+  "useWhen": ["Нужно выбрать час без указания минут"],
+  "toAvoid": ["Не использовать, если требуется выбор произвольного времени"],
+  "rules": [],
+  "alternatives": ["Select"],
+  "commonlyUsedWith": []
+}

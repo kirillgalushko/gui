@@ -1,0 +1,11 @@
+{
+  "name": "Dot",
+  "kind": "component",
+  "description": "Декоративная цветная точка. Без текста и чисел",
+  "keywords": ["dot", "status", "indicator", "цвет"],
+  "useWhen": ["Нужно компактно обозначить статус или категорию цветом"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Badge"],
+  "commonlyUsedWith": ["Chip", "Text"]
+}

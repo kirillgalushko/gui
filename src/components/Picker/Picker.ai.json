@@ -1,0 +1,11 @@
+{
+  "name": "Picker",
+  "kind": "component",
+  "description": "Базовый trigger для открытия компонентов выбора значения. Используется внутри gui",
+  "keywords": ["picker", "trigger", "select"],
+  "useWhen": ["Нужно открыть компонент выбора значения"],
+  "toAvoid": [],
+  "rules": ["Использовать как основу для компонентов, открывающих Dropdown"],
+  "alternatives": ["Button"],
+  "commonlyUsedWith": ["Dropdown", "Select"]
+}

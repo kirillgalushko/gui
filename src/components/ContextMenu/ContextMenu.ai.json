@@ -1,0 +1,18 @@
+{
+  "name": "ContextMenu",
+  "kind": "component",
+  "description": "Контекстное меню, открывающееся по правому клику.",
+  "keywords": ["context-menu", "menu", "right-click", "контекстное меню"],
+  "useWhen": [
+    "Нужно показать действия, относящиеся к конкретному элементу или области по правому клику"
+  ],
+  "toAvoid": [],
+  "rules": ["Использовать совместно с компонентами семейства ContextMenu"],
+  "alternatives": ["BaseMenu"],
+  "commonlyUsedWith": [
+    "ContextMenuList",
+    "ContextMenuItem",
+    "ContextSubmenu",
+    "ContextMenuSeparator"
+  ]
+}

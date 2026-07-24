@@ -1,0 +1,11 @@
+{
+  "name": "Card",
+  "kind": "component",
+  "description": "Контейнер для группировки связанного содержимого.",
+  "keywords": ["card", "container", "surface", "карточка"],
+  "useWhen": ["Нужно визуально объединить связанный контент"],
+  "toAvoid": [],
+  "rules": ["Для кликабельной карточки использовать interactive"],
+  "alternatives": ["Item"],
+  "commonlyUsedWith": []
+}

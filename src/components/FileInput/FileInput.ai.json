@@ -1,0 +1,11 @@
+{
+  "name": "FileInput",
+  "kind": "component",
+  "description": "Кнопка для выбора одного или нескольких файлов с открытием системного диалога.",
+  "keywords": ["file", "upload", "file-input", "загрузка файлов"],
+  "useWhen": ["Нужно позволить пользователю выбрать файлы с устройства"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": [],
+  "commonlyUsedWith": ["Button"]
+}

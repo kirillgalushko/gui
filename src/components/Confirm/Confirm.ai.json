@@ -1,0 +1,13 @@
+{
+  "name": "Confirm",
+  "kind": "component",
+  "description": "Диалог подтверждения перед выполнением необратимого или важного действия.",
+  "keywords": ["confirm", "dialog", "modal", "confirmation", "подтверждение"],
+  "useWhen": [
+    "Нужно запросить подтверждение пользователя перед выполнением действия"
+  ],
+  "toAvoid": [],
+  "rules": ["Открывать через useConfirm"],
+  "alternatives": ["AdaptiveModal", "Modal"],
+  "commonlyUsedWith": ["Button", "useConfirm"]
+}

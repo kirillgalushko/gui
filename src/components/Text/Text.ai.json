@@ -1,0 +1,15 @@
+{
+  "name": "Text",
+  "kind": "component",
+  "description": "Для отображения текста",
+  "keywords": ["text", "typography", "heading", "paragraph", "текст"],
+  "useWhen": ["Нужно отобразить текст с типографикой и цветами дизайн-системы"],
+  "toAvoid": [
+    "Не использовать внутри компонентов, которые имеют свои стили для текста",
+    "Не использовать для текста в формах",
+    "Не использовать в Item, Field"
+  ],
+  "rules": [],
+  "alternatives": [],
+  "commonlyUsedWith": ["TextSkeleton"]
+}

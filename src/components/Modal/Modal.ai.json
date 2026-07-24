@@ -1,0 +1,11 @@
+{
+  "name": "Modal",
+  "kind": "component",
+  "description": "Модальное окно с заголовком, контентом, футером и кнопкой закрытия. Не для мобильных устройств",
+  "keywords": ["modal", "dialog", "overlay"],
+  "useWhen": ["Нужно показать отдельный сценарий поверх текущего интерфейса"],
+  "toAvoid": ["Для подтверждения действий использовать Confirm"],
+  "rules": ["Лучше использовать AdaptiveModal"],
+  "alternatives": ["AdaptiveModal", "Sheet", "Confirm"],
+  "commonlyUsedWith": ["Button", "Text", "useModal"]
+}

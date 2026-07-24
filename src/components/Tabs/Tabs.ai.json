@@ -1,0 +1,13 @@
+{
+  "name": "Tabs",
+  "kind": "component",
+  "description": "Переключатель между несколькими разделами интерфейса.",
+  "keywords": ["tabs", "tab", "navigation", "вкладки"],
+  "useWhen": [
+    "Нужно переключаться между несколькими связанными представлениями"
+  ],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["ChipGroup"],
+  "commonlyUsedWith": ["Tab", "useTabs"]
+}

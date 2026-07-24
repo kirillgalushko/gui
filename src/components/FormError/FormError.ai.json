@@ -1,0 +1,14 @@
+{
+  "name": "FormError",
+  "kind": "component",
+  "description": "Сообщение об общей ошибке формы, не связанной с отдельным полем.",
+  "keywords": ["form-error", "error", "form", "ошибка формы"],
+  "useWhen": ["Нужно показать общую ошибку при отправке или обработке формы"],
+  "toAvoid": [
+    "Не использовать для ошибок отдельных полей",
+    "Не использовать за пределами форм"
+  ],
+  "rules": ["Для ошибок на действия используй Toaster"],
+  "alternatives": ["FieldHelper", "Text", "Toaster"],
+  "commonlyUsedWith": ["Field"]
+}

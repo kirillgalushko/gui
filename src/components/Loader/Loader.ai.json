@@ -1,0 +1,13 @@
+{
+  "name": "Loader",
+  "kind": "component",
+  "description": "Индикатор выполнения операции или загрузки.",
+  "keywords": ["loader", "spinner", "loading", "загрузка"],
+  "useWhen": ["Нужно показать, что операция выполняется"],
+  "toAvoid": [
+    "Не использовать вместо Skeleton при загрузке содержимого интерфейса"
+  ],
+  "rules": [],
+  "alternatives": ["Skeleton"],
+  "commonlyUsedWith": []
+}

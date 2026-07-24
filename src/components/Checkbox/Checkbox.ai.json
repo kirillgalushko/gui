@@ -1,0 +1,13 @@
+{
+  "name": "Checkbox",
+  "kind": "component",
+  "description": "Классический чекбокс",
+  "keywords": ["checkbox", "boolean", "selection", "флажок"],
+  "useWhen": ["Для boolean значений"],
+  "toAvoid": [],
+  "rules": [
+    "Использовать indeterminate для частично выбранного состояния группы"
+  ],
+  "alternatives": [],
+  "commonlyUsedWith": ["Field"]
+}

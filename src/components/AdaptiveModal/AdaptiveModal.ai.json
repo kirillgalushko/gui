@@ -1,0 +1,13 @@
+{
+  "name": "AdaptiveModal",
+  "kind": "component",
+  "description": "Адаптивное модальное окно, автоматически переключающееся между Modal и Sheet в зависимости от размера экрана.",
+  "keywords": ["adaptive-modal", "modal", "sheet", "dialog", "адаптивное окно"],
+  "useWhen": [
+    "Нужно показать модальное окно с корректным поведением на десктопе и мобильных устройствах"
+  ],
+  "toAvoid": ["Для простого подтверждения использовать Confirm"],
+  "rules": [],
+  "alternatives": ["Modal", "Sheet", "Confirm"],
+  "commonlyUsedWith": ["Button", "useModal"]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Empty",
+  "kind": "component",
+  "description": "Контейнер для отображения пустого состояния интерфейса.",
+  "keywords": ["empty", "empty-state", "no-data", "пустое состояние"],
+  "useWhen": ["Нужно показать, что данные или элементы отсутствуют"],
+  "toAvoid": [
+    "Нельзя использовать для состояния загрузки данных, вместо этого используй Skeleton"
+  ],
+  "rules": [],
+  "alternatives": ["Skeleton"],
+  "commonlyUsedWith": [
+    "EmptyHeader",
+    "EmptyContent",
+    "EmptyMedia",
+    "EmptyTitle",
+    "EmptyDescription"
+  ]
+}

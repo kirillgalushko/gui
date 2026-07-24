@@ -1,0 +1,13 @@
+{
+  "name": "Sheet",
+  "kind": "component",
+  "description": "Выезжающая боковая или верхняя панель для отображения дополнительного контента.",
+  "keywords": ["sheet", "drawer", "panel", "sidebar"],
+  "useWhen": [
+    "Нужно показать дополнительный интерфейс без перехода на другую страницу"
+  ],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Modal", "AdaptiveModal"],
+  "commonlyUsedWith": ["Button"]
+}

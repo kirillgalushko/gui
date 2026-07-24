@@ -1,0 +1,13 @@
+{
+  "name": "Toaster",
+  "kind": "component",
+  "description": "Всплывающие уведомления и ошибки для действий.",
+  "keywords": ["toaster", "toast", "notification", "уведомление"],
+  "useWhen": [
+    "Нужно отображать краткие уведомления о результате действий пользователя"
+  ],
+  "toAvoid": ["Не использовать для ошибок формы"],
+  "rules": ["Для показа уведомления использовать toast, а не Toaster"],
+  "alternatives": ["FormError"],
+  "commonlyUsedWith": ["Button"]
+}

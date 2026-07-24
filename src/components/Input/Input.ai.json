@@ -1,0 +1,27 @@
+{
+  "name": "Input",
+  "kind": "component",
+  "description": "Поле ввода с поддержкой размеров, состояний, подсказок, ошибок.",
+  "keywords": ["input", "field", "form", "поле ввода", "форма"],
+  "useWhen": ["Для ввода текста или числа"],
+  "toAvoid": [
+    "Не использовать для дат, времени, телефона, ОТП кода, файлов, паролей"
+  ],
+  "rules": [
+    "Валидация обязательна",
+    "Использовать вместе с zod и vee-validate"
+  ],
+  "alternatives": [
+    "Textarea",
+    "Select",
+    "SuggestInput",
+    "PhoneInput",
+    "PasswordInput",
+    "PincodeInput",
+    "FileInput",
+    "DateInput",
+    "DatePicker",
+    "HourPicker"
+  ],
+  "commonlyUsedWith": ["Field", "FieldLabel", "FormSkeleton"]
+}

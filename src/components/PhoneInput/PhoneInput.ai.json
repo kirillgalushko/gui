@@ -1,0 +1,11 @@
+{
+  "name": "PhoneInput",
+  "kind": "component",
+  "description": "Поле ввода номера телефона с автоматическим форматированием.",
+  "keywords": ["phone", "input", "mask", "telephone"],
+  "useWhen": ["Нужно ввести номер телефона"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Input"],
+  "commonlyUsedWith": ["Field", "FieldLabel"]
+}

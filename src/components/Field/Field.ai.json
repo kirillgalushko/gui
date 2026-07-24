@@ -1,0 +1,17 @@
+{
+  "name": "Field",
+  "kind": "component",
+  "description": "Контейнер для построения поля формы",
+  "keywords": ["field", "form", "label", "input", "поле формы"],
+  "useWhen": ["Нужно собрать полноценное поле формы"],
+  "toAvoid": [],
+  "rules": ["Использовать совместно с компонентами семейства Field"],
+  "alternatives": [],
+  "commonlyUsedWith": [
+    "FieldLabel",
+    "FieldContent",
+    "FieldDescription",
+    "FieldHelper",
+    "Input"
+  ]
+}

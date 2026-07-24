@@ -1,0 +1,13 @@
+{
+  "name": "Dropdown",
+  "kind": "component",
+  "description": "Выпадающая панель, привязанная к элементу интерфейса.",
+  "keywords": ["dropdown", "menu", "popover", "выпадающий список"],
+  "useWhen": [
+    "Нужно показать дополнительное содержимое или список действий рядом с элементом"
+  ],
+  "toAvoid": [],
+  "rules": ["Содержимое выпадающей панели передавать через слот popper"],
+  "alternatives": ["Select", "ContextMenu", "BaseMenu"],
+  "commonlyUsedWith": ["DropdownList", "DropdownItem", "DropdownSeparator"]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "DateInput",
+  "kind": "component",
+  "description": "Поле ввода даты с маской и выбором даты из календаря.",
+  "keywords": ["date", "date-input", "calendar", "дата", "форма"],
+  "useWhen": ["Нужно получить дату от пользователя", "Для форм"],
+  "toAvoid": ["Не использовать для навигации, фильтров"],
+  "rules": [],
+  "alternatives": ["DatePicker", "DateNavigator"],
+  "commonlyUsedWith": ["FieldLabel"]
+}

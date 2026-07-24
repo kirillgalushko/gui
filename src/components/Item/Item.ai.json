@@ -1,0 +1,17 @@
+{
+  "name": "Item",
+  "kind": "component",
+  "description": "Layout компонент для заголовка, подзаголовка и аватара",
+  "keywords": ["item", "list", "row", "cell"],
+  "useWhen": [],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Card", "Stack", "Text"],
+  "commonlyUsedWith": [
+    "ItemMedia",
+    "ItemContent",
+    "ItemTitle",
+    "ItemDescription",
+    "ItemActions"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Link",
+  "kind": "component",
+  "description": "Ссылка с поддержкой типографики, иконок",
+  "keywords": ["link", "anchor", "navigation", "url"],
+  "useWhen": ["Нужно выполнить переход или показать кликабельную ссылку"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Button"],
+  "commonlyUsedWith": ["Text"]
+}

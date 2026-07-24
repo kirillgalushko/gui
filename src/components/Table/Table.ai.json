@@ -1,0 +1,25 @@
+{
+  "name": "Table",
+  "kind": "component",
+  "description": "Таблица для отображения структурированных данных по строкам и столбцам.",
+  "keywords": ["table", "grid", "data", "таблица"],
+  "useWhen": ["Нужно отобразить набор данных в табличном виде"],
+  "toAvoid": [],
+  "rules": [
+    "Использовать совместно с компонентами семейства Table",
+    "Для пустой таблицы обычно показываем Empty вместо строк, кроме состояния загрузки",
+    "При загрузке показываем Skeleton"
+  ],
+  "alternatives": [],
+  "commonlyUsedWith": [
+    "TableHeader",
+    "TableBody",
+    "TableFooter",
+    "TableRow",
+    "TableHead",
+    "TableCell",
+    "TableCaption",
+    "Empty",
+    "Skeleton"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Skeleton",
+  "kind": "component",
+  "description": "Для отображения состояния загрузки с сохранением структуры интерфейса.",
+  "keywords": ["skeleton", "loading", "placeholder", "загрузка"],
+  "useWhen": [
+    "Нужно показать состояние загрузки до появления данных",
+    "Для загрузки данных критичных для интерфейса"
+  ],
+  "toAvoid": [
+    "Не использовать после получения данных",
+    "Не использовать для операций не влияющих на интерфейс, к примеру для submit формы"
+  ],
+  "rules": [
+    "Использовать специализированные Skeleton-компоненты, если они существуют"
+  ],
+  "alternatives": [
+    "Loader",
+    "AvatarSkeleton",
+    "ButtonSkeleton",
+    "CardSkeleton",
+    "FormSkeleton",
+    "TextSkeleton"
+  ],
+  "commonlyUsedWith": ["SkeletonProvider", "Table"]
+}

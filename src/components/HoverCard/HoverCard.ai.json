@@ -1,0 +1,17 @@
+{
+  "name": "HoverCard",
+  "kind": "component",
+  "description": "Всплывающая карточка с дополнительной информацией, отображаемая при наведении.",
+  "keywords": ["hover", "card", "popover", "tooltip"],
+  "useWhen": [
+    "Нужно показать дополнительную информацию без перехода или клика",
+    "Для больших подсказок"
+  ],
+  "toAvoid": [
+    "Не использовать для коротких подсказок",
+    "Не для интерактивных элементов внутри"
+  ],
+  "rules": [],
+  "alternatives": ["Tooltip", "HoverMenu"],
+  "commonlyUsedWith": ["Button", "Text", "Link"]
+}

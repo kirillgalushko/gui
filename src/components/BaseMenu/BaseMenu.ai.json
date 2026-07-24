@@ -1,0 +1,11 @@
+{
+  "name": "BaseMenu",
+  "kind": "component",
+  "description": "Базовое меню действий. Не использовать без необходимости за пределами gui.",
+  "keywords": ["menu", "dropdown", "context-menu", "меню"],
+  "useWhen": ["Нужно отобразить список связанных действий"],
+  "toAvoid": ["Не использовать за пределами gui без необходимости"],
+  "rules": ["Использовать совместно с компонентами семейства BaseMenu"],
+  "alternatives": ["HoverMenu", "ContextMenu", "Dropdown"],
+  "commonlyUsedWith": ["BaseMenuList", "BaseMenuItem", "BaseMenuSeparator"]
+}

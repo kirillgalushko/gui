@@ -1,0 +1,11 @@
+{
+  "name": "Select",
+  "kind": "component",
+  "description": "Компонент выбора одного значения из списка.",
+  "keywords": ["select", "dropdown", "option", "picker"],
+  "useWhen": ["Нужно выбрать одно значение из заранее определенного списка"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["SuggestInput"],
+  "commonlyUsedWith": ["FieldLabel"]
+}

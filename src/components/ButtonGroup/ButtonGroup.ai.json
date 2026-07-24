@@ -1,0 +1,11 @@
+{
+  "name": "ButtonGroup",
+  "kind": "component",
+  "description": "Группа связанных кнопок с общим визуальным оформлением.",
+  "keywords": ["button-group", "buttons", "actions", "группа кнопок"],
+  "useWhen": ["Нужно объединить несколько связанных действий"],
+  "toAvoid": ["Не использовать для несвязанных кнопок"],
+  "rules": ["Внутри использовать Button или ButtonGroupText"],
+  "alternatives": [],
+  "commonlyUsedWith": ["Button", "ButtonGroupText", "ButtonGroupSeparator"]
+}

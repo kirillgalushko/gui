@@ -1,0 +1,11 @@
+{
+  "name": "Textarea",
+  "kind": "component",
+  "description": "Многострочное поле ввода с управлением размером",
+  "keywords": ["textarea", "multiline", "input", "многострочный ввод"],
+  "useWhen": ["Нужно получить от пользователя многострочный текст"],
+  "toAvoid": ["Не использовать для коротких однострочных значений"],
+  "rules": [],
+  "alternatives": ["Input"],
+  "commonlyUsedWith": ["Field", "FieldLabel"]
+}

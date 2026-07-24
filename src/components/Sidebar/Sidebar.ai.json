@@ -1,0 +1,11 @@
+{
+  "name": "Sidebar",
+  "kind": "component",
+  "description": "Боковая панель навигации с поддержкой списков, вложенных элементов и компактного режима.",
+  "keywords": ["sidebar", "navigation", "menu", "layout"],
+  "useWhen": ["Нужно организовать основную навигацию приложения"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": [],
+  "commonlyUsedWith": ["SidebarList", "SidebarItem", "Badge"]
+}

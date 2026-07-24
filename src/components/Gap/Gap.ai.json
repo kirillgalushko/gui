@@ -1,0 +1,11 @@
+{
+  "name": "Gap",
+  "kind": "component",
+  "description": "Пустой элемент для создания отступа между элементами.",
+  "keywords": ["gap", "spacing", "space", "отступ"],
+  "useWhen": ["Нужно добавить отступ между элементами"],
+  "toAvoid": ["Не использовать внутри Stack"],
+  "rules": ["Не использовать для больших списков"],
+  "alternatives": ["Stack"],
+  "commonlyUsedWith": []
+}

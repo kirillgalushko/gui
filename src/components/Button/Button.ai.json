@@ -1,0 +1,14 @@
+{
+  "name": "Button",
+  "kind": "component",
+  "description": "Кнопка для запуска пользовательского действия",
+  "keywords": ["button", "action", "submit", "кнопка"],
+  "useWhen": ["Нужно запустить явное действие пользователя"],
+  "toAvoid": ["Не использовать внутри кнопки Text"],
+  "rules": [
+    "Без текста только с иконкой использовать проп squared",
+    "Критически важные действия подтверждать через компонент Confirm"
+  ],
+  "alternatives": ["Link", "Action"],
+  "commonlyUsedWith": ["Tooltip"]
+}

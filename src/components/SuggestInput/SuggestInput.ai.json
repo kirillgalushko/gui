@@ -1,0 +1,11 @@
+{
+  "name": "SuggestInput",
+  "kind": "component",
+  "description": "Поле ввода с выпадающим списком подсказок для поиска и выбора значений.",
+  "keywords": ["suggest", "autocomplete", "combobox", "search", "подсказки"],
+  "useWhen": ["Нужно искать и выбирать значение из списка по мере ввода"],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": ["Input", "Select"],
+  "commonlyUsedWith": ["Input", "Field", "Empty"]
+}

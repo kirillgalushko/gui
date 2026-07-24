@@ -1,0 +1,17 @@
+{
+  "name": "Breadcrumb",
+  "kind": "component",
+  "description": "Навигационная цепочка, показывающая путь к текущей странице.",
+  "keywords": ["breadcrumb", "navigation", "path", "хлебные крошки"],
+  "useWhen": ["Нужно показать положение текущей страницы в иерархии"],
+  "toAvoid": [],
+  "rules": ["Использовать совместно с компонентами семейства Breadcrumb"],
+  "alternatives": [],
+  "commonlyUsedWith": [
+    "BreadcrumbList",
+    "BreadcrumbItem",
+    "BreadcrumbLink",
+    "BreadcrumbPage",
+    "BreadcrumbSeparator"
+  ]
+}

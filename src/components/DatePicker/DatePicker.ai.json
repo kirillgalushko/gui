@@ -1,0 +1,11 @@
+{
+  "name": "DatePicker",
+  "kind": "component",
+  "description": "Компонент выбора даты из календаря.",
+  "keywords": ["date-picker", "date", "calendar", "дата"],
+  "useWhen": ["Нужно выбрать дату только через календарь"],
+  "toAvoid": ["Не использовать, если нужен ручной ввод даты"],
+  "rules": [],
+  "alternatives": ["DateInput", "DateNavigator"],
+  "commonlyUsedWith": ["Field", "FieldLabel"]
+}

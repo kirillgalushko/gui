@@ -1,0 +1,11 @@
+{
+  "name": "Calendar",
+  "kind": "component",
+  "description": "Базовый календарь для выбора даты или диапазона дат. Используется внутри gui компонентов",
+  "keywords": ["calendar", "date", "range", "календарь"],
+  "useWhen": ["Нужно постоянное отображение календаря"],
+  "toAvoid": ["Лучше использовать DatePicker или DateInput"],
+  "rules": [],
+  "alternatives": ["DatePicker", "DateInput"],
+  "commonlyUsedWith": []
+}

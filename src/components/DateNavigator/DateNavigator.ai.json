@@ -1,0 +1,11 @@
+{
+  "name": "DateNavigator",
+  "kind": "component",
+  "description": "Навигатор для переключения дней, недель, месяцев или лет.",
+  "keywords": ["date-navigator", "calendar", "period", "navigation", "дата"],
+  "useWhen": ["Нужно переключаться между периодами времени"],
+  "toAvoid": ["Не использовать для выбора произвольной даты без навигации"],
+  "rules": [],
+  "alternatives": ["DatePicker", "DateInput", "HourInput"],
+  "commonlyUsedWith": ["Button", "FieldLabel"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Tooltip",
+  "kind": "component",
+  "description": "Всплывающая подсказка",
+  "keywords": ["tooltip", "hint", "popover", "подсказка"],
+  "useWhen": [
+    "Для подсказок для Action и Button с иконкой",
+    "Для текста с ellipsis, если он обрезался"
+  ],
+  "toAvoid": [],
+  "rules": [],
+  "alternatives": [],
+  "commonlyUsedWith": ["Button", "Action", "Icon"]
+}
