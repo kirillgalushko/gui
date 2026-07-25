@@ -9,6 +9,10 @@ const meta = {
   component: DatePicker,
   tags: ["autodocs"],
   argTypes: {
+    size: {
+      control: "select",
+      options: ["extra-small", "small", "medium", "large"],
+    },
     stretched: {
       control: "boolean",
     },

@@ -9,6 +9,10 @@ const meta = {
   component: Calendar,
   tags: ["autodocs"],
   argTypes: {
+    size: {
+      control: "select",
+      options: ["small", "medium", "large"],
+    },
     mode: {
       control: "select",
       options: ["single", "range"],
@@ -24,6 +28,7 @@ const meta = {
     },
   },
   args: {
+    size: "medium",
     mode: "single",
     showOutsideDays: true,
     fixedWeeks: false,

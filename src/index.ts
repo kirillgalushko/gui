@@ -273,6 +273,7 @@ export type {
   CalendarRangePayload,
   CalendarRangeValue,
   CalendarSelectPayload,
+  CalendarSize,
   CalendarValue,
 } from "./components/Calendar/types";
 export type {

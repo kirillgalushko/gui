@@ -18,6 +18,7 @@ import type {
   CalendarRangePayload,
   CalendarRangeValue,
   CalendarSelectPayload,
+  CalendarSize,
   CalendarValue,
 } from "./types";
 
@@ -33,6 +34,7 @@ const props = withDefaults(
     showOutsideDays?: boolean;
     fixedWeeks?: boolean;
     readonly?: boolean;
+    size?: CalendarSize;
   }>(),
   {
     mode: "single",
@@ -45,6 +47,7 @@ const props = withDefaults(
     showOutsideDays: true,
     fixedWeeks: false,
     readonly: false,
+    size: "medium",
   },
 );
 
@@ -448,10 +451,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="calendar">
+  <section :class="['calendar', props.size]">
     <header class="calendar__header">
       <Button
         mode="ghost"
+        :size="props.size"
         squared
         type="button"
         aria-label="Предыдущий месяц"
@@ -466,6 +470,7 @@ onBeforeUnmount(() => {
 
       <Button
         mode="ghost"
+        :size="props.size"
         squared
         type="button"
         aria-label="Следующий месяц"
@@ -534,16 +539,60 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .calendar {
-  --calendar-cell-size: clamp(36px, 9vw, 48px);
   --calendar-selected-color: hsl(var(--secondary-foreground));
   --calendar-selected-foreground-color: hsl(var(--secondary));
   --calendar-range-background-color: hsl(var(--muted));
   --calendar-hover-background-color: hsl(var(--contrast));
   --calendar-today-background-color: hsl(var(--muted));
 
-  width: min(100%, calc(var(--calendar-cell-size) * 7 + var(--gap-6) * 2));
+  width: min(
+    100%,
+    calc(var(--calendar-cell-size) * 7 + var(--calendar-horizontal-space) * 2)
+  );
   color: hsl(var(--foreground));
   font-family: var(--font-family);
+}
+
+.calendar.large {
+  --calendar-cell-size: clamp(36px, 9vw, 48px);
+  --calendar-horizontal-space: var(--gap-6);
+  --calendar-navigation-size: 40px;
+  --calendar-header-margin: var(--gap-4);
+  --calendar-title-font-size: 16px;
+  --calendar-weekday-height: 28px;
+  --calendar-weekday-font-size: 13px;
+  --calendar-day-font-size: 16px;
+  --calendar-day-number-size: 36px;
+  --calendar-day-radius: 16px;
+  --calendar-range-inset: 6px;
+}
+
+.calendar.medium {
+  --calendar-cell-size: clamp(32px, 8vw, 40px);
+  --calendar-horizontal-space: var(--gap-4);
+  --calendar-navigation-size: 36px;
+  --calendar-header-margin: var(--gap-3);
+  --calendar-title-font-size: 14px;
+  --calendar-weekday-height: 24px;
+  --calendar-weekday-font-size: 12px;
+  --calendar-day-font-size: 14px;
+  --calendar-day-number-size: 32px;
+  --calendar-day-radius: 14px;
+  --calendar-range-inset: 4px;
+}
+
+.calendar.small {
+  --calendar-cell-size: clamp(28px, 7vw, 32px);
+  --calendar-horizontal-space: var(--gap-3);
+  --calendar-navigation-size: 32px;
+  --calendar-header-margin: var(--gap-2);
+  --calendar-title-font-size: 13px;
+  --calendar-weekday-height: 20px;
+  --calendar-weekday-font-size: 11px;
+  --calendar-day-font-size: 13px;
+  --calendar-day-number-size: 28px;
+  --calendar-day-radius: 12px;
+  --calendar-range-inset: 2px;
 }
 
 .calendar,
@@ -553,15 +602,17 @@ onBeforeUnmount(() => {
 
 .calendar__header {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  grid-template-columns:
+    var(--calendar-navigation-size) minmax(0, 1fr)
+    var(--calendar-navigation-size);
   align-items: center;
   gap: var(--gap-2);
-  margin-bottom: var(--gap-4);
+  margin-bottom: var(--calendar-header-margin);
 }
 
 .calendar__title {
   overflow: hidden;
-  font-size: 16px;
+  font-size: var(--calendar-title-font-size);
   font-weight: 600;
   text-align: center;
   text-overflow: ellipsis;
@@ -583,11 +634,11 @@ onBeforeUnmount(() => {
 
 .calendar__weekday {
   display: flex;
-  min-height: 28px;
+  min-height: var(--calendar-weekday-height);
   align-items: center;
   justify-content: center;
   color: hsl(var(--muted-foreground));
-  font-size: 13px;
+  font-size: var(--calendar-weekday-font-size);
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -608,7 +659,7 @@ onBeforeUnmount(() => {
   color: hsl(var(--foreground));
   cursor: pointer;
   font: inherit;
-  font-size: 16px;
+  font-size: var(--calendar-day-font-size);
   padding: 0;
 }
 
@@ -623,7 +674,7 @@ onBeforeUnmount(() => {
 
 .calendar__day::before {
   position: absolute;
-  inset: 6px 0;
+  inset: var(--calendar-range-inset) 0;
   background: transparent;
   content: "";
 }
@@ -642,11 +693,11 @@ onBeforeUnmount(() => {
   position: relative;
   z-index: 1;
   display: inline-flex;
-  width: 36px;
-  height: 36px;
+  width: var(--calendar-day-number-size);
+  height: var(--calendar-day-number-size);
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
+  border-radius: var(--calendar-day-radius);
   line-height: 1;
 }
 
@@ -681,18 +732,18 @@ onBeforeUnmount(() => {
 }
 
 .calendar__day_range-background:nth-child(7n + 1)::before {
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-top-left-radius: var(--calendar-day-radius);
+  border-bottom-left-radius: var(--calendar-day-radius);
 }
 
 .calendar__day_range-background:nth-child(7n)::before {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-top-right-radius: var(--calendar-day-radius);
+  border-bottom-right-radius: var(--calendar-day-radius);
 }
 
 .calendar__day_range-background.calendar__day_range-start.calendar__day_range-end::before {
-  inset: 6px;
-  border-radius: 16px;
+  inset: var(--calendar-range-inset);
+  border-radius: var(--calendar-day-radius);
 }
 
 .calendar__day_selected .calendar__day-number,

@@ -11,6 +11,8 @@ import {
   isBeforeDay,
   startOfDay,
 } from "../../utils/date";
+import type { ComponentSize } from "../../types";
+import type { CalendarSize } from "../Calendar/types";
 import type { DatePickerChangePayload, DatePickerValue } from "./types";
 
 export interface DatePickerProps {
@@ -19,6 +21,7 @@ export interface DatePickerProps {
   minDate?: Date;
   maxDate?: Date;
   placeholder?: string;
+  size?: ComponentSize;
   stretched?: boolean;
   disabled?: boolean;
 }
@@ -26,12 +29,16 @@ export interface DatePickerProps {
 const props = withDefaults(defineProps<DatePickerProps>(), {
   value: null,
   placeholder: "Выберите дату",
+  size: "large",
 });
 
 const isCalendarOpened = ref(false);
 
 const selectedDate = computed(() =>
   props.value ? startOfDay(props.value) : null,
+);
+const calendarSize = computed<CalendarSize>(() =>
+  props.size === "extra-small" ? "small" : props.size,
 );
 
 const label = computed(() => {
@@ -84,6 +91,7 @@ const selectDate = ({ date }: { date: Date }): void => {
     popper-class="calendar-dropdown"
   >
     <Picker
+      :size="props.size"
       :stretched="props.stretched"
       :disabled="props.disabled"
       aria-haspopup="dialog"
@@ -98,6 +106,7 @@ const selectDate = ({ date }: { date: Date }): void => {
 
     <template #popper>
       <Calendar
+        :size="calendarSize"
         :model-value="selectedDate"
         :min-date="props.minDate"
         :max-date="props.maxDate"

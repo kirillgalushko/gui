@@ -1,4 +1,5 @@
 export type CalendarMode = "single" | "range";
+export type CalendarSize = "small" | "medium" | "large";
 
 export type CalendarValue = Date | string | null;
 
