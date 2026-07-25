@@ -25,6 +25,15 @@ const meta: Meta<TextareaType> = {
     placeholder: {
       control: { type: "text" },
     },
+    minHeight: {
+      control: { type: "text" },
+    },
+    maxHeight: {
+      control: { type: "text" },
+    },
+    errorMessage: {
+      control: { type: "text" },
+    },
   },
   args: {
     placeholder: "Placeholder",
@@ -47,4 +56,14 @@ export const Default: Story = {
     },
     template: `<div style="height: 300px;"><Textarea v-bind="args" v-model="args.value" /></div>`,
   }),
+};
+
+export const AutoResizeWithError: Story = {
+  args: {
+    layout: "hug",
+    minHeight: "40px",
+    maxHeight: "160px",
+    invalid: true,
+    errorMessage: "Проверьте введённый текст",
+  },
 };

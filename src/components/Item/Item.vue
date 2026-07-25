@@ -76,8 +76,8 @@ const styles = computed(() =>
 .small {
   --item-gap: var(--gap-2);
   --item-padding: var(--gap-2);
-  --item-title-font-size: 14px;
-  --item-title-line-height: 18px;
+  --item-title-font-size: 13px;
+  --item-title-line-height: 16px;
   --item-description-font-size: 12px;
   --item-description-line-height: 16px;
   --item-content-gap: 1px;

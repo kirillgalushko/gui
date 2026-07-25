@@ -309,6 +309,7 @@ export {
   formatRuDayMonth,
   formatRuMonthYear,
   formatRuReadableDateTime,
+  formatRuRelativeTime,
   formatRuShortWeekdayMonthDay,
   isAfterDay,
   isBeforeDay,

@@ -4,10 +4,12 @@ import type { TextProps } from "../Text/types";
 
 export interface ItemDescriptionProps {
   Element?: TextProps["Element"];
+  ellipsis?: boolean;
 }
 
 const props = withDefaults(defineProps<ItemDescriptionProps>(), {
   Element: "div",
+  ellipsis: false,
 });
 </script>
 
@@ -16,7 +18,7 @@ const props = withDefaults(defineProps<ItemDescriptionProps>(), {
     :Element="props.Element"
     typography="label-3"
     color="secondary"
-    ellipsis
+    :ellipsis="props.ellipsis"
     class="item-description"
   >
     <slot></slot>

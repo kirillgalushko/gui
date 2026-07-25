@@ -3,8 +3,10 @@ import { computed } from "vue";
 import type { Color } from "../../types/colors";
 
 export type BadgeColor = Color;
+export type BadgeSize = "small" | "medium" | "large";
 export type BadgeMode =
   | "default"
+  | "accent"
   | "secondary"
   | "ghost"
   | "negative"
@@ -14,12 +16,14 @@ export type BadgeMode =
 
 export interface BadgeProps {
   mode?: BadgeMode;
+  size?: BadgeSize;
   color?: BadgeColor;
   Element?: "div" | "button" | "span";
 }
 
 const props = withDefaults(defineProps<BadgeProps>(), {
   mode: "default",
+  size: "medium",
   Element: "div",
 });
 
@@ -30,6 +34,10 @@ const modeStyles: Record<
   default: {
     backgroundColor: "hsl(var(--primary))",
     color: "hsl(var(--primary-foreground))",
+  },
+  accent: {
+    backgroundColor: "hsl(var(--accent))",
+    color: "hsl(0 0% 98%)",
   },
   secondary: {
     backgroundColor: "hsl(var(--secondary))",
@@ -82,7 +90,7 @@ const badgeStyle = computed(() => {
   <component
     v-bind="$attrs"
     :is="props.Element"
-    class="Badge"
+    :class="['Badge', props.size]"
     :style="badgeStyle"
     :type="props.Element === 'button' ? 'button' : undefined"
   >
@@ -93,25 +101,52 @@ const badgeStyle = computed(() => {
 
 <style scoped>
 .Badge {
+  --badge-font-size: 11px;
+  --badge-line-height: 1.5;
+  --badge-padding: 2px 6px;
+  --badge-min-width: 20px;
+  --badge-gap: var(--gap-1);
+
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 11px;
-  line-height: 1.5;
-  padding: 2px 6px;
+  font-size: var(--badge-font-size);
+  line-height: var(--badge-line-height);
+  padding: var(--badge-padding);
   border-radius: 999px;
   align-items: center;
   justify-content: center;
   text-align: center;
   width: auto;
   box-sizing: border-box;
-  min-width: 20px;
+  min-width: var(--badge-min-width);
   background-color: var(--badge-background);
   color: var(--badge-color);
   text-wrap: nowrap;
   display: inline-flex;
   flex-direction: row;
   flex-shrink: 0;
-  gap: var(--gap-1);
+  gap: var(--badge-gap);
+}
+
+.Badge.small {
+  --badge-font-size: 10px;
+  --badge-line-height: 1.4;
+  --badge-padding: 1px 5px;
+  --badge-min-width: 16px;
+}
+
+.Badge.medium {
+  --badge-font-size: 11px;
+  --badge-line-height: 1.5;
+  --badge-padding: 2px 6px;
+  --badge-min-width: 20px;
+}
+
+.Badge.large {
+  --badge-font-size: 12px;
+  --badge-line-height: 1.5;
+  --badge-padding: 3px 8px;
+  --badge-min-width: 24px;
 }
 
 button.Badge {

@@ -10,6 +10,7 @@ const meta: Meta<typeof Badge> = {
       control: { type: "select" },
       options: [
         "default",
+        "accent",
         "secondary",
         "ghost",
         "negative",
@@ -17,6 +18,10 @@ const meta: Meta<typeof Badge> = {
         "danger",
         "warning",
       ],
+    },
+    size: {
+      control: { type: "select" },
+      options: ["small", "medium", "large"],
     },
     color: {
       control: { type: "select" },
@@ -53,6 +58,7 @@ const meta: Meta<typeof Badge> = {
   },
   args: {
     mode: "default",
+    size: "medium",
   },
 };
 
@@ -80,5 +86,31 @@ export const Secondary: Story = {
       return { args };
     },
     template: `<Badge v-bind="args">99+</Badge>`,
+  }),
+};
+
+export const Accent: Story = {
+  args: {
+    mode: "accent",
+  },
+  render: (args) => ({
+    components: { Badge },
+    setup() {
+      return { args };
+    },
+    template: `<Badge v-bind="args">Новое</Badge>`,
+  }),
+};
+
+export const Sizes: Story = {
+  render: () => ({
+    components: { Badge },
+    template: `
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <Badge size="small">Small</Badge>
+        <Badge size="medium">Medium</Badge>
+        <Badge size="large">Large</Badge>
+      </div>
+    `,
   }),
 };

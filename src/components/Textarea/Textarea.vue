@@ -1,10 +1,28 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, watch } from "vue";
+import {
+  computed,
+  nextTick,
+  onMounted,
+  ref,
+  useAttrs,
+  useId,
+  watch,
+} from "vue";
+import FieldHelper from "../FieldHelper/FieldHelper.vue";
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 export interface TextareaProps {
   resize?: "none" | "both" | "horizontal" | "vertical";
   layout?: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";
   placeholder?: string;
+  invalid?: boolean;
+  errorMessage?: string;
+  descriptionId?: string;
+  minHeight?: string;
+  maxHeight?: string;
 }
 
 const props = withDefaults(defineProps<TextareaProps>(), {
@@ -14,22 +32,68 @@ const props = withDefaults(defineProps<TextareaProps>(), {
 
 const textareaRef = ref<HTMLTextAreaElement | null>(null);
 const model = defineModel<string>();
+const attrs = useAttrs();
+const generatedDescriptionId = useId();
 const styles = computed(() => ({
   resize: props.resize,
+  minHeight: props.minHeight,
+  maxHeight: props.maxHeight,
 }));
+const shouldRenderError = computed(() => props.invalid && !!props.errorMessage);
+const helperDescriptionId = computed(() => {
+  if (!shouldRenderError.value) {
+    return undefined;
+  }
+
+  return props.descriptionId ?? `${generatedDescriptionId}-helper`;
+});
+const ariaDescribedBy = computed(() => {
+  const describedBy = attrs["aria-describedby"];
+  const describedByValue =
+    typeof describedBy === "string" ? describedBy : undefined;
+
+  if (!helperDescriptionId.value) {
+    return describedByValue;
+  }
+
+  return [describedByValue, helperDescriptionId.value]
+    .filter(Boolean)
+    .join(" ");
+});
 
 const autoResize = () => {
-  if (props.layout === "hug" && textareaRef.value) {
-    textareaRef.value.style.height = "auto";
-    textareaRef.value.style.height = `${textareaRef.value.scrollHeight + 2}px`;
+  const textarea = textareaRef.value;
+
+  if (!textarea) {
+    return;
   }
+
+  if (props.layout !== "hug") {
+    textarea.style.removeProperty("height");
+    textarea.style.removeProperty("overflow-y");
+    return;
+  }
+
+  textarea.style.height = "auto";
+  textarea.style.overflowY = "hidden";
+  textarea.style.height = `${textarea.scrollHeight + 2}px`;
+  textarea.style.overflowY =
+    textarea.scrollHeight > textarea.clientHeight ? "auto" : "hidden";
 };
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
   autoResize();
 });
 
-watch(() => props.layout, autoResize);
+watch(
+  [model, () => props.layout, () => props.minHeight, () => props.maxHeight],
+  async () => {
+    await nextTick();
+    autoResize();
+  },
+  { flush: "post" },
+);
 </script>
 
 <template>
@@ -39,9 +103,16 @@ watch(() => props.layout, autoResize);
     v-model="model"
     :placeholder="props.placeholder"
     :style="styles"
-    :class="['textarea', props.layout]"
+    :class="['textarea', props.layout, { invalid: props.invalid }]"
+    :aria-invalid="props.invalid || undefined"
+    :aria-describedby="ariaDescribedBy"
     @input="autoResize"
   ></textarea>
+  <FieldHelper
+    :error-message="props.errorMessage"
+    :invalid="props.invalid"
+    :description-id="helperDescriptionId"
+  />
 </template>
 
 <style scoped>
@@ -73,6 +144,10 @@ watch(() => props.layout, autoResize);
 .textarea:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: -2px;
+}
+
+.textarea.invalid {
+  border-color: hsl(var(--negative));
 }
 
 .fixed {

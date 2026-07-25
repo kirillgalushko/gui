@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<CardProps>(), {
   border: 1px solid hsl(var(--border));
   border-radius: 16px;
   padding: 12px;
-  display: inline-block;
+  display: inline-flex;
   font-family: var(--font-family);
 }
 

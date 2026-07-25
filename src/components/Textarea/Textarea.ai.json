@@ -1,11 +1,22 @@
 {
   "name": "Textarea",
   "kind": "component",
-  "description": "Многострочное поле ввода с управлением размером",
-  "keywords": ["textarea", "multiline", "input", "многострочный ввод"],
+  "description": "Многострочное поле ввода с управлением размером, автоувеличением и отображением ошибок",
+  "keywords": [
+    "textarea",
+    "multiline",
+    "input",
+    "autoresize",
+    "error",
+    "многострочный ввод"
+  ],
   "useWhen": ["Нужно получить от пользователя многострочный текст"],
   "toAvoid": ["Не использовать для коротких однострочных значений"],
-  "rules": [],
+  "rules": [
+    "Для автоматического изменения высоты использовать layout=\"hug\"",
+    "Ограничивать автоматическую высоту через minHeight и maxHeight",
+    "Для ошибки передавать invalid и errorMessage вместе"
+  ],
   "alternatives": ["Input"],
   "commonlyUsedWith": ["Field", "FieldLabel"]
 }

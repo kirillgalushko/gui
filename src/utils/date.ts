@@ -134,3 +134,75 @@ export const formatRuReadableDateTime = (value: Date | string): string =>
     hour: "2-digit",
     minute: "2-digit",
   }).format(toDate(value));
+
+const ruRelativeTimeFormatter = new Intl.RelativeTimeFormat("ru-RU", {
+  numeric: "always",
+});
+
+const getRelativeTimeValue = (amount: number, differenceMs: number): number =>
+  differenceMs > 0 ? amount : -amount;
+
+export const formatRuRelativeTime = (
+  value: Date | string,
+  relativeTo: Date | string = new Date(),
+): string => {
+  const differenceMs = toDate(value).getTime() - toDate(relativeTo).getTime();
+  const seconds = Math.floor(Math.abs(differenceMs) / 1_000);
+
+  if (seconds < 60) {
+    return ruRelativeTimeFormatter.format(
+      getRelativeTimeValue(seconds, differenceMs),
+      "second",
+    );
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) {
+    return ruRelativeTimeFormatter.format(
+      getRelativeTimeValue(minutes, differenceMs),
+      "minute",
+    );
+  }
+
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) {
+    return ruRelativeTimeFormatter.format(
+      getRelativeTimeValue(hours, differenceMs),
+      "hour",
+    );
+  }
+
+  const days = Math.floor(hours / 24);
+  if (differenceMs < 0 && days === 1) {
+    return "Вчера";
+  }
+
+  if (days < 7) {
+    return ruRelativeTimeFormatter.format(
+      getRelativeTimeValue(days, differenceMs),
+      "day",
+    );
+  }
+
+  const weeks = Math.floor(days / 7);
+  if (days < 30) {
+    return ruRelativeTimeFormatter.format(
+      getRelativeTimeValue(weeks, differenceMs),
+      "week",
+    );
+  }
+
+  const months = Math.floor(days / 30);
+  if (days < 365) {
+    return ruRelativeTimeFormatter.format(
+      getRelativeTimeValue(months, differenceMs),
+      "month",
+    );
+  }
+
+  const years = Math.floor(days / 365);
+  return ruRelativeTimeFormatter.format(
+    getRelativeTimeValue(years, differenceMs),
+    "year",
+  );
+};
