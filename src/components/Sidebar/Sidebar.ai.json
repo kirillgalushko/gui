@@ -5,7 +5,9 @@
   "keywords": ["sidebar", "navigation", "menu", "layout"],
   "useWhen": ["Нужно организовать основную навигацию приложения"],
   "toAvoid": [],
-  "rules": [],
+  "rules": [
+    "Для индикатора поверх иконки SidebarItem в компактном режиме используй слот compact-indicator"
+  ],
   "alternatives": [],
-  "commonlyUsedWith": ["SidebarList", "SidebarItem", "Badge"]
+  "commonlyUsedWith": ["SidebarList", "SidebarItem", "Badge", "Dot"]
 }

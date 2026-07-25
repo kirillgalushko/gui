@@ -10,6 +10,7 @@ import {
   IconInfoTriangleOutline,
 } from "@gui/icons";
 import Badge from "../Badge/Badge.vue";
+import Dot from "../Dot/Dot.vue";
 
 const meta: Meta<typeof Sidebar> = {
   title: "Components/Sidebar",
@@ -30,6 +31,7 @@ export const Default: Story = {
       SidebarItem,
       SidebarList,
       Badge,
+      Dot,
       IconMusicOutline,
       IconBuildingBroadcastTowerOutline,
       IconPlaylistOutline,
@@ -64,6 +66,9 @@ export const Default: Story = {
             Плейлисты
             <template #right>
               <Badge mode="secondary">3</Badge>
+            </template>
+            <template #compact-indicator>
+              <Dot color="blue" />
             </template>
           </SidebarItem>
           <SidebarItem>

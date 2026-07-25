@@ -40,9 +40,16 @@ useResize(buttonElement, checkEllipsis);
         <slot name="right"></slot>
       </div>
 
-      <slot name="compact">
-        <slot v-if="isCompact" name="left"></slot>
-      </slot>
+      <template v-if="isCompact">
+        <div class="compact-content">
+          <slot name="compact">
+            <slot name="left"></slot>
+          </slot>
+          <span v-if="$slots['compact-indicator']" class="compact-indicator">
+            <slot name="compact-indicator"></slot>
+          </span>
+        </div>
+      </template>
     </button>
 
     <template #popper>
@@ -62,6 +69,8 @@ useResize(buttonElement, checkEllipsis);
   border-radius: 8px;
   color: hsl(var(--muted-foreground));
   width: 100%;
+  height: var(--gap-9);
+  box-sizing: border-box;
   border: none;
   cursor: pointer;
   display: flex;
@@ -76,6 +85,21 @@ useResize(buttonElement, checkEllipsis);
 .compact {
   justify-content: center;
   font-size: 16px;
+}
+
+.compact-content {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compact-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  transform: translate(50%, -50%);
 }
 
 .SidebarItem:active {
