@@ -1,0 +1,16 @@
+# Switch
+
+Переключатель для независимой настройки, которая применяется сразу.
+
+```vue
+<Field orientation="horizontal">
+  <FieldContent>
+    <FieldTitle>Уведомления</FieldTitle>
+    <FieldDescription>Сообщать о новых бронированиях.</FieldDescription>
+  </FieldContent>
+  <Switch v-model="notificationsEnabled" aria-label="Уведомления" />
+</Field>
+```
+
+Поддерживает `v-model`, `disabled`, размеры `small` и `medium`, а также стандартные
+ARIA-атрибуты.

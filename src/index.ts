@@ -38,6 +38,7 @@ export const BreadcrumbSeparator = ac(
 );
 export const Card = ac(() => import("./components/Card/Card.vue"));
 export const Checkbox = ac(() => import("./components/Checkbox/Checkbox.vue"));
+export const Switch = ac(() => import("./components/Switch/Switch.vue"));
 export const Chip = ac(() => import("./components/Chip/Chip.vue"));
 export const ChipGroup = ac(() => import("./components/Chip/ChipGroup.vue"));
 export const Dot = ac(() => import("./components/Dot/Dot.vue"));
