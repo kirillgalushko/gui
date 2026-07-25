@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import AsChild from "../../internal/AsChild";
 import Text from "../Text/Text.vue";
 import type { Typography } from "../Text/types";
 
@@ -9,8 +10,10 @@ defineOptions({
 
 export interface LinkProps {
   typography?: Typography;
+  asChild?: boolean;
   inline?: boolean;
   underlined?: boolean;
+  underlineOnHover?: boolean;
   disabled?: boolean;
   enableVisited?: boolean;
   mode?: "inherit" | "accent";
@@ -32,27 +35,39 @@ const linkAttrs = computed(() => {
   return {
     "aria-disabled": "true",
     tabindex: -1,
-    disabled: props.Element === "button" ? true : undefined,
+    disabled: props.Element === "button" || props.asChild ? true : undefined,
   };
 });
+
+const linkClass = computed(() => [
+  "link",
+  `mode-${props.mode}`,
+  {
+    inline: props.inline,
+    underlined: props.underlined,
+    "underline-on-hover": props.underlineOnHover,
+    disabled: props.disabled,
+    "enable-visited": props.enableVisited,
+  },
+]);
 </script>
 
 <template>
+  <AsChild
+    v-if="props.asChild"
+    v-bind="{ ...$attrs, ...linkAttrs }"
+    :class="linkClass"
+  >
+    <slot></slot>
+  </AsChild>
+
   <Text
+    v-else
     v-bind="{ ...$attrs, ...linkAttrs }"
     :Element="props.Element"
     :typography="props.typography"
     color="inherit"
-    :class="[
-      'link',
-      `mode-${props.mode}`,
-      {
-        inline: props.inline,
-        underlined: props.underlined,
-        disabled: props.disabled,
-        'enable-visited': props.enableVisited,
-      },
-    ]"
+    :class="linkClass"
   >
     <span v-if="$slots.iconLeft" class="link-icon">
       <slot name="iconLeft"></slot>
@@ -103,6 +118,11 @@ const linkAttrs = computed(() => {
   text-underline-offset: 3px;
 }
 
+.link.underline-on-hover:hover:not(.disabled) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .link:hover:not(.disabled) {
   color: hsl(var(--link-color) / 0.75);
 }
@@ -121,6 +141,14 @@ const linkAttrs = computed(() => {
   color: hsl(var(--muted-foreground));
   cursor: not-allowed;
   pointer-events: none;
+}
+
+button.link {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  padding: 0;
 }
 
 .link-icon {

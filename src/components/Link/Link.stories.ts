@@ -13,6 +13,12 @@ const meta: Meta<typeof Link> = {
     underlined: {
       type: "boolean",
     },
+    underlineOnHover: {
+      type: "boolean",
+    },
+    asChild: {
+      type: "boolean",
+    },
     disabled: {
       type: "boolean",
     },
@@ -81,6 +87,17 @@ export const Inline: Story = {
       <p>
         Текст до ссылки <Link v-bind="args">inline-ссылка</Link> и текст после нее.
       </p>
+    `,
+  }),
+};
+
+export const AsButton: Story = {
+  render: () => ({
+    components: { Link },
+    template: `
+      <Link as-child underline-on-hover>
+        <button type="button">Ссылка без href</button>
+      </Link>
     `,
   }),
 };

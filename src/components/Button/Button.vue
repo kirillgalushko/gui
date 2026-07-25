@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import Loader from "../Loader/Loader.vue";
 import type { ComponentSize } from "../../types";
+import AsChild from "../../internal/AsChild";
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 export interface ButtonProps {
+  asChild?: boolean;
   mode?: "default" | "contrast" | "ghost" | "outline" | "negative" | "accent";
   size?: ComponentSize;
   stretched?: boolean;
@@ -16,24 +23,40 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   mode: "default",
   size: "large",
 });
+
+const buttonClass = computed(() => [
+  "button",
+  props.mode,
+  props.size,
+  {
+    stretched: props.stretched,
+    squared: props.squared,
+    rounded: props.rounded,
+    "with-loader": props.isLoading,
+    "as-child": props.asChild,
+    disabled: props.disabled,
+  },
+]);
 </script>
 
 <template>
+  <AsChild
+    v-if="props.asChild"
+    v-bind="$attrs"
+    :class="buttonClass"
+    :disabled="props.disabled || undefined"
+    :aria-disabled="props.disabled || undefined"
+    :aria-busy="props.isLoading || undefined"
+  >
+    <slot></slot>
+  </AsChild>
+
   <button
+    v-else
     v-bind="$attrs"
     :disabled="props.disabled"
-    :class="[
-      'button',
-      props.mode,
-      props.size,
-      {
-        stretched: props.stretched,
-        squared: props.squared,
-        rounded: props.rounded,
-        'with-loader': props.isLoading,
-        disabled: props.disabled,
-      },
-    ]"
+    :aria-busy="props.isLoading || undefined"
+    :class="buttonClass"
   >
     <slot></slot>
     <div v-if="isLoading" class="button-loader">
@@ -76,6 +99,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   align-items: center;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
   text-wrap: nowrap;
   font-family: inherit;
   gap: var(--gap-1);
@@ -200,9 +224,24 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   width: 100%;
 }
 
+.button.as-child.disabled {
+  pointer-events: none;
+}
+
 .with-loader {
   color: transparent;
   cursor: progress;
+}
+
+.button.as-child.with-loader::after {
+  position: absolute;
+  width: var(--button-loader-size);
+  height: var(--button-loader-size);
+  border: 2px solid var(--button-text);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: button-loader-spin 0.8s linear infinite;
+  content: "";
 }
 
 .button-loader {
@@ -216,5 +255,11 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   justify-content: center;
   color: var(--button-text);
   font-size: var(--button-loader-size);
+}
+
+@keyframes button-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

@@ -5,7 +5,10 @@
   "keywords": ["link", "anchor", "navigation", "url"],
   "useWhen": ["Нужно выполнить переход или показать кликабельную ссылку"],
   "toAvoid": [],
-  "rules": [],
+  "rules": [
+    "Используй asChild, когда стили Link нужно применить к RouterLink или button",
+    "Для подчёркивания только при наведении используй underlineOnHover"
+  ],
   "alternatives": ["Button"],
   "commonlyUsedWith": ["Text"]
 }

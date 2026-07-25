@@ -28,6 +28,7 @@ const meta = {
     squared: { control: "boolean" },
     rounded: { control: "boolean" },
     isLoading: { control: "boolean" },
+    asChild: { control: "boolean" },
   },
   args: {
     mode: "default",
@@ -92,5 +93,12 @@ export const Disabled: Story = {
       return { args };
     },
     template: '<Button v-bind="args">Купить</Button>',
+  }),
+};
+
+export const AsLink: Story = {
+  render: () => ({
+    components: { Button },
+    template: '<Button as-child><a href="#">Кнопка-ссылка</a></Button>',
   }),
 };
