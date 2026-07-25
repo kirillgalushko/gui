@@ -68,6 +68,7 @@ const styles = computed(() => {
 
 .clamp {
   display: -webkit-box;
+  overflow: hidden;
   white-space: normal;
   -webkit-box-orient: vertical;
 }
