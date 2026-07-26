@@ -1,6 +1,6 @@
 import type { ComponentSize } from "../../types";
 
-export type FileUploadOrientation = "horizontal" | "vertical";
+export type FileUploadListOrientation = "horizontal" | "vertical";
 export type FileUploadSize = ComponentSize;
 
 export interface FileUploadRejection {

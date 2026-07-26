@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed, inject } from "vue";
-import { fileUploadContextKey } from "./context";
-import type { FileUploadOrientation } from "./types";
+import { computed, inject, provide } from "vue";
+import { fileUploadContextKey, fileUploadListContextKey } from "./context";
+import type { FileUploadListOrientation } from "./types";
 
 export interface FileUploadListProps {
-  orientation?: FileUploadOrientation;
+  orientation?: FileUploadListOrientation;
 }
 
 const props = withDefaults(defineProps<FileUploadListProps>(), {
-  orientation: undefined,
+  orientation: "vertical",
 });
 const upload = inject(fileUploadContextKey);
 
@@ -16,9 +16,8 @@ if (upload === undefined) {
   throw new Error("FileUploadList must be used inside FileUpload");
 }
 
-const orientation = computed(
-  () => props.orientation ?? upload.orientation.value,
-);
+const orientation = computed(() => props.orientation);
+provide(fileUploadListContextKey, orientation);
 </script>
 
 <template>

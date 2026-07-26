@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatRuRelativeTime } from "./date";
+import { formatRuReadableDateTime, formatRuRelativeTime } from "./date";
 
 const now = new Date("2026-07-25T12:00:00.000Z");
 
@@ -26,5 +26,15 @@ describe("formatRuRelativeTime", () => {
     expect(
       formatRuRelativeTime(new Date(now.getTime() + 2 * 60_000), now),
     ).toBe("через 2 минуты");
+  });
+});
+
+describe("formatRuReadableDateTime", () => {
+  it("supports an explicit IANA timezone", () => {
+    expect(
+      formatRuReadableDateTime("2026-07-16T11:00:00.000Z", {
+        timeZone: "Pacific/Honolulu",
+      }),
+    ).toContain("01:00");
   });
 });

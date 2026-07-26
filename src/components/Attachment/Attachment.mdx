@@ -26,7 +26,11 @@ import { Meta } from "@storybook/addon-docs";
 
 - `state`: `idle`, `uploading`, `processing`, `error`, `done`.
 - `size`: `large`, `medium`, `small`, `extra-small`.
+- `size` пропорционально меняет padding, media, title и description.
 - `orientation`: `horizontal` или `vertical`.
+- `horizontal` используется для строк состояния файла.
+- `vertical` используется для image-card: крупное квадратное preview, подпись снизу и actions
+  поверх media.
 - `AttachmentMedia` поддерживает `icon` и `image`.
 - `AttachmentMediaTrigger` открывает preview кликом только по области изображения.
 - `AttachmentTrigger` делает всю карточку интерактивной, сохраняя отдельные actions.

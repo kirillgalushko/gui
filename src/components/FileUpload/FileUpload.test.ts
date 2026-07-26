@@ -1,6 +1,8 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 import FileUpload from "./FileUpload.vue";
+import FileUploadItem from "./FileUploadItem.vue";
+import FileUploadList from "./FileUploadList.vue";
 import type { FileUploadRejection } from "./types";
 
 const selectFiles = async (
@@ -64,5 +66,30 @@ describe("FileUpload", () => {
 
     await selectFiles(wrapper, [new File(["x"], "x.txt")]);
     expect(wrapper.emitted("accept")).toBeUndefined();
+  });
+
+  it("keeps list orientation separate from the picker API", () => {
+    const file = new File(["pdf"], "very-long-document-name.pdf", {
+      type: "application/pdf",
+    });
+    const wrapper = mount(FileUpload, {
+      props: { modelValue: [file] },
+      slots: {
+        default: `
+          <FileUploadList orientation="horizontal" v-slot="{ files }">
+            <FileUploadItem :file="files[0]" />
+          </FileUploadList>
+        `,
+      },
+      global: { components: { FileUploadItem, FileUploadList } },
+    });
+
+    expect(wrapper.attributes("data-orientation")).toBeUndefined();
+    expect(
+      wrapper.get(".file-upload-list").attributes("data-orientation"),
+    ).toBe("horizontal");
+    expect(wrapper.get(".attachment").attributes("data-orientation")).toBe(
+      "vertical",
+    );
   });
 });

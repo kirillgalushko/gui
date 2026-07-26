@@ -3,7 +3,6 @@ import { computed, provide, ref, useId } from "vue";
 import { fileUploadContextKey } from "./context";
 import { isSameFile, validateFileUpload } from "./fileUpload";
 import type {
-  FileUploadOrientation,
   FileUploadRejection,
   FileUploadSize,
   FileUploadValidator,
@@ -20,7 +19,6 @@ export interface FileUploadProps {
   modelValue?: File[];
   multiple?: boolean;
   name?: string;
-  orientation?: FileUploadOrientation;
   required?: boolean;
   size?: FileUploadSize;
   stretched?: boolean;
@@ -38,7 +36,6 @@ const props = withDefaults(defineProps<FileUploadProps>(), {
   modelValue: undefined,
   multiple: false,
   name: undefined,
-  orientation: "vertical",
   required: false,
   size: "medium",
   stretched: true,
@@ -148,7 +145,6 @@ provide(fileUploadContextKey, {
   invalid,
   isDragging,
   open,
-  orientation: computed(() => props.orientation),
   remove,
   size: computed(() => props.size),
 });
@@ -161,7 +157,6 @@ defineExpose({ clear, open });
     :class="['file-upload', { stretched: props.stretched }]"
     :data-disabled="props.disabled || undefined"
     :data-invalid="invalid || undefined"
-    :data-orientation="props.orientation"
   >
     <input
       :id="inputId"

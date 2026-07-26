@@ -1,0 +1,33 @@
+{
+  "name": "RadioGroup",
+  "kind": "component",
+  "description": "Группа взаимоисключающих вариантов выбора с обычным и карточным отображением.",
+  "keywords": [
+    "radio",
+    "radio group",
+    "single choice",
+    "выбор",
+    "переключатель"
+  ],
+  "useWhen": [
+    "Пользователь должен выбрать ровно один вариант из небольшого списка",
+    "Нужен заметный выбор тарифа, способа доставки или канала связи в виде карточек"
+  ],
+  "toAvoid": [
+    "Не использовать для множественного выбора",
+    "Не использовать вместо Select для длинных списков"
+  ],
+  "rules": [
+    "Собирать из RadioGroupItem",
+    "Использовать одинаковый name для нативной form-семантики; RadioGroup создаёт его автоматически",
+    "Передавать invalid и disabled на Field или RadioGroup"
+  ],
+  "alternatives": ["Select", "Chip", "Checkbox"],
+  "commonlyUsedWith": [
+    "RadioGroupItem",
+    "Field",
+    "FieldLabel",
+    "FieldDescription",
+    "FieldHelper"
+  ]
+}

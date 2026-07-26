@@ -5,6 +5,7 @@ import AttachmentAction from "./AttachmentAction.vue";
 import AttachmentActions from "./AttachmentActions.vue";
 import AttachmentContent from "./AttachmentContent.vue";
 import AttachmentDescription from "./AttachmentDescription.vue";
+import AttachmentMedia from "./AttachmentMedia.vue";
 import AttachmentTitle from "./AttachmentTitle.vue";
 
 describe("Attachment", () => {
@@ -51,5 +52,57 @@ describe("Attachment", () => {
     const action = wrapper.get('button[aria-label="Удалить"]');
     await action.trigger("click");
     expect(action.attributes("aria-label")).toBe("Удалить");
+  });
+
+  it("passes vertical orientation to composed parts", () => {
+    const wrapper = mount(Attachment, {
+      props: { orientation: "vertical" },
+      slots: {
+        default: `
+          <AttachmentMedia><img src="/preview.jpg" alt="" /></AttachmentMedia>
+          <AttachmentContent><AttachmentTitle>photo.jpg</AttachmentTitle></AttachmentContent>
+          <AttachmentActions><AttachmentAction aria-label="Удалить">×</AttachmentAction></AttachmentActions>
+        `,
+      },
+      global: {
+        components: {
+          AttachmentAction,
+          AttachmentActions,
+          AttachmentContent,
+          AttachmentMedia,
+          AttachmentTitle,
+        },
+      },
+    });
+
+    expect(wrapper.get(".attachment-media").classes()).toContain("vertical");
+    expect(wrapper.get(".attachment-title").classes()).toContain("vertical");
+    expect(wrapper.get(".attachment-actions").classes()).toContain("vertical");
+  });
+
+  it("passes size to title and description typography", () => {
+    const wrapper = mount(Attachment, {
+      props: { size: "extra-small" },
+      slots: {
+        default: `
+          <AttachmentContent>
+            <AttachmentTitle>photo.jpg</AttachmentTitle>
+            <AttachmentDescription>JPG · 20 КБ</AttachmentDescription>
+          </AttachmentContent>
+        `,
+      },
+      global: {
+        components: {
+          AttachmentContent,
+          AttachmentDescription,
+          AttachmentTitle,
+        },
+      },
+    });
+
+    expect(wrapper.get(".attachment-title").classes()).toContain("extra-small");
+    expect(wrapper.get(".attachment-description").classes()).toContain(
+      "extra-small",
+    );
   });
 });

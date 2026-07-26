@@ -102,7 +102,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   padding: var(--gap-6);
   border: 1px dashed hsl(var(--border));
   border-radius: 14px;
-  background: hsl(var(--card) / 0.55);
+  background: hsl(var(--card));
   color: hsl(var(--foreground));
   cursor: pointer;
   transition:
@@ -114,8 +114,8 @@ const handleKeydown = (event: KeyboardEvent) => {
 .file-upload-dropzone:hover,
 .file-upload-dropzone:focus-visible,
 .file-upload-dropzone[data-dragging] {
-  border-color: hsl(var(--accent));
-  background: hsl(var(--accent) / 0.07);
+  border-color: hsl(var(--secondary));
+  background: hsl(var(--secondary) / 0.25);
   outline: 0;
 }
 

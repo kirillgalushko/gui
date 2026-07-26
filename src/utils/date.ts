@@ -126,13 +126,17 @@ export const formatRuDayMonth = (date: Date): string =>
     .format(date)
     .replace(".", "");
 
-export const formatRuReadableDateTime = (value: Date | string): string =>
+export const formatRuReadableDateTime = (
+  value: Date | string,
+  options: Pick<Intl.DateTimeFormatOptions, "timeZone"> = {},
+): string =>
   new Intl.DateTimeFormat("ru-RU", {
     day: "numeric",
     month: "long",
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
+    ...options,
   }).format(toDate(value));
 
 const ruRelativeTimeFormatter = new Intl.RelativeTimeFormat("ru-RU", {

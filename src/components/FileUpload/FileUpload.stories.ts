@@ -16,7 +16,6 @@ const meta: Meta<typeof FileUpload> = {
     maxFiles: 3,
     maxSize: 10 * 1024 * 1024,
     multiple: true,
-    orientation: "vertical",
     size: "medium",
   },
 };
@@ -57,9 +56,28 @@ export const Default: Story = {
 };
 
 export const Horizontal: Story = {
-  ...Default,
-  args: {
-    ...Default.args,
-    orientation: "horizontal",
-  },
+  render: (args) => ({
+    components: {
+      FileUpload,
+      FileUploadDropzone,
+      FileUploadItem,
+      FileUploadList,
+    },
+    setup() {
+      const files = ref<File[]>([]);
+      return { args, files };
+    },
+    template: `
+      <FileUpload v-model="files" v-bind="args">
+        <FileUploadDropzone />
+        <FileUploadList orientation="horizontal" v-slot="{ files: selectedFiles }">
+          <FileUploadItem
+            v-for="file in selectedFiles"
+            :key="file.name"
+            :file="file"
+          />
+        </FileUploadList>
+      </FileUpload>
+    `,
+  }),
 };

@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/ScrollArea/Documentation" />
+
+# ScrollArea
+
+Ограниченная область с нативной прокруткой и оформленным scrollbar. Поддерживает
+клавиатуру, touch-инерцию браузера и не требует локальных стилей у потребителя.
+
+```vue
+<ScrollArea :max-height="320" aria-label="История действий">
+  <Item v-for="event in history" :key="event.id">
+    {{ event.title }}
+  </Item>
+</ScrollArea>
+```
+
+- `max-height` принимает число в пикселях или любое CSS-значение.
+- `orientation` поддерживает `vertical`, `horizontal` и `both`.
+- `keyboard-focusable` управляет `tabindex`; по умолчанию включён.
+- `stable-scrollbar` резервирует место под scrollbar и предотвращает скачок
+  ширины содержимого.
+- Для значимой области задавайте `aria-label` или `aria-labelledby`.

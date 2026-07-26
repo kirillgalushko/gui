@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import {
+  IconAlertSquareRoundedOutline,
+  IconCheckOutline,
+  IconClockOutline,
   IconFileOutline,
   IconLoader2Outline,
+  IconRefreshOutline,
   IconTrashOutline,
   IconUploadOutline,
   IconXOutline,
@@ -86,9 +90,12 @@ export const Gallery: Story = {
       Attachment,
       AttachmentContent,
       AttachmentDescription,
+      AttachmentAction,
+      AttachmentActions,
       AttachmentGroup,
       AttachmentMedia,
       AttachmentTitle,
+      IconXOutline,
     },
     template: `
       <AttachmentGroup orientation="horizontal">
@@ -100,6 +107,78 @@ export const Gallery: Story = {
             <AttachmentTitle>office-reference-{{ index }}.jpg</AttachmentTitle>
             <AttachmentDescription>JPG · 940 КБ</AttachmentDescription>
           </AttachmentContent>
+          <AttachmentActions>
+            <AttachmentAction aria-label="Удалить изображение"><IconXOutline /></AttachmentAction>
+          </AttachmentActions>
+        </Attachment>
+      </AttachmentGroup>
+    `,
+  }),
+};
+
+export const States: Story = {
+  render: () => ({
+    components: {
+      Attachment,
+      AttachmentAction,
+      AttachmentActions,
+      AttachmentContent,
+      AttachmentDescription,
+      AttachmentGroup,
+      AttachmentMedia,
+      AttachmentTitle,
+      IconAlertSquareRoundedOutline,
+      IconCheckOutline,
+      IconClockOutline,
+      IconFileOutline,
+      IconLoader2Outline,
+      IconRefreshOutline,
+      IconXOutline,
+    },
+    template: `
+      <AttachmentGroup>
+        <Attachment stretched state="idle">
+          <AttachmentMedia><IconClockOutline /></AttachmentMedia>
+          <AttachmentContent>
+            <AttachmentTitle>selected-file.pdf</AttachmentTitle>
+            <AttachmentDescription>Готов к загрузке</AttachmentDescription>
+          </AttachmentContent>
+          <AttachmentActions><AttachmentAction aria-label="Удалить"><IconXOutline /></AttachmentAction></AttachmentActions>
+        </Attachment>
+        <Attachment stretched state="uploading">
+          <AttachmentMedia><IconLoader2Outline /></AttachmentMedia>
+          <AttachmentContent>
+            <AttachmentTitle>design-system.zip</AttachmentTitle>
+            <AttachmentDescription>Загрузка · 64%</AttachmentDescription>
+          </AttachmentContent>
+          <AttachmentActions><AttachmentAction aria-label="Удалить"><IconXOutline /></AttachmentAction></AttachmentActions>
+        </Attachment>
+        <Attachment stretched state="processing">
+          <AttachmentMedia><IconFileOutline /></AttachmentMedia>
+          <AttachmentContent>
+            <AttachmentTitle>market-research.pdf</AttachmentTitle>
+            <AttachmentDescription>Обработка документа</AttachmentDescription>
+          </AttachmentContent>
+          <AttachmentActions><AttachmentAction aria-label="Удалить"><IconXOutline /></AttachmentAction></AttachmentActions>
+        </Attachment>
+        <Attachment stretched state="error">
+          <AttachmentMedia><IconAlertSquareRoundedOutline /></AttachmentMedia>
+          <AttachmentContent>
+            <AttachmentTitle>financial-model.xlsx</AttachmentTitle>
+            <AttachmentDescription>Не удалось загрузить. Повторите попытку.</AttachmentDescription>
+          </AttachmentContent>
+          <AttachmentActions>
+            <AttachmentAction aria-label="Повторить"><IconRefreshOutline /></AttachmentAction>
+            <AttachmentAction aria-label="Удалить"><IconXOutline /></AttachmentAction>
+          </AttachmentActions>
+        </Attachment>
+        <Attachment stretched state="done">
+          <AttachmentMedia><IconCheckOutline /></AttachmentMedia>
+          <AttachmentContent>
+            <AttachmentTitle>uploaded-report.pdf</AttachmentTitle>
+            <AttachmentDescription>Загружен · 1.8 МБ</AttachmentDescription>
+          </AttachmentContent>
+          <AttachmentActions><AttachmentAction aria-label="Удалить"><IconXOutline /></AttachmentAction></AttachmentActions>
         </Attachment>
       </AttachmentGroup>
     `,

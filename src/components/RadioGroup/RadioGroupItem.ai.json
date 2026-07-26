@@ -1,0 +1,15 @@
+{
+  "name": "RadioGroupItem",
+  "kind": "component",
+  "description": "Отдельный вариант внутри RadioGroup с label, description и собственными состояниями.",
+  "keywords": ["radio item", "radio option", "вариант выбора"],
+  "useWhen": ["Нужно добавить вариант внутрь RadioGroup"],
+  "toAvoid": ["Не использовать вне RadioGroup"],
+  "rules": [
+    "value должен быть уникальным внутри группы",
+    "Описание передавать через слот description",
+    "disabled и invalid наследуются от RadioGroup и Field"
+  ],
+  "alternatives": ["Chip", "Checkbox"],
+  "commonlyUsedWith": ["RadioGroup", "Field"]
+}

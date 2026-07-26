@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { computed, inject, onBeforeUnmount, ref, watch } from "vue";
-import { IconFileOutline, IconLoader2Outline, IconXOutline } from "@gui/icons";
+import {
+  IconAlertSquareRoundedOutline,
+  IconCheckOutline,
+  IconClockOutline,
+  IconFileOutline,
+  IconLoader2Outline,
+  IconRefreshOutline,
+  IconXOutline,
+} from "@gui/icons";
 import ProgressBar from "../ProgressBar/ProgressBar.vue";
 import Attachment from "../Attachment/Attachment.vue";
 import AttachmentAction from "../Attachment/AttachmentAction.vue";
@@ -10,7 +18,7 @@ import AttachmentDescription from "../Attachment/AttachmentDescription.vue";
 import AttachmentMedia from "../Attachment/AttachmentMedia.vue";
 import AttachmentTitle from "../Attachment/AttachmentTitle.vue";
 import type { AttachmentState } from "../Attachment/types";
-import { fileUploadContextKey } from "./context";
+import { fileUploadContextKey, fileUploadListContextKey } from "./context";
 import { formatFileUploadSize } from "./fileUpload";
 
 export interface FileUploadItemProps {
@@ -19,6 +27,7 @@ export interface FileUploadItemProps {
   file: File;
   progress?: number;
   removable?: boolean;
+  onRetry?: () => void;
   state?: AttachmentState;
 }
 
@@ -27,9 +36,14 @@ const props = withDefaults(defineProps<FileUploadItemProps>(), {
   error: undefined,
   progress: undefined,
   removable: true,
+  onRetry: undefined,
   state: "idle",
 });
 const upload = inject(fileUploadContextKey);
+const listOrientation = inject(
+  fileUploadListContextKey,
+  computed(() => "vertical" as const),
+);
 
 if (upload === undefined) {
   throw new Error("FileUploadItem must be used inside FileUpload");
@@ -72,8 +86,8 @@ onBeforeUnmount(revokePreview);
 
 <template>
   <Attachment
-    stretched
-    :orientation="upload.orientation.value"
+    :stretched="listOrientation !== 'horizontal'"
+    :orientation="listOrientation === 'horizontal' ? 'vertical' : 'horizontal'"
     :size="upload.size.value"
     :state="props.error === undefined ? props.state : 'error'"
     role="listitem"
@@ -85,10 +99,13 @@ onBeforeUnmount(revokePreview);
         :alt="props.file.name"
       />
       <IconLoader2Outline
-        v-else-if="props.state === 'uploading' || props.state === 'processing'"
+        v-else-if="props.state === 'uploading'"
         class="file-upload-item-loader"
       />
-      <IconFileOutline v-else />
+      <IconAlertSquareRoundedOutline v-else-if="props.state === 'error'" />
+      <IconCheckOutline v-else-if="props.state === 'done'" />
+      <IconFileOutline v-else-if="props.state === 'processing'" />
+      <IconClockOutline v-else />
     </AttachmentMedia>
     <AttachmentContent>
       <AttachmentTitle>{{ props.file.name }}</AttachmentTitle>
@@ -100,8 +117,19 @@ onBeforeUnmount(revokePreview);
         height="3px"
       />
     </AttachmentContent>
-    <AttachmentActions v-if="props.removable">
+    <AttachmentActions
+      v-if="props.removable || (props.state === 'error' && props.onRetry)"
+    >
       <AttachmentAction
+        v-if="props.state === 'error' && props.onRetry"
+        aria-label="Повторить загрузку"
+        :disabled="props.disabled || upload.disabled.value"
+        @click="props.onRetry"
+      >
+        <IconRefreshOutline />
+      </AttachmentAction>
+      <AttachmentAction
+        v-if="props.removable"
         aria-label="Удалить файл"
         :disabled="props.disabled || upload.disabled.value"
         @click="upload.remove(props.file)"

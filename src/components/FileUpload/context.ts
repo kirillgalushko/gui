@@ -1,5 +1,5 @@
 import type { ComputedRef, InjectionKey, Ref } from "vue";
-import type { FileUploadOrientation, FileUploadSize } from "./types";
+import type { FileUploadListOrientation, FileUploadSize } from "./types";
 
 export interface FileUploadContext {
   addFiles: (files: File[]) => void;
@@ -10,10 +10,13 @@ export interface FileUploadContext {
   invalid: ComputedRef<boolean>;
   isDragging: Ref<boolean>;
   open: () => void;
-  orientation: ComputedRef<FileUploadOrientation>;
   remove: (file: File) => void;
   size: ComputedRef<FileUploadSize>;
 }
 
 export const fileUploadContextKey: InjectionKey<FileUploadContext> =
   Symbol("file-upload");
+
+export const fileUploadListContextKey: InjectionKey<
+  ComputedRef<FileUploadListOrientation>
+> = Symbol("file-upload-list");

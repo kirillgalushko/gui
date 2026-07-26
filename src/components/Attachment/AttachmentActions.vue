@@ -1,5 +1,12 @@
+<script setup lang="ts">
+import { inject } from "vue";
+import { attachmentContextKey } from "./context";
+
+const attachment = inject(attachmentContextKey, null);
+</script>
+
 <template>
-  <div class="attachment-actions">
+  <div :class="['attachment-actions', attachment?.orientation.value]">
     <slot></slot>
   </div>
 </template>
@@ -15,10 +22,16 @@
   margin-left: auto;
 }
 
-:global(.attachment.vertical) .attachment-actions {
+.attachment-actions.vertical {
   position: absolute;
-  top: var(--gap-2);
-  right: var(--gap-2);
+  top: calc(var(--attachment-padding) + var(--gap-1));
+  right: calc(var(--attachment-padding) + var(--gap-1));
   margin-left: 0;
+}
+
+.attachment-actions.vertical :deep(.button) {
+  background: hsl(var(--background) / 0.72);
+  color: hsl(var(--foreground));
+  backdrop-filter: blur(8px);
 }
 </style>

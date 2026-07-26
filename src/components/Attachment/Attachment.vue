@@ -73,8 +73,8 @@ provide(attachmentContextKey, {
 }
 
 .large {
-  --attachment-gap: var(--gap-4);
-  --attachment-padding: var(--gap-4);
+  --attachment-gap: var(--gap-3);
+  --attachment-padding: var(--gap-3);
   --attachment-radius: 16px;
   --attachment-media-size: 56px;
 }
@@ -82,7 +82,7 @@ provide(attachmentContextKey, {
 .small {
   --attachment-gap: var(--gap-2);
   --attachment-padding: var(--gap-2);
-  --attachment-radius: 12px;
+  --attachment-radius: 14px;
   --attachment-media-size: 40px;
 }
 
@@ -98,65 +98,57 @@ provide(attachmentContextKey, {
 }
 
 .vertical {
-  width: 184px;
+  --attachment-gap: var(--gap-2);
+  --attachment-padding: var(--gap-3);
+  --attachment-radius: 24px;
+
+  width: 180px;
   flex-direction: column;
   align-items: stretch;
 }
 
 .vertical.large {
-  width: 224px;
+  width: 280px;
 }
 
 .vertical.small {
-  width: 152px;
+  --attachment-padding: var(--gap-3);
+  --attachment-radius: 20px;
+
+  width: 140px;
 }
 
 .vertical.extra-small {
-  width: 120px;
+  --attachment-padding: var(--gap-2);
+  --attachment-radius: 16px;
+
+  width: 110px;
 }
 
 .stretched {
   width: 100%;
 }
 
+.attachment[data-state="idle"] {
+  border-style: dashed;
+}
+
 .attachment[data-state="error"] {
   border-color: hsl(var(--negative) / 0.65);
-  background: hsl(var(--negative) / 0.06);
 }
 
-.attachment[data-state="uploading"],
-.attachment[data-state="processing"] {
-  border-color: hsl(var(--accent) / 0.45);
+.attachment[data-state="error"] :deep(.attachment-description) {
+  color: hsl(var(--negative));
 }
 
-.attachment[data-state="uploading"] :deep(.attachment-title),
-.attachment[data-state="processing"] :deep(.attachment-title) {
-  background: linear-gradient(
-    90deg,
-    hsl(var(--foreground)) 25%,
-    hsl(var(--muted-foreground)) 50%,
-    hsl(var(--foreground)) 75%
-  );
-  background-size: 200% 100%;
-  color: transparent;
-  background-clip: text;
-  animation: attachment-shimmer 1.6s linear infinite;
-}
-
-@keyframes attachment-shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
+.attachment[data-state="error"] :deep(.attachment-media.icon) {
+  background: hsl(var(--negative) / 0.12);
+  color: hsl(var(--negative));
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .attachment,
-  .attachment :deep(.attachment-title) {
+  .attachment {
     transition: none;
-    animation: none;
   }
 }
 </style>

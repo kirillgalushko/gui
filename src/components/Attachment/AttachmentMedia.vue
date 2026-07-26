@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { inject } from "vue";
+import { attachmentContextKey } from "./context";
 import type { AttachmentMediaVariant } from "./types";
 
 export interface AttachmentMediaProps {
@@ -8,10 +10,13 @@ export interface AttachmentMediaProps {
 const props = withDefaults(defineProps<AttachmentMediaProps>(), {
   variant: "icon",
 });
+const attachment = inject(attachmentContextKey, null);
 </script>
 
 <template>
-  <div :class="['attachment-media', props.variant]">
+  <div
+    :class="['attachment-media', props.variant, attachment?.orientation.value]"
+  >
     <slot></slot>
   </div>
 </template>
@@ -26,7 +31,7 @@ const props = withDefaults(defineProps<AttachmentMediaProps>(), {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border-radius: calc(var(--attachment-radius, 14px) - 4px);
+  border-radius: calc(var(--attachment-radius, 14px) - 6px);
   overflow: hidden;
 }
 
@@ -47,9 +52,10 @@ const props = withDefaults(defineProps<AttachmentMediaProps>(), {
   object-fit: cover;
 }
 
-:global(.attachment.vertical) .attachment-media {
+.attachment-media.vertical {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1;
+  border-radius: calc(var(--attachment-radius, 24px) - 8px);
 }
 </style>

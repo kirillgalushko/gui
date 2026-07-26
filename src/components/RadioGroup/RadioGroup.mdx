@@ -1,0 +1,51 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/RadioGroup/Documentation" />
+
+# RadioGroup
+
+Группа взаимоисключающих вариантов на нативных radio inputs. Поддерживает
+клавиатурную навигацию, формы, `disabled`, `invalid`, две ориентации и карточный
+режим.
+
+```vue
+<RadioGroup v-model="channel" name="channel">
+  <RadioGroupItem value="sms">
+    SMS
+    <template #description>Код придёт на номер гостя</template>
+  </RadioGroupItem>
+  <RadioGroupItem value="email">
+    Email
+    <template #description>Код придёт на электронную почту</template>
+  </RadioGroupItem>
+</RadioGroup>
+```
+
+Для крупных кликабельных вариантов используйте `mode="card"`. Горизонтальная
+раскладка адаптивно переносит карточки:
+
+```vue
+<Field :invalid="!!error" stretched>
+  <FieldLabel>Канал подтверждения</FieldLabel>
+  <RadioGroup
+    v-model="channel"
+    mode="card"
+    orientation="horizontal"
+    required
+    stretched
+  >
+    <RadioGroupItem value="sms">SMS</RadioGroupItem>
+    <RadioGroupItem value="email">Email</RadioGroupItem>
+  </RadioGroup>
+  <FieldHelper :error-message="error" :invalid="!!error" />
+</Field>
+```
+
+- `RadioGroup` принимает `name`, `disabled`, `invalid`, `required`,
+  `orientation`, `mode` и `stretched`.
+- Если `name` не передан, создаётся стабильное имя группы.
+- `RadioGroupItem` требует уникальный `value`; его `disabled` и `invalid`
+  дополняют состояния группы.
+- `Field` автоматически передаёт группе общие `disabled` и `invalid`.
+- Для длинных списков используйте `Select`, для множественного выбора —
+  `Checkbox` или `ChipGroup`.

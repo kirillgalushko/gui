@@ -36,6 +36,7 @@ const props = withDefaults(defineProps<AttachmentGroupProps>(), {
 
 .horizontal {
   flex-direction: row;
+  gap: var(--gap-6);
   overflow-x: auto;
   padding-bottom: var(--gap-1);
   scroll-snap-type: x proximity;

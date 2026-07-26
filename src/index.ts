@@ -83,9 +83,24 @@ export const BreadcrumbSeparator = ac(
 );
 export const Card = ac(() => import("./components/Card/Card.vue"));
 export const Checkbox = ac(() => import("./components/Checkbox/Checkbox.vue"));
+export const RadioGroup = ac(
+  () => import("./components/RadioGroup/RadioGroup.vue"),
+);
+export const RadioGroupItem = ac(
+  () => import("./components/RadioGroup/RadioGroupItem.vue"),
+);
+export const ScrollArea = ac(
+  () => import("./components/ScrollArea/ScrollArea.vue"),
+);
 export const Switch = ac(() => import("./components/Switch/Switch.vue"));
 export const Chip = ac(() => import("./components/Chip/Chip.vue"));
 export const ChipGroup = ac(() => import("./components/Chip/ChipGroup.vue"));
+export type {
+  RadioGroupMode,
+  RadioGroupOrientation,
+  RadioGroupValue,
+} from "./components/RadioGroup/radioGroup";
+export type { ScrollAreaOrientation } from "./components/ScrollArea/ScrollArea.vue";
 export const Dot = ac(() => import("./components/Dot/Dot.vue"));
 export const Gap = ac(() => import("./components/Gap/Gap.vue"));
 export const Field = ac(() => import("./components/Field/Field.vue"));
@@ -364,7 +379,7 @@ export type {
   AttachmentState,
 } from "./components/Attachment/types";
 export type {
-  FileUploadOrientation,
+  FileUploadListOrientation,
   FileUploadRejection,
   FileUploadSize,
   FileUploadValidator,
