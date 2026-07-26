@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentActions",
+  "kind": "component",
+  "description": "Контейнер независимых действий Attachment.",
+  "keywords": ["attachment", "actions"],
+  "useWhen": ["Нужны удалить, заменить или открыть файл"],
+  "toAvoid": ["Не размещать не связанные с файлом действия"],
+  "rules": [],
+  "alternatives": ["ItemActions"],
+  "commonlyUsedWith": ["AttachmentAction"]
+}

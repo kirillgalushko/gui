@@ -1,0 +1,14 @@
+{
+  "name": "ImageViewer",
+  "kind": "component",
+  "description": "Полноэкранный адаптивный просмотрщик одного или нескольких изображений с навигацией, жестами, zoom и rotation.",
+  "keywords": ["image", "viewer", "gallery", "lightbox", "галерея"],
+  "useWhen": ["Нужно подробно просмотреть одно или несколько изображений"],
+  "toAvoid": ["Не использовать вместо компактного превью или AttachmentMedia"],
+  "rules": [
+    "Передавать стабильный id каждому изображению",
+    "Для приватных изображений использовать короткоживущие авторизованные URL"
+  ],
+  "alternatives": ["Modal"],
+  "commonlyUsedWith": ["Attachment", "AttachmentMedia", "Button"]
+}

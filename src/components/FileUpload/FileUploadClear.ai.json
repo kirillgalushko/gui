@@ -1,0 +1,11 @@
+{
+  "name": "FileUploadClear",
+  "kind": "component",
+  "description": "Кнопка очистки всех выбранных файлов FileUpload.",
+  "keywords": ["file", "upload", "clear"],
+  "useWhen": ["Пользователь может удалить весь выбор одним действием"],
+  "toAvoid": ["Не использовать для удаления серверных файлов"],
+  "rules": [],
+  "alternatives": ["Button"],
+  "commonlyUsedWith": ["FileUpload"]
+}

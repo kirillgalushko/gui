@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentTitle",
+  "kind": "component",
+  "description": "Однострочное название файла в Attachment.",
+  "keywords": ["attachment", "title", "filename"],
+  "useWhen": ["Нужно показать имя файла"],
+  "toAvoid": ["Не использовать вне AttachmentContent"],
+  "rules": [],
+  "alternatives": ["ItemTitle"],
+  "commonlyUsedWith": ["AttachmentContent"]
+}

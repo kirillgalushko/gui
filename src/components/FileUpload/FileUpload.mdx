@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/FileUpload/Documentation" />
+
+# FileUpload
+
+Доступный file picker с drag-and-drop, validation, управляемым значением и представлением
+файлов через `Attachment`.
+
+```vue
+<FileUpload
+  v-model="files"
+  accept="image/*,.pdf"
+  multiple
+  :max-files="2"
+  :max-size="10 * 1024 * 1024"
+  @reject="showErrors"
+>
+  <FileUploadDropzone
+    title="Перетащите документы"
+    description="До 2 файлов, каждый не больше 10 МБ"
+  />
+  <FileUploadList v-slot="{ files }">
+    <FileUploadItem v-for="file in files" :key="file.name" :file="file" />
+  </FileUploadList>
+</FileUpload>
+```
+
+- Поддерживает single/multiple, `accept`, `maxFiles`, `maxSize`, `capture`, `required`,
+  `disabled`, `invalid` и пользовательский `validate`.
+- `v-model` содержит текущие `File[]`.
+- События `accept`, `reject`, `change` позволяют разделить успешный выбор и ошибки.
+- `FileUploadDropzone` открывается кликом, Enter/Space и принимает drag-and-drop.
+- `FileUploadList` поддерживает `horizontal` и `vertical`.
+- `FileUploadItem` показывает preview изображения, метаданные, состояние и progress.

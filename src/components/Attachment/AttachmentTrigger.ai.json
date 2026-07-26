@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentTrigger",
+  "kind": "component",
+  "description": "Полноразмерный trigger для открытия Attachment.",
+  "keywords": ["attachment", "trigger", "open"],
+  "useWhen": ["Вся карточка файла должна открывать preview или ссылку"],
+  "toAvoid": ["Не использовать без доступного имени"],
+  "rules": ["Задавать aria-label"],
+  "alternatives": ["Button"],
+  "commonlyUsedWith": ["Attachment"]
+}

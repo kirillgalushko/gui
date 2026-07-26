@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentDescription",
+  "kind": "component",
+  "description": "Метаданные или текст состояния файла в Attachment.",
+  "keywords": ["attachment", "description", "size", "status"],
+  "useWhen": ["Нужно показать тип, размер, progress или ошибку"],
+  "toAvoid": ["Не передавать состояние только цветом"],
+  "rules": [],
+  "alternatives": ["ItemDescription"],
+  "commonlyUsedWith": ["AttachmentContent"]
+}

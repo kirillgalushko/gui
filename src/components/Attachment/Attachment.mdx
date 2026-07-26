@@ -1,0 +1,33 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Attachment/Documentation" />
+
+# Attachment
+
+Составной компонент файла или изображения с медиа, метаданными, состоянием загрузки и
+независимыми действиями.
+
+```vue
+<Attachment state="done" size="medium" orientation="horizontal" stretched>
+  <AttachmentMedia>
+    <IconFileTypePdfOutline />
+  </AttachmentMedia>
+  <AttachmentContent>
+    <AttachmentTitle>contract.pdf</AttachmentTitle>
+    <AttachmentDescription>PDF · 1.2 МБ</AttachmentDescription>
+  </AttachmentContent>
+  <AttachmentActions>
+    <AttachmentAction aria-label="Удалить contract.pdf">
+      <IconXOutline />
+    </AttachmentAction>
+  </AttachmentActions>
+</Attachment>
+```
+
+- `state`: `idle`, `uploading`, `processing`, `error`, `done`.
+- `size`: `large`, `medium`, `small`, `extra-small`.
+- `orientation`: `horizontal` или `vertical`.
+- `AttachmentMedia` поддерживает `icon` и `image`.
+- `AttachmentMediaTrigger` открывает preview кликом только по области изображения.
+- `AttachmentTrigger` делает всю карточку интерактивной, сохраняя отдельные actions.
+- `AttachmentGroup` строит вертикальный список или горизонтальную scroll/snap-ленту.

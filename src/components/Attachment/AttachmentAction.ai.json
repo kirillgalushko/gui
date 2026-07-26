@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentAction",
+  "kind": "component",
+  "description": "Иконочная GUI-кнопка действия внутри Attachment.",
+  "keywords": ["attachment", "action", "button"],
+  "useWhen": ["Нужно добавить компактное действие к файлу"],
+  "toAvoid": ["Не использовать без aria-label"],
+  "rules": ["Всегда задавать aria-label"],
+  "alternatives": ["Button", "Action"],
+  "commonlyUsedWith": ["AttachmentActions"]
+}

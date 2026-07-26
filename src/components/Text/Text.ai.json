@@ -9,7 +9,9 @@
     "Не использовать для текста в формах",
     "Не использовать в Item, Field"
   ],
-  "rules": [],
+  "rules": [
+    "Чем больше цифра в typography, тем больше текст. Самый маленький текст имеет цифру 1."
+  ],
   "alternatives": [],
   "commonlyUsedWith": ["TextSkeleton"]
 }

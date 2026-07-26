@@ -1,0 +1,13 @@
+{
+  "name": "FileUpload",
+  "kind": "component",
+  "description": "Управляемый выбор файлов с drag-and-drop, validation и списком вложений.",
+  "keywords": ["file", "upload", "dropzone", "загрузка"],
+  "useWhen": ["Нужно выбрать, проверить и показать один или несколько файлов"],
+  "toAvoid": [
+    "Не использовать для уже загруженного файла без возможности выбора"
+  ],
+  "rules": ["Ошибки reject показывать пользователю"],
+  "alternatives": ["FileInput"],
+  "commonlyUsedWith": ["FileUploadDropzone", "FileUploadList", "FileUploadItem"]
+}

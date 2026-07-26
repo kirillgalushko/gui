@@ -1,0 +1,11 @@
+{
+  "name": "AccordionTrigger",
+  "kind": "component",
+  "description": "Доступная кнопка-заголовок для раскрытия AccordionItem.",
+  "keywords": ["accordion", "trigger", "heading", "заголовок"],
+  "useWhen": ["Нужен интерактивный заголовок секции AccordionItem"],
+  "toAvoid": ["Не использовать вне AccordionItem"],
+  "rules": ["Заголовок должен кратко описывать раскрываемый контент"],
+  "alternatives": ["Button"],
+  "commonlyUsedWith": ["AccordionItem", "AccordionContent"]
+}

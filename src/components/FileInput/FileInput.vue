@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { IconUploadOutline } from "@gui/icons";
+import type { ComponentSize } from "../../types";
 import Button from "../Button/Button.vue";
 
 export interface FileInputProps {
@@ -9,6 +10,7 @@ export interface FileInputProps {
   disabled?: boolean;
   label?: string;
   capture?: "user" | "environment";
+  size?: ComponentSize;
 }
 
 const props = withDefaults(defineProps<FileInputProps>(), {
@@ -17,6 +19,7 @@ const props = withDefaults(defineProps<FileInputProps>(), {
   disabled: false,
   label: "Выбрать файл",
   capture: undefined,
+  size: "large",
 });
 const emit = defineEmits<{
   change: [files: File[]];
@@ -52,6 +55,7 @@ const handleChange = (event: Event) => {
     <Button
       type="button"
       mode="default"
+      :size="props.size"
       :disabled="props.disabled"
       @click="openPicker"
     >

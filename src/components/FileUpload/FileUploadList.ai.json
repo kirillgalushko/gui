@@ -1,0 +1,11 @@
+{
+  "name": "FileUploadList",
+  "kind": "component",
+  "description": "Список выбранных файлов с horizontal и vertical orientation.",
+  "keywords": ["file", "upload", "list", "gallery"],
+  "useWhen": ["Нужно отрисовать текущее v-model FileUpload"],
+  "toAvoid": ["Не использовать вне FileUpload"],
+  "rules": [],
+  "alternatives": ["AttachmentGroup"],
+  "commonlyUsedWith": ["FileUploadItem"]
+}

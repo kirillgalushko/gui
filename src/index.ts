@@ -3,6 +3,51 @@ import "./vite-env.d.ts";
 import { defineAsyncComponent as ac } from "vue";
 import "./styles/style.css";
 
+export const Accordion = ac(
+  () => import("./components/Accordion/Accordion.vue"),
+);
+export const AccordionContent = ac(
+  () => import("./components/Accordion/AccordionContent.vue"),
+);
+export const AccordionItem = ac(
+  () => import("./components/Accordion/AccordionItem.vue"),
+);
+export const AccordionTrigger = ac(
+  () => import("./components/Accordion/AccordionTrigger.vue"),
+);
+export const Attachment = ac(
+  () => import("./components/Attachment/Attachment.vue"),
+);
+export const AttachmentAction = ac(
+  () => import("./components/Attachment/AttachmentAction.vue"),
+);
+export const AttachmentActions = ac(
+  () => import("./components/Attachment/AttachmentActions.vue"),
+);
+export const AttachmentContent = ac(
+  () => import("./components/Attachment/AttachmentContent.vue"),
+);
+export const AttachmentDescription = ac(
+  () => import("./components/Attachment/AttachmentDescription.vue"),
+);
+export const AttachmentGroup = ac(
+  () => import("./components/Attachment/AttachmentGroup.vue"),
+);
+export const AttachmentMedia = ac(
+  () => import("./components/Attachment/AttachmentMedia.vue"),
+);
+export const AttachmentMediaTrigger = ac(
+  () => import("./components/Attachment/AttachmentMediaTrigger.vue"),
+);
+export const AttachmentTitle = ac(
+  () => import("./components/Attachment/AttachmentTitle.vue"),
+);
+export const AttachmentTrigger = ac(
+  () => import("./components/Attachment/AttachmentTrigger.vue"),
+);
+export const ImageViewer = ac(
+  () => import("./components/ImageViewer/ImageViewer.vue"),
+);
 export const Action = ac(() => import("./components/Action/Action.vue"));
 export const AdaptiveModal = ac(
   () => import("./components/AdaptiveModal/AdaptiveModal.vue"),
@@ -83,6 +128,24 @@ export {
 } from "./components/PhoneInput/phone";
 export const FileInput = ac(
   () => import("./components/FileInput/FileInput.vue"),
+);
+export const FileUpload = ac(
+  () => import("./components/FileUpload/FileUpload.vue"),
+);
+export const FileUploadClear = ac(
+  () => import("./components/FileUpload/FileUploadClear.vue"),
+);
+export const FileUploadDropzone = ac(
+  () => import("./components/FileUpload/FileUploadDropzone.vue"),
+);
+export const FileUploadItem = ac(
+  () => import("./components/FileUpload/FileUploadItem.vue"),
+);
+export const FileUploadList = ac(
+  () => import("./components/FileUpload/FileUploadList.vue"),
+);
+export const FileUploadTrigger = ac(
+  () => import("./components/FileUpload/FileUploadTrigger.vue"),
 );
 export const Item = ac(() => import("./components/Item/Item.vue"));
 export const ItemActions = ac(
@@ -294,6 +357,24 @@ export type {
   HourPickerChangePayload,
   HourPickerValue,
 } from "./components/HourPicker/types";
+export type {
+  AttachmentMediaVariant,
+  AttachmentOrientation,
+  AttachmentSize,
+  AttachmentState,
+} from "./components/Attachment/types";
+export type {
+  FileUploadOrientation,
+  FileUploadRejection,
+  FileUploadSize,
+  FileUploadValidator,
+} from "./components/FileUpload/types";
+export type {
+  ImageViewerError,
+  ImageViewerItem,
+  ImageViewerThumbnails,
+} from "./components/ImageViewer/types";
+export { formatFileUploadSize } from "./components/FileUpload/fileUpload";
 export type {
   ExternalToast,
   ToastClasses,

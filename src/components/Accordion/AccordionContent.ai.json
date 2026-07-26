@@ -1,0 +1,11 @@
+{
+  "name": "AccordionContent",
+  "kind": "component",
+  "description": "Анимированная область содержимого внутри AccordionItem.",
+  "keywords": ["accordion", "content", "panel", "контент"],
+  "useWhen": ["Нужно показать раскрываемое содержимое AccordionItem"],
+  "toAvoid": ["Не использовать вне AccordionItem"],
+  "rules": ["Размещать после AccordionTrigger в том же AccordionItem"],
+  "alternatives": ["Card"],
+  "commonlyUsedWith": ["AccordionItem", "AccordionTrigger"]
+}

@@ -1,0 +1,28 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Accordion/Documentation" />
+
+# Accordion
+
+Вертикальный список раскрываемых секций. Компонент состоит из `Accordion`,
+`AccordionItem`, `AccordionTrigger` и `AccordionContent`.
+
+```vue
+<Accordion v-model="opened" multiple>
+  <AccordionItem value="check-in">
+    <AccordionTrigger>Заселение</AccordionTrigger>
+    <AccordionContent>Инструкция по получению ключей.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="wifi">
+    <AccordionTrigger>Wi-Fi</AccordionTrigger>
+    <AccordionContent>Название сети и пароль.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+- `v-model` содержит массив значений открытых секций.
+- `default-value` задаёт начальное состояние без управляемого `v-model`.
+- `multiple` разрешает раскрывать несколько секций одновременно.
+- Без `multiple` открытие секции закрывает предыдущую.
+- `disabled` поддерживается как для всего `Accordion`, так и для отдельного
+  `AccordionItem`.

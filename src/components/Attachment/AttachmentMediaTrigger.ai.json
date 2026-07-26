@@ -1,0 +1,13 @@
+{
+  "name": "AttachmentMediaTrigger",
+  "kind": "component",
+  "description": "Доступная кнопка поверх медиа Attachment для открытия preview или ImageViewer.",
+  "keywords": ["attachment", "media", "preview", "trigger"],
+  "useWhen": [
+    "Нужно открыть подробный просмотр кликом только по превью вложения"
+  ],
+  "toAvoid": ["Не использовать без AttachmentMedia"],
+  "rules": ["Всегда задавать aria-label"],
+  "alternatives": ["AttachmentTrigger"],
+  "commonlyUsedWith": ["AttachmentMedia", "ImageViewer"]
+}

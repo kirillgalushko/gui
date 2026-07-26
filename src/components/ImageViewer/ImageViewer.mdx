@@ -1,0 +1,33 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/ImageViewer/Documentation" />
+
+# ImageViewer
+
+Полноэкранный viewer для одного изображения или галереи. Поддерживает keyboard navigation,
+swipe, pinch, pan, zoom, rotation, thumbnails, loading и error state.
+
+```vue
+<ImageViewer
+  v-model:is-opened="opened"
+  v-model:active-index="activeIndex"
+  :images="images"
+  :loop="false"
+  show-title
+  show-counter
+  show-thumbnails="auto"
+  zoomable
+  rotatable
+  @error="handleImageError"
+/>
+```
+
+Каждый элемент `images` содержит `id`, `src` и опциональные `thumbnailSrc`, `alt`, `title`,
+`description`.
+
+- `loop` включает циклическую навигацию.
+- `showThumbnails`: `true`, `false` или `auto`.
+- `minScale`, `maxScale` задают границы zoom.
+- `preload` задаёт количество соседних изображений для предзагрузки.
+- Slots: `toolbar`, `caption`, `thumbnail`.
+- Клавиатура: Escape, стрелки, `+`, `-`, `R`, `0`.

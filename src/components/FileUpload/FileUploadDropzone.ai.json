@@ -1,0 +1,11 @@
+{
+  "name": "FileUploadDropzone",
+  "kind": "component",
+  "description": "Доступная зона выбора файлов кликом, клавиатурой и drag-and-drop.",
+  "keywords": ["file", "dropzone", "drag", "drop"],
+  "useWhen": ["Нужен заметный основной сценарий загрузки"],
+  "toAvoid": ["Не использовать вне FileUpload"],
+  "rules": ["Описание должно содержать ограничения"],
+  "alternatives": ["FileUploadTrigger"],
+  "commonlyUsedWith": ["FileUpload"]
+}

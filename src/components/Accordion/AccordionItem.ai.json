@@ -1,0 +1,14 @@
+{
+  "name": "AccordionItem",
+  "kind": "component",
+  "description": "Отдельная секция Accordion со своим значением и disabled-состоянием.",
+  "keywords": ["accordion", "item", "section", "секция"],
+  "useWhen": ["Нужно добавить раскрываемую секцию внутрь Accordion"],
+  "toAvoid": ["Не использовать вне Accordion"],
+  "rules": [
+    "Передавать уникальный value",
+    "Вкладывать AccordionTrigger и AccordionContent"
+  ],
+  "alternatives": ["Item"],
+  "commonlyUsedWith": ["Accordion", "AccordionTrigger", "AccordionContent"]
+}

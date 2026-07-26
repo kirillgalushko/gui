@@ -1,0 +1,15 @@
+{
+  "name": "Attachment",
+  "kind": "component",
+  "description": "Карточка файла или изображения с метаданными, состоянием загрузки и действиями.",
+  "keywords": ["attachment", "file", "upload", "вложение"],
+  "useWhen": ["Нужно показать выбранный или загруженный файл"],
+  "toAvoid": ["Не использовать как средство выбора файла без FileUpload"],
+  "rules": ["Состояние error сопровождать текстом причины"],
+  "alternatives": ["Item"],
+  "commonlyUsedWith": [
+    "AttachmentMedia",
+    "AttachmentContent",
+    "AttachmentActions"
+  ]
+}

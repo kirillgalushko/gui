@@ -1,0 +1,11 @@
+{
+  "name": "FileUploadTrigger",
+  "kind": "component",
+  "description": "GUI-кнопка открытия системного диалога выбора файлов.",
+  "keywords": ["file", "upload", "trigger", "button"],
+  "useWhen": ["Нужна компактная кнопка выбора или замены файла"],
+  "toAvoid": ["Не использовать вне FileUpload"],
+  "rules": [],
+  "alternatives": ["FileUploadDropzone"],
+  "commonlyUsedWith": ["FileUpload"]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Accordion",
+  "kind": "component",
+  "description": "Вертикальный список заголовков, раскрывающих связанные секции контента.",
+  "keywords": ["accordion", "collapse", "expand", "faq", "аккордеон"],
+  "useWhen": [
+    "Нужно компактно показать несколько независимых секций",
+    "Нужно разрешить открытие одной или нескольких секций"
+  ],
+  "toAvoid": [
+    "Не использовать для переключения самостоятельных страниц или разделов навигации"
+  ],
+  "rules": [
+    "Собирать из AccordionItem, AccordionTrigger и AccordionContent",
+    "Использовать multiple, когда пользователь должен сравнивать содержимое нескольких секций"
+  ],
+  "alternatives": ["Tabs", "Card"],
+  "commonlyUsedWith": ["AccordionItem", "AccordionTrigger", "AccordionContent"]
+}

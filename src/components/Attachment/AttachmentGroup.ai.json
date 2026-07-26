@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentGroup",
+  "kind": "component",
+  "description": "Вертикальный список или горизонтальная scroll/snap-группа Attachment.",
+  "keywords": ["attachment", "group", "gallery", "list"],
+  "useWhen": ["Нужно показать несколько файлов"],
+  "toAvoid": [],
+  "rules": ["Для плиток изображений использовать horizontal"],
+  "alternatives": ["Stack"],
+  "commonlyUsedWith": ["Attachment"]
+}

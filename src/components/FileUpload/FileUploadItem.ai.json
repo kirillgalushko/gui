@@ -1,0 +1,11 @@
+{
+  "name": "FileUploadItem",
+  "kind": "component",
+  "description": "Attachment-представление выбранного File с preview, состоянием и progress.",
+  "keywords": ["file", "upload", "item", "preview", "progress"],
+  "useWhen": ["Нужно показать выбранный локальный File"],
+  "toAvoid": ["Для серверной модели использовать Attachment"],
+  "rules": [],
+  "alternatives": ["Attachment"],
+  "commonlyUsedWith": ["FileUploadList"]
+}

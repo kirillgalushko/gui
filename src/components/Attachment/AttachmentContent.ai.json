@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentContent",
+  "kind": "component",
+  "description": "Контейнер названия и метаданных Attachment.",
+  "keywords": ["attachment", "content", "metadata"],
+  "useWhen": ["Нужно сгруппировать AttachmentTitle и AttachmentDescription"],
+  "toAvoid": ["Не использовать вне Attachment"],
+  "rules": [],
+  "alternatives": ["ItemContent"],
+  "commonlyUsedWith": ["AttachmentTitle", "AttachmentDescription"]
+}

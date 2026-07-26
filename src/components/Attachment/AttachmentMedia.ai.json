@@ -1,0 +1,11 @@
+{
+  "name": "AttachmentMedia",
+  "kind": "component",
+  "description": "Область иконки или изображения в Attachment.",
+  "keywords": ["attachment", "preview", "image", "icon"],
+  "useWhen": ["Нужно показать тип файла или preview"],
+  "toAvoid": ["Не использовать вне Attachment"],
+  "rules": ["Для изображений использовать variant image"],
+  "alternatives": ["ItemMedia"],
+  "commonlyUsedWith": ["Attachment"]
+}
