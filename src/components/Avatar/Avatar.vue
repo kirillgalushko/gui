@@ -1,9 +1,23 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import type { Color } from "../../types/colors";
+
+export type AvatarMode =
+  | "default"
+  | "accent"
+  | "secondary"
+  | "ghost"
+  | "outlined"
+  | "negative"
+  | "positive"
+  | "danger"
+  | "warning";
+export type AvatarColor = Color;
 
 export interface AvatarProps {
   shape?: "square" | "circle";
-  color?: "default" | "secondary" | "outlined";
+  mode?: AvatarMode;
+  color?: AvatarColor;
   src?: string;
   name?: string;
   size?: string;
@@ -12,10 +26,54 @@ export interface AvatarProps {
 const props = withDefaults(defineProps<AvatarProps>(), {
   shape: "circle",
   size: "40px",
-  color: "default",
+  mode: "default",
 });
 
 const imageLoaded = ref<boolean>(false);
+
+const modeStyles: Record<
+  AvatarMode,
+  { backgroundColor: string; color?: string }
+> = {
+  default: {
+    backgroundColor: "hsl(var(--primary))",
+    color: "hsl(var(--primary-foreground))",
+  },
+  accent: {
+    backgroundColor: "hsl(var(--accent))",
+    color: "hsl(0 0% 98%)",
+  },
+  secondary: {
+    backgroundColor: "hsl(var(--secondary))",
+    color: "hsl(var(--secondary-foreground))",
+  },
+  ghost: {
+    backgroundColor: "transparent",
+  },
+  outlined: {
+    backgroundColor: "transparent",
+    color: "hsl(var(--foreground))",
+  },
+  negative: {
+    backgroundColor:
+      "color-mix(in oklab, hsl(var(--negative)) 20%, transparent)",
+    color: "hsl(var(--negative))",
+  },
+  positive: {
+    backgroundColor:
+      "color-mix(in oklab, hsl(var(--positive)) 20%, transparent)",
+    color: "hsl(var(--positive))",
+  },
+  danger: {
+    backgroundColor: "color-mix(in oklab, hsl(var(--danger)) 20%, transparent)",
+    color: "hsl(var(--danger))",
+  },
+  warning: {
+    backgroundColor:
+      "color-mix(in oklab, hsl(var(--warning)) 20%, transparent)",
+    color: "hsl(var(--warning))",
+  },
+};
 
 const fallback = computed(() => {
   const parts = props.name?.trim().split(/\s+/).filter(Boolean) ?? [];
@@ -36,10 +94,19 @@ const styles = computed(() => {
           borderRadius: `calc(${props.size} / 4)`,
         }
       : {};
+  const paletteColor =
+    props.color === undefined ? undefined : `var(--color-${props.color}-500)`;
+  const modeStyle = modeStyles[props.mode];
+
   return {
     width: props.size,
     height: props.size,
     fontSize: `calc(${props.size} / 2.5)`,
+    "--avatar-bg":
+      paletteColor === undefined
+        ? modeStyle.backgroundColor
+        : `color-mix(in oklab, ${paletteColor} 20%, transparent)`,
+    "--avatar-color": paletteColor ?? modeStyle.color ?? "inherit",
     ...borderRadius,
   };
 });
@@ -48,7 +115,7 @@ const styles = computed(() => {
 <template>
   <div
     :style="styles"
-    :class="['avatar', props.shape, props.color]"
+    :class="['avatar', props.shape, props.mode]"
     v-bind="$attrs"
   >
     <img
@@ -66,17 +133,14 @@ const styles = computed(() => {
 
 <style scoped>
 .avatar {
-  --avatar-bg: var(--primary);
-  --avatar-color: var(--primary-foreground);
-
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background-color: hsl(var(--avatar-bg));
-  color: hsl(var(--avatar-color));
+  background-color: var(--avatar-bg);
+  color: var(--avatar-color);
   position: relative;
   overflow: hidden;
   font-size: 16px;
@@ -94,15 +158,8 @@ const styles = computed(() => {
   object-fit: cover;
 }
 
-.secondary {
-  --avatar-bg: var(--secondary);
-  --avatar-color: var(--secondary-foreground);
-}
-
 .outlined {
   border: 1px solid hsl(var(--border));
-  background: transparent;
-  --avatar-color: var(--foreground);
 }
 
 .square {

@@ -14,7 +14,21 @@ const meta: Meta<typeof Avatar> = {
     },
     color: {
       control: { type: "select" },
-      options: ["default", "secondary", "outlined"],
+      options: [undefined, "red", "orange", "green", "blue", "violet", "gray"],
+    },
+    mode: {
+      control: { type: "select" },
+      options: [
+        "default",
+        "accent",
+        "secondary",
+        "ghost",
+        "outlined",
+        "negative",
+        "positive",
+        "danger",
+        "warning",
+      ],
     },
     size: {
       control: { type: "text" },
@@ -44,7 +58,9 @@ export const WithImage: Story = {
 };
 
 export const WithIcon: Story = {
-  args: {},
+  args: {
+    mode: "positive",
+  },
   render: (args) => ({
     components: { Avatar, IconUserOutline },
     setup() {

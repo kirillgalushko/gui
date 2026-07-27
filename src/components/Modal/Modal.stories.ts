@@ -14,6 +14,9 @@ const meta: Meta<typeof Modal> = {
     title: {
       control: { type: "text" },
     },
+    description: {
+      control: { type: "text" },
+    },
     showCloseButton: {
       control: { type: "boolean" },
     },
@@ -26,6 +29,7 @@ const meta: Meta<typeof Modal> = {
     isOpened: true,
     showCloseButton: false,
     title: "Сохранить прогресс?",
+    description: "Проверьте данные перед продолжением.",
     size: "medium",
   },
   parameters: {
@@ -45,6 +49,7 @@ export const DefaultModal: Story = {
   args: {
     isOpened: true,
     title: "Сохранить прогресс?",
+    description: "Проверьте данные перед продолжением.",
   },
   render: (args) => ({
     components: { Modal, Button },

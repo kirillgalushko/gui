@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/vue3";
 import Dot from "./Dot.vue";
 
 const colorOptions = [
+  "accent",
   "red",
   "orange",
   "amber",
@@ -41,7 +42,7 @@ const meta: Meta<typeof Dot> = {
     },
   },
   args: {
-    color: "blue",
+    color: "accent",
   },
 };
 

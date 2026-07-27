@@ -3,13 +3,16 @@ import { computed } from "vue";
 import type { Color } from "../../types/colors";
 
 export interface DotProps {
-  color: Color;
+  color: Color | "accent";
 }
 
 const props = defineProps<DotProps>();
 
 const dotStyle = computed(() => ({
-  "--dot-color": `var(--color-${props.color}-500)`,
+  "--dot-color":
+    props.color === "accent"
+      ? "hsl(var(--accent))"
+      : `var(--color-${props.color}-500)`,
 }));
 </script>
 

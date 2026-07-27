@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance } from "vue";
 import Button from "../Button/Button.vue";
+import Gap from "../Gap/Gap.vue";
 import { IconXOutline } from "@gui/icons";
 import Text from "../Text/Text.vue";
 
@@ -11,6 +12,7 @@ export interface ModalProps {
   onClose?: () => void;
   showCloseButton?: boolean;
   title?: string;
+  description?: string;
   size?: ModalSize;
 }
 
@@ -20,7 +22,7 @@ const props = withDefaults(defineProps<ModalProps>(), {
 const instance = getCurrentInstance();
 const gridTemplateAreas = computed(() => {
   const footer = instance?.slots.footer ? '"footer footer"' : "";
-  if (props.title) {
+  if (props.title || props.description) {
     return `
       "title close"
       "content content"
@@ -44,13 +46,23 @@ const gridTemplateAreas = computed(() => {
           :class="[
             'modal-layout',
             {
-              'with-title': !!props.title,
+              'with-title': !!(props.title || props.description),
               'with-close': !!props.showCloseButton,
             },
           ]"
         >
-          <div v-if="props.title" class="modal-title">
-            <Text typography="title-3">{{ props.title }}</Text>
+          <div v-if="props.title || props.description" class="modal-title">
+            <Text v-if="props.title" typography="title-3">
+              {{ props.title }}
+            </Text>
+            <Gap v-if="props.title && props.description" :size="1" />
+            <Text
+              v-if="props.description"
+              typography="paragraph-1"
+              color="secondary"
+            >
+              {{ props.description }}
+            </Text>
           </div>
           <div v-if="props.showCloseButton" class="modal-close">
             <Button

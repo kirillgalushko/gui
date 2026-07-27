@@ -6,7 +6,12 @@ import type { ModalProps } from "../Modal/Modal.vue";
 import Sheet from "../Sheet/Sheet.vue";
 import type { SheetProps } from "../Sheet/Sheet.vue";
 
-type CommonOverlayProp = "isOpened" | "onClose" | "showCloseButton" | "title";
+type CommonOverlayProp =
+  | "isOpened"
+  | "onClose"
+  | "showCloseButton"
+  | "title"
+  | "description";
 type AdaptiveSheetProp = CommonOverlayProp | "side";
 
 export interface AdaptiveModalProps {
@@ -14,6 +19,7 @@ export interface AdaptiveModalProps {
   onClose?: () => void;
   showCloseButton?: boolean;
   title?: string;
+  description?: string;
   modalProps?: Partial<Omit<ModalProps, CommonOverlayProp>>;
   sheetProps?: Partial<Omit<SheetProps, AdaptiveSheetProp>>;
 }
@@ -34,6 +40,7 @@ const isMobile = computed(() => viewport.isMobile);
     :onClose="props.onClose"
     :showCloseButton="props.showCloseButton"
     :title="props.title"
+    :description="props.description"
     side="bottom"
   >
     <slot></slot>
@@ -49,6 +56,7 @@ const isMobile = computed(() => viewport.isMobile);
     :onClose="props.onClose"
     :showCloseButton="props.showCloseButton"
     :title="props.title"
+    :description="props.description"
   >
     <slot></slot>
     <template v-if="$slots.footer" #footer>
