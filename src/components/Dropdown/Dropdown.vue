@@ -1,14 +1,30 @@
 <script setup lang="ts">
 import "floating-vue/dist/style.css";
+import { computed, useAttrs } from "vue";
 import { Dropdown } from "floating-vue";
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 export interface DropdownProps {
   stretched?: boolean;
+  contentWidth?: "small" | "medium" | "large";
+  contentPadding?: "default" | "comfortable";
 }
 
 const props = withDefaults(defineProps<DropdownProps>(), {
   stretched: false,
+  contentPadding: "default",
 });
+const attrs = useAttrs();
+const popperClass = computed(() => [
+  attrs.popperClass,
+  props.contentWidth
+    ? `dropdown-content-width-${props.contentWidth}`
+    : undefined,
+  `dropdown-content-padding-${props.contentPadding}`,
+]);
 </script>
 
 <template>
@@ -17,6 +33,7 @@ const props = withDefaults(defineProps<DropdownProps>(), {
     :arrowOverflow="false"
     :autoBoundaryMaxSize="true"
     :overflowPadding="8"
+    :popperClass="popperClass"
     :class="['dropdown', { stretched: props.stretched }]"
   >
     <template #default>
@@ -54,6 +71,24 @@ const props = withDefaults(defineProps<DropdownProps>(), {
   color: var(--dropdown-text-color);
   background-color: var(--dropdown-background-color);
   border: 1px solid var(--dropdown-border-color);
+  box-sizing: border-box;
+}
+
+.v-popper--theme-dropdown.dropdown-content-width-small .v-popper__inner {
+  width: min(320px, calc(100vw - 16px));
+}
+
+.v-popper--theme-dropdown.dropdown-content-width-medium .v-popper__inner {
+  width: min(420px, calc(100vw - 16px));
+}
+
+.v-popper--theme-dropdown.dropdown-content-width-large .v-popper__inner {
+  width: min(520px, calc(100vw - 16px));
+}
+
+.v-popper--theme-dropdown.dropdown-content-padding-comfortable
+  .v-popper__inner {
+  padding: var(--gap-3);
 }
 
 .v-popper--theme-dropdown.calendar-dropdown .v-popper__inner {

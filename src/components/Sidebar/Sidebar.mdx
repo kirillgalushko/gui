@@ -1,0 +1,31 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Sidebar/Documentation" />
+
+# Sidebar
+
+Боковая панель с изменяемой шириной и опциональным snap-схлопыванием.
+
+- `width` задаёт начальную или управляемую ширину.
+- `minWidth` и `maxWidth` ограничивают геометрию панели.
+- `compactWidth` задаёт ширину компактного состояния.
+- `collapseThreshold` включает snap-поведение и задаёт минимальную обычную ширину. При уменьшении Sidebar сначала останавливается на этом значении.
+- Точка переключения автоматически вычисляется посередине между `compactWidth` и `collapseThreshold`: `compactWidth + (collapseThreshold - compactWidth) / 2`. Для значений `80` и `180` Sidebar переключается в обе стороны на `130px`.
+- При обратном переходе Sidebar быстро анимируется только от `compactWidth` до `collapseThreshold`. Сразу после порога ширина снова напрямую следует за курсором без анимационной задержки. Фактически выбранная курсором ширина сохраняется отдельно от промежуточной анимированной ширины.
+- При запуске snap-анимации всё содержимое Sidebar одновременно исчезает за `45ms`, остаётся полностью скрытым `70ms`, в невидимом состоянии получает новое compact-представление и затем появляется за `45ms`. Fade применяется ко всему default slot, поэтому отдельные дочерние элементы не требуют собственных transition.
+- Схлопывание занимает `220ms`, расширение от `compactWidth` до `collapseThreshold` — `180ms`.
+- Без `collapseThreshold` ширина изменяется свободно, как раньше.
+
+```vue
+<Sidebar
+  :width="300"
+  min-width="80px"
+  max-width="380px"
+  :compact-width="80"
+  :collapse-threshold="180"
+>
+  <SidebarList>
+    <!-- SidebarItem -->
+  </SidebarList>
+</Sidebar>
+```

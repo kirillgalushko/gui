@@ -4,10 +4,12 @@ import type { TextProps } from "../Text/types";
 
 export interface ItemTitleProps {
   Element?: TextProps["Element"];
+  ellipsis?: boolean;
 }
 
 const props = withDefaults(defineProps<ItemTitleProps>(), {
   Element: "div",
+  ellipsis: true,
 });
 </script>
 
@@ -16,7 +18,7 @@ const props = withDefaults(defineProps<ItemTitleProps>(), {
     :Element="props.Element"
     typography="label-2"
     color="default"
-    ellipsis
+    :ellipsis="ellipsis"
     class="item-title"
   >
     <slot></slot>

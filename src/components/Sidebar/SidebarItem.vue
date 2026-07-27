@@ -113,7 +113,7 @@ useResize(buttonElement, checkEllipsis);
 
 .selected {
   color: hsl(var(--contrast-foreground));
-  background-color: hsl(var(--contrast));
+  background-color: color-mix(in oklab, hsl(var(--input)) 80%, transparent);
 }
 
 .SidebarItem:hover {

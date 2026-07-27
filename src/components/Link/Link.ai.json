@@ -7,7 +7,8 @@
   "toAvoid": [],
   "rules": [
     "Используй asChild, когда стили Link нужно применить к RouterLink или button",
-    "Для подчёркивания только при наведении используй underlineOnHover"
+    "Для подчёркивания только при наведении используй underlineOnHover",
+    "mode=\"inherit\" сохраняет цвет родителя во всех состояниях, включая hover, visited и disabled"
   ],
   "alternatives": ["Button"],
   "commonlyUsedWith": ["Text"]

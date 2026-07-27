@@ -1,0 +1,9 @@
+{
+  "name": "TimelineHeader",
+  "kind": "component",
+  "description": "Строка заголовка TimelineItem для названия, badges и действий.",
+  "keywords": ["timeline header", "event header"],
+  "useWhen": ["Нужно сгруппировать заголовок события и короткие метаданные"],
+  "rules": ["Размещать внутри TimelineItem"],
+  "commonlyUsedWith": ["TimelineTitle", "Badge"]
+}

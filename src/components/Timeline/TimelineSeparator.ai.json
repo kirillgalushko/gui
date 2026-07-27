@@ -1,0 +1,13 @@
+{
+  "name": "TimelineSeparator",
+  "kind": "component",
+  "description": "Нейтральная соединительная линия между соседними TimelineItem.",
+  "keywords": ["timeline separator", "connector", "line"],
+  "useWhen": ["Нужно визуально соединить события Timeline"],
+  "rules": [
+    "Линия всегда использует цвет border, цвет задаётся только маркеру",
+    "Граничный separator скрывается автоматически с учётом direction",
+    "Размещать внутри TimelineItem"
+  ],
+  "commonlyUsedWith": ["TimelineIndicator"]
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, ref, provide, watch } from "vue";
+import { computed, onBeforeUnmount, ref, provide, watch } from "vue";
 import { IconGripVerticalOutline } from "@gui/icons";
 import type { Padding } from "../../types";
 
@@ -10,6 +10,7 @@ export interface SidebarProps {
   maxWidth?: string;
   minWidth?: string;
   compactWidth?: number;
+  collapseThreshold?: number;
 }
 
 const props = withDefaults(defineProps<SidebarProps>(), {
@@ -22,58 +23,141 @@ const props = withDefaults(defineProps<SidebarProps>(), {
 });
 const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
-const isCompact = ref<boolean>(width.value < props.compactWidth);
+const canSnapToCompact = (): boolean =>
+  props.collapseThreshold !== undefined &&
+  Number.isFinite(props.collapseThreshold) &&
+  props.collapseThreshold > props.compactWidth;
+const getSnapSwitchWidth = (): number =>
+  props.compactWidth +
+  ((props.collapseThreshold ?? props.compactWidth) - props.compactWidth) / 2;
+const shouldInitiallySnapToCompact = (nextWidth: number): boolean =>
+  canSnapToCompact() && nextWidth < getSnapSwitchWidth();
+const isSnapped = ref<boolean>(shouldInitiallySnapToCompact(width.value));
+if (isSnapped.value) {
+  width.value = props.compactWidth;
+}
+const requestedWidth = ref<number>(width.value);
+const isSnapAnimating = ref<boolean>(false);
+const snapAnimationDirection = ref<"collapse" | "expand" | null>(null);
+const targetIsCompact = computed<boolean>(() => {
+  if (!canSnapToCompact()) {
+    return width.value <= props.compactWidth;
+  }
+  return isSnapped.value;
+});
+const presentedIsCompact = ref<boolean>(targetIsCompact.value);
+const isContentVisible = ref<boolean>(true);
+const isSnapHandoff = ref<boolean>(false);
 const sidebarRef = ref<HTMLElement | null>(null);
-let animationFrameId: number | null = null;
+let snapHandoffFrameId: number | null = null;
+let snapAnimationTimer: ReturnType<typeof setTimeout> | null = null;
+let contentFadeTimer: ReturnType<typeof setTimeout> | null = null;
+const contentFadeDuration = 45;
+const contentHiddenDuration = 70;
+
+const clearContentFade = (): void => {
+  if (contentFadeTimer !== null) {
+    clearTimeout(contentFadeTimer);
+    contentFadeTimer = null;
+  }
+};
+
+watch(
+  targetIsCompact,
+  (nextIsCompact) => {
+    clearContentFade();
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      presentedIsCompact.value = nextIsCompact;
+      isContentVisible.value = true;
+      return;
+    }
+
+    isContentVisible.value = false;
+    contentFadeTimer = setTimeout(() => {
+      presentedIsCompact.value = nextIsCompact;
+      contentFadeTimer = setTimeout(() => {
+        isContentVisible.value = true;
+        contentFadeTimer = null;
+      }, contentHiddenDuration);
+    }, contentFadeDuration);
+  },
+  { flush: "sync" },
+);
+
+const finishSnapAnimation = (event?: TransitionEvent): void => {
+  if (
+    event !== undefined &&
+    (event.target !== sidebarRef.value || event.propertyName !== "width")
+  ) {
+    return;
+  }
+  if (snapAnimationTimer !== null) {
+    clearTimeout(snapAnimationTimer);
+    snapAnimationTimer = null;
+  }
+  const completedDirection = snapAnimationDirection.value;
+  isSnapAnimating.value = false;
+  snapAnimationDirection.value = null;
+  if (completedDirection === "expand" && !isSnapped.value) {
+    isSnapHandoff.value = true;
+    width.value = requestedWidth.value;
+    snapHandoffFrameId = requestAnimationFrame(() => {
+      isSnapHandoff.value = false;
+      snapHandoffFrameId = null;
+    });
+  }
+};
+
+const scheduleSnapAnimationFallback = (): void => {
+  if (snapAnimationTimer !== null) {
+    clearTimeout(snapAnimationTimer);
+  }
+  const duration = snapAnimationDirection.value === "expand" ? 220 : 260;
+  snapAnimationTimer = setTimeout(finishSnapAnimation, duration);
+};
+
+const startSnapAnimation = (direction: "collapse" | "expand"): void => {
+  snapAnimationDirection.value = direction;
+  isSnapAnimating.value = true;
+  scheduleSnapAnimationFallback();
+};
 
 provide("sidebar-width", width);
+provide("sidebar-requested-width", requestedWidth);
 provide("sidebar-is-resizing", isResizing);
-provide("sidebar-is-compact", isCompact);
+provide("sidebar-is-compact", presentedIsCompact);
 
-const getRenderedWidth = (): number => {
-  return sidebarRef.value?.getBoundingClientRect().width ?? width.value;
+const resolveSnapState = (nextWidth: number): boolean => {
+  return canSnapToCompact() && nextWidth < getSnapSwitchWidth();
 };
 
-const updateCompactState = (nextWidth: number = getRenderedWidth()): void => {
-  isCompact.value = nextWidth < props.compactWidth;
-};
-
-const stopTrackingRenderedWidth = (): void => {
-  if (animationFrameId === null) {
+const applyRequestedWidth = (nextWidth: number): void => {
+  const nextIsSnapped = resolveSnapState(nextWidth);
+  requestedWidth.value = nextIsSnapped
+    ? props.compactWidth
+    : Math.max(nextWidth, props.collapseThreshold ?? nextWidth);
+  if (isResizing.value && nextIsSnapped !== isSnapped.value) {
+    startSnapAnimation(nextIsSnapped ? "collapse" : "expand");
+  }
+  isSnapped.value = nextIsSnapped;
+  if (isSnapAnimating.value) {
+    width.value =
+      snapAnimationDirection.value === "expand"
+        ? (props.collapseThreshold ?? nextWidth)
+        : props.compactWidth;
     return;
   }
-
-  cancelAnimationFrame(animationFrameId);
-  animationFrameId = null;
-};
-
-const trackRenderedWidth = (): void => {
-  updateCompactState();
-
-  if (!sidebarRef.value || isResizing.value) {
-    animationFrameId = null;
-    return;
-  }
-
-  if (Math.abs(getRenderedWidth() - width.value) <= 0.5) {
-    updateCompactState(width.value);
-    animationFrameId = null;
-    return;
-  }
-
-  animationFrameId = requestAnimationFrame(trackRenderedWidth);
-};
-
-const startTrackingRenderedWidth = (): void => {
-  stopTrackingRenderedWidth();
-  animationFrameId = requestAnimationFrame(trackRenderedWidth);
+  width.value = requestedWidth.value;
 };
 
 const startResizing = () => {
-  stopTrackingRenderedWidth();
-
   if (sidebarRef.value) {
-    width.value = sidebarRef.value.getBoundingClientRect().width;
+    width.value = isSnapped.value
+      ? props.compactWidth
+      : sidebarRef.value.getBoundingClientRect().width;
   }
 
   isResizing.value = true;
@@ -96,7 +180,7 @@ const resizeSidebar = (event: MouseEvent | TouchEvent) => {
     }
 
     const sidebarOffsetLeft = sidebarRef.value.offsetLeft;
-    width.value = clientX - sidebarOffsetLeft;
+    applyRequestedWidth(clientX - sidebarOffsetLeft);
   }
   if (isResizing.value && event instanceof MouseEvent && event.buttons !== 1) {
     stopResizing();
@@ -114,28 +198,32 @@ const stopResizing = () => {
 };
 
 watch(
-  [width, () => props.compactWidth],
-  () => {
-    if (isResizing.value) {
-      updateCompactState(width.value);
-      return;
-    }
-
-    startTrackingRenderedWidth();
-  },
-  { immediate: true },
-);
-
-watch(
   () => props.width,
   (nextWidth) => {
     if (Number.isFinite(nextWidth)) {
-      width.value = nextWidth;
+      applyRequestedWidth(nextWidth);
     }
   },
 );
 
-onBeforeUnmount(stopTrackingRenderedWidth);
+watch(
+  () => props.compactWidth,
+  () => {
+    if (isSnapped.value) {
+      width.value = props.compactWidth;
+    }
+  },
+);
+
+onBeforeUnmount(() => {
+  clearContentFade();
+  if (snapAnimationTimer !== null) {
+    clearTimeout(snapAnimationTimer);
+  }
+  if (snapHandoffFrameId !== null) {
+    cancelAnimationFrame(snapHandoffFrameId);
+  }
+});
 </script>
 
 <template>
@@ -144,7 +232,14 @@ onBeforeUnmount(stopTrackingRenderedWidth);
     :class="[
       'sidebar',
       `sidebar--${props.mode}`,
-      { 'sidebar--resizing': isResizing },
+      {
+        'sidebar--resizing': isResizing,
+        'sidebar--snapped': isSnapped,
+        'sidebar--snap-animating': isSnapAnimating,
+        'sidebar--snap-expanding':
+          isSnapAnimating && snapAnimationDirection === 'expand',
+        'sidebar--snap-handoff': isSnapHandoff,
+      },
     ]"
     :style="{
       width: `${width}px`,
@@ -152,6 +247,7 @@ onBeforeUnmount(stopTrackingRenderedWidth);
       maxWidth: props.maxWidth,
       minWidth: props.minWidth,
     }"
+    @transitionend="finishSnapAnimation"
   >
     <div
       class="resize-handle"
@@ -160,7 +256,14 @@ onBeforeUnmount(stopTrackingRenderedWidth);
     >
       <IconGripVerticalOutline />
     </div>
-    <slot></slot>
+    <div
+      :class="[
+        'sidebar__content',
+        { 'sidebar__content--visible': isContentVisible },
+      ]"
+    >
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -186,12 +289,38 @@ onBeforeUnmount(stopTrackingRenderedWidth);
   padding: var(--gap-3);
   box-sizing: border-box;
   position: relative;
-  transition: width 0.18s ease;
+  transition: width 0.22s ease;
   will-change: width;
 }
 
 .sidebar--resizing {
   transition: none;
+}
+
+.sidebar--snap-animating {
+  transition: width 0.24s ease;
+}
+
+.sidebar--snap-expanding {
+  transition-duration: 0.2s;
+}
+
+.sidebar--snap-handoff {
+  transition: none;
+}
+
+.sidebar__content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.125s ease;
+}
+
+.sidebar__content--visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sidebar--floating {
@@ -262,7 +391,8 @@ onBeforeUnmount(stopTrackingRenderedWidth);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sidebar {
+  .sidebar,
+  .sidebar__content {
     transition: none;
   }
 }

@@ -1,0 +1,81 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Timeline/Documentation" />
+
+# Timeline
+
+Составная временная шкала для истории событий, этапов процесса и ленты уведомлений.
+Контент не привязан к модели данных: иконки, аватары, карточки, badges и действия
+передаются обычными слотами.
+
+## Базовый пример
+
+```vue
+<Timeline direction="reverse" :active-step="3">
+  <TimelineItem v-for="event in events" :key="event.id" :step="event.id">
+    <TimelineSeparator />
+    <TimelineIndicator variant="soft">
+      <component :is="event.icon" />
+    </TimelineIndicator>
+    <TimelineDate :datetime="event.datetime">{{ event.date }}</TimelineDate>
+    <TimelineHeader>
+      <TimelineTitle>{{ event.title }}</TimelineTitle>
+    </TimelineHeader>
+    <TimelineContent>{{ event.description }}</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+`activeStep` автоматически задаёт числовым шагам состояния `completed`, `current` и
+`pending`. Для истории событий состояние можно задавать явно через `TimelineItem state`.
+Сами данные всегда передаются в прямой хронологии: от старого события к новому.
+`direction="reverse"` разворачивает только визуальный порядок.
+
+## Горизонтальная шкала с датой над линией
+
+```vue
+<Timeline orientation="horizontal" date-position="top" :active-step="2">
+  <TimelineItem :step="1">
+    <TimelineDate>Неделя 1</TimelineDate>
+    <TimelineSeparator />
+    <TimelineIndicator variant="outline" />
+    <TimelineHeader><TimelineTitle>Планирование</TimelineTitle></TimelineHeader>
+    <TimelineContent>Объём работ и ресурсы.</TimelineContent>
+  </TimelineItem>
+</Timeline>
+```
+
+Горизонтальный вариант адаптивен: элементы сохраняют читаемую минимальную ширину и
+прокручиваются со scroll snap на узком контейнере.
+
+## Аватар и произвольный контент
+
+```vue
+<Timeline rail-size="48px">
+  <TimelineItem state="current">
+    <TimelineSeparator dashed />
+    <TimelineIndicator variant="ghost" size="48px">
+      <Avatar name="Анна Смирнова" size="48px" />
+    </TimelineIndicator>
+    <TimelineHeader>
+      <TimelineTitle>Гость подтвердил заезд</TimelineTitle>
+      <Badge mode="positive">Бронь</Badge>
+    </TimelineHeader>
+    <TimelineContent>
+      <Card stretched>Любой составной GUI-контент</Card>
+    </TimelineContent>
+    <TimelineDate>5 минут назад</TimelineDate>
+  </TimelineItem>
+</Timeline>
+```
+
+- `datePosition`: `top` или `side`.
+- `direction`: `forward` показывает старые события первыми, `reverse` — новые первыми.
+- `TimelineIndicator variant`: `solid`, `outline`, `soft`, `ghost`.
+- `TimelineIndicator size`: `small`, `medium`, `large` или CSS-размер.
+- `mode` использует semantic colors GUI; `color` принимает цвет общей палитры.
+- `railSize` должен быть не меньше самого крупного маркера и сохраняет единую ось при
+  разных размерах точек.
+- `TimelineSeparator` всегда использует нейтральный `--border`; линию можно сделать
+  пунктирной.
+- `TimelineDate` по умолчанию рендерит семантический `time` и поддерживает `datetime`.

@@ -39,7 +39,7 @@ export const Default: Story = {
       IconInfoTriangleOutline,
     },
     template: `
-      <Sidebar :compactWidth="120" minWidth="100px">
+      <Sidebar :compactWidth="80" :collapseThreshold="180" minWidth="80px">
         <SidebarList>
           <SidebarItem>
             <template #left>
@@ -104,7 +104,12 @@ export const Floating: Story = {
     },
     template: `
       <div style="height: 100vh; background: hsl(var(--muted) / 0.35);">
-        <Sidebar mode="floating" :compactWidth="120" minWidth="100px">
+        <Sidebar
+          mode="floating"
+          :compactWidth="80"
+          :collapseThreshold="180"
+          minWidth="80px"
+        >
           <SidebarList>
             <SidebarItem>
               <template #left>

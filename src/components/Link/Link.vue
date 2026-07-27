@@ -105,8 +105,7 @@ const linkClass = computed(() => [
 }
 
 .link.mode-inherit {
-  --link-color: var(--foreground);
-  color: hsl(var(--link-color));
+  color: inherit;
 }
 
 .link.inline {
@@ -123,7 +122,7 @@ const linkClass = computed(() => [
   text-underline-offset: 3px;
 }
 
-.link:hover:not(.disabled) {
+.link.mode-accent:hover:not(.disabled) {
   color: hsl(var(--link-color) / 0.75);
 }
 
@@ -133,14 +132,21 @@ const linkClass = computed(() => [
   border-radius: 4px;
 }
 
-.link.enable-visited:visited {
+.link.mode-accent.enable-visited:visited {
   color: hsl(var(--accent-muted));
 }
 
 .link.disabled {
-  color: hsl(var(--muted-foreground));
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.link.mode-accent.disabled {
+  color: hsl(var(--muted-foreground));
+}
+
+.link.mode-inherit.disabled {
+  opacity: 0.5;
 }
 
 button.link {

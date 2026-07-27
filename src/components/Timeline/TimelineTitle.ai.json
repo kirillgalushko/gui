@@ -1,0 +1,9 @@
+{
+  "name": "TimelineTitle",
+  "kind": "component",
+  "description": "Семантический заголовок события или этапа Timeline.",
+  "keywords": ["timeline title", "event title"],
+  "useWhen": ["Нужно назвать событие Timeline"],
+  "rules": ["Уровень заголовка настраивать через Element"],
+  "commonlyUsedWith": ["TimelineHeader"]
+}

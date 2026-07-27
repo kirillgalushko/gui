@@ -45,6 +45,28 @@ export const AttachmentTitle = ac(
 export const AttachmentTrigger = ac(
   () => import("./components/Attachment/AttachmentTrigger.vue"),
 );
+export const Timeline = ac(() => import("./components/Timeline/Timeline.vue"));
+export const TimelineContent = ac(
+  () => import("./components/Timeline/TimelineContent.vue"),
+);
+export const TimelineDate = ac(
+  () => import("./components/Timeline/TimelineDate.vue"),
+);
+export const TimelineHeader = ac(
+  () => import("./components/Timeline/TimelineHeader.vue"),
+);
+export const TimelineIndicator = ac(
+  () => import("./components/Timeline/TimelineIndicator.vue"),
+);
+export const TimelineItem = ac(
+  () => import("./components/Timeline/TimelineItem.vue"),
+);
+export const TimelineSeparator = ac(
+  () => import("./components/Timeline/TimelineSeparator.vue"),
+);
+export const TimelineTitle = ac(
+  () => import("./components/Timeline/TimelineTitle.vue"),
+);
 export const ImageViewer = ac(
   () => import("./components/ImageViewer/ImageViewer.vue"),
 );
@@ -378,6 +400,17 @@ export type {
   AttachmentSize,
   AttachmentState,
 } from "./components/Attachment/types";
+export type {
+  TimelineColor,
+  TimelineDatePosition,
+  TimelineDirection,
+  TimelineIndicatorSize,
+  TimelineIndicatorVariant,
+  TimelineItemState,
+  TimelineOrientation,
+  TimelineStep,
+  TimelineTone,
+} from "./components/Timeline/types";
 export type {
   FileUploadListOrientation,
   FileUploadRejection,

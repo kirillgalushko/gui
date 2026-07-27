@@ -1,0 +1,12 @@
+{
+  "name": "TimelineIndicator",
+  "kind": "component",
+  "description": "Настраиваемый маркер Timeline: точка, outline, иконка или контейнер аватара.",
+  "keywords": ["timeline indicator", "marker", "dot", "icon", "avatar"],
+  "useWhen": ["Нужно обозначить событие на линии"],
+  "rules": [
+    "Для Avatar использовать variant ghost",
+    "Произвольный size должен помещаться в railSize Timeline"
+  ],
+  "commonlyUsedWith": ["Avatar", "TimelineSeparator"]
+}

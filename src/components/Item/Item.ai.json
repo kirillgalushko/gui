@@ -5,7 +5,9 @@
   "keywords": ["item", "list", "row", "cell"],
   "useWhen": [],
   "toAvoid": [],
-  "rules": [],
+  "rules": [
+    "Для цветной иконки передай ItemMedia prop color из палитры UI Kit."
+  ],
   "alternatives": ["Card", "Stack", "Text"],
   "commonlyUsedWith": [
     "ItemMedia",

@@ -1,0 +1,9 @@
+{
+  "name": "TimelineDate",
+  "kind": "component",
+  "description": "Дата или относительное время события Timeline с семантикой time.",
+  "keywords": ["timeline date", "time", "дата"],
+  "useWhen": ["Нужно показать время события или подпись периода"],
+  "rules": ["Для точной даты передавать datetime"],
+  "commonlyUsedWith": ["TimelineItem"]
+}

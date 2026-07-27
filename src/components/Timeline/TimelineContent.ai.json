@@ -1,0 +1,9 @@
+{
+  "name": "TimelineContent",
+  "kind": "component",
+  "description": "Область произвольного содержимого события Timeline.",
+  "keywords": ["timeline content", "event details"],
+  "useWhen": ["Нужно показать описание, карточку или действия события"],
+  "rules": ["Допускает любые GUI-компоненты и разметку"],
+  "commonlyUsedWith": ["Card", "Item", "TimelineHeader"]
+}

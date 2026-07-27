@@ -7,7 +7,10 @@
     "Нужно показать дополнительное содержимое или список действий рядом с элементом"
   ],
   "toAvoid": [],
-  "rules": ["Содержимое выпадающей панели передавать через слот popper"],
+  "rules": [
+    "Содержимое выпадающей панели передавать через слот popper",
+    "Для сложного содержимого выбирай contentWidth и contentPadding вместо локальных CSS-стилей"
+  ],
   "alternatives": ["Select", "ContextMenu", "BaseMenu"],
   "commonlyUsedWith": ["DropdownList", "DropdownItem", "DropdownSeparator"]
 }

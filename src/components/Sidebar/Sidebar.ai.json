@@ -6,7 +6,11 @@
   "useWhen": ["Нужно организовать основную навигацию приложения"],
   "toAvoid": [],
   "rules": [
-    "Для индикатора поверх иконки SidebarItem в компактном режиме используй слот compact-indicator"
+    "Для индикатора поверх иконки SidebarItem в компактном режиме используй слот compact-indicator",
+    "Для snap-схлопывания укажи compactWidth и collapseThreshold; collapseThreshold должен быть больше compactWidth",
+    "Переключение compact-состояния происходит посередине между compactWidth и collapseThreshold",
+    "При смене compact-состояния Sidebar применяет единый fade ко всему содержимому default slot; дочерним элементам отдельная fade-анимация не нужна",
+    "При расширении Sidebar анимирует только участок от compactWidth до collapseThreshold, а выше порога напрямую следует за курсором"
   ],
   "alternatives": [],
   "commonlyUsedWith": ["SidebarList", "SidebarItem", "Badge", "Dot"]

@@ -1,0 +1,9 @@
+{
+  "name": "TimelineItem",
+  "kind": "component",
+  "description": "Отдельное событие или этап Timeline с явным или вычисляемым состоянием.",
+  "keywords": ["timeline item", "event", "step"],
+  "useWhen": ["Нужно добавить событие или этап внутрь Timeline"],
+  "rules": ["Использовать только внутри Timeline"],
+  "commonlyUsedWith": ["TimelineHeader", "TimelineContent", "TimelineDate"]
+}

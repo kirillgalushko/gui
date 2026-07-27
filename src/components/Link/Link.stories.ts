@@ -91,6 +91,19 @@ export const Inline: Story = {
   }),
 };
 
+export const InheritColor: Story = {
+  render: () => ({
+    components: { Link },
+    template: `
+      <div style="color: var(--color-emerald-500); display: flex; gap: var(--gap-4)">
+        <Link mode="inherit" href="#">Обычная</Link>
+        <Link mode="inherit" href="#" enable-visited>Посещённая</Link>
+        <Link mode="inherit" href="#" disabled>Недоступная</Link>
+      </div>
+    `,
+  }),
+};
+
 export const AsButton: Story = {
   render: () => ({
     components: { Link },

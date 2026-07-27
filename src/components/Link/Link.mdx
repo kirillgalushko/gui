@@ -13,7 +13,7 @@ import { Meta } from "@storybook/addon-docs";
 - `underlined?: boolean` — показывает подчеркивание.
 - `disabled?: boolean` — отключает ссылку, ставит `aria-disabled` и убирает из tab order.
 - `enableVisited?: boolean` — включает visited-цвет.
-- `mode?: 'inherit' | 'accent'` — цвет ссылки, по умолчанию `accent`.
+- `mode?: 'inherit' | 'accent'` — цвет ссылки, по умолчанию `accent`. В режиме `inherit` ссылка сохраняет цвет родителя также при наведении, после посещения и в disabled-состоянии; disabled обозначается прозрачностью.
 - `Element?: 'a' | 'button' | 'span'` — тег компонента, по умолчанию `a`.
 
 ## Slots
