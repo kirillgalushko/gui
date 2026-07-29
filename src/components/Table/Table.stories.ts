@@ -50,6 +50,8 @@ const invoices = [
   },
 ];
 
+const overflowingInvoices = [...invoices, ...invoices, ...invoices];
+
 export const Default: Story = {
   render: () => ({
     components: {
@@ -90,6 +92,42 @@ export const Default: Story = {
             <TableCell style="text-align: right;">$1,750.00</TableCell>
           </TableRow>
         </TableFooter>
+      </Table>
+    `,
+  }),
+};
+
+export const StickyHeader: Story = {
+  render: () => ({
+    components: {
+      Table,
+      TableBody,
+      TableCell,
+      TableHead,
+      TableHeader,
+      TableRow,
+    },
+    setup() {
+      return { overflowingInvoices };
+    },
+    template: `
+      <Table :max-height="240" sticky-header>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Invoice</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead>Method</TableHead>
+            <TableHead style="text-align: right;">Amount</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow v-for="invoice in overflowingInvoices" :key="invoice.invoice">
+            <TableCell>{{ invoice.invoice }}</TableCell>
+            <TableCell>{{ invoice.paymentStatus }}</TableCell>
+            <TableCell>{{ invoice.paymentMethod }}</TableCell>
+            <TableCell style="text-align: right;">{{ invoice.totalAmount }}</TableCell>
+          </TableRow>
+        </TableBody>
       </Table>
     `,
   }),

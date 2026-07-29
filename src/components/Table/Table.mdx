@@ -6,6 +6,9 @@ import { Meta } from "@storybook/addon-docs";
 
 Адаптивная таблица
 
+Для длинных списков передайте `max-height` и `sticky-header`: вертикальная прокрутка будет внутри
+таблицы, а шапка останется на месте.
+
 ## Компоненты
 
 - `Table`
@@ -38,3 +41,18 @@ import { Meta } from "@storybook/addon-docs";
   </TableBody>
 </Table>
 ```
+
+## Фиксированная шапка
+
+```vue
+<Table :max-height="420" sticky-header>
+  <TableHeader><!-- заголовки столбцов --></TableHeader>
+  <TableBody><!-- прокручиваемые строки --></TableBody>
+</Table>
+```
+
+## Ширина колонок
+
+У `TableHead` и `TableCell` есть props `width`, `min-width` и `max-width`. Для компактных
+колонок используйте `width="1"`, а для единственной растягиваемой не задавайте ширину.
+Если суммарная минимальная ширина колонок меньше 640px, на `Table` передайте `:min-width="0"`.
