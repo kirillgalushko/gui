@@ -40,7 +40,7 @@ const columnStyle = computed(() => ({
 
 <style scoped>
 .table-cell {
-  padding: var(--gap-3);
+  padding: var(--gap-2);
   vertical-align: middle;
 }
 

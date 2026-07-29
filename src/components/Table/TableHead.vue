@@ -41,7 +41,7 @@ const columnStyle = computed(() => ({
 <style scoped>
 .table-head {
   height: 40px;
-  padding: 0 var(--gap-3);
+  padding: 0 var(--gap-2);
   /* color: hsl(var(--muted-foreground)); */
   font-weight: 500;
   text-align: left;

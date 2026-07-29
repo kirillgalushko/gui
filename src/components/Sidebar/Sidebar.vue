@@ -15,7 +15,7 @@ export interface SidebarProps {
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   mode: "default",
-  padding: 16,
+  padding: 12,
   minWidth: "200px",
   maxWidth: "100vw",
   width: 300,
@@ -286,7 +286,7 @@ onBeforeUnmount(() => {
   border-right: 1px solid hsl(var(--border));
   background: hsl(var(--sidebar));
   height: 100%;
-  padding: var(--gap-3);
+  padding: 12px;
   box-sizing: border-box;
   position: relative;
   transition: width 0.22s ease;

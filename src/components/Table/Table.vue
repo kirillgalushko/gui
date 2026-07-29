@@ -9,7 +9,7 @@ export interface TableProps {
 }
 
 const props = withDefaults(defineProps<TableProps>(), {
-  minWidth: 640,
+  minWidth: undefined,
   maxHeight: undefined,
   stickyHeader: false,
 });

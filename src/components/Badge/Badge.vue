@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 
 const modeStyles: Record<
   BadgeMode,
-  { backgroundColor: string; color?: string }
+  { backgroundColor: string; color?: string; borderColor?: string }
 > = {
   default: {
     backgroundColor: "hsl(var(--primary))",
@@ -40,8 +40,9 @@ const modeStyles: Record<
     color: "hsl(0 0% 98%)",
   },
   secondary: {
-    backgroundColor: "hsl(var(--secondary))",
+    backgroundColor: "hsl(var(--input))",
     color: "hsl(var(--secondary-foreground))",
+    borderColor: "hsl(var(--border))",
   },
   ghost: {
     backgroundColor: "transparent",
@@ -74,6 +75,7 @@ const badgeStyle = computed(() => {
     return {
       "--badge-background": `color-mix(in oklab, ${color} 20%, transparent)`,
       "--badge-color": color,
+      "--badge-border-color": `color-mix(in oklab, ${color} 15%, transparent)`,
     };
   }
 
@@ -82,15 +84,26 @@ const badgeStyle = computed(() => {
   return {
     "--badge-background": modeStyle.backgroundColor,
     "--badge-color": modeStyle.color ?? "inherit",
+    "--badge-border-color":
+      modeStyle.borderColor ??
+      (modeStyle.color
+        ? `color-mix(in oklab, ${modeStyle.color} 15%, transparent)`
+        : "inherit"),
   };
 });
+
+const hasBorder = computed(
+  () =>
+    Boolean(props.color) ||
+    !(["default", "ghost", "accent"] as BadgeMode[]).includes(props.mode),
+);
 </script>
 
 <template>
   <component
     v-bind="$attrs"
     :is="props.Element"
-    :class="['Badge', props.size]"
+    :class="['Badge', props.size, { 'with-border': hasBorder }]"
     :style="badgeStyle"
     :type="props.Element === 'button' ? 'button' : undefined"
   >
@@ -128,6 +141,10 @@ const badgeStyle = computed(() => {
   gap: var(--badge-gap);
 }
 
+.Badge.with-border {
+  border: 1px solid var(--badge-border-color);
+}
+
 .Badge.small {
   --badge-font-size: 10px;
   --badge-line-height: 1.4;
@@ -154,6 +171,10 @@ button.Badge {
   border: none;
   cursor: pointer;
   margin: 0;
+}
+
+button.Badge.with-border {
+  border: 1px solid var(--badge-border-color);
 }
 
 button.Badge:disabled {

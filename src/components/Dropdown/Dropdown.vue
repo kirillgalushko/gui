@@ -10,7 +10,7 @@ defineOptions({
 export interface DropdownProps {
   stretched?: boolean;
   contentWidth?: "small" | "medium" | "large";
-  contentPadding?: "default" | "comfortable";
+  contentPadding?: "none" | "default" | "comfortable";
 }
 
 const props = withDefaults(defineProps<DropdownProps>(), {
@@ -89,6 +89,10 @@ const popperClass = computed(() => [
 .v-popper--theme-dropdown.dropdown-content-padding-comfortable
   .v-popper__inner {
   padding: var(--gap-3);
+}
+
+.v-popper--theme-dropdown.dropdown-content-padding-none .v-popper__inner {
+  padding: 0;
 }
 
 .v-popper--theme-dropdown.calendar-dropdown .v-popper__inner {
