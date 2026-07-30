@@ -1,0 +1,16 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Filters/FilterItem" />
+
+# FilterItem
+
+Управляемое представление активного фильтра: поле, оператор, значение и
+удаление. Для `text`, `select`, `multiselect` и `date` есть стандартные редакторы;
+слот `value-menu` принимает любой пользовательский контрол.
+
+```vue
+<FilterItem v-model="filter" :field="field" @remove="removeFilter" />
+```
+
+Для простого однозначного фильтра используйте `layout="compact"`: компонент
+покажет только редактируемое значение и кнопку удаления.

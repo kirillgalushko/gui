@@ -1,0 +1,16 @@
+{
+  "name": "FilterItem",
+  "kind": "component",
+  "description": "Составное отображение активного фильтра с оператором, значением и удалением.",
+  "keywords": ["active filter", "filter chip", "operator", "активный фильтр"],
+  "useWhen": ["Нужно отдельно отобразить и редактировать один ActiveFilter"],
+  "toAvoid": ["Не передавать оператор, отсутствующий в конфигурации поля"],
+  "rules": [
+    "Использовать v-model для состояния фильтра",
+    "Для календарной даты использовать type=date",
+    "layout=compact скрывает поле и оператор, оставляя значение и удаление",
+    "Для custom-поля передавать слот value-menu"
+  ],
+  "alternatives": ["Filters"],
+  "commonlyUsedWith": ["FilterMenu", "FilterClear"]
+}

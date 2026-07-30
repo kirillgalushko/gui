@@ -5,7 +5,10 @@
   "keywords": ["picker", "trigger", "select"],
   "useWhen": ["Нужно открыть компонент выбора значения"],
   "toAvoid": [],
-  "rules": ["Использовать как основу для компонентов, открывающих Dropdown"],
+  "rules": [
+    "Использовать как основу для компонентов, открывающих Dropdown",
+    "Для прозрачного trigger с обводкой использовать mode=outline"
+  ],
   "alternatives": ["Button"],
   "commonlyUsedWith": ["Dropdown", "Select"]
 }

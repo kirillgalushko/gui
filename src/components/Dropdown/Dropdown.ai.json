@@ -9,7 +9,7 @@
   "toAvoid": [],
   "rules": [
     "Содержимое выпадающей панели передавать через слот popper",
-    "Для сложного содержимого выбирай contentWidth и contentPadding вместо локальных CSS-стилей",
+    "Для компактных меню используй contentWidth=\"extra-small\", для сложного содержимого выбирай остальные contentWidth и contentPadding",
     "Используй contentPadding=\"none\" для списков с разделителями от края до края; внутренние отступы в таком случае задают дочерние UI-компоненты"
   ],
   "alternatives": ["Select", "ContextMenu", "BaseMenu"],

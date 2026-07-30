@@ -16,6 +16,10 @@ const meta: Meta<typeof Select> = {
       control: "select",
       options: ["extra-small", "small", "medium", "large"],
     },
+    mode: {
+      control: "select",
+      options: ["default", "outline"],
+    },
   },
 };
 
@@ -26,6 +30,7 @@ export const Default: Story = {
   args: {
     label: "Выберите тему",
     name: "theme",
+    mode: "outline",
   },
   render: (args) => ({
     components: { Select, SelectOption },

@@ -1,0 +1,13 @@
+{
+  "name": "PaginationEllipsis",
+  "kind": "component",
+  "description": "Неинтерактивный маркер пропущенного диапазона страниц.",
+  "keywords": ["pagination ellipsis", "more pages", "многоточие"],
+  "useWhen": ["Между показанными страницами пропущен диапазон"],
+  "toAvoid": ["Не использовать как кнопку открытия меню"],
+  "rules": [
+    "Размещать внутри PaginationItem",
+    "Локальный size переопределяет размер родительского Pagination"
+  ],
+  "commonlyUsedWith": ["PaginationItem"]
+}

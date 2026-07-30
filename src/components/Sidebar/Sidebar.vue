@@ -357,7 +357,6 @@ onBeforeUnmount(() => {
   left: 50%;
   top: 0;
   bottom: 0;
-  background-color: hsl(var(--border));
   z-index: -1;
   margin-left: -1px;
 }
@@ -380,7 +379,8 @@ onBeforeUnmount(() => {
   position: absolute;
   opacity: 0;
   transition: opacity 0.2s;
-  background: hsl(var(--border));
+  background: hsl(var(--input));
+  border: 1px solid hsl(var(--border));
   padding: 4px 1px;
   border-radius: 6px;
 }

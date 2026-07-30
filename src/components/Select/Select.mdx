@@ -11,6 +11,7 @@ import { Meta } from "@storybook/addon-docs";
 - `value?: string` — выбранное значение.
 - `label?: string` — текст плейсхолдера, когда значение не выбрано.
 - `size?: 'extra-small' | 'small' | 'medium' | 'large'` — высота и типографика как у `Button`, по умолчанию `large`.
+- `mode?: 'default' | 'outline'` — режим trigger, по умолчанию `default`.
 - `stretched?: boolean` — растягивает trigger на всю ширину.
 - `name?: string` — имя скрытого input для HTML-форм.
 - `onChange?: (option: RegisteredOption) => void` — вызывается при выборе опции.
@@ -22,6 +23,7 @@ import { Meta } from "@storybook/addon-docs";
   :value="theme"
   label="Выберите тему"
   size="small"
+  mode="outline"
   :on-change="handleThemeChange"
 >
   <SelectOption value="auto" label="Авто" />

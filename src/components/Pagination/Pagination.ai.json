@@ -1,0 +1,24 @@
+{
+  "name": "Pagination",
+  "kind": "component",
+  "description": "Навигация между страницами набора данных.",
+  "keywords": ["pagination", "pages", "navigation", "пагинация", "страницы"],
+  "useWhen": [
+    "Нужно перемещаться между страницами списка, таблицы или каталога"
+  ],
+  "toAvoid": ["Не использовать для пошаговых форм и вкладок"],
+  "rules": [
+    "Собирать только из компонентов семейства Pagination",
+    "Размер всех элементов задавать через size на Pagination",
+    "Текущую страницу отмечать через isActive у PaginationLink",
+    "Для недоступных переходов использовать disabled"
+  ],
+  "commonlyUsedWith": [
+    "PaginationContent",
+    "PaginationItem",
+    "PaginationLink",
+    "PaginationPrevious",
+    "PaginationNext",
+    "PaginationEllipsis"
+  ]
+}

@@ -103,6 +103,33 @@ export const BreadcrumbPage = ac(
 export const BreadcrumbSeparator = ac(
   () => import("./components/Breadcrumb/BreadcrumbSeparator.vue"),
 );
+export const Pagination = ac(
+  () => import("./components/Pagination/Pagination.vue"),
+);
+export const PaginationContent = ac(
+  () => import("./components/Pagination/PaginationContent.vue"),
+);
+export const PaginationItem = ac(
+  () => import("./components/Pagination/PaginationItem.vue"),
+);
+export const PaginationLink = ac(
+  () => import("./components/Pagination/PaginationLink.vue"),
+);
+export const PaginationPrevious = ac(
+  () => import("./components/Pagination/PaginationPrevious.vue"),
+);
+export const PaginationNext = ac(
+  () => import("./components/Pagination/PaginationNext.vue"),
+);
+export const PaginationEllipsis = ac(
+  () => import("./components/Pagination/PaginationEllipsis.vue"),
+);
+export const PaginationPageSize = ac(
+  () => import("./components/Pagination/PaginationPageSize.vue"),
+);
+export const PaginationSummary = ac(
+  () => import("./components/Pagination/PaginationSummary.vue"),
+);
 export const Card = ac(() => import("./components/Card/Card.vue"));
 export const Checkbox = ac(() => import("./components/Checkbox/Checkbox.vue"));
 export const RadioGroup = ac(
@@ -243,6 +270,7 @@ export const ProgressBar = ac(
   () => import("./components/ProgressBar/ProgressBar.vue"),
 );
 export const Dropdown = ac(() => import("./components/Dropdown/Dropdown.vue"));
+export type { DropdownContentWidth } from "./components/Dropdown/Dropdown.vue";
 export const DropdownList = ac(
   () => import("./components/Dropdown/DropdownList.vue"),
 );
@@ -251,6 +279,19 @@ export const DropdownItem = ac(
 );
 export const DropdownSeparator = ac(
   () => import("./components/Dropdown/DropdownSeparator.vue"),
+);
+export const Filters = ac(() => import("./components/Filters/Filters.vue"));
+export const FilterMenu = ac(
+  () => import("./components/Filters/FilterMenu.vue"),
+);
+export const FilterItem = ac(
+  () => import("./components/Filters/FilterItem.vue"),
+);
+export const FilterClear = ac(
+  () => import("./components/Filters/FilterClear.vue"),
+);
+export const VisibilityMenu = ac(
+  () => import("./components/Filters/VisibilityMenu.vue"),
 );
 export const Sheet = ac(() => import("./components/Sheet/Sheet.vue"));
 export const Skeleton = ac(() => import("./components/Skeleton/Skeleton.vue"));
@@ -422,7 +463,30 @@ export type {
   ImageViewerItem,
   ImageViewerThumbnails,
 } from "./components/ImageViewer/types";
+export type {
+  ActiveFilter,
+  FilterControlAppearance,
+  FilterControlMode,
+  FilterField,
+  FilterFieldType,
+  FilterItemLayout,
+  FilterMenuSelectPayload,
+  FilterOperator,
+  FilterOption,
+  VisibilityOption,
+} from "./components/Filters/types";
+export type { PickerMode } from "./components/Picker/types";
 export { formatFileUploadSize } from "./components/FileUpload/fileUpload";
+export {
+  createFilter,
+  createFilterId,
+  filterFieldsByQuery,
+  filterOptionsByQuery,
+  formatFilterValue,
+  getFilterOperators,
+  isFilterValueSelected,
+  toggleFilterValue,
+} from "./components/Filters/filters";
 export type {
   ExternalToast,
   ToastClasses,

@@ -1,0 +1,14 @@
+{
+  "name": "PaginationSummary",
+  "kind": "component",
+  "description": "Диапазон видимых элементов и общее количество элементов пагинации.",
+  "keywords": ["pagination summary", "visible range", "total rows"],
+  "useWhen": [
+    "Нужно показать, какая часть набора данных видна на текущей странице"
+  ],
+  "rules": [
+    "Передавать from и to уже рассчитанными для текущей страницы",
+    "Для пустого набора передавать total равным 0"
+  ],
+  "commonlyUsedWith": ["PaginationPageSize", "Pagination"]
+}

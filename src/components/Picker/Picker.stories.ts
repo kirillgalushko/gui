@@ -8,6 +8,10 @@ const meta = {
   component: Picker,
   tags: ["autodocs"],
   argTypes: {
+    mode: {
+      control: "select",
+      options: ["default", "outline"],
+    },
     stretched: {
       control: "boolean",
     },
@@ -18,6 +22,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {
+    mode: "default",
+  },
   render: (args) => ({
     components: { IconChevronDownOutline, Picker },
     setup() {
@@ -32,4 +39,11 @@ export const Default: Story = {
       </Picker>
     `,
   }),
+};
+
+export const Outline: Story = {
+  ...Default,
+  args: {
+    mode: "outline",
+  },
 };

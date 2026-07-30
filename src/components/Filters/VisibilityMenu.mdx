@@ -1,0 +1,12 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Filters/VisibilityMenu" />
+
+# VisibilityMenu
+
+Управляемое меню показа и скрытия элементов. `v-model` содержит ключи
+видимых элементов, а `min-visible` не позволяет скрыть обязательный минимум.
+
+```vue
+<VisibilityMenu v-model="visibleColumns" :items="columns" label="Колонки" />
+```

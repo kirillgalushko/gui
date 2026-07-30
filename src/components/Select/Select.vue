@@ -7,11 +7,13 @@ import { useSelect } from "./useSelect";
 import type { RegisteredOption } from "./useSelect";
 import Picker from "../Picker/Picker.vue";
 import type { ComponentSize } from "../../types";
+import type { PickerMode } from "../Picker/types";
 
 export interface SelectProps {
   stretched?: boolean;
   label?: string;
   size?: ComponentSize;
+  mode?: PickerMode;
   value?: string;
   name?: string;
   onChange?: (option: RegisteredOption) => void;
@@ -19,6 +21,7 @@ export interface SelectProps {
 
 const props = withDefaults(defineProps<SelectProps>(), {
   size: "large",
+  mode: "default",
 });
 const select = useSelect(props.value, props.onChange);
 provide("select", select);
@@ -58,7 +61,12 @@ watch(
     class="select"
     :stretched="props.stretched"
   >
-    <Picker ref="pickerRef" :size="props.size" :stretched="props.stretched">
+    <Picker
+      ref="pickerRef"
+      :size="props.size"
+      :mode="props.mode"
+      :stretched="props.stretched"
+    >
       {{ select?.selectedOption?.value?.label || props.label }}
       <template #icon>
         <IconChevronDownOutline />

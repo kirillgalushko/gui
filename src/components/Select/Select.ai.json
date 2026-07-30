@@ -5,7 +5,7 @@
   "keywords": ["select", "dropdown", "option", "picker"],
   "useWhen": ["Нужно выбрать одно значение из заранее определенного списка"],
   "toAvoid": [],
-  "rules": [],
+  "rules": ["Для прозрачного trigger с обводкой использовать mode=outline"],
   "alternatives": ["SuggestInput"],
   "commonlyUsedWith": ["FieldLabel"]
 }

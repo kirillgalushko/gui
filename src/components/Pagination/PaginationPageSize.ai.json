@@ -1,0 +1,14 @@
+{
+  "name": "PaginationPageSize",
+  "kind": "component",
+  "description": "Выбор количества элементов на одной странице набора данных.",
+  "keywords": ["pagination page size", "rows per page", "размер страницы"],
+  "useWhen": ["Пользователь может менять количество элементов на странице"],
+  "rules": [
+    "Размещать рядом с PaginationSummary и Pagination",
+    "Передавать только поддерживаемые API значения через options",
+    "Локальный size управляет размером Select",
+    "Локальный mode прокидывается в Select"
+  ],
+  "commonlyUsedWith": ["PaginationSummary", "Pagination"]
+}

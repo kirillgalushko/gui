@@ -1,0 +1,9 @@
+{
+  "name": "PaginationNext",
+  "kind": "component",
+  "description": "Переход на следующую страницу пагинации.",
+  "keywords": ["pagination next", "next page", "вперёд"],
+  "useWhen": ["Нужен переход на следующую страницу"],
+  "rules": ["На последней странице задавать disabled"],
+  "commonlyUsedWith": ["PaginationItem"]
+}

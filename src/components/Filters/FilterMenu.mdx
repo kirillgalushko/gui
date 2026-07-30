@@ -1,0 +1,14 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Filters/FilterMenu" />
+
+# FilterMenu
+
+Меню добавления фильтра. Поля с `options` автоматически получают вложенное
+меню значений, остальные эмитят `select` сразу. Слоты `trigger`, `field` и
+`option` позволяют заменить отображение без изменения схемы данных.
+`close-on-select` управляет закрытием меню после выбора.
+
+```vue
+<FilterMenu :fields="fields" @select="addFilter" />
+```

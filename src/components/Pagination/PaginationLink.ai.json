@@ -1,0 +1,14 @@
+{
+  "name": "PaginationLink",
+  "kind": "component",
+  "description": "Ссылка или кнопка конкретной страницы пагинации.",
+  "keywords": ["pagination link", "page", "active page"],
+  "useWhen": ["Нужно отобразить номер страницы в PaginationItem"],
+  "rules": [
+    "Для текущей страницы задавать isActive",
+    "Локальный size переопределяет размер родительского Pagination",
+    "Для клиентского роутера использовать asChild с одним корневым компонентом-ссылкой",
+    "Element button использовать для пагинации без изменения URL"
+  ],
+  "commonlyUsedWith": ["PaginationItem"]
+}

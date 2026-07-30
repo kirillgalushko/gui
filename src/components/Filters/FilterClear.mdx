@@ -1,0 +1,12 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Filters/FilterClear" />
+
+# FilterClear
+
+Кнопка сброса всех фильтров. Поддерживает общий API внешнего вида GUI:
+`size`, `mode`, `disabled`; `icon-only` оставляет только доступную иконку.
+
+```vue
+<FilterClear label="Очистить фильтры" @clear="filters = []" />
+```

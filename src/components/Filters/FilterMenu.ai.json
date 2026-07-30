@@ -1,0 +1,15 @@
+{
+  "name": "FilterMenu",
+  "kind": "component",
+  "description": "Меню добавления фильтра с вложенными меню значений.",
+  "keywords": ["filter menu", "nested menu", "add filter", "добавить фильтр"],
+  "useWhen": ["Нужно выбрать поле фильтра и, при наличии, начальное значение"],
+  "toAvoid": ["Не хранить активные фильтры внутри FilterMenu"],
+  "rules": [
+    "Обрабатывать выбор через событие select",
+    "Отключать closeOnSelect только для сценариев последовательного добавления",
+    "Для полной панели фильтров предпочитать Filters"
+  ],
+  "alternatives": ["Filters"],
+  "commonlyUsedWith": ["FilterItem"]
+}

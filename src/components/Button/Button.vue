@@ -21,7 +21,7 @@ export interface ButtonProps {
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   mode: "default",
-  size: "large",
+  size: "medium",
 });
 
 const buttonClass = computed(() => [
@@ -74,7 +74,7 @@ const buttonClass = computed(() => [
   --button-padding: 8px 16px;
   --button-font-size: 14px;
   --button-line-height: 20px;
-  --button-squared-font-size: 16px;
+  --button-squared-icon-size: 16px;
   --button-loader-size: 18px;
   --button-radius: 10px;
 
@@ -107,6 +107,7 @@ const buttonClass = computed(() => [
   position: relative;
   outline: 2px solid transparent;
   outline-offset: -2px;
+  text-decoration-line: none;
 }
 
 .extra-small {
@@ -114,7 +115,7 @@ const buttonClass = computed(() => [
   --button-padding: 4px 8px;
   --button-font-size: 12px;
   --button-line-height: 16px;
-  --button-squared-font-size: 14px;
+  --button-squared-icon-size: 14px;
   --button-loader-size: 12px;
   --button-radius: 8px;
 }
@@ -124,9 +125,9 @@ const buttonClass = computed(() => [
   --button-padding: 6px 12px;
   --button-font-size: 13px;
   --button-line-height: 18px;
-  --button-squared-font-size: 16px;
+  --button-squared-icon-size: 16px;
   --button-loader-size: 14px;
-  --button-radius: 8px;
+  --button-radius: 10px;
 }
 
 .medium {
@@ -134,9 +135,9 @@ const buttonClass = computed(() => [
   --button-padding: 8px 14px;
   --button-font-size: 14px;
   --button-line-height: 20px;
-  --button-squared-font-size: 20px;
+  --button-squared-icon-size: 20px;
   --button-loader-size: 16px;
-  --button-radius: 10px;
+  --button-radius: 12px;
 }
 
 .large {
@@ -144,16 +145,19 @@ const buttonClass = computed(() => [
   --button-padding: 8px 16px;
   --button-font-size: 14px;
   --button-line-height: 20px;
-  --button-squared-font-size: 20px;
+  --button-squared-icon-size: 20px;
   --button-loader-size: 18px;
-  --button-radius: 10px;
+  --button-radius: 12px;
 }
 
 .squared {
   padding: 0;
   min-width: var(--button-height);
   width: var(--button-height);
-  font-size: var(--button-squared-font-size);
+}
+
+.squared :deep(svg) {
+  font-size: var(--button-squared-icon-size);
 }
 
 .rounded {

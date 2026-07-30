@@ -1,0 +1,14 @@
+{
+  "name": "FilterClear",
+  "kind": "component",
+  "description": "Кнопка очистки всех активных фильтров.",
+  "keywords": ["clear filters", "reset filters", "сбросить фильтры"],
+  "useWhen": ["Нужно предоставить явное действие очистки набора фильтров"],
+  "toAvoid": ["Не использовать для удаления одного FilterItem"],
+  "rules": [
+    "Обрабатывать очистку через событие clear",
+    "Для кнопки без текста включать iconOnly"
+  ],
+  "alternatives": [],
+  "commonlyUsedWith": ["Filters", "FilterItem"]
+}

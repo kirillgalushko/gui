@@ -1,0 +1,9 @@
+{
+  "name": "PaginationContent",
+  "kind": "component",
+  "description": "Список элементов навигации внутри Pagination.",
+  "keywords": ["pagination content", "pagination list"],
+  "useWhen": ["Нужно сгруппировать PaginationItem внутри Pagination"],
+  "rules": ["Использовать только внутри Pagination"],
+  "commonlyUsedWith": ["PaginationItem"]
+}

@@ -119,13 +119,14 @@ const hasBorder = computed(
   --badge-padding: 2px 6px;
   --badge-min-width: 20px;
   --badge-gap: var(--gap-1);
+  --badge-border-radius: 8px;
 
   font-family: var(--font-family);
   font-weight: 700;
   font-size: var(--badge-font-size);
   line-height: var(--badge-line-height);
   padding: var(--badge-padding);
-  border-radius: 999px;
+  border-radius: var(--badge-border-radius);
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -150,6 +151,7 @@ const hasBorder = computed(
   --badge-line-height: 1.4;
   --badge-padding: 1px 5px;
   --badge-min-width: 16px;
+  --badge-border-radius: 6px;
 }
 
 .Badge.medium {
@@ -157,6 +159,7 @@ const hasBorder = computed(
   --badge-line-height: 1.5;
   --badge-padding: 2px 6px;
   --badge-min-width: 20px;
+  --badge-border-radius: 8px;
 }
 
 .Badge.large {
@@ -164,6 +167,7 @@ const hasBorder = computed(
   --badge-line-height: 1.5;
   --badge-padding: 3px 8px;
   --badge-min-width: 24px;
+  --badge-border-radius: 10px;
 }
 
 button.Badge {

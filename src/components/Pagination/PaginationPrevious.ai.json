@@ -1,0 +1,9 @@
+{
+  "name": "PaginationPrevious",
+  "kind": "component",
+  "description": "Переход на предыдущую страницу пагинации.",
+  "keywords": ["pagination previous", "previous page", "назад"],
+  "useWhen": ["Нужен переход на предыдущую страницу"],
+  "rules": ["На первой странице задавать disabled"],
+  "commonlyUsedWith": ["PaginationItem"]
+}

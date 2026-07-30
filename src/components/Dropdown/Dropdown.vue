@@ -9,9 +9,11 @@ defineOptions({
 
 export interface DropdownProps {
   stretched?: boolean;
-  contentWidth?: "small" | "medium" | "large";
+  contentWidth?: DropdownContentWidth;
   contentPadding?: "none" | "default" | "comfortable";
 }
+
+export type DropdownContentWidth = "extra-small" | "small" | "medium" | "large";
 
 const props = withDefaults(defineProps<DropdownProps>(), {
   stretched: false,
@@ -63,7 +65,7 @@ const popperClass = computed(() => [
   --dropdown-border-color: hsl(var(--border));
 
   font-size: 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 4px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -76,6 +78,10 @@ const popperClass = computed(() => [
 
 .v-popper--theme-dropdown.dropdown-content-width-small .v-popper__inner {
   width: min(320px, calc(100vw - 16px));
+}
+
+.v-popper--theme-dropdown.dropdown-content-width-extra-small .v-popper__inner {
+  width: min(260px, calc(100vw - 16px));
 }
 
 .v-popper--theme-dropdown.dropdown-content-width-medium .v-popper__inner {

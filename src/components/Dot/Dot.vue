@@ -24,8 +24,8 @@ const dotStyle = computed(() => ({
 .dot {
   display: inline-block;
   flex: 0 0 auto;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--dot-color);
 }

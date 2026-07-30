@@ -1,0 +1,16 @@
+{
+  "name": "PaginationItem",
+  "kind": "component",
+  "description": "Отдельная ячейка составной пагинации.",
+  "keywords": ["pagination item", "page item"],
+  "useWhen": [
+    "Нужно добавить ссылку, переход или многоточие в PaginationContent"
+  ],
+  "rules": ["Использовать только внутри PaginationContent"],
+  "commonlyUsedWith": [
+    "PaginationLink",
+    "PaginationPrevious",
+    "PaginationNext",
+    "PaginationEllipsis"
+  ]
+}

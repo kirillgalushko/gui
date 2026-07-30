@@ -1,0 +1,61 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Pagination/Documentation" />
+
+# Pagination
+
+Составная навигация между страницами списка, таблицы или каталога. Компоненты
+используют семантику `nav`, `ul` и `li`, а интерактивные элементы переиспользуют
+GUI `Button`. Проп `size` на `Pagination` принимает те же значения, что и Button:
+`extra-small`, `small`, `medium`, `large`.
+
+## Базовый пример
+
+```vue
+<Pagination size="medium">
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="?page=1" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="?page=1">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="?page=2" is-active>2</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="?page=3" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+`PaginationLink` по умолчанию рендерит ссылку. Для локального состояния без URL
+задайте `Element="button"`. Для `RouterLink` используйте `as-child` и передайте
+ровно один корневой компонент в слот.
+
+На текущей странице задавайте `is-active`: компонент установит
+`aria-current="page"`. На первой и последней страницах отключайте соответствующий
+переход через `disabled`. Если отдельному `PaginationLink`, `PaginationPrevious`,
+`PaginationNext` или `PaginationEllipsis` передан собственный `size`, он
+переопределит размер родительского `Pagination`.
+
+## Метаданные таблицы
+
+`PaginationPageSize` переиспользует GUI `Select` и позволяет выбрать количество
+элементов на странице. Проп `mode` (`default` или `outline`) управляет режимом
+его trigger. `PaginationSummary` отображает рассчитанный вызывающим кодом
+диапазон и общее количество элементов.
+
+```vue
+<PaginationPageSize
+  :value="pageSize"
+  :options="[5, 10]"
+  mode="outline"
+  @change="pageSize = $event"
+/>
+<PaginationSummary :from="1" :to="5" :total="22" />
+```

@@ -46,6 +46,16 @@ const props = defineProps<BaseMenuItemProps>();
   background-color: hsl(var(--contrast));
 }
 
+.base-menu-item:disabled {
+  color: hsl(var(--muted-foreground));
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.base-menu-item:disabled:hover {
+  background-color: transparent;
+}
+
 .base-menu-item:focus-visible {
   outline: 2px solid hsl(var(--ring));
   transition: none;
