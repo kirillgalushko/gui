@@ -31,6 +31,10 @@ const meta: Meta<typeof Sheet> = {
       control: { type: "select" },
       options: ["auto", "small", "medium", "large", "full"],
     },
+    mode: {
+      control: { type: "select" },
+      options: ["default", "floating"],
+    },
     rounded: {
       control: { type: "boolean" },
     },
@@ -41,6 +45,7 @@ const meta: Meta<typeof Sheet> = {
     title: "Настройки объекта",
     description: "Измените параметры объявления и сохраните результат.",
     side: "right",
+    mode: "default",
     rounded: true,
   },
   parameters: {
@@ -136,6 +141,52 @@ export const BottomSide: Story = {
         <Text typography="paragraph-1">
           Нижняя панель удобна для мобильных действий и кратких форм.
         </Text>
+      </Sheet>
+    `,
+  }),
+};
+
+export const Floating: Story = {
+  args: {
+    mode: "floating",
+  },
+  render: (args) => ({
+    components: { Button, Gap, Input, Sheet },
+    setup() {
+      return { args };
+    },
+    template: `
+      <Sheet v-bind="args">
+        <Input placeholder="Название объявления" value="Квартира у парка" />
+        <Gap :size="4" />
+        <Input placeholder="Стоимость" value="120 000" />
+        <template #footer>
+          <Button mode="ghost">Отмена</Button>
+          <Button mode="contrast">Сохранить</Button>
+        </template>
+      </Sheet>
+    `,
+  }),
+};
+
+export const FloatingBottomSide: Story = {
+  args: {
+    mode: "floating",
+    side: "bottom",
+  },
+  render: (args) => ({
+    components: { Button, Sheet, Text },
+    setup() {
+      return { args };
+    },
+    template: `
+      <Sheet v-bind="args">
+        <Text typography="paragraph-1">
+          Floating-панель сохраняет отступ от краёв экрана на мобильных устройствах.
+        </Text>
+        <template #footer>
+          <Button mode="contrast">Готово</Button>
+        </template>
       </Sheet>
     `,
   }),

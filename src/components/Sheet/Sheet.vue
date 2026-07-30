@@ -8,6 +8,7 @@ import { useSheet } from "./useSheet";
 
 type SheetSide = "top" | "right" | "bottom" | "left";
 type SheetSize = "auto" | "extra-small" | "small" | "medium" | "large" | "full";
+type SheetMode = "default" | "floating";
 
 export interface SheetProps {
   isOpened?: boolean;
@@ -17,6 +18,7 @@ export interface SheetProps {
   description?: string;
   side?: SheetSide;
   size?: SheetSize;
+  mode?: SheetMode;
   rounded?: boolean;
   showOverlay?: boolean;
   closeOnOverlayClick?: boolean;
@@ -26,6 +28,7 @@ export interface SheetProps {
 const props = withDefaults(defineProps<SheetProps>(), {
   showCloseButton: true,
   side: "right",
+  mode: "floating",
   rounded: true,
   showOverlay: true,
   closeOnOverlayClick: true,
@@ -61,6 +64,7 @@ const handleOverlayClick = () => {
           'sheet',
           props.side,
           sheetSize,
+          props.mode,
           { rounded: props.rounded, 'without-overlay': !props.showOverlay },
         ]"
         role="dialog"
@@ -153,6 +157,7 @@ const handleOverlayClick = () => {
 
 .sheet {
   --sheet-radius: 24px;
+  --sheet-inset: var(--gap-2);
 
   position: fixed;
   z-index: 101;
@@ -183,7 +188,7 @@ const handleOverlayClick = () => {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--gap-4);
   align-items: start;
-  padding: var(--gap-6) var(--gap-6) 0;
+  padding: var(--gap-4) var(--gap-4) 0;
 }
 
 .sheet-heading {
@@ -201,12 +206,12 @@ const handleOverlayClick = () => {
 }
 
 .sheet-content-inner {
-  padding: var(--gap-4) var(--gap-6);
+  padding: var(--gap-2) var(--gap-4);
 }
 
 .right .sheet-content-inner,
 .left .sheet-content-inner {
-  padding-bottom: var(--gap-6);
+  padding-bottom: var(--gap-2);
 }
 
 .sheet-footer {
@@ -214,12 +219,12 @@ const handleOverlayClick = () => {
   justify-content: flex-end;
   gap: var(--gap-2);
   align-items: center;
-  padding: var(--gap-3) var(--gap-6);
+  padding: var(--gap-3) var(--gap-4);
 }
 
 .top .sheet-footer,
 .bottom .sheet-footer {
-  padding-bottom: calc(var(--gap-3) + var(--gap-6));
+  padding-bottom: calc(var(--gap-3) + var(--gap-4));
 }
 
 .sheet-actions {
@@ -328,6 +333,46 @@ const handleOverlayClick = () => {
 .bottom.rounded {
   border-top-left-radius: var(--sheet-radius);
   border-top-right-radius: var(--sheet-radius);
+}
+
+.sheet.floating {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.right.floating,
+.left.floating {
+  top: var(--sheet-inset);
+  bottom: var(--sheet-inset);
+  max-width: calc(100vw - var(--sheet-inset) - var(--sheet-inset));
+}
+
+.right.floating {
+  right: var(--sheet-inset);
+}
+
+.left.floating {
+  left: var(--sheet-inset);
+}
+
+.top.floating,
+.bottom.floating {
+  left: var(--sheet-inset);
+  right: var(--sheet-inset);
+  max-height: calc(100vh - var(--sheet-inset) - var(--sheet-inset));
+  max-height: calc(100dvh - var(--sheet-inset) - var(--sheet-inset));
+}
+
+.top.floating {
+  top: var(--sheet-inset);
+}
+
+.bottom.floating {
+  bottom: var(--sheet-inset);
+}
+
+.sheet.floating.rounded {
+  border-radius: var(--sheet-radius);
 }
 
 .extra-small {

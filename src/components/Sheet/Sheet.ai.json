@@ -1,13 +1,15 @@
 {
   "name": "Sheet",
   "kind": "component",
-  "description": "Выезжающая боковая или верхняя панель для отображения дополнительного контента.",
+  "description": "Выезжающая панель с обычным или floating-отображением для дополнительного контента.",
   "keywords": ["sheet", "drawer", "panel", "sidebar"],
   "useWhen": [
     "Нужно показать дополнительный интерфейс без перехода на другую страницу"
   ],
   "toAvoid": [],
-  "rules": [],
+  "rules": [
+    "Используй mode=\"floating\", когда панель должна оставлять отступ от краёв viewport и выглядеть как Drawer"
+  ],
   "alternatives": ["Modal", "AdaptiveModal"],
   "commonlyUsedWith": ["Button"]
 }
