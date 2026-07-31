@@ -75,6 +75,7 @@ const handleOverlayClick = () => {
         <div class="sheet-layout">
           <div
             v-if="
+              $slots.header ||
               props.title ||
               props.description ||
               props.showCloseButton ||
@@ -82,18 +83,25 @@ const handleOverlayClick = () => {
             "
             class="sheet-header"
           >
-            <div v-if="props.title || props.description" class="sheet-heading">
+            <div
+              v-if="$slots.header || props.title || props.description"
+              class="sheet-heading"
+            >
+              <slot v-if="$slots.header" name="header"></slot>
               <Text
-                v-if="props.title"
+                v-else-if="props.title"
                 Element="h2"
                 typography="title-2"
                 class="sheet-title"
               >
                 {{ props.title }}
               </Text>
-              <Gap v-if="props.title && props.description" :size="2" />
+              <Gap
+                v-if="!$slots.header && props.title && props.description"
+                :size="2"
+              />
               <Text
-                v-if="props.description"
+                v-if="!$slots.header && props.description"
                 typography="paragraph-1"
                 color="secondary"
                 class="sheet-description"
@@ -188,7 +196,8 @@ const handleOverlayClick = () => {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--gap-4);
   align-items: start;
-  padding: var(--gap-4) var(--gap-4) 0;
+  padding: var(--gap-4);
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .sheet-heading {
@@ -206,7 +215,7 @@ const handleOverlayClick = () => {
 }
 
 .sheet-content-inner {
-  padding: var(--gap-2) var(--gap-4);
+  padding: var(--gap-4);
 }
 
 .right .sheet-content-inner,

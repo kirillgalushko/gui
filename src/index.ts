@@ -15,6 +15,9 @@ export const AccordionItem = ac(
 export const AccordionTrigger = ac(
   () => import("./components/Accordion/AccordionTrigger.vue"),
 );
+export const Collapsable = ac(
+  () => import("./components/Collapsable/Collapsable.vue"),
+);
 export const Attachment = ac(
   () => import("./components/Attachment/Attachment.vue"),
 );

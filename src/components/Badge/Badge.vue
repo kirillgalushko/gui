@@ -3,7 +3,7 @@ import { computed } from "vue";
 import type { Color } from "../../types/colors";
 
 export type BadgeColor = Color;
-export type BadgeSize = "small" | "medium" | "large";
+export type BadgeSize = "extra-small" | "small" | "medium" | "large";
 export type BadgeMode =
   | "default"
   | "accent"
@@ -144,6 +144,14 @@ const hasBorder = computed(
 
 .Badge.with-border {
   border: 1px solid var(--badge-border-color);
+}
+
+.Badge.extra-small {
+  --badge-font-size: 9px;
+  --badge-line-height: 1.35;
+  --badge-padding: 0 var(--gap-1);
+  --badge-min-width: 14px;
+  --badge-border-radius: 5px;
 }
 
 .Badge.small {

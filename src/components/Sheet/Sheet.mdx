@@ -5,6 +5,8 @@ import { Meta } from "@storybook/addon-docs";
 # Sheet
 
 API близок к `Modal`: состояние передается через `isOpened`, закрытие через `onClose`, футер через слот `footer`.
+Для составного фиксированного заголовка используйте слот `header`: прокручиваться при этом будет
+только содержимое панели.
 
 ## Props
 
@@ -21,6 +23,13 @@ API близок к `Modal`: состояние передается через 
 - `closeOnOverlayClick` — закрывать по клику на overlay.
 - `closeOnEscape` — закрывать по Escape.
 
+## Slots
+
+- `header` — произвольное содержимое фиксированного заголовка вместо `title` и `description`.
+- `actions` — действия справа от заголовка, перед кнопкой закрытия.
+- `default` — прокручиваемое содержимое панели.
+- `footer` — фиксированный футер.
+
 ## Пример
 
 ```vue
@@ -36,6 +45,20 @@ API близок к `Modal`: состояние передается через 
     <Button mode="ghost" @click="close">Отмена</Button>
     <Button mode="contrast" @click="close">Сохранить</Button>
   </template>
+</Sheet>
+```
+
+## Составной заголовок
+
+```vue
+<Sheet :isOpened="visible" :onClose="close">
+  <template #header>
+    <Text typography="label-2" color="secondary">Бронь №4821</Text>
+    <Gap :size="1" />
+    <Text Element="h2" typography="title-2">30 июля — 2 августа</Text>
+  </template>
+
+  Контент панели
 </Sheet>
 ```
 

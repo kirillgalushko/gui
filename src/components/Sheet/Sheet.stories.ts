@@ -169,6 +169,31 @@ export const Floating: Story = {
   }),
 };
 
+export const WithCustomHeader: Story = {
+  args: {
+    title: undefined,
+    description: undefined,
+  },
+  render: (args) => ({
+    components: { Button, Gap, Sheet, Text },
+    setup() {
+      return { args };
+    },
+    template: `
+      <Sheet v-bind="args">
+        <template #header>
+          <Text typography="label-2" color="secondary">Бронь №4821</Text>
+          <Gap :size="1" />
+          <Text Element="h2" typography="title-2">30 июля — 2 августа</Text>
+        </template>
+        <Text typography="paragraph-1">
+          При составном заголовке прокручивается только содержимое панели.
+        </Text>
+      </Sheet>
+    `,
+  }),
+};
+
 export const FloatingBottomSide: Story = {
   args: {
     mode: "floating",

@@ -7,13 +7,16 @@ describe("Badge", () => {
     expect(mount(Badge).classes()).toContain("medium");
   });
 
-  it.each(["small", "medium", "large"] as const)("supports %s size", (size) => {
-    expect(
-      mount(Badge, {
-        props: { size },
-      }).classes(),
-    ).toContain(size);
-  });
+  it.each(["extra-small", "small", "medium", "large"] as const)(
+    "supports %s size",
+    (size) => {
+      expect(
+        mount(Badge, {
+          props: { size },
+        }).classes(),
+      ).toContain(size);
+    },
+  );
 
   it("supports accent mode", () => {
     const badge = mount(Badge, {
