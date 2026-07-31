@@ -7,7 +7,11 @@
     "Нужно показать действия, относящиеся к конкретному элементу или области по правому клику"
   ],
   "toAvoid": [],
-  "rules": ["Использовать совместно с компонентами семейства ContextMenu"],
+  "rules": [
+    "Использовать совместно с компонентами семейства ContextMenu",
+    "Для DOM-элементов targetRef можно назначать напрямую; для Vue- и async-компонентов использовать setTargetRef из useContextMenu",
+    "Чтобы отключать открытие без ручных обработчиков, передавать enabled в useContextMenu"
+  ],
   "alternatives": ["BaseMenu"],
   "commonlyUsedWith": [
     "ContextMenuList",

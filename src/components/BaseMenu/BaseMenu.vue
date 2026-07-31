@@ -20,7 +20,7 @@ defineExpose({ menuRef });
   --menu-padding: 4px;
 
   font-size: 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: var(--menu-padding);
   color: var(--menu-text-color);
   background-color: var(--menu-background-color);
