@@ -8,7 +8,9 @@
     "Для текста с ellipsis, если он обрезался"
   ],
   "toAvoid": [],
-  "rules": [],
+  "rules": [
+    "Используй stretched, когда trigger должен занимать всю ширину родителя"
+  ],
   "alternatives": [],
   "commonlyUsedWith": ["Button", "Action", "Icon"]
 }

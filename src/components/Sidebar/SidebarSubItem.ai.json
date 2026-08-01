@@ -1,0 +1,14 @@
+{
+  "name": "SidebarSubItem",
+  "kind": "component",
+  "description": "Вложенный пункт навигации Sidebar с иконкой и active-состоянием.",
+  "keywords": ["sidebar", "submenu", "item", "navigation"],
+  "useWhen": ["Нужно добавить дочернюю страницу в SidebarSubList"],
+  "toAvoid": ["Не использовать как основной пункт верхнего уровня"],
+  "rules": [
+    "Передавай selected для текущей страницы",
+    "Иконку передавай через слот icon"
+  ],
+  "alternatives": ["SidebarItem"],
+  "commonlyUsedWith": ["SidebarSubList", "SidebarCollapsible"]
+}

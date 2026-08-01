@@ -246,6 +246,7 @@ onBeforeUnmount(() => {
       padding: `${props.padding}px`,
       maxWidth: props.maxWidth,
       minWidth: props.minWidth,
+      '--sidebar-padding': `${props.padding}px`,
     }"
     @transitionend="finishSnapAnimation"
   >

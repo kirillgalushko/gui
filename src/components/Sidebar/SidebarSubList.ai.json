@@ -1,0 +1,11 @@
+{
+  "name": "SidebarSubList",
+  "kind": "component",
+  "description": "Контейнер вложенных пунктов Sidebar с направляющей линией в обычном режиме.",
+  "keywords": ["sidebar", "submenu", "nested", "list"],
+  "useWhen": ["Нужно отобразить дочерние страницы SidebarCollapsible"],
+  "toAvoid": [],
+  "rules": ["Размещай внутри SidebarCollapsible"],
+  "alternatives": ["SidebarList"],
+  "commonlyUsedWith": ["SidebarCollapsible", "SidebarSubItem"]
+}

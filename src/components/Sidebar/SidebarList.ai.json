@@ -1,0 +1,15 @@
+{
+  "name": "SidebarList",
+  "kind": "component",
+  "description": "Вертикальный список секций и пунктов Sidebar с опциональной внутренней прокруткой.",
+  "keywords": ["sidebar", "list", "navigation", "scroll"],
+  "useWhen": ["Нужно расположить секции или пункты навигации внутри Sidebar"],
+  "toAvoid": [],
+  "rules": [
+    "Используй scrollable для центральной области между header и footer",
+    "У scrollable-списка должен быть ограничивающий flex-контейнер",
+    "Scrollbar scrollable-списка автоматически выравнивается по внешнему краю Sidebar"
+  ],
+  "alternatives": ["SidebarGroup"],
+  "commonlyUsedWith": ["SidebarGroup", "SidebarItem", "SidebarCollapsible"]
+}

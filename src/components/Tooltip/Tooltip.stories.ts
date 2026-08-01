@@ -9,6 +9,7 @@ const meta: Meta<typeof Tooltip> = {
   argTypes: {
     mode: { control: "select", options: ["default", "contrast"] },
     delay: { control: "object" },
+    stretched: { control: "boolean" },
   },
   args: {
     mode: "default",
@@ -36,6 +37,26 @@ export const Default: Story = {
           Это подсказка
         </template>
         <strong>сюда</strong></Tooltip>, чтобы увидеть Tooltip.
+    `,
+  }),
+};
+
+export const Stretched: Story = {
+  args: {
+    stretched: true,
+  },
+  render: (args) => ({
+    components: { Tooltip },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div style="width: 320px;">
+        <Tooltip v-bind="args">
+          <button style="width: 100%;">Trigger на всю ширину</button>
+          <template #popper>Подсказка</template>
+        </Tooltip>
+      </div>
     `,
   }),
 };

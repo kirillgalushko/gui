@@ -4,7 +4,7 @@ import { Meta } from "@storybook/addon-docs";
 
 # Sidebar
 
-Боковая панель с изменяемой шириной и опциональным snap-схлопыванием.
+Боковая панель с изменяемой шириной, секциями, вложенной навигацией и опциональным snap-схлопыванием.
 
 - `width` задаёт начальную или управляемую ширину.
 - `minWidth` и `maxWidth` ограничивают геометрию панели.
@@ -24,8 +24,24 @@ import { Meta } from "@storybook/addon-docs";
   :compact-width="80"
   :collapse-threshold="180"
 >
-  <SidebarList>
-    <!-- SidebarItem -->
+  <SidebarList scrollable>
+    <SidebarGroup label="Основное">
+      <SidebarItem>Главная</SidebarItem>
+    </SidebarGroup>
+    <SidebarGroup label="Другое">
+      <SidebarCollapsible label="Настройки">
+        <SidebarSubList>
+          <SidebarSubItem selected>Профиль</SidebarSubItem>
+          <SidebarSubItem>Организация</SidebarSubItem>
+        </SidebarSubList>
+      </SidebarCollapsible>
+    </SidebarGroup>
   </SidebarList>
 </Sidebar>
 ```
+
+- `SidebarGroup` группирует связанные пункты и скрывает заголовок в compact.
+- `SidebarList` с `scrollable` занимает доступную flex-высоту, прокручивает только навигацию и выводит scrollbar к внешнему краю Sidebar, не смещая footer.
+- `SidebarCollapsible` анимированно раскрывает `SidebarSubList`. Его `v-model` можно синхронизировать с активным маршрутом.
+- В compact-режиме `SidebarCollapsible` автоматически показывает дочерние пункты во всплывающей панели справа.
+- `SidebarSubItem` принимает `selected` и слот `icon`.

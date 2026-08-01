@@ -261,6 +261,18 @@ export const SidebarItem = ac(
 export const SidebarList = ac(
   () => import("./components/Sidebar/SidebarList.vue"),
 );
+export const SidebarGroup = ac(
+  () => import("./components/Sidebar/SidebarGroup.vue"),
+);
+export const SidebarCollapsible = ac(
+  () => import("./components/Sidebar/SidebarCollapsible.vue"),
+);
+export const SidebarSubList = ac(
+  () => import("./components/Sidebar/SidebarSubList.vue"),
+);
+export const SidebarSubItem = ac(
+  () => import("./components/Sidebar/SidebarSubItem.vue"),
+);
 export const Modal = ac(() => import("./components/Modal/Modal.vue"));
 export const PasswordInput = ac(
   () => import("./components/PasswordInput/PasswordInput.vue"),

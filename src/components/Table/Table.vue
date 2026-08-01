@@ -46,7 +46,8 @@ const maxHeight = computed(() => toCssSize(props.maxHeight));
   overflow-x: auto;
   overflow-y: auto;
   font-family: var(--font-family);
-  overscroll-behavior: contain;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
   scrollbar-color: hsl(var(--border)) transparent;
   scrollbar-width: thin;
 }

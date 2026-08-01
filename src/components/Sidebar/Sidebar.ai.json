@@ -1,7 +1,7 @@
 {
   "name": "Sidebar",
   "kind": "component",
-  "description": "Боковая панель навигации с поддержкой списков, вложенных элементов и компактного режима.",
+  "description": "Боковая панель навигации с секциями, раскрываемыми вложенными элементами и компактным режимом.",
   "keywords": ["sidebar", "navigation", "menu", "layout"],
   "useWhen": ["Нужно организовать основную навигацию приложения"],
   "toAvoid": [],
@@ -13,5 +13,14 @@
     "При расширении Sidebar анимирует только участок от compactWidth до collapseThreshold, а выше порога напрямую следует за курсором"
   ],
   "alternatives": [],
-  "commonlyUsedWith": ["SidebarList", "SidebarItem", "Badge", "Dot"]
+  "commonlyUsedWith": [
+    "SidebarList",
+    "SidebarGroup",
+    "SidebarItem",
+    "SidebarCollapsible",
+    "SidebarSubList",
+    "SidebarSubItem",
+    "Badge",
+    "Dot"
+  ]
 }

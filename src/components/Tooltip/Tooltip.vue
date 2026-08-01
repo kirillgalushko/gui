@@ -13,11 +13,13 @@ type TooltipDelay =
 export interface TooltipProps {
   mode?: "default" | "contrast";
   delay?: TooltipDelay;
+  stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<TooltipProps>(), {
   mode: "default",
   delay: () => ({ show: 0, hide: 0 }),
+  stretched: false,
 });
 </script>
 
@@ -29,7 +31,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
     :popperClass="
       props.mode === 'contrast' ? 'tooltip-contrast' : 'tooltip-default'
     "
-    :class="['tooltip', props.mode]"
+    :class="['tooltip', props.mode, { 'tooltip--stretched': props.stretched }]"
   >
     <template #default>
       <slot></slot>
@@ -44,6 +46,11 @@ const props = withDefaults(defineProps<TooltipProps>(), {
 <style scoped>
 .tooltip {
   display: inline-block;
+}
+
+.tooltip--stretched {
+  display: block;
+  width: 100%;
 }
 </style>
 <style>

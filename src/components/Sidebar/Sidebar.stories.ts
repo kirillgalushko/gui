@@ -2,6 +2,10 @@ import { Meta, StoryObj } from "@storybook/vue3";
 import Sidebar from "./Sidebar.vue";
 import SidebarList from "./SidebarList.vue";
 import SidebarItem from "./SidebarItem.vue";
+import SidebarGroup from "./SidebarGroup.vue";
+import SidebarCollapsible from "./SidebarCollapsible.vue";
+import SidebarSubList from "./SidebarSubList.vue";
+import SidebarSubItem from "./SidebarSubItem.vue";
 import {
   IconMusicOutline,
   IconBuildingBroadcastTowerOutline,
@@ -85,6 +89,112 @@ export const Default: Story = {
           </SidebarItem>
         </SidebarList>
       </Sidebar>
+    `,
+  }),
+};
+
+export const GroupedWithSubmenu: Story = {
+  render: () => ({
+    components: {
+      Sidebar,
+      SidebarList,
+      SidebarItem,
+      SidebarGroup,
+      SidebarCollapsible,
+      SidebarSubList,
+      SidebarSubItem,
+      IconMusicOutline,
+      IconBuildingBroadcastTowerOutline,
+      IconPlaylistOutline,
+      IconSettingsOutline,
+    },
+    template: `
+      <Sidebar :compactWidth="60" :collapseThreshold="180" minWidth="60px">
+        <SidebarList>
+          <SidebarGroup label="Основное">
+            <SidebarItem selected>
+              <template #left><IconMusicOutline /></template>
+              Главная
+            </SidebarItem>
+            <SidebarItem>
+              <template #left><IconPlaylistOutline /></template>
+              Задачи
+            </SidebarItem>
+          </SidebarGroup>
+          <SidebarGroup label="Другое">
+            <SidebarCollapsible label="Настройки" selected default-opened>
+              <template #icon><IconSettingsOutline /></template>
+              <SidebarSubList>
+                <SidebarSubItem>
+                  <template #icon><IconMusicOutline /></template>
+                  Профиль
+                </SidebarSubItem>
+                <SidebarSubItem selected>
+                  <template #icon><IconBuildingBroadcastTowerOutline /></template>
+                  Организация
+                </SidebarSubItem>
+              </SidebarSubList>
+            </SidebarCollapsible>
+          </SidebarGroup>
+        </SidebarList>
+      </Sidebar>
+    `,
+  }),
+};
+
+export const ScrollableNavigation: Story = {
+  render: () => ({
+    components: {
+      Sidebar,
+      SidebarList,
+      SidebarItem,
+      SidebarGroup,
+      SidebarCollapsible,
+      SidebarSubList,
+      SidebarSubItem,
+      IconMusicOutline,
+      IconPlaylistOutline,
+      IconSettingsOutline,
+    },
+    setup() {
+      return {
+        pages: Array.from({ length: 9 }, (_, index) => `Страница ${index + 1}`),
+        settings: Array.from(
+          { length: 6 },
+          (_, index) => `Настройка ${index + 1}`,
+        ),
+      };
+    },
+    template: `
+      <div style="height: 320px;">
+        <Sidebar :width="300" minWidth="180px">
+          <div style="display: flex; flex-direction: column; height: 100%;">
+            <SidebarList scrollable style="flex: 1;">
+              <SidebarGroup label="Основное">
+                <SidebarItem v-for="page in pages" :key="page">
+                  <template #left><IconMusicOutline /></template>
+                  {{ page }}
+                </SidebarItem>
+              </SidebarGroup>
+              <SidebarGroup label="Другое">
+                <SidebarCollapsible label="Настройки" default-opened>
+                  <template #icon><IconSettingsOutline /></template>
+                  <SidebarSubList>
+                    <SidebarSubItem v-for="setting in settings" :key="setting">
+                      <template #icon><IconSettingsOutline /></template>
+                      {{ setting }}
+                    </SidebarSubItem>
+                  </SidebarSubList>
+                </SidebarCollapsible>
+              </SidebarGroup>
+            </SidebarList>
+            <SidebarItem>
+              <template #left><IconPlaylistOutline /></template>
+              Footer остаётся на месте
+            </SidebarItem>
+          </div>
+        </Sidebar>
+      </div>
     `,
   }),
 };

@@ -1,0 +1,11 @@
+{
+  "name": "SidebarGroup",
+  "kind": "component",
+  "description": "Секция Sidebar с опциональным текстовым заголовком.",
+  "keywords": ["sidebar", "group", "section", "navigation"],
+  "useWhen": ["Нужно визуально сгруппировать связанные пункты Sidebar"],
+  "toAvoid": [],
+  "rules": ["Заголовок автоматически скрывается в компактном режиме"],
+  "alternatives": ["SidebarList"],
+  "commonlyUsedWith": ["SidebarList", "SidebarItem", "SidebarCollapsible"]
+}

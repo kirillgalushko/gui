@@ -1,0 +1,16 @@
+{
+  "name": "SidebarCollapsible",
+  "kind": "component",
+  "description": "Раскрываемый пункт Sidebar, который показывает вложенный список или popover в компактном режиме.",
+  "keywords": ["sidebar", "collapsible", "submenu", "popover"],
+  "useWhen": ["У пункта навигации есть вложенные страницы"],
+  "toAvoid": ["Не использовать для одиночного пункта без вложенных страниц"],
+  "rules": [
+    "Используй v-model для управляемого раскрытия",
+    "Передавай SidebarSubList в default slot",
+    "Иконку передавай через слот icon",
+    "В компактном Sidebar вложенные пункты автоматически открываются во всплывающем меню"
+  ],
+  "alternatives": ["SidebarItem", "Collapsable"],
+  "commonlyUsedWith": ["SidebarGroup", "SidebarSubList", "SidebarSubItem"]
+}

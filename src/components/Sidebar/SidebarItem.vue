@@ -6,7 +6,10 @@ import { useResize } from "../../hooks/useResize";
 
 export interface SidebarItemProps {
   selected?: boolean;
+  tooltipDisabled?: boolean;
 }
+
+defineOptions({ inheritAttrs: false });
 
 const props = defineProps<SidebarItemProps>();
 const centerElement = ref<HTMLDivElement | null>(null);
@@ -25,10 +28,18 @@ useResize(buttonElement, checkEllipsis);
 </script>
 
 <template>
-  <Tooltip :delay="0" :disabled="!(isEllipsis || isCompact)" placement="right">
+  <Tooltip
+    stretched
+    :delay="0"
+    :disabled="props.tooltipDisabled || !(isEllipsis || isCompact)"
+    placement="right"
+  >
     <button
+      v-bind="$attrs"
       ref="buttonElement"
       :class="['SidebarItem', { selected: props.selected, compact: isCompact }]"
+      :aria-current="props.selected ? 'page' : undefined"
+      type="button"
     >
       <div v-if="$slots.left && !isCompact" class="left">
         <slot name="left"></slot>
