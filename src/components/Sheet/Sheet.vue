@@ -157,6 +157,7 @@ const handleOverlayClick = () => {
   inset: 0;
   background-color: hsl(var(--background) / 0.8);
   pointer-events: auto;
+  backdrop-filter: blur(4px);
 }
 
 .sheet.without-overlay {
@@ -204,6 +205,10 @@ const handleOverlayClick = () => {
   min-width: 0;
 }
 
+.sheet-title {
+  line-height: 32px;
+}
+
 .sheet-title,
 .sheet-description {
   margin: 0;
@@ -220,6 +225,7 @@ const handleOverlayClick = () => {
 
 .right .sheet-content-inner,
 .left .sheet-content-inner {
+  padding-top: 0;
   padding-bottom: var(--gap-2);
 }
 
@@ -433,6 +439,17 @@ const handleOverlayClick = () => {
   transition: transform 0.2s ease;
 }
 
+.sheet-right-enter-active .sheet-overlay,
+.sheet-right-leave-active .sheet-overlay,
+.sheet-left-enter-active .sheet-overlay,
+.sheet-left-leave-active .sheet-overlay,
+.sheet-top-enter-active .sheet-overlay,
+.sheet-top-leave-active .sheet-overlay,
+.sheet-bottom-enter-active .sheet-overlay,
+.sheet-bottom-leave-active .sheet-overlay {
+  transition: backdrop-filter 0.2s ease;
+}
+
 .sheet-right-enter-from,
 .sheet-right-leave-to,
 .sheet-left-enter-from,
@@ -442,6 +459,17 @@ const handleOverlayClick = () => {
 .sheet-bottom-enter-from,
 .sheet-bottom-leave-to {
   opacity: 0;
+}
+
+.sheet-right-enter-from .sheet-overlay,
+.sheet-right-leave-to .sheet-overlay,
+.sheet-left-enter-from .sheet-overlay,
+.sheet-left-leave-to .sheet-overlay,
+.sheet-top-enter-from .sheet-overlay,
+.sheet-top-leave-to .sheet-overlay,
+.sheet-bottom-enter-from .sheet-overlay,
+.sheet-bottom-leave-to .sheet-overlay {
+  backdrop-filter: blur(0px);
 }
 
 .sheet-right-enter-from .sheet,

@@ -101,6 +101,7 @@ const gridTemplateAreas = computed(() => {
   right: 0;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   animation-name: enter;
   animation-duration: 0.2s;
 }
@@ -201,9 +202,19 @@ const gridTemplateAreas = computed(() => {
   transition: all 0.2s ease-in-out;
 }
 
+.fade-enter-active .modal-bg,
+.fade-leave-active .modal-bg {
+  transition: backdrop-filter 0.2s ease-in-out;
+}
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.fade-enter-from .modal-bg,
+.fade-leave-to .modal-bg {
+  backdrop-filter: blur(0px);
 }
 
 .fade-enter-from .modal,
