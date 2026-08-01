@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, unref } from "vue";
 import { useViewportBreakpoint } from "../../hooks/useViewportBreakpoint";
 import AdaptiveModal from "../AdaptiveModal/AdaptiveModal.vue";
 import Button from "../Button/Button.vue";
+import Stack from "../Stack/Stack.vue";
 import Text from "../Text/Text.vue";
 import { useConfirm } from "./useConfirm";
 
@@ -13,14 +14,20 @@ export interface ConfirmProps {
   description: UseConfirmResult["description"];
   isOpened: UseConfirmResult["isOpened"];
   resolve: UseConfirmResult["resolve"];
+  secondary?: UseConfirmResult["secondary"];
   reject: UseConfirmResult["reject"];
   confirmButtonText: UseConfirmResult["confirmButtonText"] | string;
+  secondaryButtonText?: UseConfirmResult["secondaryButtonText"] | string;
   cancelButtonText: UseConfirmResult["cancelButtonText"] | string;
 }
 
 const props = defineProps<ConfirmProps>();
 const viewport = useViewportBreakpoint();
 const isFooterStretched = computed(() => viewport.isMobile);
+const hasSecondaryButton = computed(
+  () => Boolean(unref(props.secondaryButtonText)) && Boolean(props.secondary),
+);
+const runSecondary = () => props.secondary?.value();
 </script>
 
 <template>
@@ -33,20 +40,35 @@ const isFooterStretched = computed(() => viewport.isMobile);
       {{ props.description }}
     </Text>
     <template #footer>
-      <Button
-        :stretched="isFooterStretched"
-        mode="ghost"
-        @click="props.reject.value"
+      <Stack
+        stretched
+        :direction="isFooterStretched ? 'column' : 'row'"
+        justifyContent="end"
+        :gap="2"
       >
-        {{ props.cancelButtonText }}
-      </Button>
-      <Button
-        :stretched="isFooterStretched"
-        mode="contrast"
-        @click="props.resolve.value"
-      >
-        {{ props.confirmButtonText }}
-      </Button>
+        <Button
+          :stretched="isFooterStretched"
+          mode="ghost"
+          @click="props.reject.value"
+        >
+          {{ props.cancelButtonText }}
+        </Button>
+        <Button
+          v-if="hasSecondaryButton"
+          :stretched="isFooterStretched"
+          mode="outline"
+          @click="runSecondary"
+        >
+          {{ props.secondaryButtonText }}
+        </Button>
+        <Button
+          :stretched="isFooterStretched"
+          mode="contrast"
+          @click="props.resolve.value"
+        >
+          {{ props.confirmButtonText }}
+        </Button>
+      </Stack>
     </template>
   </AdaptiveModal>
 </template>

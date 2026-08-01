@@ -62,7 +62,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
 
 .v-popper--theme-tooltip .v-popper__inner {
   font-size: 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 6px 12px;
   color: var(--tooltip-text-color);
   background-color: var(--tooltip-background-color);

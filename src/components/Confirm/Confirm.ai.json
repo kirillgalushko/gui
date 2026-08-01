@@ -7,7 +7,10 @@
     "Нужно запросить подтверждение пользователя перед выполнением действия"
   ],
   "toAvoid": [],
-  "rules": ["Открывать через useConfirm"],
+  "rules": [
+    "Открывать через useConfirm",
+    "Для сценария с тремя исходами передать secondaryButtonText и обработать результат secondary"
+  ],
   "alternatives": ["AdaptiveModal", "Modal"],
   "commonlyUsedWith": ["Button", "useConfirm"]
 }

@@ -69,7 +69,7 @@ useResize(buttonElement, checkEllipsis);
   border-radius: 8px;
   color: hsl(var(--muted-foreground));
   width: 100%;
-  height: 32px;
+  height: 36px;
   box-sizing: border-box;
   border: none;
   cursor: pointer;

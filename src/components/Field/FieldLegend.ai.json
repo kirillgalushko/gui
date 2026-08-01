@@ -1,0 +1,14 @@
+{
+  "name": "FieldLegend",
+  "kind": "component",
+  "description": "Семантический заголовок группы полей с опциональным компактным описанием.",
+  "keywords": ["field", "fieldset", "legend", "form", "группа полей"],
+  "useWhen": ["Нужно назвать группу связанных полей внутри FieldSet"],
+  "toAvoid": ["Не использовать вне FieldSet"],
+  "rules": [
+    "FieldLegend должен быть первым дочерним элементом FieldSet",
+    "Для пояснения группы использовать prop description"
+  ],
+  "alternatives": ["FieldTitle"],
+  "commonlyUsedWith": ["FieldSet", "Field", "FieldDescription"]
+}

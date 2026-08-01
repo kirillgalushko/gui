@@ -5,7 +5,7 @@
 </template>
 
 <style scoped>
-.table-body :deep(tr:last-child) {
+.table-body :deep(tr:last-of-type) {
   border-bottom: 0;
 }
 </style>
