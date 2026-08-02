@@ -110,6 +110,10 @@ const buttonClass = computed(() => [
   text-decoration-line: none;
 }
 
+.default {
+  border: 1px solid hsl(var(--border));
+}
+
 .extra-small {
   --button-height: 24px;
   --button-padding: 4px 8px;

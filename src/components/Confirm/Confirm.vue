@@ -35,6 +35,7 @@ const runSecondary = () => props.secondary?.value();
     :isOpened="props.isOpened.value"
     :onClose="props.reject.value"
     :title="props.title.value"
+    showCloseButton
   >
     <Text typography="paragraph-1" color="secondary">
       {{ props.description }}

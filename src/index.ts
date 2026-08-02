@@ -73,6 +73,9 @@ export const TimelineTitle = ac(
 export const ImageViewer = ac(
   () => import("./components/ImageViewer/ImageViewer.vue"),
 );
+export const IconContainer = ac(
+  () => import("./components/IconContainer/IconContainer.vue"),
+);
 export const Action = ac(() => import("./components/Action/Action.vue"));
 export const AdaptiveModal = ac(
   () => import("./components/AdaptiveModal/AdaptiveModal.vue"),

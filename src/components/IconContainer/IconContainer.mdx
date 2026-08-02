@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/IconContainer/Documentation" />
+
+# IconContainer
+
+Контейнер для декоративной иконки с адаптивным размером и нейтральным или палитровым фоном.
+
+## Props
+
+- `size: string` — ширина и высота контейнера; размер иконки вычисляется от него. По умолчанию `48px`.
+- `mode: "square" | "circle"` — форма контейнера. По умолчанию `square`.
+- `color: Color` — цвет иконки из палитры; фон становится полупрозрачным вариантом этого цвета.
+
+## Пример
+
+```vue
+<IconContainer size="80px" color="blue">
+  <IconCreditCardOutline />
+</IconContainer>
+```
