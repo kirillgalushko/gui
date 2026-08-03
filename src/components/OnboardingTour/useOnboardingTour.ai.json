@@ -1,0 +1,13 @@
+{
+  "name": "useOnboardingTour",
+  "kind": "hook",
+  "description": "Управляет состоянием, навигацией и прогрессом пошагового онбординга.",
+  "keywords": ["onboarding", "tour", "steps", "state"],
+  "useWhen": [
+    "Нужно запустить OnboardingTour из бизнес-логики и управлять текущим шагом"
+  ],
+  "toAvoid": ["Не дублировать поверх хука собственную навигацию по индексам"],
+  "rules": ["Передавайте тот же массив steps и в хук, и в OnboardingTour"],
+  "alternatives": [],
+  "commonlyUsedWith": ["OnboardingTour"]
+}

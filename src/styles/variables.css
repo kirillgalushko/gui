@@ -13,6 +13,12 @@
   --gap-11: 80px;
   --gap-12: 100px;
 
+  --motion-duration-fast: 160ms;
+  --motion-duration-base: 220ms;
+  --motion-duration-slow: 360ms;
+  --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-spring: cubic-bezier(0.22, 1.18, 0.36, 1);
+
   --background: 240 5% 6%;
   --foreground: 0 0% 98%;
   --muted: 240 5% 15.9%;

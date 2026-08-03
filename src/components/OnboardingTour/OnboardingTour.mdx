@@ -1,0 +1,55 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as OnboardingTourStories from "./OnboardingTour.stories";
+
+<Meta title="Components/OnboardingTour/Docs" />
+
+# OnboardingTour
+
+Показывает пошаговую подсказку около реального DOM-элемента. Четыре части overlay
+блокируют весь интерфейс за пределами target и карточки, поэтому target остаётся
+интерактивным без клонирования. Focus guard ограничивает клавиатурную навигацию той же
+областью.
+
+```vue
+<script setup lang="ts">
+import { OnboardingTour, useOnboardingTour } from "@gui/components";
+
+const steps = [
+  {
+    id: "filters",
+    target: "[data-tour='filters']",
+    title: "Быстрые фильтры",
+    description: "Сохраняйте часто используемые наборы.",
+    placement: "bottom-start",
+  },
+];
+const tour = useOnboardingTour({ steps });
+</script>
+
+<template>
+  <Button @click="tour.start()">Показать возможности</Button>
+  <OnboardingTour
+    v-model:open="tour.open.value"
+    v-model:step="tour.step.value"
+    :steps="steps"
+  />
+</template>
+```
+
+`target` принимает CSS-селектор, `HTMLElement` или функцию, которая возвращает элемент.
+Функция удобна, когда target появляется после навигации или условного рендера.
+
+- `placement`, `sideOffset`, `spotlightPadding`, `spotlightRadius` можно задать на шаге.
+- `missingTargetBehavior`: `close` (по умолчанию), `skip` или `wait`.
+- `scrollIntoView: false` отключает автоматическую прокрутку конкретного шага.
+- `lockTargetScroll: false` разрешает ручную прокрутку из подсвеченной области; по
+  умолчанию wheel и touch-scroll блокируются, не мешая кликам по реальному target.
+- `animated: false` отключает появление overlay, spotlight и карточки; системная настройка
+  reduced motion учитывается автоматически.
+- `advanceOnTargetClick` переводит тур дальше после реального клика по target.
+- `card`, `title`, `description`, `content`, `progress` и `actions` позволяют заменить
+  нужную часть карточки.
+- `refresh()` доступен через ref компонента для редких внешних layout-изменений; resize,
+  scroll, layout shift и scroll-контейнеры отслеживаются автоматически.
+
+<Canvas of={OnboardingTourStories.ThreeCards} />

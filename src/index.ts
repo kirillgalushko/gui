@@ -400,6 +400,9 @@ export const Toaster = ac(() => import("./components/Toaster/Toaster.vue"));
 export const GridLayout = ac(() => import("./components/Grid/GridLayout.vue"));
 export const GridRow = ac(() => import("./components/Grid/GridRow.vue"));
 export const GridColumn = ac(() => import("./components/Grid/GridColumn.vue"));
+export const OnboardingTour = ac(
+  () => import("./components/OnboardingTour/OnboardingTour.vue"),
+);
 
 import useTabs from "./components/Tabs/useTabs";
 import {
@@ -418,6 +421,7 @@ import {
 import { useViewportBreakpoint } from "./hooks/useViewportBreakpoint";
 import { useContainerBreakpoint } from "./hooks/useContainerBreakpoint";
 import { useGridBreakpoint } from "./hooks/useGridBreakpoint";
+import { useOnboardingTour } from "./components/OnboardingTour/useOnboardingTour";
 import { toast, useVueSonner } from "vue-sonner";
 export type { Color } from "./types/colors";
 export type { ComponentSize } from "./types/component-size";
@@ -493,6 +497,17 @@ export type {
   FilterOption,
   VisibilityOption,
 } from "./components/Filters/types";
+export type {
+  OnboardingRect,
+  OnboardingTourCloseReason,
+  OnboardingTourMissingTargetBehavior,
+  OnboardingTourScrollBehavior,
+  OnboardingTourStep,
+  OnboardingTourStepPayload,
+  OnboardingTourTarget,
+  OnboardingTourTargetMissingPayload,
+} from "./components/OnboardingTour/types";
+export type { UseOnboardingTourOptions } from "./components/OnboardingTour/useOnboardingTour";
 export type { PickerMode } from "./components/Picker/types";
 export { formatFileUploadSize } from "./components/FileUpload/fileUpload";
 export {
@@ -550,6 +565,7 @@ export {
   useViewportBreakpoint,
   useContainerBreakpoint,
   useGridBreakpoint,
+  useOnboardingTour,
   toast,
   useVueSonner,
 };
