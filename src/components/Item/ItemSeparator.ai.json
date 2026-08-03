@@ -1,0 +1,11 @@
+{
+  "name": "ItemSeparator",
+  "kind": "component",
+  "description": "Разделитель между соседними Item внутри ItemGroup.",
+  "keywords": ["item-separator", "divider", "разделитель списка"],
+  "useWhen": ["Нужно явно разделить строки внутри ItemGroup"],
+  "toAvoid": ["Не использовать как общий разделитель страницы"],
+  "rules": ["Использовать только внутри ItemGroup"],
+  "alternatives": ["Separator"],
+  "commonlyUsedWith": ["ItemGroup", "Item"]
+}

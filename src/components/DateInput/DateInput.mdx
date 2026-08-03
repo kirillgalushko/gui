@@ -14,6 +14,8 @@ import { Meta } from "@storybook/addon-docs";
 - `onChange?: (payload: DateInputChangePayload) => void` — вызывается после выбора даты в календаре или подтверждения ручного ввода.
 - `minDate?: Date` — минимальная доступная дата.
 - `maxDate?: Date` — максимальная доступная дата.
+- `disabledDates?: (date: Date) => boolean` — запрещает отдельные даты в календаре и при ручном вводе.
+- `onMonthChange?: (month: Date) => void` — вызывается при переходе календаря на другой месяц.
 - `disabled?: boolean` — отключает поле.
 - `invalid?: boolean` — показывает ошибочное состояние.
 - `description?: string` — текст подсказки.
@@ -33,5 +35,7 @@ import { Meta } from "@storybook/addon-docs";
   "
   :min-date="minDate"
   :max-date="maxDate"
+  :disabled-dates="isDateUnavailable"
+  :on-month-change="loadAvailability"
 />
 ```

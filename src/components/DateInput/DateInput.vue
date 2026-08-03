@@ -23,6 +23,8 @@ export interface DateInputProps {
   onChange?: (payload: DateInputChangePayload) => void;
   minDate?: Date;
   maxDate?: Date;
+  disabledDates?: (date: Date) => boolean;
+  onMonthChange?: (month: Date) => void;
   disabled?: boolean;
   invalid?: boolean;
   description?: string;
@@ -203,7 +205,7 @@ const isDateAllowed = (date: Date): boolean => {
     return false;
   }
 
-  return true;
+  return !(props.disabledDates?.(date) ?? false);
 };
 
 const isSameInputDate = (
@@ -321,6 +323,11 @@ const shouldAutoHideCalendar = (event: Event): boolean => {
 
 const selectDate = ({ date }: { date: Date }): void => {
   const nextDate = startOfDay(date);
+
+  if (!isDateAllowed(nextDate)) {
+    return;
+  }
+
   const nextInputValue = formatDateInput(nextDate);
 
   inputValue.value = nextInputValue;
@@ -394,7 +401,9 @@ watch(
           :model-value="selectedDate"
           :min-date="calendarMinDate"
           :max-date="calendarMaxDate"
+          :disabled-dates="props.disabledDates"
           @select="selectDate"
+          @month-change="props.onMonthChange?.($event.month)"
         />
       </template>
     </Dropdown>

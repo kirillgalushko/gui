@@ -5,7 +5,10 @@
   "keywords": ["date", "date-input", "calendar", "дата", "форма"],
   "useWhen": ["Нужно получить дату от пользователя", "Для форм"],
   "toAvoid": ["Не использовать для навигации, фильтров"],
-  "rules": [],
+  "rules": [
+    "Для динамической доступности передавайте disabledDates и загружайте данные через onMonthChange",
+    "disabledDates применяется и к ручному вводу, и к выбору в календаре"
+  ],
   "alternatives": ["DatePicker", "DateNavigator"],
   "commonlyUsedWith": ["FieldLabel"]
 }

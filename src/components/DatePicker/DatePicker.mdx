@@ -12,6 +12,8 @@ import { Meta } from "@storybook/addon-docs";
 - `onChange?: (payload: DatePickerChangePayload) => void` — вызывается при выборе даты.
 - `minDate?: Date` — минимальная доступная дата.
 - `maxDate?: Date` — максимальная доступная дата.
+- `disabledDates?: (date: Date) => boolean` — запрещает отдельные даты.
+- `onMonthChange?: (month: Date) => void` — вызывается при переходе календаря на другой месяц.
 - `placeholder?: string` — текст без выбранной даты.
 - `stretched?: boolean` — растянуть picker на всю ширину.
 - `disabled?: boolean` — отключить picker.

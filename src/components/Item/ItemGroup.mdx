@@ -1,0 +1,23 @@
+# ItemGroup
+
+`ItemGroup` объединяет связанные `Item` в единый список с общей рамкой и скруглением.
+
+```vue
+<ItemGroup stretched>
+  <Item>
+    <ItemContent>
+      <ItemTitle>Подготовить квартиру</ItemTitle>
+    </ItemContent>
+  </Item>
+  <ItemSeparator />
+  <Item>
+    <ItemContent>
+      <ItemTitle>Проверить санузел</ItemTitle>
+    </ItemContent>
+  </Item>
+</ItemGroup>
+```
+
+- `stretched` растягивает группу на доступную ширину.
+- `separated` добавляет разделитель между соседними `Item`, если между ними не используется `ItemSeparator`.
+- Для явного управления разделителями используй `ItemSeparator`.

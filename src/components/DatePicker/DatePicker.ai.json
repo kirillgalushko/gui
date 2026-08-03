@@ -5,7 +5,9 @@
   "keywords": ["date-picker", "date", "calendar", "дата"],
   "useWhen": ["Нужно выбрать дату только через календарь"],
   "toAvoid": ["Не использовать, если нужен ручной ввод даты"],
-  "rules": [],
+  "rules": [
+    "Для динамической доступности передавайте disabledDates и загружайте данные через onMonthChange"
+  ],
   "alternatives": ["DateInput", "DateNavigator"],
   "commonlyUsedWith": ["Field", "FieldLabel"]
 }

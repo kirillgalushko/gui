@@ -20,6 +20,8 @@ export interface DatePickerProps {
   onChange?: (payload: DatePickerChangePayload) => void;
   minDate?: Date;
   maxDate?: Date;
+  disabledDates?: (date: Date) => boolean;
+  onMonthChange?: (month: Date) => void;
   placeholder?: string;
   size?: ComponentSize;
   stretched?: boolean;
@@ -58,7 +60,7 @@ const isSelectedDateDisabled = (date: Date): boolean => {
     return true;
   }
 
-  return false;
+  return props.disabledDates?.(date) ?? false;
 };
 
 const toggleCalendar = (): void => {
@@ -110,7 +112,9 @@ const selectDate = ({ date }: { date: Date }): void => {
         :model-value="selectedDate"
         :min-date="props.minDate"
         :max-date="props.maxDate"
+        :disabled-dates="props.disabledDates"
         @select="selectDate"
+        @month-change="props.onMonthChange?.($event.month)"
       />
     </template>
   </Dropdown>

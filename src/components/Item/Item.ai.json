@@ -11,6 +11,8 @@
   "alternatives": ["Card", "Stack", "Text"],
   "commonlyUsedWith": [
     "ItemMedia",
+    "ItemGroup",
+    "ItemSeparator",
     "ItemContent",
     "ItemTitle",
     "ItemDescription",

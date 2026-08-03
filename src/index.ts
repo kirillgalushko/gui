@@ -227,7 +227,11 @@ export const ItemContent = ac(
 export const ItemDescription = ac(
   () => import("./components/Item/ItemDescription.vue"),
 );
+export const ItemGroup = ac(() => import("./components/Item/ItemGroup.vue"));
 export const ItemMedia = ac(() => import("./components/Item/ItemMedia.vue"));
+export const ItemSeparator = ac(
+  () => import("./components/Item/ItemSeparator.vue"),
+);
 export const ItemTitle = ac(() => import("./components/Item/ItemTitle.vue"));
 export const PincodeInput = ac(
   () => import("./components/PincodeInput/PincodeInput.vue"),
