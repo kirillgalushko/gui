@@ -1,0 +1,33 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/NavigationMenu/Documentation" />
+
+# NavigationMenu
+
+Составное адаптивное меню навигации. На мобильных экранах раскрываемый контент
+автоматически становится частью вертикального списка.
+
+```vue
+<NavigationMenu v-model="openedItem">
+  <NavigationMenuList>
+    <NavigationMenuItem value="product">
+      <NavigationMenuTrigger>Продукт</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink href="/calendar">Календарь</NavigationMenuLink>
+        <NavigationMenuLink href="/bookings">Бронирования</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+    <NavigationMenuItem value="pricing">
+      <NavigationMenuLink href="/pricing">Тарифы</NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+  <NavigationMenuIndicator />
+</NavigationMenu>
+```
+
+- `v-model` содержит `value` раскрытого пункта или пустую строку.
+- `default-value` задаёт начальное состояние без управляемого `v-model`.
+- `open-on-hover`, `delay-duration` и `close-delay-duration` управляют поведением.
+- `orientation="vertical"` включает вертикальную компоновку независимо от экрана.
+- Поддерживаются мышь, touch, Escape, стрелки, Home/End и корректные ARIA-связи.
+- `NavigationMenuLink as-child` позволяет использовать `RouterLink` и другие ссылки.

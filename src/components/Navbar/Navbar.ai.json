@@ -1,0 +1,19 @@
+{
+  "name": "Navbar",
+  "kind": "component",
+  "description": "Адаптивная верхняя навигация в default и floating-режимах с мобильным Sheet.",
+  "keywords": ["navbar", "header", "navigation", "шапка"],
+  "useWhen": [
+    "Нужна верхняя навигация сайта или приложения",
+    "Нужна единая desktop и mobile-композиция навигации"
+  ],
+  "toAvoid": ["Не использовать как боковую навигацию приложения"],
+  "rules": [
+    "Логотип размещать в слоте brand",
+    "Основное меню размещать в default slot",
+    "Кнопки авторизации и CTA размещать в слоте actions",
+    "Floating Navbar не растягивается по умолчанию; используй stretched для полной ширины"
+  ],
+  "alternatives": ["Sidebar"],
+  "commonlyUsedWith": ["NavigationMenu", "Button", "Sheet"]
+}

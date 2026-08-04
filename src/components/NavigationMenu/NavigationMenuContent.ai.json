@@ -1,0 +1,15 @@
+{
+  "name": "NavigationMenuContent",
+  "kind": "component",
+  "description": "Анимированная панель ссылок, управляемая NavigationMenuTrigger.",
+  "keywords": ["navigation", "content", "popover", "панель"],
+  "useWhen": ["Нужно раскрыть несколько связанных ссылок из одного пункта"],
+  "toAvoid": ["Не использовать вне NavigationMenuItem"],
+  "rules": ["Размещать после NavigationMenuTrigger"],
+  "alternatives": ["Dropdown"],
+  "commonlyUsedWith": [
+    "NavigationMenuItem",
+    "NavigationMenuTrigger",
+    "NavigationMenuLink"
+  ]
+}

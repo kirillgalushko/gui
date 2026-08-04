@@ -409,6 +409,7 @@ defineExpose({
   );
   pointer-events: auto;
   touch-action: none;
+  backdrop-filter: blur(2px);
 }
 
 .onboarding-tour__spotlight {

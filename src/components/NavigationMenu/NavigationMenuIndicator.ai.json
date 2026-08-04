@@ -1,0 +1,11 @@
+{
+  "name": "NavigationMenuIndicator",
+  "kind": "component",
+  "description": "Устаревший совместимый компонент без визуального отображения.",
+  "keywords": ["navigation", "indicator", "active", "индикатор"],
+  "useWhen": ["Нужно визуально выделить раскрытый пункт меню"],
+  "toAvoid": ["Не использовать вне NavigationMenu"],
+  "rules": ["Размещать после NavigationMenuList"],
+  "alternatives": [],
+  "commonlyUsedWith": ["NavigationMenu", "NavigationMenuList"]
+}

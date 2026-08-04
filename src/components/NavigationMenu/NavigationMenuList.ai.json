@@ -1,0 +1,11 @@
+{
+  "name": "NavigationMenuList",
+  "kind": "component",
+  "description": "Список верхнеуровневых пунктов внутри NavigationMenu.",
+  "keywords": ["navigation", "list", "menu", "список"],
+  "useWhen": ["Нужно сгруппировать NavigationMenuItem"],
+  "toAvoid": ["Не использовать вне NavigationMenu"],
+  "rules": ["Размещать NavigationMenuItem прямыми дочерними элементами"],
+  "alternatives": ["Stack"],
+  "commonlyUsedWith": ["NavigationMenu", "NavigationMenuItem"]
+}

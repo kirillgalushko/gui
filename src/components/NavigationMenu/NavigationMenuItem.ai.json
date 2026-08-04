@@ -1,0 +1,19 @@
+{
+  "name": "NavigationMenuItem",
+  "kind": "component",
+  "description": "Отдельный пункт NavigationMenu с прямой ссылкой или раскрываемой группой.",
+  "keywords": ["navigation", "item", "menu", "пункт"],
+  "useWhen": ["Нужно добавить пункт в NavigationMenuList"],
+  "toAvoid": ["Не использовать вне NavigationMenu"],
+  "rules": [
+    "Передавать уникальный value",
+    "Для группы использовать NavigationMenuTrigger и NavigationMenuContent"
+  ],
+  "alternatives": ["NavigationMenuLink"],
+  "commonlyUsedWith": [
+    "NavigationMenuList",
+    "NavigationMenuTrigger",
+    "NavigationMenuContent",
+    "NavigationMenuLink"
+  ]
+}

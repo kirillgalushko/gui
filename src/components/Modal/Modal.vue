@@ -100,7 +100,7 @@ const gridTemplateAreas = computed(() => {
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: hsl(var(--background) / 0.8);
   backdrop-filter: blur(4px);
   animation-name: enter;
   animation-duration: 0.2s;

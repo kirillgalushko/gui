@@ -1,0 +1,22 @@
+{
+  "name": "NavigationMenu",
+  "kind": "component",
+  "description": "Адаптивное составное меню для навигации по сайту и раскрытия групп ссылок.",
+  "keywords": ["navigation", "menu", "navbar", "навигация"],
+  "useWhen": [
+    "Нужна основная навигация сайта",
+    "Нужно объединить обычные ссылки и раскрываемые группы"
+  ],
+  "toAvoid": ["Не использовать для меню действий над объектом"],
+  "rules": [
+    "Собирать из NavigationMenuList и NavigationMenuItem",
+    "Передавать уникальный value пунктам с раскрываемым содержимым"
+  ],
+  "alternatives": ["Sidebar", "Tabs"],
+  "commonlyUsedWith": [
+    "NavigationMenuList",
+    "NavigationMenuItem",
+    "NavigationMenuIndicator",
+    "Navbar"
+  ]
+}

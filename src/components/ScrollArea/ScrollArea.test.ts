@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import ScrollArea from "./ScrollArea.vue";
 
 describe("ScrollArea", () => {
@@ -17,11 +17,16 @@ describe("ScrollArea", () => {
   });
 
   it("supports CSS max-height values and two-axis scrolling", () => {
+    const warning = vi
+      .spyOn(console, "warn")
+      .mockImplementation(() => undefined);
     const wrapper = mount(ScrollArea, {
       props: { maxHeight: "50vh", orientation: "both" },
     });
 
     expect(wrapper.classes()).toContain("both");
     expect(wrapper.attributes("style")).toContain("max-height: 50vh");
+    expect(warning).not.toHaveBeenCalled();
+    warning.mockRestore();
   });
 });

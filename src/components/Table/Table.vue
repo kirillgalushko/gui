@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, type CSSProperties } from "vue";
+import { computed, type CSSProperties, type PropType } from "vue";
 
 export interface TableProps {
   border?: boolean;
@@ -8,10 +8,23 @@ export interface TableProps {
   stickyHeader?: boolean;
 }
 
-const props = withDefaults(defineProps<TableProps>(), {
-  minWidth: undefined,
-  maxHeight: undefined,
-  stickyHeader: false,
+const props = defineProps({
+  border: {
+    type: Boolean,
+    default: false,
+  },
+  minWidth: {
+    type: [String, Number] as PropType<TableProps["minWidth"]>,
+    default: undefined,
+  },
+  maxHeight: {
+    type: [String, Number] as PropType<TableProps["maxHeight"]>,
+    default: undefined,
+  },
+  stickyHeader: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const toCssSize = (

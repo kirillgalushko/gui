@@ -163,7 +163,7 @@ const startResizing = () => {
   isResizing.value = true;
   document.addEventListener("mousemove", resizeSidebar);
   document.addEventListener("mouseup", stopResizing);
-  document.addEventListener("touchmove", resizeSidebar);
+  document.addEventListener("touchmove", resizeSidebar, { passive: true });
   document.addEventListener("touchend", stopResizing);
   document.body.classList.add("prevent-user-select");
   document.body.classList.add("sidebar-is-resizing");
@@ -253,7 +253,7 @@ onBeforeUnmount(() => {
     <div
       class="resize-handle"
       @mousedown="startResizing"
-      @touchstart="startResizing"
+      @touchstart.passive="startResizing"
     >
       <IconGripVerticalOutline />
     </div>
@@ -284,6 +284,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .sidebar {
   width: 400px;
+  flex-shrink: 0;
   border-right: 1px solid hsl(var(--border));
   background: hsl(var(--sidebar));
   height: 100%;

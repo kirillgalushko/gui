@@ -1,0 +1,14 @@
+{
+  "name": "NavigationMenuLink",
+  "kind": "component",
+  "description": "Ссылка NavigationMenu с active, disabled и asChild-состояниями.",
+  "keywords": ["navigation", "link", "router", "ссылка"],
+  "useWhen": ["Нужно добавить навигационную ссылку в меню"],
+  "toAvoid": ["Не использовать вне NavigationMenu"],
+  "rules": [
+    "Использовать asChild для RouterLink",
+    "Указывать active для текущей страницы"
+  ],
+  "alternatives": ["Link"],
+  "commonlyUsedWith": ["NavigationMenuItem", "NavigationMenuContent"]
+}

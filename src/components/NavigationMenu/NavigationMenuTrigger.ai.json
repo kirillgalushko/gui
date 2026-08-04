@@ -1,0 +1,11 @@
+{
+  "name": "NavigationMenuTrigger",
+  "kind": "component",
+  "description": "Доступная кнопка раскрытия NavigationMenuContent.",
+  "keywords": ["navigation", "trigger", "dropdown", "кнопка"],
+  "useWhen": ["Пункт NavigationMenu раскрывает группу ссылок"],
+  "toAvoid": ["Не использовать вне NavigationMenuItem"],
+  "rules": ["Размещать перед связанным NavigationMenuContent"],
+  "alternatives": ["NavigationMenuLink"],
+  "commonlyUsedWith": ["NavigationMenuItem", "NavigationMenuContent"]
+}

@@ -10,7 +10,8 @@
     "Для snap-схлопывания укажи compactWidth и collapseThreshold; collapseThreshold должен быть больше compactWidth",
     "Переключение compact-состояния происходит посередине между compactWidth и collapseThreshold",
     "При смене compact-состояния Sidebar применяет единый fade ко всему содержимому default slot; дочерним элементам отдельная fade-анимация не нужна",
-    "При расширении Sidebar анимирует только участок от compactWidth до collapseThreshold, а выше порога напрямую следует за курсором"
+    "При расширении Sidebar анимирует только участок от compactWidth до collapseThreshold, а выше порога напрямую следует за курсором",
+    "Sidebar сохраняет заданную ширину внутри flex-контейнера и не сжимается соседним контентом"
   ],
   "alternatives": [],
   "commonlyUsedWith": [

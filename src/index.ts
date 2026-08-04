@@ -15,6 +15,30 @@ export const AccordionItem = ac(
 export const AccordionTrigger = ac(
   () => import("./components/Accordion/AccordionTrigger.vue"),
 );
+export const Navbar = ac(() => import("./components/Navbar/Navbar.vue"));
+export const NavigationMenu = ac(
+  () => import("./components/NavigationMenu/NavigationMenu.vue"),
+);
+export const NavigationMenuContent = ac(
+  () => import("./components/NavigationMenu/NavigationMenuContent.vue"),
+);
+export const NavigationMenuIndicator = ac(
+  () => import("./components/NavigationMenu/NavigationMenuIndicator.vue"),
+);
+export const NavigationMenuItem = ac(
+  () => import("./components/NavigationMenu/NavigationMenuItem.vue"),
+);
+export const NavigationMenuLink = ac(
+  () => import("./components/NavigationMenu/NavigationMenuLink.vue"),
+);
+export const NavigationMenuList = ac(
+  () => import("./components/NavigationMenu/NavigationMenuList.vue"),
+);
+export const NavigationMenuTrigger = ac(
+  () => import("./components/NavigationMenu/NavigationMenuTrigger.vue"),
+);
+export type { NavbarMode } from "./components/Navbar/Navbar.vue";
+export type { NavigationMenuOrientation } from "./components/NavigationMenu/context";
 export const Collapsable = ac(
   () => import("./components/Collapsable/Collapsable.vue"),
 );

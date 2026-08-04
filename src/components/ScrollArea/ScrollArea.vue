@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, type CSSProperties } from "vue";
+import { computed, type CSSProperties, type PropType } from "vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -14,11 +14,23 @@ export interface ScrollAreaProps {
   stableScrollbar?: boolean;
 }
 
-const props = withDefaults(defineProps<ScrollAreaProps>(), {
-  maxHeight: undefined,
-  orientation: "vertical",
-  keyboardFocusable: true,
-  stableScrollbar: true,
+const props = defineProps({
+  maxHeight: {
+    type: [String, Number] as PropType<ScrollAreaProps["maxHeight"]>,
+    default: undefined,
+  },
+  orientation: {
+    type: String as PropType<ScrollAreaOrientation>,
+    default: "vertical",
+  },
+  keyboardFocusable: {
+    type: Boolean,
+    default: true,
+  },
+  stableScrollbar: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const maxHeight = computed(() =>
