@@ -7,7 +7,10 @@
   "toAvoid": ["Не использовать вне NavigationMenu"],
   "rules": [
     "Использовать asChild для RouterLink",
-    "Указывать active для текущей страницы"
+    "Указывать active для текущей страницы",
+    "Цветовые состояния соответствуют Button в режиме ghost",
+    "Размеры и отступы size соответствуют Button; по умолчанию используется medium",
+    "Использовать rounded для pill-формы"
   ],
   "alternatives": ["Link"],
   "commonlyUsedWith": ["NavigationMenuItem", "NavigationMenuContent"]

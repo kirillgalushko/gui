@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import AsChild from "../../internal/AsChild";
+import type { ComponentSize } from "../../types";
 import { navigationMenuContextKey } from "./context";
 
 defineOptions({
@@ -13,6 +14,8 @@ export interface NavigationMenuLinkProps {
   closeOnSelect?: boolean;
   disabled?: boolean;
   Element?: "a" | "button";
+  rounded?: boolean;
+  size?: ComponentSize;
 }
 
 const props = withDefaults(defineProps<NavigationMenuLinkProps>(), {
@@ -21,6 +24,8 @@ const props = withDefaults(defineProps<NavigationMenuLinkProps>(), {
   closeOnSelect: true,
   disabled: false,
   Element: "a",
+  rounded: false,
+  size: "medium",
 });
 const navigationMenu = inject(navigationMenuContextKey);
 
@@ -55,7 +60,7 @@ const handleClick = (event: MouseEvent) => {
   <AsChild
     v-if="props.asChild"
     v-bind="{ ...$attrs, ...linkAttrs }"
-    class="navigation-menu-link"
+    :class="['navigation-menu-link', props.size, { rounded: props.rounded }]"
     :data-active="props.active || undefined"
     @click="handleClick"
   >
@@ -66,7 +71,7 @@ const handleClick = (event: MouseEvent) => {
     :is="props.Element"
     v-else
     v-bind="{ ...$attrs, ...linkAttrs }"
-    class="navigation-menu-link"
+    :class="['navigation-menu-link', props.size, { rounded: props.rounded }]"
     :data-active="props.active || undefined"
     @click="handleClick"
   >
@@ -76,22 +81,33 @@ const handleClick = (event: MouseEvent) => {
 
 <style scoped>
 .navigation-menu-link {
+  --navigation-menu-link-bg: hsl(var(--input));
+  --navigation-menu-link-text: hsl(var(--primary));
+  --navigation-menu-link-outline: hsl(var(--ring));
+  --navigation-menu-link-height: 36px;
+  --navigation-menu-link-padding: 8px 14px;
+  --navigation-menu-link-font-size: 14px;
+  --navigation-menu-link-line-height: 20px;
+  --navigation-menu-link-radius: 12px;
+
   display: flex;
-  min-height: 36px;
+  height: var(--navigation-menu-link-height);
   align-items: center;
-  gap: var(--gap-2);
+  justify-content: center;
+  gap: var(--gap-1);
   box-sizing: border-box;
-  padding: var(--gap-2) var(--gap-3);
+  padding: var(--navigation-menu-link-padding);
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--navigation-menu-link-radius);
   background: transparent;
-  color: hsl(var(--muted-foreground));
+  color: var(--navigation-menu-link-text);
   font: inherit;
-  font-size: 14px;
+  font-size: var(--navigation-menu-link-font-size);
   font-weight: 500;
-  line-height: 20px;
-  text-align: initial;
+  line-height: var(--navigation-menu-link-line-height);
+  text-align: center;
   text-decoration: none;
+  text-wrap: nowrap;
   cursor: pointer;
   outline: 2px solid transparent;
   outline-offset: -2px;
@@ -101,19 +117,58 @@ const handleClick = (event: MouseEvent) => {
     outline-color var(--motion-duration-fast) var(--motion-ease-out);
 }
 
+.navigation-menu-link.rounded {
+  border-radius: 999px;
+}
+
+.navigation-menu-link.extra-small {
+  --navigation-menu-link-height: 24px;
+  --navigation-menu-link-padding: 4px 8px;
+  --navigation-menu-link-font-size: 12px;
+  --navigation-menu-link-line-height: 16px;
+  --navigation-menu-link-radius: 8px;
+}
+
+.navigation-menu-link.small {
+  --navigation-menu-link-height: 32px;
+  --navigation-menu-link-padding: 6px 12px;
+  --navigation-menu-link-font-size: 13px;
+  --navigation-menu-link-line-height: 18px;
+  --navigation-menu-link-radius: 10px;
+}
+
+.navigation-menu-link.medium {
+  --navigation-menu-link-height: 36px;
+  --navigation-menu-link-padding: 8px 14px;
+  --navigation-menu-link-font-size: 14px;
+  --navigation-menu-link-line-height: 20px;
+  --navigation-menu-link-radius: 12px;
+}
+
+.navigation-menu-link.large {
+  --navigation-menu-link-height: 40px;
+  --navigation-menu-link-padding: 8px 16px;
+  --navigation-menu-link-font-size: 14px;
+  --navigation-menu-link-line-height: 20px;
+  --navigation-menu-link-radius: 12px;
+}
+
 .navigation-menu-link:hover,
 .navigation-menu-link[data-active] {
-  background: hsl(var(--muted));
-  color: hsl(var(--foreground));
+  background: color-mix(
+    in oklab,
+    var(--navigation-menu-link-bg) 80%,
+    transparent
+  );
 }
 
 .navigation-menu-link:focus-visible {
-  outline-color: hsl(var(--ring));
+  outline-color: var(--navigation-menu-link-outline);
 }
 
 .navigation-menu-link[aria-disabled="true"] {
+  color: hsl(var(--muted-foreground));
   cursor: not-allowed;
-  opacity: 0.5;
 }
 
 :global(.navigation-menu[data-mobile]) .navigation-menu-link,

@@ -168,7 +168,7 @@ watch(isMobile, (mobile) => {
 
 .navbar-floating {
   --navbar-radius: 999px;
-  --navbar-padding-x: var(--gap-4);
+  --navbar-padding-x: 10px;
   --navbar-padding-y: var(--gap-2);
 }
 

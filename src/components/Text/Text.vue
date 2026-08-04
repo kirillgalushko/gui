@@ -125,28 +125,28 @@ const styles = computed(() => {
 .title-7 {
   font-size: 48px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: -1.5px;
 }
 
 .title-8 {
   font-size: 64px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: -2px;
 }
 
 .title-9 {
   font-size: 96px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: -3px;
 }
 
 .title-10 {
   font-size: 132px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.25;
   letter-spacing: -4px;
 }
 
