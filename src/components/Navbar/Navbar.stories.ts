@@ -12,6 +12,7 @@ const meta: Meta<typeof Navbar> = {
   component: Navbar,
   tags: ["autodocs"],
   args: {
+    blur: false,
     mode: "default",
     sticky: false,
     stretched: undefined,
@@ -63,6 +64,14 @@ export const Default: Story = {
 
 export const Floating: Story = {
   args: {
+    mode: "floating",
+  },
+  render: renderNavbar,
+};
+
+export const Blurred: Story = {
+  args: {
+    blur: true,
     mode: "floating",
   },
   render: renderNavbar,

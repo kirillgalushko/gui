@@ -7,7 +7,7 @@ import { Meta } from "@storybook/addon-docs";
 Адаптивная верхняя навигация со слотами `brand`, `default` и `actions`.
 
 ```vue
-<Navbar mode="floating" sticky>
+<Navbar mode="floating" blur sticky>
   <template #brand><AppLogo /></template>
   <NavigationMenu>...</NavigationMenu>
   <template #actions>
@@ -22,5 +22,6 @@ import { Meta } from "@storybook/addon-docs";
 - `stretched` управляет растягиванием по ширине. По умолчанию включён для
   `default` и выключен для `floating`.
 - `sticky` закрепляет Navbar сверху; floating-вариант сохраняет внешний отступ.
+- `blur` делает фон полупрозрачным и размывает проходящий под Navbar контент.
 - На `xs` и `s` навигация и actions автоматически переносятся в `Sheet`.
 - `v-model:mobile-open` позволяет управлять мобильным меню извне.

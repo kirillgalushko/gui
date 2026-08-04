@@ -10,6 +10,7 @@ export type NavbarMode = "default" | "floating";
 
 export interface NavbarProps {
   ariaLabel?: string;
+  blur?: boolean;
   defaultMobileOpen?: boolean;
   mobileMenuLabel?: string;
   mobileMenuTitle?: string;
@@ -21,6 +22,7 @@ export interface NavbarProps {
 
 const props = withDefaults(defineProps<NavbarProps>(), {
   ariaLabel: "Основная навигация",
+  blur: false,
   defaultMobileOpen: false,
   mobileMenuLabel: "Открыть меню",
   mobileMenuTitle: "Меню",
@@ -72,6 +74,7 @@ watch(isMobile, (mobile) => {
       'navbar',
       `navbar-${props.mode}`,
       {
+        blur: props.blur,
         'navbar-sticky': props.sticky,
         'navbar-stretched': isStretched,
       },
@@ -220,6 +223,12 @@ watch(isMobile, (mobile) => {
 .navbar-mobile-navigation {
   display: flex;
   width: 100%;
+}
+
+.blur {
+  background: color-mix(in oklab, hsl(var(--card)) 80%, transparent);
+  backdrop-filter: blur(20px);
+  border-color: hsl(var(--border) / 0.5);
 }
 
 @media (max-width: 767px) {
