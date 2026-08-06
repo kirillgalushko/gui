@@ -401,6 +401,8 @@ export const HoverMenuSeparator = ac(
 export const HoverCard = ac(
   () => import("./components/HoverCard/HoverCard.vue"),
 );
+export const Hover3d = ac(() => import("./components/Hover3d/Hover3d.vue"));
+export type { Hover3dProps } from "./components/Hover3d/Hover3d.vue";
 export const HourPicker = ac(
   () => import("./components/HourPicker/HourPicker.vue"),
 );
