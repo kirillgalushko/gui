@@ -193,18 +193,18 @@ const styles = computed(() => {
 .label-3 {
   font-size: 16px;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 20px;
 }
 
 .label-2 {
   font-size: 14px;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 18px;
 }
 
 .label-1 {
   font-size: 12px;
   font-weight: 500;
-  line-height: 14px;
+  line-height: 18px;
 }
 </style>

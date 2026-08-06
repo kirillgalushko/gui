@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/NumberFlow/Documentation" />
+
+# NumberFlow
+
+Универсальный компонент для форматированных чисел с вертикальным движением цифр. Увеличение и уменьшение значения автоматически получают противоположное направление. Компонент наследует GUI-типографику и учитывает `prefers-reduced-motion`.
+
+## Основные props
+
+- `value: number` — текущее значение.
+- `typography` и `color` — типографика и цвет из `Text`.
+- `locales` и `format` — параметры `Intl.NumberFormat`.
+- `prefix` и `suffix` — произвольный текст до и после числа.
+- `direction: "auto" | "up" | "down" | "individual"` — направление прокрутки. `auto` следует общему тренду, `individual` двигает каждую цифру в сторону её собственного изменения.
+- `continuous` — прокручивает промежуточные цифры при переходе.
+- `duration` и `easing` — общая длительность и easing.
+- `timing` — точечная настройка `transform`, `spin` и `opacity` через `EffectTiming`.
+- `animateOnMount`, `initialValue`, `mountDelay` — анимация первого появления.
+- `startOnVisible`, `visibilityThreshold`, `visibilityRootMargin` — отложенный однократный запуск первого перехода при появлении компонента в viewport.
+- `animated` — позволяет мгновенно закончить или полностью отключить анимацию.
+- `respectMotionPreference` — учитывает системную настройку уменьшения движения.
+- `willChange` — оптимизация для значений, которые гарантированно меняются часто.
+
+## Примеры
+
+```vue
+<NumberFlow :value="bookings" typography="title-9" locales="ru-RU" />
+
+<NumberFlow
+  :value="revenue"
+  :format="{ style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }"
+  direction="up"
+  continuous
+  animate-on-mount
+  start-on-visible
+  :initial-value="0"
+  :duration="900"
+/>
+```
+
+События `animations-start` и `animations-finish` позволяют синхронизировать внешние эффекты с началом и завершением перехода.

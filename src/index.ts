@@ -405,6 +405,17 @@ export const FadeMask = ac(() => import("./components/FadeMask/FadeMask.vue"));
 export type { FadeMaskProps } from "./components/FadeMask/FadeMask.vue";
 export const Hover3d = ac(() => import("./components/Hover3d/Hover3d.vue"));
 export type { Hover3dProps } from "./components/Hover3d/Hover3d.vue";
+export const NumberFlow = ac(
+  () => import("./components/NumberFlow/NumberFlow.vue"),
+);
+export type {
+  NumberFlowFormat,
+  NumberFlowProps,
+} from "./components/NumberFlow/NumberFlow.vue";
+export type {
+  NumberFlowDirection,
+  NumberFlowTimingOverrides,
+} from "./components/NumberFlow/useNumberFlow";
 export const HourPicker = ac(
   () => import("./components/HourPicker/HourPicker.vue"),
 );
