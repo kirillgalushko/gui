@@ -1,0 +1,28 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/FadeMask/Documentation" />
+
+# FadeMask
+
+Универсальная slot-обёртка для плавного исчезновения содержимого у выбранного края. Подходит для списков, изображений, превью и любых других блоков.
+
+## Props
+
+- `direction: "top" | "right" | "bottom" | "left"` — край, к которому исчезает содержимое. По умолчанию `bottom`.
+- `start: number` — позиция в процентах, где начинается затухание. По умолчанию `40`.
+- `end: number` — позиция в процентах, где содержимое становится прозрачным. По умолчанию `90`.
+- `easing: "smooth" | "linear"` — форма перехода прозрачности. По умолчанию `smooth`.
+- `aspectRatio: string` — опциональный `aspect-ratio` обёртки, например `"16 / 9"`.
+- `inline: boolean` — делает обёртку компактной через `inline-block`.
+- `overflow: boolean` — обрезает выходящее за границы содержимое. По умолчанию включено.
+- `disabled: boolean` — временно отключает маску, сохраняя layout обёртки.
+
+Значения `start` и `end` автоматически ограничиваются диапазоном от 0 до 100. Их можно передавать в любом порядке.
+
+## Пример
+
+```vue
+<FadeMask direction="bottom" :start="45" :end="95" aspect-ratio="16 / 9">
+  <img src="/preview.webp" alt="" />
+</FadeMask>
+```
