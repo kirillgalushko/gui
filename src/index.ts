@@ -105,6 +105,20 @@ export const AdaptiveModal = ac(
   () => import("./components/AdaptiveModal/AdaptiveModal.vue"),
 );
 export const Avatar = ac(() => import("./components/Avatar/Avatar.vue"));
+export const AvatarGroup = ac(
+  () => import("./components/Avatar/AvatarGroup.vue"),
+);
+export const AvatarGroupCount = ac(
+  () => import("./components/Avatar/AvatarGroupCount.vue"),
+);
+export type {
+  AvatarColor,
+  AvatarMode,
+  AvatarProps,
+  AvatarShape,
+} from "./components/Avatar/Avatar.vue";
+export type { AvatarGroupProps } from "./components/Avatar/AvatarGroup.vue";
+export type { AvatarGroupCountProps } from "./components/Avatar/AvatarGroupCount.vue";
 export const Button = ac(() => import("./components/Button/Button.vue"));
 export const ButtonGroup = ac(
   () => import("./components/ButtonGroup/ButtonGroup.vue"),

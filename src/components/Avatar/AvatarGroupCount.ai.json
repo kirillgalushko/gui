@@ -1,0 +1,15 @@
+{
+  "name": "AvatarGroupCount",
+  "kind": "component",
+  "description": "Счётчик скрытых участников внутри AvatarGroup, визуально совместимый с Avatar.",
+  "keywords": ["avatar", "count", "more", "participants", "счётчик"],
+  "useWhen": ["Нужно показать количество участников, не вошедших в AvatarGroup"],
+  "toAvoid": ["Не использовать отдельно от AvatarGroup без необходимости"],
+  "rules": [
+    "Передавать количество скрытых участников через count",
+    "Задавать ariaLabel, если стандартная подпись не описывает содержимое группы",
+    "Использовать mode, color, size и shape по правилам Avatar"
+  ],
+  "alternatives": ["Badge"],
+  "commonlyUsedWith": ["AvatarGroup", "Avatar"]
+}

@@ -35,7 +35,7 @@ const renderNavbar = (args: Record<string, unknown>) => ({
   setup: () => ({ args }),
   template: `
     <Navbar v-bind="args">
-      <template #brand><strong>Arenda</strong></template>
+      <template #left><strong>Arenda</strong></template>
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem value="product">
@@ -85,4 +85,36 @@ export const Mobile: Story = {
     viewport: { defaultViewport: "mobile1" },
   },
   render: renderNavbar,
+};
+
+export const MobileDropdown: Story = {
+  args: {
+    mode: "floating",
+    mobileMenuVariant: "dropdown",
+  },
+  parameters: {
+    viewport: { defaultViewport: "mobile1" },
+  },
+  render: renderNavbar,
+};
+
+export const CustomMobileContent: Story = {
+  args: {
+    mode: "floating",
+  },
+  parameters: {
+    viewport: { defaultViewport: "mobile1" },
+  },
+  render: (args) => ({
+    components: { Button, Navbar },
+    setup: () => ({ args }),
+    template: `
+      <Navbar v-bind="args">
+        <template #left><strong>Arenda</strong></template>
+        <template #mobile>
+          <Button stretched>Отдельное мобильное действие</Button>
+        </template>
+      </Navbar>
+    `,
+  }),
 };

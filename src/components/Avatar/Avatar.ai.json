@@ -11,5 +11,5 @@
     "Для произвольного палитрового оттенка использовать color"
   ],
   "alternatives": [],
-  "commonlyUsedWith": ["Item", "Tooltip"]
+  "commonlyUsedWith": ["AvatarGroup", "AvatarGroupCount", "Item", "Tooltip"]
 }

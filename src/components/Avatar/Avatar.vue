@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, inject, ref } from "vue";
 import type { Color } from "../../types/colors";
+import { avatarGroupContextKey } from "./context";
 
 export type AvatarMode =
   | "default"
@@ -13,9 +14,10 @@ export type AvatarMode =
   | "danger"
   | "warning";
 export type AvatarColor = Color;
+export type AvatarShape = "square" | "circle";
 
 export interface AvatarProps {
-  shape?: "square" | "circle";
+  shape?: AvatarShape;
   mode?: AvatarMode;
   color?: AvatarColor;
   src?: string;
@@ -24,12 +26,13 @@ export interface AvatarProps {
 }
 
 const props = withDefaults(defineProps<AvatarProps>(), {
-  shape: "circle",
-  size: "40px",
   mode: "default",
 });
 
+const group = inject(avatarGroupContextKey, null);
 const imageLoaded = ref<boolean>(false);
+const shape = computed(() => props.shape ?? group?.shape.value ?? "circle");
+const size = computed(() => props.size ?? group?.size.value ?? "40px");
 
 const modeStyles: Record<
   AvatarMode,
@@ -89,9 +92,9 @@ function handleImageLoad() {
 
 const styles = computed(() => {
   const borderRadius =
-    props.shape === "square"
+    shape.value === "square"
       ? {
-          borderRadius: `calc(${props.size} / 4)`,
+          borderRadius: `calc(${size.value} / 4)`,
         }
       : {};
   const paletteColor =
@@ -99,9 +102,9 @@ const styles = computed(() => {
   const modeStyle = modeStyles[props.mode];
 
   return {
-    width: props.size,
-    height: props.size,
-    fontSize: `calc(${props.size} / 2.5)`,
+    width: size.value,
+    height: size.value,
+    fontSize: `calc(${size.value} / 2.5)`,
     "--avatar-bg":
       paletteColor === undefined
         ? modeStyle.backgroundColor
@@ -113,11 +116,7 @@ const styles = computed(() => {
 </script>
 
 <template>
-  <div
-    :style="styles"
-    :class="['avatar', props.shape, props.mode]"
-    v-bind="$attrs"
-  >
+  <div :style="styles" :class="['avatar', shape, props.mode]" v-bind="$attrs">
     <img
       v-if="props.src"
       v-show="imageLoaded"

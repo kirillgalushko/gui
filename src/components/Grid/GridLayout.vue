@@ -31,7 +31,7 @@ const breakpoint = computed(() =>
 );
 const columns = computed(() => breakpointColumns[breakpoint.value]);
 const layoutPadding = computed(() =>
-  breakpoint.value === "xs" || breakpoint.value === "s" ? "12px" : "24px",
+  breakpoint.value === "xs" ? "12px" : "24px",
 );
 const style = computed(() => ({
   "--grid-columns": String(columns.value),
@@ -92,5 +92,10 @@ provide(gridContextKey, {
 .grid-layout__highlight-column {
   min-width: 0;
   background: rgba(116, 0, 255, 0.12);
+}
+
+.grid-layout .grid-layout,
+.grid-layout .grid-layout .grid-layout__highlight {
+  padding: 0;
 }
 </style>

@@ -3,6 +3,7 @@ import type { BorderRadius, Padding } from "../../types";
 
 interface Card {
   background?: "default" | "secondary";
+  fullHeight?: boolean;
   stretched?: boolean;
   padding?: Padding;
   borderRadius?: BorderRadius;
@@ -34,7 +35,11 @@ const props = withDefaults(defineProps<CardProps>(), {
     :class="[
       'card',
       props.background,
-      { interactive: props.interactive, stretched: props.stretched },
+      {
+        'full-height': props.fullHeight,
+        interactive: props.interactive,
+        stretched: props.stretched,
+      },
     ]"
     :style="{
       padding: `${props.padding}px`,
@@ -87,5 +92,9 @@ const props = withDefaults(defineProps<CardProps>(), {
 
 .stretched {
   width: 100%;
+}
+
+.full-height {
+  height: 100%;
 }
 </style>

@@ -225,7 +225,6 @@ const handleOverlayClick = () => {
 
 .right .sheet-content-inner,
 .left .sheet-content-inner {
-  padding-top: 0;
   padding-bottom: var(--gap-2);
 }
 

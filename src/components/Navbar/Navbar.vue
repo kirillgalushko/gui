@@ -3,10 +3,13 @@ import { computed, ref, watch } from "vue";
 import { IconMenu2Outline } from "@gui/icons";
 import { useViewportBreakpoint } from "../../hooks/useViewportBreakpoint";
 import Button from "../Button/Button.vue";
+import Dropdown from "../Dropdown/Dropdown.vue";
 import Sheet from "../Sheet/Sheet.vue";
 import Stack from "../Stack/Stack.vue";
+import { useNavbarCompactLayout } from "./useNavbarCompactLayout";
 
 export type NavbarMode = "default" | "floating";
+export type NavbarMobileVariant = "sheet" | "dropdown";
 
 export interface NavbarProps {
   ariaLabel?: string;
@@ -14,6 +17,7 @@ export interface NavbarProps {
   defaultMobileOpen?: boolean;
   mobileMenuLabel?: string;
   mobileMenuTitle?: string;
+  mobileMenuVariant?: NavbarMobileVariant;
   mobileOpen?: boolean;
   mode?: NavbarMode;
   sticky?: boolean;
@@ -26,6 +30,7 @@ const props = withDefaults(defineProps<NavbarProps>(), {
   defaultMobileOpen: false,
   mobileMenuLabel: "Открыть меню",
   mobileMenuTitle: "Меню",
+  mobileMenuVariant: "sheet",
   mobileOpen: undefined,
   mode: "default",
   sticky: false,
@@ -37,6 +42,19 @@ const emit = defineEmits<{
 
 const breakpoint = useViewportBreakpoint();
 const isMobile = computed(() => breakpoint.isMobile);
+const navbarRef = ref<HTMLElement | null>(null);
+const layoutRef = ref<HTMLElement | null>(null);
+const leftRef = ref<HTMLElement | null>(null);
+const navigationRef = ref<HTMLElement | null>(null);
+const actionsRef = ref<HTMLElement | null>(null);
+const { isCompact } = useNavbarCompactLayout({
+  actionsRef,
+  isViewportCompact: isMobile,
+  layoutRef,
+  leftRef,
+  navbarRef,
+  navigationRef,
+});
 const isStretched = computed(
   () => props.stretched ?? props.mode !== "floating",
 );
@@ -61,8 +79,8 @@ const handleMobileNavigationClick = (event: MouseEvent) => {
   }
 };
 
-watch(isMobile, (mobile) => {
-  if (!mobile && isMobileOpen.value) {
+watch(isCompact, (compact) => {
+  if (!compact && isMobileOpen.value) {
     setMobileOpen(false);
   }
 });
@@ -70,6 +88,7 @@ watch(isMobile, (mobile) => {
 
 <template>
   <header
+    ref="navbarRef"
     :class="[
       'navbar',
       `navbar-${props.mode}`,
@@ -77,38 +96,100 @@ watch(isMobile, (mobile) => {
         blur: props.blur,
         'navbar-sticky': props.sticky,
         'navbar-stretched': isStretched,
+        'navbar-compact': isCompact,
       },
     ]"
     :data-mode="props.mode"
   >
-    <div class="navbar-layout">
-      <div class="navbar-brand">
-        <slot name="brand"></slot>
+    <div ref="layoutRef" class="navbar-layout">
+      <div ref="leftRef" class="navbar-left">
+        <slot name="left"></slot>
       </div>
 
-      <template v-if="!isMobile">
-        <div class="navbar-navigation" :aria-label="props.ariaLabel">
+      <template v-if="!isCompact">
+        <div
+          ref="navigationRef"
+          class="navbar-navigation"
+          :aria-label="props.ariaLabel"
+        >
           <slot></slot>
         </div>
 
-        <Stack
-          v-if="$slots.actions"
-          class="navbar-actions"
-          direction="row"
-          :gap="2"
-          align-items="center"
-          justify-content="end"
-        >
-          <slot name="actions"></slot>
-        </Stack>
+        <div v-if="$slots.actions" ref="actionsRef" class="navbar-actions">
+          <Stack
+            direction="row"
+            :gap="2"
+            align-items="center"
+            justify-content="end"
+          >
+            <slot name="actions"></slot>
+          </Stack>
+        </div>
       </template>
 
+      <Stack
+        v-else-if="$slots.compactActions"
+        direction="row"
+        :gap="1"
+        align-items="center"
+      >
+        <slot name="compactActions"></slot>
+      </Stack>
+
+      <Dropdown
+        v-if="isCompact && props.mobileMenuVariant === 'dropdown'"
+        :shown="isMobileOpen"
+        content-padding="comfortable"
+        placement="bottom-end"
+        @update:shown="setMobileOpen"
+      >
+        <Button
+          class="navbar-menu-button"
+          mode="ghost"
+          size="medium"
+          squared
+          type="button"
+          :aria-label="props.mobileMenuLabel"
+          :aria-expanded="isMobileOpen"
+        >
+          <IconMenu2Outline />
+        </Button>
+
+        <template #popper>
+          <div
+            class="navbar-mobile-content"
+            @click="handleMobileNavigationClick"
+          >
+            <slot v-if="$slots.mobile" name="mobile"></slot>
+
+            <template v-else>
+              <div
+                class="navbar-mobile-navigation"
+                :aria-label="props.ariaLabel"
+              >
+                <slot></slot>
+              </div>
+
+              <Stack
+                v-if="$slots.actions"
+                direction="column"
+                :gap="2"
+                stretched
+              >
+                <slot name="actions"></slot>
+              </Stack>
+            </template>
+          </div>
+        </template>
+      </Dropdown>
+
       <Button
-        v-else
+        v-else-if="isCompact"
         class="navbar-menu-button"
         mode="ghost"
         size="medium"
         squared
+        :rounded="mode === 'floating'"
         type="button"
         :aria-label="props.mobileMenuLabel"
         :aria-expanded="isMobileOpen"
@@ -118,25 +199,31 @@ watch(isMobile, (mobile) => {
       </Button>
     </div>
 
-    <Sheet
-      v-if="isMobile"
-      :is-opened="isMobileOpen"
-      :title="props.mobileMenuTitle"
-      side="right"
-      size="small"
-      mode="floating"
-      :on-close="() => setMobileOpen(false)"
-    >
-      <div class="navbar-mobile-content" @click="handleMobileNavigationClick">
-        <div class="navbar-mobile-navigation" :aria-label="props.ariaLabel">
-          <slot></slot>
-        </div>
+    <Teleport to="body">
+      <Sheet
+        v-if="isCompact && props.mobileMenuVariant === 'sheet'"
+        :is-opened="isMobileOpen"
+        :title="props.mobileMenuTitle"
+        side="right"
+        size="small"
+        mode="floating"
+        :on-close="() => setMobileOpen(false)"
+      >
+        <div class="navbar-mobile-content" @click="handleMobileNavigationClick">
+          <slot v-if="$slots.mobile" name="mobile"></slot>
 
-        <Stack v-if="$slots.actions" direction="column" :gap="2" stretched>
-          <slot name="actions"></slot>
-        </Stack>
-      </div>
-    </Sheet>
+          <template v-else>
+            <div class="navbar-mobile-navigation" :aria-label="props.ariaLabel">
+              <slot></slot>
+            </div>
+
+            <Stack v-if="$slots.actions" direction="column" :gap="2" stretched>
+              <slot name="actions"></slot>
+            </Stack>
+          </template>
+        </div>
+      </Sheet>
+    </Teleport>
   </header>
 </template>
 
@@ -194,7 +281,7 @@ watch(isMobile, (mobile) => {
   padding: var(--navbar-padding-y) var(--navbar-padding-x);
 }
 
-.navbar-brand {
+.navbar-left {
   display: flex;
   min-width: 0;
   align-items: center;
@@ -231,25 +318,14 @@ watch(isMobile, (mobile) => {
   border-color: hsl(var(--border) / 0.5);
 }
 
-@media (max-width: 767px) {
-  .navbar {
-    --navbar-padding-x: var(--gap-3);
-    --navbar-padding-y: var(--gap-2);
-  }
+.navbar-compact .navbar-layout {
+  display: flex;
+  min-height: 44px;
+  justify-content: space-between;
+}
 
-  .navbar-floating {
-    --navbar-radius: 20px;
-  }
-
-  .navbar-layout {
-    display: flex;
-    min-height: 44px;
-    justify-content: space-between;
-  }
-
-  .navbar-menu-button {
-    flex: 0 0 auto;
-  }
+.navbar-compact .navbar-menu-button {
+  flex: 0 0 auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

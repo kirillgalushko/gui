@@ -20,6 +20,9 @@ const meta = {
     stretched: {
       control: { type: "boolean" },
     },
+    fullHeight: {
+      control: { type: "boolean" },
+    },
     interactive: {
       control: { type: "boolean" },
     },
@@ -119,5 +122,22 @@ export const StretchedCard: Story = {
       return { args };
     },
     template: `<Card v-bind="args">${cardContent}</Card>`,
+  }),
+};
+
+export const FullHeightCard: Story = {
+  args: {
+    background: "default",
+    fullHeight: true,
+    interactive: false,
+    stretched: true,
+    ...demoArgs,
+  },
+  render: (args) => ({
+    components: demoComponents,
+    setup() {
+      return { args };
+    },
+    template: `<div style="height: 320px"><Card v-bind="args">${cardContent}</Card></div>`,
   }),
 };

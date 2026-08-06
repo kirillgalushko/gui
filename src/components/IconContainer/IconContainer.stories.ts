@@ -8,7 +8,10 @@ const meta: Meta<typeof IconContainer> = {
   tags: ["autodocs"],
   argTypes: {
     size: { control: { type: "text" } },
-    mode: { control: { type: "select" }, options: ["square", "circle"] },
+    mode: {
+      control: { type: "select" },
+      options: ["square", "circle", "plain"],
+    },
     color: {
       control: { type: "select" },
       options: [undefined, "red", "orange", "green", "blue", "violet", "gray"],
@@ -38,5 +41,10 @@ export const Default: Story = {
 
 export const Colored: Story = {
   args: { color: "blue", mode: "circle" },
+  render: Default.render,
+};
+
+export const Plain: Story = {
+  args: { color: "blue", mode: "plain", size: "32px" },
   render: Default.render,
 };

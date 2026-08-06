@@ -4,11 +4,12 @@ import { Meta } from "@storybook/addon-docs";
 
 # Navbar
 
-Адаптивная верхняя навигация со слотами `brand`, `default` и `actions`.
+Адаптивная верхняя навигация со слотами `left`, `default`, `actions` и
+опциональными `compactActions`, `mobile`.
 
 ```vue
 <Navbar mode="floating" blur sticky>
-  <template #brand><AppLogo /></template>
+  <template #left><AppLogo /></template>
   <NavigationMenu>...</NavigationMenu>
   <template #actions>
     <Button mode="ghost">Войти</Button>
@@ -23,5 +24,13 @@ import { Meta } from "@storybook/addon-docs";
   `default` и выключен для `floating`.
 - `sticky` закрепляет Navbar сверху; floating-вариант сохраняет внешний отступ.
 - `blur` делает фон полупрозрачным и размывает проходящий под Navbar контент.
-- На `xs` и `s` навигация и actions автоматически переносятся в `Sheet`.
+- На `xs`, `s` и при нехватке места навигация и actions автоматически
+  переносятся в компактный вариант. Центральная навигация в desktop-варианте
+  остаётся строго по центру Navbar.
+- Слот `mobile` полностью заменяет стандартную мобильную композицию. Если он не
+  передан, используются содержимое default-слота и `actions`.
+- Слот `compactActions` размещает действия непосредственно в компактной панели
+  рядом с trigger мобильного меню.
+- `mobileMenuVariant="dropdown"` показывает мобильное меню в компактном
+  `Dropdown`; значение по умолчанию — `sheet`.
 - `v-model:mobile-open` позволяет управлять мобильным меню извне.

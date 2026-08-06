@@ -1,7 +1,7 @@
 {
   "name": "Navbar",
   "kind": "component",
-  "description": "Адаптивная верхняя навигация в default и floating-режимах с мобильным Sheet.",
+  "description": "Адаптивная верхняя навигация в default и floating-режимах с мобильным Sheet или Dropdown.",
   "keywords": ["navbar", "header", "navigation", "шапка"],
   "useWhen": [
     "Нужна верхняя навигация сайта или приложения",
@@ -9,12 +9,16 @@
   ],
   "toAvoid": ["Не использовать как боковую навигацию приложения"],
   "rules": [
-    "Логотип размещать в слоте brand",
+    "Левую часть Navbar размещать в слоте left",
     "Основное меню размещать в default slot",
     "Кнопки авторизации и CTA размещать в слоте actions",
+    "Для полностью отдельной мобильной композиции использовать слот mobile; без него Navbar использует default slot и actions",
+    "Действия, которые должны оставаться видимыми в компактной панели, размещать в слоте compactActions",
+    "При нехватке места Navbar автоматически переключается на компактный вариант, сохраняя desktop-навигацию строго по центру",
     "Используй blur для полупрозрачного фона с размытием контента под Navbar",
-    "Floating Navbar не растягивается по умолчанию; используй stretched для полной ширины"
+    "Floating Navbar не растягивается по умолчанию; используй stretched для полной ширины",
+    "Используй mobileMenuVariant=dropdown для компактного мобильного меню вместо Sheet"
   ],
   "alternatives": ["Sidebar"],
-  "commonlyUsedWith": ["NavigationMenu", "Button", "Sheet"]
+  "commonlyUsedWith": ["NavigationMenu", "Button", "Sheet", "Dropdown"]
 }

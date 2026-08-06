@@ -1,0 +1,24 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/AvatarGroup/Documentation" />
+
+# AvatarGroup
+
+Компактно объединяет несколько `Avatar` с перекрытием и контрастным
+разделителем. `size` и `shape` наследуются дочерними аватарами, если они не
+переопределены локально.
+
+```vue
+<AvatarGroup size="48px" aria-label="Участники бронирования">
+  <Avatar src="/anna.jpg" name="Анна Петрова" />
+  <Avatar name="Иван Смирнов" color="blue" />
+  <AvatarGroupCount :count="3" />
+</AvatarGroup>
+```
+
+- `size` — общий размер, по умолчанию `40px`.
+- `shape` — общая форма `circle` или `square`.
+- `overlap` — величина перекрытия; по умолчанию четверть размера группы.
+- `surface` — непрозрачная поверхность под полупрозрачными цветами Avatar;
+  по умолчанию `hsl(var(--background))`. На другой поверхности передай её цвет,
+  например `hsl(var(--card))`.

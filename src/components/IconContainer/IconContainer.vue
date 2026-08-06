@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import type { Color } from "../../types/colors";
 
-export type IconContainerMode = "circle" | "square";
+export type IconContainerMode = "circle" | "plain" | "square";
 export type IconContainerColor = Color;
 
 export interface IconContainerProps {
@@ -58,6 +58,13 @@ const styles = computed(() => {
 
 .IconContainer.circle {
   border-radius: 50%;
+}
+
+.IconContainer.plain {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  font-size: var(--icon-container-size);
 }
 
 .IconContainer :deep(svg) {

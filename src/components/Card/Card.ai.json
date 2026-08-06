@@ -5,7 +5,10 @@
   "keywords": ["card", "container", "surface", "карточка"],
   "useWhen": ["Нужно визуально объединить связанный контент"],
   "toAvoid": [],
-  "rules": ["Для кликабельной карточки использовать interactive"],
+  "rules": [
+    "Для кликабельной карточки использовать interactive",
+    "Для заполнения высоты родительской ячейки использовать fullHeight"
+  ],
   "alternatives": ["Item"],
   "commonlyUsedWith": []
 }
