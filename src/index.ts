@@ -406,6 +406,14 @@ export const FadeMask = ac(() => import("./components/FadeMask/FadeMask.vue"));
 export type { FadeMaskProps } from "./components/FadeMask/FadeMask.vue";
 export const Hover3d = ac(() => import("./components/Hover3d/Hover3d.vue"));
 export type { Hover3dProps } from "./components/Hover3d/Hover3d.vue";
+export const AuroraBackground = ac(
+  () => import("./components/AuroraBackground/AuroraBackground.vue"),
+);
+export type {
+  AuroraBackgroundIntensity,
+  AuroraBackgroundPalette,
+  AuroraBackgroundProps,
+} from "./components/AuroraBackground/AuroraBackground.vue";
 export const NoiseOverlay = ac(
   () => import("./components/NoiseOverlay/NoiseOverlay.vue"),
 );

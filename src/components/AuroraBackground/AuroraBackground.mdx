@@ -1,0 +1,23 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/AuroraBackground/Documentation" />
+
+# AuroraBackground
+
+Декоративная surface-обёртка с несколькими мягкими цветовыми пятнами. Фон занимает полную высоту содержимого, не перехватывает события и автоматически адаптирует интенсивность цветов к светлой и тёмной теме.
+
+## Props
+
+- `palette: "brand" | "ocean" | "sunset"` — цветовая палитра.
+- `intensity: "subtle" | "medium" | "strong"` — общая заметность эффекта.
+- `animated: boolean` — включает медленное движение цветовых пятен. При `prefers-reduced-motion` движение отключается автоматически.
+
+## Пример
+
+```vue
+<AuroraBackground palette="brand" intensity="strong">
+  <main>Содержимое промо-страницы</main>
+</AuroraBackground>
+```
+
+Для более материального эффекта можно вложить `NoiseOverlay` внутрь `AuroraBackground`: так зерно окажется над цветовым фоном, но под содержимым.
