@@ -12,11 +12,13 @@ const meta: Meta<typeof Hover3d> = {
     disabled: false,
     maxTilt: 7,
     scale: 1.025,
+    stretched: false,
   },
   argTypes: {
     disabled: { control: "boolean" },
     maxTilt: { control: { type: "range", min: 0, max: 16, step: 1 } },
     scale: { control: { type: "range", min: 1, max: 1.1, step: 0.005 } },
+    stretched: { control: "boolean" },
   },
 };
 

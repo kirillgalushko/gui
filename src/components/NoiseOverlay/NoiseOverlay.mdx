@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/NoiseOverlay/Documentation" />
+
+# NoiseOverlay
+
+Декоративный слой статичного фотографического шума. Компонент генерирует детализированный SVG turbulence 512×512, меняет размер зерна внутри исходника без растягивания тайла и не перехватывает события указателя.
+
+## Props
+
+- `opacity: number` — интенсивность слоя от `0` до `1`.
+- `grainSize: number` — размер зерна без потери качества. Чем больше значение, тем крупнее зерно.
+- `octaves: number` — количество уровней детализации процедурного шума.
+- `seed: number` — вариант статичного рисунка шума.
+- `blendMode: "normal" | "overlay" | "soft-light"` — способ смешивания с фоном.
+- `position: "absolute" | "fixed"` — позиционирование внутри области или поверх viewport.
+- `zIndex: number` — слой относительно соседних элементов.
+
+Если передать содержимое в default slot, компонент создаст изолированную surface высотой со всё содержимое: шум окажется под ним и не будет накладываться на текст, карточки или изображения.
+
+## Пример
+
+```vue
+<NoiseOverlay
+  position="fixed"
+  blend-mode="overlay"
+  :grain-size="1.25"
+  :octaves="4"
+  :opacity="0.24"
+/>
+```
+
+```vue
+<NoiseOverlay
+  blend-mode="normal"
+  :grain-size="1.25"
+  :opacity="0.08"
+  :z-index="0"
+>
+  <main>Содержимое страницы</main>
+</NoiseOverlay>
+```

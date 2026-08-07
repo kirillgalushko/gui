@@ -6,12 +6,14 @@ export interface Hover3dProps {
   disabled?: boolean;
   maxTilt?: number;
   scale?: number;
+  stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<Hover3dProps>(), {
   disabled: false,
   maxTilt: 9,
   scale: 1.035,
+  stretched: false,
 });
 
 const { isActive, onPointerMove, reset, style } = useHover3d({
@@ -23,7 +25,10 @@ const { isActive, onPointerMove, reset, style } = useHover3d({
 
 <template>
   <div
-    :class="['Hover3d', { active: isActive && !props.disabled }]"
+    :class="[
+      'Hover3d',
+      { active: isActive && !props.disabled, stretched: props.stretched },
+    ]"
     :style="style"
     @pointermove="onPointerMove"
     @pointerleave="reset"
@@ -44,6 +49,11 @@ const { isActive, onPointerMove, reset, style } = useHover3d({
 
 .Hover3d.active {
   z-index: 2;
+}
+
+.Hover3d.stretched {
+  display: block;
+  width: 100%;
 }
 
 .Hover3d__surface {
