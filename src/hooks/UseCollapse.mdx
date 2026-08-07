@@ -1,0 +1,24 @@
+# useCollapse
+
+Управляет состоянием `Collapse` и связывает его с любым внешним триггером через
+доступные ARIA-атрибуты.
+
+```vue
+<script setup lang="ts">
+import { Button, Collapse, useCollapse } from "@gui/components";
+
+const { collapseProps, open, triggerProps } = useCollapse({
+  id: "details",
+});
+</script>
+
+<template>
+  <Button v-bind="triggerProps">Показать детали</Button>
+  <Collapse v-bind="collapseProps">Содержимое</Collapse>
+</template>
+```
+
+- `triggerProps` можно передать кнопке, ссылке или другому интерактивному элементу.
+- `collapseProps` передаются компоненту `Collapse`.
+- `open`, `close`, `toggle` и `setOpened` управляют состоянием программно.
+- Через `opened` можно передать внешний `Ref<boolean>`.

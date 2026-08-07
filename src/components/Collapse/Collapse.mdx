@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/Collapse/Documentation" />
+
+# Collapse
+
+Анимируемая content-only обертка. Trigger располагается снаружи, а `useCollapse`
+связывает его с содержимым и позволяет управлять состоянием программно.
+
+```vue
+<script setup lang="ts">
+const { collapseProps, triggerProps } = useCollapse({ id: "details" });
+</script>
+
+<Button v-bind="triggerProps">Показать детали</Button>
+
+<Collapse v-bind="collapseProps">
+  Произвольное содержимое
+</Collapse>
+```
+
+- `opened` управляет видимостью.
+- `duration` задает длительность анимации в миллисекундах.
+- `labelled-by` связывает область с внешним trigger.
+- Закрытое содержимое остается смонтированным, но исключается из навигации через `inert`.

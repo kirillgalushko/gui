@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { IconCalendarOutline } from "@gui/icons";
-import Collapsable from "./Collapsable.vue";
+import CollapsibleSection from "./CollapsibleSection.vue";
 
-const meta: Meta<typeof Collapsable> = {
-  title: "Components/Collapsable",
-  component: Collapsable,
+const meta: Meta<typeof CollapsibleSection> = {
+  title: "Components/CollapsibleSection",
+  component: CollapsibleSection,
   tags: ["autodocs"],
   args: {
     defaultOpened: true,
@@ -22,24 +22,24 @@ const meta: Meta<typeof Collapsable> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Collapsable>;
+type Story = StoryObj<typeof CollapsibleSection>;
 
 export const Default: Story = {
   render: (args) => ({
     components: {
-      Collapsable,
+      CollapsibleSection,
       IconCalendarOutline,
     },
     setup() {
       return { args };
     },
     template: `
-      <Collapsable v-bind="args">
+      <CollapsibleSection v-bind="args">
         <template #icon>
           <IconCalendarOutline />
         </template>
         Даты, гость и стоимость бронирования.
-      </Collapsable>
+      </CollapsibleSection>
     `,
   }),
 };

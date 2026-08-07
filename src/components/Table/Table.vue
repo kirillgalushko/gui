@@ -3,6 +3,7 @@ import { computed, type CSSProperties, type PropType } from "vue";
 
 export interface TableProps {
   border?: boolean;
+  layout?: "auto" | "fixed";
   minWidth?: CSSProperties["minWidth"] | number;
   maxHeight?: CSSProperties["maxHeight"] | number;
   stickyHeader?: boolean;
@@ -12,6 +13,10 @@ const props = defineProps({
   border: {
     type: Boolean,
     default: false,
+  },
+  layout: {
+    type: String as PropType<TableProps["layout"]>,
+    default: "auto",
   },
   minWidth: {
     type: [String, Number] as PropType<TableProps["minWidth"]>,
@@ -46,7 +51,11 @@ const maxHeight = computed(() => toCssSize(props.maxHeight));
     :class="{ border: props.border, 'sticky-header': props.stickyHeader }"
     :style="{ maxHeight }"
   >
-    <table v-bind="$attrs" class="table" :style="{ minWidth }">
+    <table
+      v-bind="$attrs"
+      class="table"
+      :style="{ minWidth, tableLayout: props.layout }"
+    >
       <slot></slot>
     </table>
   </div>

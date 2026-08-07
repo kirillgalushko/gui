@@ -1,0 +1,20 @@
+{
+  "name": "Collapse",
+  "kind": "component",
+  "description": "Универсальная анимируемая обертка для показа и скрытия произвольного содержимого без встроенного trigger.",
+  "keywords": ["collapse", "expand", "content", "раскрытие"],
+  "useWhen": [
+    "Trigger находится снаружи и должен управлять произвольным блоком",
+    "Нужно анимировать высоту и прозрачность содержимого"
+  ],
+  "toAvoid": [
+    "Для секции со встроенным заголовком использовать CollapsibleSection",
+    "Для списка однородных вопросов использовать Accordion"
+  ],
+  "rules": [
+    "Состояние передавать через opened",
+    "Для внешнего trigger использовать useCollapse: он связывает aria-expanded, aria-controls и labelledBy"
+  ],
+  "alternatives": ["CollapsibleSection", "Accordion"],
+  "commonlyUsedWith": ["Button", "useCollapse"]
+}

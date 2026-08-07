@@ -1,0 +1,22 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/CollapsibleSection/Documentation" />
+
+# CollapsibleSection
+
+Самостоятельная раскрываемая секция со встроенным заголовком и тематической
+иконкой. Анимация содержимого построена на `Collapse`.
+
+```vue
+<CollapsibleSection title="Данные бронирования">
+  <template #icon>
+    <IconCalendarOutline />
+  </template>
+
+  Содержимое секции
+</CollapsibleSection>
+```
+
+- `v-model` управляет состоянием раскрытия.
+- `default-opened` задаёт начальное состояние без управляемого `v-model`.
+- `disabled` блокирует встроенный триггер.

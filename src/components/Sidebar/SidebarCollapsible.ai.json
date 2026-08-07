@@ -11,6 +11,6 @@
     "Иконку передавай через слот icon",
     "В компактном Sidebar вложенные пункты автоматически открываются во всплывающем меню"
   ],
-  "alternatives": ["SidebarItem", "Collapsable"],
+  "alternatives": ["SidebarItem", "CollapsibleSection"],
   "commonlyUsedWith": ["SidebarGroup", "SidebarSubList", "SidebarSubItem"]
 }

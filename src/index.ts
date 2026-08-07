@@ -39,9 +39,10 @@ export const NavigationMenuTrigger = ac(
 );
 export type { NavbarMode } from "./components/Navbar/Navbar.vue";
 export type { NavigationMenuOrientation } from "./components/NavigationMenu/context";
-export const Collapsable = ac(
-  () => import("./components/Collapsable/Collapsable.vue"),
+export const CollapsibleSection = ac(
+  () => import("./components/CollapsibleSection/CollapsibleSection.vue"),
 );
+export const Collapse = ac(() => import("./components/Collapse/Collapse.vue"));
 export const Attachment = ac(
   () => import("./components/Attachment/Attachment.vue"),
 );
@@ -470,6 +471,7 @@ import { useConfirm } from "./components/Confirm/useConfirm";
 import { useResize } from "./hooks/useResize";
 import { useSize } from "./hooks/useSize";
 import { useModal } from "./hooks/useModal";
+import { useCollapse } from "./hooks/useCollapse";
 import { useContextMenu } from "./components/ContextMenu/useContextMenu";
 import {
   provideSkeletonLoading,
@@ -616,6 +618,7 @@ export {
   useResize,
   useSize,
   useModal,
+  useCollapse,
   useContextMenu,
   provideSkeletonLoading,
   useSkeletonLoading,

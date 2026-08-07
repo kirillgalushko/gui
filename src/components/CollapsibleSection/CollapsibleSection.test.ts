@@ -1,15 +1,17 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import Collapsable from "./Collapsable.vue";
+import Collapse from "../Collapse/Collapse.vue";
+import CollapsibleSection from "./CollapsibleSection.vue";
 
-describe("Collapsable", () => {
-  it("is opened by default and toggles content", async () => {
-    const wrapper = mount(Collapsable, {
+describe("CollapsibleSection", () => {
+  it("is opened by default and toggles content through Collapse", async () => {
+    const wrapper = mount(CollapsibleSection, {
       props: { title: "Данные бронирования" },
       slots: { default: "Содержимое" },
     });
     const trigger = wrapper.get("button");
 
+    expect(wrapper.findComponent(Collapse).exists()).toBe(true);
     expect(trigger.attributes("aria-expanded")).toBe("true");
     await trigger.trigger("click");
 
@@ -18,7 +20,7 @@ describe("Collapsable", () => {
   });
 
   it("supports controlled state", async () => {
-    const wrapper = mount(Collapsable, {
+    const wrapper = mount(CollapsibleSection, {
       props: {
         modelValue: false,
         title: "Данные бронирования",
@@ -32,7 +34,7 @@ describe("Collapsable", () => {
   });
 
   it("does not toggle when disabled", async () => {
-    const wrapper = mount(Collapsable, {
+    const wrapper = mount(CollapsibleSection, {
       props: {
         disabled: true,
         title: "Данные бронирования",
