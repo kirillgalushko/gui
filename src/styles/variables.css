@@ -51,7 +51,8 @@
   --font-family: "Inter", Helvetica, system-ui, Avenir, Arial, sans-serif;
 }
 
-.light-theme {
+.light-theme,
+.inverted-colors {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
   --muted: 240 4.8% 95.9%;
@@ -78,4 +79,39 @@
   --sidebar: 0 0% 98%;
   --skeleton: var(--muted);
   --skeleton-highlight: var(--muted-foreground);
+}
+
+.light-theme .inverted-colors,
+.light-theme.inverted-colors {
+  color-scheme: dark;
+  --background: 240 5% 6%;
+  --foreground: 0 0% 98%;
+  --muted: 240 5% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 5% 7%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 5% 7.5%;
+  --card-foreground: 0deg 0.48% 98.03%;
+  --border: 240 5% 15.9%;
+  --input: 240 5% 11%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 5% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --contrast: 240 5% 15.9%;
+  --contrast-foreground: 0 0% 98%;
+  --accent: 216.92 100% 48.43%;
+  --accent-muted: 217 70% 50%;
+  --positive: 142 71% 45%;
+  --negative: 0 84.2% 60.2%;
+  --danger: 24 95% 53%;
+  --warning: 48 96% 53%;
+  --ring: 240 4.9% 83.9%;
+  --sidebar: 240 5% 8%;
+  --skeleton: var(--muted);
+  --skeleton-highlight: var(--muted-foreground);
+}
+
+.inverted-colors {
+  color-scheme: light;
 }

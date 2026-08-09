@@ -10,6 +10,9 @@ const meta: Meta<typeof Link> = {
     inline: {
       type: "boolean",
     },
+    wrap: {
+      type: "boolean",
+    },
     underlined: {
       type: "boolean",
     },
@@ -87,6 +90,27 @@ export const Inline: Story = {
       <p>
         Текст до ссылки <Link v-bind="args">inline-ссылка</Link> и текст после нее.
       </p>
+    `,
+  }),
+};
+
+export const Wrapping: Story = {
+  args: {
+    href: "#",
+    mode: "inherit",
+    wrap: true,
+  },
+  render: (args) => ({
+    components: { Link },
+    setup() {
+      return { args };
+    },
+    template: `
+      <div style="max-width: 220px">
+        <Link v-bind="args">
+          Публичная оферта и Пользовательское соглашение
+        </Link>
+      </div>
     `,
   }),
 };

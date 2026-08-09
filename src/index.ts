@@ -15,6 +15,14 @@ export const AccordionItem = ac(
 export const AccordionTrigger = ac(
   () => import("./components/Accordion/AccordionTrigger.vue"),
 );
+export const AnnouncementBar = ac(
+  () => import("./components/AnnouncementBar/AnnouncementBar.vue"),
+);
+export type {
+  AnnouncementBarMode,
+  AnnouncementBarProps,
+  AnnouncementBarSize,
+} from "./components/AnnouncementBar/AnnouncementBar.vue";
 export const Navbar = ac(() => import("./components/Navbar/Navbar.vue"));
 export const NavigationMenu = ac(
   () => import("./components/NavigationMenu/NavigationMenu.vue"),

@@ -12,6 +12,7 @@ export interface LinkProps {
   typography?: Typography;
   asChild?: boolean;
   inline?: boolean;
+  wrap?: boolean;
   underlined?: boolean;
   underlineOnHover?: boolean;
   disabled?: boolean;
@@ -44,6 +45,7 @@ const linkClass = computed(() => [
   `mode-${props.mode}`,
   {
     inline: props.inline,
+    wrap: props.wrap,
     underlined: props.underlined,
     "underline-on-hover": props.underlineOnHover,
     disabled: props.disabled,
@@ -110,6 +112,17 @@ const linkClass = computed(() => [
 
 .link.inline {
   display: inline-flex;
+}
+
+.link.wrap {
+  display: inline;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.link.wrap .link-content {
+  display: inline;
+  overflow-wrap: anywhere;
 }
 
 .link.underlined {

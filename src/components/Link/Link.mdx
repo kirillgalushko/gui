@@ -10,6 +10,7 @@ import { Meta } from "@storybook/addon-docs";
 
 - `typography?: Typography` — типографика из `Text`, по умолчанию `inherit`.
 - `inline?: boolean` — включает inline-режим внутри текста.
+- `wrap?: boolean` — включает обычный inline-поток, чтобы длинная ссылка продолжала окружающий текст и переносилась по словам.
 - `underlined?: boolean` — показывает подчеркивание.
 - `disabled?: boolean` — отключает ссылку, ставит `aria-disabled` и убирает из tab order.
 - `enableVisited?: boolean` — включает visited-цвет.
@@ -30,5 +31,13 @@ import { Meta } from "@storybook/addon-docs";
     <IconExternalLinkOutline />
   </template>
   Документация
+</Link>
+```
+
+Для длинной ссылки внутри подписи или другого узкого контейнера включите перенос:
+
+```vue
+<Link href="/terms" mode="inherit" wrap>
+  Публичная оферта и Пользовательское соглашение
 </Link>
 ```

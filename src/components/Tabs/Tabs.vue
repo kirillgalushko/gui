@@ -76,6 +76,7 @@ useResize(tabsElementRef, updateSliderStyle);
   justify-content: space-around;
   background-color: hsl(var(--input));
   color: hsl(var(--primary));
+  border: 1px solid hsl(var(--border));
   border-radius: var(--tabs-radius);
   padding: var(--tabs-padding);
   position: relative;

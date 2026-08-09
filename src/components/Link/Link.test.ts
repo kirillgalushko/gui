@@ -20,4 +20,21 @@ describe("Link", () => {
     );
     expect(link.attributes("aria-disabled")).toBe("true");
   });
+
+  it("allows long content to wrap inside its container", () => {
+    const wrapper = mount(Link, {
+      props: {
+        wrap: true,
+      },
+      slots: {
+        default: "Публичная оферта и Пользовательское соглашение",
+      },
+    });
+    const link = wrapper.get(".link");
+
+    expect(link.classes()).toContain("wrap");
+    expect(link.get(".link-content").text()).toBe(
+      "Публичная оферта и Пользовательское соглашение",
+    );
+  });
 });
