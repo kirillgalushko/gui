@@ -6,8 +6,11 @@ import ButtonGroup from "../ButtonGroup/ButtonGroup.vue";
 import DatePicker from "../DatePicker/DatePicker.vue";
 import type { DatePickerChangePayload } from "../DatePicker/types";
 import Dropdown, { type DropdownContentWidth } from "../Dropdown/Dropdown.vue";
-import DropdownItem from "../Dropdown/DropdownItem.vue";
+import DropdownCheckboxItem from "../Dropdown/DropdownCheckboxItem.vue";
 import DropdownGroup from "../Dropdown/DropdownGroup.vue";
+import DropdownItem from "../Dropdown/DropdownItem.vue";
+import DropdownRadioGroup from "../Dropdown/DropdownRadioGroup.vue";
+import DropdownRadioItem from "../Dropdown/DropdownRadioItem.vue";
 import Input from "../Input/Input.vue";
 import {
   formatFilterValue,
@@ -143,19 +146,16 @@ const isSelected = (option: FilterOption): boolean =>
 
       <template #popper>
         <DropdownGroup :aria-label="`Оператор: ${props.field.label}`">
-          <DropdownItem
-            v-for="operator in operators"
-            :key="operator.value"
-            :aria-pressed="operator.value === model.operator"
-            @click="selectOperator(operator)"
-          >
-            <span>{{ operator.label }}</span>
-            <IconCheckOutline
-              v-if="operator.value === model.operator"
-              class="filter-item-check"
-              aria-hidden="true"
-            />
-          </DropdownItem>
+          <DropdownRadioGroup :model-value="model.operator">
+            <DropdownRadioItem
+              v-for="operator in operators"
+              :key="operator.value"
+              :value="operator.value"
+              @click="selectOperator(operator)"
+            >
+              <span>{{ operator.label }}</span>
+            </DropdownRadioItem>
+          </DropdownRadioGroup>
         </DropdownGroup>
       </template>
     </Dropdown>
@@ -205,24 +205,42 @@ const isSelected = (option: FilterOption): boolean =>
           class="filter-item-list"
           :aria-label="`Значение: ${props.field.label}`"
         >
-          <DropdownItem
+          <template
             v-for="option in props.field.options ?? []"
             :key="String(option.value)"
-            :disabled="option.disabled"
-            :aria-pressed="isSelected(option)"
-            @click="selectOption(option)"
           >
-            <component
-              v-if="option.icon"
-              :is="resolveFilterIcon(option.icon)"
-            />
-            <span>{{ option.label }}</span>
-            <IconCheckOutline
-              v-if="isSelected(option)"
-              class="filter-item-check"
-              aria-hidden="true"
-            />
-          </DropdownItem>
+            <DropdownCheckboxItem
+              v-if="props.field.type === 'multiselect'"
+              :disabled="option.disabled"
+              :model-value="isSelected(option)"
+              @update:model-value="selectOption(option)"
+            >
+              <component
+                v-if="option.icon"
+                :is="resolveFilterIcon(option.icon)"
+              />
+              <span>{{ option.label }}</span>
+            </DropdownCheckboxItem>
+
+            <DropdownItem
+              v-else
+              :disabled="option.disabled"
+              :selected="isSelected(option)"
+              :aria-pressed="isSelected(option)"
+              @click="selectOption(option)"
+            >
+              <component
+                v-if="option.icon"
+                :is="resolveFilterIcon(option.icon)"
+              />
+              <span>{{ option.label }}</span>
+              <IconCheckOutline
+                v-if="isSelected(option)"
+                class="filter-item-check"
+                aria-hidden="true"
+              />
+            </DropdownItem>
+          </template>
         </DropdownGroup>
       </template>
     </Dropdown>

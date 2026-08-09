@@ -270,6 +270,7 @@ const selectDate = ({ date }: { date: Date }): void => {
         :min-date="props.minDate"
         :max-date="props.maxDate"
         @select="selectDate"
+        size="small"
       />
     </template>
   </Dropdown>

@@ -404,6 +404,7 @@ watch(
           :disabled-dates="props.disabledDates"
           @select="selectDate"
           @month-change="props.onMonthChange?.($event.month)"
+          size="small"
         />
       </template>
     </Dropdown>

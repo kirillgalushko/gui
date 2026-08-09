@@ -41,6 +41,11 @@ default-слотом `Dropdown`, а content — слотом `popper`; отде�
 
 ## Submenu
 
+`DropdownSub` открывается при наведении или focus на `DropdownSubTrigger` и остаётся
+открытым при переходе указателя на submenu content. После ухода из обеих областей
+закрытие выполняется с короткой задержкой, поэтому промежуток между панелями не
+схлопывает меню.
+
 ```vue
 <DropdownSub>
   <DropdownSubTrigger>Поделиться</DropdownSubTrigger>

@@ -5,9 +5,11 @@ import * as HoverCardStories from "./HoverCard.stories";
 
 # HoverCard
 
-Показывает компактную карточку поверх интерфейса при hover или focus на триггере.
+Показывает произвольное содержимое поверх интерфейса при hover или focus на триггере.
 
 Используйте слот по умолчанию для триггера, а слот `content` для содержимого карточки.
+`HoverCard` не создаёт визуальную поверхность: добавьте `Card` в слот `content` и настройте
+его отступы, фон и скругление по месту применения.
 Компонент поддерживает controlled-состояние через `open` и `update:open`, задержки `openDelay`/`closeDelay`, `placement`, `sideOffset` и `updateKey` для ручного пересчета позиции.
 
 <Canvas of={HoverCardStories.Default} />

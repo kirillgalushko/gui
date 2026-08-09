@@ -7,8 +7,10 @@ import {
 } from "@gui/icons";
 import Button from "../Button/Button.vue";
 import Dropdown, { type DropdownContentWidth } from "../Dropdown/Dropdown.vue";
-import DropdownItem from "../Dropdown/DropdownItem.vue";
 import DropdownGroup from "../Dropdown/DropdownGroup.vue";
+import DropdownItem from "../Dropdown/DropdownItem.vue";
+import DropdownSub from "../Dropdown/DropdownSub.vue";
+import DropdownSubTrigger from "../Dropdown/DropdownSubTrigger.vue";
 import Input from "../Input/Input.vue";
 import {
   filterFieldsByQuery,
@@ -128,15 +130,12 @@ const selectOption = (field: FilterField, option: FilterOption) => {
       <DropdownGroup class="filter-menu-list" aria-label="Поля фильтра">
         <template v-if="visibleFields.length">
           <template v-for="field in visibleFields" :key="field.key">
-            <Dropdown
+            <DropdownSub
               v-if="hasNestedOptions(field)"
-              stretched
-              instant-move
-              placement="right-start"
               :content-width="props.contentWidth"
               content-padding="none"
             >
-              <DropdownItem :disabled="field.disabled" show-arrow>
+              <DropdownSubTrigger :disabled="field.disabled">
                 <slot name="field" :field="field">
                   <component
                     v-if="field.icon"
@@ -144,7 +143,7 @@ const selectOption = (field: FilterField, option: FilterOption) => {
                   />
                   <span>{{ field.label }}</span>
                 </slot>
-              </DropdownItem>
+              </DropdownSubTrigger>
 
               <template #popper>
                 <div v-if="field.searchable" class="filter-menu-search">
@@ -191,7 +190,7 @@ const selectOption = (field: FilterField, option: FilterOption) => {
                   </DropdownItem>
                 </DropdownGroup>
               </template>
-            </Dropdown>
+            </DropdownSub>
 
             <DropdownItem
               v-else

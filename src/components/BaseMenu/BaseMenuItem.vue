@@ -47,6 +47,7 @@ const props = defineProps<BaseMenuItemProps>();
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
+  text-align: start;
 }
 
 .base-menu-item-content {

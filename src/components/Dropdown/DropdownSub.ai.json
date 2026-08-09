@@ -5,7 +5,9 @@
   "keywords": ["dropdown submenu", "nested menu"],
   "useWhen": ["У пункта Dropdown есть вложенная группа действий"],
   "rules": [
-    "Trigger передавать через default-слот, содержимое через слот popper"
+    "Trigger передавать через default-слот, содержимое через слот popper",
+    "Submenu остаётся открытым при наведении или focus на trigger и content",
+    "Закрытие после ухода выполняется с короткой задержкой"
   ],
   "commonlyUsedWith": ["DropdownSubTrigger", "DropdownGroup"]
 }

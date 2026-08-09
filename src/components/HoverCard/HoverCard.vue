@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, ref, useAttrs, watch } from "vue";
 import { autoUpdate, flip, offset, shift, useFloating } from "@floating-ui/vue";
-import Card from "../Card/Card.vue";
 
 defineOptions({
   inheritAttrs: false,
@@ -29,7 +28,6 @@ export interface HoverCardProps {
   closeDelay?: number;
   sideOffset?: number;
   updateKey?: string | number | boolean;
-  contentClass?: string;
 }
 
 const props = withDefaults(defineProps<HoverCardProps>(), {
@@ -40,7 +38,6 @@ const props = withDefaults(defineProps<HoverCardProps>(), {
   closeDelay: 100,
   sideOffset: 8,
   updateKey: undefined,
-  contentClass: undefined,
 });
 
 const emit = defineEmits<{
@@ -147,13 +144,7 @@ onBeforeUnmount(clearDelay);
         @mouseenter="openCard"
         @mouseleave="closeCard"
       >
-        <Card
-          :class="['hover-card__content', props.contentClass]"
-          :padding="0"
-          :border-radius="8"
-        >
-          <slot name="content"></slot>
-        </Card>
+        <slot name="content"></slot>
       </div>
     </Transition>
   </Teleport>
@@ -170,11 +161,6 @@ onBeforeUnmount(clearDelay);
   max-width: calc(100vw - 16px);
   box-sizing: border-box;
   outline: none;
-}
-
-.hover-card__content {
-  max-width: inherit;
-  /* box-shadow: 0px 0px 30px 0px hsl(var(--border) / 0.16); */
 }
 
 .hover-card-fade-enter-active,
