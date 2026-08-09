@@ -1,0 +1,9 @@
+{
+  "name": "BaseMenuLabel",
+  "kind": "component",
+  "description": "Неинтерактивная подпись группы BaseMenu.",
+  "keywords": ["menu label", "заголовок меню"],
+  "useWhen": ["Группе пунктов меню нужна короткая подпись"],
+  "rules": ["Размещать первым элементом BaseMenuGroup"],
+  "commonlyUsedWith": ["BaseMenuGroup"]
+}

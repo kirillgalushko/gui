@@ -9,9 +9,21 @@
   "toAvoid": [],
   "rules": [
     "Содержимое выпадающей панели передавать через слот popper",
+    "По умолчанию contentWidth=auto подбирает ширину панели по содержимому",
+    "Для ограничения автоматической ширины передавать contentMaxWidth как CSS-значение",
+    "Связанные пункты объединять в DropdownGroup и при необходимости подписывать через DropdownLabel",
+    "Для независимых переключателей использовать DropdownCheckboxItem, для взаимоисключающих — DropdownRadioGroup",
     "Для компактных меню используй contentWidth=\"extra-small\", для сложного содержимого выбирай остальные contentWidth и contentPadding",
     "Используй contentPadding=\"none\" для списков с разделителями от края до края; внутренние отступы в таком случае задают дочерние UI-компоненты"
   ],
   "alternatives": ["Select", "ContextMenu", "BaseMenu"],
-  "commonlyUsedWith": ["DropdownList", "DropdownItem", "DropdownSeparator"]
+  "commonlyUsedWith": [
+    "DropdownGroup",
+    "DropdownLabel",
+    "DropdownItem",
+    "DropdownCheckboxItem",
+    "DropdownRadioGroup",
+    "DropdownSeparator",
+    "DropdownSub"
+  ]
 }

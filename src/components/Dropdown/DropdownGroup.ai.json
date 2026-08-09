@@ -1,0 +1,9 @@
+{
+  "name": "DropdownGroup",
+  "kind": "component",
+  "description": "Группа связанных пунктов внутри Dropdown.",
+  "keywords": ["dropdown group", "группа dropdown"],
+  "useWhen": ["Нужно объединить связанные пункты Dropdown"],
+  "rules": ["Размещать внутри слота popper Dropdown"],
+  "commonlyUsedWith": ["DropdownLabel", "DropdownItem", "DropdownCheckboxItem"]
+}

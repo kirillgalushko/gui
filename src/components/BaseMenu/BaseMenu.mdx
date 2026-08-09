@@ -1,0 +1,31 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Components/BaseMenu/Documentation" />
+
+# BaseMenu
+
+Внутреннее семейство primitives для меню GUI. `BaseMenuGroup` объединяет связанные
+элементы, `BaseMenuLabel` подписывает группу, `BaseMenuItem` выполняет действие,
+а checkbox/radio items управляют выбором через стандартный `v-model`.
+
+- `width="auto"` по умолчанию подбирает ширину меню по содержимому.
+- `maxWidth` ограничивает автоматическую ширину произвольным CSS-значением; по
+  умолчанию меню не выходит за viewport с внешним отступом 8 px.
+- Для явной ширины передай CSS-значение через `width`, например `width="320px"`.
+
+```vue
+<BaseMenu max-width="320px">
+  <BaseMenuGroup>
+    <BaseMenuLabel>Отображение</BaseMenuLabel>
+    <BaseMenuCheckboxItem v-model="showStatus">Строка состояния</BaseMenuCheckboxItem>
+  </BaseMenuGroup>
+  <BaseMenuSeparator />
+  <BaseMenuGroup>
+    <BaseMenuLabel>Позиция</BaseMenuLabel>
+    <BaseMenuRadioGroup v-model="position">
+      <BaseMenuRadioItem value="top">Сверху</BaseMenuRadioItem>
+      <BaseMenuRadioItem value="bottom">Снизу</BaseMenuRadioItem>
+    </BaseMenuRadioGroup>
+  </BaseMenuGroup>
+</BaseMenu>
+```

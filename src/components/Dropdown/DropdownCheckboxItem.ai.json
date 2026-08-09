@@ -1,0 +1,14 @@
+{
+  "name": "DropdownCheckboxItem",
+  "kind": "component",
+  "description": "Пункт Dropdown для независимого boolean-переключателя с индикатором выбора.",
+  "keywords": ["dropdown checkbox", "visibility", "toggle"],
+  "useWhen": [
+    "Пункт Dropdown включает или выключает настройку без закрытия меню"
+  ],
+  "rules": [
+    "Управлять состоянием через v-model",
+    "Для взаимоисключающих значений использовать DropdownRadioGroup"
+  ],
+  "commonlyUsedWith": ["DropdownGroup", "DropdownLabel"]
+}

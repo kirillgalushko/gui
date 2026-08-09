@@ -8,7 +8,7 @@ import {
 import Button from "../Button/Button.vue";
 import Dropdown, { type DropdownContentWidth } from "../Dropdown/Dropdown.vue";
 import DropdownItem from "../Dropdown/DropdownItem.vue";
-import DropdownList from "../Dropdown/DropdownList.vue";
+import DropdownGroup from "../Dropdown/DropdownGroup.vue";
 import Input from "../Input/Input.vue";
 import {
   filterFieldsByQuery,
@@ -125,7 +125,7 @@ const selectOption = (field: FilterField, option: FilterOption) => {
         </Input>
       </div>
 
-      <DropdownList class="filter-menu-list" aria-label="Поля фильтра">
+      <DropdownGroup class="filter-menu-list" aria-label="Поля фильтра">
         <template v-if="visibleFields.length">
           <template v-for="field in visibleFields" :key="field.key">
             <Dropdown
@@ -164,7 +164,7 @@ const selectOption = (field: FilterField, option: FilterOption) => {
                   </Input>
                 </div>
 
-                <DropdownList
+                <DropdownGroup
                   class="filter-menu-list"
                   :aria-label="field.label"
                 >
@@ -189,7 +189,7 @@ const selectOption = (field: FilterField, option: FilterOption) => {
                   >
                     {{ props.emptyLabel }}
                   </DropdownItem>
-                </DropdownList>
+                </DropdownGroup>
               </template>
             </Dropdown>
 
@@ -213,7 +213,7 @@ const selectOption = (field: FilterField, option: FilterOption) => {
           <IconCheckOutline aria-hidden="true" />
           {{ props.emptyLabel }}
         </DropdownItem>
-      </DropdownList>
+      </DropdownGroup>
     </template>
   </Dropdown>
 </template>

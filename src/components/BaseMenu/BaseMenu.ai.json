@@ -5,7 +5,19 @@
   "keywords": ["menu", "dropdown", "context-menu", "меню"],
   "useWhen": ["Нужно отобразить список связанных действий"],
   "toAvoid": ["Не использовать за пределами gui без необходимости"],
-  "rules": ["Использовать совместно с компонентами семейства BaseMenu"],
+  "rules": [
+    "Использовать совместно с компонентами семейства BaseMenu",
+    "По умолчанию width=auto подбирает ширину по содержимому",
+    "Для ограничения автоматической ширины передавать maxWidth как CSS-значение"
+  ],
   "alternatives": ["HoverMenu", "ContextMenu", "Dropdown"],
-  "commonlyUsedWith": ["BaseMenuList", "BaseMenuItem", "BaseMenuSeparator"]
+  "commonlyUsedWith": [
+    "BaseMenuGroup",
+    "BaseMenuLabel",
+    "BaseMenuItem",
+    "BaseMenuCheckboxItem",
+    "BaseMenuRadioGroup",
+    "BaseMenuRadioItem",
+    "BaseMenuSeparator"
+  ]
 }

@@ -2,6 +2,8 @@
 import "floating-vue/dist/style.css";
 import { computed, useAttrs } from "vue";
 import { Dropdown } from "floating-vue";
+import { DEFAULT_MENU_MAX_WIDTH } from "../BaseMenu/menuSizing";
+import { resolveDropdownContentStyles } from "./dropdownSizing";
 
 defineOptions({
   inheritAttrs: false,
@@ -10,23 +12,32 @@ defineOptions({
 export interface DropdownProps {
   stretched?: boolean;
   contentWidth?: DropdownContentWidth;
+  contentMaxWidth?: string;
   contentPadding?: "none" | "default" | "comfortable";
 }
 
-export type DropdownContentWidth = "extra-small" | "small" | "medium" | "large";
+export type DropdownContentWidth =
+  | "auto"
+  | "extra-small"
+  | "small"
+  | "medium"
+  | "large";
 
 const props = withDefaults(defineProps<DropdownProps>(), {
   stretched: false,
+  contentWidth: "auto",
+  contentMaxWidth: DEFAULT_MENU_MAX_WIDTH,
   contentPadding: "default",
 });
 const attrs = useAttrs();
 const popperClass = computed(() => [
   attrs.popperClass,
-  props.contentWidth
-    ? `dropdown-content-width-${props.contentWidth}`
-    : undefined,
+  `dropdown-content-width-${props.contentWidth}`,
   `dropdown-content-padding-${props.contentPadding}`,
 ]);
+const contentStyles = computed(() =>
+  resolveDropdownContentStyles(props.contentWidth, props.contentMaxWidth),
+);
 </script>
 
 <template>
@@ -43,7 +54,9 @@ const popperClass = computed(() => [
     </template>
 
     <template #popper>
-      <slot name="popper"></slot>
+      <div class="dropdown-content" :style="contentStyles">
+        <slot name="popper"></slot>
+      </div>
     </template>
   </Dropdown>
 </template>
@@ -56,6 +69,11 @@ const popperClass = computed(() => [
 
 .dropdown.stretched {
   width: 100%;
+}
+
+.dropdown-content {
+  min-width: 0;
+  box-sizing: border-box;
 }
 </style>
 <style>
@@ -74,6 +92,10 @@ const popperClass = computed(() => [
   background-color: var(--dropdown-background-color);
   border: 1px solid var(--dropdown-border-color);
   box-sizing: border-box;
+}
+
+.v-popper--theme-dropdown.dropdown-content-width-auto .v-popper__inner {
+  width: fit-content;
 }
 
 .v-popper--theme-dropdown.dropdown-content-width-small .v-popper__inner {

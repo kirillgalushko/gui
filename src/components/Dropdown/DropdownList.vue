@@ -1,5 +1,6 @@
 <script lang="ts">
-import BaseMenuList from "../BaseMenu/BaseMenuList.vue";
+import DropdownGroup from "./DropdownGroup.vue";
 
-export default BaseMenuList;
+/** @deprecated Use DropdownGroup. */
+export default DropdownGroup;
 </script>

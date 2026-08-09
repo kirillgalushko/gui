@@ -1,0 +1,11 @@
+{
+  "name": "DropdownSub",
+  "kind": "component",
+  "description": "Вложенное Dropdown-меню, открывающееся справа от пункта родительского меню.",
+  "keywords": ["dropdown submenu", "nested menu"],
+  "useWhen": ["У пункта Dropdown есть вложенная группа действий"],
+  "rules": [
+    "Trigger передавать через default-слот, содержимое через слот popper"
+  ],
+  "commonlyUsedWith": ["DropdownSubTrigger", "DropdownGroup"]
+}

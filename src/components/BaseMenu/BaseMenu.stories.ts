@@ -1,7 +1,12 @@
 import { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
 import BaseMenu from "./BaseMenu.vue";
+import BaseMenuCheckboxItem from "./BaseMenuCheckboxItem.vue";
+import BaseMenuGroup from "./BaseMenuGroup.vue";
 import BaseMenuItem from "./BaseMenuItem.vue";
-import BaseMenuList from "./BaseMenuList.vue";
+import BaseMenuLabel from "./BaseMenuLabel.vue";
+import BaseMenuRadioGroup from "./BaseMenuRadioGroup.vue";
+import BaseMenuRadioItem from "./BaseMenuRadioItem.vue";
 import BaseMenuSeparator from "./BaseMenuSeparator.vue";
 
 import {
@@ -25,8 +30,12 @@ export const Default: Story = {
   render: (args) => ({
     components: {
       BaseMenu,
+      BaseMenuCheckboxItem,
+      BaseMenuGroup,
       BaseMenuItem,
-      BaseMenuList,
+      BaseMenuLabel,
+      BaseMenuRadioGroup,
+      BaseMenuRadioItem,
       BaseMenuSeparator,
       IconPencilOutline,
       IconShareOutline,
@@ -34,17 +43,36 @@ export const Default: Story = {
       IconArchiveOutline,
     },
     setup() {
-      return { args };
+      const statusBar = ref(true);
+      const position = ref("bottom");
+
+      return { args, statusBar, position };
     },
     template: `
       <BaseMenu v-bind="args">
-        <BaseMenuList>
+        <BaseMenuGroup>
+          <BaseMenuLabel>Действия</BaseMenuLabel>
           <BaseMenuItem><IconPencilOutline />Открыть</BaseMenuItem>
           <BaseMenuItem><IconExternalLinkOutline />Открыть в новой вкладке</BaseMenuItem>
           <BaseMenuItem showArrow><IconShareOutline />Поделиться</BaseMenuItem>
-          <BaseMenuSeparator />
+        </BaseMenuGroup>
+        <BaseMenuSeparator />
+        <BaseMenuGroup>
+          <BaseMenuLabel>Отображение</BaseMenuLabel>
+          <BaseMenuCheckboxItem v-model="statusBar">Строка состояния</BaseMenuCheckboxItem>
+        </BaseMenuGroup>
+        <BaseMenuSeparator />
+        <BaseMenuGroup>
+          <BaseMenuLabel>Позиция</BaseMenuLabel>
+          <BaseMenuRadioGroup v-model="position">
+            <BaseMenuRadioItem value="top">Сверху</BaseMenuRadioItem>
+            <BaseMenuRadioItem value="bottom">Снизу</BaseMenuRadioItem>
+          </BaseMenuRadioGroup>
+        </BaseMenuGroup>
+        <BaseMenuSeparator />
+        <BaseMenuGroup>
           <BaseMenuItem><IconArchiveOutline />Архивировать</BaseMenuItem>
-        </BaseMenuList>
+        </BaseMenuGroup>
       </BaseMenu>`,
   }),
 };

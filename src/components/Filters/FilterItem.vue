@@ -7,7 +7,7 @@ import DatePicker from "../DatePicker/DatePicker.vue";
 import type { DatePickerChangePayload } from "../DatePicker/types";
 import Dropdown, { type DropdownContentWidth } from "../Dropdown/Dropdown.vue";
 import DropdownItem from "../Dropdown/DropdownItem.vue";
-import DropdownList from "../Dropdown/DropdownList.vue";
+import DropdownGroup from "../Dropdown/DropdownGroup.vue";
 import Input from "../Input/Input.vue";
 import {
   formatFilterValue,
@@ -142,7 +142,7 @@ const isSelected = (option: FilterOption): boolean =>
       </Button>
 
       <template #popper>
-        <DropdownList :aria-label="`Оператор: ${props.field.label}`">
+        <DropdownGroup :aria-label="`Оператор: ${props.field.label}`">
           <DropdownItem
             v-for="operator in operators"
             :key="operator.value"
@@ -156,7 +156,7 @@ const isSelected = (option: FilterOption): boolean =>
               aria-hidden="true"
             />
           </DropdownItem>
-        </DropdownList>
+        </DropdownGroup>
       </template>
     </Dropdown>
 
@@ -200,7 +200,7 @@ const isSelected = (option: FilterOption): boolean =>
           />
         </div>
 
-        <DropdownList
+        <DropdownGroup
           v-else
           class="filter-item-list"
           :aria-label="`Значение: ${props.field.label}`"
@@ -223,7 +223,7 @@ const isSelected = (option: FilterOption): boolean =>
               aria-hidden="true"
             />
           </DropdownItem>
-        </DropdownList>
+        </DropdownGroup>
       </template>
     </Dropdown>
 

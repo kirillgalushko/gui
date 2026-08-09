@@ -340,14 +340,36 @@ export const ProgressBar = ac(
 );
 export const Dropdown = ac(() => import("./components/Dropdown/Dropdown.vue"));
 export type { DropdownContentWidth } from "./components/Dropdown/Dropdown.vue";
+export const DropdownGroup = ac(
+  () => import("./components/Dropdown/DropdownGroup.vue"),
+);
+/** @deprecated Use DropdownGroup. */
 export const DropdownList = ac(
   () => import("./components/Dropdown/DropdownList.vue"),
+);
+export const DropdownLabel = ac(
+  () => import("./components/Dropdown/DropdownLabel.vue"),
 );
 export const DropdownItem = ac(
   () => import("./components/Dropdown/DropdownItem.vue"),
 );
+export const DropdownCheckboxItem = ac(
+  () => import("./components/Dropdown/DropdownCheckboxItem.vue"),
+);
+export const DropdownRadioGroup = ac(
+  () => import("./components/Dropdown/DropdownRadioGroup.vue"),
+);
+export const DropdownRadioItem = ac(
+  () => import("./components/Dropdown/DropdownRadioItem.vue"),
+);
 export const DropdownSeparator = ac(
   () => import("./components/Dropdown/DropdownSeparator.vue"),
+);
+export const DropdownSub = ac(
+  () => import("./components/Dropdown/DropdownSub.vue"),
+);
+export const DropdownSubTrigger = ac(
+  () => import("./components/Dropdown/DropdownSubTrigger.vue"),
 );
 export const Filters = ac(() => import("./components/Filters/Filters.vue"));
 export const FilterMenu = ac(

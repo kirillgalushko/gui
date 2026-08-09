@@ -1,0 +1,9 @@
+{
+  "name": "BaseMenuGroup",
+  "kind": "component",
+  "description": "Группа связанных пунктов внутри BaseMenu.",
+  "keywords": ["menu group", "группа меню"],
+  "useWhen": ["Нужно сгруппировать связанные пункты меню"],
+  "rules": ["Использовать внутри BaseMenu или компонента меню на его основе"],
+  "commonlyUsedWith": ["BaseMenuLabel", "BaseMenuItem"]
+}

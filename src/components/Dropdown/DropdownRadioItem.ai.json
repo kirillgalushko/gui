@@ -1,0 +1,12 @@
+{
+  "name": "DropdownRadioItem",
+  "kind": "component",
+  "description": "Отдельное значение DropdownRadioGroup.",
+  "keywords": ["dropdown radio item", "option"],
+  "useWhen": ["Нужно добавить вариант в DropdownRadioGroup"],
+  "rules": [
+    "Использовать только внутри DropdownRadioGroup",
+    "Передавать уникальный value"
+  ],
+  "commonlyUsedWith": ["DropdownRadioGroup"]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "BaseMenuCheckboxItem",
+  "kind": "component",
+  "description": "Пункт BaseMenu для независимого boolean-переключателя.",
+  "keywords": ["menu checkbox", "toggle", "флажок меню"],
+  "useWhen": ["Пункт меню включает или выключает независимую настройку"],
+  "rules": [
+    "Управлять состоянием через v-model",
+    "Для взаимоисключающих значений использовать BaseMenuRadioGroup"
+  ],
+  "commonlyUsedWith": ["BaseMenuGroup", "BaseMenuLabel"]
+}

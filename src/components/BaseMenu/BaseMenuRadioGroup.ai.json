@@ -1,0 +1,9 @@
+{
+  "name": "BaseMenuRadioGroup",
+  "kind": "component",
+  "description": "Группа взаимоисключающих значений внутри BaseMenu.",
+  "keywords": ["menu radio group", "exclusive selection"],
+  "useWhen": ["В меню нужно выбрать ровно одно значение"],
+  "rules": ["Управлять выбранным string или number через v-model"],
+  "commonlyUsedWith": ["BaseMenuRadioItem", "BaseMenuLabel"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "DropdownSubTrigger",
+  "kind": "component",
+  "description": "Пункт-триггер DropdownSub с направляющей стрелкой.",
+  "keywords": ["submenu trigger", "nested dropdown"],
+  "useWhen": ["Нужно открыть DropdownSub из пункта родительского меню"],
+  "rules": ["Использовать только как default-слот DropdownSub"],
+  "commonlyUsedWith": ["DropdownSub"]
+}

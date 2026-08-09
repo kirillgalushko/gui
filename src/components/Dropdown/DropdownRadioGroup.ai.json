@@ -1,0 +1,9 @@
+{
+  "name": "DropdownRadioGroup",
+  "kind": "component",
+  "description": "Группа взаимоисключающих значений внутри Dropdown.",
+  "keywords": ["dropdown radio group", "exclusive selection"],
+  "useWhen": ["В Dropdown нужно выбрать одно значение из нескольких"],
+  "rules": ["Управлять выбранным string или number через v-model"],
+  "commonlyUsedWith": ["DropdownRadioItem", "DropdownLabel"]
+}

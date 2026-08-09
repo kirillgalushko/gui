@@ -1,0 +1,12 @@
+{
+  "name": "BaseMenuRadioItem",
+  "kind": "component",
+  "description": "Отдельное значение внутри BaseMenuRadioGroup.",
+  "keywords": ["menu radio item", "option"],
+  "useWhen": ["Нужно добавить вариант в BaseMenuRadioGroup"],
+  "rules": [
+    "Использовать только внутри BaseMenuRadioGroup",
+    "Передавать уникальный value"
+  ],
+  "commonlyUsedWith": ["BaseMenuRadioGroup"]
+}

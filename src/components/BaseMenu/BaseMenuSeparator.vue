@@ -1,5 +1,5 @@
 <template>
-  <div :class="['base-menu-separator']"></div>
+  <div class="base-menu-separator" role="separator"></div>
 </template>
 
 <style scoped>

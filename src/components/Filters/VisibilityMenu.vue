@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { IconCheckOutline, IconColumns2Outline } from "@gui/icons";
+import { IconColumns2Outline } from "@gui/icons";
 import Button from "../Button/Button.vue";
 import Dropdown, { type DropdownContentWidth } from "../Dropdown/Dropdown.vue";
-import DropdownItem from "../Dropdown/DropdownItem.vue";
-import DropdownList from "../Dropdown/DropdownList.vue";
+import DropdownCheckboxItem from "../Dropdown/DropdownCheckboxItem.vue";
+import DropdownGroup from "../Dropdown/DropdownGroup.vue";
 import { resolveFilterIcon } from "./filters";
 import type { FilterControlAppearance, VisibilityOption } from "./types";
 
@@ -15,6 +15,7 @@ export interface VisibilityMenuProps extends FilterControlAppearance {
   minVisible?: number;
   disabled?: boolean;
   contentWidth?: DropdownContentWidth;
+  contentMaxWidth?: string;
 }
 
 const props = withDefaults(defineProps<VisibilityMenuProps>(), {
@@ -23,7 +24,7 @@ const props = withDefaults(defineProps<VisibilityMenuProps>(), {
   minVisible: 1,
   size: "medium",
   mode: "outline",
-  contentWidth: "extra-small",
+  contentWidth: "auto",
 });
 
 const model = defineModel<string[]>({ default: () => [] });
@@ -58,7 +59,10 @@ const toggle = (item: VisibilityOption) => {
 </script>
 
 <template>
-  <Dropdown :content-width="props.contentWidth">
+  <Dropdown
+    :content-width="props.contentWidth"
+    :content-max-width="props.contentMaxWidth"
+  >
     <slot name="trigger" :label="props.label">
       <Button :size="props.size" :mode="props.mode" :disabled="props.disabled">
         <IconColumns2Outline />
@@ -67,32 +71,20 @@ const toggle = (item: VisibilityOption) => {
     </slot>
 
     <template #popper>
-      <DropdownList :aria-label="props.menuLabel">
-        <DropdownItem
+      <DropdownGroup :aria-label="props.menuLabel">
+        <DropdownCheckboxItem
           v-for="item in props.items"
           :key="item.value"
           :disabled="isToggleDisabled(item)"
-          :aria-pressed="isVisible(item.value)"
-          @click="toggle(item)"
+          :model-value="isVisible(item.value)"
+          @update:model-value="toggle(item)"
         >
           <slot name="item" :item="item" :visible="isVisible(item.value)">
             <component v-if="item.icon" :is="resolveFilterIcon(item.icon)" />
             <span>{{ item.label }}</span>
           </slot>
-          <IconCheckOutline
-            v-if="isVisible(item.value)"
-            class="visibility-menu-check"
-            aria-hidden="true"
-          />
-        </DropdownItem>
-      </DropdownList>
+        </DropdownCheckboxItem>
+      </DropdownGroup>
     </template>
   </Dropdown>
 </template>
-
-<style scoped>
-.visibility-menu-check {
-  margin-left: auto;
-  flex: 0 0 auto;
-}
-</style>

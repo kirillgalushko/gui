@@ -4,18 +4,53 @@ import { Meta } from "@storybook/addon-docs";
 
 # Dropdown
 
-Выпадающая панель, привязанная к trigger-элементу.
+Выпадающее меню или панель, привязанная к trigger-элементу. В GUI trigger остаётся
+default-слотом `Dropdown`, а content — слотом `popper`; отдельные обёртки для них не
+создаются.
 
 - `stretched` растягивает trigger на ширину родителя.
-- `contentWidth` задаёт адаптивную ширину панели: `extra-small` — 260 px, `small` — 320 px, `medium` — 420 px, `large` — 520 px.
+- `contentWidth="auto"` по умолчанию подбирает ширину панели по содержимому.
+- `contentMaxWidth` ограничивает автоматическую ширину произвольным CSS-значением;
+  по умолчанию content не выходит за viewport с внешним отступом 8 px.
+- Фиксированные пресеты `contentWidth` сохранены: `extra-small` — 260 px,
+  `small` — 320 px, `medium` — 420 px, `large` — 520 px.
 - `contentPadding` управляет внутренним отступом: `default` — 4 px, `comfortable` — 12 px.
 - Содержимое панели передаётся через слот `popper`.
 
 ```vue
-<Dropdown content-width="medium" content-padding="comfortable">
+<Dropdown content-max-width="320px">
   <Button>Открыть</Button>
   <template #popper>
-    <DropdownList>Содержимое</DropdownList>
+    <DropdownGroup>
+      <DropdownLabel>Отображение</DropdownLabel>
+      <DropdownCheckboxItem v-model="showStatus">Строка состояния</DropdownCheckboxItem>
+      <DropdownCheckboxItem v-model="showPanel">Панель</DropdownCheckboxItem>
+    </DropdownGroup>
   </template>
 </Dropdown>
 ```
+
+## Radio group
+
+```vue
+<DropdownRadioGroup v-model="position">
+  <DropdownRadioItem value="top">Сверху</DropdownRadioItem>
+  <DropdownRadioItem value="bottom">Снизу</DropdownRadioItem>
+</DropdownRadioGroup>
+```
+
+## Submenu
+
+```vue
+<DropdownSub>
+  <DropdownSubTrigger>Поделиться</DropdownSubTrigger>
+  <template #popper>
+    <DropdownGroup>
+      <DropdownLabel>Поделиться</DropdownLabel>
+      <DropdownItem>Скопировать ссылку</DropdownItem>
+    </DropdownGroup>
+  </template>
+</DropdownSub>
+```
+
+`DropdownList` оставлен как deprecated-алиас `DropdownGroup` для совместимости.
