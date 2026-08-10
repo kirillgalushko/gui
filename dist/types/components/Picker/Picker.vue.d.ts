@@ -1,6 +1,8 @@
-import type { ButtonProps } from '../Button/Button.vue';
+import type { ComponentSize } from "../../types";
+import type { PickerMode } from "./types";
 export interface PickerProps {
-    size?: ButtonProps['size'];
+    size?: ComponentSize;
+    mode?: PickerMode;
     stretched?: boolean;
 }
 declare function __VLS_template(): {
@@ -17,7 +19,8 @@ type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<PickerProps, {
     elementRef: import("vue").Ref<HTMLButtonElement | null, HTMLButtonElement | null>;
 }, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PickerProps> & Readonly<{}>, {
-    size: "small" | "medium" | "large" | "extra-small";
+    mode: PickerMode;
+    size: ComponentSize;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

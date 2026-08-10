@@ -1,10 +1,11 @@
-import type { Padding } from '../../types';
-export type ItemMode = 'card' | 'outlined' | 'plain';
-export type ItemSize = 'medium' | 'small' | 'extra-small';
+import type { Padding } from "../../types";
+export type ItemMode = "card" | "outlined" | "plain";
+export type ItemSize = "medium" | "small" | "extra-small";
 export interface ItemProps {
     interactive?: boolean;
     mode?: ItemMode;
     padding?: Padding;
+    selected?: boolean;
     size?: ItemSize;
     stretched?: boolean;
 }
@@ -17,8 +18,8 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<ItemProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ItemProps> & Readonly<{}>, {
-    size: ItemSize;
     mode: ItemMode;
+    size: ItemSize;
     stretched: boolean;
     interactive: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;

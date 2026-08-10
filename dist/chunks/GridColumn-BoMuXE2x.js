@@ -1,0 +1,43 @@
+import { defineComponent as d, inject as f, computed as o, openBlock as v, createElementBlock as _, normalizeStyle as x, renderSlot as k } from "vue";
+import { _ as b, Z as y, $ as c } from "./index-BQgYVE5h.js";
+import { _ as h } from "./_plugin-vue_export-helper-CHgC5LLL.js";
+import '../assets/GridColumn-Dg28sCX-.css';const B = "xxl", S = /* @__PURE__ */ d({
+  __name: "GridColumn",
+  props: {
+    xs: {},
+    s: {},
+    m: {},
+    l: {},
+    xl: {},
+    xxl: {}
+  },
+  setup(u) {
+    const i = u, e = f(b), a = o(
+      () => (e == null ? void 0 : e.breakpoint.value) ?? B
+    ), s = o(
+      () => (e == null ? void 0 : e.columns.value) ?? y[a.value]
+    ), m = o(() => {
+      const t = c.indexOf(a.value);
+      for (let n = t; n >= 0; n -= 1) {
+        const r = c[n];
+        if (r === void 0)
+          continue;
+        const l = i[r];
+        if (typeof l == "number")
+          return Math.min(Math.max(l, 1), s.value);
+      }
+      return s.value;
+    }), p = o(() => ({
+      "--grid-column-span": String(m.value)
+    }));
+    return (t, n) => (v(), _("div", {
+      class: "grid-column",
+      style: x(p.value)
+    }, [
+      k(t.$slots, "default", {}, void 0, !0)
+    ], 4));
+  }
+}), M = /* @__PURE__ */ h(S, [["__scopeId", "data-v-74aaeef3"]]);
+export {
+  M as default
+};

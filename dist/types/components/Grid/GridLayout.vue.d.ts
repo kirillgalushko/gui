@@ -1,5 +1,5 @@
 export interface GridLayoutProps {
-    mode?: 'container' | 'viewport';
+    mode?: "container" | "viewport";
     gutter?: string;
     highlight?: boolean;
     stretched?: boolean;

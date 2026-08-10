@@ -1,2 +1,2 @@
-import BaseMenuList from '../BaseMenu/BaseMenuList.vue';
-export default BaseMenuList;
+import BaseMenuGroup from "../BaseMenu/BaseMenuGroup.vue";
+export default BaseMenuGroup;

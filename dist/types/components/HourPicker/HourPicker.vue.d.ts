@@ -1,4 +1,4 @@
-import type { HourPickerChangePayload } from './types';
+import type { HourPickerChangePayload } from "./types";
 export interface HourPickerProps {
     value?: string;
     onChange?: (payload: HourPickerChangePayload) => void;

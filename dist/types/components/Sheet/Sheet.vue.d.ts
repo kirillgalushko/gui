@@ -1,5 +1,6 @@
 type SheetSide = "top" | "right" | "bottom" | "left";
 type SheetSize = "auto" | "extra-small" | "small" | "medium" | "large" | "full";
+type SheetMode = "default" | "floating";
 export interface SheetProps {
     isOpened?: boolean;
     onClose?: () => void;
@@ -8,6 +9,7 @@ export interface SheetProps {
     description?: string;
     side?: SheetSide;
     size?: SheetSize;
+    mode?: SheetMode;
     rounded?: boolean;
     showOverlay?: boolean;
     closeOnOverlayClick?: boolean;
@@ -15,6 +17,7 @@ export interface SheetProps {
 }
 declare function __VLS_template(): {
     slots: {
+        header?(_: {}): any;
         actions?(_: {}): any;
         default?(_: {}): any;
         footer?(_: {}): any;
@@ -26,6 +29,7 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SheetProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SheetProps> & Readonly<{}>, {
+    mode: SheetMode;
     rounded: boolean;
     showCloseButton: boolean;
     side: SheetSide;

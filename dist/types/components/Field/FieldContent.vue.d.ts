@@ -1,5 +1,5 @@
 export interface FieldContentProps {
-    align?: 'start' | 'center' | 'end';
+    align?: "start" | "center" | "end";
 }
 declare function __VLS_template(): {
     slots: {

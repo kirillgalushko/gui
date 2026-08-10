@@ -1,6 +1,6 @@
-import type { Gap } from '../../types';
+import type { Gap } from "../../types";
 export interface GapProps {
-    direction?: 'horizontal' | 'vertical';
+    direction?: "horizontal" | "vertical";
     size?: Gap;
     default?: Gap;
 }

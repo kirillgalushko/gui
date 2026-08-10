@@ -1,4 +1,4 @@
-import type { BorderRadius, Padding } from '../../types';
+import type { BorderRadius, Padding } from "../../types";
 export interface CardSkeletonProps {
     loading?: boolean;
     width?: string;

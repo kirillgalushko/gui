@@ -1,4 +1,4 @@
-import type { CalendarDay, CalendarMode, CalendarMonthChangePayload, CalendarRangePayload, CalendarRangeValue, CalendarSelectPayload, CalendarValue } from './types';
+import type { CalendarDay, CalendarMode, CalendarMonthChangePayload, CalendarRangePayload, CalendarRangeValue, CalendarSelectPayload, CalendarSize, CalendarValue } from "./types";
 declare function __VLS_template(): {
     slots: {
         title?(_: {
@@ -27,6 +27,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     showOutsideDays?: boolean;
     fixedWeeks?: boolean;
     readonly?: boolean;
+    size?: CalendarSize;
 }, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     select: (payload: CalendarSelectPayload) => any;
     "update:modelValue": (value: Date | null) => any;
@@ -49,6 +50,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     showOutsideDays?: boolean;
     fixedWeeks?: boolean;
     readonly?: boolean;
+    size?: CalendarSize;
 }> & Readonly<{
     onSelect?: ((payload: CalendarSelectPayload) => any) | undefined;
     "onUpdate:modelValue"?: ((value: Date | null) => any) | undefined;
@@ -61,8 +63,9 @@ declare const __VLS_component: import("vue").DefineComponent<{
     "onMonth-change"?: ((payload: CalendarMonthChangePayload) => any) | undefined;
     "onDay-hover"?: ((payload: CalendarSelectPayload) => any) | undefined;
 }>, {
-    month: Date | string;
     mode: CalendarMode;
+    size: CalendarSize;
+    month: Date | string;
     modelValue: CalendarValue;
     readonly: boolean;
     rangeValue: CalendarRangeValue;

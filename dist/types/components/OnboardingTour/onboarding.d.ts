@@ -1,0 +1,10 @@
+import type { OnboardingRect, OnboardingTourScrollBehavior, OnboardingTourTarget } from "./types";
+export declare function clampTourStep(index: number, stepsCount: number): number;
+export declare function resolveOnboardingTarget(target: OnboardingTourTarget, root?: ParentNode): HTMLElement | null;
+export declare function getVisibleElementRect(element: HTMLElement, viewportWidth?: number, viewportHeight?: number): OnboardingRect | null;
+export declare function isElementFullyVisible(element: HTMLElement): boolean;
+export declare function scrollOnboardingTargetIntoView(element: HTMLElement, behavior: OnboardingTourScrollBehavior): boolean;
+export declare function shouldBlockOnboardingTargetScroll(event: Event, target: HTMLElement | null, lockTargetScroll: boolean): boolean;
+export declare function expandAndClampRect(rect: OnboardingRect, padding: number, viewportWidth: number, viewportHeight: number): OnboardingRect;
+export declare function getOverlayRects(spotlight: OnboardingRect, viewportWidth: number, viewportHeight: number): OnboardingRect[];
+export declare function getFocusableElements(...containers: (HTMLElement | null)[]): HTMLElement[];

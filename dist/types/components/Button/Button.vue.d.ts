@@ -1,6 +1,8 @@
+import type { ComponentSize } from "../../types";
 export interface ButtonProps {
-    mode?: 'default' | 'contrast' | 'ghost' | 'outline' | 'negative' | 'accent';
-    size?: 'extra-small' | 'small' | 'medium' | 'large';
+    asChild?: boolean;
+    mode?: "default" | "contrast" | "ghost" | "outline" | "negative" | "accent";
+    size?: ComponentSize;
     stretched?: boolean;
     squared?: boolean;
     rounded?: boolean;
@@ -10,14 +12,15 @@ export interface ButtonProps {
 declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;
+        default?(_: {}): any;
     };
     refs: {};
     attrs: Partial<{}>;
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<ButtonProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ButtonProps> & Readonly<{}>, {
-    size: "extra-small" | "small" | "medium" | "large";
     mode: "default" | "contrast" | "ghost" | "outline" | "negative" | "accent";
+    size: ComponentSize;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

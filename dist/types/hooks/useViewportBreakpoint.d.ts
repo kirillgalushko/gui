@@ -1,4 +1,4 @@
-import { type Breakpoint } from './breakpoints/breakpoints';
+import { type Breakpoint } from "./breakpoints/breakpoints";
 export declare function useViewportBreakpoint(): {
     readonly breakpoint: Breakpoint;
     readonly isXS: boolean;

@@ -1,4 +1,4 @@
-import { type BaseMenuItemProps } from '../BaseMenu/BaseMenuItem.vue';
+import { type BaseMenuItemProps } from "../BaseMenu/BaseMenuItem.vue";
 export type SelectOptionProps = BaseMenuItemProps & {
     label: string;
     value: string;

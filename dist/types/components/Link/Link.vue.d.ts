@@ -1,17 +1,21 @@
-import type { Typography } from '../Text/types';
+import type { Typography } from "../Text/types";
 export interface LinkProps {
     typography?: Typography;
+    asChild?: boolean;
     inline?: boolean;
+    wrap?: boolean;
     underlined?: boolean;
+    underlineOnHover?: boolean;
     disabled?: boolean;
     enableVisited?: boolean;
-    mode?: 'inherit' | 'accent';
-    Element?: 'a' | 'button' | 'span';
+    mode?: "inherit" | "accent";
+    Element?: "a" | "button" | "span";
 }
 declare function __VLS_template(): {
     slots: {
-        iconLeft?(_: {}): any;
         default?(_: {}): any;
+        default?(_: {}): any;
+        iconLeft?(_: {}): any;
         iconRight?(_: {}): any;
     };
     refs: {};

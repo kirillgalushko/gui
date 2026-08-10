@@ -1,4 +1,4 @@
-import type { ChipMode, ChipSize, ChipValue } from './types';
+import type { ChipMode, ChipSize, ChipValue } from "./types";
 export interface ChipGroupProps {
     mode?: ChipMode;
     size?: ChipSize;
@@ -23,8 +23,8 @@ declare const __VLS_component: import("vue").DefineComponent<__VLS_PublicProps, 
 }, string, import("vue").PublicProps, Readonly<__VLS_PublicProps> & Readonly<{
     "onUpdate:modelValue"?: ((modelValue: ChipValue | ChipValue[] | null) => any) | undefined;
 }>, {
-    size: ChipSize;
     mode: ChipMode;
+    size: ChipSize;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

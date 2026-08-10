@@ -1,9 +1,12 @@
 export interface BaseMenuItemProps {
     showArrow?: boolean;
+    selected?: boolean;
+    role?: "menuitem" | "menuitemcheckbox" | "menuitemradio";
 }
 declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;
+        trailing?(_: {}): any;
     };
     refs: {};
     attrs: Partial<{}>;

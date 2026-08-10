@@ -1,5 +1,5 @@
-import type { TextProps } from './types';
-export type { TextProps, Typography } from './types';
+import type { TextProps } from "./types";
+export type { TextProps, Typography } from "./types";
 declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;

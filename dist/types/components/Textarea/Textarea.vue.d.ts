@@ -1,7 +1,12 @@
 export interface TextareaProps {
-    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-    layout?: 'fixed' | 'fill-vertical' | 'fill-horizontal' | 'fill-both' | 'hug';
+    resize?: "none" | "both" | "horizontal" | "vertical";
+    layout?: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";
     placeholder?: string;
+    invalid?: boolean;
+    errorMessage?: string;
+    descriptionId?: string;
+    minHeight?: string;
+    maxHeight?: string;
 }
 declare let __VLS_typeProps: TextareaProps;
 type __VLS_PublicProps = {

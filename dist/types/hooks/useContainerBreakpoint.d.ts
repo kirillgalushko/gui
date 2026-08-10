@@ -1,4 +1,4 @@
-import { type Breakpoint } from './breakpoints/breakpoints';
+import { type Breakpoint } from "./breakpoints/breakpoints";
 type BreakpointElementRef = {
     value: HTMLElement | null;
 };

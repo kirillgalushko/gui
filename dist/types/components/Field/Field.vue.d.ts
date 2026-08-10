@@ -1,7 +1,7 @@
 export interface FieldProps {
     invalid?: boolean;
     disabled?: boolean;
-    orientation?: 'vertical' | 'horizontal' | 'responsive';
+    orientation?: "vertical" | "horizontal" | "responsive";
     stretched?: boolean;
 }
 declare function __VLS_template(): {

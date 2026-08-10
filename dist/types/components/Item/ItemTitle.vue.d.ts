@@ -1,6 +1,7 @@
-import type { TextProps } from '../Text/types';
+import type { TextProps } from "../Text/types";
 export interface ItemTitleProps {
-    Element?: TextProps['Element'];
+    Element?: TextProps["Element"];
+    ellipsis?: boolean;
 }
 declare function __VLS_template(): {
     slots: {
@@ -12,6 +13,7 @@ declare function __VLS_template(): {
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<ItemTitleProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ItemTitleProps> & Readonly<{}>, {
     Element: "a" | "button" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span";
+    ellipsis: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

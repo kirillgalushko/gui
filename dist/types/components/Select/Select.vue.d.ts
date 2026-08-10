@@ -1,9 +1,11 @@
 import type { RegisteredOption } from "./useSelect";
-import type { ButtonProps } from "../Button/Button.vue";
+import type { ComponentSize } from "../../types";
+import type { PickerMode } from "../Picker/types";
 export interface SelectProps {
     stretched?: boolean;
     label?: string;
-    size?: ButtonProps['size'];
+    size?: ComponentSize;
+    mode?: PickerMode;
     value?: string;
     name?: string;
     onChange?: (option: RegisteredOption) => void;
@@ -18,7 +20,8 @@ declare function __VLS_template(): {
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: {
-                readonly size?: ButtonProps["size"];
+                readonly size?: ComponentSize | undefined;
+                readonly mode?: PickerMode | undefined;
                 readonly stretched?: boolean | undefined;
             } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps;
             $attrs: {
@@ -38,7 +41,8 @@ declare function __VLS_template(): {
             $options: import("vue").ComponentOptionsBase<Readonly<import("../Picker/Picker.vue").PickerProps> & Readonly<{}>, {
                 elementRef: import("vue").Ref<HTMLButtonElement | null, HTMLButtonElement | null>;
             }, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-                size: "small" | "medium" | "large" | "extra-small";
+                mode: PickerMode;
+                size: ComponentSize;
             }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & {
                 beforeCreate?: (() => void) | (() => void)[];
                 created?: (() => void) | (() => void)[];
@@ -60,8 +64,9 @@ declare function __VLS_template(): {
             $nextTick: typeof import("vue").nextTick;
             $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (...args: [R, R, import("@vue/reactivity").OnCleanup]) => any : (...args: [any, any, import("@vue/reactivity").OnCleanup]) => any, options?: import("vue").WatchOptions): import("vue").WatchStopHandle;
         } & Readonly<{
-            size: "small" | "medium" | "large" | "extra-small";
-        }> & Omit<Readonly<import("../Picker/Picker.vue").PickerProps> & Readonly<{}>, "size" | "elementRef"> & import("vue").ShallowUnwrapRef<{
+            mode: PickerMode;
+            size: ComponentSize;
+        }> & Omit<Readonly<import("../Picker/Picker.vue").PickerProps> & Readonly<{}>, "elementRef" | ("mode" | "size")> & import("vue").ShallowUnwrapRef<{
             elementRef: import("vue").Ref<HTMLButtonElement | null, HTMLButtonElement | null>;
         }> & {} & import("vue").ComponentCustomProperties & {} & {
             $slots: {
@@ -74,7 +79,8 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SelectProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SelectProps> & Readonly<{}>, {
-    size: "small" | "medium" | "large" | "extra-small";
+    mode: PickerMode;
+    size: ComponentSize;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

@@ -1,5 +1,5 @@
 export interface BreadcrumbLinkProps {
-    Element?: 'a' | 'button' | 'span';
+    Element?: "a" | "button" | "span";
 }
 declare function __VLS_template(): {
     slots: {

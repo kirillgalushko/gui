@@ -1,9 +1,11 @@
-import type { DateInputChangePayload, DateInputValue } from './types';
+import type { DateInputChangePayload, DateInputValue } from "./types";
 export interface DateInputProps {
     value?: DateInputValue;
     onChange?: (payload: DateInputChangePayload) => void;
     minDate?: Date;
     maxDate?: Date;
+    disabledDates?: (date: Date) => boolean;
+    onMonthChange?: (month: Date) => void;
     disabled?: boolean;
     invalid?: boolean;
     description?: string;

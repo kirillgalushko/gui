@@ -1,7 +1,7 @@
-export type ButtonSkeletonSize = 'extra-small' | 'small' | 'medium' | 'large';
+import type { ComponentSize } from "../../types";
 export interface ButtonSkeletonProps {
     loading?: boolean;
-    size?: ButtonSkeletonSize;
+    size?: ComponentSize;
     width?: string;
     stretched?: boolean;
     squared?: boolean;
@@ -16,7 +16,7 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<ButtonSkeletonProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ButtonSkeletonProps> & Readonly<{}>, {
-    size: ButtonSkeletonSize;
+    size: ComponentSize;
     width: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;

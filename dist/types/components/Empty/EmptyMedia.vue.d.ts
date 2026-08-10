@@ -1,5 +1,5 @@
 export interface EmptyMediaProps {
-    variant?: 'default' | 'icon';
+    variant?: "default" | "icon";
 }
 declare function __VLS_template(): {
     slots: {

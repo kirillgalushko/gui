@@ -1,4 +1,4 @@
-export type HoverCardPlacement = 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end';
+export type HoverCardPlacement = "top" | "top-start" | "top-end" | "right" | "right-start" | "right-end" | "bottom" | "bottom-start" | "bottom-end" | "left" | "left-start" | "left-end";
 export interface HoverCardProps {
     open?: boolean;
     disabled?: boolean;
@@ -7,7 +7,6 @@ export interface HoverCardProps {
     closeDelay?: number;
     sideOffset?: number;
     updateKey?: string | number | boolean;
-    contentClass?: string;
 }
 declare function __VLS_template(): {
     slots: {
@@ -26,14 +25,13 @@ declare const __VLS_component: import("vue").DefineComponent<HoverCardProps, {},
 }, string, import("vue").PublicProps, Readonly<HoverCardProps> & Readonly<{
     "onUpdate:open"?: ((value: boolean) => any) | undefined;
 }>, {
-    placement: HoverCardPlacement;
     disabled: boolean;
+    placement: HoverCardPlacement;
     open: boolean;
     openDelay: number;
     closeDelay: number;
     sideOffset: number;
     updateKey: string | number | boolean;
-    contentClass: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

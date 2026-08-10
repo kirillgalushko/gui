@@ -1,4 +1,4 @@
-import { type ButtonGroupOrientation } from './context';
+import { type ButtonGroupOrientation } from "./context";
 export interface ButtonGroupSeparatorProps {
     orientation?: ButtonGroupOrientation;
 }

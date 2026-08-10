@@ -18,4 +18,5 @@ export declare const snapDateToHour: (date: Date, hour: number) => Date;
 export declare const formatRuShortWeekdayMonthDay: (date: Date) => string;
 export declare const formatRuMonthYear: (date: Date) => string;
 export declare const formatRuDayMonth: (date: Date) => string;
-export declare const formatRuReadableDateTime: (value: Date | string) => string;
+export declare const formatRuReadableDateTime: (value: Date | string, options?: Pick<Intl.DateTimeFormatOptions, "timeZone">) => string;
+export declare const formatRuRelativeTime: (value: Date | string, relativeTo?: Date | string) => string;

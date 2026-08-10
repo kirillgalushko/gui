@@ -1,5 +1,6 @@
 export interface SidebarItemProps {
     selected?: boolean;
+    tooltipDisabled?: boolean;
 }
 declare function __VLS_template(): {
     slots: {
@@ -9,6 +10,7 @@ declare function __VLS_template(): {
         default?(_: {}): any;
         right?(_: {}): any;
         compact?(_: {}): any;
+        "compact-indicator"?(_: {}): any;
         tooltip?(_: {}): any;
     };
     refs: {

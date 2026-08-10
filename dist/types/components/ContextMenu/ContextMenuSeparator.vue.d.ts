@@ -1,2 +1,2 @@
-import BaseMenuSeparator from '../BaseMenu/BaseMenuSeparator.vue';
+import BaseMenuSeparator from "../BaseMenu/BaseMenuSeparator.vue";
 export default BaseMenuSeparator;

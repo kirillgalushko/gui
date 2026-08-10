@@ -1,4 +1,4 @@
-import type { ChipSize, ChipValue } from './types';
+import type { ChipSize, ChipValue } from "./types";
 export interface ChipProps {
     value?: ChipValue;
     size?: ChipSize;

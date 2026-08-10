@@ -1,4 +1,8 @@
-export declare const useContextMenu: () => {
+import { type MaybeRefOrGetter } from "vue";
+export interface UseContextMenuOptions {
+    enabled?: MaybeRefOrGetter<boolean>;
+}
+export declare const useContextMenu: (options?: UseContextMenuOptions) => {
     contextMenuData: {
         floatingStyles: Readonly<import("vue").Ref<{
             position: import("@floating-ui/utils").Strategy;
@@ -28,4 +32,5 @@ export declare const useContextMenu: () => {
         isContextMenuVisible: import("vue").Ref<boolean, boolean>;
     };
     targetRef: import("vue").Ref<HTMLElement | null, HTMLElement | null>;
+    setTargetRef: (value: unknown) => void;
 };

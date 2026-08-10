@@ -1,2 +1,3 @@
-import BaseMenuList from '../BaseMenu/BaseMenuList.vue';
-export default BaseMenuList;
+import DropdownGroup from "./DropdownGroup.vue";
+/** @deprecated Use DropdownGroup. */
+export default DropdownGroup;

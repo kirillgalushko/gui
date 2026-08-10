@@ -1,3 +1,4 @@
+import type { ComponentSize } from "../../types";
 export interface InputProps {
     autoFocus?: boolean;
     maxWidth?: string;
@@ -7,6 +8,7 @@ export interface InputProps {
     errorMessage?: string;
     invalid?: boolean;
     descriptionId?: string;
+    size?: ComponentSize;
 }
 declare let __VLS_typeProps: InputProps;
 type __VLS_PublicProps = {
@@ -30,6 +32,7 @@ declare const __VLS_component: import("vue").DefineComponent<__VLS_PublicProps, 
 }, string, import("vue").PublicProps, Readonly<__VLS_PublicProps> & Readonly<{
     "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
 }>, {
+    size: ComponentSize;
     maxWidth: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;

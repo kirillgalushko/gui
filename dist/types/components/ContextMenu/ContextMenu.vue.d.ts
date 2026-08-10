@@ -1,6 +1,6 @@
-import { useContextMenu } from './useContextMenu';
+import { useContextMenu } from "./useContextMenu";
 export interface ContextMenuProps {
-    data: ReturnType<typeof useContextMenu>['contextMenuData'];
+    data: ReturnType<typeof useContextMenu>["contextMenuData"];
 }
 declare function __VLS_template(): {
     slots: {

@@ -1,7 +1,11 @@
-import 'floating-vue/dist/style.css';
+import "floating-vue/dist/style.css";
 export interface DropdownProps {
     stretched?: boolean;
+    contentWidth?: DropdownContentWidth;
+    contentMaxWidth?: string;
+    contentPadding?: "none" | "default" | "comfortable";
 }
+export type DropdownContentWidth = "auto" | "extra-small" | "small" | "medium" | "large";
 declare function __VLS_template(): {
     slots: {
         default?(_: {}): any;
@@ -13,6 +17,9 @@ declare function __VLS_template(): {
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<DropdownProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DropdownProps> & Readonly<{}>, {
     stretched: boolean;
+    contentWidth: DropdownContentWidth;
+    contentMaxWidth: string;
+    contentPadding: "none" | "default" | "comfortable";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
 export default _default;

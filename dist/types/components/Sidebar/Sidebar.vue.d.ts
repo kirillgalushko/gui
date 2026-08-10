@@ -1,11 +1,12 @@
-import type { Padding } from '../../types';
+import type { Padding } from "../../types";
 export interface SidebarProps {
-    mode?: 'default' | 'floating';
+    mode?: "default" | "floating";
     padding?: Padding;
     width?: number;
     maxWidth?: string;
     minWidth?: string;
     compactWidth?: number;
+    collapseThreshold?: number;
 }
 declare function __VLS_template(): {
     slots: {
@@ -18,10 +19,10 @@ declare function __VLS_template(): {
 };
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SidebarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SidebarProps> & Readonly<{}>, {
-    width: number;
     mode: "default" | "floating";
-    padding: Padding;
+    width: number;
     maxWidth: string;
+    padding: Padding;
     minWidth: string;
     compactWidth: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;

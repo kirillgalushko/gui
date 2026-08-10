@@ -1,9 +1,10 @@
-type ModalSize = 'small' | 'medium' | 'large' | 'full';
+type ModalSize = "small" | "medium" | "large" | "full";
 export interface ModalProps {
     isOpened?: boolean;
     onClose?: () => void;
     showCloseButton?: boolean;
     title?: string;
+    description?: string;
     size?: ModalSize;
 }
 declare function __VLS_template(): {

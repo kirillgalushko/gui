@@ -1,0 +1,12 @@
+import { type Component } from "vue";
+import type { ActiveFilter, FilterField, FilterOperator, FilterOption } from "./types";
+export declare const resolveFilterIcon: (icon?: Component) => Component | undefined;
+export declare const createFilterId: () => string;
+export declare const getFilterOperators: <T>(field: FilterField<T>) => FilterOperator[];
+export declare const createFilter: <T>(field: FilterField<T>, option?: FilterOption<T>, id?: string) => ActiveFilter<T>;
+export declare const toggleFilterValue: <T>(values: T[], value: T, comparator?: (left: T, right: T) => boolean) => T[];
+export declare const groupActiveFilters: (filters: readonly ActiveFilter[], fields: readonly FilterField[]) => ActiveFilter[];
+export declare const isFilterValueSelected: <T>(values: T[], value: T, comparator?: (left: T, right: T) => boolean) => boolean;
+export declare const formatFilterValue: <T>(filter: ActiveFilter<T>, field: FilterField<T>, selectedLabel?: string) => string;
+export declare const filterFieldsByQuery: <T>(fields: FilterField<T>[], query: string) => FilterField<T>[];
+export declare const filterOptionsByQuery: <T>(options: FilterOption<T>[], query: string) => FilterOption<T>[];

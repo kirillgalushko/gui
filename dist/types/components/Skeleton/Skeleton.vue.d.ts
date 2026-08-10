@@ -1,5 +1,5 @@
 export interface SkeletonProps {
-    Element?: 'div' | 'span';
+    Element?: "div" | "span";
     loading?: boolean;
     animated?: boolean;
     width?: string;

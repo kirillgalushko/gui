@@ -1,7 +1,7 @@
 export interface AvatarSkeletonProps {
     loading?: boolean;
     size?: string;
-    shape?: 'square' | 'circle';
+    shape?: "square" | "circle";
 }
 declare function __VLS_template(): {
     slots: {

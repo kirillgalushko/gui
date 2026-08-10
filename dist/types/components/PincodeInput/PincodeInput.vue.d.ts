@@ -12,11 +12,11 @@ export interface PincodeInputProps {
     descriptionId?: string;
 }
 declare const _default: import("vue").DefineComponent<PincodeInputProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (value: string) => any;
     complete: (value: string) => any;
+    "update:modelValue": (value: string) => any;
 }, string, import("vue").PublicProps, Readonly<PincodeInputProps> & Readonly<{
-    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     onComplete?: ((value: string) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {
     length: number;
     stretched: boolean;

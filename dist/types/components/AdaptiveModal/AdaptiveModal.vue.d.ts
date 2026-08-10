@@ -1,12 +1,13 @@
-import type { ModalProps } from '../Modal/Modal.vue';
-import type { SheetProps } from '../Sheet/Sheet.vue';
-type CommonOverlayProp = 'isOpened' | 'onClose' | 'showCloseButton' | 'title';
-type AdaptiveSheetProp = CommonOverlayProp | 'side';
+import type { ModalProps } from "../Modal/Modal.vue";
+import type { SheetProps } from "../Sheet/Sheet.vue";
+type CommonOverlayProp = "isOpened" | "onClose" | "showCloseButton" | "title" | "description";
+type AdaptiveSheetProp = CommonOverlayProp | "side";
 export interface AdaptiveModalProps {
     isOpened?: boolean;
     onClose?: () => void;
     showCloseButton?: boolean;
     title?: string;
+    description?: string;
     modalProps?: Partial<Omit<ModalProps, CommonOverlayProp>>;
     sheetProps?: Partial<Omit<SheetProps, AdaptiveSheetProp>>;
 }

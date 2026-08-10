@@ -1,4 +1,4 @@
-import { type ComputedRef, type MaybeRefOrGetter } from 'vue';
+import { type ComputedRef, type MaybeRefOrGetter } from "vue";
 export interface SkeletonContext {
     loading: ComputedRef<boolean>;
 }

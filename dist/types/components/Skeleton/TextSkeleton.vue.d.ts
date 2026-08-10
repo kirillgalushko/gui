@@ -1,4 +1,4 @@
-import type { Typography } from '../Text/types';
+import type { Typography } from "../Text/types";
 export interface TextSkeletonProps {
     loading?: boolean;
     lines?: number;
