@@ -3,6 +3,7 @@
   "private": true,
   "version": "7.0.0",
   "type": "module",
+  "packageManager": "npm@11.17.0",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
