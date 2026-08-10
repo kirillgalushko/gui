@@ -24,53 +24,54 @@ export interface OnboardingTourProps {
     finishLabel?: string;
     ariaLabel?: string;
 }
-declare function __VLS_template(): {
-    slots: {
-        card?(_: {
-            step: OnboardingTourStep;
-            index: number;
-            progress: {
-                current: number;
-                total: number;
-            };
-            next: () => void;
-            previous: () => void;
-            close: (reason?: OnboardingTourCloseReason) => void;
-        }): any;
-        title?(_: {
-            step: OnboardingTourStep;
-            index: number;
-        }): any;
-        description?(_: {
-            step: OnboardingTourStep;
-            index: number;
-        }): any;
-        content?(_: {
-            step: OnboardingTourStep;
-            index: number;
-        }): any;
-        progress?(_: {
-            step: OnboardingTourStep;
-            index: number;
-            progress: {
-                current: number;
-                total: number;
-            };
-        }): any;
-        actions?(_: {
-            step: OnboardingTourStep;
-            index: number;
-            isFirst: boolean;
-            isLast: boolean;
-            next: () => void;
-            previous: () => void;
-            close: (reason?: OnboardingTourCloseReason) => void;
-        }): any;
+declare var __VLS_5: {
+    step: OnboardingTourStep;
+    index: number;
+    progress: {
+        current: number;
+        total: number;
     };
-    refs: {};
-    attrs: Partial<{}>;
+    next: () => void;
+    previous: () => void;
+    close: (reason?: OnboardingTourCloseReason) => void;
+}, __VLS_19: {
+    step: OnboardingTourStep;
+    index: number;
+}, __VLS_24: {
+    step: OnboardingTourStep;
+    index: number;
+}, __VLS_40: {
+    step: OnboardingTourStep;
+    index: number;
+}, __VLS_45: {
+    step: OnboardingTourStep;
+    index: number;
+    progress: {
+        current: number;
+        total: number;
+    };
+}, __VLS_53: {
+    step: OnboardingTourStep;
+    index: number;
+    isFirst: boolean;
+    isLast: boolean;
+    next: () => void;
+    previous: () => void;
+    close: (reason?: OnboardingTourCloseReason) => void;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+type __VLS_Slots = {} & {
+    card?: (props: typeof __VLS_5) => any;
+} & {
+    title?: (props: typeof __VLS_19) => any;
+} & {
+    description?: (props: typeof __VLS_24) => any;
+} & {
+    content?: (props: typeof __VLS_40) => any;
+} & {
+    progress?: (props: typeof __VLS_45) => any;
+} & {
+    actions?: (props: typeof __VLS_53) => any;
+};
 declare const __VLS_component: import("vue").DefineComponent<OnboardingTourProps, {
     start: (index?: number) => boolean;
     close: (reason?: OnboardingTourCloseReason) => void;
@@ -122,9 +123,9 @@ declare const __VLS_component: import("vue").DefineComponent<OnboardingTourProps
     nextLabel: string;
     finishLabel: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

@@ -15,19 +15,16 @@ export interface SheetProps {
     closeOnOverlayClick?: boolean;
     closeOnEscape?: boolean;
 }
-declare function __VLS_template(): {
-    slots: {
-        header?(_: {}): any;
-        actions?(_: {}): any;
-        default?(_: {}): any;
-        footer?(_: {}): any;
-    };
-    refs: {
-        sheetRef: HTMLElement;
-    };
-    attrs: Partial<{}>;
+declare var __VLS_5: {}, __VLS_16: {}, __VLS_29: {}, __VLS_31: {};
+type __VLS_Slots = {} & {
+    header?: (props: typeof __VLS_5) => any;
+} & {
+    actions?: (props: typeof __VLS_16) => any;
+} & {
+    default?: (props: typeof __VLS_29) => any;
+} & {
+    footer?: (props: typeof __VLS_31) => any;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SheetProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SheetProps> & Readonly<{}>, {
     mode: SheetMode;
     rounded: boolean;
@@ -37,9 +34,9 @@ declare const __VLS_component: import("vue").DefineComponent<SheetProps, {}, {},
     closeOnOverlayClick: boolean;
     closeOnEscape: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

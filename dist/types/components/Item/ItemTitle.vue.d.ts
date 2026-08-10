@@ -3,21 +3,17 @@ export interface ItemTitleProps {
     Element?: TextProps["Element"];
     ellipsis?: boolean;
 }
-declare function __VLS_template(): {
-    slots: {
-        default?(_: {}): any;
-    };
-    refs: {};
-    attrs: Partial<{}>;
+declare var __VLS_5: {};
+type __VLS_Slots = {} & {
+    default?: (props: typeof __VLS_5) => any;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<ItemTitleProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ItemTitleProps> & Readonly<{}>, {
     Element: "a" | "button" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span";
     ellipsis: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

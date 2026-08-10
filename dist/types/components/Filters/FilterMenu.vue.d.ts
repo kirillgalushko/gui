@@ -11,26 +11,25 @@ export interface FilterMenuProps extends FilterControlAppearance {
     disabled?: boolean;
     contentWidth?: DropdownContentWidth;
 }
-declare function __VLS_template(): {
-    slots: {
-        trigger?(_: {
-            label: string;
-        }): any;
-        field?(_: {
-            field: FilterField<unknown>;
-        }): any;
-        field?(_: {
-            field: FilterField<unknown>;
-        }): any;
-        option?(_: {
-            field: FilterField<unknown>;
-            option: FilterOption<unknown>;
-        }): any;
-    };
-    refs: {};
-    attrs: Partial<{}>;
+declare var __VLS_5: {
+    label: string;
+}, __VLS_30: {
+    field: FilterField<unknown>;
+}, __VLS_53: {
+    field: FilterField<unknown>;
+    option: FilterOption<unknown>;
+}, __VLS_69: {
+    field: FilterField<unknown>;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+type __VLS_Slots = {} & {
+    trigger?: (props: typeof __VLS_5) => any;
+} & {
+    field?: (props: typeof __VLS_30) => any;
+} & {
+    option?: (props: typeof __VLS_53) => any;
+} & {
+    field?: (props: typeof __VLS_69) => any;
+};
 declare const __VLS_component: import("vue").DefineComponent<FilterMenuProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     select: (payload: FilterMenuSelectPayload<unknown>) => any;
 }, string, import("vue").PublicProps, Readonly<FilterMenuProps> & Readonly<{
@@ -46,9 +45,9 @@ declare const __VLS_component: import("vue").DefineComponent<FilterMenuProps, {}
     emptyLabel: string;
     searchable: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

@@ -12,29 +12,28 @@ export interface NavbarProps {
     sticky?: boolean;
     stretched?: boolean;
 }
-declare function __VLS_template(): {
-    slots: {
-        left?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
-        actions?(_: {}): any;
-        actions?(_: {}): any;
-        actions?(_: {}): any;
-        compactActions?(_: {}): any;
-        mobile?(_: {}): any;
-        mobile?(_: {}): any;
-    };
-    refs: {
-        navbarRef: HTMLElement;
-        layoutRef: HTMLDivElement;
-        leftRef: HTMLDivElement;
-        navigationRef: HTMLDivElement;
-        actionsRef: HTMLDivElement;
-    };
-    attrs: Partial<{}>;
+declare var __VLS_1: {}, __VLS_3: {}, __VLS_8: {}, __VLS_13: {}, __VLS_29: {}, __VLS_31: {}, __VLS_36: {}, __VLS_56: {}, __VLS_58: {}, __VLS_63: {};
+type __VLS_Slots = {} & {
+    left?: (props: typeof __VLS_1) => any;
+} & {
+    default?: (props: typeof __VLS_3) => any;
+} & {
+    actions?: (props: typeof __VLS_8) => any;
+} & {
+    compactActions?: (props: typeof __VLS_13) => any;
+} & {
+    mobile?: (props: typeof __VLS_29) => any;
+} & {
+    default?: (props: typeof __VLS_31) => any;
+} & {
+    actions?: (props: typeof __VLS_36) => any;
+} & {
+    mobile?: (props: typeof __VLS_56) => any;
+} & {
+    default?: (props: typeof __VLS_58) => any;
+} & {
+    actions?: (props: typeof __VLS_63) => any;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<NavbarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:mobileOpen": (value: boolean) => any;
 }, string, import("vue").PublicProps, Readonly<NavbarProps> & Readonly<{
@@ -50,9 +49,9 @@ declare const __VLS_component: import("vue").DefineComponent<NavbarProps, {}, {}
     mobileOpen: boolean;
     sticky: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

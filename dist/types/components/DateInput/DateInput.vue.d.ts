@@ -16,7 +16,7 @@ export interface DateInputProps {
 }
 declare const _default: import("vue").DefineComponent<DateInputProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DateInputProps> & Readonly<{}>, {
     value: DateInputValue;
-    maxWidth: string;
     placeholder: string;
+    maxWidth: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export default _default;

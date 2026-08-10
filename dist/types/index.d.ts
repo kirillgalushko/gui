@@ -44,7 +44,7 @@ export declare const Accordion: {
     modelValue: string[];
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AccordionContent: {
@@ -61,7 +61,7 @@ export declare const AccordionContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AccordionItem: {
@@ -84,7 +84,7 @@ export declare const AccordionItem: {
     disabled: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AccordionTrigger: {
@@ -101,7 +101,7 @@ export declare const AccordionTrigger: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AnnouncementBar: {
@@ -130,9 +130,11 @@ export declare const AnnouncementBar: {
     role: "status" | "alert";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        icon?(_: {}): any;
-        default?(_: {}): any;
-        actions?(_: {}): any;
+        icon?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        actions?: (props: {}) => any;
     };
 });
 export type { AnnouncementBarMode, AnnouncementBarProps, AnnouncementBarSize, } from "./components/AnnouncementBar/AnnouncementBar.vue";
@@ -190,16 +192,25 @@ export declare const Navbar: {
     sticky: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        left?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
-        actions?(_: {}): any;
-        actions?(_: {}): any;
-        actions?(_: {}): any;
-        compactActions?(_: {}): any;
-        mobile?(_: {}): any;
-        mobile?(_: {}): any;
+        left?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        actions?: (props: {}) => any;
+    } & {
+        compactActions?: (props: {}) => any;
+    } & {
+        mobile?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        actions?: (props: {}) => any;
+    } & {
+        mobile?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        actions?: (props: {}) => any;
     };
 });
 export declare const NavigationMenu: {
@@ -255,7 +266,7 @@ export declare const NavigationMenu: {
     openOnHover: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const NavigationMenuContent: {
@@ -272,7 +283,7 @@ export declare const NavigationMenuContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const NavigationMenuIndicator: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
@@ -296,7 +307,7 @@ export declare const NavigationMenuItem: {
     disabled: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const NavigationMenuLink: {
@@ -337,8 +348,9 @@ export declare const NavigationMenuLink: {
     closeOnSelect: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const NavigationMenuList: {
@@ -355,7 +367,7 @@ export declare const NavigationMenuList: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const NavigationMenuTrigger: {
@@ -372,7 +384,7 @@ export declare const NavigationMenuTrigger: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { NavbarMode } from "./components/Navbar/Navbar.vue";
@@ -417,10 +429,7 @@ export declare const CollapsibleSection: {
     modelValue: boolean;
     defaultOpened: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
-    $slots: Readonly<{
-        default(): unknown;
-        icon(): unknown;
-    }> & {
+    $slots: {
         default(): unknown;
         icon(): unknown;
     };
@@ -447,9 +456,7 @@ export declare const Collapse: {
     duration: number;
     labelledBy: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
-    $slots: Readonly<{
-        default(): unknown;
-    }> & {
+    $slots: {
         default(): unknown;
     };
 });
@@ -482,7 +489,7 @@ export declare const Attachment: {
     state: import("./index.ts").AttachmentState;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentAction: {
@@ -511,7 +518,7 @@ export declare const AttachmentAction: {
     disabled: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentActions: {
@@ -528,7 +535,7 @@ export declare const AttachmentActions: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentContent: {
@@ -545,7 +552,7 @@ export declare const AttachmentContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentDescription: {
@@ -562,7 +569,7 @@ export declare const AttachmentDescription: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentGroup: {
@@ -585,7 +592,7 @@ export declare const AttachmentGroup: {
     orientation: import("./index.ts").AttachmentOrientation;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentMedia: {
@@ -608,7 +615,7 @@ export declare const AttachmentMedia: {
     variant: import("./index.ts").AttachmentMediaVariant;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentMediaTrigger: {
@@ -625,7 +632,7 @@ export declare const AttachmentMediaTrigger: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentTitle: {
@@ -642,7 +649,7 @@ export declare const AttachmentTitle: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AttachmentTrigger: {
@@ -659,7 +666,7 @@ export declare const AttachmentTrigger: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Timeline: {
@@ -691,7 +698,7 @@ export declare const Timeline: {
     railSize: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TimelineContent: {
@@ -708,7 +715,7 @@ export declare const TimelineContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TimelineDate: {
@@ -731,7 +738,7 @@ export declare const TimelineDate: {
     Element: "time" | "div" | "span";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TimelineHeader: {
@@ -748,7 +755,7 @@ export declare const TimelineHeader: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TimelineIndicator: {
@@ -777,7 +784,7 @@ export declare const TimelineIndicator: {
     variant: import("./index.ts").TimelineIndicatorVariant;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TimelineItem: {
@@ -794,7 +801,7 @@ export declare const TimelineItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Timeline/TimelineItem.vue").TimelineItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TimelineSeparator: import("vue").DefineComponent<import("./components/Timeline/TimelineSeparator.vue").TimelineSeparatorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Timeline/TimelineSeparator.vue").TimelineSeparatorProps> & Readonly<{}>, {
@@ -820,7 +827,7 @@ export declare const TimelineTitle: {
     Element: "h2" | "h3" | "h4" | "div" | "span";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ImageViewer: {
@@ -909,23 +916,26 @@ export declare const ImageViewer: {
     swipeThreshold: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        toolbar?(_: {
+        toolbar?: (props: {
             image: import("./index.ts").ImageViewerItem;
             index: number;
-        }): any;
-        error?(_: {
+        }) => any;
+    } & {
+        error?: (props: {
             image: import("./index.ts").ImageViewerItem;
             index: number;
             retry: () => void;
-        }): any;
-        caption?(_: {
+        }) => any;
+    } & {
+        caption?: (props: {
             image: import("./index.ts").ImageViewerItem;
             index: number;
-        }): any;
-        thumbnail?(_: {
+        }) => any;
+    } & {
+        thumbnail?: (props: {
             image: import("./index.ts").ImageViewerItem;
             index: number;
-        }): any;
+        }) => any;
     };
 });
 export declare const IconContainer: {
@@ -951,7 +961,7 @@ export declare const IconContainer: {
     size: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Action: {
@@ -968,7 +978,7 @@ export declare const Action: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AdaptiveModal: {
@@ -991,10 +1001,13 @@ export declare const AdaptiveModal: {
     showCloseButton: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
-        footer?(_: {}): any;
-        footer?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        footer?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        footer?: (props: {}) => any;
     };
 });
 export declare const Avatar: {
@@ -1017,7 +1030,7 @@ export declare const Avatar: {
     mode: import("./index.ts").AvatarMode;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AvatarGroup: {
@@ -1046,7 +1059,7 @@ export declare const AvatarGroup: {
     surface: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const AvatarGroupCount: {
@@ -1069,7 +1082,7 @@ export declare const AvatarGroupCount: {
     mode: import("./index.ts").AvatarMode;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { AvatarColor, AvatarMode, AvatarProps, AvatarShape, } from "./components/Avatar/Avatar.vue";
@@ -1098,8 +1111,9 @@ export declare const Button: {
     size: import("./index.ts").ComponentSize;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const ButtonGroup: {
@@ -1122,7 +1136,7 @@ export declare const ButtonGroup: {
     orientation: import("./components/ButtonGroup/context.ts").ButtonGroupOrientation;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ButtonGroupSeparator: import("vue").DefineComponent<import("./components/ButtonGroup/ButtonGroupSeparator.vue").ButtonGroupSeparatorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/ButtonGroup/ButtonGroupSeparator.vue").ButtonGroupSeparatorProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
@@ -1140,7 +1154,7 @@ export declare const ButtonGroupText: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Breadcrumb: {
@@ -1163,7 +1177,7 @@ export declare const Breadcrumb: {
     label: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const BreadcrumbItem: {
@@ -1180,7 +1194,7 @@ export declare const BreadcrumbItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const BreadcrumbLink: {
@@ -1203,7 +1217,7 @@ export declare const BreadcrumbLink: {
     Element: "a" | "button" | "span";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const BreadcrumbList: {
@@ -1220,7 +1234,7 @@ export declare const BreadcrumbList: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const BreadcrumbPage: {
@@ -1237,7 +1251,7 @@ export declare const BreadcrumbPage: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const BreadcrumbSeparator: {
@@ -1254,7 +1268,7 @@ export declare const BreadcrumbSeparator: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Pagination: {
@@ -1280,7 +1294,7 @@ export declare const Pagination: {
     label: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationContent: {
@@ -1297,7 +1311,7 @@ export declare const PaginationContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationItem: {
@@ -1314,7 +1328,7 @@ export declare const PaginationItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationLink: {
@@ -1337,9 +1351,11 @@ export declare const PaginationLink: {
     Element: "a" | "button";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationPrevious: {
@@ -1368,7 +1384,7 @@ export declare const PaginationPrevious: {
     Element: "a" | "button";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationNext: {
@@ -1397,7 +1413,7 @@ export declare const PaginationNext: {
     Element: "a" | "button";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationEllipsis: {
@@ -1420,7 +1436,7 @@ export declare const PaginationEllipsis: {
     label: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PaginationPageSize: import("vue").DefineComponent<import("./components/Pagination/PaginationPageSize.vue").PaginationPageSizeProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
@@ -1436,16 +1452,16 @@ export declare const PaginationPageSize: import("vue").DefineComponent<import(".
 export declare const PaginationSummary: import("vue").DefineComponent<import("./components/Pagination/PaginationSummary.vue").PaginationSummaryProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Pagination/PaginationSummary.vue").PaginationSummaryProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export declare const Card: import("vue").DefineSetupFnComponent<Record<string, any>, {}, {}, Record<string, any> & {}, import("vue").PublicProps> & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Checkbox: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Checkbox/Checkbox.vue").CheckboxProps & {
         modelValue?: boolean | unknown[];
-    } & import("./components/Checkbox/Checkbox.vue").CheckboxProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: boolean | unknown[]) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: boolean | unknown[] | undefined) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: boolean | unknown[]) => any;
+        "update:modelValue": (value: boolean | unknown[] | undefined) => any;
     }, import("vue").PublicProps, {
         maxWidth: string;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
@@ -1455,36 +1471,36 @@ export declare const Checkbox: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/Checkbox/Checkbox.vue").CheckboxProps & {
         modelValue?: boolean | unknown[];
-    } & import("./components/Checkbox/Checkbox.vue").CheckboxProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: boolean | unknown[]) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: boolean | unknown[] | undefined) => any) | undefined;
     }>, {}, {}, {}, {}, {
         maxWidth: string;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Checkbox/Checkbox.vue").CheckboxProps & {
     modelValue?: boolean | unknown[];
-} & import("./components/Checkbox/Checkbox.vue").CheckboxProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: boolean | unknown[]) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: boolean | unknown[] | undefined) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: boolean | unknown[]) => any;
+    "update:modelValue": (value: boolean | unknown[] | undefined) => any;
 }, string, {
     maxWidth: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const RadioGroup: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/RadioGroup/RadioGroup.vue").RadioGroupProps & {
         modelValue?: import("./index.ts").RadioGroupValue | null;
-    } & import("./components/RadioGroup/RadioGroup.vue").RadioGroupProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").RadioGroupValue | null) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").RadioGroupValue | null) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: import("./index.ts").RadioGroupValue | null) => any;
+        "update:modelValue": (value: import("./index.ts").RadioGroupValue | null) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").RadioGroupMode;
         stretched: boolean;
@@ -1496,10 +1512,10 @@ export declare const RadioGroup: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/RadioGroup/RadioGroup.vue").RadioGroupProps & {
         modelValue?: import("./index.ts").RadioGroupValue | null;
-    } & import("./components/RadioGroup/RadioGroup.vue").RadioGroupProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").RadioGroupValue | null) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").RadioGroupValue | null) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").RadioGroupMode;
         stretched: boolean;
@@ -1508,19 +1524,19 @@ export declare const RadioGroup: {
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/RadioGroup/RadioGroup.vue").RadioGroupProps & {
     modelValue?: import("./index.ts").RadioGroupValue | null;
-} & import("./components/RadioGroup/RadioGroup.vue").RadioGroupProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: import("./index.ts").RadioGroupValue | null) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: import("./index.ts").RadioGroupValue | null) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: import("./index.ts").RadioGroupValue | null) => any;
+    "update:modelValue": (value: import("./index.ts").RadioGroupValue | null) => any;
 }, string, {
     mode: import("./index.ts").RadioGroupMode;
     stretched: boolean;
     orientation: import("./index.ts").RadioGroupOrientation;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const RadioGroupItem: {
@@ -1537,8 +1553,9 @@ export declare const RadioGroupItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/RadioGroup/RadioGroupItem.vue").RadioGroupItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        description?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        description?: (props: {}) => any;
     };
 });
 export declare const ScrollArea: {
@@ -1621,17 +1638,17 @@ export declare const ScrollArea: {
     stableScrollbar: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
-export declare const Switch: import("vue").DefineComponent<{
+export declare const Switch: import("vue").DefineComponent<import("./components/Switch/Switch.vue").SwitchProps & {
     modelValue?: boolean;
-} & import("./components/Switch/Switch.vue").SwitchProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: boolean) => any;
-}, string, import("vue").PublicProps, Readonly<{
+}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: boolean) => any;
+}, string, import("vue").PublicProps, Readonly<import("./components/Switch/Switch.vue").SwitchProps & {
     modelValue?: boolean;
-} & import("./components/Switch/Switch.vue").SwitchProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: boolean) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
 }>, {
     size: "small" | "medium";
     disabled: boolean;
@@ -1666,16 +1683,16 @@ export declare const Chip: {
     size: import("./index.ts").ChipSize;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ChipGroup: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Chip/ChipGroup.vue").ChipGroupProps & {
         modelValue?: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null;
-    } & import("./components/Chip/ChipGroup.vue").ChipGroupProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any;
+        "update:modelValue": (value: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").ChipMode;
         size: import("./index.ts").ChipSize;
@@ -1686,10 +1703,10 @@ export declare const ChipGroup: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/Chip/ChipGroup.vue").ChipGroupProps & {
         modelValue?: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null;
-    } & import("./components/Chip/ChipGroup.vue").ChipGroupProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").ChipMode;
         size: import("./index.ts").ChipSize;
@@ -1697,18 +1714,18 @@ export declare const ChipGroup: {
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Chip/ChipGroup.vue").ChipGroupProps & {
     modelValue?: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null;
-} & import("./components/Chip/ChipGroup.vue").ChipGroupProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any;
+    "update:modelValue": (value: import("./index.ts").ChipValue | import("./index.ts").ChipValue[] | null) => any;
 }, string, {
     mode: import("./index.ts").ChipMode;
     size: import("./index.ts").ChipSize;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { RadioGroupMode, RadioGroupOrientation, RadioGroupValue, } from "./components/RadioGroup/radioGroup";
@@ -1738,7 +1755,7 @@ export declare const Field: {
     orientation: "vertical" | "horizontal" | "responsive";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FieldContent: {
@@ -1761,7 +1778,7 @@ export declare const FieldContent: {
     align: "start" | "center" | "end";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FieldDescription: {
@@ -1778,7 +1795,7 @@ export declare const FieldDescription: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Field/FieldDescription.vue").FieldDescriptionProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FieldHelper: import("vue").DefineComponent<import("./components/FieldHelper/FieldHelper.vue").FieldHelperProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/FieldHelper/FieldHelper.vue").FieldHelperProps> & Readonly<{}>, {
@@ -1798,7 +1815,7 @@ export declare const FieldLabel: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Field/FieldLabel.vue").FieldLabelProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FieldLegend: {
@@ -1815,7 +1832,7 @@ export declare const FieldLegend: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Field/FieldLegend.vue").FieldLegendProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FieldSeparator: import("vue").DefineComponent<import("./components/Field/FieldSeparator.vue").FieldSeparatorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Field/FieldSeparator.vue").FieldSeparatorProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
@@ -1833,7 +1850,7 @@ export declare const FieldSet: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Field/FieldSet.vue").FieldSetProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FieldTitle: {
@@ -1850,7 +1867,7 @@ export declare const FieldTitle: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FormError: import("vue").DefineComponent<import("./components/FormError/FormError.vue").FormErrorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/FormError/FormError.vue").FormErrorProps> & Readonly<{}>, {
@@ -1861,12 +1878,12 @@ export declare const FormError: import("vue").DefineComponent<import("./componen
     color: "default" | "inherit" | "secondary" | "negative";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export declare const Input: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Input/Input.vue").InputProps & {
         modelValue?: any;
-    } & import("./components/Input/Input.vue").InputProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: any) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: any) => any;
+        "update:modelValue": (value: any) => any;
     }, import("vue").PublicProps, {
         size: import("./index.ts").ComponentSize;
         maxWidth: string;
@@ -1877,10 +1894,10 @@ export declare const Input: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/Input/Input.vue").InputProps & {
         modelValue?: any;
-    } & import("./components/Input/Input.vue").InputProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: any) => any) | undefined;
     }>, {}, {}, {}, {}, {
         size: import("./index.ts").ComponentSize;
         maxWidth: string;
@@ -1888,19 +1905,20 @@ export declare const Input: {
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Input/Input.vue").InputProps & {
     modelValue?: any;
-} & import("./components/Input/Input.vue").InputProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: any) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: any) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: any) => any;
+    "update:modelValue": (value: any) => any;
 }, string, {
     size: import("./index.ts").ComponentSize;
     maxWidth: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        leftAdornment?(_: {}): any;
-        rightAdornment?(_: {}): any;
+        leftAdornment?: (props: {}) => any;
+    } & {
+        rightAdornment?: (props: {}) => any;
     };
 });
 export declare const PhoneInput: {
@@ -1910,12 +1928,12 @@ export declare const PhoneInput: {
         onInput?: ((event: Event) => any) | undefined;
         onBeforeinput?: ((event: InputEvent) => any) | undefined;
         onPaste?: ((event: ClipboardEvent) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         input: (event: Event) => any;
         beforeinput: (event: InputEvent) => any;
         paste: (event: ClipboardEvent) => any;
-        "update:modelValue": (modelValue: string) => any;
+        "update:modelValue": (value: string) => any;
     }, import("vue").PublicProps, {}, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -1929,7 +1947,7 @@ export declare const PhoneInput: {
         onInput?: ((event: Event) => any) | undefined;
         onBeforeinput?: ((event: InputEvent) => any) | undefined;
         onPaste?: ((event: ClipboardEvent) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     }>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -1940,16 +1958,17 @@ export declare const PhoneInput: {
     onInput?: ((event: Event) => any) | undefined;
     onBeforeinput?: ((event: InputEvent) => any) | undefined;
     onPaste?: ((event: ClipboardEvent) => any) | undefined;
-    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     input: (event: Event) => any;
     beforeinput: (event: InputEvent) => any;
     paste: (event: ClipboardEvent) => any;
-    "update:modelValue": (modelValue: string) => any;
+    "update:modelValue": (value: string) => any;
 }, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        leftAdornment?(_: {}): any;
-        rightAdornment?(_: {}): any;
+        leftAdornment?: (props: {}) => any;
+    } & {
+        rightAdornment?: (props: {}) => any;
     };
 });
 export { canApplyPhoneInput, formatPhoneInput, formatPhoneInputWithCaret, isAllowedPhoneInput, isValidPhone, parsePhone, sanitizePhoneInput, type PhoneInputChange, type PhoneInputFormatResult, type PhoneValue, } from "./components/PhoneInput/phone";
@@ -2058,7 +2077,7 @@ export declare const FileUpload: {
     validate: import("./index.ts").FileUploadValidator;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FileUploadClear: {
@@ -2081,7 +2100,7 @@ export declare const FileUploadClear: {
     label: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FileUploadDropzone: {
@@ -2110,7 +2129,7 @@ export declare const FileUploadDropzone: {
     triggerLabel: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FileUploadItem: import("vue").DefineComponent<import("./components/FileUpload/FileUploadItem.vue").FileUploadItemProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/FileUpload/FileUploadItem.vue").FileUploadItemProps> & Readonly<{}>, {
@@ -2141,9 +2160,9 @@ export declare const FileUploadList: {
     orientation: import("./index.ts").FileUploadListOrientation;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
+        default?: (props: {
             files: File[];
-        }): any;
+        }) => any;
     };
 });
 export declare const FileUploadTrigger: {
@@ -2175,7 +2194,7 @@ export declare const FileUploadTrigger: {
     stretched: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Item: {
@@ -2207,7 +2226,7 @@ export declare const Item: {
     interactive: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ItemActions: {
@@ -2224,7 +2243,7 @@ export declare const ItemActions: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ItemContent: {
@@ -2241,7 +2260,7 @@ export declare const ItemContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ItemDescription: {
@@ -2267,7 +2286,7 @@ export declare const ItemDescription: {
     ellipsis: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ItemGroup: {
@@ -2293,7 +2312,7 @@ export declare const ItemGroup: {
     separated: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ItemMedia: {
@@ -2310,7 +2329,7 @@ export declare const ItemMedia: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Item/ItemMedia.vue").ItemMediaProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ItemSeparator: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
@@ -2337,7 +2356,7 @@ export declare const ItemTitle: {
     ellipsis: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const PincodeInput: import("vue").DefineComponent<import("./components/PincodeInput/PincodeInput.vue").PincodeInputProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
@@ -2379,10 +2398,13 @@ export declare const Link: {
     inline: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
-        iconLeft?(_: {}): any;
-        iconRight?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        iconLeft?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        iconRight?: (props: {}) => any;
     };
 });
 export declare const Row: {
@@ -2399,7 +2421,7 @@ export declare const Row: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Row/Row.vue").RowProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Sidebar: {
@@ -2437,7 +2459,7 @@ export declare const Sidebar: {
     compactWidth: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Stack: {
@@ -2454,7 +2476,7 @@ export declare const Stack: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Tab: {
@@ -2471,7 +2493,7 @@ export declare const Tab: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Tabs/Tab.vue").TabProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Tabs: {
@@ -2494,7 +2516,7 @@ export declare const Tabs: {
     size: import("./index.ts").ComponentSize;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Table: {
@@ -2592,7 +2614,7 @@ export declare const Table: {
     stickyHeader: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableBody: {
@@ -2609,7 +2631,7 @@ export declare const TableBody: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableCaption: {
@@ -2626,7 +2648,7 @@ export declare const TableCaption: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableCell: {
@@ -2682,7 +2704,7 @@ export declare const TableCell: {
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableFooter: {
@@ -2699,7 +2721,7 @@ export declare const TableFooter: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableHead: {
@@ -2755,7 +2777,7 @@ export declare const TableHead: {
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableHeader: {
@@ -2772,7 +2794,7 @@ export declare const TableHeader: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TableRow: {
@@ -2789,7 +2811,7 @@ export declare const TableRow: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Text: {
@@ -2818,7 +2840,7 @@ export declare const Text: {
     color: "default" | "inherit" | "secondary" | "negative";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Separator: import("vue").DefineComponent<import("./components/Separator/Separator.vue").SeparatorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Separator/Separator.vue").SeparatorProps> & Readonly<{}>, {
@@ -2859,8 +2881,9 @@ export declare const Tooltip: {
     };
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        popper?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        popper?: (props: {}) => any;
     };
 });
 export declare const Badge: {
@@ -2889,8 +2912,9 @@ export declare const Badge: {
     Element: "div" | "button" | "span";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        right?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        right?: (props: {}) => any;
     };
 });
 export declare const SidebarItem: {
@@ -2907,14 +2931,21 @@ export declare const SidebarItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Sidebar/SidebarItem.vue").SidebarItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        left?(_: {}): any;
-        left?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
-        right?(_: {}): any;
-        compact?(_: {}): any;
-        "compact-indicator"?(_: {}): any;
-        tooltip?(_: {}): any;
+        left?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        right?: (props: {}) => any;
+    } & {
+        compact?: (props: {}) => any;
+    } & {
+        left?: (props: {}) => any;
+    } & {
+        'compact-indicator'?: (props: {}) => any;
+    } & {
+        tooltip?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const SidebarList: {
@@ -2937,7 +2968,7 @@ export declare const SidebarList: {
     scrollable: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const SidebarGroup: {
@@ -2954,7 +2985,7 @@ export declare const SidebarGroup: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Sidebar/SidebarGroup.vue").SidebarGroupProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const SidebarCollapsible: {
@@ -3001,10 +3032,13 @@ export declare const SidebarCollapsible: {
     selected: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        icon?(_: {}): any;
-        icon?(_: {}): any;
-        default?(_: {}): any;
-        default?(_: {}): any;
+        icon?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        icon?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const SidebarSubList: {
@@ -3021,7 +3055,7 @@ export declare const SidebarSubList: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const SidebarSubItem: {
@@ -3038,8 +3072,9 @@ export declare const SidebarSubItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Sidebar/SidebarSubItem.vue").SidebarSubItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        icon?(_: {}): any;
-        default?(_: {}): any;
+        icon?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const Modal: {
@@ -3062,8 +3097,9 @@ export declare const Modal: {
     size: "small" | "medium" | "large" | "full";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        footer?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        footer?: (props: {}) => any;
     };
 });
 export declare const PasswordInput: import("vue").DefineComponent<import("./components/PasswordInput/PasswordInput.vue").PasswordInputProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
@@ -3113,8 +3149,9 @@ export declare const Picker: {
     size: import("./index.ts").ComponentSize;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        icon?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        icon?: (props: {}) => any;
     };
 });
 export declare const ProgressBar: import("vue").DefineComponent<import("./components/ProgressBar/ProgressBar.vue").ProgressBarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/ProgressBar/ProgressBar.vue").ProgressBarProps> & Readonly<{}>, {
@@ -3154,8 +3191,9 @@ export declare const Dropdown: {
     contentPadding: "none" | "default" | "comfortable";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        popper?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        popper?: (props: {}) => any;
     };
 });
 export type { DropdownContentWidth } from "./components/Dropdown/Dropdown.vue";
@@ -3173,7 +3211,7 @@ export declare const DropdownGroup: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 /** @deprecated Use DropdownGroup. */
@@ -3191,7 +3229,7 @@ export declare const DropdownList: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const DropdownLabel: {
@@ -3208,7 +3246,7 @@ export declare const DropdownLabel: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const DropdownItem: {
@@ -3225,17 +3263,18 @@ export declare const DropdownItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/BaseMenu/BaseMenuItem.vue").BaseMenuItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        trailing?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        trailing?: (props: {}) => any;
     };
 });
 export declare const DropdownCheckboxItem: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/BaseMenu/BaseMenuCheckboxItem.vue").BaseMenuCheckboxItemProps & {
         modelValue?: boolean;
-    } & import("./components/BaseMenu/BaseMenuCheckboxItem.vue").BaseMenuCheckboxItemProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: boolean) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: boolean) => any;
+        "update:modelValue": (value: boolean) => any;
     }, import("vue").PublicProps, {}, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -3243,35 +3282,36 @@ export declare const DropdownCheckboxItem: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/BaseMenu/BaseMenuCheckboxItem.vue").BaseMenuCheckboxItemProps & {
         modelValue?: boolean;
-    } & import("./components/BaseMenu/BaseMenuCheckboxItem.vue").BaseMenuCheckboxItemProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: boolean) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
     }>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/BaseMenu/BaseMenuCheckboxItem.vue").BaseMenuCheckboxItemProps & {
     modelValue?: boolean;
-} & import("./components/BaseMenu/BaseMenuCheckboxItem.vue").BaseMenuCheckboxItemProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: boolean) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: boolean) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: boolean) => any;
+    "update:modelValue": (value: boolean) => any;
 }, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        indicator?(_: {
+        default?: (props: {}) => any;
+    } & {
+        indicator?: (props: {
             checked: boolean;
-        }): any;
+        }) => any;
     };
 });
 export declare const DropdownRadioGroup: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/BaseMenu/BaseMenuRadioGroup.vue").BaseMenuRadioGroupProps & {
         modelValue?: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null;
-    } & import("./components/BaseMenu/BaseMenuRadioGroup.vue").BaseMenuRadioGroupProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any;
+        "update:modelValue": (value: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any;
     }, import("vue").PublicProps, {}, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -3279,23 +3319,23 @@ export declare const DropdownRadioGroup: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/BaseMenu/BaseMenuRadioGroup.vue").BaseMenuRadioGroupProps & {
         modelValue?: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null;
-    } & import("./components/BaseMenu/BaseMenuRadioGroup.vue").BaseMenuRadioGroupProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any) | undefined;
     }>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/BaseMenu/BaseMenuRadioGroup.vue").BaseMenuRadioGroupProps & {
     modelValue?: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null;
-} & import("./components/BaseMenu/BaseMenuRadioGroup.vue").BaseMenuRadioGroupProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any;
+    "update:modelValue": (value: import("./components/BaseMenu/baseMenuRadioGroup.ts").BaseMenuRadioValue | null) => any;
 }, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const DropdownRadioItem: {
@@ -3312,10 +3352,11 @@ export declare const DropdownRadioItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/BaseMenu/BaseMenuRadioItem.vue").BaseMenuRadioItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        indicator?(_: {
+        default?: (props: {}) => any;
+    } & {
+        indicator?: (props: {
             checked: boolean;
-        }): any;
+        }) => any;
     };
 });
 export declare const DropdownSeparator: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
@@ -3333,8 +3374,9 @@ export declare const DropdownSub: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Dropdown/DropdownSub.vue").DropdownSubProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        popper?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        popper?: (props: {}) => any;
     };
 });
 export declare const DropdownSubTrigger: {
@@ -3351,21 +3393,21 @@ export declare const DropdownSubTrigger: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Dropdown/DropdownSubTrigger.vue").DropdownSubTriggerProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Filters: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Filters/Filters.vue").FiltersProps & {
         modelValue?: import("./index.ts").ActiveFilter[];
-    } & import("./components/Filters/Filters.vue").FiltersProps> & Readonly<{
+    }> & Readonly<{
         onClear?: (() => any) | undefined;
         onAdd?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         clear: () => any;
         add: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
-        "update:modelValue": (modelValue: import("./index.ts").ActiveFilter<unknown>[]) => any;
+        "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>[]) => any;
         remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").FilterControlMode;
@@ -3385,12 +3427,12 @@ export declare const Filters: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/Filters/Filters.vue").FiltersProps & {
         modelValue?: import("./index.ts").ActiveFilter[];
-    } & import("./components/Filters/Filters.vue").FiltersProps> & Readonly<{
+    }> & Readonly<{
         onClear?: (() => any) | undefined;
         onAdd?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").FilterControlMode;
@@ -3407,17 +3449,17 @@ export declare const Filters: {
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Filters/Filters.vue").FiltersProps & {
     modelValue?: import("./index.ts").ActiveFilter[];
-} & import("./components/Filters/Filters.vue").FiltersProps> & Readonly<{
+}> & Readonly<{
     onClear?: (() => any) | undefined;
     onAdd?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
-    "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
     onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     clear: () => any;
     add: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
-    "update:modelValue": (modelValue: import("./index.ts").ActiveFilter<unknown>[]) => any;
+    "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>[]) => any;
     remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
 }, string, {
     mode: import("./index.ts").FilterControlMode;
@@ -3432,34 +3474,41 @@ export declare const Filters: {
     itemLayout: import("./index.ts").FilterItemLayout;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        trigger?(_: {
+        trigger?: (props: {
             label: string;
-        }): any;
-        field?(_: {
+        }) => any;
+    } & {
+        field?: (props: {
             field: import("./index.ts").FilterField<unknown>;
-        }): any;
-        option?(_: {
+        }) => any;
+    } & {
+        option?: (props: {
             field: import("./index.ts").FilterField<unknown>;
             option: import("./index.ts").FilterOption<unknown>;
-        }): any;
-        "filter-field"?(_: {
+        }) => any;
+    } & {
+        'filter-field'?: (props: {
             field: import("./index.ts").FilterField<unknown>;
-        }): any;
-        operator?(_: {
+        }) => any;
+    } & {
+        operator?: (props: {
             operator: import("./index.ts").FilterOperator;
             filter: import("./index.ts").ActiveFilter<unknown>;
-        }): any;
-        value?(_: {
+        }) => any;
+    } & {
+        value?: (props: {
             filter: import("./index.ts").ActiveFilter<unknown>;
             field: import("./index.ts").FilterField<unknown>;
             label: string;
-        }): any;
-        "value-menu"?(_: {
+        }) => any;
+    } & {
+        'value-menu'?: (props: {
             filter: import("./index.ts").ActiveFilter<unknown>;
             field: import("./index.ts").FilterField<unknown>;
             updateFilter: (patch: Partial<import("./index.ts").ActiveFilter>) => void;
-        }): any;
-        "clear-icon"?(_: {}): any;
+        }) => any;
+    } & {
+        'clear-icon'?: (props: {}) => any;
     };
 });
 export declare const FilterMenu: {
@@ -3516,29 +3565,32 @@ export declare const FilterMenu: {
     searchable: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        trigger?(_: {
+        trigger?: (props: {
             label: string;
-        }): any;
-        field?(_: {
+        }) => any;
+    } & {
+        field?: (props: {
             field: import("./index.ts").FilterField<unknown>;
-        }): any;
-        field?(_: {
-            field: import("./index.ts").FilterField<unknown>;
-        }): any;
-        option?(_: {
+        }) => any;
+    } & {
+        option?: (props: {
             field: import("./index.ts").FilterField<unknown>;
             option: import("./index.ts").FilterOption<unknown>;
-        }): any;
+        }) => any;
+    } & {
+        field?: (props: {
+            field: import("./index.ts").FilterField<unknown>;
+        }) => any;
     };
 });
 export declare const FilterItem: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Filters/FilterItem.vue").FilterItemProps & {
         modelValue: import("./index.ts").ActiveFilter;
-    } & import("./components/Filters/FilterItem.vue").FilterItemProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (modelValue: import("./index.ts").ActiveFilter<unknown>) => any;
+        "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>) => any;
         remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").FilterControlMode;
@@ -3554,10 +3606,10 @@ export declare const FilterItem: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/Filters/FilterItem.vue").FilterItemProps & {
         modelValue: import("./index.ts").ActiveFilter;
-    } & import("./components/Filters/FilterItem.vue").FilterItemProps> & Readonly<{
-        "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").FilterControlMode;
@@ -3570,13 +3622,13 @@ export declare const FilterItem: {
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Filters/FilterItem.vue").FilterItemProps & {
     modelValue: import("./index.ts").ActiveFilter;
-} & import("./components/Filters/FilterItem.vue").FilterItemProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: import("./index.ts").ActiveFilter<unknown>) => any;
+    "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>) => any;
     remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
 }, string, {
     mode: import("./index.ts").FilterControlMode;
@@ -3587,23 +3639,26 @@ export declare const FilterItem: {
     removeLabel: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        field?(_: {
+        field?: (props: {
             field: import("./index.ts").FilterField<unknown>;
-        }): any;
-        operator?(_: {
+        }) => any;
+    } & {
+        operator?: (props: {
             operator: import("./index.ts").FilterOperator;
             filter: import("./index.ts").ActiveFilter<unknown>;
-        }): any;
-        value?(_: {
+        }) => any;
+    } & {
+        value?: (props: {
             filter: import("./index.ts").ActiveFilter<unknown>;
             field: import("./index.ts").FilterField<unknown>;
             label: string;
-        }): any;
-        "value-menu"?(_: {
+        }) => any;
+    } & {
+        'value-menu'?: (props: {
             filter: import("./index.ts").ActiveFilter<unknown>;
             field: import("./index.ts").FilterField<unknown>;
             updateFilter: (patch: Partial<import("./index.ts").ActiveFilter>) => void;
-        }): any;
+        }) => any;
     };
 });
 export declare const FilterClear: {
@@ -3645,19 +3700,20 @@ export declare const FilterClear: {
     iconOnly: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        icon?(_: {}): any;
-        default?(_: {}): any;
+        icon?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const VisibilityMenu: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Filters/VisibilityMenu.vue").VisibilityMenuProps & {
         modelValue?: string[];
-    } & import("./components/Filters/VisibilityMenu.vue").VisibilityMenuProps> & Readonly<{
+    }> & Readonly<{
         onToggle?: ((value: string, visible: boolean) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: string[]) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         toggle: (value: string, visible: boolean) => any;
-        "update:modelValue": (modelValue: string[]) => any;
+        "update:modelValue": (value: string[]) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").FilterControlMode;
         size: import("./index.ts").ComponentSize;
@@ -3672,11 +3728,11 @@ export declare const VisibilityMenu: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/Filters/VisibilityMenu.vue").VisibilityMenuProps & {
         modelValue?: string[];
-    } & import("./components/Filters/VisibilityMenu.vue").VisibilityMenuProps> & Readonly<{
+    }> & Readonly<{
         onToggle?: ((value: string, visible: boolean) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: string[]) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").FilterControlMode;
         size: import("./index.ts").ComponentSize;
@@ -3688,14 +3744,14 @@ export declare const VisibilityMenu: {
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Filters/VisibilityMenu.vue").VisibilityMenuProps & {
     modelValue?: string[];
-} & import("./components/Filters/VisibilityMenu.vue").VisibilityMenuProps> & Readonly<{
+}> & Readonly<{
     onToggle?: ((value: string, visible: boolean) => any) | undefined;
-    "onUpdate:modelValue"?: ((modelValue: string[]) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     toggle: (value: string, visible: boolean) => any;
-    "update:modelValue": (modelValue: string[]) => any;
+    "update:modelValue": (value: string[]) => any;
 }, string, {
     mode: import("./index.ts").FilterControlMode;
     size: import("./index.ts").ComponentSize;
@@ -3705,13 +3761,14 @@ export declare const VisibilityMenu: {
     minVisible: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        trigger?(_: {
+        trigger?: (props: {
             label: string;
-        }): any;
-        item?(_: {
+        }) => any;
+    } & {
+        item?: (props: {
             item: import("./index.ts").VisibilityOption;
             visible: boolean;
-        }): any;
+        }) => any;
     };
 });
 export declare const Sheet: {
@@ -3752,10 +3809,13 @@ export declare const Sheet: {
     closeOnEscape: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        header?(_: {}): any;
-        actions?(_: {}): any;
-        default?(_: {}): any;
-        footer?(_: {}): any;
+        header?: (props: {}) => any;
+    } & {
+        actions?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
+    } & {
+        footer?: (props: {}) => any;
     };
 });
 export declare const Skeleton: {
@@ -3790,7 +3850,7 @@ export declare const Skeleton: {
     radius: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const SkeletonProvider: {
@@ -3813,9 +3873,9 @@ export declare const SkeletonProvider: {
     loading: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
+        default?: (props: {
             loading: boolean;
-        }): any;
+        }) => any;
     };
 });
 export declare const AvatarSkeleton: {
@@ -3841,7 +3901,7 @@ export declare const AvatarSkeleton: {
     shape: "square" | "circle";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ButtonSkeleton: {
@@ -3867,7 +3927,7 @@ export declare const ButtonSkeleton: {
     width: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const CardSkeleton: {
@@ -3899,7 +3959,7 @@ export declare const CardSkeleton: {
     withAvatar: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const FormSkeleton: {
@@ -3925,7 +3985,7 @@ export declare const FormSkeleton: {
     fields: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const TextSkeleton: {
@@ -3957,7 +4017,7 @@ export declare const TextSkeleton: {
     lastLineWidth: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Empty: {
@@ -3974,7 +4034,7 @@ export declare const Empty: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const EmptyContent: {
@@ -3991,7 +4051,7 @@ export declare const EmptyContent: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const EmptyDescription: {
@@ -4008,7 +4068,7 @@ export declare const EmptyDescription: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const EmptyHeader: {
@@ -4025,7 +4085,7 @@ export declare const EmptyHeader: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const EmptyMedia: {
@@ -4048,7 +4108,7 @@ export declare const EmptyMedia: {
     variant: "default" | "icon";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const EmptyTitle: {
@@ -4065,7 +4125,7 @@ export declare const EmptyTitle: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const Loader: import("vue").DefineComponent<import("./components/Loader/Loader.vue").LoaderProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/Loader/Loader.vue").LoaderProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
@@ -4083,10 +4143,11 @@ export declare const HoverMenu: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
+        default?: (props: {
             ref: string;
-        }): any;
-        menu?(_: {}): any;
+        }) => any;
+    } & {
+        menu?: (props: {}) => any;
     };
 });
 export declare const HoverMenuList: {
@@ -4109,7 +4170,7 @@ export declare const HoverMenuList: {
     role: "group" | "menu";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const HoverMenuItem: {
@@ -4126,8 +4187,9 @@ export declare const HoverMenuItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/BaseMenu/BaseMenuItem.vue").BaseMenuItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        trailing?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        trailing?: (props: {}) => any;
     };
 });
 export declare const HoverMenuSeparator: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
@@ -4179,8 +4241,9 @@ export declare const HoverCard: {
     updateKey: string | number | boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        content?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        content?: (props: {}) => any;
     };
 });
 export declare const FadeMask: {
@@ -4221,7 +4284,7 @@ export declare const FadeMask: {
     overflow: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { FadeMaskProps } from "./components/FadeMask/FadeMask.vue";
@@ -4254,7 +4317,7 @@ export declare const Hover3d: {
     maxTilt: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { Hover3dProps } from "./components/Hover3d/Hover3d.vue";
@@ -4284,7 +4347,7 @@ export declare const AuroraBackground: {
     palette: import("./index.ts").AuroraBackgroundPalette;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { AuroraBackgroundIntensity, AuroraBackgroundPalette, AuroraBackgroundProps, } from "./components/AuroraBackground/AuroraBackground.vue";
@@ -4326,7 +4389,7 @@ export declare const NoiseOverlay: {
     zIndex: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export type { NoiseOverlayBlendMode, NoiseOverlayPosition, NoiseOverlayProps, } from "./components/NoiseOverlay/NoiseOverlay.vue";
@@ -4374,7 +4437,7 @@ export declare const ContextMenu: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/ContextMenu/ContextMenu.vue").ContextMenuProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ContextSubmenu: {
@@ -4391,10 +4454,11 @@ export declare const ContextSubmenu: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
+        default?: (props: {
             ref: string;
-        }): any;
-        menu?(_: {}): any;
+        }) => any;
+    } & {
+        menu?: (props: {}) => any;
     };
 });
 export declare const ContextMenuList: {
@@ -4417,7 +4481,7 @@ export declare const ContextMenuList: {
     role: "group" | "menu";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const ContextMenuItem: {
@@ -4434,8 +4498,9 @@ export declare const ContextMenuItem: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/BaseMenu/BaseMenuItem.vue").BaseMenuItemProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        trailing?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        trailing?: (props: {}) => any;
     };
 });
 export declare const ContextMenuSeparator: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
@@ -4581,22 +4646,24 @@ export declare const Calendar: {
     fixedWeeks: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        title?(_: {
+        title?: (props: {
             month: Date;
-        }): any;
-        day?(_: {
+        }) => any;
+    } & {
+        day?: (props: {
             day: import("./index.ts").CalendarDay;
-        }): any;
-        footer?(_: {
+        }) => any;
+    } & {
+        footer?: (props: {
             mode: import("./index.ts").CalendarMode;
             month: Date;
-        }): any;
+        }) => any;
     };
 });
 export declare const DateInput: import("vue").DefineComponent<import("./components/DateInput/DateInput.vue").DateInputProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/DateInput/DateInput.vue").DateInputProps> & Readonly<{}>, {
     value: import("./index.ts").DateInputValue;
-    maxWidth: string;
     placeholder: string;
+    maxWidth: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export declare const DatePicker: import("vue").DefineComponent<import("./components/DatePicker/DatePicker.vue").DatePickerProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/DatePicker/DatePicker.vue").DatePickerProps> & Readonly<{}>, {
     size: import("./index.ts").ComponentSize;
@@ -4631,8 +4698,9 @@ export declare const Select: {
     size: import("./index.ts").ComponentSize;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
+        default?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const SelectOption: {
@@ -4649,26 +4717,26 @@ export declare const SelectOption: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Select/SelectOption.vue").SelectOptionProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const SuggestInput: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/SuggestInput/SuggestInput.vue").SuggestInputProps & {
         modelValue?: string;
-    } & import("./components/SuggestInput/SuggestInput.vue").SuggestInputProps> & Readonly<{
+    }> & Readonly<{
         onInput?: ((event: Event) => any) | undefined;
         onBlur?: ((event: FocusEvent) => any) | undefined;
         onFocus?: ((event: FocusEvent) => any) | undefined;
         onKeydown?: ((event: KeyboardEvent) => any) | undefined;
         "onUpdate:shown"?: ((shown: boolean) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         input: (event: Event) => any;
         blur: (event: FocusEvent) => any;
         focus: (event: FocusEvent) => any;
         keydown: (event: KeyboardEvent) => any;
         "update:shown": (shown: boolean) => any;
-        "update:modelValue": (modelValue: string) => any;
+        "update:modelValue": (value: string) => any;
     }, import("vue").PublicProps, {}, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -4676,50 +4744,50 @@ export declare const SuggestInput: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{
+    }, Readonly<import("./components/SuggestInput/SuggestInput.vue").SuggestInputProps & {
         modelValue?: string;
-    } & import("./components/SuggestInput/SuggestInput.vue").SuggestInputProps> & Readonly<{
+    }> & Readonly<{
         onInput?: ((event: Event) => any) | undefined;
         onBlur?: ((event: FocusEvent) => any) | undefined;
         onFocus?: ((event: FocusEvent) => any) | undefined;
         onKeydown?: ((event: KeyboardEvent) => any) | undefined;
         "onUpdate:shown"?: ((shown: boolean) => any) | undefined;
-        "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     }>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/SuggestInput/SuggestInput.vue").SuggestInputProps & {
     modelValue?: string;
-} & import("./components/SuggestInput/SuggestInput.vue").SuggestInputProps> & Readonly<{
+}> & Readonly<{
     onInput?: ((event: Event) => any) | undefined;
     onBlur?: ((event: FocusEvent) => any) | undefined;
     onFocus?: ((event: FocusEvent) => any) | undefined;
     onKeydown?: ((event: KeyboardEvent) => any) | undefined;
     "onUpdate:shown"?: ((shown: boolean) => any) | undefined;
-    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     input: (event: Event) => any;
     blur: (event: FocusEvent) => any;
     focus: (event: FocusEvent) => any;
     keydown: (event: KeyboardEvent) => any;
     "update:shown": (shown: boolean) => any;
-    "update:modelValue": (modelValue: string) => any;
+    "update:modelValue": (value: string) => any;
 }, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {
+        default?: (props: {
             close: () => void;
-        }): any;
+        }) => any;
     };
 });
-export declare const Textarea: import("vue").DefineComponent<{
+export declare const Textarea: import("vue").DefineComponent<import("./components/Textarea/Textarea.vue").TextareaProps & {
     modelValue?: string;
-} & import("./components/Textarea/Textarea.vue").TextareaProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: string) => any;
-}, string, import("vue").PublicProps, Readonly<{
+}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: string | undefined) => any;
+}, string, import("vue").PublicProps, Readonly<import("./components/Textarea/Textarea.vue").TextareaProps & {
     modelValue?: string;
-} & import("./components/Textarea/Textarea.vue").TextareaProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: string | undefined) => any) | undefined;
 }>, {
     resize: "none" | "both" | "horizontal" | "vertical";
     layout: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";
@@ -4761,7 +4829,7 @@ export declare const GridLayout: {
     highlight: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const GridRow: {
@@ -4784,7 +4852,7 @@ export declare const GridRow: {
     rowGap: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const GridColumn: {
@@ -4801,7 +4869,7 @@ export declare const GridColumn: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Grid/GridColumn.vue").GridColumnProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        default?(_: {}): any;
+        default?: (props: {}) => any;
     };
 });
 export declare const OnboardingTour: {
@@ -4958,7 +5026,7 @@ export declare const OnboardingTour: {
     finishLabel: string;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
-        card?(_: {
+        card?: (props: {
             step: import("./index.ts").OnboardingTourStep;
             index: number;
             progress: {
@@ -4968,28 +5036,33 @@ export declare const OnboardingTour: {
             next: () => void;
             previous: () => void;
             close: (reason?: import("./index.ts").OnboardingTourCloseReason) => void;
-        }): any;
-        title?(_: {
+        }) => any;
+    } & {
+        title?: (props: {
             step: import("./index.ts").OnboardingTourStep;
             index: number;
-        }): any;
-        description?(_: {
+        }) => any;
+    } & {
+        description?: (props: {
             step: import("./index.ts").OnboardingTourStep;
             index: number;
-        }): any;
-        content?(_: {
+        }) => any;
+    } & {
+        content?: (props: {
             step: import("./index.ts").OnboardingTourStep;
             index: number;
-        }): any;
-        progress?(_: {
+        }) => any;
+    } & {
+        progress?: (props: {
             step: import("./index.ts").OnboardingTourStep;
             index: number;
             progress: {
                 current: number;
                 total: number;
             };
-        }): any;
-        actions?(_: {
+        }) => any;
+    } & {
+        actions?: (props: {
             step: import("./index.ts").OnboardingTourStep;
             index: number;
             isFirst: boolean;
@@ -4997,7 +5070,7 @@ export declare const OnboardingTour: {
             next: () => void;
             previous: () => void;
             close: (reason?: import("./index.ts").OnboardingTourCloseReason) => void;
-        }): any;
+        }) => any;
     };
 });
 import useTabs from "./components/Tabs/useTabs";

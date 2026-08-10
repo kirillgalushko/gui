@@ -8,14 +8,14 @@ export interface TextareaProps {
     minHeight?: string;
     maxHeight?: string;
 }
-declare let __VLS_typeProps: TextareaProps;
-type __VLS_PublicProps = {
+type __VLS_Props = TextareaProps;
+type __VLS_PublicProps = __VLS_Props & {
     modelValue?: string;
-} & typeof __VLS_typeProps;
+};
 declare const _default: import("vue").DefineComponent<__VLS_PublicProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (modelValue: string) => any;
+    "update:modelValue": (value: string | undefined) => any;
 }, string, import("vue").PublicProps, Readonly<__VLS_PublicProps> & Readonly<{
-    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string | undefined) => any) | undefined;
 }>, {
     resize: "none" | "both" | "horizontal" | "vertical";
     layout: "fixed" | "fill-vertical" | "fill-horizontal" | "fill-both" | "hug";

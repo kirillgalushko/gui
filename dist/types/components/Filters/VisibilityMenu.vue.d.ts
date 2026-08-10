@@ -9,30 +9,27 @@ export interface VisibilityMenuProps extends FilterControlAppearance {
     contentWidth?: DropdownContentWidth;
     contentMaxWidth?: string;
 }
-declare let __VLS_typeProps: VisibilityMenuProps;
-type __VLS_PublicProps = {
+type __VLS_Props = VisibilityMenuProps;
+type __VLS_PublicProps = __VLS_Props & {
     modelValue?: string[];
-} & typeof __VLS_typeProps;
-declare function __VLS_template(): {
-    slots: {
-        trigger?(_: {
-            label: string;
-        }): any;
-        item?(_: {
-            item: VisibilityOption;
-            visible: boolean;
-        }): any;
-    };
-    refs: {};
-    attrs: Partial<{}>;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+declare var __VLS_5: {
+    label: string;
+}, __VLS_24: {
+    item: VisibilityOption;
+    visible: boolean;
+};
+type __VLS_Slots = {} & {
+    trigger?: (props: typeof __VLS_5) => any;
+} & {
+    item?: (props: typeof __VLS_24) => any;
+};
 declare const __VLS_component: import("vue").DefineComponent<__VLS_PublicProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     toggle: (value: string, visible: boolean) => any;
-    "update:modelValue": (modelValue: string[]) => any;
+    "update:modelValue": (value: string[]) => any;
 }, string, import("vue").PublicProps, Readonly<__VLS_PublicProps> & Readonly<{
     onToggle?: ((value: string, visible: boolean) => any) | undefined;
-    "onUpdate:modelValue"?: ((modelValue: string[]) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string[]) => any) | undefined;
 }>, {
     mode: import("./types").FilterControlMode;
     size: import("../../index.ts").ComponentSize;
@@ -41,9 +38,9 @@ declare const __VLS_component: import("vue").DefineComponent<__VLS_PublicProps, 
     menuLabel: string;
     minVisible: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

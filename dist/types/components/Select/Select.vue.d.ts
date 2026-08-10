@@ -10,81 +10,19 @@ export interface SelectProps {
     name?: string;
     onChange?: (option: RegisteredOption) => void;
 }
-declare function __VLS_template(): {
-    slots: {
-        default?(_: {}): any;
-        default?(_: {}): any;
-    };
-    refs: {
-        pickerRef: ({
-            $: import("vue").ComponentInternalInstance;
-            $data: {};
-            $props: {
-                readonly size?: ComponentSize | undefined;
-                readonly mode?: PickerMode | undefined;
-                readonly stretched?: boolean | undefined;
-            } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps;
-            $attrs: {
-                [x: string]: unknown;
-            };
-            $refs: {
-                [x: string]: unknown;
-            };
-            $slots: Readonly<{
-                [name: string]: import("vue").Slot<any> | undefined;
-            }>;
-            $root: import("vue").ComponentPublicInstance | null;
-            $parent: import("vue").ComponentPublicInstance | null;
-            $host: Element | null;
-            $emit: (event: string, ...args: any[]) => void;
-            $el: any;
-            $options: import("vue").ComponentOptionsBase<Readonly<import("../Picker/Picker.vue").PickerProps> & Readonly<{}>, {
-                elementRef: import("vue").Ref<HTMLButtonElement | null, HTMLButtonElement | null>;
-            }, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-                mode: PickerMode;
-                size: ComponentSize;
-            }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & {
-                beforeCreate?: (() => void) | (() => void)[];
-                created?: (() => void) | (() => void)[];
-                beforeMount?: (() => void) | (() => void)[];
-                mounted?: (() => void) | (() => void)[];
-                beforeUpdate?: (() => void) | (() => void)[];
-                updated?: (() => void) | (() => void)[];
-                activated?: (() => void) | (() => void)[];
-                deactivated?: (() => void) | (() => void)[];
-                beforeDestroy?: (() => void) | (() => void)[];
-                beforeUnmount?: (() => void) | (() => void)[];
-                destroyed?: (() => void) | (() => void)[];
-                unmounted?: (() => void) | (() => void)[];
-                renderTracked?: ((e: import("vue").DebuggerEvent) => void) | ((e: import("vue").DebuggerEvent) => void)[];
-                renderTriggered?: ((e: import("vue").DebuggerEvent) => void) | ((e: import("vue").DebuggerEvent) => void)[];
-                errorCaptured?: ((err: unknown, instance: import("vue").ComponentPublicInstance | null, info: string) => boolean | void) | ((err: unknown, instance: import("vue").ComponentPublicInstance | null, info: string) => boolean | void)[];
-            };
-            $forceUpdate: () => void;
-            $nextTick: typeof import("vue").nextTick;
-            $watch<T extends string | ((...args: any) => any)>(source: T, cb: T extends (...args: any) => infer R ? (...args: [R, R, import("@vue/reactivity").OnCleanup]) => any : (...args: [any, any, import("@vue/reactivity").OnCleanup]) => any, options?: import("vue").WatchOptions): import("vue").WatchStopHandle;
-        } & Readonly<{
-            mode: PickerMode;
-            size: ComponentSize;
-        }> & Omit<Readonly<import("../Picker/Picker.vue").PickerProps> & Readonly<{}>, "elementRef" | ("mode" | "size")> & import("vue").ShallowUnwrapRef<{
-            elementRef: import("vue").Ref<HTMLButtonElement | null, HTMLButtonElement | null>;
-        }> & {} & import("vue").ComponentCustomProperties & {} & {
-            $slots: {
-                default?(_: {}): any;
-                icon?(_: {}): any;
-            };
-        }) | null;
-    };
-    attrs: Partial<{}>;
+declare var __VLS_14: {}, __VLS_16: {};
+type __VLS_Slots = {} & {
+    default?: (props: typeof __VLS_14) => any;
+} & {
+    default?: (props: typeof __VLS_16) => any;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<SelectProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SelectProps> & Readonly<{}>, {
     mode: PickerMode;
     size: ComponentSize;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

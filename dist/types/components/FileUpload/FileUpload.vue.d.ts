@@ -15,16 +15,10 @@ export interface FileUploadProps {
     stretched?: boolean;
     validate?: FileUploadValidator;
 }
-declare function __VLS_template(): {
-    slots: {
-        default?(_: {}): any;
-    };
-    refs: {
-        input: HTMLInputElement;
-    };
-    attrs: Partial<{}>;
+declare var __VLS_1: {};
+type __VLS_Slots = {} & {
+    default?: (props: typeof __VLS_1) => any;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import("vue").DefineComponent<FileUploadProps, {
     clear: () => void;
     open: () => void;
@@ -54,9 +48,9 @@ declare const __VLS_component: import("vue").DefineComponent<FileUploadProps, {
     maxSize: number;
     validate: FileUploadValidator;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

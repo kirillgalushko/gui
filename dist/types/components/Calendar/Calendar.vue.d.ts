@@ -1,22 +1,5 @@
 import type { CalendarDay, CalendarMode, CalendarMonthChangePayload, CalendarRangePayload, CalendarRangeValue, CalendarSelectPayload, CalendarSize, CalendarValue } from "./types";
-declare function __VLS_template(): {
-    slots: {
-        title?(_: {
-            month: Date;
-        }): any;
-        day?(_: {
-            day: CalendarDay;
-        }): any;
-        footer?(_: {
-            mode: CalendarMode;
-            month: Date;
-        }): any;
-    };
-    refs: {};
-    attrs: Partial<{}>;
-};
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
-declare const __VLS_component: import("vue").DefineComponent<{
+type __VLS_Props = {
     mode?: CalendarMode;
     modelValue?: CalendarValue;
     rangeValue?: CalendarRangeValue;
@@ -28,7 +11,23 @@ declare const __VLS_component: import("vue").DefineComponent<{
     fixedWeeks?: boolean;
     readonly?: boolean;
     size?: CalendarSize;
-}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+};
+declare var __VLS_12: {
+    month: Date;
+}, __VLS_25: {
+    day: CalendarDay;
+}, __VLS_27: {
+    mode: CalendarMode;
+    month: Date;
+};
+type __VLS_Slots = {} & {
+    title?: (props: typeof __VLS_12) => any;
+} & {
+    day?: (props: typeof __VLS_25) => any;
+} & {
+    footer?: (props: typeof __VLS_27) => any;
+};
+declare const __VLS_component: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     select: (payload: CalendarSelectPayload) => any;
     "update:modelValue": (value: Date | null) => any;
     "update:rangeValue": (value: CalendarRangePayload) => any;
@@ -39,19 +38,7 @@ declare const __VLS_component: import("vue").DefineComponent<{
     "range-drag-end": (payload: CalendarRangePayload) => any;
     "month-change": (payload: CalendarMonthChangePayload) => any;
     "day-hover": (payload: CalendarSelectPayload) => any;
-}, string, import("vue").PublicProps, Readonly<{
-    mode?: CalendarMode;
-    modelValue?: CalendarValue;
-    rangeValue?: CalendarRangeValue;
-    month?: Date | string;
-    minDate?: Date | string | null;
-    maxDate?: Date | string | null;
-    disabledDates?: (date: Date) => boolean;
-    showOutsideDays?: boolean;
-    fixedWeeks?: boolean;
-    readonly?: boolean;
-    size?: CalendarSize;
-}> & Readonly<{
+}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{
     onSelect?: ((payload: CalendarSelectPayload) => any) | undefined;
     "onUpdate:modelValue"?: ((value: Date | null) => any) | undefined;
     "onUpdate:rangeValue"?: ((value: CalendarRangePayload) => any) | undefined;
@@ -75,9 +62,9 @@ declare const __VLS_component: import("vue").DefineComponent<{
     showOutsideDays: boolean;
     fixedWeeks: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };

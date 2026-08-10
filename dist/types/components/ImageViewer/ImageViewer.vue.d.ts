@@ -15,32 +15,29 @@ export interface ImageViewerProps {
     preload?: number;
     swipeThreshold?: number;
 }
-declare function __VLS_template(): {
-    slots: {
-        toolbar?(_: {
-            image: ImageViewerItem;
-            index: number;
-        }): any;
-        error?(_: {
-            image: ImageViewerItem;
-            index: number;
-            retry: () => void;
-        }): any;
-        caption?(_: {
-            image: ImageViewerItem;
-            index: number;
-        }): any;
-        thumbnail?(_: {
-            image: ImageViewerItem;
-            index: number;
-        }): any;
-    };
-    refs: {
-        dialog: HTMLDivElement;
-    };
-    attrs: Partial<{}>;
+declare var __VLS_15: {
+    image: ImageViewerItem;
+    index: number;
+}, __VLS_72: {
+    image: ImageViewerItem;
+    index: number;
+    retry: () => void;
+}, __VLS_96: {
+    image: ImageViewerItem;
+    index: number;
+}, __VLS_101: {
+    image: ImageViewerItem;
+    index: number;
 };
-type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+type __VLS_Slots = {} & {
+    toolbar?: (props: typeof __VLS_15) => any;
+} & {
+    error?: (props: typeof __VLS_72) => any;
+} & {
+    caption?: (props: typeof __VLS_96) => any;
+} & {
+    thumbnail?: (props: typeof __VLS_101) => any;
+};
 declare const __VLS_component: import("vue").DefineComponent<ImageViewerProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     change: (index: number, image: ImageViewerItem) => any;
     close: () => any;
@@ -68,9 +65,9 @@ declare const __VLS_component: import("vue").DefineComponent<ImageViewerProps, {
     preload: number;
     swipeThreshold: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
-declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;
-type __VLS_WithTemplateSlots<T, S> = T & {
+type __VLS_WithSlots<T, S> = T & {
     new (): {
         $slots: S;
     };
