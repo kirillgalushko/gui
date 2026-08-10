@@ -1,18 +1,9 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
-import libAssetsPlugin from "@laynezh/vite-plugin-lib-assets";
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    libInjectCss(),
-    libAssetsPlugin({
-      include: /\.(eot|woff2?|ttf)(\?.*)?(#.*)?$/,
-      name: "fonts/[name].[ext]",
-      outputPath: "./",
-    }),
-  ],
+  plugins: [vue(), libInjectCss()],
   build: {
     lib: {
       entry: "src/index.ts",
@@ -28,7 +19,10 @@ export default defineConfig({
         },
         chunkFileNames: "chunks/[name]-[hash].js",
         entryFileNames: "[name].js",
-        assetFileNames: "assets/[name]-[hash][extname]",
+        assetFileNames: (assetInfo) =>
+          /\.(?:eot|woff2?|ttf)$/i.test(assetInfo.names[0] ?? "")
+            ? "fonts/[name][extname]"
+            : "assets/[name]-[hash][extname]",
       },
     },
   },
