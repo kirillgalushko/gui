@@ -1,7 +1,7 @@
 {
   "name": "@gui/components",
   "private": true,
-  "version": "7.0.1",
+  "version": "7.0.2",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -32,6 +32,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.3.0",
+    "@emnapi/core": "1.11.3",
+    "@emnapi/runtime": "1.11.3",
+    "@emnapi/wasi-threads": "1.2.3",
     "@gui/logos": "github:kirillgalushko/gui-logos#v3.0.2",
     "@gui/release": "github:kirillgalushko/gui-release",
     "@gui/sound": "github:kirillgalushko/gui-sound#v1.1.0",
