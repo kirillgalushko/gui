@@ -37,54 +37,56 @@ const gridTemplateAreas = computed(() => {
 </script>
 
 <template>
-  <Transition name="fade">
-    <div class="modal-wrapper" v-if="props.isOpened">
-      <div class="modal-bg"></div>
-      <div :class="['modal', props.size]" role="dialog">
-        <div
-          :style="{ gridTemplateAreas }"
-          :class="[
-            'modal-layout',
-            {
-              'with-title': !!(props.title || props.description),
-              'with-close': !!props.showCloseButton,
-            },
-          ]"
-        >
-          <div v-if="props.title || props.description" class="modal-title">
-            <Text v-if="props.title" typography="title-3">
-              {{ props.title }}
-            </Text>
-            <Gap v-if="props.title && props.description" :size="1" />
-            <Text
-              v-if="props.description"
-              typography="paragraph-1"
-              color="secondary"
-            >
-              {{ props.description }}
-            </Text>
-          </div>
-          <div v-if="props.showCloseButton" class="modal-close">
-            <Button
-              mode="ghost"
-              size="small"
-              squared
-              aria-label="Закрыть"
-              @click="props.onClose"
-            >
-              <IconXOutline />
-            </Button>
-          </div>
-          <div class="modal-content">
-            <slot></slot>
-          </div>
-          <div v-if="$slots.footer" class="modal-footer">
-            <slot name="footer"></slot>
+  <Teleport to="body">
+    <Transition name="fade">
+      <div class="modal-wrapper" v-if="props.isOpened">
+        <div class="modal-bg"></div>
+        <div :class="['modal', props.size]" role="dialog">
+          <div
+            :style="{ gridTemplateAreas }"
+            :class="[
+              'modal-layout',
+              {
+                'with-title': !!(props.title || props.description),
+                'with-close': !!props.showCloseButton,
+              },
+            ]"
+          >
+            <div v-if="props.title || props.description" class="modal-title">
+              <Text v-if="props.title" typography="title-3">
+                {{ props.title }}
+              </Text>
+              <Gap v-if="props.title && props.description" :size="1" />
+              <Text
+                v-if="props.description"
+                typography="paragraph-1"
+                color="secondary"
+              >
+                {{ props.description }}
+              </Text>
+            </div>
+            <div v-if="props.showCloseButton" class="modal-close">
+              <Button
+                mode="ghost"
+                size="small"
+                squared
+                aria-label="Закрыть"
+                @click="props.onClose"
+              >
+                <IconXOutline />
+              </Button>
+            </div>
+            <div class="modal-content">
+              <slot></slot>
+            </div>
+            <div v-if="$slots.footer" class="modal-footer">
+              <slot name="footer"></slot>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </Transition>
+    </Transition>
+  </Teleport>
 </template>
 
 <style scoped>

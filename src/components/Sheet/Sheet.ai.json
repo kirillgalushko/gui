@@ -9,7 +9,8 @@
   "toAvoid": [],
   "rules": [
     "Используй mode=\"floating\", когда панель должна оставлять отступ от краёв viewport и выглядеть как Drawer",
-    "Для составного фиксированного заголовка используй слот header; title и description в этом случае не отображаются"
+    "Для составного фиксированного заголовка используй слот header; title и description в этом случае не отображаются",
+    "Overlay телепортируется в body и не зависит от stacking context родительского контейнера"
   ],
   "alternatives": ["Modal", "AdaptiveModal"],
   "commonlyUsedWith": ["Button"]

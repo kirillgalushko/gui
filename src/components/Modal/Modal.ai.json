@@ -5,7 +5,10 @@
   "keywords": ["modal", "dialog", "overlay"],
   "useWhen": ["Нужно показать отдельный сценарий поверх текущего интерфейса"],
   "toAvoid": ["Для подтверждения действий использовать Confirm"],
-  "rules": ["Лучше использовать AdaptiveModal"],
+  "rules": [
+    "Лучше использовать AdaptiveModal",
+    "Overlay телепортируется в body и не зависит от stacking context родительского контейнера"
+  ],
   "alternatives": ["AdaptiveModal", "Sheet", "Confirm"],
   "commonlyUsedWith": ["Button", "Text", "useModal"]
 }
