@@ -35,7 +35,7 @@ const renderNavbar = (args: Record<string, unknown>) => ({
   setup: () => ({ args }),
   template: `
     <Navbar v-bind="args">
-      <template #left><strong>Arenda</strong></template>
+      <template #left><strong>Navbar</strong></template>
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem value="product">
@@ -110,7 +110,7 @@ export const CustomMobileContent: Story = {
     setup: () => ({ args }),
     template: `
       <Navbar v-bind="args">
-        <template #left><strong>Arenda</strong></template>
+        <template #left><strong>Navbar</strong></template>
         <template #mobile>
           <Button stretched>Отдельное мобильное действие</Button>
         </template>

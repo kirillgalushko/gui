@@ -4,7 +4,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # Sidebar
 
-Боковая панель с изменяемой шириной, секциями, вложенной навигацией и опциональным snap-схлопыванием.
+Адаптивная боковая панель с изменяемой шириной, секциями, вложенной навигацией, опциональным snap-схлопыванием и мобильным Sheet.
 
 - `width` задаёт начальную или управляемую ширину.
 - `minWidth` и `maxWidth` ограничивают геометрию панели.
@@ -15,6 +15,10 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - При запуске snap-анимации всё содержимое Sidebar одновременно исчезает за `45ms`, остаётся полностью скрытым `70ms`, в невидимом состоянии получает новое compact-представление и затем появляется за `45ms`. Fade применяется ко всему default slot, поэтому отдельные дочерние элементы не требуют собственных transition.
 - Схлопывание занимает `220ms`, расширение от `compactWidth` до `collapseThreshold` — `180ms`.
 - Без `collapseThreshold` ширина изменяется свободно, как раньше.
+- `mobile` включает мобильный режим. На viewport-breakpoint `xs` или `s` Sidebar выводит содержимое в левом `Sheet`, на остальных breakpoint сохраняет обычное desktop-представление.
+- `mobileOpen` / `v-model:mobileOpen` управляет открытием мобильного Sheet. При переходе на desktop открытый мобильный Sheet автоматически закрывается.
+- В мобильном Sheet содержимое всегда получает expanded-состояние через `sidebar-is-compact`, независимо от desktop-ширины.
+- Мобильный Sheet растягивает content-область по высоте, поэтому `SidebarList` с `scrollable` прокручивается отдельно, оставляя header и footer на месте.
 
 ```vue
 <Sidebar
@@ -36,6 +40,22 @@ import { Meta } from "@storybook/addon-docs/blocks";
         </SidebarSubList>
       </SidebarCollapsible>
     </SidebarGroup>
+  </SidebarList>
+</Sidebar>
+```
+
+## Мобильный режим
+
+```vue
+<Sidebar
+  mobile
+  v-model:mobileOpen="mobileOpen"
+  :width="300"
+  :compact-width="60"
+  :collapse-threshold="180"
+>
+  <SidebarList>
+    <SidebarItem>Главная</SidebarItem>
   </SidebarList>
 </Sidebar>
 ```

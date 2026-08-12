@@ -2,6 +2,8 @@
 import { computed, onBeforeUnmount, ref, provide, watch } from "vue";
 import { IconGripVerticalOutline } from "@gui/icons";
 import type { Padding } from "../../types";
+import { useViewportBreakpoint } from "../../hooks/useViewportBreakpoint";
+import Sheet from "../Sheet/Sheet.vue";
 
 export interface SidebarProps {
   mode?: "default" | "floating";
@@ -11,6 +13,8 @@ export interface SidebarProps {
   minWidth?: string;
   compactWidth?: number;
   collapseThreshold?: number;
+  mobile?: boolean;
+  mobileOpen?: boolean;
 }
 
 const props = withDefaults(defineProps<SidebarProps>(), {
@@ -20,7 +24,14 @@ const props = withDefaults(defineProps<SidebarProps>(), {
   maxWidth: "100vw",
   width: 300,
   compactWidth: 0,
+  mobile: false,
+  mobileOpen: false,
 });
+const emit = defineEmits<{
+  "update:mobileOpen": [value: boolean];
+}>();
+const viewport = useViewportBreakpoint();
+const isMobile = computed(() => props.mobile && viewport.isMobile);
 const width = ref<number>(props.width);
 const isResizing = ref<boolean>(false);
 const canSnapToCompact = (): boolean =>
@@ -128,7 +139,15 @@ const startSnapAnimation = (direction: "collapse" | "expand"): void => {
 provide("sidebar-width", width);
 provide("sidebar-requested-width", requestedWidth);
 provide("sidebar-is-resizing", isResizing);
-provide("sidebar-is-compact", presentedIsCompact);
+const providedIsCompact = computed(() =>
+  isMobile.value ? false : presentedIsCompact.value,
+);
+
+provide("sidebar-is-compact", providedIsCompact);
+
+const closeMobile = (): void => {
+  emit("update:mobileOpen", false);
+};
 
 const resolveSnapState = (nextWidth: number): boolean => {
   return canSnapToCompact() && nextWidth < getSnapSwitchWidth();
@@ -215,6 +234,12 @@ watch(
   },
 );
 
+watch(isMobile, (mobile) => {
+  if (!mobile && props.mobileOpen) {
+    closeMobile();
+  }
+});
+
 onBeforeUnmount(() => {
   clearContentFade();
   if (snapAnimationTimer !== null) {
@@ -227,7 +252,22 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+  <Sheet
+    v-if="isMobile"
+    :is-opened="props.mobileOpen"
+    :on-close="closeMobile"
+    content-stretched
+    :show-close-button="false"
+    side="left"
+    size="extra-small"
+    mode="default"
+    :rounded="false"
+  >
+    <slot></slot>
+  </Sheet>
+
   <div
+    v-else
     ref="sidebarRef"
     :class="[
       'sidebar',

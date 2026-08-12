@@ -1,7 +1,7 @@
 {
   "name": "Sidebar",
   "kind": "component",
-  "description": "Боковая панель навигации с секциями, раскрываемыми вложенными элементами и компактным режимом.",
+  "description": "Адаптивная боковая панель навигации с секциями, компактным режимом и мобильным Sheet.",
   "keywords": ["sidebar", "navigation", "menu", "layout"],
   "useWhen": ["Нужно организовать основную навигацию приложения"],
   "toAvoid": [],
@@ -11,7 +11,10 @@
     "Переключение compact-состояния происходит посередине между compactWidth и collapseThreshold",
     "При смене compact-состояния Sidebar применяет единый fade ко всему содержимому default slot; дочерним элементам отдельная fade-анимация не нужна",
     "При расширении Sidebar анимирует только участок от compactWidth до collapseThreshold, а выше порога напрямую следует за курсором",
-    "Sidebar сохраняет заданную ширину внутри flex-контейнера и не сжимается соседним контентом"
+    "Sidebar сохраняет заданную ширину внутри flex-контейнера и не сжимается соседним контентом",
+    "Для мобильного Sheet включи mobile и управляй состоянием через v-model:mobileOpen; breakpoint определяется через useViewportBreakpoint",
+    "В мобильном Sheet Sidebar всегда показывает полное, а не compact-представление содержимого",
+    "Мобильный Sidebar растягивает content Sheet по высоте, чтобы SidebarList с scrollable прокручивался независимо от header и footer"
   ],
   "alternatives": [],
   "commonlyUsedWith": [

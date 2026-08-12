@@ -10,6 +10,7 @@
   "rules": [
     "Используй mode=\"floating\", когда панель должна оставлять отступ от краёв viewport и выглядеть как Drawer",
     "Для составного фиксированного заголовка используй слот header; title и description в этом случае не отображаются",
+    "Для дочернего flex-layout с собственной прокруткой включи contentStretched, чтобы default slot занял доступную content-область через flex и делегировал прокрутку дочернему компоненту",
     "Overlay телепортируется в body и не зависит от stacking context родительского контейнера"
   ],
   "alternatives": ["Modal", "AdaptiveModal"],

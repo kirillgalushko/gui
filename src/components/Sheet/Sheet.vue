@@ -13,6 +13,7 @@ type SheetMode = "default" | "floating";
 export interface SheetProps {
   isOpened?: boolean;
   onClose?: () => void;
+  contentStretched?: boolean;
   showCloseButton?: boolean;
   title?: string;
   description?: string;
@@ -131,7 +132,14 @@ const handleOverlayClick = () => {
             </div>
 
             <div class="sheet-content">
-              <div class="sheet-content-inner">
+              <div
+                :class="[
+                  'sheet-content-inner',
+                  {
+                    'sheet-content-inner--stretched': props.contentStretched,
+                  },
+                ]"
+              >
                 <slot></slot>
               </div>
             </div>
@@ -195,6 +203,7 @@ const handleOverlayClick = () => {
 }
 
 .sheet-header {
+  grid-row: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--gap-4);
@@ -217,6 +226,9 @@ const handleOverlayClick = () => {
 }
 
 .sheet-content {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
   min-height: 0;
   overflow-y: auto;
 }
@@ -225,12 +237,20 @@ const handleOverlayClick = () => {
   padding: var(--gap-4);
 }
 
+.sheet-content-inner--stretched {
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .right .sheet-content-inner,
 .left .sheet-content-inner {
   padding-bottom: var(--gap-2);
 }
 
 .sheet-footer {
+  grid-row: 3;
   display: flex;
   justify-content: flex-end;
   gap: var(--gap-2);
