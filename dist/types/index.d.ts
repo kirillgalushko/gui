@@ -2425,12 +2425,18 @@ export declare const Row: {
     };
 });
 export declare const Sidebar: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Sidebar/Sidebar.vue").SidebarProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Sidebar/Sidebar.vue").SidebarProps> & Readonly<{
+        "onUpdate:mobileOpen"?: ((value: boolean) => any) | undefined;
+    }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:mobileOpen": (value: boolean) => any;
+    }, import("vue").PublicProps, {
         mode: "default" | "floating";
         width: number;
         maxWidth: string;
-        padding: import("./types/index.ts").Padding;
         minWidth: string;
+        mobileOpen: boolean;
+        mobile: boolean;
+        padding: import("./types/index.ts").Padding;
         compactWidth: number;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -2439,42 +2445,60 @@ export declare const Sidebar: {
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<import("./components/Sidebar/Sidebar.vue").SidebarProps> & Readonly<{}>, {}, {}, {}, {}, {
+    }, Readonly<import("./components/Sidebar/Sidebar.vue").SidebarProps> & Readonly<{
+        "onUpdate:mobileOpen"?: ((value: boolean) => any) | undefined;
+    }>, {}, {}, {}, {}, {
         mode: "default" | "floating";
         width: number;
         maxWidth: string;
-        padding: import("./types/index.ts").Padding;
         minWidth: string;
+        mobileOpen: boolean;
+        mobile: boolean;
+        padding: import("./types/index.ts").Padding;
         compactWidth: number;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<import("./components/Sidebar/Sidebar.vue").SidebarProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Sidebar/Sidebar.vue").SidebarProps> & Readonly<{
+    "onUpdate:mobileOpen"?: ((value: boolean) => any) | undefined;
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:mobileOpen": (value: boolean) => any;
+}, string, {
     mode: "default" | "floating";
     width: number;
     maxWidth: string;
-    padding: import("./types/index.ts").Padding;
     minWidth: string;
+    mobileOpen: boolean;
+    mobile: boolean;
+    padding: import("./types/index.ts").Padding;
     compactWidth: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?: (props: {}) => any;
+    } & {
+        default?: (props: {}) => any;
     };
 });
 export declare const Stack: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        shrink: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
         D: {};
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    }, Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, {
+        shrink: boolean;
+    }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Stack/Stack.vue").StackProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    shrink: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?: (props: {}) => any;
     };
@@ -2542,8 +2566,8 @@ export declare const Table: {
             default: boolean;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
-        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
+        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         border: boolean;
         layout: "fixed" | "auto" | undefined;
         stickyHeader: boolean;
@@ -2576,8 +2600,8 @@ export declare const Table: {
             default: boolean;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
-        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
+        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         border: boolean;
         layout: "fixed" | "auto" | undefined;
         stickyHeader: boolean;
@@ -2607,8 +2631,8 @@ export declare const Table: {
         default: boolean;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
+    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     border: boolean;
     layout: "fixed" | "auto" | undefined;
     stickyHeader: boolean;

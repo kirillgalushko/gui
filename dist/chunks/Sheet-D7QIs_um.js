@@ -4,10 +4,10 @@ import { t as n } from "./gui-icons.es-5O8QlDZJ.js";
 import { t as r } from "./Button-CeAG6Psa.js";
 import { t as i } from "./Gap-BwE3JGxn.js";
 import { t as a } from "./Text-BiA0aMEo.js";
-import { Transition as o, computed as s, createBlock as c, createCommentVNode as l, createElementBlock as u, createElementVNode as d, createTextVNode as f, createVNode as p, defineComponent as m, normalizeClass as h, onBeforeUnmount as g, onMounted as _, openBlock as v, ref as y, renderSlot as b, toDisplayString as x, unref as S, watch as C, withCtx as w, withModifiers as T } from "vue";
-import '../assets/Sheet-CBia793K.css';//#region src/components/Sheet/useSheet.ts
-var E = (e) => {
-	let t = y(null), n = y(""), r = y(!1), i = y(null), a = () => {
+import { Teleport as o, Transition as s, computed as c, createBlock as l, createCommentVNode as u, createElementBlock as d, createElementVNode as f, createTextVNode as p, createVNode as m, defineComponent as h, normalizeClass as g, onBeforeUnmount as _, onMounted as v, openBlock as y, ref as b, renderSlot as x, toDisplayString as S, unref as C, watch as w, withCtx as T, withModifiers as E } from "vue";
+import '../assets/Sheet-Bm0QBsI9.css';//#region src/components/Sheet/useSheet.ts
+var D = (e) => {
+	let t = b(null), n = b(""), r = b(!1), i = b(null), a = () => {
 		e.onClose?.();
 	}, o = (t) => {
 		t.key === "Escape" && e.closeOnEscape && e.isOpened && a();
@@ -26,34 +26,35 @@ var E = (e) => {
 			r.value &&= (document.body.style.overflow = n.value, !1), t.value?.focus?.();
 		}
 	};
-	return C(() => e.isOpened, c), _(() => {
+	return w(() => e.isOpened, c), v(() => {
 		document.addEventListener("keydown", o), document.addEventListener("pointerdown", s), c(e.isOpened);
-	}), g(() => {
+	}), _(() => {
 		document.removeEventListener("keydown", o), document.removeEventListener("pointerdown", s), r.value && (document.body.style.overflow = n.value);
 	}), {
 		close: a,
 		sheetRef: i
 	};
-}, D = {
+}, O = {
 	key: 0,
 	class: "sheet-wrapper"
-}, O = { class: "sheet-layout" }, k = {
+}, k = { class: "sheet-layout" }, A = {
 	key: 0,
 	class: "sheet-header"
-}, A = {
+}, j = {
 	key: 0,
 	class: "sheet-heading"
-}, j = {
+}, M = {
 	key: 1,
 	class: "sheet-actions"
-}, M = { class: "sheet-content" }, N = { class: "sheet-content-inner" }, P = {
+}, N = { class: "sheet-content" }, P = {
 	key: 1,
 	class: "sheet-footer"
-}, F = /*@__PURE__*/ m({
+}, F = /*@__PURE__*/ h({
 	__name: "Sheet",
 	props: {
 		isOpened: { type: Boolean },
 		onClose: {},
+		contentStretched: { type: Boolean },
 		showCloseButton: {
 			type: Boolean,
 			default: !0
@@ -81,22 +82,22 @@ var E = (e) => {
 		}
 	},
 	setup(e) {
-		let t = e, { close: m, sheetRef: g } = E(t), _ = s(() => t.size ?? (t.side === "top" || t.side === "bottom" ? "auto" : "medium")), y = () => {
-			t.closeOnOverlayClick && m();
+		let t = e, { close: h, sheetRef: _ } = D(t), v = c(() => t.size ?? (t.side === "top" || t.side === "bottom" ? "auto" : "medium")), b = () => {
+			t.closeOnOverlayClick && h();
 		};
-		return (e, s) => (v(), c(o, { name: `sheet-${t.side}` }, {
-			default: w(() => [t.isOpened ? (v(), u("div", D, [t.showOverlay ? (v(), u("div", {
+		return (e, c) => (y(), l(o, { to: "body" }, [m(s, { name: `sheet-${t.side}` }, {
+			default: T(() => [t.isOpened ? (y(), d("div", O, [t.showOverlay ? (y(), d("div", {
 				key: 0,
 				class: "sheet-overlay",
 				"aria-hidden": "true",
-				onClick: y
-			})) : l("", !0), d("section", {
+				onClick: b
+			})) : u("", !0), f("section", {
 				ref_key: "sheetRef",
-				ref: g,
-				class: h([
+				ref: _,
+				class: g([
 					"sheet",
 					t.side,
-					_.value,
+					v.value,
 					t.mode,
 					{
 						rounded: t.rounded,
@@ -106,32 +107,32 @@ var E = (e) => {
 				role: "dialog",
 				"aria-modal": "true",
 				tabindex: "-1",
-				onClick: s[0] ||= T(() => {}, ["stop"])
-			}, [d("div", O, [
-				e.$slots.header || t.title || t.description || t.showCloseButton || e.$slots.actions ? (v(), u("div", k, [e.$slots.header || t.title || t.description ? (v(), u("div", A, [
-					e.$slots.header ? b(e.$slots, "header", {}, void 0, !0, 0) : t.title ? (v(), c(a, {
+				onClick: c[0] ||= E(() => {}, ["stop"])
+			}, [f("div", k, [
+				e.$slots.header || t.title || t.description || t.showCloseButton || e.$slots.actions ? (y(), d("div", A, [e.$slots.header || t.title || t.description ? (y(), d("div", j, [
+					e.$slots.header ? x(e.$slots, "header", {}, void 0, !0, 0) : t.title ? (y(), l(a, {
 						key: 1,
 						Element: "h2",
 						typography: "title-2",
 						class: "sheet-title"
 					}, {
-						default: w(() => [f(x(t.title), 1)]),
+						default: T(() => [p(S(t.title), 1)]),
 						_: 1
-					})) : l("", !0),
-					!e.$slots.header && t.title && t.description ? (v(), c(i, {
+					})) : u("", !0),
+					!e.$slots.header && t.title && t.description ? (y(), l(i, {
 						key: 2,
 						size: 2
-					})) : l("", !0),
-					!e.$slots.header && t.description ? (v(), c(a, {
+					})) : u("", !0),
+					!e.$slots.header && t.description ? (y(), l(a, {
 						key: 3,
 						typography: "paragraph-1",
 						color: "secondary",
 						class: "sheet-description"
 					}, {
-						default: w(() => [f(x(t.description), 1)]),
+						default: T(() => [p(S(t.description), 1)]),
 						_: 1
-					})) : l("", !0)
-				])) : l("", !0), e.$slots.actions || t.showCloseButton ? (v(), u("div", j, [b(e.$slots, "actions", {}, void 0, !0), t.showCloseButton ? (v(), c(r, {
+					})) : u("", !0)
+				])) : u("", !0), e.$slots.actions || t.showCloseButton ? (y(), d("div", M, [x(e.$slots, "actions", {}, void 0, !0), t.showCloseButton ? (y(), l(r, {
 					key: 0,
 					class: "sheet-close",
 					mode: "ghost",
@@ -139,17 +140,17 @@ var E = (e) => {
 					squared: "",
 					type: "button",
 					"aria-label": "Закрыть",
-					onClick: S(m)
+					onClick: C(h)
 				}, {
-					default: w(() => [p(S(n))]),
+					default: T(() => [m(C(n))]),
 					_: 1
-				}, 8, ["onClick"])) : l("", !0)])) : l("", !0)])) : l("", !0),
-				d("div", M, [d("div", N, [b(e.$slots, "default", {}, void 0, !0)])]),
-				e.$slots.footer ? (v(), u("div", P, [b(e.$slots, "footer", {}, void 0, !0)])) : l("", !0)
-			])], 2)])) : l("", !0)]),
+				}, 8, ["onClick"])) : u("", !0)])) : u("", !0)])) : u("", !0),
+				f("div", N, [f("div", { class: g(["sheet-content-inner", { "sheet-content-inner--stretched": t.contentStretched }]) }, [x(e.$slots, "default", {}, void 0, !0)], 2)]),
+				e.$slots.footer ? (y(), d("div", P, [x(e.$slots, "footer", {}, void 0, !0)])) : u("", !0)
+			])], 2)])) : u("", !0)]),
 			_: 3
-		}, 8, ["name"]));
+		}, 8, ["name"])]));
 	}
-}), I = /* @__PURE__ */ e({ default: () => L }), L = /*#__PURE__*/ t(F, [["__scopeId", "data-v-c5b24508"]]);
+}), I = /* @__PURE__ */ e({ default: () => L }), L = /*#__PURE__*/ t(F, [["__scopeId", "data-v-b654bc1d"]]);
 //#endregion
 export { I as n, L as t };

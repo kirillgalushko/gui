@@ -7,11 +7,11 @@ export interface ModalProps {
     description?: string;
     size?: ModalSize;
 }
-declare var __VLS_25: {}, __VLS_27: {};
+declare var __VLS_29: {}, __VLS_31: {};
 type __VLS_Slots = {} & {
-    default?: (props: typeof __VLS_25) => any;
+    default?: (props: typeof __VLS_29) => any;
 } & {
-    footer?: (props: typeof __VLS_27) => any;
+    footer?: (props: typeof __VLS_31) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<ModalProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ModalProps> & Readonly<{}>, {
     size: ModalSize;

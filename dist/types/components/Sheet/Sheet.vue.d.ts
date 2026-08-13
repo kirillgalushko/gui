@@ -4,6 +4,7 @@ type SheetMode = "default" | "floating";
 export interface SheetProps {
     isOpened?: boolean;
     onClose?: () => void;
+    contentStretched?: boolean;
     showCloseButton?: boolean;
     title?: string;
     description?: string;
@@ -15,15 +16,15 @@ export interface SheetProps {
     closeOnOverlayClick?: boolean;
     closeOnEscape?: boolean;
 }
-declare var __VLS_5: {}, __VLS_16: {}, __VLS_29: {}, __VLS_31: {};
+declare var __VLS_9: {}, __VLS_20: {}, __VLS_33: {}, __VLS_35: {};
 type __VLS_Slots = {} & {
-    header?: (props: typeof __VLS_5) => any;
+    header?: (props: typeof __VLS_9) => any;
 } & {
-    actions?: (props: typeof __VLS_16) => any;
+    actions?: (props: typeof __VLS_20) => any;
 } & {
-    default?: (props: typeof __VLS_29) => any;
+    default?: (props: typeof __VLS_33) => any;
 } & {
-    footer?: (props: typeof __VLS_31) => any;
+    footer?: (props: typeof __VLS_35) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<SheetProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SheetProps> & Readonly<{}>, {
     mode: SheetMode;

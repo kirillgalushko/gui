@@ -1,14 +1,14 @@
 import { t as e } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { computed as t, createCommentVNode as n, createElementBlock as r, createElementVNode as i, defineComponent as a, normalizeClass as o, normalizeStyle as s, openBlock as c, renderSlot as l } from "vue";
-import '../assets/AnnouncementBar-CWvsq5ho.css';//#region src/components/AnnouncementBar/AnnouncementBar.vue?vue&type=script&setup=true&lang.ts
-var u = ["role"], d = { class: "announcement-bar__inner" }, f = {
+import '../assets/AnnouncementBar-DpAW-lUB.css';//#region src/components/AnnouncementBar/AnnouncementBar.vue?vue&type=script&setup=true&lang.ts
+var u = ["role"], d = {
 	key: 0,
 	class: "announcement-bar__icon",
 	"aria-hidden": "true"
-}, p = { class: "announcement-bar__content" }, m = {
+}, f = { class: "announcement-bar__content" }, p = {
 	key: 1,
 	class: "announcement-bar__actions"
-}, h = /*#__PURE__*/ e(/* @__PURE__ */ a({
+}, m = /*#__PURE__*/ e(/* @__PURE__ */ a({
 	__name: "AnnouncementBar",
 	props: {
 		mode: { default: "default" },
@@ -19,7 +19,7 @@ var u = ["role"], d = { class: "announcement-bar__inner" }, f = {
 		borderColor: {}
 	},
 	setup(e) {
-		let a = e, h = {
+		let a = e, m = {
 			default: {
 				background: "hsl(var(--background))",
 				text: "hsl(var(--foreground))",
@@ -50,8 +50,8 @@ var u = ["role"], d = { class: "announcement-bar__inner" }, f = {
 				text: "hsl(var(--foreground))",
 				border: "color-mix(in oklab, hsl(var(--negative)) 35%, hsl(var(--border)))"
 			}
-		}, g = t(() => {
-			let e = h[a.mode];
+		}, h = t(() => {
+			let e = m[a.mode];
 			return {
 				"--announcement-bar-background": a.backgroundColor ?? e.background,
 				"--announcement-bar-text": a.textColor ?? e.text,
@@ -65,14 +65,14 @@ var u = ["role"], d = { class: "announcement-bar__inner" }, f = {
 				`announcement-bar--${a.mode}`,
 				{ "inverted-colors": a.mode === "contrast" }
 			]),
-			style: s(g.value),
+			style: s(h.value),
 			role: a.role
-		}, [i("div", d, [
-			e.$slots.icon ? (c(), r("div", f, [l(e.$slots, "icon", {}, void 0, !0)])) : n("", !0),
-			i("div", p, [l(e.$slots, "default", {}, void 0, !0)]),
-			e.$slots.actions ? (c(), r("div", m, [l(e.$slots, "actions", {}, void 0, !0)])) : n("", !0)
-		])], 14, u));
+		}, [i("div", { class: o(["announcement-bar__inner", { "announcement-bar__inner--with-icon": e.$slots.icon }]) }, [
+			e.$slots.icon ? (c(), r("div", d, [l(e.$slots, "icon", {}, void 0, !0)])) : n("", !0),
+			i("div", f, [l(e.$slots, "default", {}, void 0, !0)]),
+			e.$slots.actions ? (c(), r("div", p, [l(e.$slots, "actions", {}, void 0, !0)])) : n("", !0)
+		], 2)], 14, u));
 	}
-}), [["__scopeId", "data-v-8f264f77"]]);
+}), [["__scopeId", "data-v-eea7b149"]]);
 //#endregion
-export { h as default };
+export { m as default };

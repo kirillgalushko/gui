@@ -53,8 +53,8 @@ declare const __VLS_component: import("vue").DefineComponent<import("vue").Extra
         default: boolean;
     };
 }>> & Readonly<{}>, {
-    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
+    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     border: boolean;
     layout: "fixed" | "auto" | undefined;
     stickyHeader: boolean;
