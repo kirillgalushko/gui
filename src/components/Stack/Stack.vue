@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { Gap, Align } from "../../types";
 
 type JustifyContent = "start" | "center" | "end" | "space-between";
@@ -11,9 +12,21 @@ export interface StackProps {
   justifyContent?: JustifyContent;
   stretched?: boolean;
   wrap?: boolean;
+  grow?: boolean;
+  shrink?: boolean;
+  minWidth?: string;
+  maxWidth?: string;
 }
 
-const props = defineProps<StackProps>();
+const props = withDefaults(defineProps<StackProps>(), {
+  shrink: true,
+});
+
+const stackStyle = computed(() => ({
+  "--stack-gap-size": props.gap ? `var(--gap-${props.gap})` : undefined,
+  minWidth: props.minWidth,
+  maxWidth: props.maxWidth,
+}));
 </script>
 
 <template>
@@ -28,11 +41,11 @@ const props = defineProps<StackProps>();
         fullHeight: props.fullHeight,
         stretched: props.stretched,
         wrap: props.wrap,
+        grow: props.grow,
+        'no-shrink': !props.shrink,
       },
     ]"
-    :style="
-      props.gap ? { '--stack-gap-size': `var(--gap-${props.gap})` } : undefined
-    "
+    :style="stackStyle"
   >
     <slot></slot>
   </div>
@@ -89,6 +102,14 @@ const props = defineProps<StackProps>();
 
 .wrap {
   flex-wrap: wrap;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.no-shrink {
+  flex-shrink: 0;
 }
 
 .with-gap {

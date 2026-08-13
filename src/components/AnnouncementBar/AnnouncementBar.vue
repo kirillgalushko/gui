@@ -86,7 +86,12 @@ const barStyle = computed(() => {
     :style="barStyle"
     :role="props.role"
   >
-    <div class="announcement-bar__inner">
+    <div
+      :class="[
+        'announcement-bar__inner',
+        { 'announcement-bar__inner--with-icon': $slots.icon },
+      ]"
+    >
       <div v-if="$slots.icon" class="announcement-bar__icon" aria-hidden="true">
         <slot name="icon"></slot>
       </div>
@@ -150,25 +155,49 @@ const barStyle = computed(() => {
 .announcement-bar__actions {
   display: inline-flex;
   flex: none;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--gap-2);
 }
 
 @media (max-width: 640px) {
   .announcement-bar__inner {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: var(--gap-3);
     row-gap: var(--gap-2);
     padding-inline: var(--gap-3);
   }
 
+  .announcement-bar__inner--with-icon {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .announcement-bar__icon {
+    align-self: start;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
   .announcement-bar__content {
-    flex: 1 1 calc(100% - 32px);
+    grid-column: 1;
+    grid-row: 1;
     text-align: start;
+    text-wrap: pretty;
+  }
+
+  .announcement-bar__inner--with-icon .announcement-bar__content {
+    grid-column: 2;
   }
 
   .announcement-bar__actions {
-    flex: 1 1 100%;
-    justify-content: center;
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .announcement-bar__inner--with-icon .announcement-bar__actions {
+    grid-column: 2;
   }
 }
 </style>

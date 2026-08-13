@@ -55,6 +55,24 @@ export const Warning: Story = {
   }),
 };
 
+export const MobileLongMessage: Story = {
+  args: { mode: "negative" },
+  parameters: { viewport: { defaultViewport: "mobile1" } },
+  render: (args) => ({
+    components: { AnnouncementBar, Button, IconInfoCircleOutline },
+    setup: () => ({ args }),
+    template: `
+      <AnnouncementBar v-bind="args">
+        <template #icon><IconInfoCircleOutline /></template>
+        Превышены лимиты тарифа.
+        <template #actions>
+          <Button mode="outline" size="small">Посмотреть лимиты</Button>
+        </template>
+      </AnnouncementBar>
+    `,
+  }),
+};
+
 export const CustomColors: Story = {
   args: {
     backgroundColor: "#f1f5f9",
