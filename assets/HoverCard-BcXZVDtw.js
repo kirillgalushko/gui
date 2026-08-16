@@ -1,0 +1,8 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{n as t,r as n}from"./lib-BRDOWE9X.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{n as i,o as a,s as o}from"./blocks-BRO4GnZ7.js";import{r as s,t as c}from"./HoverCard.stories-DMFRseDc.js";function l(e){let t={code:`code`,h1:`h1`,p:`p`,...n(),...e.components};return(0,d.jsxs)(d.Fragment,{children:[(0,d.jsx)(a,{title:`Components/HoverCard/Docs`}),`
+`,(0,d.jsx)(t.h1,{id:`hovercard`,children:`HoverCard`}),`
+`,(0,d.jsx)(t.p,{children:`Показывает произвольное содержимое поверх интерфейса при hover или focus на триггере.`}),`
+`,(0,d.jsxs)(t.p,{children:[`Используйте слот по умолчанию для триггера, а слот `,(0,d.jsx)(t.code,{children:`content`}),` для содержимого карточки.
+`,(0,d.jsx)(t.code,{children:`HoverCard`}),` не создаёт визуальную поверхность: добавьте `,(0,d.jsx)(t.code,{children:`Card`}),` в слот `,(0,d.jsx)(t.code,{children:`content`}),` и настройте
+его отступы, фон и скругление по месту применения.
+Компонент поддерживает controlled-состояние через `,(0,d.jsx)(t.code,{children:`open`}),` и `,(0,d.jsx)(t.code,{children:`update:open`}),`, задержки `,(0,d.jsx)(t.code,{children:`openDelay`}),`/`,(0,d.jsx)(t.code,{children:`closeDelay`}),`, `,(0,d.jsx)(t.code,{children:`placement`}),`, `,(0,d.jsx)(t.code,{children:`sideOffset`}),` и `,(0,d.jsx)(t.code,{children:`updateKey`}),` для ручного пересчета позиции.`]}),`
+`,(0,d.jsx)(i,{of:c})]})}function u(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,d.jsx)(t,{...e,children:(0,d.jsx)(l,{...e})}):l(e)}var d;function f(){return(f=e((()=>{d=r(),t(),o(),s()})))()}f();export{u as default};
