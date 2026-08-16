@@ -3,6 +3,8 @@ import type { BorderRadius, Padding } from "../../types";
 
 interface Card {
   background?: "default" | "secondary";
+  /** Делает фон полупрозрачным и размывает содержимое под карточкой. */
+  blur?: boolean;
   fullHeight?: boolean;
   stretched?: boolean;
   padding?: Padding;
@@ -23,6 +25,7 @@ export type CardProps = NonInteractiveCard | InteractiveCard;
 
 const props = withDefaults(defineProps<CardProps>(), {
   interactive: false,
+  blur: false,
   background: "default",
   padding: 8,
   borderRadius: 16,
@@ -39,6 +42,7 @@ const props = withDefaults(defineProps<CardProps>(), {
         'full-height': props.fullHeight,
         interactive: props.interactive,
         stretched: props.stretched,
+        blur: props.blur,
       },
     ]"
     :style="{
@@ -53,20 +57,28 @@ const props = withDefaults(defineProps<CardProps>(), {
 
 <style scoped>
 .card {
+  --gui-card-background: hsl(var(--card));
   box-sizing: border-box;
   border: 1px solid hsl(var(--border));
   border-radius: 16px;
   padding: 12px;
   display: inline-block;
   font-family: var(--font-family);
+  background-color: var(--gui-card-background);
 }
 
 .default {
-  background-color: hsl(var(--card));
+  --gui-card-background: hsl(var(--card));
 }
 
 .secondary {
-  background-color: hsl(var(--secondary));
+  --gui-card-background: hsl(var(--secondary));
+}
+
+.blur {
+  background: color-mix(in oklab, var(--gui-card-background) 60%, transparent);
+  backdrop-filter: blur(20px);
+  border-color: hsl(var(--border) / 0.7);
 }
 
 .interactive {

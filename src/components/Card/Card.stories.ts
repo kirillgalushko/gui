@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/vue3";
 import Text from "../Text/Text.vue";
 import Button from "../Button/Button.vue";
 import Gap from "../Gap/Gap.vue";
+import AuroraBackground from "../AuroraBackground/AuroraBackground.vue";
 import Card, { CardProps } from "./Card.vue";
 import { DefineComponent } from "vue";
 
@@ -16,6 +17,11 @@ const meta = {
     background: {
       control: { type: "select" },
       options: ["default", "secondary"],
+    },
+    blur: {
+      control: { type: "boolean" },
+      description:
+        "Делает фон полупрозрачным и размывает содержимое под карточкой.",
     },
     stretched: {
       control: { type: "boolean" },
@@ -46,7 +52,7 @@ const cardContent = `
   <Gap :size="3" direction="vertical" />
   <Button mode="contrast">Mark as read</Button>
 `;
-const demoComponents = { Card, Text, Button, Gap };
+const demoComponents = { AuroraBackground, Card, Text, Button, Gap };
 const demoArgs = {
   padding: 24,
   borderRadius: 20,
@@ -84,6 +90,27 @@ export const SecondaryCard: Story = {
       return { args };
     },
     template: `<Card v-bind="args">${cardContent}</Card>`,
+  }),
+};
+
+export const BlurredCard: Story = {
+  args: {
+    background: "default",
+    blur: true,
+    stretched: true,
+    interactive: false,
+    ...demoArgs,
+  },
+  render: (args) => ({
+    components: demoComponents,
+    setup() {
+      return { args };
+    },
+    template: `
+      <AuroraBackground :animated="false" intensity="strong" palette="ocean">
+        <Card v-bind="args">${cardContent}</Card>
+      </AuroraBackground>
+    `,
   }),
 };
 
