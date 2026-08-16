@@ -1,7 +1,7 @@
 import { o as e } from "./floating-ui.vue-CE68TKCX.js";
 import { t } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { createBlock as n, defineComponent as r, normalizeClass as i, normalizeStyle as a, openBlock as o, renderSlot as s, resolveDynamicComponent as c, withCtx as l } from "vue";
-import '../assets/Card-VQUvU3Qv.css';//#region src/components/Card/Card.vue?vue&type=script&setup=true&lang.ts
+import '../assets/Card-Ccz29lek.css';//#region src/components/Card/Card.vue?vue&type=script&setup=true&lang.ts
 var u = /*@__PURE__*/ r({
 	__name: "Card",
 	props: {
@@ -11,6 +11,10 @@ var u = /*@__PURE__*/ r({
 		},
 		onClick: {},
 		background: { default: "default" },
+		blur: {
+			type: Boolean,
+			default: !1
+		},
 		fullHeight: { type: Boolean },
 		stretched: { type: Boolean },
 		padding: { default: 8 },
@@ -25,7 +29,8 @@ var u = /*@__PURE__*/ r({
 				{
 					"full-height": t.fullHeight,
 					interactive: t.interactive,
-					stretched: t.stretched
+					stretched: t.stretched,
+					blur: t.blur
 				}
 			]),
 			style: a({
@@ -42,6 +47,6 @@ var u = /*@__PURE__*/ r({
 			"onClick"
 		]));
 	}
-}), d = /* @__PURE__ */ e({ default: () => f }), f = /*#__PURE__*/ t(u, [["__scopeId", "data-v-a4be4752"]]);
+}), d = /* @__PURE__ */ e({ default: () => f }), f = /*#__PURE__*/ t(u, [["__scopeId", "data-v-7f50ade5"]]);
 //#endregion
 export { d as n, f as t };

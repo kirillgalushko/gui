@@ -1,6 +1,8 @@
 import type { BorderRadius, Padding } from "../../types";
 interface Card {
     background?: "default" | "secondary";
+    /** Делает фон полупрозрачным и размывает содержимое под карточкой. */
+    blur?: boolean;
     fullHeight?: boolean;
     stretched?: boolean;
     padding?: Padding;

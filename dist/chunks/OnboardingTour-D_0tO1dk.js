@@ -6,7 +6,7 @@ import { t as h } from "./gui-icons.es-5O8QlDZJ.js";
 import { t as g } from "./Button-CeAG6Psa.js";
 import { t as _ } from "./Text-BiA0aMEo.js";
 import { t as v } from "./Badge-uBFTgl85.js";
-import { t as y } from "./Card-jmV07vlj.js";
+import { t as y } from "./Card-BlGmELQe.js";
 import { t as b } from "./Stack-1RaHEufk.js";
 import { Fragment as x, Teleport as S, computed as C, createBlock as w, createCommentVNode as T, createElementBlock as E, createElementVNode as D, createTextVNode as O, createVNode as k, defineComponent as A, nextTick as j, normalizeClass as M, normalizeStyle as N, onBeforeUnmount as P, openBlock as F, ref as I, renderList as L, renderSlot as R, shallowRef as z, toDisplayString as B, toValue as V, unref as H, useId as U, watch as W, withCtx as G, withModifiers as K } from "vue";
 import '../assets/OnboardingTour-joh3ejGv.css';//#region src/components/OnboardingTour/useOnboardingSpotlight.ts
