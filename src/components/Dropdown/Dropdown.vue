@@ -32,6 +32,7 @@ const props = withDefaults(defineProps<DropdownProps>(), {
 const attrs = useAttrs();
 const popperClass = computed(() => [
   attrs.popperClass,
+  "v-popper__popper--skip-transition",
   `dropdown-content-width-${props.contentWidth}`,
   `dropdown-content-padding-${props.contentPadding}`,
 ]);
@@ -79,7 +80,7 @@ const contentStyles = computed(() =>
 <style>
 .v-popper--theme-dropdown .v-popper__inner {
   --dropdown-text-color: hsl(var(--popover-foreground));
-  --dropdown-background-color: hsl(var(--popover));
+  --dropdown-background-color: hsl(var(--popover)/0.7);
   --dropdown-border-color: hsl(var(--border));
 
   font-size: 14px;
@@ -92,6 +93,7 @@ const contentStyles = computed(() =>
   background-color: var(--dropdown-background-color);
   border: 1px solid var(--dropdown-border-color);
   box-sizing: border-box;
+  backdrop-filter: blur(20px);
 }
 
 .v-popper--theme-dropdown.dropdown-content-width-auto .v-popper__inner {
@@ -130,5 +132,11 @@ const contentStyles = computed(() =>
 
 .v-popper__arrow-container {
   display: none;
+}
+
+.v-popper--theme-dropdown.v-popper__popper--skip-transition,
+.v-popper--theme-dropdown.v-popper__popper--skip-transition
+  > .v-popper__wrapper {
+  transition: none !important;
 }
 </style>

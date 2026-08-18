@@ -117,16 +117,21 @@ const styles = computed(() => {
 
 <template>
   <div :style="styles" :class="['avatar', shape, props.mode]" v-bind="$attrs">
-    <img
-      v-if="props.src"
-      v-show="imageLoaded"
-      @load="handleImageLoad"
-      class="avatar-image"
-      :src="props.src"
-    />
-    <slot>
-      {{ fallback }}
-    </slot>
+    <div class="avatar-content">
+      <img
+        v-if="props.src"
+        v-show="imageLoaded"
+        @load="handleImageLoad"
+        class="avatar-image"
+        :src="props.src"
+      />
+      <slot>
+        {{ fallback }}
+      </slot>
+    </div>
+    <div v-if="$slots.corner" class="avatar-corner">
+      <slot name="corner" />
+    </div>
   </div>
 </template>
 
@@ -141,9 +146,28 @@ const styles = computed(() => {
   background-color: var(--avatar-bg);
   color: var(--avatar-color);
   position: relative;
-  overflow: hidden;
   font-size: 16px;
   flex-shrink: 0;
+}
+
+.avatar-content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.avatar-corner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  transform: translate(25%, 25%);
 }
 
 .avatar-image {

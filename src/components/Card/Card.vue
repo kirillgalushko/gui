@@ -76,7 +76,7 @@ const props = withDefaults(defineProps<CardProps>(), {
 }
 
 .blur {
-  background: color-mix(in oklab, var(--gui-card-background) 60%, transparent);
+  background: color-mix(in oklab, var(--gui-card-background) 70%, transparent);
   backdrop-filter: blur(20px);
   border-color: hsl(var(--border) / 0.7);
 }

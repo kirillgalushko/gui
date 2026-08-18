@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/vue3";
 import Avatar from "./Avatar.vue";
-import { IconUserOutline } from "@gui/icons";
+import { IconCircleCheckOutline, IconUserOutline } from "@gui/icons";
+import IconContainer from "../IconContainer/IconContainer.vue";
 import avatarExample from "../../assets/images/avatar-example.png";
 
 const meta: Meta<typeof Avatar> = {
@@ -84,5 +85,25 @@ export const WithFallback: Story = {
     },
     template: `
     <Avatar v-bind="args" />`,
+  }),
+};
+
+export const WithCornerContent: Story = {
+  args: {
+    name: "Аренда",
+  },
+  render: (args) => ({
+    components: { Avatar, IconCircleCheckOutline, IconContainer },
+    setup() {
+      return { args };
+    },
+    template: `
+    <Avatar v-bind="args">
+      <template #corner>
+        <IconContainer mode="circle" size="18px">
+          <IconCircleCheckOutline />
+        </IconContainer>
+      </template>
+    </Avatar>`,
   }),
 };

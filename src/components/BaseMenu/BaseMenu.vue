@@ -36,7 +36,7 @@ defineExpose({ menuRef });
 <style scoped>
 .base-menu {
   --menu-text-color: hsl(var(--popover-foreground));
-  --menu-background-color: hsl(var(--popover));
+  --menu-background-color: hsl(var(--popover)/0.7);
   --menu-border-color: hsl(var(--border));
   --menu-padding: 4px;
 
@@ -47,5 +47,7 @@ defineExpose({ menuRef });
   background-color: var(--menu-background-color);
   border: 1px solid var(--menu-border-color);
   z-index: 99;
+  backdrop-filter: blur(20px);
+  transition: none !important;
 }
 </style>

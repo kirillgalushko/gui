@@ -29,7 +29,9 @@ const props = withDefaults(defineProps<TooltipProps>(), {
     :delay="props.delay"
     :arrowOverflow="false"
     :popperClass="
-      props.mode === 'contrast' ? 'tooltip-contrast' : 'tooltip-default'
+      props.mode === 'contrast'
+        ? ['tooltip-contrast', 'v-popper__popper--skip-transition']
+        : ['tooltip-default', 'v-popper__popper--skip-transition']
     "
     :class="['tooltip', props.mode, { 'tooltip--stretched': props.stretched }]"
   >
@@ -56,7 +58,7 @@ const props = withDefaults(defineProps<TooltipProps>(), {
 <style>
 .tooltip-default {
   --tooltip-text-color: hsl(var(--popover-foreground));
-  --tooltip-background-color: hsl(var(--popover));
+  --tooltip-background-color: hsl(var(--popover)/0.7);
   --tooltip-border-color: hsl(var(--border));
   max-width: 300px;
 }
@@ -76,9 +78,16 @@ const props = withDefaults(defineProps<TooltipProps>(), {
   border: 1px solid var(--tooltip-border-color);
   word-break: normal;
   overflow-wrap: break-word;
+  backdrop-filter: blur(20px);
 }
 
 .v-popper__arrow-container {
   display: none;
+}
+
+.v-popper--theme-tooltip.v-popper__popper--skip-transition,
+.v-popper--theme-tooltip.v-popper__popper--skip-transition
+  > .v-popper__wrapper {
+  transition: none !important;
 }
 </style>

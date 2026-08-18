@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
-import { IconCircleDotOutline } from "@gui/icons";
+import { IconCheckOutline } from "@gui/icons";
 import BaseMenuItem from "./BaseMenuItem.vue";
 import {
   baseMenuRadioGroupContextKey,
@@ -41,7 +41,7 @@ const select = () => {
     <slot></slot>
     <template #trailing>
       <slot name="indicator" :checked="checked">
-        <IconCircleDotOutline v-if="checked" />
+        <IconCheckOutline v-if="checked" />
       </slot>
     </template>
   </BaseMenuItem>

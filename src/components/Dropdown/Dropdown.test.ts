@@ -22,6 +22,7 @@ describe("Dropdown", () => {
 
     expect(popper.props("popperClass")).toEqual([
       "custom-dropdown",
+      "v-popper__popper--skip-transition",
       "dropdown-content-width-medium",
       "dropdown-content-padding-comfortable",
     ]);
@@ -38,6 +39,7 @@ describe("Dropdown", () => {
 
     expect(popper.props("popperClass")).toEqual([
       undefined,
+      "v-popper__popper--skip-transition",
       "dropdown-content-width-auto",
       "dropdown-content-padding-default",
     ]);

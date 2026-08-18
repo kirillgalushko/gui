@@ -8,7 +8,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 клавиатуру, touch-инерцию браузера и не требует локальных стилей у потребителя.
 
 ```vue
-<ScrollArea :max-height="320" aria-label="История действий">
+<ScrollArea fade :max-height="320" aria-label="История действий">
   <Item v-for="event in history" :key="event.id">
     {{ event.title }}
   </Item>
@@ -20,4 +20,8 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - `keyboard-focusable` управляет `tabindex`; по умолчанию включён.
 - `stable-scrollbar` резервирует место под scrollbar и предотвращает скачок
   ширины содержимого.
+- `fade` показывает затухание только на тех краях, в направлении которых ещё
+  можно прокручивать. Без переполнения и на достигнутом краю затухания нет.
+- `fade-size` задаёт глубину затухания; число интерпретируется как пиксели.
+- Scroll-aware затухание работает для `vertical`, `horizontal` и `both`.
 - Для значимой области задавайте `aria-label` или `aria-labelledby`.
