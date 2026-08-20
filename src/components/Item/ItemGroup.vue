@@ -1,10 +1,14 @@
 <script setup lang="ts">
+export type ItemGroupMode = "outlined" | "plain";
+
 export interface ItemGroupProps {
+  mode?: ItemGroupMode;
   separated?: boolean;
   stretched?: boolean;
 }
 
 const props = withDefaults(defineProps<ItemGroupProps>(), {
+  mode: "outlined",
   separated: true,
   stretched: false,
 });
@@ -14,6 +18,7 @@ const props = withDefaults(defineProps<ItemGroupProps>(), {
   <div
     :class="[
       'item-group',
+      props.mode,
       { separated: props.separated, stretched: props.stretched },
     ]"
     role="list"
@@ -36,6 +41,15 @@ const props = withDefaults(defineProps<ItemGroupProps>(), {
 
 .stretched {
   width: 100%;
+}
+
+.plain {
+  border: 0;
+}
+
+.plain > :deep(.item) {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .item-group > :deep(.item) {

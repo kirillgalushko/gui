@@ -68,6 +68,20 @@ export interface VisibilityOption {
   disabled?: boolean;
 }
 
+export type SortOrder = "asc" | "desc";
+
+export interface SortOption {
+  value: string;
+  label: string;
+  defaultOrder?: SortOrder;
+  disabled?: boolean;
+}
+
+export interface SortState {
+  value: string;
+  order: SortOrder;
+}
+
 export interface FilterControlAppearance {
   size?: ComponentSize;
   mode?: FilterControlMode;

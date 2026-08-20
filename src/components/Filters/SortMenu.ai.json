@@ -1,0 +1,18 @@
+{
+  "name": "SortMenu",
+  "kind": "component",
+  "description": "Управляемое меню выбора поля и направления сортировки.",
+  "keywords": ["sort", "sorting", "table sort", "сортировка"],
+  "useWhen": [
+    "Нужно выбрать одно поле сортировки и направление в списке или таблице"
+  ],
+  "toAvoid": ["Не использовать для фильтрации данных"],
+  "rules": [
+    "Хранить выбранные поле и направление во внешнем v-model",
+    "Для поля можно задать defaultOrder, применяемый при его выборе",
+    "Стабильность сортировки при пагинации обеспечивает API списка"
+  ],
+  "alternatives": ["Filters", "VisibilityMenu"],
+  "commonlyUsedWith": ["Table", "Stack"],
+  "source": "SortMenu.vue"
+}

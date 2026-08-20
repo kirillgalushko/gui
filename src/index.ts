@@ -387,6 +387,12 @@ export const FilterClear = ac(
 export const VisibilityMenu = ac(
   () => import("./components/Filters/VisibilityMenu.vue"),
 );
+export const SortMenu = ac(() => import("./components/Filters/SortMenu.vue"));
+export type {
+  SortOption,
+  SortOrder,
+  SortState,
+} from "./components/Filters/types";
 export const Sheet = ac(() => import("./components/Sheet/Sheet.vue"));
 export const Skeleton = ac(() => import("./components/Skeleton/Skeleton.vue"));
 export const SkeletonProvider = ac(

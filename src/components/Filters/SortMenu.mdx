@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/Filters/SortMenu" />
+
+# SortMenu
+
+Управляемое меню сортировки по одному полю. `v-model` хранит ключ поля и
+направление, а `defaultOrder` у опции задаёт направление при переключении на это
+поле. Для пагинированных списков API должен добавлять устойчивый вторичный ключ
+сортировки.
+
+```vue
+<SortMenu
+  v-model="sort"
+  :options="[
+    { value: 'checkInAt', label: 'Дате заезда', defaultOrder: 'asc' },
+    { value: 'createdAt', label: 'Дате создания', defaultOrder: 'desc' },
+  ]"
+  size="small"
+/>
+```

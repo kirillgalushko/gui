@@ -1,11 +1,11 @@
 {
   "name": "ItemGroup",
   "kind": "component",
-  "description": "Объединяет связанные Item в единый список с общей рамкой и разделителями.",
+  "description": "Объединяет связанные Item в единый список с разделителями и опциональной общей рамкой.",
   "keywords": ["item-group", "list-group", "список", "группа строк"],
   "useWhen": ["Нужно показать несколько связанных Item как единый список"],
   "toAvoid": ["Не использовать для несвязанных карточек"],
-  "rules": ["Внутри использовать Item и при необходимости ItemSeparator"],
+  "rules": ["Внутри использовать Item и при необходимости ItemSeparator", "Для рамки используй mode=outlined, без рамки — mode=plain"],
   "alternatives": ["Stack", "Card"],
   "commonlyUsedWith": ["Item", "ItemSeparator", "ItemContent", "ItemActions"]
 }

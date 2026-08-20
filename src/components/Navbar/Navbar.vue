@@ -275,7 +275,7 @@ watch(isCompact, (compact) => {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: var(--gap-4);
+  gap: var(--gap-8);
   box-sizing: border-box;
   min-height: 48px;
   padding: var(--navbar-padding-y) var(--navbar-padding-x);
