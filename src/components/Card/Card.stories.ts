@@ -32,6 +32,10 @@ const meta = {
     interactive: {
       control: { type: "boolean" },
     },
+    Element: {
+      control: { type: "select" },
+      options: ["div", "button"],
+    },
     padding: {
       control: { type: "number" },
     },
@@ -132,6 +136,30 @@ export const InteractiveCard: Story = {
     template: `<Card v-bind="args" @click="onClick">
       <Text typography="title-2">Interactive Card</Text>
       <Text typography="paragraph-2" color="secondary">The whole card is clickable</Text>
+    </Card>`,
+  }),
+};
+
+export const InteractiveCardWithActions: Story = {
+  args: {
+    background: "default",
+    Element: "div",
+    stretched: false,
+    interactive: true,
+    ...demoArgs,
+  },
+  render: (args) => ({
+    components: demoComponents,
+    setup() {
+      const onClick = (event: MouseEvent) => {
+        console.log("Card clicked", event);
+      };
+      return { args, onClick };
+    },
+    template: `<Card v-bind="args" role="button" tabindex="0" @click="onClick">
+      <Text typography="title-2">Interactive Card</Text>
+      <Gap :size="2" />
+      <Button type="button">Action</Button>
     </Card>`,
   }),
 };

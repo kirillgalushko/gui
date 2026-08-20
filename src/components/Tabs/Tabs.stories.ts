@@ -4,6 +4,7 @@ import Card from "../Card/Card.vue";
 import Text from "../Text/Text.vue";
 import Gap from "../Gap/Gap.vue";
 import Button from "../Button/Button.vue";
+import Tooltip from "../Tooltip/Tooltip.vue";
 import Tabs from "./Tabs.vue";
 import Tab from "./Tab.vue";
 import { IconHome2Outline, IconABOutline, IconAbcOutline } from "@gui/icons";
@@ -122,6 +123,35 @@ export const WidthChanges: Story = {
       <br />
       <Button @click="toggleIcons">Toggle icons</Button>
       `,
+  }),
+};
+
+export const IconsWithTooltips: Story = {
+  render: () => ({
+    components: { Tabs, Tab, Tooltip, IconHome2Outline, IconABOutline },
+    setup() {
+      const selectedTab = ref<string>("home");
+      const handleChangeTab = (newTab: string) => {
+        selectedTab.value = newTab;
+      };
+      return { selectedTab, handleChangeTab };
+    },
+    template: `
+      <Tabs size="small" :value="selectedTab" :onChange="handleChangeTab">
+        <Tab name="home">
+          <Tooltip placement="bottom">
+            <span><IconHome2Outline /></span>
+            <template #popper>Home</template>
+          </Tooltip>
+        </Tab>
+        <Tab name="letters">
+          <Tooltip placement="bottom">
+            <span><IconABOutline /></span>
+            <template #popper>Letters</template>
+          </Tooltip>
+        </Tab>
+      </Tabs>
+    `,
   }),
 };
 

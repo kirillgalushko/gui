@@ -66,7 +66,8 @@ useResize(tabsElementRef, updateSliderStyle);
   --tabs-padding: 4px;
   --tabs-font-size: 14px;
   --tabs-line-height: 20px;
-  --tabs-tab-padding: 8px 16px;
+  --tabs-tab-padding-block: 8px;
+  --tabs-tab-padding-inline: 16px;
   --tabs-radius: 10px;
   --tabs-tab-radius: 8px;
 
@@ -87,7 +88,8 @@ useResize(tabsElementRef, updateSliderStyle);
 .extra-small {
   --tabs-height: 24px;
   --tabs-padding: 2px;
-  --tabs-tab-padding: 4px 8px;
+  --tabs-tab-padding-block: 4px;
+  --tabs-tab-padding-inline: 8px;
   --tabs-font-size: 12px;
   --tabs-line-height: 16px;
   --tabs-radius: 8px;
@@ -97,7 +99,8 @@ useResize(tabsElementRef, updateSliderStyle);
 .small {
   --tabs-height: 32px;
   --tabs-padding: 3px;
-  --tabs-tab-padding: 6px 12px;
+  --tabs-tab-padding-block: 6px;
+  --tabs-tab-padding-inline: 12px;
   --tabs-font-size: 13px;
   --tabs-line-height: 18px;
   --tabs-radius: 8px;
@@ -107,7 +110,8 @@ useResize(tabsElementRef, updateSliderStyle);
 .medium {
   --tabs-height: 36px;
   --tabs-padding: 4px;
-  --tabs-tab-padding: 8px 14px;
+  --tabs-tab-padding-block: 8px;
+  --tabs-tab-padding-inline: 14px;
   --tabs-font-size: 14px;
   --tabs-line-height: 20px;
   --tabs-radius: 10px;
@@ -117,7 +121,8 @@ useResize(tabsElementRef, updateSliderStyle);
 .large {
   --tabs-height: 40px;
   --tabs-padding: 4px;
-  --tabs-tab-padding: 8px 16px;
+  --tabs-tab-padding-block: 8px;
+  --tabs-tab-padding-inline: 16px;
   --tabs-font-size: 14px;
   --tabs-line-height: 20px;
   --tabs-radius: 10px;

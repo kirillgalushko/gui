@@ -45,3 +45,22 @@ export const Default: Story = {
     `,
   }),
 };
+
+export const Small: Story = {
+  render: () => ({
+    components: {
+      Empty,
+      EmptyDescription,
+      EmptyHeader,
+      EmptyTitle,
+    },
+    template: `
+      <Empty size="small">
+        <EmptyHeader>
+          <EmptyTitle>Нет событий</EmptyTitle>
+          <EmptyDescription>На этот день ничего не запланировано.</EmptyDescription>
+        </EmptyHeader>
+      </Empty>
+    `,
+  }),
+};

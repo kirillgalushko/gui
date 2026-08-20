@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { BorderRadius, Padding } from "../../types";
 
 interface Card {
+  Element?: "div" | "button";
   background?: "default" | "secondary";
   /** Делает фон полупрозрачным и размывает содержимое под карточкой. */
   blur?: boolean;
@@ -30,11 +32,17 @@ const props = withDefaults(defineProps<CardProps>(), {
   padding: 8,
   borderRadius: 16,
 });
+
+const element = computed(
+  () => props.Element ?? (props.interactive ? "button" : "div"),
+);
 </script>
 
 <template>
   <component
-    :is="props.interactive ? 'button' : 'div'"
+    v-bind="$attrs"
+    :is="element"
+    :type="element === 'button' ? 'button' : undefined"
     :class="[
       'card',
       props.background,
@@ -90,7 +98,11 @@ const props = withDefaults(defineProps<CardProps>(), {
 }
 
 .interactive:hover {
-  background-color: hsl(var(--secondary));
+  background-color: color-mix(
+    in oklab,
+    var(--gui-card-background) 80%,
+    hsl(var(--secondary))
+  );
 }
 
 .interactive:active {
