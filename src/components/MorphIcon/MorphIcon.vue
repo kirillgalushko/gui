@@ -91,7 +91,7 @@ function parseIconNodeFromRenderCode(renderCode: string): IconNode {
   while ((match = nodeCallRegex.exec(renderCode)) !== null) {
     const tag = match[2];
 
-    if (!SUPPORTED_SHAPES.has(tag)) {
+    if (tag === undefined || !SUPPORTED_SHAPES.has(tag)) {
       continue;
     }
 
