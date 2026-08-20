@@ -109,6 +109,9 @@ export const ImageViewer = ac(
 export const IconContainer = ac(
   () => import("./components/IconContainer/IconContainer.vue"),
 );
+export const MorphIcon = ac(
+  () => import("./components/MorphIcon/MorphIcon.vue"),
+);
 export const Action = ac(() => import("./components/Action/Action.vue"));
 export const AdaptiveModal = ac(
   () => import("./components/AdaptiveModal/AdaptiveModal.vue"),

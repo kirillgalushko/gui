@@ -1,0 +1,31 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/MorphIcon/Documentation" />
+
+# MorphIcon
+
+Компонент-обёртка над `MorphIcon` из `morphicons/vue` для плавного morph-перехода между иконками.
+
+Работает с `IconInput` напрямую (например, строкой `d`) и с иконками из `@gui/icons` в свойствах `icon`, `from` и `to`.
+
+## Примеры
+
+### Uncontrolled
+
+```vue
+<template>
+  <MorphIcon :icon="IconHomeOutline" :size="56" />
+</template>
+```
+
+### Controlled
+
+```vue
+<template>
+  <MorphIcon
+    :from="IconHomeOutline"
+    :to="IconMailOutline"
+    :progress="progress"
+  />
+</template>
+```

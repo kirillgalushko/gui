@@ -1,0 +1,20 @@
+{
+  "name": "MorphIcon",
+  "kind": "component",
+  "description": "Морфирующий иконкокомпонент на базе MorphIcon из библиотеки morphicons.",
+  "keywords": ["icon", "morph", "animation", "morphicon", "gui icons", "иконка", "морфинг"],
+  "useWhen": [
+    "Нужен плавный переход между иконками вместо резкой замены",
+    "Нужно использовать иконки из @gui/icons в анимированном виде"
+  ],
+  "toAvoid": [
+    "Не использовать для статических иконок без визуального эффекта морфинга"
+  ],
+  "rules": [
+    "Передавай иконки в пропсы icon/from/to как компоненты из @gui/icons или как IconInput",
+    "Обновляй source-иконку только через prop icon (uncontrolled) или through from/to+progress (controlled)",
+    "Добавляй label для доступности, если иконка несет смысл без текста"
+  ],
+  "alternatives": ["IconContainer", "Action"],
+  "commonlyUsedWith": ["Button", "Action", "Link"]
+}
