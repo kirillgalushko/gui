@@ -16,15 +16,15 @@ export interface SheetProps {
     closeOnOverlayClick?: boolean;
     closeOnEscape?: boolean;
 }
-declare var __VLS_9: {}, __VLS_20: {}, __VLS_33: {}, __VLS_35: {};
+declare var __VLS_19: {}, __VLS_30: {}, __VLS_46: {}, __VLS_51: {};
 type __VLS_Slots = {} & {
-    header?: (props: typeof __VLS_9) => any;
+    header?: (props: typeof __VLS_19) => any;
 } & {
-    actions?: (props: typeof __VLS_20) => any;
+    actions?: (props: typeof __VLS_30) => any;
 } & {
-    default?: (props: typeof __VLS_33) => any;
+    default?: (props: typeof __VLS_46) => any;
 } & {
-    footer?: (props: typeof __VLS_35) => any;
+    footer?: (props: typeof __VLS_51) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<SheetProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<SheetProps> & Readonly<{}>, {
     mode: SheetMode;

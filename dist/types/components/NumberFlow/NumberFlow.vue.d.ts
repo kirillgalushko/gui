@@ -34,9 +34,9 @@ declare const _default: import("vue").DefineComponent<NumberFlowProps, {}, {}, {
     "onAnimations-finish"?: (() => any) | undefined;
     "onAnimations-start"?: (() => any) | undefined;
 }>, {
+    Element: "a" | "button" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span";
     direction: NumberFlowDirection;
     textAlign: import("csstype").Property.TextAlign;
-    Element: "a" | "button" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span";
     typography: Typography;
     color: "default" | "negative" | "inherit" | "secondary";
     duration: number;

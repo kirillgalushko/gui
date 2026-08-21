@@ -53,9 +53,9 @@ declare const __VLS_component: import("vue").DefineComponent<import("vue").Extra
         default: boolean;
     };
 }>> & Readonly<{}>, {
+    border: boolean;
     minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
     maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
-    border: boolean;
     layout: "fixed" | "auto" | undefined;
     stickyHeader: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;

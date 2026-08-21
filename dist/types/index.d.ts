@@ -669,6 +669,75 @@ export declare const AttachmentTrigger: {
         default?: (props: {}) => any;
     };
 });
+export declare const Bubble: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./index.ts").BubbleProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        mode: import("./index.ts").BubbleMode;
+        size: import("./index.ts").BubbleSize;
+        align: import("./index.ts").BubbleAlign;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./index.ts").BubbleProps> & Readonly<{}>, {}, {}, {}, {}, {
+        mode: import("./index.ts").BubbleMode;
+        size: import("./index.ts").BubbleSize;
+        align: import("./index.ts").BubbleAlign;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./index.ts").BubbleProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    mode: import("./index.ts").BubbleMode;
+    size: import("./index.ts").BubbleSize;
+    align: import("./index.ts").BubbleAlign;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const BubbleContent: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./index.ts").BubbleContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        as: import("./index.ts").BubbleContentElement;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./index.ts").BubbleContentProps> & Readonly<{}>, {}, {}, {}, {}, {
+        as: import("./index.ts").BubbleContentElement;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./index.ts").BubbleContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    as: import("./index.ts").BubbleContentElement;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const BubbleGroup: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
 export declare const Timeline: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Timeline/Timeline.vue").TimelineProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         direction: import("./index.ts").TimelineDirection;
@@ -964,6 +1033,7 @@ export declare const IconContainer: {
         default?: (props: {}) => any;
     };
 });
+export declare const MorphIcon: import("vue").DefineComponent<import("./components/MorphIcon/MorphIcon.vue").MorphIconProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/MorphIcon/MorphIcon.vue").MorphIconProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export declare const Action: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -1031,6 +1101,8 @@ export declare const Avatar: {
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?: (props: {}) => any;
+    } & {
+        corner?: (props: {}) => any;
     };
 });
 export declare const AvatarGroup: {
@@ -1141,6 +1213,49 @@ export declare const ButtonGroup: {
 });
 export declare const ButtonGroupSeparator: import("vue").DefineComponent<import("./components/ButtonGroup/ButtonGroupSeparator.vue").ButtonGroupSeparatorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/ButtonGroup/ButtonGroupSeparator.vue").ButtonGroupSeparatorProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export declare const ButtonGroupText: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const Kbd: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Kbd/Kbd.vue").KbdProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        mode: import("./components/Kbd/Kbd.vue").KbdMode;
+        size: import("./components/Kbd/Kbd.vue").KbdSize;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Kbd/Kbd.vue").KbdProps> & Readonly<{}>, {}, {}, {}, {}, {
+        mode: import("./components/Kbd/Kbd.vue").KbdMode;
+        size: import("./components/Kbd/Kbd.vue").KbdSize;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Kbd/Kbd.vue").KbdProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    mode: import("./components/Kbd/Kbd.vue").KbdMode;
+    size: import("./components/Kbd/Kbd.vue").KbdSize;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const KbdGroup: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -1455,6 +1570,69 @@ export declare const Card: import("vue").DefineSetupFnComponent<Record<string, a
         default?: (props: {}) => any;
     };
 });
+export declare const CardHeader: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const CardContent: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const CardFooter: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
 export declare const Checkbox: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Checkbox/Checkbox.vue").CheckboxProps & {
         modelValue?: boolean | unknown[];
@@ -1576,11 +1754,21 @@ export declare const ScrollArea: {
             type: BooleanConstructor;
             default: boolean;
         };
+        fade: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        fadeSize: {
+            type: import("vue").PropType<import("./components/ScrollArea/ScrollArea.vue").ScrollAreaProps["fadeSize"]>;
+            default: undefined;
+        };
     }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         orientation: import("./index.ts").ScrollAreaOrientation;
         keyboardFocusable: boolean;
         stableScrollbar: boolean;
+        fade: boolean;
+        fadeSize: import("csstype").Property.Width<string | number> | undefined;
     }, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -1605,11 +1793,21 @@ export declare const ScrollArea: {
             type: BooleanConstructor;
             default: boolean;
         };
+        fade: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        fadeSize: {
+            type: import("vue").PropType<import("./components/ScrollArea/ScrollArea.vue").ScrollAreaProps["fadeSize"]>;
+            default: undefined;
+        };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
         maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         orientation: import("./index.ts").ScrollAreaOrientation;
         keyboardFocusable: boolean;
         stableScrollbar: boolean;
+        fade: boolean;
+        fadeSize: import("csstype").Property.Width<string | number> | undefined;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -1631,11 +1829,21 @@ export declare const ScrollArea: {
         type: BooleanConstructor;
         default: boolean;
     };
+    fade: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    fadeSize: {
+        type: import("vue").PropType<import("./components/ScrollArea/ScrollArea.vue").ScrollAreaProps["fadeSize"]>;
+        default: undefined;
+    };
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
     maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     orientation: import("./index.ts").ScrollAreaOrientation;
     keyboardFocusable: boolean;
     stableScrollbar: boolean;
+    fade: boolean;
+    fadeSize: import("csstype").Property.Width<string | number> | undefined;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?: (props: {}) => any;
@@ -1871,9 +2079,9 @@ export declare const FieldTitle: {
     };
 });
 export declare const FormError: import("vue").DefineComponent<import("./components/FormError/FormError.vue").FormErrorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./components/FormError/FormError.vue").FormErrorProps> & Readonly<{}>, {
+    Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "a" | "button" | "label";
     gap: string;
     textAlign: import("csstype").Property.TextAlign;
-    Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "a" | "button" | "label";
     typography: import("./components/Text/types.ts").Typography;
     color: "default" | "inherit" | "secondary" | "negative";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
@@ -2291,6 +2499,7 @@ export declare const ItemDescription: {
 });
 export declare const ItemGroup: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Item/ItemGroup.vue").ItemGroupProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        mode: import("./components/Item/ItemGroup.vue").ItemGroupMode;
         stretched: boolean;
         separated: boolean;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
@@ -2301,6 +2510,7 @@ export declare const ItemGroup: {
         M: {};
         Defaults: {};
     }, Readonly<import("./components/Item/ItemGroup.vue").ItemGroupProps> & Readonly<{}>, {}, {}, {}, {}, {
+        mode: import("./components/Item/ItemGroup.vue").ItemGroupMode;
         stretched: boolean;
         separated: boolean;
     }>;
@@ -2308,6 +2518,7 @@ export declare const ItemGroup: {
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Item/ItemGroup.vue").ItemGroupProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    mode: import("./components/Item/ItemGroup.vue").ItemGroupMode;
     stretched: boolean;
     separated: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
@@ -2433,10 +2644,10 @@ export declare const Sidebar: {
         mode: "default" | "floating";
         width: number;
         maxWidth: string;
+        padding: import("./types/index.ts").Padding;
         minWidth: string;
         mobileOpen: boolean;
         mobile: boolean;
-        padding: import("./types/index.ts").Padding;
         compactWidth: number;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -2451,10 +2662,10 @@ export declare const Sidebar: {
         mode: "default" | "floating";
         width: number;
         maxWidth: string;
+        padding: import("./types/index.ts").Padding;
         minWidth: string;
         mobileOpen: boolean;
         mobile: boolean;
-        padding: import("./types/index.ts").Padding;
         compactWidth: number;
     }>;
     __isFragment?: never;
@@ -2468,10 +2679,10 @@ export declare const Sidebar: {
     mode: "default" | "floating";
     width: number;
     maxWidth: string;
+    padding: import("./types/index.ts").Padding;
     minWidth: string;
     mobileOpen: boolean;
     mobile: boolean;
-    padding: import("./types/index.ts").Padding;
     compactWidth: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -2566,9 +2777,9 @@ export declare const Table: {
             default: boolean;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
         minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
         maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
-        border: boolean;
         layout: "fixed" | "auto" | undefined;
         stickyHeader: boolean;
     }, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
@@ -2600,9 +2811,9 @@ export declare const Table: {
             default: boolean;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
         minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
         maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
-        border: boolean;
         layout: "fixed" | "auto" | undefined;
         stickyHeader: boolean;
     }>;
@@ -2631,9 +2842,9 @@ export declare const Table: {
         default: boolean;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
     minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
     maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
-    border: boolean;
     layout: "fixed" | "auto" | undefined;
     stickyHeader: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
@@ -2840,8 +3051,8 @@ export declare const TableRow: {
 });
 export declare const Text: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Text/types.ts").TextProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
-        textAlign: import("csstype").Property.TextAlign;
         Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "a" | "button" | "label";
+        textAlign: import("csstype").Property.TextAlign;
         color: "default" | "inherit" | "secondary" | "negative";
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -2851,16 +3062,16 @@ export declare const Text: {
         M: {};
         Defaults: {};
     }, Readonly<import("./components/Text/types.ts").TextProps> & Readonly<{}>, {}, {}, {}, {}, {
-        textAlign: import("csstype").Property.TextAlign;
         Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "a" | "button" | "label";
+        textAlign: import("csstype").Property.TextAlign;
         color: "default" | "inherit" | "secondary" | "negative";
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Text/types.ts").TextProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
-    textAlign: import("csstype").Property.TextAlign;
     Element: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "a" | "button" | "label";
+    textAlign: import("csstype").Property.TextAlign;
     color: "default" | "inherit" | "secondary" | "negative";
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -3126,6 +3337,69 @@ export declare const Modal: {
         footer?: (props: {}) => any;
     };
 });
+export declare const ModalHeader: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const ModalContent: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const ModalFooter: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
 export declare const PasswordInput: import("vue").DefineComponent<import("./components/PasswordInput/PasswordInput.vue").PasswordInputProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (value: string) => any;
 }, string, import("vue").PublicProps, Readonly<import("./components/PasswordInput/PasswordInput.vue").PasswordInputProps> & Readonly<{
@@ -3221,6 +3495,73 @@ export declare const Dropdown: {
     };
 });
 export type { DropdownContentWidth } from "./components/Dropdown/Dropdown.vue";
+export declare const EmojiPicker: import("vue").DefineComponent<import("./components/EmojiPicker/EmojiPicker.vue").EmojiPickerProps & {
+    modelValue?: string;
+}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    select: (value: string) => any;
+    "update:modelValue": (value: string | undefined) => any;
+    "select-emoji": (emoji: import("./index.ts").EmojiPickerEmoji) => any;
+}, string, import("vue").PublicProps, Readonly<import("./components/EmojiPicker/EmojiPicker.vue").EmojiPickerProps & {
+    modelValue?: string;
+}> & Readonly<{
+    onSelect?: ((value: string) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string | undefined) => any) | undefined;
+    "onSelect-emoji"?: ((emoji: import("./index.ts").EmojiPickerEmoji) => any) | undefined;
+}>, {
+    size: import("./index.ts").EmojiPickerSize;
+    placeholder: string;
+    ariaLabel: string;
+    categories: readonly import("./index.ts").EmojiPickerCategory[];
+    emptyLabel: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const EmojiPickerDropdown: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/EmojiPicker/EmojiPickerDropdown.vue").EmojiPickerDropdownProps> & Readonly<{
+        onSelect?: ((value: string) => any) | undefined;
+        "onUpdate:shown"?: ((shown: boolean) => any) | undefined;
+        "onSelect-emoji"?: ((emoji: import("./index.ts").EmojiPickerEmoji) => any) | undefined;
+    }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        select: (value: string) => any;
+        "update:shown": (shown: boolean) => any;
+        "select-emoji": (emoji: import("./index.ts").EmojiPickerEmoji) => any;
+    }, import("vue").PublicProps, {
+        size: import("./index.ts").EmojiPickerSize;
+        closeOnSelect: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/EmojiPicker/EmojiPickerDropdown.vue").EmojiPickerDropdownProps> & Readonly<{
+        onSelect?: ((value: string) => any) | undefined;
+        "onUpdate:shown"?: ((shown: boolean) => any) | undefined;
+        "onSelect-emoji"?: ((emoji: import("./index.ts").EmojiPickerEmoji) => any) | undefined;
+    }>, {}, {}, {}, {}, {
+        size: import("./index.ts").EmojiPickerSize;
+        closeOnSelect: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/EmojiPicker/EmojiPickerDropdown.vue").EmojiPickerDropdownProps> & Readonly<{
+    onSelect?: ((value: string) => any) | undefined;
+    "onUpdate:shown"?: ((shown: boolean) => any) | undefined;
+    "onSelect-emoji"?: ((emoji: import("./index.ts").EmojiPickerEmoji) => any) | undefined;
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    select: (value: string) => any;
+    "update:shown": (shown: boolean) => any;
+    "select-emoji": (emoji: import("./index.ts").EmojiPickerEmoji) => any;
+}, string, {
+    size: import("./index.ts").EmojiPickerSize;
+    closeOnSelect: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export type { EmojiPickerCategory, EmojiPickerCategoryId, EmojiPickerEmoji, EmojiPickerSize, } from "./components/EmojiPicker/types";
+export { insertEmojiAtSelection, type EmojiInsertionParams, type EmojiInsertionResult, } from "./components/EmojiPicker/emojiInsertion";
 export declare const DropdownGroup: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -3546,9 +3887,9 @@ export declare const FilterMenu: {
         label: string;
         contentWidth: import("./index.ts").DropdownContentWidth;
         closeOnSelect: boolean;
+        emptyLabel: string;
         searchPlaceholder: string;
         optionSearchPlaceholder: string;
-        emptyLabel: string;
         searchable: boolean;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -3565,9 +3906,9 @@ export declare const FilterMenu: {
         label: string;
         contentWidth: import("./index.ts").DropdownContentWidth;
         closeOnSelect: boolean;
+        emptyLabel: string;
         searchPlaceholder: string;
         optionSearchPlaceholder: string;
-        emptyLabel: string;
         searchable: boolean;
     }>;
     __isFragment?: never;
@@ -3583,9 +3924,9 @@ export declare const FilterMenu: {
     label: string;
     contentWidth: import("./index.ts").DropdownContentWidth;
     closeOnSelect: boolean;
+    emptyLabel: string;
     searchPlaceholder: string;
     optionSearchPlaceholder: string;
-    emptyLabel: string;
     searchable: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -3795,6 +4136,76 @@ export declare const VisibilityMenu: {
         }) => any;
     };
 });
+export declare const SortMenu: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Filters/SortMenu.vue").SortMenuProps & {
+        modelValue: import("./index.ts").SortState;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").SortState) => any) | undefined;
+    }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+        "update:modelValue": (value: import("./index.ts").SortState) => any;
+    }, import("vue").PublicProps, {
+        mode: import("./index.ts").FilterControlMode;
+        size: import("./index.ts").ComponentSize;
+        label: string;
+        contentWidth: import("./index.ts").DropdownContentWidth;
+        fieldLabel: string;
+        orderLabel: string;
+        ascendingLabel: string;
+        descendingLabel: string;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Filters/SortMenu.vue").SortMenuProps & {
+        modelValue: import("./index.ts").SortState;
+    }> & Readonly<{
+        "onUpdate:modelValue"?: ((value: import("./index.ts").SortState) => any) | undefined;
+    }>, {}, {}, {}, {}, {
+        mode: import("./index.ts").FilterControlMode;
+        size: import("./index.ts").ComponentSize;
+        label: string;
+        contentWidth: import("./index.ts").DropdownContentWidth;
+        fieldLabel: string;
+        orderLabel: string;
+        ascendingLabel: string;
+        descendingLabel: string;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Filters/SortMenu.vue").SortMenuProps & {
+    modelValue: import("./index.ts").SortState;
+}> & Readonly<{
+    "onUpdate:modelValue"?: ((value: import("./index.ts").SortState) => any) | undefined;
+}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: import("./index.ts").SortState) => any;
+}, string, {
+    mode: import("./index.ts").FilterControlMode;
+    size: import("./index.ts").ComponentSize;
+    label: string;
+    contentWidth: import("./index.ts").DropdownContentWidth;
+    fieldLabel: string;
+    orderLabel: string;
+    ascendingLabel: string;
+    descendingLabel: string;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        trigger?: (props: {
+            label: string;
+            sort: import("./index.ts").SortState;
+            option: import("./index.ts").SortOption | undefined;
+        }) => any;
+    } & {
+        option?: (props: {
+            option: import("./index.ts").SortOption;
+            selected: boolean;
+        }) => any;
+    };
+});
+export type { SortOption, SortOrder, SortState, } from "./components/Filters/types";
 export declare const Sheet: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Sheet/Sheet.vue").SheetProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         mode: "default" | "floating";
@@ -3840,6 +4251,69 @@ export declare const Sheet: {
         default?: (props: {}) => any;
     } & {
         footer?: (props: {}) => any;
+    };
+});
+export declare const SheetHeader: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Card/CardHeader.vue").CardHeaderProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const SheetContent: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        border: boolean;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, {
+        border: boolean;
+    }>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Card/CardContent.vue").CardContentProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    border: boolean;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
+    };
+});
+export declare const SheetFooter: {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+    $slots: {
+        default?: (props: {}) => any;
     };
 });
 export declare const Skeleton: {
@@ -3957,8 +4431,8 @@ export declare const ButtonSkeleton: {
 export declare const CardSkeleton: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Skeleton/CardSkeleton.vue").CardSkeletonProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         width: string;
-        borderRadius: import("./types/index.ts").BorderRadius;
         padding: import("./types/index.ts").Padding;
+        borderRadius: import("./types/index.ts").BorderRadius;
         withAvatar: boolean;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -3969,8 +4443,8 @@ export declare const CardSkeleton: {
         Defaults: {};
     }, Readonly<import("./components/Skeleton/CardSkeleton.vue").CardSkeletonProps> & Readonly<{}>, {}, {}, {}, {}, {
         width: string;
-        borderRadius: import("./types/index.ts").BorderRadius;
         padding: import("./types/index.ts").Padding;
+        borderRadius: import("./types/index.ts").BorderRadius;
         withAvatar: boolean;
     }>;
     __isFragment?: never;
@@ -3978,8 +4452,8 @@ export declare const CardSkeleton: {
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Skeleton/CardSkeleton.vue").CardSkeletonProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
     width: string;
-    borderRadius: import("./types/index.ts").BorderRadius;
     padding: import("./types/index.ts").Padding;
+    borderRadius: import("./types/index.ts").BorderRadius;
     withAvatar: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -4045,18 +4519,24 @@ export declare const TextSkeleton: {
     };
 });
 export declare const Empty: {
-    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {}, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
+    new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Empty/Empty.vue").EmptyProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        size: import("./components/Empty/Empty.vue").EmptySize;
+    }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
         D: {};
         C: {};
         M: {};
         Defaults: {};
-    }, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, {}>;
+    }, Readonly<import("./components/Empty/Empty.vue").EmptyProps> & Readonly<{}>, {}, {}, {}, {}, {
+        size: import("./components/Empty/Empty.vue").EmptySize;
+    }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
-} & import("vue").ComponentOptionsBase<Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
+} & import("vue").ComponentOptionsBase<Readonly<import("./components/Empty/Empty.vue").EmptyProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    size: import("./components/Empty/Empty.vue").EmptySize;
+}, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?: (props: {}) => any;
     };
@@ -4424,9 +4904,9 @@ export declare const NumberFlow: import("vue").DefineComponent<import("./index.t
     "onAnimations-finish"?: (() => any) | undefined;
     "onAnimations-start"?: (() => any) | undefined;
 }>, {
+    Element: "a" | "button" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span";
     direction: import("./index.ts").NumberFlowDirection;
     textAlign: import("csstype").Property.TextAlign;
-    Element: "a" | "button" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "p" | "span";
     typography: import("./components/Text/types.ts").Typography;
     color: "default" | "negative" | "inherit" | "secondary";
     duration: number;
@@ -5121,6 +5601,8 @@ export type { DateInputChangePayload, DateInputValue, } from "./components/DateI
 export type { DatePickerChangePayload, DatePickerValue, } from "./components/DatePicker/types";
 export type { HourPickerChangePayload, HourPickerValue, } from "./components/HourPicker/types";
 export type { AttachmentMediaVariant, AttachmentOrientation, AttachmentSize, AttachmentState, } from "./components/Attachment/types";
+export type { BubbleAlign, BubbleMode, BubbleProps, BubbleSize, } from "./components/Bubble/Bubble.vue";
+export type { BubbleContentElement, BubbleContentProps, } from "./components/Bubble/BubbleContent.vue";
 export type { TimelineColor, TimelineDatePosition, TimelineDirection, TimelineIndicatorSize, TimelineIndicatorVariant, TimelineItemState, TimelineOrientation, TimelineStep, TimelineTone, } from "./components/Timeline/types";
 export type { FileUploadListOrientation, FileUploadRejection, FileUploadSize, FileUploadValidator, } from "./components/FileUpload/types";
 export type { ImageViewerError, ImageViewerItem, ImageViewerThumbnails, } from "./components/ImageViewer/types";

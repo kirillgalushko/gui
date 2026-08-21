@@ -10,9 +10,11 @@ export interface AvatarProps {
     name?: string;
     size?: string;
 }
-declare var __VLS_1: {};
+declare var __VLS_1: {}, __VLS_3: {};
 type __VLS_Slots = {} & {
     default?: (props: typeof __VLS_1) => any;
+} & {
+    corner?: (props: typeof __VLS_3) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<AvatarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<AvatarProps> & Readonly<{}>, {
     mode: AvatarMode;

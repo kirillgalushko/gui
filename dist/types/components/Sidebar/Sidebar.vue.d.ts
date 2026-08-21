@@ -24,10 +24,10 @@ declare const __VLS_component: import("vue").DefineComponent<SidebarProps, {}, {
     mode: "default" | "floating";
     width: number;
     maxWidth: string;
+    padding: Padding;
     minWidth: string;
     mobileOpen: boolean;
     mobile: boolean;
-    padding: Padding;
     compactWidth: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;

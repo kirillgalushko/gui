@@ -1,4 +1,6 @@
+export type ItemGroupMode = "outlined" | "plain";
 export interface ItemGroupProps {
+    mode?: ItemGroupMode;
     separated?: boolean;
     stretched?: boolean;
 }
@@ -7,6 +9,7 @@ type __VLS_Slots = {} & {
     default?: (props: typeof __VLS_1) => any;
 };
 declare const __VLS_component: import("vue").DefineComponent<ItemGroupProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ItemGroupProps> & Readonly<{}>, {
+    mode: ItemGroupMode;
     stretched: boolean;
     separated: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
