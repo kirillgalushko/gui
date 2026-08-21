@@ -1,0 +1,12 @@
+{
+  "name": "CardHeader",
+  "kind": "component",
+  "description": "Верхняя секция Card для заголовка, описания и связанных действий.",
+  "keywords": ["card header", "card title", "card description", "карточка"],
+  "useWhen": ["Нужно добавить вводную часть в начало Card"],
+  "rules": [
+    "Использовать только внутри Card",
+    "Передавать border, когда после заголовка нужен нижний разделитель"
+  ],
+  "commonlyUsedWith": ["Card", "Text", "Button"]
+}

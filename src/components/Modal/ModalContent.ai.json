@@ -1,0 +1,9 @@
+{
+  "name": "ModalContent",
+  "kind": "component",
+  "description": "Переэкспорт CardContent для основной секции Modal.",
+  "keywords": ["modal content", "dialog content", "модальное окно"],
+  "useWhen": ["Нужна основная секция модального окна"],
+  "rules": ["Использовать внутри Modal"],
+  "commonlyUsedWith": ["Modal", "ModalHeader", "ModalFooter"]
+}

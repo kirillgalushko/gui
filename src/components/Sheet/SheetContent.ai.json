@@ -1,0 +1,9 @@
+{
+  "name": "SheetContent",
+  "kind": "component",
+  "description": "Переэкспорт CardContent для основной секции Sheet.",
+  "keywords": ["sheet content", "drawer content", "панель"],
+  "useWhen": ["Нужна прокручиваемая основная секция выезжающей панели"],
+  "rules": ["Использовать внутри Sheet"],
+  "commonlyUsedWith": ["Sheet", "SheetHeader", "SheetFooter"]
+}

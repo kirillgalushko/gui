@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/Card/Documentation" />
+
+# Card
+
+`Card` группирует связанный контент на общей поверхности. Используйте составные части для
+структуры, аналогичной shadcn: `CardHeader`, `CardContent` и `CardFooter`.
+
+```vue
+<Card stretched :padding="24">
+  <CardHeader border>
+    <Text typography="title-2">Условия использования</Text>
+    <Text typography="paragraph-2" color="secondary">
+      Ознакомьтесь с условиями перед продолжением.
+    </Text>
+  </CardHeader>
+  <CardContent border>
+    Первая секция содержимого.
+  </CardContent>
+  <CardContent>
+    Вторая секция содержимого.
+  </CardContent>
+  <CardFooter>
+    <Button mode="default">Отменить</Button>
+    <Button mode="contrast">Продолжить</Button>
+  </CardFooter>
+</Card>
+```
+
+- `CardHeader` выравнивает содержимое по верхнему краю карточки.
+- `CardContent` содержит основной контент и получает отступы Card.
+- `CardFooter` имеет верхний разделитель и поверхность для действий.
+- Props `border` у `CardHeader` и `CardContent` добавляют нижний разделитель. Если следующая
+  секция — `CardFooter`, Card скрывает его повторный верхний разделитель.
+- Отступ и радиус всех секций наследуются от props `padding` и `borderRadius` компонента `Card`.

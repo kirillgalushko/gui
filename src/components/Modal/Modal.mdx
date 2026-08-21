@@ -1,0 +1,30 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/Modal/Documentation" />
+
+# Modal
+
+`Modal` использует `Card` как поверхность диалога. `title`, `description` и слот `footer`
+остаются совместимы с предыдущим API; внутри они рендерятся через `ModalHeader`,
+`ModalContent` и `ModalFooter`.
+
+```vue
+<Modal
+  :isOpened="visible"
+  :onClose="close"
+  title="Сохранить изменения?"
+  showCloseButton
+>
+  Изменения будут сохранены для всех участников.
+
+  <template #footer>
+    <Button @click="close">Отмена</Button>
+    <Button mode="contrast" @click="save">Сохранить</Button>
+  </template>
+</Modal>
+```
+
+- `ModalHeader`, `ModalContent` и `ModalFooter` — типизированные переэкспорты соответствующих
+  частей `Card` для единого API диалогов и карточек.
+- `ModalFooter` добавляется только при наличии слота `footer` и выравнивает действия справа.
+- Для мобильных сценариев используйте `AdaptiveModal`.

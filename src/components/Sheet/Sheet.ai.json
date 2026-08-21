@@ -1,7 +1,7 @@
 {
   "name": "Sheet",
   "kind": "component",
-  "description": "Выезжающая панель с обычным или floating-отображением для дополнительного контента.",
+  "description": "Выезжающая панель на основе Card с обычным или floating-отображением для дополнительного контента.",
   "keywords": ["sheet", "drawer", "panel", "sidebar"],
   "useWhen": [
     "Нужно показать дополнительный интерфейс без перехода на другую страницу"
@@ -14,5 +14,10 @@
     "Overlay телепортируется в body и не зависит от stacking context родительского контейнера"
   ],
   "alternatives": ["Modal", "AdaptiveModal"],
-  "commonlyUsedWith": ["Button"]
+  "commonlyUsedWith": [
+    "SheetHeader",
+    "SheetContent",
+    "SheetFooter",
+    "Button"
+  ]
 }

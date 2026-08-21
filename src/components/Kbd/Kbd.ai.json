@@ -1,0 +1,11 @@
+{
+  "name": "Kbd",
+  "kind": "component",
+  "description": "Семантическое отображение отдельной клавиши или сочетания клавиш.",
+  "keywords": ["kbd", "keyboard", "shortcut", "key", "клавиатура", "горячая клавиша"],
+  "useWhen": ["Нужно показать клавишу или часть сочетания клавиш в интерфейсе"],
+  "toAvoid": ["Не использовать как интерактивный элемент или замену Button"],
+  "rules": ["Передавай название клавиши в default slot", "Для нескольких клавиш используй KbdGroup", "Используй mode для согласования с цветом Button: default, contrast, secondary или outline", "По умолчанию используется компактный size=small"],
+  "alternatives": [],
+  "commonlyUsedWith": ["KbdGroup", "Button", "Tooltip"]
+}

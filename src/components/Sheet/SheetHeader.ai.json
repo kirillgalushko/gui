@@ -1,0 +1,9 @@
+{
+  "name": "SheetHeader",
+  "kind": "component",
+  "description": "Переэкспорт CardHeader для верхней секции Sheet.",
+  "keywords": ["sheet header", "drawer header", "панель"],
+  "useWhen": ["Нужна верхняя секция выезжающей панели"],
+  "rules": ["Использовать внутри Sheet"],
+  "commonlyUsedWith": ["Sheet", "SheetContent", "SheetFooter"]
+}

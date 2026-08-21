@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { computed, getCurrentInstance } from "vue";
-import Button from "../Button/Button.vue";
-import Gap from "../Gap/Gap.vue";
+import { computed } from "vue";
 import { IconXOutline } from "@gui/icons";
+import Button from "../Button/Button.vue";
+import Card from "../Card/Card.vue";
 import Text from "../Text/Text.vue";
+import ModalContent from "./ModalContent.vue";
+import ModalFooter from "./ModalFooter.vue";
+import ModalHeader from "./ModalHeader.vue";
 
 type ModalSize = "small" | "medium" | "large" | "full";
 
@@ -19,21 +22,9 @@ export interface ModalProps {
 const props = withDefaults(defineProps<ModalProps>(), {
   size: "medium",
 });
-const instance = getCurrentInstance();
-const gridTemplateAreas = computed(() => {
-  const footer = instance?.slots.footer ? '"footer footer"' : "";
-  if (props.title || props.description) {
-    return `
-      "title close"
-      "content content"
-      ${footer}
-    `;
-  }
-  return `
-     "content close"
-      ${footer}
-  `;
-});
+const hasHeader = computed(
+  () => props.title || props.description || props.showCloseButton,
+);
 </script>
 
 <template>
@@ -41,22 +32,26 @@ const gridTemplateAreas = computed(() => {
     <Transition name="fade">
       <div class="modal-wrapper" v-if="props.isOpened">
         <div class="modal-bg"></div>
-        <div :class="['modal', props.size]" role="dialog">
-          <div
-            :style="{ gridTemplateAreas }"
-            :class="[
-              'modal-layout',
-              {
-                'with-title': !!(props.title || props.description),
-                'with-close': !!props.showCloseButton,
-              },
-            ]"
+        <Card
+          :class="['modal', props.size]"
+          :padding="16"
+          :borderRadius="24"
+          stretched
+          role="dialog"
+          aria-modal="true"
+        >
+          <ModalHeader
+            v-if="hasHeader"
+            :class="['modal-header', { 'with-close': props.showCloseButton }]"
+            :border="!!(props.title || props.description)"
           >
-            <div v-if="props.title || props.description" class="modal-title">
-              <Text v-if="props.title" typography="title-3">
+            <div
+              v-if="props.title || props.description"
+              class="modal-heading modal-title"
+            >
+              <Text v-if="props.title" typography="title-2">
                 {{ props.title }}
               </Text>
-              <Gap v-if="props.title && props.description" :size="1" />
               <Text
                 v-if="props.description"
                 typography="paragraph-1"
@@ -65,25 +60,27 @@ const gridTemplateAreas = computed(() => {
                 {{ props.description }}
               </Text>
             </div>
-            <div v-if="props.showCloseButton" class="modal-close">
-              <Button
-                mode="ghost"
-                size="small"
-                squared
-                aria-label="Закрыть"
-                @click="props.onClose"
-              >
-                <IconXOutline />
-              </Button>
-            </div>
-            <div class="modal-content">
-              <slot></slot>
-            </div>
-            <div v-if="$slots.footer" class="modal-footer">
-              <slot name="footer"></slot>
-            </div>
-          </div>
-        </div>
+            <Button
+              v-if="props.showCloseButton"
+              class="modal-close"
+              mode="ghost"
+              size="small"
+              squared
+              aria-label="Закрыть"
+              @click="props.onClose"
+            >
+              <IconXOutline />
+            </Button>
+          </ModalHeader>
+
+          <ModalContent class="modal-content">
+            <slot></slot>
+          </ModalContent>
+
+          <ModalFooter v-if="$slots.footer" class="modal-footer">
+            <slot name="footer"></slot>
+          </ModalFooter>
+        </Card>
       </div>
     </Transition>
   </Teleport>
@@ -126,16 +123,14 @@ const gridTemplateAreas = computed(() => {
   max-width: calc(100vw - var(--gap-4));
   max-height: calc(100vh - var(--gap-4));
   max-height: calc(100dvh - var(--gap-4));
-  padding: var(--gap-6);
-  border-radius: 24px;
   z-index: 101;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
-  border: 1px solid hsl(var(--border));
   display: flex;
-  background-color: hsl(var(--background));
+  min-height: 0;
+  flex-direction: column;
 }
 
 .small {
@@ -154,47 +149,33 @@ const gridTemplateAreas = computed(() => {
   --modal-size: calc(100vw - var(--gap-4));
 }
 
-.modal-layout {
-  display: grid;
-  grid-template-areas: "content close" "footer footer";
-  grid-template-columns: 100% 0px;
-  row-gap: 12px;
-  width: 100%;
-  min-height: 0;
-  max-height: inherit;
-}
-
-.modal-layout.with-close {
-  grid-template-columns: calc(100% - 40px) 40px;
-}
-
 .modal-content {
-  grid-area: content;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
 }
 
-.modal-title {
-  grid-area: title;
-  align-self: center;
-  padding-right: 12px;
+.modal-heading {
   word-break: break-word;
 }
 
+.modal-header {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.modal-header.with-close {
+  padding-right: calc(var(--gui-card-padding) + var(--gap-2) + 32px);
+}
+
 .modal-close {
-  grid-area: close;
-  align-self: start;
-  justify-self: end;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 32px;
+  position: absolute;
+  top: 0;
+  right: var(--gui-card-padding);
 }
 
 .modal-footer {
-  grid-area: footer;
-  display: flex;
-  gap: 12px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .fade-enter-active,
@@ -227,11 +208,5 @@ const gridTemplateAreas = computed(() => {
 .fade-enter-to .modal,
 .fade-leave-from .modal {
   top: 50%;
-}
-
-@media (max-width: 560px) {
-  .modal {
-    padding: var(--gap-5);
-  }
 }
 </style>

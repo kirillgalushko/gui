@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import type { BorderRadius, Padding } from "../../types";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 interface Card {
-  Element?: "div" | "button";
+  Element?: "div" | "button" | "section";
   background?: "default" | "secondary";
   /** Делает фон полупрозрачным и размывает содержимое под карточкой. */
   blur?: boolean;
@@ -36,10 +40,16 @@ const props = withDefaults(defineProps<CardProps>(), {
 const element = computed(
   () => props.Element ?? (props.interactive ? "button" : "div"),
 );
+const cardRef = ref<HTMLElement | null>(null);
+
+defineExpose({
+  element: cardRef,
+});
 </script>
 
 <template>
   <component
+    ref="cardRef"
     v-bind="$attrs"
     :is="element"
     :type="element === 'button' ? 'button' : undefined"
@@ -54,6 +64,8 @@ const element = computed(
       },
     ]"
     :style="{
+      '--gui-card-padding': `${props.padding}px`,
+      '--gui-card-border-radius': `${props.borderRadius}px`,
       padding: `${props.padding}px`,
       borderRadius: `${props.borderRadius}px`,
     }"
@@ -120,5 +132,34 @@ const element = computed(
 
 .full-height {
   height: 100%;
+}
+
+.card > :deep(.card-content:first-child) {
+  margin-top: calc(var(--gui-card-padding) * -1);
+}
+
+.card > :deep(.card-content:last-child) {
+  margin-bottom: calc(var(--gui-card-padding) * -1);
+}
+
+.card > :deep(.card-content + .card-content) {
+  padding-top: 0;
+}
+
+.card > :deep(.card-content[data-border] + .card-content) {
+  padding-top: var(--gui-card-padding);
+}
+
+.card > :deep(.card-header + .card-footer) {
+  margin-top: var(--gui-card-padding);
+}
+
+.card > :deep(.card-header[data-border] + .card-footer) {
+  margin-top: 0;
+}
+
+.card > :deep(.card-header[data-border] + .card-footer),
+.card > :deep(.card-content[data-border] + .card-footer) {
+  border-top: 0;
 }
 </style>

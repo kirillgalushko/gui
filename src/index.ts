@@ -81,6 +81,13 @@ export const AttachmentTitle = ac(
 export const AttachmentTrigger = ac(
   () => import("./components/Attachment/AttachmentTrigger.vue"),
 );
+export const Bubble = ac(() => import("./components/Bubble/Bubble.vue"));
+export const BubbleContent = ac(
+  () => import("./components/Bubble/BubbleContent.vue"),
+);
+export const BubbleGroup = ac(
+  () => import("./components/Bubble/BubbleGroup.vue"),
+);
 export const Timeline = ac(() => import("./components/Timeline/Timeline.vue"));
 export const TimelineContent = ac(
   () => import("./components/Timeline/TimelineContent.vue"),
@@ -141,6 +148,8 @@ export const ButtonGroupSeparator = ac(
 export const ButtonGroupText = ac(
   () => import("./components/ButtonGroup/ButtonGroupText.vue"),
 );
+export const Kbd = ac(() => import("./components/Kbd/Kbd.vue"));
+export const KbdGroup = ac(() => import("./components/Kbd/KbdGroup.vue"));
 export const Breadcrumb = ac(
   () => import("./components/Breadcrumb/Breadcrumb.vue"),
 );
@@ -187,6 +196,11 @@ export const PaginationSummary = ac(
   () => import("./components/Pagination/PaginationSummary.vue"),
 );
 export const Card = ac(() => import("./components/Card/Card.vue"));
+export const CardHeader = ac(() => import("./components/Card/CardHeader.vue"));
+export const CardContent = ac(
+  () => import("./components/Card/CardContent.vue"),
+);
+export const CardFooter = ac(() => import("./components/Card/CardFooter.vue"));
 export const Checkbox = ac(() => import("./components/Checkbox/Checkbox.vue"));
 export const RadioGroup = ac(
   () => import("./components/RadioGroup/RadioGroup.vue"),
@@ -331,6 +345,15 @@ export const SidebarSubItem = ac(
   () => import("./components/Sidebar/SidebarSubItem.vue"),
 );
 export const Modal = ac(() => import("./components/Modal/Modal.vue"));
+export const ModalHeader = ac(
+  () => import("./components/Modal/ModalHeader.vue"),
+);
+export const ModalContent = ac(
+  () => import("./components/Modal/ModalContent.vue"),
+);
+export const ModalFooter = ac(
+  () => import("./components/Modal/ModalFooter.vue"),
+);
 export const PasswordInput = ac(
   () => import("./components/PasswordInput/PasswordInput.vue"),
 );
@@ -394,6 +417,15 @@ export type {
   SortState,
 } from "./components/Filters/types";
 export const Sheet = ac(() => import("./components/Sheet/Sheet.vue"));
+export const SheetHeader = ac(
+  () => import("./components/Sheet/SheetHeader.vue"),
+);
+export const SheetContent = ac(
+  () => import("./components/Sheet/SheetContent.vue"),
+);
+export const SheetFooter = ac(
+  () => import("./components/Sheet/SheetFooter.vue"),
+);
 export const Skeleton = ac(() => import("./components/Skeleton/Skeleton.vue"));
 export const SkeletonProvider = ac(
   () => import("./components/Skeleton/SkeletonProvider.vue"),
@@ -577,6 +609,16 @@ export type {
   AttachmentSize,
   AttachmentState,
 } from "./components/Attachment/types";
+export type {
+  BubbleAlign,
+  BubbleMode,
+  BubbleProps,
+  BubbleSize,
+} from "./components/Bubble/Bubble.vue";
+export type {
+  BubbleContentElement,
+  BubbleContentProps,
+} from "./components/Bubble/BubbleContent.vue";
 export type {
   TimelineColor,
   TimelineDatePosition,

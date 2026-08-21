@@ -1,0 +1,9 @@
+{
+  "name": "CardFooter",
+  "kind": "component",
+  "description": "Нижняя секция Card для действий и дополнительного контента.",
+  "keywords": ["card footer", "card actions", "карточка"],
+  "useWhen": ["Нужно добавить действия или вторичную информацию внизу Card"],
+  "rules": ["Использовать только внутри Card"],
+  "commonlyUsedWith": ["Card", "Button"]
+}

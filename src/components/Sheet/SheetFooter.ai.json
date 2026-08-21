@@ -1,0 +1,9 @@
+{
+  "name": "SheetFooter",
+  "kind": "component",
+  "description": "Переэкспорт CardFooter для зоны действий Sheet.",
+  "keywords": ["sheet footer", "drawer actions", "панель"],
+  "useWhen": ["Нужна нижняя секция с действиями выезжающей панели"],
+  "rules": ["Использовать внутри Sheet"],
+  "commonlyUsedWith": ["Sheet", "Button"]
+}

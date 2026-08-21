@@ -4,6 +4,9 @@ import Button from "../Button/Button.vue";
 import Gap from "../Gap/Gap.vue";
 import AuroraBackground from "../AuroraBackground/AuroraBackground.vue";
 import Card, { CardProps } from "./Card.vue";
+import CardContent from "./CardContent.vue";
+import CardFooter from "./CardFooter.vue";
+import CardHeader from "./CardHeader.vue";
 import { DefineComponent } from "vue";
 
 type CardType = DefineComponent<CardProps>;
@@ -56,7 +59,16 @@ const cardContent = `
   <Gap :size="3" direction="vertical" />
   <Button mode="contrast">Mark as read</Button>
 `;
-const demoComponents = { AuroraBackground, Card, Text, Button, Gap };
+const demoComponents = {
+  AuroraBackground,
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  Gap,
+  Text,
+};
 const demoArgs = {
   padding: 24,
   borderRadius: 20,
@@ -194,5 +206,48 @@ export const FullHeightCard: Story = {
       return { args };
     },
     template: `<div style="height: 320px"><Card v-bind="args">${cardContent}</Card></div>`,
+  }),
+};
+
+export const WithSections: Story = {
+  args: {
+    background: "default",
+    stretched: true,
+    interactive: false,
+    ...demoArgs,
+  },
+  render: (args) => ({
+    components: demoComponents,
+    setup() {
+      return { args };
+    },
+    template: `
+      <div style="max-width: 560px">
+        <Card v-bind="args">
+          <CardHeader border>
+            <Text typography="title-2">Terms of Service</Text>
+            <Text typography="paragraph-2" color="secondary">
+              Review the terms before accepting the agreement.
+            </Text>
+          </CardHeader>
+          <CardContent border>
+            <Text typography="paragraph-2">
+              These terms govern your use of the workspace, including access to shared documents,
+              project files, and collaboration tools.
+            </Text>
+          </CardContent>
+          <CardContent>
+            <Text typography="paragraph-2">
+              You are responsible for the content you upload and for ensuring that your team has
+              the appropriate permissions to view or edit it.
+            </Text>
+          </CardContent>
+          <CardFooter style="justify-content: flex-end">
+            <Button mode="default">Decline</Button>
+            <Button mode="contrast">Accept</Button>
+          </CardFooter>
+        </Card>
+      </div>
+    `,
   }),
 };

@@ -1,0 +1,15 @@
+{
+  "name": "BubbleGroup",
+  "kind": "component",
+  "description": "Вертикальная группа последовательных Bubble одного участника диалога.",
+  "keywords": ["bubble group", "chat", "message group", "группа сообщений"],
+  "useWhen": [
+    "Нужно компактно объединить несколько сообщений одного отправителя"
+  ],
+  "toAvoid": [
+    "Не задавать align на группе: выравнивание указывается на каждом Bubble"
+  ],
+  "rules": ["Группировать только последовательные сообщения одного участника"],
+  "alternatives": ["Stack"],
+  "commonlyUsedWith": ["Bubble", "BubbleContent"]
+}

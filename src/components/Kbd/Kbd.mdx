@@ -1,0 +1,24 @@
+# Kbd
+
+`Kbd` семантически отображает отдельную клавишу. Компонент неинтерактивный и передаёт стандартные атрибуты элемента `kbd`, включая `aria-label` и `class`.
+
+```vue
+<Kbd>Ctrl</Kbd>
+```
+
+## Props
+
+- `mode` — цветовой режим: `default` (по умолчанию), `contrast`, `secondary` или `outline`. Режимы используют те же токены, что и `Button`.
+- `size` — размер клавиши: `extra-small`, `small` (по умолчанию), `medium` или `large`.
+
+## Сочетание клавиш
+
+Для нескольких клавиш используй `KbdGroup`, а знак между ними передавай в default slot.
+
+```vue
+<KbdGroup aria-label="Сочетание Ctrl и B">
+  <Kbd>Ctrl</Kbd>
+  <span aria-hidden="true">+</span>
+  <Kbd>B</Kbd>
+</KbdGroup>
+```

@@ -1,0 +1,12 @@
+{
+  "name": "CardContent",
+  "kind": "component",
+  "description": "Основная секция содержимого Card.",
+  "keywords": ["card content", "card body", "карточка"],
+  "useWhen": ["Нужно разместить основной контент внутри Card"],
+  "rules": [
+    "Использовать только внутри Card",
+    "Передавать border, когда после секции нужен нижний разделитель"
+  ],
+  "commonlyUsedWith": ["Card", "CardHeader", "CardFooter"]
+}

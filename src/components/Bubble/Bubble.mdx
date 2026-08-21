@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/Bubble/Documentation" />
+
+# Bubble
+
+`Bubble` — составной компонент для поверхности сообщения. Он не содержит
+аватар, автора, время или статус доставки: их следует располагать в окружающей
+разметке сообщения.
+
+```vue
+<BubbleGroup>
+  <Bubble mode="secondary" align="start" size="medium">
+    <BubbleContent>Здравствуйте! Чем могу помочь?</BubbleContent>
+  </Bubble>
+  <Bubble mode="contrast" align="end" size="medium">
+    <BubbleContent>Нужна помощь с бронированием.</BubbleContent>
+  </Bubble>
+</BubbleGroup>
+```
+
+- `mode` задаёт визуальный тон: `default`, `contrast`, `accent`, `secondary`,
+  `ghost`, `outlined`, `negative`, `positive`, `danger` или `warning`.
+- `align` — `start` или `end`; не зависит от `mode` и задаётся на каждом
+  `Bubble`. У нижнего внешнего угла сообщения radius автоматически меньше,
+  создавая направление без отдельного кончика.
+- `size` — `extra-small`, `small`, `medium` или `large`.
+- `BubbleContent` создаёт поверхность сообщения. Задай `as="button"` или
+  `as="a"`, когда всё сообщение является действием или ссылкой.
+- `BubbleGroup` вертикально объединяет последовательные сообщения одного
+  отправителя. Группа всегда занимает доступную ширину, поэтому `align="end"`
+  работает и внутри неё.
+
+Для семантики всей переписки используй окружающий контейнер, например `ol` или
+элемент с `role="log"`. Не полагайся только на цвет `mode` для передачи
+значения сообщения.

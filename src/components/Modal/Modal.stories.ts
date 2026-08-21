@@ -77,7 +77,7 @@ export const WithFooter: Story = {
       <Modal v-bind="args">
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         <template #footer>
-          <Button mode="ghost">Закрыть</Button>
+          <Button mode="default">Закрыть</Button>
           <Button mode="contrast">Сохранить</Button>
         </template>
       </Modal>`,
@@ -99,7 +99,7 @@ export const Large: Story = {
       <Modal v-bind="args">
         Ширина ограничена выбранным size, но адаптируется под viewport.
         <template #footer>
-          <Button mode="ghost">Закрыть</Button>
+          <Button mode="default">Закрыть</Button>
           <Button mode="contrast">Сохранить</Button>
         </template>
       </Modal>`,
@@ -122,7 +122,7 @@ export const WithUseModal: Story = {
       <Modal v-bind="args" :isOpened="visible" :onClose="close" showCloseButton>
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         <template #footer>
-          <Button mode="ghost" @click="close">Закрыть</Button>
+          <Button mode="default" @click="close">Закрыть</Button>
           <Button mode="contrast" @click="close">Сохранить</Button>
         </template>
       </Modal>`,
@@ -156,7 +156,7 @@ export const LongContent: Story = {
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         Закрытие приведет к потере данных. Хотите сохранить прогресс?
         <template #footer>
-          <Button mode="ghost">Закрыть</Button>
+          <Button mode="default">Закрыть</Button>
           <Button mode="contrast">Сохранить</Button>
         </template>
       </Modal>`,

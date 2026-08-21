@@ -1,0 +1,13 @@
+{
+  "name": "BubbleContent",
+  "kind": "component",
+  "description": "Визуальная и семантическая поверхность содержимого Bubble.",
+  "keywords": ["bubble", "message content", "chat content", "сообщение"],
+  "useWhen": ["Нужно вывести текст или интерактивный ответ внутри Bubble"],
+  "toAvoid": ["Не использовать вне Bubble"],
+  "rules": [
+    "Для ссылки и действия использовать prop as вместо вложенного интерактивного элемента"
+  ],
+  "alternatives": [],
+  "commonlyUsedWith": ["Bubble"]
+}
