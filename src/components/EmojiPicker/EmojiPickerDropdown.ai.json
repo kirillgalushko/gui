@@ -1,0 +1,19 @@
+{
+  "name": "EmojiPickerDropdown",
+  "kind": "component",
+  "description": "Готовая обёртка EmojiPicker с Dropdown и trigger-слотом.",
+  "keywords": ["emoji", "dropdown", "смайлик", "эмодзи", "picker"],
+  "useWhen": [
+    "Нужно открыть EmojiPicker по клику на кнопку или другой trigger."
+  ],
+  "toAvoid": [],
+  "rules": [
+    "Trigger передаётся в default-слот.",
+    "@select возвращает Unicode-строку эмодзи и по умолчанию закрывает панель.",
+    "size управляет геометрией Dropdown и вложенного EmojiPicker.",
+    "Используйте v-model:shown, только когда состоянием открытия должен управлять родитель."
+  ],
+  "alternatives": ["EmojiPicker", "Dropdown"],
+  "commonlyUsedWith": ["EmojiPicker", "Action", "Textarea"],
+  "example": "<EmojiPickerDropdown @select=\"insertEmoji\"><Action aria-label=\"Добавить эмодзи\">🙂</Action></EmojiPickerDropdown>"
+}

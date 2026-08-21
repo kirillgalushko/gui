@@ -1,0 +1,30 @@
+{
+  "name": "insertEmojiAtSelection",
+  "kind": "utility",
+  "description": "Вставляет Unicode-эмодзи в caret или заменяет выделенный текст, сохраняя позицию курсора и лимит длины.",
+  "keywords": [
+    "emoji",
+    "insert",
+    "selection",
+    "caret",
+    "textarea",
+    "input",
+    "эмодзи",
+    "вставка",
+    "курсор"
+  ],
+  "useWhen": [
+    "Нужно вставить эмодзи в строковое v-model input или textarea после выбора в EmojiPicker."
+  ],
+  "toAvoid": [
+    "Не обновляет DOM и не фокусирует поле — примените результат в состоянии приложения, а фокусом управляйте отдельно."
+  ],
+  "rules": [
+    "Передайте selectionStart и selectionEnd из нативного input или textarea; без них эмодзи добавится в конец.",
+    "maxLength использует те же UTF-16 code units, что нативный HTML maxlength.",
+    "Проверяйте inserted перед обновлением состояния или закрытием picker."
+  ],
+  "commonlyUsedWith": ["EmojiPickerDropdown", "Textarea"],
+  "source": "emojiInsertion.ts",
+  "example": "const result = insertEmojiAtSelection({ value: message, emoji, selectionStart, selectionEnd, maxLength: 4_000 })"
+}

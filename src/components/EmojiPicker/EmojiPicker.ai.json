@@ -1,0 +1,17 @@
+{
+  "name": "EmojiPicker",
+  "kind": "component",
+  "description": "Лёгкий Unicode-пикер эмодзи с поиском, нативным порядком категорий и размерами small/medium/large.",
+  "keywords": ["emoji", "emoticon", "смайлик", "эмодзи", "picker"],
+  "useWhen": ["Нужно выбрать эмодзи для текста, комментария или сообщения."],
+  "toAvoid": ["Не использовать для выбора иконок или SVG-графики."],
+  "rules": [
+    "Слушайте @select, чтобы получить Unicode-строку выбранного эмодзи.",
+    "Для кнопки-триггера в выпадающей панели используйте EmojiPickerDropdown.",
+    "Используйте size=\"small\" для минимальных панелей, size=\"medium\" для компактных и size=\"large\" по умолчанию.",
+    "В picker нет SVG и внешних изображений: эмодзи рендерятся нативным шрифтом платформы."
+  ],
+  "alternatives": ["EmojiPickerDropdown"],
+  "commonlyUsedWith": ["EmojiPickerDropdown", "Action", "Textarea"],
+  "example": "<EmojiPicker @select=\"message += $event\" />"
+}

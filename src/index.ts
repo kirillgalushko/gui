@@ -366,6 +366,23 @@ export const ProgressBar = ac(
 );
 export const Dropdown = ac(() => import("./components/Dropdown/Dropdown.vue"));
 export type { DropdownContentWidth } from "./components/Dropdown/Dropdown.vue";
+export const EmojiPicker = ac(
+  () => import("./components/EmojiPicker/EmojiPicker.vue"),
+);
+export const EmojiPickerDropdown = ac(
+  () => import("./components/EmojiPicker/EmojiPickerDropdown.vue"),
+);
+export type {
+  EmojiPickerCategory,
+  EmojiPickerCategoryId,
+  EmojiPickerEmoji,
+  EmojiPickerSize,
+} from "./components/EmojiPicker/types";
+export {
+  insertEmojiAtSelection,
+  type EmojiInsertionParams,
+  type EmojiInsertionResult,
+} from "./components/EmojiPicker/emojiInsertion";
 export const DropdownGroup = ac(
   () => import("./components/Dropdown/DropdownGroup.vue"),
 );

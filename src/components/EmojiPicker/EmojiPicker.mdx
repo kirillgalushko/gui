@@ -1,0 +1,60 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/EmojiPicker/Documentation" />
+
+# EmojiPicker
+
+Лёгкий picker на нативных Unicode-эмодзи: без SVG, растровых изображений и внешней
+загрузки данных. Категории идут в системном порядке: люди и тело, животные и природа,
+еда и напитки, активности, путешествия и места, объекты, символы, флаги. Поиск
+учитывает русские и английские названия.
+
+## API
+
+- `@select` — возвращает Unicode-строку выбранного эмодзи.
+- `@select-emoji` — возвращает объект с `value`, `label` и `keywords`.
+- `v-model` — хранит значение последнего выбранного эмодзи.
+- `size?: 'small' | 'medium' | 'large'` — геометрия picker; по умолчанию `large`.
+- `categories?: EmojiPickerCategory[]` — заменяет стандартный набор данных.
+- `placeholder?: string`, `emptyLabel?: string`, `ariaLabel?: string` — тексты интерфейса.
+- `maxHeight?: string | number` — максимальная высота прокручиваемой области.
+
+```vue
+<EmojiPicker @select="message += $event" />
+```
+
+## Вставка в поле
+
+`insertEmojiAtSelection` — чистая utility для `input` и `textarea`. Она заменяет
+выделенный фрагмент либо вставляет символ в caret, проверяет `maxLength` и возвращает
+следующую позицию курсора. При отсутствии selection эмодзи добавляется в конец.
+
+```ts
+const insertion = insertEmojiAtSelection({
+  value: message,
+  emoji,
+  selectionStart: textarea.selectionStart,
+  selectionEnd: textarea.selectionEnd,
+  maxLength: 4_000,
+});
+
+if (insertion.inserted) {
+  message = insertion.value;
+  textarea.setSelectionRange(insertion.selectionStart, insertion.selectionEnd);
+}
+```
+
+## Dropdown
+
+`EmojiPickerDropdown` содержит `Dropdown`, открывается по trigger из default-слота и
+сам закрывается после выбора. Если нужна внешняя синхронизация, используйте
+`v-model:shown`. Передайте `close-on-select="false"`, чтобы оставить панель открытой.
+`large` соответствует исходному размеру picker, `medium` — предыдущему компактному
+варианту, `small` — новому минимальному. У каждого размера меньше колонок и крупнее
+эмодзи внутри ячейки.
+
+```vue
+<EmojiPickerDropdown @select="insertEmoji">
+  <Action type="button" aria-label="Добавить эмодзи">🙂</Action>
+</EmojiPickerDropdown>
+```
