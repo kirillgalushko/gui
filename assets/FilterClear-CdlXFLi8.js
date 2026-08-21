@@ -1,6 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{n as t,r as n}from"./lib-BRDOWE9X.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{o as i,s as a}from"./blocks-BRO4GnZ7.js";function o(e){let t={code:`code`,h1:`h1`,p:`p`,pre:`pre`,...n(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(i,{title:`Components/Filters/FilterClear`}),`
-`,(0,c.jsx)(t.h1,{id:`filterclear`,children:`FilterClear`}),`
-`,(0,c.jsxs)(t.p,{children:[`Кнопка сброса всех фильтров. Поддерживает общий API внешнего вида GUI:
-`,(0,c.jsx)(t.code,{children:`size`}),`, `,(0,c.jsx)(t.code,{children:`mode`}),`, `,(0,c.jsx)(t.code,{children:`disabled`}),`; `,(0,c.jsx)(t.code,{children:`icon-only`}),` оставляет только доступную иконку.`]}),`
-`,(0,c.jsx)(t.pre,{children:(0,c.jsx)(t.code,{className:`language-vue`,children:`<FilterClear label="Очистить фильтры" @clear="filters = []" />
-`})})]})}function s(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=r(),t(),a()})))()}l();export{s as default};
