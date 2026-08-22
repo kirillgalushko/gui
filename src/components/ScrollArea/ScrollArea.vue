@@ -7,10 +7,12 @@ defineOptions({
 });
 
 export type ScrollAreaOrientation = "vertical" | "horizontal" | "both";
+export type ScrollAreaOverscrollBehavior = "auto" | "contain" | "none";
 
 export interface ScrollAreaProps {
   maxHeight?: CSSProperties["maxHeight"] | number;
   orientation?: ScrollAreaOrientation;
+  overscrollBehavior?: ScrollAreaOverscrollBehavior;
   keyboardFocusable?: boolean;
   stableScrollbar?: boolean;
   fade?: boolean;
@@ -25,6 +27,10 @@ const props = defineProps({
   orientation: {
     type: String as PropType<ScrollAreaOrientation>,
     default: "vertical",
+  },
+  overscrollBehavior: {
+    type: String as PropType<ScrollAreaOverscrollBehavior>,
+    default: "contain",
   },
   keyboardFocusable: {
     type: Boolean,
@@ -73,6 +79,7 @@ useScrollFade(scrollAreaRef, toRef(props, "fade"));
     ]"
     :style="{
       maxHeight,
+      overscrollBehavior: props.overscrollBehavior,
       '--scroll-fade-size': fadeSize,
     }"
     :tabindex="props.keyboardFocusable ? 0 : undefined"
@@ -161,7 +168,6 @@ useScrollFade(scrollAreaRef, toRef(props, "fade"));
   );
   width: 100%;
   min-width: 0;
-  overscroll-behavior: contain;
   scrollbar-color: hsl(var(--border)) transparent;
   scrollbar-width: thin;
 }

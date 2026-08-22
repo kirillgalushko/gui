@@ -45,6 +45,7 @@ const props = withDefaults(defineProps<ItemGroupProps>(), {
 
 .plain {
   border: 0;
+  border-radius: 0px;
 }
 
 .plain > :deep(.item) {

@@ -29,4 +29,12 @@ describe("ScrollArea", () => {
     expect(warning).not.toHaveBeenCalled();
     warning.mockRestore();
   });
+
+  it("allows configuring scroll chaining", () => {
+    const wrapper = mount(ScrollArea, {
+      props: { overscrollBehavior: "auto" },
+    });
+
+    expect(wrapper.attributes("style")).toContain("overscroll-behavior: auto");
+  });
 });

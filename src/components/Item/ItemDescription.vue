@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<ItemDescriptionProps>(), {
 <template>
   <Text
     :Element="props.Element"
-    typography="label-3"
+    typography="label-1"
     color="secondary"
     :ellipsis="props.ellipsis"
     class="item-description"
