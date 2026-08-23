@@ -1,0 +1,113 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import * as HeatmapCalendarStories from "./HeatmapCalendar.stories";
+
+<Meta title="Components/HeatmapCalendar/Documentation" />
+
+# HeatmapCalendar
+
+Универсальный календарь интенсивности для активности, загрузки, продаж и других
+дневных метрик. По умолчанию использует русскую локаль, понедельник как начало
+недели и локальную нейтральную палитру `--heatmap-calendar-level-0` …
+`--heatmap-calendar-level-4`, вычисляемую из семантических цветов GUI.
+
+<Canvas of={HeatmapCalendarStories.Default} />
+
+## Данные и диапазон
+
+```ts
+const data = [
+  { date: "2026-08-21", value: 18, meta: { source: "tracker" } },
+  { date: "2026-08-22", value: 42 },
+];
+```
+
+`date` принимает `Date` или строку. Для календарных дат предпочтителен формат
+`YYYY-MM-DD`: он разбирается как локальная дата без UTC-сдвига. Повторы одной даты
+суммируются, а `meta` берётся из последней записи, в которой оно задано.
+
+- `startDate` + `endDate` задают точные включительные границы.
+- Если `startDate` отсутствует, отображаются `rangeDays` дней до `endDate`
+  включительно. По умолчанию — 365 дней до текущей даты.
+- Если границы переданы в обратном порядке, компонент нормализует их.
+
+## Размер и направление
+
+`cellSize` поддерживает `extra-small`, `small`, `medium`, `large`, число в
+пикселях или любую CSS-величину. `cellGap` и `cellRadius` также принимают число
+или CSS-строку.
+
+`orientation="horizontal"` рисует недели по горизонтали, а `vertical` — по
+вертикали. `direction="reverse"` размещает последние недели первыми, не меняя
+порядок дней внутри недели.
+
+## Шкала и цвета
+
+По умолчанию положительные значения распределяются по квантилям, чтобы различия
+оставались видимыми на данных с выбросами. Доступны три уровня контроля:
+
+1. `scale="linear"` — линейная шкала от нуля до максимума.
+2. `thresholds` — фиксированные границы, например `[10, 20, 30]`.
+3. `getLevel(value, context)` — собственное вычисление уровня. Оно имеет высший
+   приоритет.
+
+`palette` принимает массив любых CSS-цветов. Нулевой элемент отвечает за пустое
+или нулевое значение, остальные — за интенсивность. Количество цветов определяет
+число уровней.
+
+## Подписи и легенда
+
+`labels` и `legend` принимают `false`, `true` или объект настроек. Подписи дней
+используют номера из `Date#getDay()`; например `[2, 4, 6]` показывает вторник,
+четверг и субботу. Локаль меняется через `locale`.
+
+```vue
+<HeatmapCalendar
+  :data="data"
+  :labels="{
+    weekdays: [1, 2, 3, 4, 5, 6, 0],
+    monthFormat: 'long',
+    weekdayFormat: 'narrow',
+  }"
+  :legend="{ position: 'top', lowLabel: 'Мало', highLabel: 'Много' }"
+/>
+```
+
+## Overlay и взаимодействие
+
+`overlay` по умолчанию показывает один общий оптимизированный tooltip. Передайте
+`false`, чтобы отключить его, либо объект с `type: "tooltip" | "hover-card"`,
+`placement`, `openDelay`, `closeDelay` и `offset`. Слот `overlay` принимает
+`{ cell }` и позволяет отрисовать любое содержимое без привязки к конкретной
+предметной области.
+
+Ячейки становятся кнопками только при `clickable=true` или когда predicate
+`clickable(cell)` возвращает `true`. Это сохраняет корректную клавиатурную
+семантику. `disabled` принимает boolean или predicate. Событие `cell-click`
+передаёт ячейку и исходный `MouseEvent`; также доступны `cell-enter`,
+`cell-leave`, `cell-focus` и `cell-blur`.
+
+```vue
+<HeatmapCalendar
+  :data="data"
+  :clickable="(cell) => cell.hasData"
+  :disabled="(cell) => cell.date > new Date()"
+  :overlay="{ type: 'hover-card', placement: 'top' }"
+  @cell-click="openDay"
+>
+  <template #overlay="{ cell }">
+    {{ cell.value }} минут · {{ cell.meta?.source }}
+  </template>
+</HeatmapCalendar>
+```
+
+Дополнительные scoped slots: `cell`, `legend`, `month-label` и
+`weekday-label`. Для screen reader текста отдельной ячейки используйте
+`getCellLabel`.
+
+## Производительность и состояния
+
+Сетка, агрегация и шкала вычисляются через Vue `computed` за линейное время.
+Независимо от числа дней монтируется только один floating overlay, а не Tooltip
+на каждую ячейку. `loading` блокирует взаимодействие, задаёт `aria-busy` и
+показывает skeleton-состояние. Горизонтальное переполнение обрабатывает GUI
+`ScrollArea`.

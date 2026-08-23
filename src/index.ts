@@ -211,6 +211,9 @@ export const ChartPolarArea = ac(
   () => import("./components/Chart/ChartPolarArea.vue"),
 );
 export const ChartRadar = ac(() => import("./components/Chart/ChartRadar.vue"));
+export const HeatmapCalendar = ac(
+  () => import("./components/HeatmapCalendar/HeatmapCalendar.vue"),
+);
 export { chartPaletteTokens } from "./components/Chart";
 export type { ChartPaletteToken } from "./components/Chart";
 export type { ChartBarProps } from "./components/Chart/ChartBar.vue";
@@ -621,6 +624,24 @@ export type {
   CalendarSize,
   CalendarValue,
 } from "./components/Calendar/types";
+export type {
+  HeatmapCalendarCell,
+  HeatmapCalendarDateValue,
+  HeatmapCalendarDatum,
+  HeatmapCalendarDirection,
+  HeatmapCalendarGetLevel,
+  HeatmapCalendarLabelsConfig,
+  HeatmapCalendarLegendConfig,
+  HeatmapCalendarLevelContext,
+  HeatmapCalendarOrientation,
+  HeatmapCalendarOverlayConfig,
+  HeatmapCalendarOverlayPlacement,
+  HeatmapCalendarOverlayType,
+  HeatmapCalendarProps,
+  HeatmapCalendarScale,
+  HeatmapCalendarSize,
+  HeatmapCalendarWeekday,
+} from "./components/HeatmapCalendar/types";
 export type {
   DateNavigatorChangePayload,
   DateNavigatorMode,

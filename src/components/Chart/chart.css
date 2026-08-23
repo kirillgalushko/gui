@@ -1,4 +1,10 @@
 .chart-container {
+  --chart-1: hsl(var(--accent));
+  --chart-2: hsl(var(--positive));
+  --chart-3: hsl(var(--warning));
+  --chart-4: var(--color-violet-500);
+  --chart-5: var(--color-cyan-500);
+  --chart-6: hsl(var(--negative));
   position: relative;
   width: 100%;
   min-width: 0;
