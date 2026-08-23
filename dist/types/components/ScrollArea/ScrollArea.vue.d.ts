@@ -1,8 +1,10 @@
 import { type CSSProperties, type PropType } from "vue";
 export type ScrollAreaOrientation = "vertical" | "horizontal" | "both";
+export type ScrollAreaOverscrollBehavior = "auto" | "contain" | "none";
 export interface ScrollAreaProps {
     maxHeight?: CSSProperties["maxHeight"] | number;
     orientation?: ScrollAreaOrientation;
+    overscrollBehavior?: ScrollAreaOverscrollBehavior;
     keyboardFocusable?: boolean;
     stableScrollbar?: boolean;
     fade?: boolean;
@@ -19,6 +21,10 @@ declare const __VLS_component: import("vue").DefineComponent<import("vue").Extra
     };
     orientation: {
         type: PropType<ScrollAreaOrientation>;
+        default: string;
+    };
+    overscrollBehavior: {
+        type: PropType<ScrollAreaOverscrollBehavior>;
         default: string;
     };
     keyboardFocusable: {
@@ -46,6 +52,10 @@ declare const __VLS_component: import("vue").DefineComponent<import("vue").Extra
         type: PropType<ScrollAreaOrientation>;
         default: string;
     };
+    overscrollBehavior: {
+        type: PropType<ScrollAreaOverscrollBehavior>;
+        default: string;
+    };
     keyboardFocusable: {
         type: BooleanConstructor;
         default: boolean;
@@ -65,6 +75,7 @@ declare const __VLS_component: import("vue").DefineComponent<import("vue").Extra
 }>> & Readonly<{}>, {
     maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     orientation: ScrollAreaOrientation;
+    overscrollBehavior: ScrollAreaOverscrollBehavior;
     keyboardFocusable: boolean;
     stableScrollbar: boolean;
     fade: boolean;

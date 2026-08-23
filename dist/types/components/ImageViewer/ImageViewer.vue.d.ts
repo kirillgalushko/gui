@@ -52,8 +52,8 @@ declare const __VLS_component: import("vue").DefineComponent<ImageViewerProps, {
     "onUpdate:activeIndex"?: ((value: number) => any) | undefined;
 }>, {
     isOpened: boolean;
-    activeIndex: number;
     loop: boolean;
+    activeIndex: number;
     showTitle: boolean;
     showCounter: boolean;
     showThumbnails: ImageViewerThumbnails;

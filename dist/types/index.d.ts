@@ -914,8 +914,8 @@ export declare const ImageViewer: {
         "update:activeIndex": (value: number) => any;
     }, import("vue").PublicProps, {
         isOpened: boolean;
-        activeIndex: number;
         loop: boolean;
+        activeIndex: number;
         showTitle: boolean;
         showCounter: boolean;
         showThumbnails: import("./index.ts").ImageViewerThumbnails;
@@ -941,8 +941,8 @@ export declare const ImageViewer: {
         "onUpdate:activeIndex"?: ((value: number) => any) | undefined;
     }>, {}, {}, {}, {}, {
         isOpened: boolean;
-        activeIndex: number;
         loop: boolean;
+        activeIndex: number;
         showTitle: boolean;
         showCounter: boolean;
         showThumbnails: import("./index.ts").ImageViewerThumbnails;
@@ -971,8 +971,8 @@ export declare const ImageViewer: {
     "update:activeIndex": (value: number) => any;
 }, string, {
     isOpened: boolean;
-    activeIndex: number;
     loop: boolean;
+    activeIndex: number;
     showTitle: boolean;
     showCounter: boolean;
     showThumbnails: import("./index.ts").ImageViewerThumbnails;
@@ -1633,6 +1633,39 @@ export declare const CardFooter: {
         default?: (props: {}) => any;
     };
 });
+export declare const ChartBar: import("vue").DefineComponent<import("./index.ts").ChartBarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./index.ts").ChartBarProps> & Readonly<{}>, {
+    height: number | string;
+    datasetIdKey: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const ChartDoughnut: import("vue").DefineComponent<import("./index.ts").ChartDoughnutProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./index.ts").ChartDoughnutProps> & Readonly<{}>, {
+    height: number | string;
+    datasetIdKey: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const ChartLine: import("vue").DefineComponent<import("./index.ts").ChartLineProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./index.ts").ChartLineProps> & Readonly<{}>, {
+    height: number | string;
+    datasetIdKey: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const ChartPie: import("vue").DefineComponent<import("./index.ts").ChartPieProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./index.ts").ChartPieProps> & Readonly<{}>, {
+    height: number | string;
+    datasetIdKey: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const ChartPolarArea: import("vue").DefineComponent<import("./index.ts").ChartPolarAreaProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./index.ts").ChartPolarAreaProps> & Readonly<{}>, {
+    height: number | string;
+    datasetIdKey: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const ChartRadar: import("vue").DefineComponent<import("./index.ts").ChartRadarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("./index.ts").ChartRadarProps> & Readonly<{}>, {
+    height: number | string;
+    datasetIdKey: string;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export declare const HeatmapCalendar: import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions, {}, any>;
+export { chartPaletteTokens } from "./components/Chart";
+export type { ChartPaletteToken } from "./components/Chart";
+export type { ChartBarProps } from "./components/Chart/ChartBar.vue";
+export type { ChartDoughnutProps } from "./components/Chart/ChartDoughnut.vue";
+export type { ChartLineProps } from "./components/Chart/ChartLine.vue";
+export type { ChartPieProps } from "./components/Chart/ChartPie.vue";
+export type { ChartPolarAreaProps } from "./components/Chart/ChartPolarArea.vue";
+export type { ChartRadarProps } from "./components/Chart/ChartRadar.vue";
 export declare const Checkbox: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Checkbox/Checkbox.vue").CheckboxProps & {
         modelValue?: boolean | unknown[];
@@ -1746,6 +1779,10 @@ export declare const ScrollArea: {
             type: import("vue").PropType<import("./index.ts").ScrollAreaOrientation>;
             default: string;
         };
+        overscrollBehavior: {
+            type: import("vue").PropType<import("./components/ScrollArea/ScrollArea.vue").ScrollAreaOverscrollBehavior>;
+            default: string;
+        };
         keyboardFocusable: {
             type: BooleanConstructor;
             default: boolean;
@@ -1765,6 +1802,7 @@ export declare const ScrollArea: {
     }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         orientation: import("./index.ts").ScrollAreaOrientation;
+        overscrollBehavior: import("./components/ScrollArea/ScrollArea.vue").ScrollAreaOverscrollBehavior;
         keyboardFocusable: boolean;
         stableScrollbar: boolean;
         fade: boolean;
@@ -1783,6 +1821,10 @@ export declare const ScrollArea: {
         };
         orientation: {
             type: import("vue").PropType<import("./index.ts").ScrollAreaOrientation>;
+            default: string;
+        };
+        overscrollBehavior: {
+            type: import("vue").PropType<import("./components/ScrollArea/ScrollArea.vue").ScrollAreaOverscrollBehavior>;
             default: string;
         };
         keyboardFocusable: {
@@ -1804,6 +1846,7 @@ export declare const ScrollArea: {
     }>> & Readonly<{}>, {}, {}, {}, {}, {
         maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         orientation: import("./index.ts").ScrollAreaOrientation;
+        overscrollBehavior: import("./components/ScrollArea/ScrollArea.vue").ScrollAreaOverscrollBehavior;
         keyboardFocusable: boolean;
         stableScrollbar: boolean;
         fade: boolean;
@@ -1819,6 +1862,10 @@ export declare const ScrollArea: {
     };
     orientation: {
         type: import("vue").PropType<import("./index.ts").ScrollAreaOrientation>;
+        default: string;
+    };
+    overscrollBehavior: {
+        type: import("vue").PropType<import("./components/ScrollArea/ScrollArea.vue").ScrollAreaOverscrollBehavior>;
         default: string;
     };
     keyboardFocusable: {
@@ -1840,6 +1887,7 @@ export declare const ScrollArea: {
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
     maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     orientation: import("./index.ts").ScrollAreaOrientation;
+    overscrollBehavior: import("./components/ScrollArea/ScrollArea.vue").ScrollAreaOverscrollBehavior;
     keyboardFocusable: boolean;
     stableScrollbar: boolean;
     fade: boolean;
@@ -2779,8 +2827,8 @@ export declare const Table: {
     }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
         border: boolean;
         minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
-        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         layout: "fixed" | "auto" | undefined;
+        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         stickyHeader: boolean;
     }, true, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -2813,8 +2861,8 @@ export declare const Table: {
     }>> & Readonly<{}>, {}, {}, {}, {}, {
         border: boolean;
         minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
-        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         layout: "fixed" | "auto" | undefined;
+        maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
         stickyHeader: boolean;
     }>;
     __isFragment?: never;
@@ -2844,8 +2892,8 @@ export declare const Table: {
 }>> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
     border: boolean;
     minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
-    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     layout: "fixed" | "auto" | undefined;
+    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     stickyHeader: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -3767,13 +3815,13 @@ export declare const Filters: {
     }> & Readonly<{
         onClear?: (() => any) | undefined;
         onAdd?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
-        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         clear: () => any;
         add: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
-        "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>[]) => any;
         remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
+        "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>[]) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").FilterControlMode;
         size: import("./index.ts").ComponentSize;
@@ -3797,8 +3845,8 @@ export declare const Filters: {
     }> & Readonly<{
         onClear?: (() => any) | undefined;
         onAdd?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
-        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").FilterControlMode;
         size: import("./index.ts").ComponentSize;
@@ -3819,13 +3867,13 @@ export declare const Filters: {
 }> & Readonly<{
     onClear?: (() => any) | undefined;
     onAdd?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
-    "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
     onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>[]) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     clear: () => any;
     add: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
-    "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>[]) => any;
     remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
+    "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>[]) => any;
 }, string, {
     mode: import("./index.ts").FilterControlMode;
     size: import("./index.ts").ComponentSize;
@@ -3952,11 +4000,11 @@ export declare const FilterItem: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./components/Filters/FilterItem.vue").FilterItemProps & {
         modelValue: import("./index.ts").ActiveFilter;
     }> & Readonly<{
-        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-        "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>) => any;
         remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
+        "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>) => any;
     }, import("vue").PublicProps, {
         mode: import("./index.ts").FilterControlMode;
         size: import("./index.ts").ComponentSize;
@@ -3974,8 +4022,8 @@ export declare const FilterItem: {
     }, Readonly<import("./components/Filters/FilterItem.vue").FilterItemProps & {
         modelValue: import("./index.ts").ActiveFilter;
     }> & Readonly<{
-        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
         onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+        "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     }>, {}, {}, {}, {}, {
         mode: import("./index.ts").FilterControlMode;
         size: import("./index.ts").ComponentSize;
@@ -3990,11 +4038,11 @@ export declare const FilterItem: {
 } & import("vue").ComponentOptionsBase<Readonly<import("./components/Filters/FilterItem.vue").FilterItemProps & {
     modelValue: import("./index.ts").ActiveFilter;
 }> & Readonly<{
-    "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
     onRemove?: ((filter: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: import("./index.ts").ActiveFilter<unknown>) => any) | undefined;
 }>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>) => any;
     remove: (filter: import("./index.ts").ActiveFilter<unknown>) => any;
+    "update:modelValue": (value: import("./index.ts").ActiveFilter<unknown>) => any;
 }, string, {
     mode: import("./index.ts").FilterControlMode;
     size: import("./index.ts").ComponentSize;
@@ -4321,8 +4369,8 @@ export declare const Skeleton: {
         width: string;
         height: string;
         Element: "div" | "span";
-        animated: boolean;
         radius: string;
+        animated: boolean;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
         B: {};
@@ -4334,8 +4382,8 @@ export declare const Skeleton: {
         width: string;
         height: string;
         Element: "div" | "span";
-        animated: boolean;
         radius: string;
+        animated: boolean;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
@@ -4344,8 +4392,8 @@ export declare const Skeleton: {
     width: string;
     height: string;
     Element: "div" | "span";
-    animated: boolean;
     radius: string;
+    animated: boolean;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
         default?: (props: {}) => any;
@@ -4857,12 +4905,12 @@ export declare const AuroraBackground: {
 export type { AuroraBackgroundIntensity, AuroraBackgroundPalette, AuroraBackgroundProps, } from "./components/AuroraBackground/AuroraBackground.vue";
 export declare const NoiseOverlay: {
     new (...args: any[]): import("vue").CreateComponentPublicInstanceWithMixins<Readonly<import("./index.ts").NoiseOverlayProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, import("vue").PublicProps, {
+        position: import("./index.ts").NoiseOverlayPosition;
         grainSize: number;
         octaves: number;
         seed: number;
         blendMode: import("./index.ts").NoiseOverlayBlendMode;
         opacity: number;
-        position: import("./index.ts").NoiseOverlayPosition;
         zIndex: number;
     }, false, {}, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, {}, any, import("vue").ComponentProvideOptions, {
         P: {};
@@ -4872,24 +4920,24 @@ export declare const NoiseOverlay: {
         M: {};
         Defaults: {};
     }, Readonly<import("./index.ts").NoiseOverlayProps> & Readonly<{}>, {}, {}, {}, {}, {
+        position: import("./index.ts").NoiseOverlayPosition;
         grainSize: number;
         octaves: number;
         seed: number;
         blendMode: import("./index.ts").NoiseOverlayBlendMode;
         opacity: number;
-        position: import("./index.ts").NoiseOverlayPosition;
         zIndex: number;
     }>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<import("./index.ts").NoiseOverlayProps> & Readonly<{}>, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
+    position: import("./index.ts").NoiseOverlayPosition;
     grainSize: number;
     octaves: number;
     seed: number;
     blendMode: import("./index.ts").NoiseOverlayBlendMode;
     opacity: number;
-    position: import("./index.ts").NoiseOverlayPosition;
     zIndex: number;
 }, {}, string, {}, import("vue").GlobalComponents, import("vue").GlobalDirectives, string, import("vue").ComponentProvideOptions> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & (new () => {
     $slots: {
@@ -5596,6 +5644,7 @@ export type { ComponentSize } from "./types/component-size";
 export type { ChipMode, ChipSize, ChipValue } from "./components/Chip/types";
 export type { Breakpoint, BreakpointResult, } from "./hooks/breakpoints/breakpoints";
 export type { CalendarDay, CalendarMode, CalendarMonthChangePayload, CalendarRangePayload, CalendarRangeValue, CalendarSelectPayload, CalendarSize, CalendarValue, } from "./components/Calendar/types";
+export type { HeatmapCalendarCell, HeatmapCalendarDateValue, HeatmapCalendarDatum, HeatmapCalendarDirection, HeatmapCalendarGetLevel, HeatmapCalendarLabelsConfig, HeatmapCalendarLegendConfig, HeatmapCalendarLevelContext, HeatmapCalendarOrientation, HeatmapCalendarOverlayConfig, HeatmapCalendarOverlayPlacement, HeatmapCalendarOverlayType, HeatmapCalendarProps, HeatmapCalendarScale, HeatmapCalendarSize, HeatmapCalendarWeekday, } from "./components/HeatmapCalendar/types";
 export type { DateNavigatorChangePayload, DateNavigatorMode, DateNavigatorRange, } from "./components/DateNavigator/types";
 export type { DateInputChangePayload, DateInputValue, } from "./components/DateInput/types";
 export type { DatePickerChangePayload, DatePickerValue, } from "./components/DatePicker/types";

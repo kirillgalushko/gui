@@ -57,13 +57,13 @@ type __VLS_Slots = {} & {
 declare const __VLS_component: import("vue").DefineComponent<__VLS_PublicProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     clear: () => any;
     add: (filter: ActiveFilter<unknown>) => any;
-    "update:modelValue": (value: ActiveFilter<unknown>[]) => any;
     remove: (filter: ActiveFilter<unknown>) => any;
+    "update:modelValue": (value: ActiveFilter<unknown>[]) => any;
 }, string, import("vue").PublicProps, Readonly<__VLS_PublicProps> & Readonly<{
     onClear?: (() => any) | undefined;
     onAdd?: ((filter: ActiveFilter<unknown>) => any) | undefined;
-    "onUpdate:modelValue"?: ((value: ActiveFilter<unknown>[]) => any) | undefined;
     onRemove?: ((filter: ActiveFilter<unknown>) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: ActiveFilter<unknown>[]) => any) | undefined;
 }>, {
     mode: import("./types").FilterControlMode;
     size: import("../../index.ts").ComponentSize;

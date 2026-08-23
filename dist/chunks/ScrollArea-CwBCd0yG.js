@@ -1,7 +1,7 @@
 import { o as e } from "./floating-ui.vue-CE68TKCX.js";
 import { t } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { computed as n, createElementBlock as r, defineComponent as i, mergeProps as a, onBeforeUnmount as o, openBlock as s, ref as c, renderSlot as l, toRef as u, watch as d } from "vue";
-import '../assets/ScrollArea-BmiXLq63.css';//#region src/components/ScrollArea/useScrollFade.ts
+import '../assets/ScrollArea-B4TPyLkj.css';//#region src/components/ScrollArea/useScrollFade.ts
 var f = 1, p = () => typeof CSS < "u" && CSS.supports("animation-timeline: scroll()"), m = (e, t = "ltr") => {
 	let n = Math.max(0, e.scrollHeight - e.clientHeight), r = Math.max(0, e.scrollWidth - e.clientWidth), i = Math.min(n, Math.max(0, e.scrollTop)), a = Math.min(r, Math.max(0, t === "rtl" ? Math.abs(e.scrollLeft) : e.scrollLeft));
 	return {
@@ -48,6 +48,10 @@ var f = 1, p = () => typeof CSS < "u" && CSS.supports("animation-timeline: scrol
 			type: String,
 			default: "vertical"
 		},
+		overscrollBehavior: {
+			type: String,
+			default: "contain"
+		},
 		keyboardFocusable: {
 			type: Boolean,
 			default: !0
@@ -81,11 +85,12 @@ var f = 1, p = () => typeof CSS < "u" && CSS.supports("animation-timeline: scrol
 			],
 			style: {
 				maxHeight: o.value,
+				overscrollBehavior: t.overscrollBehavior,
 				"--scroll-fade-size": d.value
 			},
 			tabindex: t.keyboardFocusable ? 0 : void 0
 		}), [l(e.$slots, "default", {}, void 0, !0)], 16, g));
 	}
-}), v = /* @__PURE__ */ e({ default: () => y }), y = /*#__PURE__*/ t(_, [["__scopeId", "data-v-602f3114"]]);
+}), v = /* @__PURE__ */ e({ default: () => y }), y = /*#__PURE__*/ t(_, [["__scopeId", "data-v-4b6ba59a"]]);
 //#endregion
 export { v as n, y as t };

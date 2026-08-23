@@ -55,8 +55,8 @@ declare const __VLS_component: import("vue").DefineComponent<import("vue").Extra
 }>> & Readonly<{}>, {
     border: boolean;
     minWidth: import("csstype").Property.MinWidth<string | number> | undefined;
-    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     layout: "fixed" | "auto" | undefined;
+    maxHeight: import("csstype").Property.MaxHeight<string | number> | undefined;
     stickyHeader: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;

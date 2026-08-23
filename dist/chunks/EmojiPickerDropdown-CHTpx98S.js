@@ -1,5 +1,5 @@
 import { t as e } from "./Dropdown-C01ij_R6.js";
-import { t } from "./EmojiPicker-C3ikhndT.js";
+import { t } from "./EmojiPicker-A_laMGdC.js";
 import { computed as n, createBlock as r, createVNode as i, defineComponent as a, mergeProps as o, openBlock as s, ref as c, renderSlot as l, watch as u, withCtx as d } from "vue";
 //#endregion
 //#region src/components/EmojiPicker/EmojiPickerDropdown.vue

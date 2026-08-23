@@ -1,6 +1,6 @@
 import { t as e } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { createElementBlock as t, defineComponent as n, normalizeClass as r, openBlock as i, renderSlot as a } from "vue";
-import '../assets/ItemGroup-p0rDOj6v.css';//#endregion
+import '../assets/ItemGroup-dWFbIsP8.css';//#endregion
 //#region src/components/Item/ItemGroup.vue
 var o = /*#__PURE__*/ e(/* @__PURE__ */ n({
 	__name: "ItemGroup",
@@ -29,6 +29,6 @@ var o = /*#__PURE__*/ e(/* @__PURE__ */ n({
 			role: "list"
 		}, [a(e.$slots, "default", {}, void 0, !0)], 2));
 	}
-}), [["__scopeId", "data-v-0ac6272a"]]);
+}), [["__scopeId", "data-v-5d8b43f0"]]);
 //#endregion
 export { o as default };

@@ -2,7 +2,7 @@ import { o as e } from "./floating-ui.vue-CE68TKCX.js";
 import { t } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { t as n } from "./Input-DDpZC86_.js";
 import { t as r } from "./Empty-CpRqFbYX.js";
-import { t as i } from "./ScrollArea-BsQGNtio.js";
+import { t as i } from "./ScrollArea-CwBCd0yG.js";
 import { Fragment as a, computed as o, createBlock as s, createElementBlock as c, createElementVNode as l, createVNode as u, defineComponent as d, mergeModels as f, normalizeClass as p, openBlock as m, ref as h, renderList as g, toDisplayString as _, toValue as v, unref as y, useId as b, useModel as x, withCtx as S } from "vue";
 import '../assets/EmojiPicker-CtmlojLB.css';//#region src/components/EmojiPicker/emojiData.ts
 var C = (e) => e.trim().split("\n").map((e) => {

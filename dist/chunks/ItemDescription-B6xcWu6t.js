@@ -1,7 +1,7 @@
 import { t as e } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { t } from "./Text-BiA0aMEo.js";
 import { createBlock as n, defineComponent as r, openBlock as i, renderSlot as a, withCtx as o } from "vue";
-import '../assets/ItemDescription-C7CZF4cn.css';//#endregion
+import '../assets/ItemDescription-B8lXNTEw.css';//#endregion
 //#region src/components/Item/ItemDescription.vue
 var s = /*#__PURE__*/ e(/* @__PURE__ */ r({
 	__name: "ItemDescription",
@@ -16,7 +16,7 @@ var s = /*#__PURE__*/ e(/* @__PURE__ */ r({
 		let r = e;
 		return (e, s) => (i(), n(t, {
 			Element: r.Element,
-			typography: "label-3",
+			typography: "label-1",
 			color: "secondary",
 			ellipsis: r.ellipsis,
 			class: "item-description"
@@ -25,6 +25,6 @@ var s = /*#__PURE__*/ e(/* @__PURE__ */ r({
 			_: 3
 		}, 8, ["Element", "ellipsis"]));
 	}
-}), [["__scopeId", "data-v-dc232c37"]]);
+}), [["__scopeId", "data-v-6df08700"]]);
 //#endregion
 export { s as default };
