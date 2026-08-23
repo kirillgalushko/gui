@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import { flushPromises, mount } from "@vue/test-utils";
+import HeatmapCalendar from "./HeatmapCalendar.vue";
+import { HeatmapCalendar as AsyncHeatmapCalendar } from "../../index";
 import {
   createHeatmapCalendarMonthSegments,
   createHeatmapCalendarModel,
@@ -46,6 +49,36 @@ describe("createHeatmapCalendarModel", () => {
         .flatMap(({ cells }) => cells)
         .filter(({ isInRange }) => isInRange),
     ).toHaveLength(10);
+  });
+
+  it("keeps the selected range hidden outside a wider display range", () => {
+    const model = createModel({
+      startDate: "2026-08-01",
+      endDate: "2026-08-10",
+      displayStartDate: "2026-01-01",
+      displayEndDate: "2026-12-31",
+    });
+
+    expect(model.weeks[0]?.key).toBe("2025-12-29");
+    expect(model.weeks).toHaveLength(53);
+    expect(
+      model.weeks
+        .flatMap(({ cells }) => cells)
+        .find(({ dateKey }) => dateKey === "2026-01-01"),
+    ).toMatchObject({ isInRange: false, isDisabled: true });
+    expect(
+      model.weeks
+        .flatMap(({ cells }) => cells)
+        .find(({ dateKey }) => dateKey === "2026-08-03"),
+    ).toMatchObject({ isInRange: true, isDisabled: false });
+    const monthSegments = createHeatmapCalendarMonthSegments(
+      model.weeks,
+      "forward",
+    );
+
+    expect(monthSegments).toHaveLength(12);
+    expect(monthSegments[0]?.key).toBe("2026-0");
+    expect(monthSegments[monthSegments.length - 1]?.key).toBe("2026-11");
   });
 
   it("sums duplicate dates without mutating source data", () => {
@@ -139,5 +172,87 @@ describe("createHeatmapCalendarModel", () => {
       ["2026-7", 0],
       ["2026-6", 2],
     ]);
+  });
+});
+
+describe("HeatmapCalendar", () => {
+  it("renders disabled, non-interactive cells outside the selected range", () => {
+    const wrapper = mount(HeatmapCalendar, {
+      props: {
+        startDate: "2026-08-01",
+        endDate: "2026-08-10",
+        displayStartDate: "2026-01-01",
+        displayEndDate: "2026-12-31",
+        labels: false,
+        overlay: false,
+        clickable: true,
+      },
+    });
+
+    expect(wrapper.findAll(".heatmap-calendar__grid-cell")).toHaveLength(371);
+    const outsideCell = wrapper.find(".heatmap-calendar__grid-cell--outside");
+
+    expect(
+      wrapper.findAll(".heatmap-calendar__grid-cell--outside"),
+    ).toHaveLength(361);
+    expect(outsideCell.attributes("aria-hidden")).toBe("true");
+    expect(outsideCell.find("button").exists()).toBe(false);
+    expect(
+      wrapper
+        .find(
+          ".heatmap-calendar__grid-cell:not(.heatmap-calendar__grid-cell--outside)",
+        )
+        .find("button")
+        .exists(),
+    ).toBe(true);
+  });
+
+  it("forwards display bounds through the public async component", async () => {
+    const wrapper = mount({
+      components: { AsyncHeatmapCalendar },
+      template: `
+        <AsyncHeatmapCalendar
+          start-date="2026-08-01"
+          end-date="2026-08-10"
+          display-start-date="2026-01-01"
+          display-end-date="2026-12-31"
+          :labels="false"
+          :overlay="false"
+        />
+      `,
+    });
+
+    await flushPromises();
+
+    expect(wrapper.findAll(".heatmap-calendar__grid-cell")).toHaveLength(371);
+  });
+
+  it("scrolls the end of the selected range into view when enabled", async () => {
+    const wrapper = mount(HeatmapCalendar, {
+      props: {
+        startDate: "2026-08-01",
+        endDate: "2026-08-10",
+        displayStartDate: "2026-01-01",
+        displayEndDate: "2026-12-31",
+        labels: false,
+        overlay: false,
+      },
+    });
+    const scrollArea = wrapper.get(".scroll-area").element;
+    const rangeEndCell = wrapper.get(
+      "[data-heatmap-calendar-range-end]",
+    ).element;
+
+    Object.defineProperties(scrollArea, {
+      clientWidth: { configurable: true, value: 100 },
+      scrollLeft: { configurable: true, value: 0, writable: true },
+    });
+    scrollArea.getBoundingClientRect = () => new DOMRect(0, 0, 100, 100);
+    rangeEndCell.getBoundingClientRect = () => new DOMRect(250, 0, 18, 18);
+
+    await wrapper.setProps({ autoScrollToRange: true });
+    await flushPromises();
+
+    expect(scrollArea.scrollLeft).toBe(176);
   });
 });

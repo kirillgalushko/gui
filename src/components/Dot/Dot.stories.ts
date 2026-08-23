@@ -30,6 +30,9 @@ const colorOptions = [
   "mist",
   "taupe",
 ] as const;
+const shadeOptions = [
+  50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950,
+] as const;
 
 const meta: Meta<typeof Dot> = {
   title: "Components/Dot",
@@ -39,6 +42,10 @@ const meta: Meta<typeof Dot> = {
     color: {
       control: { type: "select" },
       options: colorOptions,
+    },
+    shade: {
+      control: { type: "select" },
+      options: shadeOptions,
     },
   },
   args: {

@@ -39,6 +39,7 @@ export interface HeatmapCalendarCell<TMeta = unknown> {
   level: number;
   meta: TMeta | undefined;
   hasData: boolean;
+  isInDisplayRange: boolean;
   isInRange: boolean;
   isDisabled: boolean;
 }
@@ -93,11 +94,17 @@ export interface HeatmapCalendarProps<TMeta = unknown> {
   data?: readonly HeatmapCalendarDatum<TMeta>[];
   startDate?: HeatmapCalendarDateValue;
   endDate?: HeatmapCalendarDateValue;
+  /** Inclusive grid boundary. Cells outside startDate/endDate remain hidden. */
+  displayStartDate?: HeatmapCalendarDateValue;
+  /** Inclusive grid boundary. Cells outside startDate/endDate remain hidden. */
+  displayEndDate?: HeatmapCalendarDateValue;
   /** Используется только когда startDate не задан. */
   rangeDays?: number;
   weekStartsOn?: HeatmapCalendarWeekday;
   orientation?: HeatmapCalendarOrientation;
   direction?: HeatmapCalendarDirection;
+  /** При открытии прокручивает к последней ячейке выбранного диапазона. */
+  autoScrollToRange?: boolean;
   cellSize?: HeatmapCalendarSize;
   cellGap?: number | string;
   cellRadius?: number | string;
@@ -120,6 +127,8 @@ export interface CreateHeatmapCalendarModelOptions<TMeta = unknown> {
   data: readonly HeatmapCalendarDatum<TMeta>[];
   startDate?: HeatmapCalendarDateValue;
   endDate?: HeatmapCalendarDateValue;
+  displayStartDate?: HeatmapCalendarDateValue;
+  displayEndDate?: HeatmapCalendarDateValue;
   rangeDays: number;
   weekStartsOn: HeatmapCalendarWeekday;
   levelCount: number;
@@ -132,6 +141,8 @@ export interface CreateHeatmapCalendarModelOptions<TMeta = unknown> {
 export interface HeatmapCalendarModel<TMeta = unknown> {
   startDate: Date;
   endDate: Date;
+  displayStartDate: Date;
+  displayEndDate: Date;
   weeks: HeatmapCalendarWeek<TMeta>[];
   positiveValues: number[];
   maxValue: number;

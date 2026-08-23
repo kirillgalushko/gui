@@ -13,7 +13,7 @@ export interface ProgressBarProps {
 const props = withDefaults(defineProps<ProgressBarProps>(), {
   progress: 0,
   max: 100,
-  color: "accent",
+  color: "foreground",
   segments: 1,
   height: "8px",
   gap: "var(--gap-1)",

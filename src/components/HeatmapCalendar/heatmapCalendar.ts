@@ -166,6 +166,26 @@ const getRange = (
   return { startDate: normalizedStart, endDate: normalizedEnd };
 };
 
+const getDisplayRange = (
+  startDate: Date,
+  endDate: Date,
+  displayStartDate: HeatmapCalendarDateValue | undefined,
+  displayEndDate: HeatmapCalendarDateValue | undefined,
+): { displayStartDate: Date; displayEndDate: Date } => {
+  const normalizedStart = displayStartDate
+    ? parseHeatmapCalendarDate(displayStartDate)
+    : startDate;
+  const normalizedEnd = displayEndDate
+    ? parseHeatmapCalendarDate(displayEndDate)
+    : endDate;
+
+  if (isAfterDay(normalizedStart, normalizedEnd)) {
+    return { displayStartDate: normalizedEnd, displayEndDate: normalizedStart };
+  }
+
+  return { displayStartDate: normalizedStart, displayEndDate: normalizedEnd };
+};
+
 export const createHeatmapCalendarModel = <TMeta = unknown>(
   options: CreateHeatmapCalendarModelOptions<TMeta>,
 ): HeatmapCalendarModel<TMeta> => {
@@ -173,6 +193,12 @@ export const createHeatmapCalendarModel = <TMeta = unknown>(
     options.startDate,
     options.endDate,
     options.rangeDays,
+  );
+  const { displayStartDate, displayEndDate } = getDisplayRange(
+    startDate,
+    endDate,
+    options.displayStartDate,
+    options.displayEndDate,
   );
   const aggregatedData = new Map<
     string,
@@ -211,8 +237,11 @@ export const createHeatmapCalendarModel = <TMeta = unknown>(
     safeLevelCount,
     options,
   );
-  const gridStart = getWeekStart(startDate, options.weekStartsOn);
-  const gridEnd = addDays(getWeekStart(endDate, options.weekStartsOn), 6);
+  const gridStart = getWeekStart(displayStartDate, options.weekStartsOn);
+  const gridEnd = addDays(
+    getWeekStart(displayEndDate, options.weekStartsOn),
+    6,
+  );
   const weeks: HeatmapCalendarWeek<TMeta>[] = [];
 
   for (
@@ -226,6 +255,8 @@ export const createHeatmapCalendarModel = <TMeta = unknown>(
       const date = addDays(weekStart, weekdayIndex);
       const dateKey = getHeatmapCalendarDateKey(date);
       const datum = aggregatedData.get(dateKey);
+      const isInDisplayRange =
+        date >= displayStartDate && date <= displayEndDate;
       const isInRange = date >= startDate && date <= endDate;
       const cell: HeatmapCalendarCell<TMeta> = {
         date,
@@ -234,6 +265,7 @@ export const createHeatmapCalendarModel = <TMeta = unknown>(
         level: resolveLevel(datum?.value ?? 0),
         meta: datum?.meta,
         hasData: datum !== undefined,
+        isInDisplayRange,
         isInRange,
         isDisabled: false,
       };
@@ -251,6 +283,8 @@ export const createHeatmapCalendarModel = <TMeta = unknown>(
   return {
     startDate,
     endDate,
+    displayStartDate,
+    displayEndDate,
     weeks,
     positiveValues,
     maxValue: positiveValues[positiveValues.length - 1] ?? 0,
@@ -270,8 +304,10 @@ export const createHeatmapCalendarMonthSegments = <TMeta>(
   const segments: HeatmapCalendarMonthSegment[] = [];
 
   weeks.forEach((week, weekIndex) => {
-    const inRangeCells = week.cells.filter((cell) => cell.isInRange);
-    const monthBoundaryCell = inRangeCells.find((cell) =>
+    const displayRangeCells = week.cells.filter(
+      (cell) => cell.isInDisplayRange,
+    );
+    const monthBoundaryCell = displayRangeCells.find((cell) =>
       direction === "reverse"
         ? addDays(cell.date, 1).getDate() === 1
         : cell.date.getDate() === 1,
@@ -279,8 +315,8 @@ export const createHeatmapCalendarMonthSegments = <TMeta>(
     const representativeCell =
       monthBoundaryCell ??
       (direction === "reverse"
-        ? inRangeCells[inRangeCells.length - 1]
-        : inRangeCells[0]);
+        ? displayRangeCells[displayRangeCells.length - 1]
+        : displayRangeCells[0]);
 
     if (!representativeCell) {
       return;

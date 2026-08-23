@@ -8,10 +8,11 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## Props
 
-- `color: Color` — имя цвета из палитры `--color-*-500`.
+- `color: Color` — имя цвета из палитры.
+- `shade?: ColorShade` — оттенок палитры от `50` до `950`; по умолчанию `500`.
 
 ## Пример
 
 ```vue
-<Dot color="emerald" />
+<Dot color="gray" :shade="300" />
 ```

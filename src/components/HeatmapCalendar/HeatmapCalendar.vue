@@ -14,6 +14,7 @@ import ScrollArea from "../ScrollArea/ScrollArea.vue";
 import {
   createHeatmapCalendarModel,
   createHeatmapCalendarMonthSegments,
+  getHeatmapCalendarDateKey,
   getHeatmapCalendarDisplayWeeks,
 } from "./heatmapCalendar";
 import type {
@@ -54,31 +55,42 @@ const defaultLegend: Required<HeatmapCalendarLegendConfig> = {
   highLabel: "Больше",
 };
 
-const props = withDefaults(defineProps<HeatmapCalendarProps<TMeta>>(), {
-  data: () => [],
-  startDate: undefined,
-  endDate: undefined,
-  rangeDays: 365,
-  weekStartsOn: 1,
-  orientation: "horizontal",
-  direction: "forward",
-  cellSize: "medium",
-  cellGap: undefined,
-  cellRadius: undefined,
-  locale: "ru-RU",
-  labels: true,
-  legend: false,
-  overlay: true,
-  palette: undefined,
-  scale: "quantile",
-  thresholds: undefined,
-  getLevel: undefined,
-  clickable: false,
-  disabled: false,
-  getCellLabel: undefined,
-  loading: false,
-  ariaLabel: "Календарь активности",
-});
+type HeatmapCalendarComponentProps<TMeta> = HeatmapCalendarProps<TMeta> & {
+  displayStartDate?: Date | string;
+  displayEndDate?: Date | string;
+};
+
+const props = withDefaults(
+  defineProps<HeatmapCalendarComponentProps<TMeta>>(),
+  {
+    data: () => [],
+    startDate: undefined,
+    endDate: undefined,
+    displayStartDate: undefined,
+    displayEndDate: undefined,
+    rangeDays: 365,
+    weekStartsOn: 1,
+    orientation: "horizontal",
+    direction: "forward",
+    autoScrollToRange: false,
+    cellSize: "medium",
+    cellGap: undefined,
+    cellRadius: undefined,
+    locale: "ru-RU",
+    labels: true,
+    legend: false,
+    overlay: true,
+    palette: undefined,
+    scale: "quantile",
+    thresholds: undefined,
+    getLevel: undefined,
+    clickable: false,
+    disabled: false,
+    getCellLabel: undefined,
+    loading: false,
+    ariaLabel: "Календарь активности",
+  },
+);
 
 const emit = defineEmits<{
   "cell-click": [cell: HeatmapCalendarCell<TMeta>, event: MouseEvent];
@@ -108,6 +120,8 @@ const calendar = computed(() =>
     data: props.data,
     startDate: props.startDate,
     endDate: props.endDate,
+    displayStartDate: props.displayStartDate,
+    displayEndDate: props.displayEndDate,
     rangeDays: props.rangeDays,
     weekStartsOn: props.weekStartsOn,
     levelCount: palette.value.length,
@@ -120,6 +134,9 @@ const calendar = computed(() =>
 
 const displayWeeks = computed(() =>
   getHeatmapCalendarDisplayWeeks(calendar.value.weeks, props.direction),
+);
+const rangeEndDateKey = computed(() =>
+  getHeatmapCalendarDateKey(calendar.value.endDate),
 );
 const monthSegments = computed(() =>
   createHeatmapCalendarMonthSegments(displayWeeks.value, props.direction),
@@ -160,6 +177,7 @@ const overlay = computed<Required<HeatmapCalendarOverlayConfig> | null>(() => {
 });
 
 const activeCell = shallowRef<HeatmapCalendarCell<TMeta> | null>(null);
+const scrollAreaRef = shallowRef<InstanceType<typeof ScrollArea> | null>(null);
 const overlayId = useId();
 const overlayTargetRef = shallowRef<HTMLElement | null>(null);
 const overlayRef = ref<HTMLElement | null>(null);
@@ -339,15 +357,66 @@ const getMonthSegmentStyle = (
     ? { gridColumn: `${segment.start + 1} / span ${segment.span}` }
     : { gridRow: `${segment.start + 1} / span ${segment.span}` };
 
+const scrollToRange = async () => {
+  await nextTick();
+
+  if (!props.autoScrollToRange) {
+    return;
+  }
+
+  const scrollArea = scrollAreaRef.value?.$el as HTMLElement | undefined;
+  const rangeEndCell = scrollArea?.querySelector<HTMLElement>(
+    "[data-heatmap-calendar-range-end]",
+  );
+
+  if (!scrollArea || !rangeEndCell || scrollArea.clientWidth === 0) {
+    return;
+  }
+
+  const scrollAreaRect = scrollArea.getBoundingClientRect();
+  const cellRect = rangeEndCell.getBoundingClientRect();
+  const isVisible =
+    cellRect.left >= scrollAreaRect.left &&
+    cellRect.right <= scrollAreaRect.right;
+
+  if (isVisible) {
+    return;
+  }
+
+  scrollArea.scrollLeft = Math.max(
+    0,
+    scrollArea.scrollLeft + cellRect.right - scrollAreaRect.right + 8,
+  );
+};
+
 watch(
   () => [
     props.overlay,
     props.loading,
     calendar.value.startDate,
     calendar.value.endDate,
+    calendar.value.displayStartDate,
+    calendar.value.displayEndDate,
   ],
   closeOverlay,
 );
+
+watch(
+  () => [
+    props.autoScrollToRange,
+    calendar.value.startDate.getTime(),
+    calendar.value.endDate.getTime(),
+    calendar.value.displayStartDate.getTime(),
+    calendar.value.displayEndDate.getTime(),
+    props.direction,
+  ],
+  () => {
+    void scrollToRange();
+  },
+  { flush: "post", immediate: true },
+);
+
+console.log({ ...props });
 
 onBeforeUnmount(clearOverlayTimeout);
 </script>
@@ -383,6 +452,7 @@ onBeforeUnmount(clearOverlayTimeout);
     </div>
 
     <ScrollArea
+      ref="scrollAreaRef"
       orientation="horizontal"
       :keyboard-focusable="false"
       :stable-scrollbar="false"
@@ -452,6 +522,9 @@ onBeforeUnmount(clearOverlayTimeout);
                   'heatmap-calendar__grid-cell--disabled': cell.isDisabled,
                 },
               ]"
+              :data-heatmap-calendar-range-end="
+                cell.dateKey === rangeEndDateKey || undefined
+              "
               role="gridcell"
               :aria-hidden="!cell.isInRange || undefined"
               @mouseenter="handleCellEnter(cell, $event)"
@@ -568,6 +641,11 @@ onBeforeUnmount(clearOverlayTimeout);
     in srgb,
     hsl(var(--foreground)) 82%,
     hsl(var(--muted))
+  );
+  --heatmap-calendar-outside-cell-color: color-mix(
+    in srgb,
+    hsl(var(--muted)) 45%,
+    hsl(var(--background))
   );
   width: 100%;
   min-width: 0;
@@ -699,10 +777,6 @@ onBeforeUnmount(clearOverlayTimeout);
   box-sizing: border-box;
 }
 
-.heatmap-calendar__grid-cell--outside {
-  visibility: hidden;
-}
-
 .heatmap-calendar__cell {
   display: flex;
   align-items: center;
@@ -717,6 +791,10 @@ onBeforeUnmount(clearOverlayTimeout);
   transition:
     filter var(--motion-duration-fast) ease,
     transform var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.heatmap-calendar__grid-cell--outside .heatmap-calendar__cell {
+  background: var(--heatmap-calendar-outside-cell-color);
 }
 
 .heatmap-calendar__cell--clickable {

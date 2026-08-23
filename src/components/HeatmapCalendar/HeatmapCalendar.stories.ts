@@ -126,6 +126,21 @@ export const VerticalRange: Story = {
   },
 };
 
+export const FullYearWithHiddenRange: Story = {
+  args: {
+    startDate: "2026-08-17",
+    endDate: "2026-08-23",
+    displayStartDate: "2026-01-01",
+    displayEndDate: "2026-12-31",
+    orientation: "horizontal",
+    direction: "forward",
+    cellSize: "large",
+    labels: true,
+    legend: { lowLabel: "Свободно", highLabel: "Занято" },
+    clickable: true,
+  },
+};
+
 export const CustomPaletteAndThresholds: Story = {
   args: {
     rangeDays: 120,
