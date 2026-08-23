@@ -1,0 +1,15 @@
+{
+  "name": "ChartDoughnut",
+  "kind": "component",
+  "description": "Адаптивная кольцевая диаграмма на vue-chartjs с палитрой и темами GUI.",
+  "keywords": ["chart", "chartjs", "doughnut", "donut", "кольцо", "доли"],
+  "useWhen": ["Нужно показать состав целого для небольшого числа категорий"],
+  "toAvoid": ["Не использовать для точного сравнения близких значений"],
+  "rules": [
+    "Передавать данные через типизированный ChartData<'doughnut'>",
+    "Ограничивать количество сегментов читаемым набором",
+    "Добавлять ariaLabel с назначением графика"
+  ],
+  "alternatives": ["ChartPie", "ChartBar"],
+  "commonlyUsedWith": []
+}

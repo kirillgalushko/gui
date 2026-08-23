@@ -73,8 +73,10 @@
     "@floating-ui/vue": "^1.1.5",
     "@gui/icons": "github:kirillgalushko/gui-icons#v2.0.2",
     "@number-flow/vue": "^0.5.2",
+    "chart.js": "^4.5.1",
     "floating-vue": "5.2.2",
     "morphicons": "^1.7.0",
+    "vue-chartjs": "^5.3.4",
     "vue-component-meta": "^3.3.8",
     "vue-sonner": "^2.0.9"
   }

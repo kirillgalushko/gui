@@ -201,6 +201,24 @@ export const CardContent = ac(
   () => import("./components/Card/CardContent.vue"),
 );
 export const CardFooter = ac(() => import("./components/Card/CardFooter.vue"));
+export const ChartBar = ac(() => import("./components/Chart/ChartBar.vue"));
+export const ChartDoughnut = ac(
+  () => import("./components/Chart/ChartDoughnut.vue"),
+);
+export const ChartLine = ac(() => import("./components/Chart/ChartLine.vue"));
+export const ChartPie = ac(() => import("./components/Chart/ChartPie.vue"));
+export const ChartPolarArea = ac(
+  () => import("./components/Chart/ChartPolarArea.vue"),
+);
+export const ChartRadar = ac(() => import("./components/Chart/ChartRadar.vue"));
+export { chartPaletteTokens } from "./components/Chart";
+export type { ChartPaletteToken } from "./components/Chart";
+export type { ChartBarProps } from "./components/Chart/ChartBar.vue";
+export type { ChartDoughnutProps } from "./components/Chart/ChartDoughnut.vue";
+export type { ChartLineProps } from "./components/Chart/ChartLine.vue";
+export type { ChartPieProps } from "./components/Chart/ChartPie.vue";
+export type { ChartPolarAreaProps } from "./components/Chart/ChartPolarArea.vue";
+export type { ChartRadarProps } from "./components/Chart/ChartRadar.vue";
 export const Checkbox = ac(() => import("./components/Checkbox/Checkbox.vue"));
 export const RadioGroup = ac(
   () => import("./components/RadioGroup/RadioGroup.vue"),

@@ -1,0 +1,71 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/Chart/Documentation" />
+
+# Chart
+
+Готовые Vue-обёртки над `vue-chartjs` и Chart.js. Компоненты автоматически
+используют `--chart-1` … `--chart-6`, цвета текста, сетки, легенды и tooltip из
+`variables.css`, поэтому корректно работают в тёмной, светлой и инвертированной
+темах.
+
+## Базовый пример
+
+```vue
+<script setup lang="ts">
+import { ChartLine } from "@gui/components";
+import type { ChartData } from "chart.js";
+
+const data = {
+  labels: ["Янв", "Фев", "Мар"],
+  datasets: [
+    { label: "Бронирования", data: [32, 42, 38] },
+    { label: "Отмены", data: [4, 6, 3] },
+  ],
+} satisfies ChartData<"line">;
+</script>
+
+<template>
+  <ChartLine
+    :data="data"
+    :height="280"
+    aria-label="Динамика бронирований и отмен"
+  />
+</template>
+```
+
+## Компоненты
+
+- `ChartLine` — линейный график.
+- `ChartBar` — вертикальные и горизонтальные столбцы.
+- `ChartDoughnut` — кольцевая диаграмма.
+- `ChartPie` — круговая диаграмма.
+- `ChartRadar` — сравнение нескольких серий по общим критериям.
+- `ChartPolarArea` — радиальное сравнение величин.
+
+Каждый компонент принимает типизированные `data`, `options`, `plugins`,
+`datasetIdKey`, `updateMode`, `height`, `ariaLabel` и `ariaDescribedby`. Высота по
+умолчанию — `280px`; строковое значение позволяет передать `clamp(...)`, `vh` или
+другую CSS-величину.
+
+## Настройка
+
+GUI-дефолты заполняют только отсутствующие цвета dataset. Любые заданные в
+`data.datasets` значения `backgroundColor`, `borderColor` и связанные цвета
+сохраняются. `options` объединяются с адаптивными настройками GUI, причём
+пользовательские значения имеют приоритет.
+
+```ts
+import type { ChartOptions } from "chart.js";
+
+const options = {
+  indexAxis: "y",
+  plugins: {
+    legend: { display: false },
+  },
+} satisfies ChartOptions<"bar">;
+```
+
+Для большинства экранов не нужно вручную задавать палитру: так диаграмма будет
+автоматически реагировать на смену темы. Если нужны фирменные или смысловые цвета,
+передавай стандартные Chart.js color options в конкретный dataset.

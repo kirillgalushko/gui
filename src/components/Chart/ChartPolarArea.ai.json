@@ -1,0 +1,24 @@
+{
+  "name": "ChartPolarArea",
+  "kind": "component",
+  "description": "Адаптивная polar area диаграмма на vue-chartjs с палитрой и темами GUI.",
+  "keywords": [
+    "chart",
+    "chartjs",
+    "polar",
+    "радиальная",
+    "категории",
+    "величины"
+  ],
+  "useWhen": [
+    "Нужно визуально сравнить величины нескольких циклических или равноправных категорий"
+  ],
+  "toAvoid": ["Не использовать для точного считывания близких значений"],
+  "rules": [
+    "Передавать данные через типизированный ChartData<'polarArea'>",
+    "Ограничивать количество категорий читаемым набором",
+    "Добавлять ariaLabel с назначением графика"
+  ],
+  "alternatives": ["ChartRadar", "ChartDoughnut", "ChartBar"],
+  "commonlyUsedWith": []
+}

@@ -47,6 +47,12 @@
   --sidebar: 240 5% 8%;
   --skeleton: var(--muted);
   --skeleton-highlight: var(--muted-foreground);
+  --chart-1: hsl(var(--accent));
+  --chart-2: hsl(var(--positive));
+  --chart-3: hsl(var(--warning));
+  --chart-4: var(--color-violet-500);
+  --chart-5: var(--color-cyan-500);
+  --chart-6: hsl(var(--negative));
 
   --font-family: "Inter", Helvetica, system-ui, Avenir, Arial, sans-serif;
 }

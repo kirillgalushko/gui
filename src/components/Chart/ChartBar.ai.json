@@ -1,0 +1,15 @@
+{
+  "name": "ChartBar",
+  "kind": "component",
+  "description": "Адаптивный bar-график на vue-chartjs с палитрой и темами GUI.",
+  "keywords": ["chart", "chartjs", "bar", "график", "столбцы", "сравнение"],
+  "useWhen": ["Нужно сравнить величины по категориям или периодам"],
+  "toAvoid": ["Не использовать при большом количестве категорий без агрегации"],
+  "rules": [
+    "Передавать данные через типизированный ChartData<'bar'>",
+    "Для горизонтальных столбцов передавать options.indexAxis = 'y'",
+    "Добавлять ariaLabel с назначением графика"
+  ],
+  "alternatives": ["ChartLine", "ChartDoughnut"],
+  "commonlyUsedWith": []
+}
