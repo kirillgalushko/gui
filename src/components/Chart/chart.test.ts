@@ -1,6 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import type { ChartData } from "chart.js";
-import { createChartOptions, withChartPalette } from "./chart";
+import {
+  createChartOptions,
+  withBarBorderRadius,
+  withBarGradient,
+  withChartPalette,
+} from "./chart";
 
 describe("withChartPalette", () => {
   it("adds palette callbacks without mutating source data", () => {
@@ -35,6 +40,83 @@ describe("withChartPalette", () => {
 
     expect(result.datasets[0]?.backgroundColor).toBe("#123456");
     expect(result.datasets[0]?.borderColor).toBe("#654321");
+  });
+});
+
+describe("withBarGradient", () => {
+  it("uses partially transparent stops at the top and base of each vertical bar", () => {
+    const source = {
+      labels: ["Янв"],
+      datasets: [
+        {
+          label: "Брони",
+          data: [12],
+          backgroundColor: "rgb(0, 112, 247)",
+        },
+      ],
+    } satisfies ChartData<"bar">;
+    const result = withBarGradient(source);
+    const gradient = { addColorStop: vi.fn() } as unknown as CanvasGradient;
+    const createLinearGradient = vi.fn(() => gradient);
+    const backgroundColor = result.datasets[0]?.backgroundColor;
+
+    expect(result).not.toBe(source);
+    expect(result.datasets[0]).not.toBe(source.datasets[0]);
+    expect(backgroundColor).toBeTypeOf("function");
+
+    if (typeof backgroundColor !== "function") {
+      throw new Error("Expected a gradient callback");
+    }
+
+    const color = backgroundColor(
+      {
+        chart: {
+          chartArea: { bottom: 100, left: 0, right: 100, top: 10 },
+          ctx: { createLinearGradient },
+          getDatasetMeta: () => ({
+            data: [
+              {
+                getProps: () => ({ base: 100, horizontal: false }),
+                y: 24,
+              },
+            ],
+          }),
+        },
+        dataIndex: 0,
+        dataset: result.datasets[0],
+        datasetIndex: 0,
+      } as never,
+      {},
+    );
+
+    expect(color).toBe(gradient);
+    expect(createLinearGradient).toHaveBeenCalledWith(0, 24, 0, 100);
+    expect(gradient.addColorStop).toHaveBeenNthCalledWith(
+      1,
+      0,
+      "rgba(0, 112, 247, 0.9)",
+    );
+    expect(gradient.addColorStop).toHaveBeenNthCalledWith(
+      2,
+      1,
+      "rgba(0, 112, 247, 0.1)",
+    );
+  });
+});
+
+describe("withBarBorderRadius", () => {
+  it("sets a shared radius without mutating the source datasets", () => {
+    const source = {
+      labels: ["Янв"],
+      datasets: [{ label: "Брони", data: [12], borderRadius: 6 }],
+    } satisfies ChartData<"bar">;
+
+    const result = withBarBorderRadius(source, 12);
+
+    expect(result).not.toBe(source);
+    expect(result.datasets[0]).not.toBe(source.datasets[0]);
+    expect(result.datasets[0]?.borderRadius).toBe(12);
+    expect(source.datasets[0]?.borderRadius).toBe(6);
   });
 });
 

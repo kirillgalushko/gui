@@ -1,9 +1,11 @@
 import {
   Chart as ChartJS,
+  type BarElement,
   type Chart,
   type ChartData,
   type ChartOptions,
   type ChartType,
+  type Color,
   type DefaultDataPoint,
   type Plugin,
   type ScriptableContext,
@@ -192,6 +194,91 @@ export const withChartPalette = <
 
     return dataset;
   }),
+});
+
+type BarBackgroundColor =
+  ChartData<"bar">["datasets"][number]["backgroundColor"];
+
+const resolveBarBackgroundColor = (
+  backgroundColor: BarBackgroundColor,
+  context: ScriptableContext<"bar">,
+): Color | undefined => {
+  const color =
+    typeof backgroundColor === "function"
+      ? backgroundColor(context, {})
+      : backgroundColor;
+
+  return (
+    Array.isArray(color) ? (color[context.dataIndex] ?? color[0]) : color
+  ) as Color | undefined;
+};
+
+const barGradientStartOpacity = 0.9;
+const barGradientEndOpacity = 0.1;
+
+const withColorOpacity = (color: string, opacity: number): string => {
+  const channels = color.match(/[\d.]+/g)?.slice(0, 3);
+
+  return channels?.length === 3
+    ? `rgba(${channels.join(", ")}, ${opacity})`
+    : color;
+};
+
+export const withBarGradient = (data: ChartData<"bar">): ChartData<"bar"> => ({
+  ...data,
+  datasets: data.datasets.map((sourceDataset) => {
+    const backgroundColor = sourceDataset.backgroundColor;
+
+    return {
+      ...sourceDataset,
+      backgroundColor: (context) => {
+        const color = resolveBarBackgroundColor(backgroundColor, context);
+        const { chartArea, ctx } = context.chart;
+
+        if (typeof color !== "string" || !chartArea) {
+          return color;
+        }
+
+        const bar = context.chart.getDatasetMeta(context.datasetIndex).data[
+          context.dataIndex
+        ] as BarElement | undefined;
+        const { base, horizontal } =
+          bar?.getProps(["base", "horizontal"], true) ?? {};
+        const gradient = horizontal
+          ? ctx.createLinearGradient(
+              bar?.x ?? chartArea.right,
+              0,
+              base ?? chartArea.left,
+              0,
+            )
+          : ctx.createLinearGradient(
+              0,
+              bar?.y ?? chartArea.top,
+              0,
+              base ?? chartArea.bottom,
+            );
+
+        gradient.addColorStop(
+          0,
+          withColorOpacity(color, barGradientStartOpacity),
+        );
+        gradient.addColorStop(
+          1,
+          withColorOpacity(color, barGradientEndOpacity),
+        );
+
+        return gradient;
+      },
+    };
+  }),
+});
+
+export const withBarBorderRadius = (
+  data: ChartData<"bar">,
+  borderRadius: number,
+): ChartData<"bar"> => ({
+  ...data,
+  datasets: data.datasets.map((dataset) => ({ ...dataset, borderRadius })),
 });
 
 type RuntimeRecord = Record<string, unknown>;

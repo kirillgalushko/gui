@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { ChartData, ChartOptions, Plugin, UpdateMode } from "chart.js";
 import { Bar } from "vue-chartjs";
 import "./chart.css";
+import { withBarBorderRadius, withBarGradient } from "./chart";
 import { useChart } from "./useChart";
 
 export interface ChartBarProps {
@@ -11,6 +13,8 @@ export interface ChartBarProps {
   datasetIdKey?: string;
   updateMode?: UpdateMode;
   height?: number | string;
+  borderRadius?: number;
+  gradient?: boolean;
   ariaLabel?: string;
   ariaDescribedby?: string;
 }
@@ -18,12 +22,21 @@ export interface ChartBarProps {
 const props = withDefaults(defineProps<ChartBarProps>(), {
   datasetIdKey: "label",
   height: 280,
+  borderRadius: 12,
+  gradient: false,
 });
 
-const { chartData, chartOptions, chartPlugins, containerStyle } = useChart(
-  "bar",
-  props,
-);
+const {
+  chartData: paletteChartData,
+  chartOptions,
+  chartPlugins,
+  containerStyle,
+} = useChart("bar", props);
+const chartData = computed(() => {
+  const data = withBarBorderRadius(paletteChartData.value, props.borderRadius);
+
+  return props.gradient ? withBarGradient(data) : data;
+});
 </script>
 
 <template>
