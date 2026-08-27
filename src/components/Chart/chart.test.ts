@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import type { ChartData } from "chart.js";
 import {
+  barGradientPlugin,
   createChartOptions,
   withBarBorderRadius,
-  withBarGradient,
   withChartPalette,
 } from "./chart";
 
@@ -43,53 +43,43 @@ describe("withChartPalette", () => {
   });
 });
 
-describe("withBarGradient", () => {
-  it("uses partially transparent stops at the top and base of each vertical bar", () => {
-    const source = {
-      labels: ["Янв"],
-      datasets: [
-        {
-          label: "Брони",
-          data: [12],
-          backgroundColor: "rgb(0, 112, 247)",
-        },
-      ],
-    } satisfies ChartData<"bar">;
-    const result = withBarGradient(source);
+describe("barGradientPlugin", () => {
+  it("creates the gradient from finalized bar geometry before drawing", () => {
     const gradient = { addColorStop: vi.fn() } as unknown as CanvasGradient;
     const createLinearGradient = vi.fn(() => gradient);
-    const backgroundColor = result.datasets[0]?.backgroundColor;
+    const bar = {
+      active: false,
+      base: 100,
+      horizontal: false,
+      options: { backgroundColor: "rgb(0, 112, 247)" },
+      x: 40,
+      y: 24,
+      getProps: () => bar,
+    };
+    const context = {
+      dataIndex: 0,
+      dataset: { backgroundColor: "rgb(0, 112, 247)" },
+      datasetIndex: 0,
+    };
+    const chart = {
+      ctx: { createLinearGradient },
+      getSortedVisibleDatasetMetas: () => [
+        {
+          controller: { getContext: () => context },
+          data: [bar],
+          type: "bar",
+        },
+      ],
+    };
+    const hook = barGradientPlugin.beforeDatasetsDraw;
 
-    expect(result).not.toBe(source);
-    expect(result.datasets[0]).not.toBe(source.datasets[0]);
-    expect(backgroundColor).toBeTypeOf("function");
-
-    if (typeof backgroundColor !== "function") {
-      throw new Error("Expected a gradient callback");
+    if (!hook) {
+      throw new Error("Expected a beforeDatasetsDraw hook");
     }
 
-    const color = backgroundColor(
-      {
-        chart: {
-          chartArea: { bottom: 100, left: 0, right: 100, top: 10 },
-          ctx: { createLinearGradient },
-          getDatasetMeta: () => ({
-            data: [
-              {
-                getProps: () => ({ base: 100, horizontal: false }),
-                y: 24,
-              },
-            ],
-          }),
-        },
-        dataIndex: 0,
-        dataset: result.datasets[0],
-        datasetIndex: 0,
-      } as never,
-      {},
-    );
+    hook(chart as never, { cancelable: true }, {});
 
-    expect(color).toBe(gradient);
+    expect(bar.options.backgroundColor).toBe(gradient);
     expect(createLinearGradient).toHaveBeenCalledWith(0, 24, 0, 100);
     expect(gradient.addColorStop).toHaveBeenNthCalledWith(
       1,

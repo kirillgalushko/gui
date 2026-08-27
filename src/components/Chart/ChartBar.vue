@@ -3,7 +3,7 @@ import { computed } from "vue";
 import type { ChartData, ChartOptions, Plugin, UpdateMode } from "chart.js";
 import { Bar } from "vue-chartjs";
 import "./chart.css";
-import { withBarBorderRadius, withBarGradient } from "./chart";
+import { barGradientPlugin, withBarBorderRadius } from "./chart";
 import { useChart } from "./useChart";
 
 export interface ChartBarProps {
@@ -29,14 +29,17 @@ const props = withDefaults(defineProps<ChartBarProps>(), {
 const {
   chartData: paletteChartData,
   chartOptions,
-  chartPlugins,
+  chartPlugins: baseChartPlugins,
   containerStyle,
 } = useChart("bar", props);
-const chartData = computed(() => {
-  const data = withBarBorderRadius(paletteChartData.value, props.borderRadius);
-
-  return props.gradient ? withBarGradient(data) : data;
-});
+const chartData = computed(() =>
+  withBarBorderRadius(paletteChartData.value, props.borderRadius),
+);
+const chartPlugins = computed(() =>
+  props.gradient
+    ? [...baseChartPlugins.value, barGradientPlugin]
+    : baseChartPlugins.value,
+);
 </script>
 
 <template>

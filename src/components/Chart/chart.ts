@@ -224,54 +224,78 @@ const withColorOpacity = (color: string, opacity: number): string => {
     : color;
 };
 
-export const withBarGradient = (data: ChartData<"bar">): ChartData<"bar"> => ({
-  ...data,
-  datasets: data.datasets.map((sourceDataset) => {
-    const backgroundColor = sourceDataset.backgroundColor;
+const createBarGradient = (
+  ctx: CanvasRenderingContext2D,
+  context: ScriptableContext<"bar">,
+  bar: BarElement,
+): Color | undefined => {
+  const color = resolveBarBackgroundColor(
+    context.dataset.backgroundColor,
+    context,
+  );
+  const { base, horizontal, x, y } = bar.getProps(
+    ["base", "horizontal", "x", "y"],
+    false,
+  );
+  const head = horizontal ? x : y;
 
-    return {
-      ...sourceDataset,
-      backgroundColor: (context) => {
-        const color = resolveBarBackgroundColor(backgroundColor, context);
-        const { chartArea, ctx } = context.chart;
+  if (typeof color !== "string") {
+    return color;
+  }
 
-        if (typeof color !== "string" || !chartArea) {
-          return color;
+  if (
+    typeof head !== "number" ||
+    typeof base !== "number" ||
+    !Number.isFinite(head) ||
+    !Number.isFinite(base) ||
+    head === base
+  ) {
+    return withColorOpacity(color, barGradientStartOpacity);
+  }
+
+  const gradient = horizontal
+    ? ctx.createLinearGradient(head, 0, base, 0)
+    : ctx.createLinearGradient(0, head, 0, base);
+
+  gradient.addColorStop(0, withColorOpacity(color, barGradientStartOpacity));
+  gradient.addColorStop(1, withColorOpacity(color, barGradientEndOpacity));
+
+  return gradient;
+};
+
+export const barGradientPlugin: Plugin<"bar"> = {
+  id: "gui-bar-gradient",
+  beforeDatasetsDraw: (chart) => {
+    chart.getSortedVisibleDatasetMetas().forEach((meta) => {
+      if (meta.type !== "bar") {
+        return;
+      }
+
+      meta.data.forEach((element, dataIndex) => {
+        const bar = element as BarElement;
+        const controller = meta.controller as typeof meta.controller & {
+          getContext: (
+            index: number,
+            active: boolean,
+            mode: string,
+          ) => ScriptableContext<"bar">;
+        };
+        const context = controller.getContext(
+          dataIndex,
+          bar.active,
+          bar.active ? "active" : "default",
+        );
+        const backgroundColor = createBarGradient(chart.ctx, context, bar);
+
+        if (backgroundColor === undefined) {
+          return;
         }
 
-        const bar = context.chart.getDatasetMeta(context.datasetIndex).data[
-          context.dataIndex
-        ] as BarElement | undefined;
-        const { base, horizontal } =
-          bar?.getProps(["base", "horizontal"], true) ?? {};
-        const gradient = horizontal
-          ? ctx.createLinearGradient(
-              bar?.x ?? chartArea.right,
-              0,
-              base ?? chartArea.left,
-              0,
-            )
-          : ctx.createLinearGradient(
-              0,
-              bar?.y ?? chartArea.top,
-              0,
-              base ?? chartArea.bottom,
-            );
-
-        gradient.addColorStop(
-          0,
-          withColorOpacity(color, barGradientStartOpacity),
-        );
-        gradient.addColorStop(
-          1,
-          withColorOpacity(color, barGradientEndOpacity),
-        );
-
-        return gradient;
-      },
-    };
-  }),
-});
+        bar.options = { ...bar.options, backgroundColor };
+      });
+    });
+  },
+};
 
 export const withBarBorderRadius = (
   data: ChartData<"bar">,
