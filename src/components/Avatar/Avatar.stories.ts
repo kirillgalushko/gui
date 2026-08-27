@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/vue3";
 import Avatar from "./Avatar.vue";
-import { IconCircleCheckOutline, IconUserOutline } from "@gui/icons";
+import {
+  IconCircleCheckOutline,
+  IconUploadOutline,
+  IconUserOutline,
+} from "@gui/icons";
 import IconContainer from "../IconContainer/IconContainer.vue";
 import avatarExample from "../../assets/images/avatar-example.png";
 
@@ -103,6 +107,28 @@ export const WithCornerContent: Story = {
         <IconContainer mode="circle" size="18px">
           <IconCircleCheckOutline />
         </IconContainer>
+      </template>
+    </Avatar>`,
+  }),
+};
+
+export const InteractiveWithOverlay: Story = {
+  args: {
+    interactive: true,
+  },
+  render: (args) => ({
+    components: { Avatar, IconUploadOutline },
+    setup() {
+      return { args, avatarExample };
+    },
+    template: `
+    <Avatar
+      :src="avatarExample"
+      aria-label="Изменить фотографию"
+      v-bind="args"
+    >
+      <template #overlay>
+        <IconUploadOutline />
       </template>
     </Avatar>`,
   }),

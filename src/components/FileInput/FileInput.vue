@@ -24,6 +24,9 @@ const props = withDefaults(defineProps<FileInputProps>(), {
 const emit = defineEmits<{
   change: [files: File[]];
 }>();
+defineSlots<{
+  trigger?: (props: { open: () => void; disabled: boolean }) => unknown;
+}>();
 const input = ref<HTMLInputElement>();
 
 const openPicker = () => {
@@ -37,10 +40,12 @@ const handleChange = (event: Event) => {
   emit("change", Array.from(element.files ?? []));
   element.value = "";
 };
+
+defineExpose({ open: openPicker });
 </script>
 
 <template>
-  <span>
+  <component :is="$slots.trigger ? 'div' : 'span'">
     <input
       ref="input"
       class="file-input-native"
@@ -52,17 +57,19 @@ const handleChange = (event: Event) => {
       tabindex="-1"
       @change="handleChange"
     />
-    <Button
-      type="button"
-      mode="default"
-      :size="props.size"
-      :disabled="props.disabled"
-      @click="openPicker"
-    >
-      <IconUploadOutline />
-      {{ props.label }}
-    </Button>
-  </span>
+    <slot name="trigger" :open="openPicker" :disabled="props.disabled">
+      <Button
+        type="button"
+        mode="default"
+        :size="props.size"
+        :disabled="props.disabled"
+        @click="openPicker"
+      >
+        <IconUploadOutline />
+        {{ props.label }}
+      </Button>
+    </slot>
+  </component>
 </template>
 
 <style scoped>

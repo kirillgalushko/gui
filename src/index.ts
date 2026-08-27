@@ -113,6 +113,9 @@ export const TimelineTitle = ac(
 export const ImageViewer = ac(
   () => import("./components/ImageViewer/ImageViewer.vue"),
 );
+export const ImageCrop = ac(
+  () => import("./components/ImageCrop/ImageCrop.vue"),
+);
 export const IconContainer = ac(
   () => import("./components/IconContainer/IconContainer.vue"),
 );
@@ -697,6 +700,19 @@ export type {
   ImageViewerItem,
   ImageViewerThumbnails,
 } from "./components/ImageViewer/types";
+export type {
+  ImageCropArea,
+  ImageCropApi,
+  ImageCropImageFit,
+  ImageCropMimeType,
+  ImageCropReadyEvent,
+  ImageCropResizeHandle,
+  ImageCropResult,
+  ImageCropResultOptions,
+  ImageCropShape,
+  ImageCropSource,
+  ImageCropTransform,
+} from "./components/ImageCrop/types";
 export type {
   ActiveFilter,
   FilterControlAppearance,

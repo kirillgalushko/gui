@@ -3,6 +3,10 @@ import { computed, inject, ref } from "vue";
 import type { Color } from "../../types/colors";
 import { avatarGroupContextKey } from "./context";
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 export type AvatarMode =
   | "default"
   | "accent"
@@ -23,11 +27,20 @@ export interface AvatarProps {
   src?: string;
   name?: string;
   size?: string;
+  interactive?: boolean;
+  disabled?: boolean;
+  overlayBlur?: boolean;
 }
 
 const props = withDefaults(defineProps<AvatarProps>(), {
   mode: "default",
+  interactive: false,
+  disabled: false,
+  overlayBlur: true,
 });
+const emit = defineEmits<{
+  click: [event: MouseEvent];
+}>();
 
 const group = inject(avatarGroupContextKey, null);
 const imageLoaded = ref<boolean>(false);
@@ -116,7 +129,24 @@ const styles = computed(() => {
 </script>
 
 <template>
-  <div :style="styles" :class="['avatar', shape, props.mode]" v-bind="$attrs">
+  <component
+    :is="props.interactive ? 'button' : 'div'"
+    :style="styles"
+    :class="[
+      'avatar',
+      shape,
+      props.mode,
+      {
+        interactive: props.interactive,
+        disabled: props.disabled,
+        'has-overlay': Boolean($slots.overlay),
+      },
+    ]"
+    :type="props.interactive ? 'button' : undefined"
+    :disabled="props.interactive ? props.disabled : undefined"
+    v-bind="$attrs"
+    @click="emit('click', $event)"
+  >
     <div class="avatar-content">
       <img
         v-if="props.src"
@@ -129,10 +159,18 @@ const styles = computed(() => {
         {{ fallback }}
       </slot>
     </div>
+    <div
+      v-if="$slots.overlay"
+      class="avatar-overlay"
+      :class="{ 'avatar-overlay-blur': props.overlayBlur }"
+      aria-hidden="true"
+    >
+      <slot name="overlay" />
+    </div>
     <div v-if="$slots.corner" class="avatar-corner">
       <slot name="corner" />
     </div>
-  </div>
+  </component>
 </template>
 
 <style scoped>
@@ -150,6 +188,27 @@ const styles = computed(() => {
   flex-shrink: 0;
 }
 
+.avatar.interactive {
+  padding: 0;
+  font: inherit;
+  line-height: 1;
+  appearance: none;
+  border: 0;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.avatar.interactive:focus-visible {
+  outline-color: hsl(var(--ring));
+}
+
+.avatar.interactive:disabled {
+  cursor: not-allowed;
+  opacity: 0.64;
+}
+
 .avatar-content {
   position: relative;
   display: flex;
@@ -165,9 +224,37 @@ const styles = computed(() => {
   position: absolute;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   transform: translate(25%, 25%);
+}
+
+.avatar-overlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--avatar-overlay-foreground, 0 0% 98%));
+  background-color: hsl(
+    var(--avatar-overlay-background, 240 5% 4%) /
+      var(--avatar-overlay-opacity, 0.56)
+  );
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.avatar-overlay-blur {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.avatar.has-overlay:hover:not(.disabled) .avatar-overlay,
+.avatar.has-overlay:focus-visible:not(.disabled) .avatar-overlay {
+  opacity: 1;
 }
 
 .avatar-image {

@@ -1,0 +1,135 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/ImageCrop/Documentation" />
+
+# ImageCrop
+
+`ImageCrop` отвечает только за настройку фотографии: не создаёт Modal, Sheet или кнопки и поэтому
+может встраиваться в любой layout. Компонент поддерживает перемещение crop-области через
+pointer/touch, resize за четыре стороны и четыре угла, поворот на 90°, клавиатуру и адаптивный
+layout без потери выбранной области.
+
+Изображение по умолчанию использует `imageFit="contain"`: целиком вписывается в контейнер с
+сохранением пропорций. Crop-область ограничена видимыми границами фотографии, поэтому resize рамки
+никогда не масштабирует изображение и не может захватить пустой фон. Для сценариев, где фотография должна
+заполнять весь контейнер, доступен `imageFit="cover"`.
+
+## Внешние кнопки и получение результата
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Button, ImageCrop } from "@gui/components";
+import type {
+  ImageCropArea,
+  ImageCropResult,
+  ImageCropTransform,
+} from "@gui/components";
+
+const crop = ref<InstanceType<typeof ImageCrop>>();
+const transform = ref<ImageCropTransform>({
+  rotation: 0,
+});
+const area = ref<ImageCropArea>({ x: 0.1, y: 0.1, width: 0.8, height: 0.8 });
+
+async function save() {
+  const result: ImageCropResult | undefined = await crop.value?.getResult({
+    width: 1200,
+    mimeType: "image/webp",
+    quality: 0.88,
+    fileName: "cover.webp",
+  });
+  if (result) await upload(result.file);
+}
+</script>
+
+<template>
+  <ImageCrop
+    ref="crop"
+    v-model="transform"
+    v-model:crop="area"
+    :source="file"
+    :aspect-ratio="16 / 9"
+    image-fit="contain"
+    lock-aspect-ratio
+    height="min(60dvh, 620px)"
+  />
+  <Button @click="crop?.rotateClockwise()">Повернуть</Button>
+  <Button mode="contrast" @click="save">Сохранить</Button>
+</template>
+```
+
+## В AdaptiveModal для аватара
+
+```vue
+<AdaptiveModal
+  :isOpened="opened"
+  :onClose="close"
+  title="Настройте фотографию"
+  :modal-props="{ size: 'large' }"
+>
+  <ImageCrop
+    ref="avatarCrop"
+    :source="selectedFile"
+    :aspect-ratio="1"
+    lock-aspect-ratio
+    shape="circle"
+    :output-width="512"
+    output-file-name="avatar.jpg"
+  />
+  <template #footer>
+    <Button mode="ghost" @click="close">Отмена</Button>
+    <Button mode="contrast" @click="saveAvatar">Сохранить</Button>
+  </template>
+</AdaptiveModal>
+```
+
+## Свободные пропорции
+
+По умолчанию `lockAspectRatio=true`: углы сохраняют `aspectRatio`, а при перетаскивании стороны
+противоположная ось меняется симметрично. Для произвольной прямоугольной области отключите фиксацию.
+В этом режиме итоговый файл получает фактические пропорции рамки.
+
+```vue
+<ImageCrop
+  ref="crop"
+  v-model:crop="area"
+  :source="photo"
+  :lock-aspect-ratio="false"
+  :min-crop-size="72"
+  :crop-area="0.7"
+/>
+```
+
+`v-model:crop` использует нормализованные координаты от `0` до `1`, поэтому область можно хранить
+в состоянии родителя. Её также можно изменить через `crop.setCrop(area)` и вернуть к исходному
+размеру через `crop.resetCrop()`. `resizable=false` скрывает handles, если размер рамки должен быть
+фиксированным.
+
+## Управляемое состояние
+
+`v-model` содержит поворот изображения. Его можно сохранить и применить после resize или повторного
+открытия компонента. Положение и размер рамки хранятся отдельно в `v-model:crop`.
+
+```vue
+<ImageCrop
+  v-model="transform"
+  :source="photoUrl"
+  :crop-area="0.72"
+  :show-grid="false"
+  cross-origin="anonymous"
+  @ready="allowSave = true"
+  @error="showError"
+>
+  <template #overlay>
+    <div class="safe-area" />
+  </template>
+</ImageCrop>
+```
+
+`shape="circle"` задаёт только экранную маску. Результат остаётся прямоугольным файлом выбранной
+области, чтобы родитель мог сохранить JPEG/WebP без неожиданных прозрачных углов.
+
+Клавиатура: стрелки перемещают crop-область, `Shift + стрелка` ускоряет перемещение, `R` поворачивает,
+`0` сбрасывает настройку. Когда focus находится на стороне или углу, стрелки изменяют размер рамки,
+а `Shift` увеличивает шаг.

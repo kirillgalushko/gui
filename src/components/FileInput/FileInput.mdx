@@ -12,3 +12,14 @@
   @change="upload"
 />
 ```
+
+Для собственного trigger используйте слот `trigger`; он получает `open` и `disabled`. Метод
+`open()` также доступен через template ref.
+
+```vue
+<FileInput accept="image/*" @change="selectPhoto">
+  <template #trigger="{ open, disabled }">
+    <Button :disabled="disabled" @click="open">Изменить фотографию</Button>
+  </template>
+</FileInput>
+```
